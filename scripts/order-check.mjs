@@ -9,7 +9,7 @@
 // hit the same element and property with the same importance and specificity.
 // This lists every pair whose relative order flipped between the reference and
 // the working tree and that passes those filters:
-//   - same property family (shorthands overlap longhands: background vs background-color)
+//   - same or overlapping property (a shorthand and its longhands: background vs background-color)
 //   - same !important and same specificity
 //   - different values
 //   - subjects that can be the same element (no different tag, id or pseudo-element)
@@ -36,6 +36,36 @@ const family = (prop) => {
   if (/^(row-gap|column-gap|gap)$/.test(p)) return 'gap';
   if (/^(place|align|justify)-/.test(p)) return 'align';
   return p.split('-')[0];
+};
+
+// Does shorthand `s` set longhand `l`? (only the overlaps that matter for order)
+const COVERS = {
+  all: /./,
+  border: /^border-(top|right|bottom|left|width|style|color|image)(-|$)/,
+  'border-top': /^border-top-(width|style|color)$/,
+  'border-right': /^border-right-(width|style|color)$/,
+  'border-bottom': /^border-bottom-(width|style|color)$/,
+  'border-left': /^border-left-(width|style|color)$/,
+  'border-width': /^border-(top|right|bottom|left)-width$/,
+  'border-style': /^border-(top|right|bottom|left)-style$/,
+  'border-color': /^border-(top|right|bottom|left)-color$/,
+  'border-radius': /^border-(top|bottom)-(left|right)-radius$/,
+  font: /^(font-|line-height$)/,
+  inset: /^(top|right|bottom|left)$/,
+  gap: /^(row|column)-gap$/,
+  flex: /^flex-(grow|shrink|basis)$/,
+  'flex-flow': /^flex-(direction|wrap)$/,
+  'place-items': /^(align|justify)-items$/,
+  'place-content': /^(align|justify)-content$/,
+  'place-self': /^(align|justify)-self$/,
+  overflow: /^overflow-[xy]$/,
+};
+const PREFIX = ['background', 'margin', 'padding', 'outline', 'transition', 'animation', 'list-style', 'text-decoration', 'mask', 'grid-template', 'border-image'];
+const bare = (p) => p.replace(/^-(webkit|moz|ms)-/, '');
+const covers = (s, l) => (COVERS[s] ? COVERS[s].test(l) : PREFIX.includes(s) && l.startsWith(s + '-'));
+const overlaps = (a, b) => {
+  const [x, y] = [bare(a), bare(b)];
+  return x === y || covers(x, y) || covers(y, x);
 };
 
 // Top-level split of a selector into compounds; returns the last one (the subject).
@@ -108,6 +138,7 @@ for (const list of buckets.values()) {
       const y = list[j]; // x before y in the reference
       if (x.newPos < y.newPos) continue; // order kept
       if (x.sel === y.sel || (x.prop === y.prop && x.value === y.value)) continue;
+      if (!overlaps(x.prop, y.prop)) continue;
       if (!compatible(x.subj, y.subj)) continue;
       pairs.push({ was_first: x, now_first: y });
     }

@@ -76,7 +76,6 @@
    clase, aunque el resultado visual sea el mismo. */
 .hr-button--primary {
   background: var(--bb-accent) !important;
-  color: var(--bb-white) !important;
   border: none !important;
   box-shadow: 6px 6px 16px var(--bb-accent-glow),
     -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
@@ -296,7 +295,7 @@ div:has(> #conv-send-button-simple) {
   background: var(--bb-bg) !important;
   border: none !important;
   border-radius: var(--bb-radius-xl) !important;
-  box-shadow: var(--bb-shadow-raised) !important;
+  /* box-shadow: see v6.8 below */
 }
 
 .hr-dialog__title,
@@ -334,10 +333,8 @@ div:has(> #conv-send-button-simple) {
 
 /* Menú desplegable de opciones del select */
 .hr-base-select-menu {
-  background: var(--bb-bg) !important;
-  border: none !important;
   border-radius: var(--bb-radius-md) !important;
-  box-shadow: var(--bb-shadow-raised) !important;
+  /* background, border, box-shadow: see v6.8 below */
 }
 
 .hr-base-select-option:hover,

@@ -189,8 +189,7 @@ svg * {
    desempate por orden de carga (computaba 0px en vez de 8px), así que se
    suma la tercera clase (.hl_topbar-tabs, que esta vista también trae)
    para ganar sin ambigüedad. */
-.hl_wrapper.hl_force-top,
-.hl_wrapper.hl_force-top.hl_topbar-tabs {
+.hl_wrapper.hl_force-top {
   padding-top: 86px !important;
   padding-bottom: 0 !important;
 }
@@ -211,6 +210,7 @@ svg * {
    contenido baja lo mismo para no quedar tapado. */
 .hl_wrapper.hl_force-top.hl_topbar-tabs {
   padding-top: 100px !important;
+  padding-bottom: 0 !important;
 }
 
 /* #conversations-workspace trae my-2 (margin-top y margin-bottom 8px por

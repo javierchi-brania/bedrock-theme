@@ -243,8 +243,7 @@ svg * {
    desempate por orden de carga (computaba 0px en vez de 8px), así que se
    suma la tercera clase (.hl_topbar-tabs, que esta vista también trae)
    para ganar sin ambigüedad. */
-.hl_wrapper.hl_force-top,
-.hl_wrapper.hl_force-top.hl_topbar-tabs {
+.hl_wrapper.hl_force-top {
   padding-top: 86px !important;
   padding-bottom: 0 !important;
 }
@@ -265,6 +264,7 @@ svg * {
    contenido baja lo mismo para no quedar tapado. */
 .hl_wrapper.hl_force-top.hl_topbar-tabs {
   padding-top: 100px !important;
+  padding-bottom: 0 !important;
 }
 
 /* #conversations-workspace trae my-2 (margin-top y margin-bottom 8px por
@@ -2723,7 +2723,6 @@ nav .flex.flex-col.items-center.gap-1 {
    clase, aunque el resultado visual sea el mismo. */
 .hr-button--primary {
   background: var(--bb-accent) !important;
-  color: var(--bb-white) !important;
   border: none !important;
   box-shadow: 6px 6px 16px var(--bb-accent-glow),
     -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
@@ -2943,7 +2942,7 @@ div:has(> #conv-send-button-simple) {
   background: var(--bb-bg) !important;
   border: none !important;
   border-radius: var(--bb-radius-xl) !important;
-  box-shadow: var(--bb-shadow-raised) !important;
+  /* box-shadow: see v6.8 below */
 }
 
 .hr-dialog__title,
@@ -2981,10 +2980,8 @@ div:has(> #conv-send-button-simple) {
 
 /* Menú desplegable de opciones del select */
 .hr-base-select-menu {
-  background: var(--bb-bg) !important;
-  border: none !important;
   border-radius: var(--bb-radius-md) !important;
-  box-shadow: var(--bb-shadow-raised) !important;
+  /* background, border, box-shadow: see v6.8 below */
 }
 
 .hr-base-select-option:hover,
@@ -5301,8 +5298,6 @@ body:has(#pg-invoices_btn-settings) .ui-statistic:nth-child(4) .title::before { 
 .hr-input,
 .n-base-selection,
 .hr-base-selection,
-input.hl-text-input,
-textarea.hl-text-input,
 .form-control {
   border-radius: var(--bb-radius-sm) !important;
 }
