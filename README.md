@@ -7,10 +7,13 @@ from jsDelivr via an `@import` in its custom CSS field (see `embed/editor.css`).
 
 ```
 src/NNN-<section>.css   source, split from the legacy CSS keeping the ORIGINAL rule order
-dist/bedrock-theme.css  concatenation of src/*.css in prefix order (what the platform loads)
+src/manifest.json       concatenation order of src/ (later rules win)
+dist/bedrock-theme.css  build output (what the platform loads)
 embed/editor.css        exact content for the custom CSS field (@import + inline tokens)
 backup/                 v1.0.0 split map (raw backups stay local, not in the repo)
-build.sh                regenerates dist/
+scripts/build.mjs       builds dist/ from the manifest, validates with postcss
+scripts/rules-diff.mjs  regression check: rules of dist/ vs a reference
+.github/workflows/      ci (every push/PR) and release (every vX.Y.Z tag)
 ```
 
 ### Why the 3-digit prefixes (v1.0.0)
@@ -19,7 +22,7 @@ The legacy CSS is a stack of patches (v6.1 … v6.44) where later rules win.
 Reordering changes the result, so v1.0.0 keeps every segment in its original
 position; a view appears in several files (e.g. Conversaciones in 030, 100,
 320, 340, 380, 470). `dist/` has exactly the same 1188 top-level rules as the legacy CSS (only
-comments changed; checked with postcss).
+comments changed; checked with postcss). The browser keeps 1186 of them.
 
 The target sections for the Step 4 refactor are in the "Target" column. Each
 refactor release merges one target's segments into a single file.
@@ -42,15 +45,40 @@ refactor release merges one target's segments into a single file.
 | 220-ask-ai-v6.5, 300-ask-ai-peligro-v6.15, 420-ask-ai-cuenta-v6.30-v6.31 | 49-ask-ai |
 | 120-configuracion-agencia | 90-agencia |
 
+## Commands
+
+```bash
+npm ci
+npm run build                      # writes dist/, prints the top-level rule count
+npm run check                      # fails if dist/ is stale (what CI runs)
+npm run diff                       # rules diff vs the latest tag
+npm run diff -- --base v1.0.0      # ...or vs any git ref; --base-file <css>, --strict
+```
+
+The build fails if a CSS file does not parse, if `src/` and `src/manifest.json`
+disagree, or if a vendor name appears in the repo (functional `.ghl-*` selectors
+are allowed).
+
+The rules diff has two views: **rules** (each top-level rule as canonical text,
+comments ignored, plus whether shared rules kept their order) and **effective
+declarations** (context + selector + property → winning value after source order
+and `!important`). A pure refactor keeps the second view identical. CI posts the
+diff on every PR.
+
 ## Publishing a change
 
-1. Edit the file in `src/`, run `./build.sh`.
+1. Branch, edit `src/`, `npm run build`, commit (Conventional Commits). Never commit to `main`.
 2. Preview without publishing: inject the new CSS in a temporary `<style>` in the
    sub-account tab, or use the commit-hash URL
    `https://cdn.jsdelivr.net/gh/javierchi-brania/bedrock-theme@<commitSHA>/dist/bedrock-theme.css`.
-3. Commit + new Release (semver: patch = tweaks, minor = new views).
-4. In the custom CSS field change only the version in the `@import`; save.
-5. Revert = put the previous version back.
+3. Bump the version in `package.json` and in the `@import` of `embed/editor.css`
+   (semver: patch = tweaks, minor = new views or a refactored section).
+4. PR → merge → `git tag vX.Y.Z && git push origin vX.Y.Z`.
+   The release workflow checks the build and versions, creates the GitHub Release
+   (install line + rules diff vs the previous tag), purges jsDelivr and verifies the
+   CDN serves the exact bytes as `text/css`.
+5. In the custom CSS field change only the version in the `@import`; save.
+6. Revert = put the previous version back.
 
 Never use `@main` in production: jsDelivr caches branches for up to 12 h; tags
 are immediate and permanent.
