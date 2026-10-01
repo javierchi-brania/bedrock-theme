@@ -5558,6 +5558,12 @@ input[type="radio"] {
 .n-tag .n-tag__border {
   border: none !important;
 }
+/* Etiquetas del contacto (panel de detalles): gris de la plataforma → como .hr-tag--gray */
+.record-tag-chip {
+  background-color: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border-radius: 999px !important;
+}
 
 /* Botones secundarios: sin el borde de 1px (la profundidad la da la sombra).
    Los de error conservan su contorno */
