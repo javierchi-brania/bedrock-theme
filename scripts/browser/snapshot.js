@@ -15,7 +15,7 @@
   const PROPS = [
     'background-color', 'background-image', 'box-shadow', 'border-radius',
     'border-color', 'border-width', 'color', 'padding', 'gap', 'font-family',
-    'font-weight', 'opacity',
+    'font-weight', 'opacity', 'margin', 'width', 'height',
   ];
   const HOST_ID = 'customCss';
   const PREVIEW_ID = 'bb-preview';
