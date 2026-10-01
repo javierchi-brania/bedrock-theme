@@ -14,6 +14,7 @@ embed/editor.css        exact content for the custom CSS field (@import + inline
 backup/                 legacy: v1.0.0 split map + original changelog (raw CSS backups stay local, not in the repo)
 scripts/build.mjs       builds dist/ from the manifest, validates with postcss
 scripts/rules-diff.mjs  regression check: rules of dist/ vs a reference
+scripts/order-check.mjs lists declaration pairs whose relative order changed vs a reference (candidates to check in the DOM)
 scripts/browser/        snapshot.js: computed-style snapshots + preview in the sub-account tab
 .github/workflows/      ci (every push/PR) and release (every vX.Y.Z tag)
 ```
@@ -32,7 +33,9 @@ refactor release merges one target's segments into a single file.
 | Segment | Target |
 |---|---|
 | ~~000-tokens~~ | **00-tokens** ✅ v1.1.0 |
-| 010-busqueda-global, 050-shell, 110-componentes-base, 180-animacion, 210-espaciado-marco-v6.4, 230-botones-primarios-v6.6, 240-tablas-highrise-v6.7, 250-modales-menus-v6.8, 260-pestanas-verticales-v6.9-v6.10, 270-radios-mi-perfil-v6.11-v6.12, 390-tooltips-v6.27, 430-capa-global-v6.32, 520-tablas-highrise-v6.43 | 10-base |
+| ~~010-busqueda-global, 050-shell, 180-animacion~~ | **10-base** ✅ v1.2.0 |
+| ~~110-componentes-base, 210-espaciado-marco-v6.4, 230-botones-primarios-v6.6, 240-tablas-highrise-v6.7, 250-modales-menus-v6.8, 260-pestanas-verticales-v6.9-v6.10, 270-radios-mi-perfil-v6.11-v6.12~~ | **11-components** ✅ v1.2.0 |
+| ~~390-tooltips-v6.27, 430-capa-global-v6.32, 520-tablas-highrise-v6.43~~ | **19-overrides** ✅ v1.2.0 |
 | 060-sidebar, 160-selector-subcuentas, 190-sidebar-colapsado-v6.2, 290-sidebar-subcuenta-v6.14, 410-sidebar-angosto-v6.29 | 20-sidebar |
 | 070-header, 310-header-nombre-vista-v6.16, 330-header-pestanas-v6.18, 500-header-v6.41 | 30-header |
 | 440-launchpad-v6.33 | 40-launchpad |
@@ -46,6 +49,30 @@ refactor release merges one target's segments into a single file.
 | 150-marketing, 170-email-marketing | 48-marketing |
 | 220-ask-ai-v6.5, 300-ask-ai-peligro-v6.15, 420-ask-ai-cuenta-v6.30-v6.31 | 49-ask-ai |
 | 120-configuracion-agencia | 90-agencia |
+
+### Why the base is split in three (v1.2.0)
+
+The global layer was planned as one `10-base` file, but moving every global rule
+to the top breaks the cascade: many view segments override a global rule with
+the same specificity, and many global rules (v6.x patches) in turn override view
+rules written before them. So the base keeps three positions in the manifest:
+
+- **10-base** (shell, global search, animations): right after `00-tokens`. Moving
+  these rules up changes no effective declaration.
+- **11-components** (inputs, buttons, tables, modals and menus, vertical tabs,
+  radii): where `110-componentes-base` was, after `100-conversaciones-highrise`.
+  Earlier view segments (tablero, conversaciones, contactos, oportunidades…) rely
+  on these rules winning over theirs.
+- **19-overrides** (tooltips, global override layer, tables): where
+  `430-capa-global-v6.32` was, after `420-ask-ai-cuenta`. It is the global
+  override layer and must stay late; only the views patched after it
+  (440 … 530) may beat it.
+
+Patches folded into a rule with the same selector were merged (e.g. the v6.11
+Ask AI radius now lives in its rule in `220-ask-ai-v6.5`), and declarations that
+a later rule with the same selector always overrides were dropped. Checks: effective
+declarations identical to v1.1.0, `scripts/order-check.mjs` candidates verified in
+the DOM, and computed-style snapshots with 0 differences in the main views.
 
 ## Commands
 
