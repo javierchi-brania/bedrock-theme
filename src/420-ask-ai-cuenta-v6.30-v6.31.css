@@ -1,0 +1,131 @@
+/* v6.30 — ASK AI › "Cuenta" → modal de Personalización (.pz-modal)
+   - Menú izquierdo (Personalización / Keyboard shortcuts): los dos iban en
+     relieve igual, sin distinguir el activo → filas planas; la activa
+     (.pz-modal__nav-item--active) es la píldora hundida con acento.
+   - Tarjeta "Memoria" (.pz-modal__row) blanca y cuadrada → tarjeta del
+     tema; botón "Gestionar" blanco → botón del tema.
+   - Botón cerrar (×): fondo gris azulado de la plataforma → círculo del tema. */
+.hr-modal .pz-modal__nav-item.hr-button {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: var(--bb-radius-sm) !important;
+  color: var(--bb-text-label) !important;
+  justify-content: flex-start !important;
+}
+.hr-modal .pz-modal__nav-item.hr-button:hover {
+  background: var(--bb-bg-hover) !important;
+}
+.hr-modal .pz-modal__nav-item.pz-modal__nav-item--active.hr-button {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+.hr-modal .pz-modal__nav-item.pz-modal__nav-item--active.hr-button,
+.hr-modal .pz-modal__nav-item.pz-modal__nav-item--active.hr-button * {
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+}
+.hr-modal .pz-modal__row {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  padding: 14px 16px !important;
+}
+.hr-modal .pz-modal__section-group {
+  background: transparent !important;
+}
+.hr-modal .pz-modal__manage-btn {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-text-label) !important;
+  font-weight: 600 !important;
+}
+.hr-modal .pz-modal__manage-btn:hover {
+  color: var(--bb-accent) !important;
+}
+.hr-modal .pz-modal__sidebar-close.hr-button {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border-radius: 50% !important;
+}
+
+/* v6.31 — ASK AI › Cuenta, pestaña "Keyboard shortcuts"
+   - la plataforma deja la clase --active en "Personalización" aunque se pase a
+     "Keyboard shortcuts" (ambas quedaban marcadas). Cuando se muestra la
+     lista de atajos, la primera opción vuelve a verse inactiva.
+   - Teclas (<kbd>: Ctrl, Shift, Enter, Esc…) blancas con borde → teclas
+     del tema en relieve suave. */
+.hr-modal:has(.askai-kbd-shortcuts-list) .pz-modal__nav > .pz-modal__nav-item:first-child.hr-button {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.hr-modal:has(.askai-kbd-shortcuts-list) .pz-modal__nav > .pz-modal__nav-item:first-child.hr-button,
+.hr-modal:has(.askai-kbd-shortcuts-list) .pz-modal__nav > .pz-modal__nav-item:first-child.hr-button * {
+  color: var(--bb-text-label) !important;
+  font-weight: 600 !important;
+}
+.askai-kbd-shortcuts-list__key {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 2px 2px 5px rgba(166, 174, 178, 0.5), -2px -2px 5px rgba(255, 255, 255, 0.9) !important;
+  color: var(--bb-text-strong) !important;
+}
+
+/* El "fondo gris pegado" en la opción no activa venía de la capa
+   .hr-button__border del botón (rgba(0,0,0,.04) que la plataforma deja tras el
+   clic) → transparente. La píldora activa se cortaba por la derecha →
+   2px de aire. */
+.hr-modal .pz-modal__nav-item.hr-button .hr-button__border,
+.hr-modal .pz-modal__nav-item.hr-button .hr-button__state-border,
+.hr-modal .pz-modal__nav-item.hr-button .hr-base-wave {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.hr-modal .pz-modal__nav-item.hr-button {
+  width: calc(100% - 4px) !important;
+  margin-left: 2px !important;
+}
+/* Al hacer clic, la opción queda con foco/hover y una regla de la plataforma
+   (copilot.css) le quitaba el fondo y la sombra hasta hacer clic afuera →
+   el estado activo se mantiene también con foco, hover y al presionar. */
+.hr-modal.hr-modal .pz-modal__nav .pz-modal__nav-item.pz-modal__nav-item--active.pz-modal__nav-item--active.hr-button:is(:focus, :focus-visible, :hover, :active) {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  outline: none !important;
+}
+.hr-modal.hr-modal .pz-modal__nav .pz-modal__nav-item.hr-button:not(.pz-modal__nav-item--active):is(:focus, :focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.hr-modal.hr-modal:has(.askai-kbd-shortcuts-list) .pz-modal__nav > .pz-modal__nav-item:first-child.pz-modal__nav-item--active.pz-modal__nav-item--active.hr-button:is(:focus, :focus-visible, :hover, :active) {
+  background: var(--bb-bg-hover) !important;
+  box-shadow: none !important;
+}
+/* Bordes suaves: las capas internas de los botones Highrise (borde, borde
+   de estado y la "onda" del clic) eran rectangulares y se asomaban como
+   un cuadro detrás de los botones redondos (ej. la × del modal) → heredan
+   el radio del botón. Aplica en toda la plataforma. */
+.hr-button .hr-button__border,
+.hr-button .hr-button__state-border,
+.hr-button .hr-base-wave {
+  border-radius: inherit !important;
+}
+.hr-modal .pz-modal__sidebar-close.hr-button .hr-button__border,
+.hr-modal .pz-modal__sidebar-close.hr-button .hr-button__state-border {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* La × va pegada a la esquina del modal y el brillo blanco de su sombra
+   se recortaba en cuadro contra el borde → un poco de margen y sombra
+   más corta. */
+.hr-modal .pz-modal__sidebar-close.hr-button {
+  margin: 6px 0 0 6px !important;
+  box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
+}
+

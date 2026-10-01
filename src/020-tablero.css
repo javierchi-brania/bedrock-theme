@@ -1,0 +1,450 @@
+/* ─────────────────────────────────────────────────────────────
+   DASHBOARD
+   Brania: neumorphic widget cards + teal primary actions
+   DOM:    #location-dashboard, #dashboard-wrapper, #dashboard-container
+   ───────────────────────────────────────────────────────────── */
+
+#location-dashboard,
+#dashboard-wrapper,
+.location-dashboard-wrapper,
+#location_dashboard-main-content {
+  background: var(--bb-bg) !important;
+}
+
+#location-dashboard-header,
+.location-dashboard_header {
+  background: transparent !important;
+  border: none !important;
+  padding: 10px 12px 4px !important;
+  z-index: 100 !important;
+}
+
+/* El panel de "Quick filters" (y cualquier drawer/modal de Highrise) debe
+   ganarle siempre a la píldora flotante de arriba (.hl_header, subida a
+   z-index:1200), o si no el drawer sale detrás de ella y su botón de
+   cerrar queda inalcanzable. El z-index tiene que ir en el propio
+   .hr-drawer (el que de verdad es position:fixed vía la clase "fixed" de
+   Tailwind) — ponerlo en un hijo de adentro (.hr-drawer-content-wrapper)
+   no sirve: un hijo solo compite en z-index contra sus hermanos dentro
+   del mismo padre, nunca contra algo de afuera como .hl_header. */
+/* El verdadero portal es .hr-drawer-container, un nivel arriba de
+   .hr-drawer — trae z-index:1000 puesto en línea (sin !important) y es
+   ESE el que compite como hermano directo contra los 1200 de .hl_header.
+   Todo lo que se le ponga a .hr-drawer o .hr-drawer-content-wrapper por
+   debajo no sirve de nada si el contenedor que los envuelve ya perdió
+   la pelea de z-index un nivel más arriba. */
+.hr-drawer-container {
+  z-index: 2000 !important;
+}
+
+.hr-drawer {
+  z-index: 2000 !important;
+}
+
+.hr-drawer-content-wrapper,
+.hr-drawer-mask {
+  position: relative !important;
+  z-index: 2000 !important;
+}
+
+/* Estilo del drawer (ej. "Quick filters") — abre desde la derecha, así
+   que solo se redondea el lado izquierdo */
+.hr-drawer {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) 0 0 var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+.hr-header-lite-title {
+  color: var(--bb-text-strong) !important;
+}
+
+.hr-button--ghost {
+  background: transparent !important;
+  color: var(--bb-text-muted) !important;
+}
+
+.hr-button--ghost:hover {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-strong) !important;
+}
+
+/* Fila "0 Filters created / Clear" — traía su propio bg-white/border-white */
+.quick-filter-custom-height .bg-white.border-white {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+#quick-filter-panel-filter-count {
+  color: var(--bb-text-muted) !important;
+}
+
+/* Círculo del ícono en el estado vacío */
+.quick-filter-custom-height .bg-gray-100.rounded-full {
+  background: var(--bb-bg-hover) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+#quick-filter-panel-no-filters-title {
+  color: var(--bb-text-strong) !important;
+}
+
+#quick-filter-panel-no-filters-desc {
+  color: var(--bb-text-label) !important;
+}
+
+#location-dashboard-header h1,
+#location-dashboard-header h2,
+.location-dashboard_header h1,
+.location-dashboard_header h2 {
+  color: var(--bb-text-strong) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em;
+}
+
+#dashboard-container {
+  padding: 8px 12px 24px !important;
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+}
+
+/* NOTA: las reglas de fondo/radio/sombra para los widgets del dashboard
+   viejas (que apuntaban a .dashboard-widget-type-custom, .group.h-full,
+   .crm-opportunities-status, etc.) se quitaron de acá — eran de antes de
+   confirmar el HTML real y duplicaban el mismo fondo/radio/sombra que ya
+   pone .hr-card por dentro, creando dos cajas redondeadas casi idénticas
+   apiladas (el efecto "dos capas, una cuadrada y una redondeada atrás"
+   que se veía en las tarjetas). Ahora .hr-card es la única fuente de
+   verdad para esas propiedades — ver más abajo, sección DASHBOARD. */
+
+/* Dashboard toolbar buttons — "Dashboard" y "+ New" viven dentro de un
+   .hr-button-group como una sola píldora partida en dos (Tailwind les pone
+   rounded-l/rounded-r para que queden pegados). Forzarles el mismo radio
+   completo a ambos los separaba visualmente. Se les quita el radio acá y
+   se deja que su propio rounded-l/rounded-r de Tailwind siga mandando;
+   el botón standalone "Edit dashboard" sí puede llevar el radio completo. */
+.location-dashboard__switcher .hr-button,
+.hr-button-group .hr-button {
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  background: var(--bb-bg) !important;
+  color: var(--bb-text-label) !important;
+}
+
+#location-dashboard_btn--edit-dashboard {
+  border-radius: var(--bb-radius-lg) !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  background: var(--bb-bg) !important;
+  color: var(--bb-text-label) !important;
+}
+
+/* El contenedor de grid-stack recorta en línea recta aunque .hr-card por
+   dentro sí se redondee — se le da el mismo radio para que no corte la
+   curva de las tarjetas del dashboard. */
+.grid-stack-item-content {
+  border-radius: var(--bb-radius-xl) !important;
+}
+
+#location-dashboard_btn--edit-dashboard,
+.hr-button--primary-type {
+  background: var(--bb-accent) !important;
+  color: var(--bb-white) !important;
+  box-shadow: 6px 6px 16px var(--bb-accent-glow),
+    -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
+}
+
+/* El texto/ícono "+ New" del botón de nuevo dashboard trae su propio
+   text-primary-700 (azul) anidado que no hereda el gris del botón
+   secundario — se pasa a teal, ya que es una acción de crear */
+#location_dashboard-btn-new_dashboard .text-primary-700 {
+  color: var(--bb-accent) !important;
+}
+
+/* Tarjeta genérica de CUALQUIER widget del dashboard (Opportunity Status,
+   Opportunity Value, Conversion Rate, Funnel, Stage Distribution, Tasks,
+   Manual Actions, Lead Source, Google Analytics, Google Business Profile,
+   Facebook/Google Ads...) — todos comparten esta misma clase por debajo,
+   así que un solo bloque los cubre a todos.
+
+   NOTA: .hr-card sola (una sola clase, !important) no ganaba visualmente
+   pese a existir en el DOM — todo apunta a que la plataforma trae su propia regla
+   nativa con selector compuesto (ej. .chart-container.hr-card o
+   .custom-chart-container.hr-card) que por especificidad le gana a un
+   selector de una sola clase aunque ambos usen !important. Se sube la
+   especificidad repitiendo la clase (.hr-card.hr-card cuenta como dos
+   clases para el navegador) y además se cubren directamente las
+   combinaciones reales vistas en el HTML de los widgets, por si acaso. */
+.hr-card.hr-card,
+.chart-container.hr-card,
+.custom-chart-container.hr-card {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  border: none !important;
+}
+
+#widget-header-title {
+  color: var(--bb-text-strong) !important;
+}
+
+#location_dashboard-datepicker-dashboard_header_range,
+#location_dashboard-btn-add_quick_filters {
+  border-radius: var(--bb-radius-md) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border: none !important;
+  color: var(--bb-text-label) !important;
+}
+
+/* Empty states */
+#empty-location-dashboard_empty--opportunity-value-no-data,
+.dashboard-widget-type-custom .text-gray-500 {
+  color: var(--bb-text-subtle) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Dashboard v2 (revisión mockup 24-sep) ──
+   La plataforma/Naive UI pinta con variables inline (--n-color, --n-border…), no con
+   clases: pisar la variable con !important le gana al inline normal. */
+
+/* "Dashboard" y "New": dos píldoras separadas (la plataforma las pega como grupo) */
+.location-dashboard__switcher { display: flex !important; gap: 10px !important; }
+#location_dashboard-btn-dashboard_switcher,
+#location_dashboard-btn-new_dashboard,
+#reporting_common_datepicker-btn-trigger {
+  --n-color: var(--bb-bg) !important;
+  --n-color-hover: var(--bb-bg-hover) !important;
+  --n-color-pressed: var(--bb-bg-hover) !important;
+  --n-color-focus: var(--bb-bg) !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-pressed: none !important;
+  --n-border-focus: none !important;
+  --n-text-color: var(--bb-text-label) !important;
+  border-radius: 14px !important;
+  margin-left: 0 !important;
+  height: 36px !important;
+  padding: 0 14px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#reporting_common_datepicker-btn-trigger p,
+#location_dashboard-btn-dashboard_switcher p { font-size: 13px !important; font-weight: 700 !important; }
+
+/* Edit dashboard: teal, texto al mismo tamaño que el resto */
+#location-dashboard_text-edit_dashboard { font-size: 13.5px !important; line-height: 1 !important; }
+#location-dashboard_btn--edit-dashboard { height: 38px !important; padding: 0 18px !important; }
+
+/* Cualquier botón primario del dashboard (incluye "Add widget" en modo
+   edición): de azul de la plataforma a teal Brania */
+#dashboard-wrapper .hr-button--primary {
+  --n-color: var(--bb-accent) !important;
+  --n-color-hover: var(--bb-accent-dark) !important;
+  --n-color-pressed: var(--bb-accent-dark) !important;
+  --n-color-focus: var(--bb-accent-dark) !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-pressed: none !important;
+  --n-border-focus: none !important;
+  --n-ripple-color: var(--bb-accent) !important;
+}
+
+/* Kebab (⋮) del header → círculo elevado */
+#location_dashboard-dropdown-dashboard_option-trigger > div {
+  width: 34px; height: 34px;
+  display: flex !important; align-items: center; justify-content: center;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border-radius: 50% !important;
+}
+
+/* Quick filters: texto teal sin caja (como el mockup) */
+#location_dashboard-btn-add_quick_filters {
+  --n-text-color: var(--bb-accent) !important;
+  --n-text-color-hover: var(--bb-accent-dark) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Selects de las tarjetas ("All pipelines", "Pending"…) → píldora elevada
+   chica. El blanco lo pinta la etiqueta interna con var(--n-color). */
+#dashboard-container .hr-base-selection {
+  --n-color: var(--bb-bg) !important;
+  --n-color-active: var(--bb-bg) !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-active: none !important;
+  --n-border-focus: none !important;
+  --n-box-shadow-hover: none !important;
+  --n-box-shadow-active: none !important;
+  --n-box-shadow-focus: none !important;
+  --n-border-radius: 14px !important;
+  --n-font-size: 12px !important;
+  --n-text-color: var(--bb-text-label) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border-radius: 14px !important;
+}
+#dashboard-container .hr-card-header .hr-select-wrapper {
+  width: auto !important;
+  min-width: 110px;
+  max-width: 170px;
+}
+
+/* Ícono de ajustes (sliders) de cada tarjeta → círculo elevado */
+.location-dashboard-popover-date-property > div {
+  width: 30px; height: 30px;
+  padding: 0 !important;
+  display: flex !important; align-items: center; justify-content: center;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border-radius: 50% !important;
+  color: var(--bb-text-muted) !important;
+}
+
+/* Títulos de tarjeta + subtítulo "(Status change)" más discreto */
+#dashboard-container #widget-header-title { font-size: 15px !important; font-weight: 700 !important; }
+#dashboard-container #widget-header-date-title {
+  color: var(--bb-text-subtle) !important;
+  font-size: 11px !important;
+}
+
+/* Empty state: lupa en círculo neumórfico gris (índigo inline) */
+#dashboard-container .hr-empty .hr-icon-wrapper {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  width: 56px !important; height: 56px !important;
+}
+#dashboard-container .hr-empty .hr-icon-wrapper i { color: var(--bb-text-muted) !important; }
+#dashboard-container .hr-empty__title { color: var(--bb-text-subtle) !important; font-size: 13px !important; }
+
+/* Conversion Rate: el área de la gráfica venía blanca */
+#dashboard-container .hr-card-content,
+#dashboard-container x-vue-echarts { background: transparent !important; }
+
+/* Gráficas con altura 0: <x-vue-echarts> es un elemento personalizado; si
+   pierde su estilo base (display:block) se comporta como inline y echarts
+   mide la altura del contenedor en 0 → gráfica invisible aunque haya datos.
+   Se le fija el comportamiento de bloque y que ocupe el espacio del widget. */
+#dashboard-container x-vue-echarts {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0;
+  flex: 1 1 auto;
+  min-height: 180px;
+}
+#dashboard-container x-vue-echarts.h-96 { height: 24rem; }
+#dashboard-container .vue-echarts-inner {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Gráficas SVG (echarts): el CSS le gana a los atributos fill del SVG */
+.crm-opportunities-conversion-rate path[fill="#E6EBF8"] { fill: #dde1e3; }
+.crm-opportunities-conversion-rate path[fill="rgb(83,177,253)"] { fill: var(--bb-accent); }
+#dashboard-container .echarts text { font-family: var(--bb-font) !important; }
+.crm-opportunities-conversion-rate text { font-weight: 800 !important; fill: var(--bb-text-strong); }
+.crm-opportunities-funnel path[fill="rgb(180,180,180)"] { fill: #d9dddf; }
+.crm-opportunities-funnel path[fill="#EAECF0"] { fill: #dfe3e5; }
+
+/* ── Popovers del dashboard: selector de fechas y selector de dashboard ──
+   Se montan fuera de la página. Redefinir la paleta --primary-* en teal
+   dentro del popover vuelve teal todo lo que la plataforma pinta con var(--primary-*)
+   (día seleccionado, rango, Apply, focos) sin tocar cada pieza. */
+#reporting_common_datepicker-popover,
+#location_dashboard-popover-dashboard_switcher {
+  --primary-25: #f2f8f9; --primary-50: #e4f0f2; --primary-100: #cfe4e7;
+  --primary-200: #a9cfd5; --primary-300: #7fb6be; --primary-500: #3a8c98;
+  --primary-600: #2f7d89; --primary-700: #2a707b; --primary-800: #236470;
+  --primary-900: #1c525c;
+  --n-color: var(--bb-bg) !important;
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  overflow: hidden;
+}
+#location_dashboard-popover-dashboard_switcher .hr-popover__content {
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+}
+
+/* Calendario */
+#reporting_common_datepicker-popover .hr-date-panel {
+  --n-panel-color: var(--bb-bg) !important;
+  --n-panel-box-shadow: none !important;
+  --n-item-color-hover: var(--bb-bg-hover) !important;
+  --n-item-border-radius: 8px !important;
+  background: var(--bb-bg) !important;
+}
+#reporting_common_datepicker-popover .hr-date-panel-date--selected {
+  color: #fff !important;
+}
+#reporting_common_datepicker-popover .hr-date-panel-date--selected .hr-date-panel-date__trigger {
+  background: var(--bb-accent) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 3px 3px 8px var(--bb-accent-glow) !important;
+}
+
+/* Selects e inputs dentro de los popovers → hundidos */
+#reporting_common_datepicker-popover .hr-base-selection,
+#reporting_common_datepicker-popover .hr-input,
+#location_dashboard-popover-dashboard_switcher .hr-input {
+  --n-color: var(--bb-bg) !important;
+  --n-color-active: var(--bb-bg) !important;
+  --n-color-focus: var(--bb-bg) !important;
+  --n-color-disabled: var(--bb-bg) !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-active: none !important;
+  --n-border-focus: none !important;
+  --n-border-disabled: none !important;
+  --n-box-shadow-focus: none !important;
+  --n-box-shadow-active: none !important;
+  --n-box-shadow-hover: none !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border-radius: 14px !important;
+}
+
+/* Botones Cancel / Apply */
+#reporting_common_datepicker-btn-cancel,
+#reporting_common_datepicker-btn-apply {
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-pressed: none !important;
+  --n-border-focus: none !important;
+  border-radius: 14px !important;
+}
+#reporting_common_datepicker-btn-cancel {
+  --n-color: var(--bb-bg) !important;
+  --n-color-hover: var(--bb-bg-hover) !important;
+  --n-text-color: var(--bb-text-label) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#reporting_common_datepicker-btn-apply {
+  box-shadow: 5px 5px 14px var(--bb-accent-glow) !important;
+}
+#reporting_common_datepicker-popover .border-t { border-color: var(--bb-divider) !important; }
+
+/* Selector de dashboard: encabezado "Shared with me" y fila activa */
+#location_dashboard-popover-dashboard_switcher .bg-gray-50 {
+  background: transparent !important;
+  color: var(--bb-text-subtle) !important;
+}
+#location_dashboard-popover-dashboard_switcher .hr-divider__line { background: var(--bb-divider) !important; }
+#location_dashboard-popover-dashboard_switcher .active_dashboard.hr-card {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border-radius: 14px !important;
+}
+#location_dashboard-popover-dashboard_switcher .active_dashboard #location_dashboard-card-text-dashboard_title {
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+}
+

@@ -1,0 +1,37 @@
+@import url("https://cdn.jsdelivr.net/gh/javierchi-brania/bedrock-theme@v1.0.0/dist/bedrock-theme.css");
+/* tokens críticos en línea para evitar parpadeo al cargar */
+:root {
+  /* Brania Bedrock tokens (extracted from brania-bedrock.html) */
+  --bb-bg: #e9ebec;
+  --bb-bg-hover: #e6e8e9;
+  --bb-text: #404749;
+  --bb-text-strong: #3c4346;
+  --bb-text-muted: #8b9397;
+  --bb-text-subtle: #9aa2a6;
+  --bb-text-label: #5f686b;
+  --bb-text-header: #a4acb0;
+  --bb-accent: #2f7d89;
+  --bb-accent-dark: #236470;
+  --bb-accent-glow: rgba(47, 125, 137, 0.35);
+  --bb-success: #4d8c74;
+  --bb-warning: #c08a3e;
+  --bb-danger: #b0525c;
+  --bb-white: #ffffff;
+  --bb-divider: #cdd2d4;
+
+  --bb-radius-xl: 26px;
+  --bb-radius-lg: 18px;
+  --bb-radius-md: 16px;
+  --bb-radius-sm: 14px;
+
+  --bb-shadow-raised: 10px 12px 30px rgba(166, 174, 178, 0.5),
+    -10px -10px 26px rgba(255, 255, 255, 0.9);
+  --bb-shadow-soft: 5px 5px 13px rgba(166, 174, 178, 0.45),
+    -5px -5px 13px rgba(255, 255, 255, 0.9);
+  --bb-shadow-inset: inset 3px 3px 7px #c6cacc, inset -3px -3px 7px #ffffff;
+  --bb-shadow-inset-deep: inset 3px 3px 8px #c6cacc, inset -3px -3px 8px #ffffff;
+
+  --bb-font: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+}
+body { background: var(--bb-bg); }

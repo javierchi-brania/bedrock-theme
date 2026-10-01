@@ -1,0 +1,33 @@
+/* ─────────────────────────────────────────────────────────────
+   OPPORTUNITIES (Kanban)
+   DOM: #newTopBar (Enterprise Lead / contador / Import / Add
+   opportunity), #views-bar (Open opportunities / List), barra de
+   filtros (Advanced filters / Sort / búsqueda / Manage fields).
+   ───────────────────────────────────────────────────────────── */
+
+/* Espacio vacío entre la fila de arriba (pipeline + botones) y la
+   fila de "Open opportunities / List" — se recorta */
+#newTopBar {
+  padding-bottom: 4px !important;
+}
+
+#newTopBar .pipeline-ribbon {
+  margin-bottom: 0 !important;
+  padding-bottom: 4px !important;
+}
+
+#views-bar {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Se detectó (vía DevTools) un padding de 80px en algún punto del
+   layout de Opportunities — mismo patrón que #location-dashboard en
+   el Dashboard, que reservaba 92px arriba para un header fijo. Se
+   prueba con el candidato más probable, el wrapper raíz de la página,
+   por si el hueco viene de ahí. */
+.crm-opportunities-page,
+.opportunitiesApp {
+  padding-top: 0 !important;
+}
+

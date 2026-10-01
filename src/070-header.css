@@ -1,0 +1,142 @@
+/* ─────────────────────────────────────────────────────────────
+   TOP HEADER
+   Brania: <header style="border-radius:26px; box-shadow:...">
+   DOM:    .hl_header, .hl_header--controls
+   ───────────────────────────────────────────────────────────── */
+
+.hl_header,
+.hl_header.hl_header--collapse {
+  background: transparent !important;
+  border: none !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: none !important;
+  margin: 12px 14px 0 0 !important;
+  min-height: 58px !important;
+  z-index: 1200 !important;
+}
+
+/* Revisión diseño: faltaba aire interno arriba/izq/der (el título de la
+   página quedaba pegado al borde de la píldora). */
+.hl_header .container-fluid {
+  padding: 12px 26px !important;
+  align-items: center !important;
+}
+
+/* La píldora del header se dibuja con ::before limitada a la fila de los
+   íconos (máx. 64px). En páginas sin tabs el header mide ~60px y la
+   píldora lo cubre entero; en páginas con tabs (.topmenu-nav, 2ª fila)
+   los tabs quedan abajo sin fondo, como en el mockup. */
+.hl_header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  max-height: 100%;
+  background: var(--bb-bg);
+  border-radius: var(--bb-radius-xl);
+  box-shadow: var(--bb-shadow-raised);
+  z-index: -1;
+  pointer-events: none;
+}
+.hl_header .topmenu-nav { padding: 24px 0 0 32px !important; }
+.hl_header .topmenu-navtitle {
+  color: var(--bb-text-strong) !important;
+  font-weight: 800 !important;
+  margin-right: 14px !important;
+}
+
+/* La plataforma reserva pt-12 (48px) pero el header neumórfico es más alto */
+#location-dashboard {
+  padding-top: 92px !important;
+}
+
+.crm-opportunities-page,
+.opportunities-list-wrap {
+  padding-top: 80px !important;
+}
+.hl_wrapper.hl_topbar-tabs {
+  padding-top: 94px !important;
+}
+
+/* Botones circulares del header — revisión diseño (24-sep):
+   - Todos del mismo tamaño (36px) y con el ícono centrado exacto: los
+     .btn-circle son de Bootstrap y traen padding/line-height propios que
+     descentraban el glifo → flex + padding 0 + line-height 1.
+   - El botón verde del dialer NO es un .btn-circle (es un <button> de
+     Tailwind con h-8 w-8 bg-success-600 dentro de #template-power-dialer),
+     por eso medía 32px y seguía verde sólido. Se iguala a los demás.
+   - Los íconos tenían el color bloqueado: la campana trae class
+     "text-white" y el "?" trae style="color: white" inline, así que el
+     color puesto en el botón nunca bajaba al <i>. Se fuerza en el <i>. */
+.hl_header--controls .btn-circle,
+.hl_header--controls .btn.btn-circle,
+.hl_header--avatar,
+#template-power-dialer button[aria-label="Voice Calling"] {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  padding: 0 !important;
+  margin: 0 5px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  border-radius: 50% !important;
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: 4px 4px 9px #c9cdcf, -4px -4px 9px rgba(255, 255, 255, 0.9) !important;
+  color: var(--bb-text-muted) !important;
+}
+
+.hl_header--controls .btn-circle i,
+.hl_header--controls .btn-circle .fa {
+  font-size: 14px !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  color: inherit !important;
+}
+
+#template-power-dialer button[aria-label="Voice Calling"] svg {
+  width: 16px !important;
+  height: 16px !important;
+  color: var(--bb-success) !important;
+}
+
+#canny_logs-toggle {
+  color: var(--bb-accent) !important;
+}
+
+.hl_header--controls .btn-yellow,
+.hl_header--recent-activities {
+  color: var(--bb-warning) !important;
+}
+
+.hl_header--controls .btn-primary,
+.hl_header--copy-link,
+#hl_header--help-icon {
+  color: var(--bb-text-muted) !important;
+  background: var(--bb-bg) !important;
+}
+
+/* El "?" trae style="background: rgb(24,139,246) !important" INLINE — eso
+   le gana a cualquier hoja de estilos. Una sombra inset gruesa se pinta
+   encima del background (y debajo del ícono), así que tapa el azul con
+   el color Brania sin pelear contra el inline. */
+#hl_header--help-icon {
+  box-shadow: inset 0 0 0 40px var(--bb-bg), 4px 4px 9px #c9cdcf, -4px -4px 9px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* El avatar trae su propio .avatar_img adentro; que llene el círculo */
+.hl_header--avatar .avatar {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.hl_header--avatar .avatar_img {
+  border-radius: 50% !important;
+  box-shadow: inset 3px 3px 6px #c2c6c8, inset -3px -3px 6px #fbfdfd !important;
+}
+

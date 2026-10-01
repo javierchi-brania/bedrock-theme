@@ -1,0 +1,133 @@
+/* ─────────────────────────────────────────────────────────────
+   CONFIGURACIÓN — CONTENEDORES BLANCOS (v6.13)
+   Revisadas todas las páginas del menú de Configuración de agencia.
+   Patrones que seguían en blanco/gris-50 cuadrado:
+   A) Fondo de página (section.hl_wrapper--inner / #isvApp / .h-full
+      .bg-gray-50) blanco o #fcfcfd: Facturación, Cumplimiento, Servicios
+      de correo, Registros de auditoría, Snapshots → pasa a transparente
+      (se ve el gris del marco).
+   B) Contenedor grande .bg-white.shadow-lg dentro de .bg-gray-50.p-3
+      (Mi perfil, Usuarios) → tarjeta del tema (generaliza v6.11).
+   C) Contenedores de tabla (.table-container, .ghl-table-container,
+      .ui-table-container__wrapper) y tablas Naive UI (n-data-table)
+      blancas con radio 8px: Integración telefónica, Workflow Premium,
+      Workflow IA externa, Compra de dominio, Integraciones privadas,
+      Almacenamiento → tarjeta del tema + filas del tema.
+   D) Tarjetas Bootstrap .card (Afiliados) y bloques .bg-white sueltos
+      (Anuncios) → tarjeta del tema.
+   No se toca: Stripe (pagos) ni Enlaces de menú personalizados (es un
+   iframe; el CSS personalizado no llega adentro).
+   ───────────────────────────────────────────────────────────── */
+
+/* A) fondos de página */
+.hl_wrapper > .hl_wrapper--inner,
+.hl_wrapper > .hl_wrapper--inner.bg-white,
+.hl_wrapper--inner > #isvApp,
+.hl_wrapper--inner > .h-full.bg-gray-50,
+.hl_wrapper--inner .bg-gray-50.p-3 {
+  background: transparent !important;
+}
+
+/* B) contenedor grande (Mi perfil, Usuarios, …) */
+.hl_wrapper--inner .bg-gray-50.p-3 > .bg-white.shadow-lg {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+.hl_wrapper--inner .bg-gray-50.p-3 .bg-white[class*="shadow-[var(--shadow-lg)]"] {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hl_wrapper--inner .bg-gray-50.p-3 .border-b,
+.hl_wrapper--inner .bg-gray-50.p-3 .border-t {
+  border-color: var(--bb-divider) !important;
+}
+.hl_wrapper--inner .bg-gray-50.p-3 nav button {
+  border-radius: var(--bb-radius-sm) !important;
+  color: var(--bb-text-muted) !important;
+}
+.hl_wrapper--inner .bg-gray-50.p-3 nav button[class*="bg-[#f5f8ff]"] {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-accent) !important;
+  font-weight: 600 !important;
+}
+.hl_wrapper--inner .bg-gray-50.p-3 nav button:not([class*="bg-[#f5f8ff]"]):hover {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-strong) !important;
+}
+
+/* C) tablas */
+.hl_wrapper--inner .table-container,
+.hl_wrapper--inner .ui-table-container__wrapper {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  overflow: hidden !important;
+}
+.hl_wrapper--inner .ghl-table-container {
+  background: transparent !important;
+  border: none !important;
+}
+.hl_wrapper--inner .n-data-table,
+.hl_wrapper--inner .n-data-table .n-data-table-wrapper,
+.hl_wrapper--inner .n-data-table .n-data-table-base-table,
+.hl_wrapper--inner .n-data-table .n-data-table-table,
+.hl_wrapper--inner .n-data-table .n-data-table-td,
+.hl_wrapper--inner .n-data-table .n-data-table-tr {
+  background: var(--bb-bg) !important;
+}
+.hl_wrapper--inner .n-data-table .n-data-table-thead,
+.hl_wrapper--inner .n-data-table .n-data-table-th {
+  background: var(--bb-bg) !important;
+  color: var(--bb-text-label) !important;
+}
+.hl_wrapper--inner .n-data-table .n-data-table-th,
+.hl_wrapper--inner .n-data-table .n-data-table-td {
+  border-color: var(--bb-divider) !important;
+}
+.hl_wrapper--inner .n-data-table .n-data-table-tr:hover > .n-data-table-td {
+  background: var(--bb-bg-hover) !important;
+}
+
+/* D) tarjetas sueltas */
+.hl_wrapper--inner .card,
+.hl_wrapper--inner > div > .bg-white,
+.hl_wrapper--inner > .bg-white {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+.hl_wrapper--inner .card .card-header,
+.hl_wrapper--inner .card .card-body,
+.hl_wrapper--inner .card .card-footer {
+  background: transparent !important;
+  border-color: var(--bb-divider) !important;
+}
+
+/* E) detalles: franja gris-25 dentro de tarjetas (Facturación "Su siguiente
+   factura…") e inputs de texto antiguos .hl-text-input (Afiliados) */
+.hl_wrapper--inner .hl-card .bg-gray-25 {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border-radius: var(--bb-radius-sm) !important;
+}
+.hl_wrapper--inner input.hl-text-input,
+.hl_wrapper--inner textarea.hl-text-input {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-inset-deep) !important;
+}
+
+/* F) selects Naive UI (n-select): la etiqueta interna es blanca y tapa el
+   hundido del tema (Empresa > Categoría / Nicho, etc.) — mismo caso que
+   el hr-select de v6.8 */
+.n-base-selection .n-base-selection-label {
+  background: transparent !important;
+}

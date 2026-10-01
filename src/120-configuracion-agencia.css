@@ -1,0 +1,151 @@
+/* ─────────────────────────────────────────────────────────────
+   SETTINGS (nivel de agencia) — Company Settings, My Profile, y
+   cualquier otra pantalla que use este mismo sistema de componentes
+   (.hl-* sobre Naive UI .n-*, distinto al Highrise .hr-* del
+   sub-account). Ojo: NO se deja scoped a un id de página puntual
+   (ej. #company-settings-page) porque estas mismas clases se repiten
+   en varias pantallas distintas (Company Settings, My Profile, etc.)
+   con ids de página diferentes — dejarlo scoped hace que solo la
+   primera pantalla reciba el estilo y las demás se queden en blanco.
+   Misma lección que con .hr-card: se duplica la clase en .hl-card
+   para ganarle en especificidad a la regla nativa de la plataforma, por si
+   acaso. */
+
+/* El contenedor raíz de TODA página de Settings — traía su propio
+   blanco/padding por defecto, dejando una línea blanca visible arriba
+   y a la izquierda del contenido (mismo patrón que #dashboard-container
+   al principio del Dashboard). */
+.hl-wrapper-container {
+  background: var(--bb-bg) !important;
+}
+
+.hl-header {
+  background: transparent !important;
+  border: none !important;
+}
+
+.title {
+  color: var(--bb-text-strong) !important;
+}
+
+/* Tabs (Basic Details / White Label / Advanced Settings / SSO) */
+.n-tabs-tab {
+  color: var(--bb-text-muted) !important;
+}
+
+.n-tabs-tab--active {
+  color: var(--bb-accent) !important;
+}
+
+.n-tabs-bar {
+  background: var(--bb-accent) !important;
+}
+
+.n-tabs-nav {
+  border-bottom-color: var(--bb-divider) !important;
+}
+
+/* Rótulos de sección — "Company Details"/"Update basic company
+   details" usan hl-text-sm-medium/regular (Company Settings);
+   "Personal Data"/"Profile Image" usan hl-text-lg-medium y su
+   descripción hl-text-sm-normal (My Profile). Se cubren todos. */
+.hl-text-sm-medium,
+.hl-text-lg-medium,
+.hl-text-lg-semibold {
+  color: var(--bb-text-strong) !important;
+}
+
+.hl-text-sm-regular,
+.hl-text-sm-normal {
+  color: var(--bb-text-muted) !important;
+}
+
+/* Tarjetas de formulario y de features — mismo truco de especificidad
+   que .hr-card en el Dashboard */
+.hl-card.hl-card {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  border: none !important;
+}
+
+.hl-card-content {
+  background: transparent !important;
+}
+
+.hl-card-footer {
+  background: transparent !important;
+  border-top: 1px solid var(--bb-divider) !important;
+}
+
+.hl-text-md-medium {
+  color: var(--bb-text-strong) !important;
+}
+
+.hl-text-md-regular {
+  color: var(--bb-text-muted) !important;
+}
+
+/* Inputs y selects (Naive UI) */
+.n-input.n-input,
+.n-select .n-base-selection {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border-radius: var(--bb-radius-sm) !important;
+}
+
+.n-input__border,
+.n-input__state-border,
+.n-base-selection__border,
+.n-base-selection__state-border {
+  border: none !important;
+}
+
+.n-form-item-label__text {
+  color: var(--bb-text-label) !important;
+}
+
+/* Botones (Cancel / Save changes / Learn More / Configure / Update
+   Profile / Update Password / Sign Out Everywhere) */
+.n-button.n-button--default-type {
+  background: var(--bb-bg) !important;
+  color: var(--bb-text-label) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+.n-button.n-button--primary-type {
+  background: var(--bb-accent) !important;
+  color: var(--bb-white) !important;
+  border: none !important;
+  box-shadow: 6px 6px 16px var(--bb-accent-glow),
+    -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
+}
+
+.n-button--primary-type * {
+  color: var(--bb-white) !important;
+  opacity: 1 !important;
+}
+
+/* Botón tipo "texto/link" (ej. "Setup Two-factor Authentication (2FA)
+   App") — transparente, con el acento de Brania en vez del azul nativo */
+.n-button.n-button--tertiary-type {
+  background: transparent !important;
+  color: var(--bb-accent) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Switches (AI Employee, Workflow features, Domain Purchase, etc.) —
+   se deja la lógica de la librería, solo se retinta el riel activo
+   al color de acento de Brania en vez del azul nativo de la plataforma */
+.n-switch--active .n-switch__rail {
+  background: var(--bb-accent) !important;
+}
+
+/* Separadores entre secciones */
+.n-divider__line {
+  background: var(--bb-divider) !important;
+}
+

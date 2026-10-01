@@ -1,0 +1,27 @@
+/* ─────────────────────────────────────────────────────────────
+   MENÚ DE CONFIGURACIÓN (v6.3)
+   Los elementos del menú de Settings no traen ícono, pero heredaban el
+   círculo ::before de los ítems con ícono: se veía un medio círculo detrás
+   del texto (y el activo, verde, encima de "Empresa"). Se quita el
+   círculo sólo en ítems que empiezan directo con el texto (sin ícono); el activo ya se marca con la píldora
+   hundida + texto en acento.
+   ───────────────────────────────────────────────────────────── */
+#sidebar-v2 .group:not(.divider):has(> span.hl_text-overflow:first-child)::before {
+  display: none !important;
+}
+
+/* Botón "Volver atrás": w-24 (96px) lo partía en dos líneas y traía el
+   gris de Tailwind. Se ajusta al contenido y a la píldora del tema. */
+#backButtonv2 {
+  width: max-content !important;
+  align-self: flex-start !important;
+  white-space: nowrap !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border-radius: 999px !important;
+  color: var(--bb-text-muted) !important;
+  padding: 8px 16px !important;
+}
+#backButtonv2:hover {
+  color: var(--bb-accent) !important;
+}

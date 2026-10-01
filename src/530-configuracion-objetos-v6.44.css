@@ -1,0 +1,21 @@
+/* ===== v6.44 Configuración › Campos personalizados / Objetos (crmObjectsSettingsApp) ===== */
+.crmObjectsSettingsApp.bg-gray-50, .crmObjectsSettingsApp .bg-gray-50 { background: transparent !important; }
+.crmObjectsSettingsApp .object-card-row-container, .crmObjectsSettingsApp .object-card-row { overflow: visible !important; }
+.crmObjectsSettingsApp .object-card-row { padding: 4px 4px 10px !important; gap: 14px !important; }
+.crmObjectsSettingsApp .object-card { background: var(--bb-bg) !important; border: none !important; border-radius: var(--bb-radius-lg) !important; box-shadow: var(--bb-shadow-soft) !important; transition: box-shadow .15s; }
+.crmObjectsSettingsApp .object-card:hover { box-shadow: var(--bb-shadow-raised) !important; }
+.crmObjectsSettingsApp .object-card.object-card--selected { box-shadow: var(--bb-shadow-inset) !important; }
+.crmObjectsSettingsApp .object-card.object-card--selected, .crmObjectsSettingsApp .object-card.object-card--selected * { color: var(--bb-accent) !important; }
+.crmObjectsSettingsApp .object-card__badge { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-inset) !important; color: var(--bb-text-muted) !important; border-radius: 999px !important; }
+.crmObjectsSettingsApp .object-card__badge.object-card__badge--selected { color: var(--bb-accent) !important; }
+#tags-container-div { padding: 0 18px 26px 6px !important; box-sizing: border-box !important; }
+.crmObjectsSettingsApp .custom-fields-card-container { background: var(--bb-bg) !important; border: none !important; border-radius: var(--bb-radius-xl) !important; box-shadow: var(--bb-shadow-raised) !important; }
+.crmObjectsSettingsApp .custom-fields-card-container [class*="bg-white"], .crmObjectsSettingsApp .custom-fields-card-container .bg-gray-25 { background: transparent !important; }
+.crmObjectsSettingsApp #column-eye-icon { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; }
+.crmObjectsSettingsApp .hr-content-switcher span.rounded-full.text-xs { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-inset) !important; color: var(--bb-text-muted) !important; }
+.crmObjectsSettingsApp .hr-radio-button--checked span.rounded-full.text-xs { color: var(--bb-accent) !important; }
+/* iconos de las tarjetas de objeto: mismo color que el texto (teal cuando está seleccionada) */
+.crmObjectsSettingsApp .object-card svg { color: var(--bb-text-muted) !important; }
+.crmObjectsSettingsApp .object-card.object-card--selected svg { color: var(--bb-accent) !important; }
+.crmObjectsSettingsApp .object-card svg :is(path, rect, circle, line, polyline, polygon)[fill]:not([fill="none"]) { fill: currentColor !important; }
+.crmObjectsSettingsApp .object-card svg [stroke]:not([stroke="none"]) { stroke: currentColor !important; }

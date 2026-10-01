@@ -1,0 +1,45 @@
+/* ─────────────────────────────────────────────────────────────
+   ASK AI + BOTONES DE PELIGRO (v6.15)
+   1) "Inicie un nuevo chat" (estado vacío del panel de Ask AI): la regla
+      de v6.5 que aplana los botones del panel izquierdo (más específica
+      por el #id) también le quitaba el fondo al botón primario → texto
+      blanco sobre gris. Se excluye el primario.
+   2) Botones destructivos (ej. "Delete chat"): la regla genérica
+      ".hr-button--primary { accent }" los pintaba verde azulado y sólo
+      les quedaba el borde rojo de la plataforma. Vuelven a --bb-danger. Se detectan por
+      la variable en línea --n-color: var(--error-600) que pone la plataforma.
+   ───────────────────────────────────────────────────────────── */
+#ask-ai-container-pmd .askai-left-panel .hr-button.hr-button--primary,
+#ask-ai-container-pmd .askai-left-panel .hr-button.hr-button--primary:hover {
+  background: var(--bb-accent) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border-radius: var(--bb-radius-md) !important;
+}
+#ask-ai-container-pmd .askai-left-panel .hr-button.hr-button--primary:hover {
+  filter: brightness(1.08) !important;
+}
+#ask-ai-container-pmd .askai-left-panel .hr-button.hr-button--primary * {
+  color: #fff !important;
+}
+
+.hr-button.hr-button--error-type.hr-button--error-type,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary[style*="--n-color: var(--error"],
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary[style*="--n-color: var(--red"] {
+  background: var(--bb-danger) !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hr-button.hr-button--error-type.hr-button--error-type *,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary[style*="--n-color: var(--error"] *,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary[style*="--n-color: var(--red"] * {
+  color: #fff !important;
+}
+.hr-button.hr-button--error-type.hr-button--error-type:hover:not(:disabled),
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary[style*="--n-color: var(--error"]:hover:not(:disabled) {
+  background: var(--bb-danger) !important;
+  filter: brightness(1.08) !important;
+}
+

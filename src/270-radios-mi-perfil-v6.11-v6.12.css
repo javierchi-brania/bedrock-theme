@@ -1,0 +1,92 @@
+/* ─────────────────────────────────────────────────────────────
+   ARMONÍA DE RADIOS + MI PERFIL (v6.11)
+   - Header y menú lateral usaban --bb-radius-xl (26px): con 58px de alto
+     el header se veía casi como píldora. Los contenedores grandes del
+     marco pasan a --bb-radius-lg (18px) para que todo tenga el mismo
+     redondeo.
+   - Mi perfil (.profile-settings-root) traía un contenedor cuadrado
+     gris-50 y una tarjeta blanca con radio 8px y sombra genérica; pasan a
+     la tarjeta del tema, con los mismos radios.
+   ───────────────────────────────────────────────────────────── */
+.hl_header::before,
+aside#sidebar-v2 {
+  border-radius: var(--bb-radius-lg) !important;
+}
+#ask-ai-container-pmd .askai-page {
+  border-radius: var(--bb-radius-lg) !important;
+}
+
+/* fondo gris-50 de afuera: se deja transparente (el marco ya es del tema) */
+.profile-settings-root > .bg-gray-50 {
+  background: transparent !important;
+}
+/* contenedor grande (antes blanco, radio 8px) */
+.profile-settings-root .bg-white.shadow-lg {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+/* tarjetas internas ("Datos personales", etc.) */
+.profile-settings-root .bg-white[class*="shadow-[var(--shadow-lg)]"] {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.profile-settings-root .border-b,
+.profile-settings-root .border-t {
+  border-color: var(--bb-divider) !important;
+}
+/* Menú General / Seguridad: el activo traía azul claro (#f5f8ff) */
+.profile-settings-root nav button {
+  border-radius: var(--bb-radius-sm) !important;
+  color: var(--bb-text-muted) !important;
+}
+.profile-settings-root nav button[class*="bg-[#f5f8ff]"] {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-accent) !important;
+  font-weight: 600 !important;
+}
+.profile-settings-root nav button:not([class*="bg-[#f5f8ff]"]):hover {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-strong) !important;
+}
+
+/* Botón primario deshabilitado (ej. "Actualizar perfil"): La plataforma lo pinta
+   azul claro (#b2ccff) con una regla más específica; se usa el acento
+   con la opacidad de deshabilitado. */
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary.hr-button--disabled,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:disabled {
+  background: var(--bb-accent) !important;
+  border-color: var(--bb-accent) !important;
+  color: #fff !important;
+}
+
+/* v6.12 — Botones de texto (Naive UI .hl-text-btn, ej. "Más información →"
+   en los avisos): heredaban el relieve de ".n-button--default-type" sin
+   padding ni radio y se veían como una caja pegada al texto. Vuelven a
+   ser enlaces de texto en color acento. */
+.n-button.n-button--default-type.hl-text-btn,
+.n-button.n-button--default-type.hl-text-btn:hover,
+.n-button.n-button--default-type.hl-text-btn:focus {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  color: var(--bb-accent) !important;
+}
+.n-button.n-button--default-type.hl-text-btn .n-button__content,
+.n-button.n-button--default-type.hl-text-btn .n-button__icon,
+.n-button.n-button--default-type.hl-text-btn * {
+  color: var(--bb-accent) !important;
+}
+.n-button.n-button--default-type.hl-text-btn .n-button__border,
+.n-button.n-button--default-type.hl-text-btn .n-button__state-border {
+  border: none !important;
+}
+.n-button.n-button--default-type.hl-text-btn:hover .n-button__content {
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+

@@ -1,0 +1,255 @@
+/* ─────────────────────────────────────────────────────────────
+   CONVERSATIONS (nivel de sub-cuenta)
+   Sistema de diseño "Highrise" (clases hr-*), distinto del hl_* clásico
+   que usan Dashboard/Contacts/Opportunities. Selectores confirmados con
+   el HTML real de #conversations-new-app.
+   Nota: la barra superior de pestañas (Conversations / Manual Actions /
+   Snippets / Trigger Links / Analytics / Settings) no viene en este HTML
+   — si sigue sin estilo después de este batch, mándame su outerHTML aparte.
+   ───────────────────────────────────────────────────────────── */
+
+/* Fondo general del módulo (riel de iconos + zona de trabajo) */
+#conversations-layout,
+.inbox-panel,
+#conversations-content,
+#conversations-workspace,
+#conversations-panel {
+  background: var(--bb-bg) !important;
+}
+
+/* Botón "nueva conversación" (el círculo azul con +) */
+#new-conversation-btn-collapsed {
+  box-shadow: 6px 6px 16px var(--bb-accent-glow),
+    -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
+  border-radius: var(--bb-radius-md) !important;
+}
+
+/* El ícono adentro no heredaba el blanco de .hr-button--primary — mismo
+   caso que el botón "Purchase Now": una clase propia del icono pisa el
+   color heredado. Se fuerza directo en el icono y cualquier hijo. */
+#new-conversation-btn-collapsed,
+#new-conversation-btn-collapsed * {
+  color: var(--bb-white) !important;
+  opacity: 1 !important;
+}
+
+/* Riel de iconos: My Inbox / Team Inbox / Internal Chat */
+.menu-item-container {
+  border-radius: var(--bb-radius-md) !important;
+  margin: 2px 4px !important;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.menu-item-container:hover {
+  background: var(--bb-bg-hover) !important;
+}
+
+.menu-item-container.active {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+
+.menu-item-container.active [id^="icon-"] {
+  color: var(--bb-accent) !important;
+}
+
+/* Columna de lista (Team inbox) → tarjeta elevada */
+.conversation-list-container {
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  overflow: hidden !important;
+}
+
+.conversation-list-container > div {
+  background: var(--bb-bg) !important;
+}
+
+/* #conversations-list y #conversations-contact-details traen un
+   border-right recto fijo por inline style (border-right: 1px solid
+   rgb(234,236,240)) que baja derecho hasta el fondo — no combina con las
+   esquinas redondeadas que le dimos a las tarjetas, y se ve como una
+   línea/base que no conecta con la curva. Se oculta para dejar que la
+   separación la haga solo la sombra neumórfica. */
+#conversations-list,
+#conversations-contact-details {
+  border-right: none !important;
+}
+
+.conversation-list-header h1 {
+  color: var(--bb-text-strong) !important;
+  font-weight: 800 !important;
+}
+
+#conv-filter-button-icon,
+#conv-sort-button-icon {
+  color: var(--bb-text-muted) !important;
+}
+
+#conv-filter-button-icon:hover,
+#conv-sort-button-icon:hover {
+  color: var(--bb-accent) !important;
+}
+
+/* Pestañas Unread / All / Recent / Starred, vía aria-label y aria-current
+   (más estables que las clases de Tailwind que la plataforma alterna dinámicamente).
+   La línea de abajo es un border-bottom real de Tailwind (border-b-2 +
+   border-b-blue-600/transparent alternado por Vue), no algo que un
+   box-shadow pueda tapar — se pisa el color de ese border directo. El
+   texto de la etiqueta tampoco hereda el color del botón porque trae su
+   propia clase (text-gray-900/600) encima. */
+#conversations-list button[aria-current="true"] {
+  color: var(--bb-accent) !important;
+  border-bottom-color: var(--bb-accent) !important;
+  background: var(--bb-bg) !important;
+}
+
+#conversations-list button[aria-current="true"] svg,
+#conversations-list button[aria-current="true"] div {
+  color: var(--bb-accent) !important;
+}
+
+#bulk-select-all-checkbox .hr-checkbox-box {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border: none !important;
+}
+
+/* Panel central vacío ("All Caught Up!") */
+#conversations-empty-state {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+#conversations-empty-title {
+  color: var(--bb-text-strong) !important;
+  font-weight: 700 !important;
+}
+
+#conversations-empty-message {
+  color: var(--bb-text-label) !important;
+}
+
+#conversations-view-all-btn {
+  background: var(--bb-accent) !important;
+  color: var(--bb-white) !important;
+  font-weight: 700 !important;
+  box-shadow: 6px 6px 16px var(--bb-accent-glow),
+    -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
+  border-radius: var(--bb-radius-md) !important;
+  border: none !important;
+}
+
+/* Panel derecho de detalles de contacto (estado vacío) */
+#conversations-contact-details {
+  background: var(--bb-bg) !important;
+}
+
+#conversations-contact-details .h-full.w-full.flex.items-center.justify-center {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+/* Riel vertical de iconos del panel derecho (Contact, Activities,
+   Associations, Opportunities, Tasks, Notes, Appointments, Documents,
+   Payments, Agent Logs) */
+.sidebar-option-button {
+  border-radius: var(--bb-radius-md) !important;
+  color: var(--bb-text-muted) !important;
+  background: transparent !important;
+}
+
+.sidebar-option-button:hover {
+  color: var(--bb-accent) !important;
+  background: var(--bb-bg-hover) !important;
+}
+
+.sidebar-option-button.text-blue-600 {
+  color: var(--bb-accent) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+
+/* Panel de Actividad (pestaña del riel derecho) — estructura distinta a
+   la de "No conversation selected", con su propia clase de contenedor */
+.bg-contacts-panel {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  border: none !important;
+}
+
+#empty-state-title {
+  color: var(--bb-text-strong) !important;
+}
+
+#empty-state-description {
+  color: var(--bb-text-label) !important;
+}
+
+#empty-state-icon {
+  color: var(--bb-accent) !important;
+}
+
+div:has(> #empty-state-icon) {
+  background: var(--bb-bg-hover) !important;
+}
+
+/* Barra de pestañas superior (Conversations / Manual Actions / Snippets /
+   Trigger Links / Analytics / Settings) — patrón .topmenu-nav, distinto del
+   .hl_topbar-tabs que ya se usa en Contactos */
+.topmenu-nav {
+  margin-bottom: 14px !important;
+}
+
+.topmenu-navtitle {
+  color: var(--bb-text-strong) !important;
+  font-weight: 800 !important;
+  margin-right: 14px;
+}
+
+.topmenu-navitem {
+  color: var(--bb-text-muted) !important;
+  font-weight: 600 !important;
+  border-radius: var(--bb-radius-sm) !important;
+}
+
+.topmenu-navitem:hover {
+  color: var(--bb-text-strong) !important;
+}
+
+.topmenu-navitem.active,
+.topmenu-navitem.router-link-active {
+  color: var(--bb-accent) !important;
+  box-shadow: inset 0 -2px 0 var(--bb-accent) !important;
+  font-weight: 700 !important;
+}
+
+/* Botón de keyboard shortcuts (el único del riel derecho sin la clase
+   sidebar-option-button) — se ancla por el icono, que sí tiene id fijo */
+#sidebar-keyboard-shortcuts-icon {
+  color: var(--bb-text-muted) !important;
+}
+
+button:has(> #sidebar-keyboard-shortcuts-icon) {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-md) !important;
+}
+
+button:has(> #sidebar-keyboard-shortcuts-icon):hover {
+  background: var(--bb-bg-hover) !important;
+}
+
+button:has(> #sidebar-keyboard-shortcuts-icon):hover #sidebar-keyboard-shortcuts-icon {
+  color: var(--bb-accent) !important;
+}
+
+/* Un poco más de aire en el riel de iconos del panel derecho */
+nav .flex.flex-col.items-center.gap-2.rounded-lg {
+  gap: 10px !important;
+}
+
+nav .flex.flex-col.items-center.gap-1 {
+  margin-top: 10px !important;
+}
+

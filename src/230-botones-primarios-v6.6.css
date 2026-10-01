@@ -1,0 +1,30 @@
+/* ─────────────────────────────────────────────────────────────
+   BOTONES PRIMARIOS (v6.6)
+   Los botones primarios de Highrise traen también .hr-button--default-type,
+   y la regla ".hr-button.hr-button--default-type.hr-button--default-type"
+   (más específica) les ponía el fondo gris del tema con texto blanco:
+   quedaban ilegibles (ej. "Crear una nueva instantánea" en Snapshots).
+   Aquí se les devuelve el acento del tema (clase repetida a propósito
+   para ganar en especificidad).
+   ───────────────────────────────────────────────────────────── */
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary,
+.ui-button.hr-button--default-type.hr-button--primary.hr-button--primary {
+  background: var(--bb-accent) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:hover:not(:disabled),
+.ui-button.hr-button--default-type.hr-button--primary.hr-button--primary:hover:not(:disabled) {
+  background: var(--bb-accent) !important;
+  filter: brightness(1.08) !important;
+}
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-button__content,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-button__content *,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-icon {
+  color: #fff !important;
+}
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:disabled,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary.hr-button--disabled {
+  opacity: .55 !important;
+}

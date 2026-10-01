@@ -1,0 +1,26 @@
+/* ─────────────────────────────────────────────────────────────
+   TABLAS HIGHRISE (hr-data-table) (v6.7) — ej. Snapshots
+   1) El encabezado trae alto fijo de 40px + overflow hidden: los títulos
+      largos ("Última actualización el") se partían y la 2ª línea quedaba
+      cortada. Como la fila tiene alto fijo en línea (style="height:40px"),
+      se reduce el padding vertical para que quepan 2 líneas.
+   2) Las filas venían en blanco sobre la tarjeta gris del tema; pasan al
+      fondo del tema con divisor y hover suave.
+   ───────────────────────────────────────────────────────────── */
+.hr-data-table .hr-data-table__cell-header {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  line-height: 1.2 !important;
+  vertical-align: middle !important;
+}
+.hr-data-table .hr-data-table__body-row,
+.hr-data-table .hr-data-table__body-cell {
+  background: var(--bb-bg) !important;
+}
+.hr-data-table .hr-data-table__body-cell {
+  border-top: 1px solid var(--bb-divider) !important;
+}
+.hr-data-table .hr-data-table__body-row-hover:hover,
+.hr-data-table .hr-data-table__body-row-hover:hover > .hr-data-table__body-cell {
+  background: var(--bb-bg-hover) !important;
+}

@@ -1,0 +1,111 @@
+/* ─────────────────────────────────────────────────────────────
+   PAGOS — 2ª pasada: todas las pestañas y lo desplegable (v6.24)
+   Revisadas: Facturas, Documentos y contratos, Pedidos, Suscripciones,
+   Enlaces de pago, Transacciones, Productos, Coupons, Gift Cards,
+   Configuración e Integraciones + menús de pestañas y panel de Filtros.
+   - Panel "Filtros" y demás popovers Highrise (.hr-popover) blancos con
+     radio 3px → tarjeta flotante del tema; "Borrar"/"Aplicar" como texto.
+   - Submenús de las pestañas (Productos ▾, Pedidos ▾…) blancos → tema.
+   - Botones Naive por defecto ("Importar como CSV", "Importar desde
+     Stripe", "Configuración" en Documentos…) blancos → relieve del tema.
+   - "+ Nuevo" de Documentos (.hl-btn bg-primary-500) quedaba sin fondo
+     por la regla ".hl_topbar-tabs button { background: transparent }" →
+     vuelve al acento.
+   - Contenedores de tabla (.table-container) y tablas Naive en blanco en
+     cualquier página (antes sólo en Configuración) → tema.
+   - Íconos de estado vacío (.hl-empty-icon) azules → círculo del tema.
+   ───────────────────────────────────────────────────────────── */
+.hr-popover {
+  background: var(--bb-bg) !important;
+  border: 1px solid var(--bb-divider) !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: 0 14px 34px rgba(28, 38, 43, 0.22) !important;
+}
+.hr-popover .hr-popover__arrow,
+.hr-popover .hr-popover-arrow {
+  background: var(--bb-bg) !important;
+}
+.hr-popover .hr-button.icon-only,
+.hr-popover .hr-button.ui-button.icon-only {
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--bb-text-label) !important;
+}
+.hr-popover .hr-button.icon-only:last-child {
+  color: var(--bb-accent) !important;
+}
+
+.hl_header div:has(> a[id^="tb-sub_"]) {
+  background: var(--bb-bg) !important;
+  border: 1px solid var(--bb-divider) !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: 0 14px 34px rgba(28, 38, 43, 0.22) !important;
+  padding: 4px !important;
+}
+.hl_header a[id^="tb-sub_"] {
+  border-radius: 8px !important;
+  color: var(--bb-text-label) !important;
+}
+.hl_header a[id^="tb-sub_"]:hover,
+.hl_header a[id^="tb-sub_"].active {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-accent) !important;
+}
+
+.hl_wrapper .n-button.n-button--default-type:not(.hl-text-btn):not(.n-button--primary-type):not(.n-button--error-type) {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-text-label) !important;
+}
+.hl_wrapper .n-button.n-button--default-type:not(.hl-text-btn) .n-button__border,
+.hl_wrapper .n-button.n-button--default-type:not(.hl-text-btn) .n-button__state-border {
+  border: none !important;
+}
+
+.hl-btn[class*="bg-primary-"] {
+  background: var(--bb-accent) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hl-btn[class*="bg-primary-"]:hover {
+  filter: brightness(1.08) !important;
+}
+
+.table-container {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  overflow: hidden !important;
+}
+.table-container .ghl-table-container {
+  background: transparent !important;
+  border: none !important;
+}
+.table-container .n-data-table,
+.table-container .n-data-table .n-data-table-wrapper,
+.table-container .n-data-table .n-data-table-base-table,
+.table-container .n-data-table .n-data-table-table,
+.table-container .n-data-table .n-data-table-td,
+.table-container .n-data-table .n-data-table-tr,
+.table-container .n-data-table .n-data-table-thead,
+.table-container .n-data-table .n-data-table-th {
+  background: var(--bb-bg) !important;
+  border-color: var(--bb-divider) !important;
+}
+.table-container .n-data-table .n-data-table-tr:hover > .n-data-table-td {
+  background: var(--bb-bg-hover) !important;
+}
+.hl-empty-icon {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hl-empty-icon svg,
+.hl-empty-icon * {
+  color: var(--bb-text-muted) !important;
+}
+

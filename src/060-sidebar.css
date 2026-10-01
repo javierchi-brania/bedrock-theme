@@ -1,0 +1,329 @@
+/* ─────────────────────────────────────────────────────────────
+   SIDEBAR
+   Brania: <aside style="width:252px; border-radius:28px; box-shadow:...">
+   DOM:    #sidebar-v2, .hl_nav-header, #sb_*
+   ───────────────────────────────────────────────────────────── */
+
+#sidebar-v2 {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  margin: 14px 0 14px 14px !important;
+  border: none !important;
+}
+
+#sidebar-v2 .default-bg-color,
+#sidebar-v2 .lead-connector {
+  background: transparent !important;
+}
+
+/* Logo: el PNG ya trae la burbuja + el texto "BRANIA" horneados adentro
+   (ver brania-logo-sidebar-bubble.png), así que aquí solo se centra y se
+   le da un tamaño razonable — nada de círculo/sombra propios, para no
+   duplicar la burbuja que ya trae la imagen. */
+#sidebar-v2 .agency-logo-container {
+  padding: 16px 14px 10px !important;
+  min-height: 0 !important;
+  margin-bottom: 4px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+#sidebar-v2 .agency-logo {
+  max-height: 96px !important;
+  max-width: 180px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: none !important;
+}
+
+/* Sidebar colapsado: logo compacto para no desbordar */
+#sidebar-v2.w-14 .agency-logo-container {
+  min-height: 0 !important;
+  padding: 10px 6px 8px !important;
+}
+
+#sidebar-v2.w-14 .agency-logo {
+  max-height: 40px !important;
+  max-width: 44px !important;
+}
+
+/* Location switcher → Brania location pill (inset neumorphic) */
+#location-switcher-sidbar-v2 {
+  color: var(--bb-text-strong) !important;
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  margin: 0 8px 12px !important;
+  padding: 10px 12px !important;
+}
+
+/* Nav items → Brania sidebar links
+   FIX 3: se agrega .hl_nav-header-without-footer, que es el contenedor real
+   que usa el submenú de Settings (Company, Team, Billing...) — confirmado
+   inspeccionando el DOM. Sin esto, todo el menú de Settings se queda con el
+   estilo default de la plataforma aunque el resto de la app ya tenga el look Brania. */
+.hl_nav-header .group,
+.hl_nav-header-without-footer .group,
+.hl_nav-settings .group {
+  border-radius: var(--bb-radius-lg) !important;
+  color: var(--bb-text-muted) !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  opacity: 1 !important;
+  margin: 2px 6px !important;
+  padding: 10px 12px !important;
+  position: relative !important;
+  /* Cada ítem crea su PROPIO contexto de apilamiento. Sin esto, el
+     círculo del ícono (::before con z-index:-1) se va detrás del contexto
+     del ancestro (#sidebar-v2) y, cuando el ítem está activo y la fila
+     tiene fondo opaco, la propia fila lo tapa — el círculo "desaparece".
+     Con isolation:isolate el ::before queda encima del fondo de la fila
+     y debajo del ícono/texto, siempre, sin depender de los ancestros. */
+  isolation: isolate !important;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hl_nav-header .group:hover,
+.hl_nav-header-without-footer .group:hover,
+.hl_nav-settings .group:hover {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-strong) !important;
+}
+
+/* Active nav → Brania teal text + soft inset (Dashboard / Contacts / Opportunities
+   y ahora también el ítem activo dentro de Settings, ej. #sb_agency-company-settings) */
+.hl_nav-header .group.active,
+.hl_nav-header .group.exact-active,
+.hl_nav-header-without-footer .group.active,
+.hl_nav-header-without-footer .group.exact-active,
+#sb_dashboard.active,
+#sb_contacts.active,
+#sb_opportunities.active {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+}
+
+/* Color por ítem del menú, tal como el mockup original brania-bedrock.html:
+   NO todos los ítems activos usan el mismo teal — rotan en un ciclo de 6
+   colores (Launchpad rojizo, Dashboard naranja, Conversations azul,
+   Calendars morado, Contacts verde, Opportunities teal, y se repite).
+   Aquí solo van los 3 IDs confirmados hasta ahora — falta pedir los IDs
+   del resto del menú (Launchpad, Conversations, Calendars, Payments, AI
+   Agents, Marketing, Automation, Sites, Memberships, Media Storage,
+   Reputation, Reporting, App Marketplace, Settings) para completar el
+   ciclo en todo el sidebar. Van después de la regla genérica de arriba
+   para ganarle (mismo nivel de especificidad por ID, pero declaradas
+   después). */
+#sb_launchpad.active { color: #b0525c !important; }
+#sb_dashboard.active { color: #c0803e !important; }
+#sb_conversations.active { color: #3f7396 !important; }
+#sb_calendars.active { color: #6f6499 !important; }
+#sb_contacts.active { color: #4d8c74 !important; }
+#sb_opportunities.active { color: #2f7d89 !important; }
+#sb_payments.active { color: #b0525c !important; }
+[id="sb_AI Agents"].active { color: #c0803e !important; }
+#sb_email-marketing.active { color: #3f7396 !important; }
+#sb_automation.active { color: #6f6499 !important; }
+#sb_sites.active { color: #4d8c74 !important; }
+#sb_memberships.active { color: #2f7d89 !important; }
+#sb_app-media.active { color: #b0525c !important; }
+#sb_reputation.active { color: #c0803e !important; }
+#sb_reporting.active { color: #3f7396 !important; }
+#sb_app-marketplace.active { color: #6f6499 !important; }
+#sb_settings.active { color: #4d8c74 !important; }
+
+/* "Go Back" y título "Settings" arriba del submenú — mismo trato visual */
+#backButtonv2 {
+  border-radius: var(--bb-radius-lg) !important;
+  color: var(--bb-text-muted) !important;
+  margin: 2px 6px !important;
+}
+
+#backButtonv2:hover {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-strong) !important;
+}
+
+.menu-title {
+  color: var(--bb-text-strong) !important;
+  font-weight: 800 !important;
+}
+
+.hl_nav-header .nav-title {
+  color: inherit !important;
+  font-weight: inherit !important;
+}
+
+.hl_nav-header .divider {
+  color: var(--bb-text-subtle) !important;
+}
+
+.hl_nav-header .border-b,
+.hl_nav-header hr {
+  border-color: transparent !important;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--bb-divider),
+    transparent
+  ) !important;
+  height: 1px !important;
+}
+
+.hl_collapse-button {
+  color: var(--bb-text-subtle) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+/* FIX 1 — el logo ahora trae su propia burbuja horneada en el PNG (ver
+   arriba, sección SIDEBAR); ya no hace falta forzar un círculo por CSS. */
+
+/* FIX 2 — Buscador con el mismo hundido (inset) que el resto de píldoras
+   del sidebar, en vez de quedar plano y suelto */
+#globalSearchOpener {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  padding: 8px 12px !important;
+  margin: 0 8px 12px !important;
+  width: auto !important;
+}
+
+#globalSearchOpener .search-placeholder {
+  color: var(--bb-text-muted) !important;
+}
+
+#globalSearchOpener .search-shortcut {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-subtle) !important;
+  border-radius: 6px !important;
+}
+
+#quickActions {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+/* FIX 3 — Esquinas parejas en el estado activo. La plataforma trae por su cuenta un
+   radio distinto solo en un lado (probablemente un rounded-l/rounded-r de
+   Tailwind con más especificidad que la nuestra) — se fuerza el radio
+   completo con la clase duplicada, mismo truco que con .hr-card. */
+.hl_nav-header .group.group.active,
+.hl_nav-header .group.group.exact-active,
+.hl_nav-header-without-footer .group.group.active,
+.hl_nav-header-without-footer .group.group.exact-active,
+#sb_dashboard.active,
+#sb_contacts.active,
+#sb_opportunities.active {
+  border-radius: var(--bb-radius-lg) !important;
+}
+
+/* FIX 4 (v2) — Ícono en círculo elevado, esta vez SIN tocar el <img>.
+   El círculo se dibuja como capa aparte con ::before, detrás del ícono
+   (z-index -1), posicionado justo donde arranca (mismo offset que el
+   padding-left del enlace). Así el <img> queda intacto — nada que lo
+   recorte — y se evita el bug de la vez pasada.
+   :not(.divider) — el separador entre Payments y AI Agents también trae
+   la clase "group" (la usa Tailwind para :group-hover, no significa
+   "ítem de nav"), y sin excluirlo le salía su propio círculo suelto.
+   Sombra --bb-shadow-soft en vez de --bb-shadow-raised: a este tamaño
+   chico la sombra grande (pensada para el círculo del logo) se difumina
+   hacia las filas vecinas en vez de leerse como una insignia contenida. */
+.hl_nav-header .group:not(.divider)::before,
+.hl_nav-header-without-footer .group:not(.divider)::before,
+.hl_nav-settings .group:not(.divider)::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bb-bg);
+  box-shadow: var(--bb-shadow-soft);
+  z-index: -1;
+}
+
+/* Revisión diseño (24-sep):
+   1) Ícono más chico dentro del círculo: 20px → 16px.
+   2) Aire entre círculo y texto: antes el texto arrancaba a 2px del borde
+      del círculo (mr-2 de la plataforma = 8px, pero el círculo sobresale 6px del
+      ícono). Geometría nueva: padding-left 14 → ícono 14..30 (centro 22),
+      círculo 30px en left 7 → 7..37 (centro 22), texto en 44 = 7px de aire.
+   3) Ícono inactivo del mismo gris que el texto (#8b9397 aprox): los
+      íconos son imágenes de la plataforma, no fuentes, así que no aceptan `color`;
+      se aplanan a negro y se bajan de opacidad sobre el fondo #e9ebec.
+      El activo sigue en blanco (reglas .active con más especificidad).
+   4) Píldora pareja a ambos lados: el <a> trae w-full (100%) + margin
+      6px a cada lado → se salía 12px por la derecha y pegaba contra el
+      borde del sidebar. Se descuenta el margen del ancho. */
+#sidebar-v2 .group:not(.divider) {
+  padding-left: 14px !important;
+  width: calc(100% - 12px) !important;
+}
+
+#sidebar-v2 .group:not(.divider) img {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  margin-right: 14px !important;
+  filter: brightness(0) opacity(0.42);
+}
+
+/* Activo: el círculo se rellena del acento y el ícono se pone blanco.
+   El filter sí es seguro sobre el <img> (no recorta nada, solo cambia
+   color de los píxeles ya renderizados). */
+.hl_nav-header .group.active::before,
+.hl_nav-header .group.exact-active::before,
+.hl_nav-header-without-footer .group.active::before,
+.hl_nav-header-without-footer .group.exact-active::before,
+#sb_dashboard.active::before,
+#sb_contacts.active::before,
+#sb_opportunities.active::before {
+  background: var(--bb-accent) !important;
+  box-shadow: none !important;
+}
+
+.hl_nav-header .group.active img,
+.hl_nav-header .group.exact-active img,
+.hl_nav-header-without-footer .group.active img,
+.hl_nav-header-without-footer .group.exact-active img,
+#sidebar-v2 .group.active img,
+#sidebar-v2 .group.exact-active img,
+#sidebar-v2 .group.active img.launchpad,
+#sb_dashboard.active img,
+#sb_contacts.active img,
+#sb_opportunities.active img {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Mismo ciclo de color, ahora en el relleno del círculo del ícono
+   (el filter blanco de arriba no cambia — solo el color de fondo). */
+#sb_launchpad.active::before { background: #b0525c !important; }
+#sb_dashboard.active::before { background: #c0803e !important; }
+#sb_conversations.active::before { background: #3f7396 !important; }
+#sb_calendars.active::before { background: #6f6499 !important; }
+#sb_contacts.active::before { background: #4d8c74 !important; }
+#sb_opportunities.active::before { background: #2f7d89 !important; }
+#sb_payments.active::before { background: #b0525c !important; }
+[id="sb_AI Agents"].active::before { background: #c0803e !important; }
+#sb_email-marketing.active::before { background: #3f7396 !important; }
+#sb_automation.active::before { background: #6f6499 !important; }
+#sb_sites.active::before { background: #4d8c74 !important; }
+#sb_memberships.active::before { background: #2f7d89 !important; }
+#sb_app-media.active::before { background: #b0525c !important; }
+#sb_reputation.active::before { background: #c0803e !important; }
+#sb_reporting.active::before { background: #3f7396 !important; }
+#sb_app-marketplace.active::before { background: #6f6499 !important; }
+#sb_settings.active::before { background: #4d8c74 !important; }
+

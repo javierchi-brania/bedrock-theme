@@ -1,0 +1,142 @@
+/* ===== v6.36 Conversaciones: 3 tarjetas elevadas (lista · chat · detalles) como el mockup ===== */
+span#conversations-messages { display: block !important; padding: 0 14px 18px 4px !important; box-sizing: border-box !important; }
+span#conversations-messages > div.flex.flex-col.h-full.relative { background: var(--bb-bg) !important; border: none !important; border-radius: var(--bb-radius-xl) !important; box-shadow: var(--bb-shadow-raised) !important; overflow: hidden; }
+span#conversations-messages > div.flex.flex-col.h-full.relative > div.relative.flex.flex-col.h-full { border-radius: 0 !important; background: transparent !important; }
+span#conversations-messages .conversation-panel, span#conversations-messages [class*="bg-[#F7F9FD]"] { background: transparent !important; }
+div.overflow-hidden.rounded-lg:has(> .bg-contacts-panel) { padding: 0 16px 18px 6px !important; box-sizing: border-box !important; }
+div.overflow-hidden.rounded-lg > .bg-contacts-panel.bg-contacts-panel { background: var(--bb-bg) !important; border: none !important; border-radius: var(--bb-radius-xl) !important; box-shadow: var(--bb-shadow-raised) !important; overflow: hidden; }
+.bg-contacts-panel #record-details-lhs { box-shadow: none !important; background: transparent !important; }
+#conversations-panel > #conversations-list { padding-bottom: 18px !important; box-sizing: border-box !important; }
+#conversations-layout #conversations-content, #conversations-layout #conversations-main-column { overflow: visible !important; }
+input[id^="composer-input-"] { background: transparent !important; }
+
+/* ===== v6.37 Conversaciones · smooth edges en todo lo clickeable (menús, filtros, modales, composer, fechas, pestañas, bordes suaves de tarjetas, rail y paneles) ===== */
+/* ===== v6.37 Conversaciones · smooth edges (burbujas, pestañas de detalles) ===== */
+[class*="chat-bubble-"]::after, [class*="chat-bubble-"]::before { display: none !important; }
+.chat-bubble-inbound.chat-bubble-inbound { border-radius: 8px 18px 18px 18px !important; }
+[class*="chat-bubble-"]:not(.chat-bubble-inbound) { border-radius: 18px 8px 18px 18px !important; }
+#conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail { overflow: visible !important; padding: 3px !important; border-radius: var(--bb-radius-sm) !important; }
+#conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab-wrapper { flex: 1 1 auto !important; min-width: 0 !important; }
+#conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab { padding: 4px 4px !important; min-width: 0 !important; max-width: 100% !important; overflow: hidden !important; justify-content: center; font-size: 11.5px !important; }
+#conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab__label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab__label, #conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab__label * { font-size: 11px !important; letter-spacing: 0 !important; }
+[class*="chat-"][class$="-hidden"], .chat-outbound-hidden, .chat-inbound-hidden, .chat-internal-comment-hidden { display: none !important; }
+/* Conversaciones › Filtros (drawer) */
+.hr-drawer:has(#and-or-toggle-or) .border-b.border-gray-300 { border-bottom-color: var(--bb-divider) !important; }
+.hr-drawer:has(#and-or-toggle-or) .bg-gray-50 { background: transparent !important; }
+.hr-drawer:has(#and-or-toggle-or) .font-inter.bg-white { background: var(--bb-bg) !important; border-radius: var(--bb-radius-lg) !important; box-shadow: var(--bb-shadow-soft) !important; padding: 6px 4px !important; }
+/* Checkboxes Highrise: esquinas suaves y estado marcado visible (global) */
+.hr-checkbox .hr-checkbox-box.hr-checkbox-box, .hr-checkbox .hr-checkbox-box .hr-checkbox-box__border { border-radius: 6px !important; }
+.hr-checkbox.hr-checkbox--checked .hr-checkbox-box.hr-checkbox-box, .hr-checkbox.hr-checkbox--indeterminate .hr-checkbox-box.hr-checkbox-box { background: var(--bb-accent) !important; box-shadow: 0 2px 6px var(--bb-accent-glow) !important; }
+.hr-checkbox.hr-checkbox--checked .hr-checkbox-box__border, .hr-checkbox.hr-checkbox--indeterminate .hr-checkbox-box__border { border-color: transparent !important; }
+.hr-checkbox.hr-checkbox--checked .check-icon, .hr-checkbox.hr-checkbox--checked .check-icon path { fill: #fff !important; }
+#bulk-select-all-checkbox.hr-checkbox--checked .hr-checkbox-box, #bulk-select-all-checkbox.hr-checkbox--indeterminate .hr-checkbox-box { background: var(--bb-accent) !important; }
+/* menús desplegables Highrise: sin la caja blanca interna */
+.hr-popover.hr-dropdown-menu .hr-dropdown-menu { background: transparent !important; box-shadow: none !important; border-radius: inherit !important; }
+.hr-popover.hr-dropdown-menu .hr-dropdown-option { border-radius: 10px !important; }
+/* Modales: tarjetas blancas internas → tarjetas suaves del tema (global) */
+:is(.hr-modal, .n-modal, [role="dialog"]) :is(.bg-white.rounded, .bg-white.rounded-md, .bg-white.rounded-lg, .bg-white.rounded-xl):is(.border, .border-2, .border-solid) { background: var(--bb-bg) !important; border: none !important; border-radius: var(--bb-radius-lg) !important; box-shadow: var(--bb-shadow-soft) !important; }
+:is(.hr-modal, .n-modal, [role="dialog"]) :is(.bg-white.rounded, .bg-white.rounded-md, .bg-white.rounded-lg, .bg-white.rounded-xl):is(.border, .border-2, .border-solid) img { mix-blend-mode: multiply; }
+.hr-dialog__content--text div.flex.gap-2:has(> .bg-white.border-2) { gap: 18px !important; padding: 4px 0 14px !important; }
+.hr-button.hr-button--secondary .hr-button__border { border-color: transparent !important; }
+/* opciones de selects: hover/activo con esquinas suaves (global) */
+.hr-base-select-option::before, .n-base-select-option::before { border-radius: 10px !important; }
+.hr-base-select-option, .n-base-select-option { border-radius: 10px !important; }
+/* botón primario: al enfocar/presionar no vuelve al azul de la plataforma (global) */
+.hr-button.hr-button--default-type.hr-button--primary:is(:focus, :focus-visible, :active):not(.hr-button--disabled) { background-color: var(--bb-accent-dark) !important; color: #fff !important; }
+/* popovers: sin tarjeta blanca interna (global) */
+.hr-popover .hr-popover__content > :is(.bg-white, .bg-gray-50) { background: transparent !important; border: none !important; box-shadow: none !important; border-radius: inherit !important; }
+#chat-filter-popover button[id^="conv-conversation-header-filter-option"] { border-radius: 10px !important; }
+/* Conversaciones › composer expandido */
+div.rounded-\[4px\].overflow-hidden:has(> #composer-textarea) { border: none !important; border-radius: var(--bb-radius-lg) !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-inset) !important; }
+#composer-textarea > div.rounded-tl-\[4px\] { background: transparent !important; border-bottom-color: var(--bb-divider) !important; border-radius: var(--bb-radius-lg) var(--bb-radius-lg) 0 0 !important; }
+#composer-textarea .rounded-md.bg-white, #composer-textarea .rounded-md:not([class*="bg-"]) { background: transparent !important; }
+#composer-textarea div.w-full.h-\[120px\].bg-white { border-radius: var(--bb-radius-sm) !important; margin: 6px; width: calc(100% - 12px) !important; }
+
+#conversations-layout #conversations-content, #conversations-layout #conversations-main-column { min-width: 0 !important; }
+/* paneles del rail derecho: separa "+ Añadir" del botón cerrar */
+.bg-contacts-panel #close-panel-button { margin-left: 8px !important; }
+/* tablas dentro de pestañas: aire arriba para que la tarjeta no choque con la barra de pestañas */
+.hr-tab-pane > .hr-data-table-wrapper { margin-top: 10px !important; border-color: transparent !important; }
+/* Fragmentos: editor del cuerpo como campo hundido suave */
+#snippet-editor-wrapper, :is(.hr-modal, [role="dialog"]) section.border.border-gray-300.rounded-md { border: none !important; border-radius: var(--bb-radius-md) !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-inset) !important; overflow: hidden; }
+#snippet-editor-wrapper textarea, #snippet-editor-wrapper .bg-white, #snippet-editor-wrapper [class*="bg-gray-"] { background: transparent !important; }
+#snippet-editor-wrapper .border-b, #snippet-editor-wrapper .border-t { border-color: var(--bb-divider) !important; }
+/* pestañas Highrise (línea/barra): hover sin el rectángulo azul cuadrado (global) */
+.hr-tabs:not(.hr-tabs--segment-type) .hr-tabs-tab { border-radius: 10px !important; }
+.hr-tabs:not(.hr-tabs--segment-type) .hr-tabs-tab:hover, .hr-tabs:not(.hr-tabs--segment-type) .hr-tabs-tab.hr-tabs-tab--active:hover { background-color: var(--bb-bg-hover) !important; }
+/* botón secundario: al enfocar/presionar no aparece el azul de la plataforma (global) */
+.hr-button.hr-button--secondary:is(:focus, :focus-visible, :active):not(.hr-button--disabled) { background-color: var(--bb-bg) !important; outline: none !important; }
+.hr-button.hr-button--secondary:active:not(.hr-button--disabled) { box-shadow: var(--bb-shadow-inset) !important; }
+.hr-button.hr-button--secondary:is(:focus, :active) .hr-button__state-border { border-color: transparent !important; }
+.hr-button.hr-button--secondary:focus-visible { box-shadow: var(--bb-shadow-soft), 0 0 0 3px var(--bb-accent-glow) !important; }
+/* tablas dentro de pestañas: el contenedor de pestañas ya no recorta la sombra (global) */
+.hr-tabs-pane-wrapper:has(.hr-data-table-wrapper, .sla-dashboard-canvas, #sla-settings-container) { padding: 2px 18px 36px !important; margin: 0 -18px -14px !important; }
+/* selector de fechas Highrise: panel y rango con esquinas suaves (global) */
+.hr-datepicker__popover .hr-date-panel { background: transparent !important; border-radius: inherit !important; }
+.hr-date-panel-date::before { background-color: rgba(47, 125, 137, .12) !important; }
+.hr-date-panel-date--start::before { border-radius: 10px 0 0 10px !important; }
+.hr-date-panel-date--end::before { border-radius: 0 10px 10px 0 !important; }
+.hr-date-panel-date--covered:nth-child(7n+1)::before, .hr-date-panel-date--end:nth-child(7n+1)::before { border-radius: 10px 0 0 10px !important; }
+.hr-date-panel-date--covered:nth-child(7n)::before, .hr-date-panel-date--start:nth-child(7n)::before { border-radius: 0 10px 10px 0 !important; }
+.hr-date-panel-date::after { border-radius: 10px !important; }
+.hr-date-panel-date--selected::after { background-color: var(--bb-accent) !important; border-color: var(--bb-accent) !important; box-shadow: 0 2px 6px var(--bb-accent-glow) !important; }
+.hr-date-panel-date--selected { color: #fff !important; }
+.hr-date-panel-date--selected * { color: #fff !important; }
+.hr-date-panel-date--covered:nth-child(7n+1):nth-child(7n)::before { border-radius: 10px !important; }
+.hr-date-panel-date--end:nth-child(7n+1)::before { border-radius: 10px !important; }
+.hr-date-panel-date:not(.hr-date-panel-date--covered):not(.hr-date-panel-date--start) + .hr-date-panel-date--end::before { border-radius: 10px !important; left: 4px !important; }
+/* Conversaciones › Analítica (SLA) */
+.sla-dashboard-canvas { background: var(--bb-bg) !important; border: none !important; border-radius: var(--bb-radius-xl) !important; box-shadow: var(--bb-shadow-raised) !important; }
+.sla-dashboard-canvas img { mix-blend-mode: multiply; }
+/* Conversaciones › Configuración (ANS): la tarjeta no se recorta */
+#sla-settings-container { padding: 6px 18px 30px !important; margin: 0 -18px !important; overflow: visible !important; }
+/* composer colapsado: el campo ya no tapa el hundido del contenedor */
+#conv-composer-inline-expand-trigger { background: transparent !important; padding-left: 12px !important; padding-right: 12px !important; }
+#conv-composer-inline-expand-trigger:not(.bg-white):not([class*="bg-gray"]) { background: rgba(250, 236, 195, .45) !important; border-radius: 12px !important; height: 32px !important; margin: 4px 0 !important; padding-top: 6px !important; padding-bottom: 6px !important; }
+#conv-composer-footer > div > .border-r, #conv-composer-footer .border-l { border-color: var(--bb-divider) !important; }
+#conv-composer-footer .bg-primary-600.rounded-md { border-radius: 12px !important; }
+#conv-composer-footer .bg-primary-600 .w-px { background: rgba(255,255,255,.35) !important; }
+/* paneles del rail derecho */
+.bg-contacts-panel #close-panel-button { margin-left: 10px !important; }
+/* Conversaciones: campos hundidos con borde definido (el lado derecho ya no se pierde) */
+#conversations-new-app :is(.hr-input:not(.hr-input--textarea), .hr-base-selection, .hr-tabs-rail) { box-shadow: inset 3px 3px 7px rgba(166,174,178,.55), inset -3px -3px 7px rgba(255,255,255,.95), 0 0 0 1px rgba(166,174,178,.18) !important; }
+/* Conversaciones: las 3 tarjetas sin bordes duros (no se recorta el brillo superior/izquierdo de la sombra) */
+div.overflow-hidden:has(> span#conversations-messages) { overflow: visible !important; min-width: 0 !important; }
+div.overflow-hidden.rounded-lg:has(> .bg-contacts-panel) { overflow: visible !important; min-width: 0 !important; }
+#conversations-list { overflow: visible !important; }
+/* paneles del rail derecho: la cabecera ya no recorta la sombra de "+ Añadir" y × */
+div.overflow-hidden.rounded-lg > .bg-contacts-panel.bg-contacts-panel { padding-top: 2px !important; }
+.bg-contacts-panel > .overflow-hidden.flex-1 { padding-top: 14px !important; box-sizing: border-box !important; }
+/* paneles del rail derecho: todos los botones de texto pequeños son la misma pastilla elevada */
+.bg-contacts-panel .hr-button.hr-button--text:is(.hr-button--3xs, .hr-button--2xs):not(#close-panel-button) { padding: 0 12px !important; height: 30px !important; min-height: 30px !important; border-radius: 999px !important; white-space: nowrap !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; flex-shrink: 0 !important; }
+.bg-contacts-panel .hr-button.hr-button--text:is(.hr-button--3xs, .hr-button--2xs):not(#close-panel-button):hover { box-shadow: var(--bb-shadow-raised) !important; color: var(--bb-accent) !important; }
+.bg-contacts-panel .hr-button.hr-button--text:is(.hr-button--3xs, .hr-button--2xs):not(#close-panel-button):active { box-shadow: var(--bb-shadow-inset) !important; }
+.bg-contacts-panel .justify-between:has(> * #close-panel-button, > #close-panel-button) { gap: 10px !important; min-height: 40px; }
+/* rail derecho: el botón activo se ve presionado (neumorfismo) */
+button.sidebar-option-button { transition: box-shadow .15s, color .15s !important; }
+#contacts-highrise-right-side-bar-wrapper nav button.sidebar-option-button.bg-white.text-blue-600 { border-radius: 50% !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-inset) !important; color: var(--bb-accent) !important; }
+#contacts-highrise-right-side-bar-wrapper nav button.sidebar-option-button.bg-white.text-blue-600 svg { color: var(--bb-accent) !important; }
+.bg-contacts-panel .hr-button:is(.hr-button--ghost, .hr-button--secondary):is(.hr-button--sm, .hr-button--xs, .hr-button--md):not(#close-panel-button):not(.icon-only):not(.hr-button--circle) { height: 30px !important; min-height: 30px !important; padding: 0 12px !important; font-size: 13px !important; border-radius: 999px !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; }
+.bg-contacts-panel .hr-button:is(.hr-button--ghost, .hr-button--secondary) .hr-button__content { font-size: 13px !important; }
+.bg-contacts-panel #agent-logs-filters { width: 30px !important; height: 30px !important; border-radius: 50% !important; }
+.bg-contacts-panel .n-button.n-button--medium-type:not(.n-button--circle-shape) { height: 30px !important; padding: 0 12px !important; font-size: 13px !important; border-radius: 999px !important; }
+.bg-contacts-panel .n-button.n-button--medium-type .n-button__content { font-size: 13px !important; }
+.bg-contacts-panel .hr-button:is(.hr-button--ghost, .hr-button--secondary, .hr-button--text) :is(p, .hr-text, span) { font-size: 13px !important; }
+/* Conversaciones › Filtros: cabecera, espaciado y selector Y/O neumórfico */
+.hr-drawer:has(#and-or-toggle-or) .border-b.border-gray-300 { padding: 10px 14px !important; gap: 10px; min-height: 52px; }
+#filter-clear-button.hr-button { padding: 0 12px !important; height: 30px !important; border-radius: 999px !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; margin-right: 10px !important; }
+#filter-clear-button.hr-button:hover { box-shadow: var(--bb-shadow-raised) !important; color: var(--bb-accent) !important; }
+#filter-close-button.hr-button { width: 30px !important; height: 30px !important; padding: 0 !important; border-radius: 50% !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; }
+.hr-drawer:has(#and-or-toggle-or) .bg-gray-50.mx-2.my-3 { margin: 18px 16px !important; }
+.hr-drawer:has(#and-or-toggle-or) .font-inter.bg-white { padding: 14px 12px 16px !important; }
+.hr-drawer:has(#and-or-toggle-or) .font-inter.bg-white .hr-select-wrapper { margin-bottom: 10px !important; }
+.hr-drawer:has(#and-or-toggle-or) div.rounded-md:has(#and-or-toggle-or) { border: none !important; border-radius: 999px !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-inset) !important; padding: 4px !important; gap: 4px; overflow: visible !important; }
+.hr-drawer:has(#and-or-toggle-or) div.rounded-md:has(#and-or-toggle-or) > div { background: transparent !important; border-radius: 999px !important; overflow: visible !important; margin: 0 !important; padding: 0 !important; transition: box-shadow .15s; }
+.hr-drawer:has(#and-or-toggle-or) div.rounded-md:has(#and-or-toggle-or) > div[class*="!bg-white"] { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; }
+.hr-drawer:has(#and-or-toggle-or) div.rounded-md:has(#and-or-toggle-or) > .hr-divider { display: none !important; }
+.hr-drawer:has(#and-or-toggle-or) div.rounded-md:has(#and-or-toggle-or) button { background: transparent !important; box-shadow: none !important; border-radius: 999px !important; min-width: 40px; height: 26px !important; color: var(--bb-text-muted) !important; }
+.hr-drawer:has(#and-or-toggle-or) div.rounded-md:has(#and-or-toggle-or) > div[class*="!bg-white"] button { color: var(--bb-accent) !important; }
+.hr-drawer:has(#and-or-toggle-or) div.rounded-md:has(#and-or-toggle-or) button .hr-button__border, .hr-drawer:has(#and-or-toggle-or) div.rounded-md:has(#and-or-toggle-or) button .hr-button__state-border { border-color: transparent !important; }
+
+

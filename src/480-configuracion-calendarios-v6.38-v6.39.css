@@ -1,0 +1,53 @@
+/* ===== v6.38 Configuración › Calendarios (iframe de la plataforma): marco neumórfico ===== */
+.hl_settings--body:has(> section #calendarSetupPage, #calendarSetupPage) { background: var(--bb-bg) !important; }
+#calendarSetupPage { padding: 44px 18px 22px 10px !important; box-sizing: border-box !important; margin-top: 0 !important; }
+#calendarSetupPage > iframe { border-radius: var(--bb-radius-xl) !important; box-shadow: var(--bb-shadow-raised) !important; background: #f9fafb; }
+
+
+/* ===== v6.39 Configuración › Calendarios: barra superior + Alquileres ===== */
+.topmenu-nav:has(a.router-link-exact-active) a.router-link-active:not(.router-link-exact-active), .topmenu-nav:has(a.router-link-exact-active) a.router-link-active:not(.router-link-exact-active) * { color: var(--bb-text-muted) !important; border-bottom-color: transparent !important; }
+.hl_settings--body:has(#CalendarRentals) { background: var(--bb-bg) !important; }
+#CalendarRentals .hl-wrapper-container, #CalendarRentals [class*="bg-[#F9FAFB]"] { background: transparent !important; box-shadow: none !important; }
+#CalendarRentals div.font-semibold.cursor-pointer[class*="py-[8px]"] { border-radius: 999px !important; transition: box-shadow .15s, background .15s; }
+#CalendarRentals div.font-semibold.cursor-pointer[class*="py-[8px]"].bg-transparent:hover { background: var(--bb-bg-hover) !important; }
+#CalendarRentals div.font-semibold.cursor-pointer[class*="py-[8px]"].bg-primary-50 { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; color: var(--bb-accent) !important; }
+#CalendarRentals div.border-primary-700 { border-color: transparent !important; background: transparent !important; color: var(--bb-accent) !important; }
+#CalendarRentals div.flex.flex-row.items-center:has(> div.border-primary-700) { border-radius: 999px !important; box-shadow: var(--bb-shadow-soft) !important; overflow: hidden; background: var(--bb-bg) !important; }
+#CalendarRentals div.flex.flex-row.items-center:has(> div.border-primary-700) > div + div { border-left: 1px solid var(--bb-divider) !important; }
+#CalendarRentals div.flex.flex-row.items-center:has(> div.border-primary-700) * { color: var(--bb-accent) !important; }
+#CalendarRentals .bg-primary-50.border-primary-50 { background: var(--bb-bg) !important; border-color: transparent !important; border-radius: 999px !important; box-shadow: var(--bb-shadow-soft) !important; }
+#CalendarRentals .bg-primary-50.border-primary-50 * { color: var(--bb-accent) !important; }
+#CalendarRentals div.flex.flex-row.justify-between.items-center.bg-primary-50[class*="px-[14px]"] { background: var(--bb-bg) !important; border-radius: var(--bb-radius-sm) !important; box-shadow: var(--bb-shadow-inset) !important; }
+#CalendarRentals div.flex.flex-row.justify-between.items-center.bg-primary-50[class*="px-[14px]"] * { color: var(--bb-accent) !important; }
+#CalendarRentals div.flex.flex-row.justify-between.items-center[class*="px-[14px]"] { border-radius: var(--bb-radius-sm) !important; }
+#CalendarRentals .border-gray-200:is(.border-b, .border-t) { border-color: var(--bb-divider) !important; }
+#CalendarRentals div.border.border-gray-200.rounded-lg { border: none !important; border-radius: var(--bb-radius-xl) !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; overflow: hidden; }
+#CalendarRentals div.border.border-gray-200.rounded-lg > .bg-gray-50 { background: transparent !important; border-color: var(--bb-divider) !important; border-radius: 0 !important; }
+#CalendarRentals .rentalsContainer { overflow: visible !important; }
+#CalendarRentals img { mix-blend-mode: multiply; }
+.topmenu-nav:has(a.router-link-exact-active) a.router-link-active:not(.router-link-exact-active)::after { background: transparent !important; opacity: 0 !important; }
+#CalendarRentals div.overflow-y-auto.rounded-lg:has(> #listingsTableContainer) { padding: 18px 18px 30px 18px !important; margin: -18px -18px -30px -18px !important; border-radius: 0 !important; }
+#CalendarRentals div.border.border-gray-200.rounded-lg .rounded-b-lg { border-radius: 0 0 var(--bb-radius-xl) var(--bb-radius-xl) !important; background: transparent !important; }
+#CalendarRentals .table-container .ghl-table-container { box-shadow: none !important; background: transparent !important; }
+#CalendarRentals .table-container { border-radius: var(--bb-radius-xl) !important; }
+/* menús verticales Naive (n-menu): elemento seleccionado hundido y redondeado (global) */
+.n-menu.n-menu--vertical { padding: 4px !important; }
+.n-menu .n-menu-item-content::before { border-radius: 12px !important; left: 4px !important; right: 4px !important; }
+.n-menu .n-menu-item-content.n-menu-item-content--selected::before { background-color: var(--bb-bg) !important; box-shadow: var(--bb-shadow-inset) !important; }
+.n-menu .n-menu-item-content.n-menu-item-content--selected, .n-menu .n-menu-item-content.n-menu-item-content--selected * { color: var(--bb-accent) !important; }
+.n-menu .n-menu-item-content:not(.n-menu-item-content--selected):hover::before { background-color: var(--bb-bg-hover) !important; }
+/* Configuración con sub-navegación en la cabecera: el contenido empieza debajo de la barra */
+.sidebar-v2-location:has(.hl_header .topmenu-nav) .hl_settings--body { padding-top: 146px !important; background: var(--bb-bg) !important; }
+.sidebar-v2-location:has(.hl_header .topmenu-nav) #calendarSetupPage { padding-top: 6px !important; }
+.hr-tabs-pane-wrapper:has(> .hr-tab-pane > .hr-card) { padding: 2px 18px 36px !important; margin: 0 -18px -14px !important; }
+/* Conexiones › Google: aviso como tarjeta hundida suave */
+.calendars-organic-booking-container .bg-primary-50 { background: var(--bb-bg) !important; border-radius: var(--bb-radius-lg) !important; box-shadow: var(--bb-shadow-inset) !important; padding: 18px 16px !important; }
+.calendars-organic-booking-container.calendars-organic-booking-container a[class] { color: var(--bb-accent) !important; }
+#CalendarRentals div.overflow-y-auto[class*="max-h-[300px]"] { padding: 6px 16px 10px 8px !important; margin: -6px -16px -10px -8px !important; }
+.sidebar-v2-location:has(.hl_header .topmenu-nav) .hl_settings--body:has(#CalendarRentals) { padding-top: 132px !important; }
+#CalendarRentals div.flex.flex-row.justify-between.items-center.bg-primary-50[class*="px-[14px]"], .calendars-organic-booking-container .bg-primary-50 { box-shadow: inset 3px 3px 7px rgba(166,174,178,.55), inset -3px -3px 7px rgba(255,255,255,.95), 0 0 0 1px rgba(166,174,178,.18) !important; }
+/* Conexiones: la tarjeta dentro de pestañas muestra toda su sombra */
+.hr-tabs-pane-wrapper:has(> .hr-tab-pane > .hr-card) { overflow: visible !important; }
+.sidebar-v2-location:has(.hl_header .topmenu-nav) .hl_settings--body:has([id*="n-tabs"][id$="-panel-calendars"], [id*="-panel-videoconferencing"], .calendars-organic-booking-container) { padding-top: 120px !important; }
+.calendars-organic-booking-container { --primary-600: var(--bb-accent) !important; --primary-700: var(--bb-accent-dark) !important; }
+

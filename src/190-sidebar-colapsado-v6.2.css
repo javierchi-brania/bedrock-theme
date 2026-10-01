@@ -1,0 +1,38 @@
+/* ─────────────────────────────────────────────────────────────
+   SIDEBAR COLAPSADO (v6.2)
+   Con el menú colapsado (#sidebar-v2.w-14, 56px) las reglas del menú
+   expandido dejaban el ícono pegado a la izquierda (padding-left 14px +
+   margin-right del ícono) y el círculo del ::before en left:7px, así que
+   el círculo se salía y se cortaba por la derecha. Aquí se centra todo.
+   ───────────────────────────────────────────────────────────── */
+#sidebar-v2.w-14 .hl_nav-header,
+#sidebar-v2.w-14 .hl_nav-header-without-footer {
+  scrollbar-width: none !important; /* la barra de scroll quitaba 10px */
+}
+#sidebar-v2.w-14 .group:not(.divider) {
+  width: 36px !important;
+  min-width: 36px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  justify-content: center !important;
+}
+#sidebar-v2.w-14 .group:not(.divider)::before {
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+#sidebar-v2.w-14 .group:not(.divider) img,
+#sidebar-v2.w-14 .group:not(.divider) i,
+#sidebar-v2.w-14 .group:not(.divider) svg {
+  margin: 0 !important;
+}
+/* Íconos Font Awesome (SaaS, Afiliados, Plantillas, Universidad, App):
+   salían negros; se igualan al gris de los íconos en imagen. */
+#sidebar-v2 .group:not(.divider) .nav-fa-icon {
+  color: var(--bb-text-muted) !important;
+}
+#sidebar-v2 .group.active .nav-fa-icon,
+#sidebar-v2 .group.exact-active .nav-fa-icon {
+  color: #fff !important;
+}

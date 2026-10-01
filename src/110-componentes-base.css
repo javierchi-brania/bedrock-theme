@@ -1,0 +1,403 @@
+/* ─────────────────────────────────────────────────────────────
+   SHARED COMPONENTS (buttons, inputs, modals, tables)
+   ───────────────────────────────────────────────────────────── */
+
+.hr-button,
+.hl-btn,
+.btn {
+  font-family: var(--bb-font) !important;
+  border-radius: var(--bb-radius-md) !important;
+}
+
+.hr-button--default-type,
+.hl-btn,
+.btn-secondary {
+  background: var(--bb-bg) !important;
+  color: var(--bb-text-label) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  font-weight: 700 !important;
+}
+
+.hr-button--primary-type,
+.btn-primary {
+  background: var(--bb-accent) !important;
+  color: var(--bb-white) !important;
+  border: none !important;
+  box-shadow: 6px 6px 16px var(--bb-accent-glow),
+    -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
+}
+
+/* NOTA: en Opportunities los botones traen una clase compañera .ui-button
+   (ej. "hr-button hr-button--default-type ui-button") — La plataforma parece tener
+   ahí una regla nativa con ese selector compuesto que le gana a la
+   regla de arriba de una sola clase, igual que pasó con .hr-card. Se
+   sube la especificidad con la combinación real vista en el HTML, y se
+   refuerza el color también en el contenido/ícono del botón, no solo
+   en el fondo. */
+.ui-button.hr-button--default-type,
+.hr-button.hr-button--default-type.hr-button--default-type {
+  background: var(--bb-bg) !important;
+  color: var(--bb-text-label) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+.ui-button.hr-button--default-type .hr-button__content,
+.hr-button.hr-button--default-type.hr-button--default-type .hr-button__content {
+  color: var(--bb-text-label) !important;
+}
+
+.ui-button.hr-button--primary-type,
+.hr-button.hr-button--primary-type.hr-button--primary-type {
+  background: var(--bb-accent) !important;
+  color: var(--bb-white) !important;
+  border: none !important;
+  box-shadow: 6px 6px 16px var(--bb-accent-glow),
+    -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
+}
+
+.ui-button.hr-button--primary-type .hr-button__content,
+.ui-button.hr-button--primary-type .hr-button__content *,
+.hr-button.hr-button--primary-type.hr-button--primary-type .hr-button__content,
+.hr-button.hr-button--primary-type.hr-button--primary-type .hr-button__content * {
+  color: var(--bb-white) !important;
+  opacity: 1 !important;
+}
+
+/* Highrise usa --primary/--secondary/--text como modificador en vez de
+   --primary-type/--default-type (confirmado en el modal de "nueva
+   conversación") — se agregan aparte porque no son el mismo nombre de
+   clase, aunque el resultado visual sea el mismo. */
+.hr-button--primary {
+  background: var(--bb-accent) !important;
+  color: var(--bb-white) !important;
+  border: none !important;
+  box-shadow: 6px 6px 16px var(--bb-accent-glow),
+    -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Igual que "Purchase Now": el texto a veces no hereda el blanco por una
+   clase/variable interna del componente anidada — se refuerza en
+   cualquier botón primario y sus hijos, no solo el de esa tarjeta puntual. */
+.hr-button--primary,
+.hr-button--primary * {
+  color: var(--bb-white) !important;
+  opacity: 1 !important;
+}
+
+.hr-button--secondary {
+  background: var(--bb-bg) !important;
+  color: var(--bb-text-label) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+/* Mismo refuerzo de especificidad que .hr-button--default-type/--primary-type
+   con .ui-button, pero para --secondary (visto en "Clear sample data" de
+   Email Marketing) — por si trae el mismo problema de especificidad. */
+.ui-button.hr-button--secondary,
+.hr-button.hr-button--secondary.hr-button--secondary {
+  background: var(--bb-bg) !important;
+  color: var(--bb-text-label) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+.ui-button.hr-button--secondary .hr-button__content,
+.ui-button.hr-button--secondary .hr-button__content *,
+.hr-button.hr-button--secondary.hr-button--secondary .hr-button__content,
+.hr-button.hr-button--secondary.hr-button--secondary .hr-button__content * {
+  color: var(--bb-text-label) !important;
+  opacity: 1 !important;
+}
+
+/* FIX: .hr-button--text NO debe forzar un color parejo — se usa tanto
+   para iconos apagados (la X de cerrar modal) como para botones tipo link
+   con su propio color intencional (ej. "Go to manual actions →", "Quick
+   filters", que traían su propio azul vía --n-text-color). Forzar gris ahí
+   apagaba justo lo que debía verse como acción clickeable. Se deja que
+   cada instancia use su propio color. */
+.hr-button--text {
+  background: transparent !important;
+}
+
+.hr-button--text:hover {
+  background: var(--bb-bg-hover) !important;
+}
+
+/* ── Hilo de conversación abierto (mensajes + composer) ────────────────── */
+
+/* Shell del panel de mensajes — que combine con el fondo de la lista en
+   vez de quedar blanco puro, ya que visualmente se pegan como una sola
+   tarjeta (la lista redondea solo su esquina superior izquierda). */
+#conversations-messages > div,
+#conversations-messages > div > div {
+  background: var(--bb-bg) !important;
+}
+
+[data-testid="CENTRALPANEL_NAME"] {
+  color: var(--bb-text-strong) !important;
+}
+
+/* Separador de fecha ("Yesterday") */
+.hr-tag--round.hr-tag--gray {
+  background: var(--bb-bg) !important;
+  color: var(--bb-text-muted) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border: none !important;
+}
+
+/* Avisos de sistema dentro del hilo (ej. "DnD enabled by customer...") */
+.message-item > div > div {
+  background: var(--bb-bg) !important;
+  border-color: var(--bb-divider) !important;
+}
+
+/* Barra superior del composer (selector de canal SMS/Email + Internal
+   Comment) */
+#composer-textarea > div:first-child {
+  background: var(--bb-bg-hover) !important;
+  border-color: var(--bb-divider) !important;
+}
+
+#conv-channel-bar-provider-trigger {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+#conv-channel-bar-provider-trigger .text-primary-600 {
+  color: var(--bb-accent) !important;
+}
+
+/* Tarjeta "No Phone Number Added" — mismo tratamiento neumórfico que el
+   resto de tarjetas (antes se veía como un rectángulo gris plano) */
+div:has(> #conv-purchase-phone-number-button) {
+  background: var(--bb-bg) !important;
+  border-radius: 0 var(--bb-radius-lg) var(--bb-radius-lg) 0 !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  border-left: 3px solid var(--bb-accent) !important;
+}
+
+div:has(> #conv-purchase-phone-number-button) .mb-2 p:nth-child(1) {
+  color: var(--bb-text-strong) !important;
+}
+
+div:has(> #conv-purchase-phone-number-button) .mb-2 p:nth-child(2) {
+  color: var(--bb-text-label) !important;
+}
+
+/* El botón "Purchase Now" ya tiene .hr-button--primary (cubierto arriba),
+   pero el color visible sigue viniendo de una variable interna del
+   componente (--n-color), no solo de la clase — se pisa por id también,
+   la clase y la variable, para no depender de cuál gane. */
+#conv-purchase-phone-number-button {
+  background: var(--bb-accent) !important;
+  border-color: var(--bb-accent) !important;
+  --n-color: var(--bb-accent) !important;
+  --n-color-hover: var(--bb-accent-dark) !important;
+  --n-color-pressed: var(--bb-accent-dark) !important;
+  --n-border: 1px solid var(--bb-accent) !important;
+}
+
+/* El texto vive en un <p> anidado (hr-text) con su propia clase de color
+   que pisa lo heredado — se fuerza en blanco directo y en los hijos.
+   También se fuerza opacity:1 porque el texto se veía descolorido, como
+   con transparencia encima en vez de un gris sólido. */
+#conv-purchase-phone-number-button,
+#conv-purchase-phone-number-button * {
+  color: var(--bb-white) !important;
+  opacity: 1 !important;
+  --n-text-color: var(--bb-white) !important;
+  --n-text-color-disabled: var(--bb-white) !important;
+  --n-text-color-hover: var(--bb-white) !important;
+  --n-text-color-pressed: var(--bb-white) !important;
+  --n-text-color-focus: var(--bb-white) !important;
+}
+
+/* Botón de enviar (círculo con la flecha) */
+div:has(> #conv-send-button-simple) {
+  background: var(--bb-accent) !important;
+}
+
+/* ── Manual Actions (y probablemente Snippets / Trigger Links, que
+   comparten los mismos componentes genéricos hr-data-table / hr-empty) ── */
+
+.conversationsUtilitiesApp {
+  background: var(--bb-bg) !important;
+}
+
+.conversationsUtilitiesApp .hr-text-4xl {
+  color: var(--bb-text-strong) !important;
+}
+
+.hr-data-table-wrapper {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  overflow: hidden !important;
+}
+
+.hr-data-table__cell-header {
+  background: var(--bb-bg) !important;
+  color: var(--bb-text-label) !important;
+  border-color: var(--bb-divider) !important;
+}
+
+.hr-data-table__body {
+  background: var(--bb-bg) !important;
+}
+
+/* Checkbox genérico de Highrise (aparece en tablas, listas de tareas, etc.) */
+.hr-checkbox-box {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border: none !important;
+}
+
+/* Estado vacío ("Good Work! / You have no pending tasks") — el check
+   verde se deja tal cual, es un color semántico de éxito, no de marca */
+.hr-empty__title {
+  color: var(--bb-text-strong) !important;
+}
+
+.hr-empty__description {
+  color: var(--bb-text-label) !important;
+}
+
+/* El círculo detrás del ícono (indigo-100, verde éxito, rojo error) se
+   deja en su color semántico, pero se le agrega sombra para que se
+   despegue del fondo — sin la sombra, un relleno pálido sobre nuestro
+   beige quedaba casi invisible por falta de contraste. */
+.hr-icon-wrapper {
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+/* Anillo de "Conversion rate": el SVG lo dibuja ECharts sin clases en
+   los <path> (no hay forma estable de recolorearlo desde afuera), así
+   que se le devuelve un fondo blanco puntual detrás del gráfico para
+   recuperar el contraste que tenía en el diseño original de la plataforma. */
+.crm-opportunities-conversion-rate .hr-card-content {
+  background: var(--bb-white) !important;
+  border-radius: 0 0 var(--bb-radius-xl) var(--bb-radius-xl) !important;
+}
+
+/* Modales Highrise (hr-dialog) — el mismo popup de "nueva conversación"
+   y cualquier otro modal construido con este sistema de componentes */
+/* v6.1: se excluyen los modales de Pagos/facturas (soporte de la plataforma
+   pide no estilizar esos pop-ups). */
+.hr-dialog:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])),
+.hr-modal:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])) {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+.hr-dialog__title,
+.hr-modal__header-title,
+.hr-dialog__title * {
+  color: var(--bb-text-strong) !important;
+}
+
+.hr-dialog__icon svg {
+  color: var(--bb-accent) !important;
+}
+
+/* Radios (ej. "Single Contact Conversation" / "Group Conversation") */
+.hr-radio__dot-wrapper {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+
+.hr-radio--checked .hr-radio__dot {
+  background: var(--bb-accent) !important;
+}
+
+/* Selects (ej. "Select Contact" / "Chat Type") */
+.hr-base-selection {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-inset-deep) !important;
+}
+
+.hr-base-selection__border,
+.hr-base-selection__state-border {
+  display: none !important;
+}
+
+/* Menú desplegable de opciones del select */
+.hr-base-select-menu {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+.hr-base-select-option:hover,
+.hr-base-select-option--pending {
+  background: var(--bb-bg-hover) !important;
+}
+
+.hr-input,
+.hr-input--stateful,
+.ui-input-text,
+input.form-control,
+textarea.form-control,
+select.form-control {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-inset-deep) !important;
+  color: var(--bb-text) !important;
+  font-family: var(--bb-font) !important;
+}
+
+.hr-input:focus,
+input.form-control:focus,
+textarea.form-control:focus {
+  outline: none !important;
+  box-shadow: var(--bb-shadow-inset-deep),
+    0 0 0 2px rgba(47, 125, 137, 0.25) !important;
+}
+
+.modal-content:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])) {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+.modal-content:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])) .modal-header,
+.modal-content:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])) .modal-footer {
+  border-color: var(--bb-divider) !important;
+}
+
+.dropdown-menu {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+/* Scrollbars subtle */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c6cacc transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #c6cacc;
+  border-radius: 99px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+

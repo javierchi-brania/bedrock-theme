@@ -1,0 +1,90 @@
+/* ─────────────────────────────────────────────────────────────
+   ASK AI / PREGUNTAR A LA IA (v6.5) — #ask-ai-container-pmd
+   App aparte (no vive en .hl_wrapper): traía margin-top de 50px, así que
+   el header flotante (6px + 58px) tapaba la parte de arriba del panel.
+   Se convierte en una tarjeta del tema con el mismo hueco de 6px, el panel
+   izquierdo pasa a filas planas (antes eran píldoras cortadas por el
+   overflow del panel) y el composer queda como un campo hundido.
+   ───────────────────────────────────────────────────────────── */
+#ask-ai-container-pmd {
+  background: var(--bb-bg) !important;
+}
+#ask-ai-container-pmd .askai-page {
+  margin: 70px 6px 6px 6px !important;
+  width: calc(100% - 12px) !important;
+  height: calc(100vh - 76px) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  overflow: hidden !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+/* Por dentro, la app fija 831px de alto; se adapta a la tarjeta para que
+   "Cuenta" no quede cortada abajo. */
+#ask-ai-container-pmd .askai-page > .hr-wrapper-container,
+#ask-ai-container-pmd .askai-page > .hr-wrapper-container > .hr-config-provider,
+#ask-ai-container-pmd .askai-page > .hr-wrapper-container > .hr-config-provider > .askai-sidebar {
+  height: calc(100vh - 76px) !important;
+}
+#ask-ai-container-pmd .askai-sidebar,
+#ask-ai-container-pmd .askai-sidebar__main,
+#ask-ai-container-pmd .askai-sidebar__left-panel,
+#ask-ai-container-pmd .askai-left-panel {
+  background: var(--bb-bg) !important;
+}
+#ask-ai-container-pmd .askai-sidebar__left-panel {
+  border-right: 1px solid var(--bb-divider) !important;
+}
+
+/* Filas del panel izquierdo (Nuevo chat, Buscar, Templates, Customize,
+   Recientes, Cuenta): planas, con hundido suave al pasar el mouse. */
+#ask-ai-container-pmd .askai-left-panel .hr-button,
+#ask-ai-container-pmd .askai-left-panel__history-item-row {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+}
+#ask-ai-container-pmd .askai-left-panel .hr-button:hover,
+#ask-ai-container-pmd .askai-left-panel__history-item-row:hover {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+
+/* Composer: la barra (::before blanco) pasa a campo hundido del tema y el
+   input interno deja de tener su propio hundido (se veía doble). */
+#ask-ai-container-pmd .askai-composer-bar::before {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-inset-deep) !important;
+}
+#ask-ai-container-pmd #askai-composer-textarea {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+/* Botón de voz/enviar (a la derecha): de negro al acento del tema.
+   El de dictado (micrófono) se deja como está. */
+#ask-ai-container-pmd .askai-composer-actions__voice-wrap .hr-button {
+  background: var(--bb-accent) !important;
+  border-color: var(--bb-accent) !important;
+  color: #fff !important;
+}
+#ask-ai-container-pmd .askai-composer-actions__voice-wrap .hr-button .hr-button__content,
+#ask-ai-container-pmd .askai-composer-actions__voice-wrap .hr-button .hr-text,
+#ask-ai-container-pmd .askai-composer-actions__voice-wrap .askai-composer-actions__icon {
+  background: transparent !important;
+  color: #fff !important;
+}
+
+#ask-ai-container-pmd .askai-composer-actions__voice-wrap .askai-composer-actions__icon rect,
+#ask-ai-container-pmd .askai-composer-actions__voice-wrap .askai-composer-actions__icon path {
+  fill: #fff !important;
+}
+
+/* Ícono de Ask AI en el menú lateral: el destello es color acento y, con
+   el ítem activo (círculo acento), desaparecía. */
+#sidebar-v2 .group.active .ask-ai-sparkle-icon,
+#sidebar-v2 .group.exact-active .ask-ai-sparkle-icon {
+  color: #fff !important;
+  opacity: 1 !important;
+  filter: brightness(0) invert(1) !important;
+}

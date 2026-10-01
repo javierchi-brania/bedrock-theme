@@ -1,0 +1,61 @@
+/* v6.26 — CONVERSACIONES: panel de bandejas EXPANDIDO (botón ›)
+   Las reglas del riel de íconos (v6: .inbox-panel .menu-item a 24×24px
+   en círculo) también se aplicaban con el panel abierto, así que "Mi
+   bandeja de entrada", "Todo", "Asignado a mí"… quedaban como circulitos
+   con el texto cortado ("M…", "T", "A"). Con .inbox-panel.expanded pasan a
+   filas completas; la activa es píldora hundida con texto de acento. */
+#conversations-new-app .inbox-panel.expanded .menu-item,
+#conversations-new-app .inbox-panel.expanded .menu-item .menu-item-content {
+  width: auto !important;
+  height: auto !important;
+  min-height: 32px !important;
+  justify-content: flex-start !important;
+  border-radius: 12px !important;
+}
+#conversations-new-app .inbox-panel.expanded .menu-item {
+  padding: 6px 10px !important;
+  margin: 1px 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#conversations-new-app .inbox-panel.expanded .menu-item .menu-item-content {
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  gap: 8px !important;
+  overflow: hidden !important;
+}
+#conversations-new-app .inbox-panel.expanded .menu-item.child-item {
+  margin-left: 10px !important;
+}
+#conversations-new-app .inbox-panel.expanded .menu-item:hover {
+  background: var(--bb-bg-hover) !important;
+}
+#conversations-new-app .inbox-panel.expanded .menu-item.active {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-accent) !important;
+}
+#conversations-new-app .inbox-panel.expanded .menu-item.active * {
+  color: var(--bb-accent) !important;
+}
+#conversations-new-app .inbox-panel.expanded .menu-item.accordion-header {
+  font-weight: 700 !important;
+}
+
+#conversations-new-app .inbox-panel.expanded .menu-item {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  align-self: stretch !important;
+}
+#conversations-new-app .inbox-panel.expanded .menu-item.child-item {
+  width: calc(100% - 10px) !important;
+}
+#conversations-new-app .inbox-panel.expanded .menu-item .menu-item-content {
+  width: 100% !important;
+}
+#conversations-new-app .inbox-panel.expanded .menu-item .menu-item-content > * {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+

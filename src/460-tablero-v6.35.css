@@ -1,0 +1,19 @@
+/* ===== v6.35 Tablero › Añadir elemento (Widgets/Elementos/Temas): sombras sin cortes ===== */
+.location-dashboard-collapse.overflow-auto.grid { overflow: visible !important; padding: 6px 10px 18px 6px !important; gap: 14px !important; }
+.location-dashboard-element-widgets-card { border: none !important; border-radius: var(--bb-radius-lg) !important; box-shadow: var(--bb-shadow-soft) !important; }
+.location-dashboard-element-widgets-card .hr-card-content { text-align: center; }
+.grid:has(> div > [id^="location-dashboard_theme-card"]) { padding: 6px 12px 20px 6px !important; gap: 14px !important; box-sizing: border-box; }
+[id^="location-dashboard_theme-card"].hr-card { border: none !important; border-radius: var(--bb-radius-lg) !important; box-shadow: var(--bb-shadow-soft) !important; }
+.location-dashboard-collapse .hr-collapse-item, .location-dashboard-collapse .hr-collapse-item__header { background: transparent !important; border-color: transparent !important; }
+.location-dashboard-collapse.overflow-auto:not(.grid) { padding: 0 6px 0 4px !important; }
+.location-dashboard-collapse .hr-collapse-item__content-inner { padding: 4px 8px 6px 6px !important; }
+.location-dashboard-collapse .widget-card.hr-card.hr-card { border: none !important; border-radius: var(--bb-radius-md) !important; box-shadow: var(--bb-shadow-soft) !important; margin-bottom: 14px !important; transition: box-shadow .15s; }
+.location-dashboard-collapse .widget-card.hr-card.hr-card:hover { box-shadow: var(--bb-shadow-raised) !important; }
+.location-dashboard-collapse .widget-card .hr-card-content > div > div:first-child[class*="rounded"] { border-radius: 12px !important; }
+.hr-drawer .location-dashboard-collapse .hr-collapse .hr-collapse-item.hr-collapse-item.hr-collapse-item { background: transparent !important; background-color: transparent !important; }
+
+/* v6.35b Tablero › Tipo de gráfico: el filtro seleccionado se queda hundido en teal */
+.hr-drawer .flex-wrap:has(button#ALL) button.hr-button.hr-button--tertiary.hr-button--tertiary { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-inset) !important; color: var(--bb-accent) !important; font-weight: 600 !important; }
+.hr-drawer .flex-wrap:has(button#ALL) button.hr-button.hr-button--tertiary.hr-button--tertiary svg { color: var(--bb-accent) !important; }
+
+

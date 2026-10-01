@@ -1,0 +1,157 @@
+/* ─────────────────────────────────────────────────────────────
+   GLOBAL SHELL
+   Brania: <div style="background:#e9ebec; font-family:Plus Jakarta Sans">
+   DOM:    .pmd-app, .sidebar-v2-location, .hl_wrapper
+   ───────────────────────────────────────────────────────────── */
+
+.pmd-app,
+.pmd-app__side-dock-main-surface,
+.sidebar-v2-location,
+.hl_wrapper,
+.hl_wrapper-container,
+.font-sans,
+body {
+  font-family: var(--bb-font) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* FIX 4 — el color de texto YA NO se fuerza vía .font-sans/body de forma
+   amplia: .font-sans es una utilidad de Tailwind tan común en el DOM de la plataforma
+   que también le pega a banners/badges que traen su propio fondo oscuro con
+   texto claro (ej. la barra superior de "Setup Guide"/trial) — forzar el
+   mismo gris oscuro ahí deja el texto invisible sobre fondo oscuro. El color
+   de texto de marca solo se aplica dentro del shell donde controlamos el
+   fondo (sidebar, wrapper principal), nunca globalmente. */
+.pmd-app,
+.sidebar-v2-location,
+.hl_wrapper,
+.hl_wrapper-container,
+body {
+  color: var(--bb-text) !important;
+}
+
+/* FIX 1 (v3 → v4): el HTML que mandaste confirma <i class="fas fa-arrow-left">
+   en "Go Back", y sigue roto incluso con `revert`. Eso significa que `revert`
+   no sirve acá: revert salta hasta el default del navegador y se salta
+   también la propia declaración @font-face de Font Awesome que trae la plataforma — no
+   vuelve a "como estaba antes", vuelve a "como si la plataforma no hubiera declarado
+   nada". El fix correcto es poner el nombre real de la fuente de Font
+   Awesome explícitamente. Cubre FA5/FA6 con fallback. */
+.fa,
+.fas,
+.fa-solid {
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "FontAwesome" !important;
+  font-weight: 900 !important;
+}
+
+.far,
+.fa-regular {
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "FontAwesome" !important;
+  font-weight: 400 !important;
+}
+
+.fab,
+.fa-brands {
+  font-family: "Font Awesome 5 Brands", "Font Awesome 6 Brands", "FontAwesome" !important;
+  font-weight: 400 !important;
+}
+
+.material-icons,
+.material-icons-outlined {
+  font-family: "Material Icons", "Material Icons Outlined" !important;
+}
+
+/* SVG no dibuja glifos de texto, así que revert es inofensivo acá */
+svg,
+svg * {
+  font-family: revert !important;
+}
+
+/* FIX 5 — se saca .hl_wrapper de este fondo: confirmado inspeccionando que
+   <main class="hl_wrapper"> es justo el elemento padre detrás de la "caja"
+   gris que se veía alrededor/debajo del header. Como .hl_wrapper reserva
+   86px arriba (ver FIX 2) pero el header solo ocupa ~70px con su margen,
+   ese sobrante se pintaba del mismo gris del header y se leía como una caja
+   plana en vez de espacio vacío. Las vistas específicas (dashboard,
+   contactos, oportunidades) ya tienen su propio fondo por separado abajo,
+   así que no pierden el look Brania. */
+.pmd-app,
+.sidebar-v2-location,
+#dashboard-wrapper,
+.location-dashboard-wrapper,
+.contacts-list-view-container,
+.crm-opportunities-page {
+  background: var(--bb-bg) !important;
+}
+
+.hl_wrapper {
+  padding: 16px 18px 22px !important;
+}
+
+/* FIX 2 — compensación genérica: cualquier vista dentro de .hl_wrapper que no
+   tenga su propio override más específico (ver abajo) recibe este padding-top
+   por defecto, para que el header neumórfico (más alto que el original) no le
+   tape el contenido de arriba. Verifica cada vista (Conversaciones, Calendarios,
+   Pagos, Marketing, Automatización, Sites, Memberships, Reputación, Reporting,
+   Marketplace, Settings) y ajusta este valor ±10px si alguna todavía se ve
+   tapada — las reglas de Dashboard y Opportunities de abajo son más específicas
+   y siguen ganando, así que no las toques. */
+.hl_wrapper {
+  padding-top: 86px !important;
+}
+
+/* Conversaciones (y cualquier otra vista con esta clase) trae
+   hl_force-top de la plataforma, que cancela el padding-top de arriba porque tiene
+   más especificidad (dos clases contra una). La combinamos aquí para
+   recuperar el mismo respiro. También bajamos el padding-bottom: este
+   layout es de altura fija a pantalla completa (no hace scroll como
+   Dashboard/Contactos), así que los 22px generales dejaban un hueco antes
+   del borde real de abajo — confirmado en DevTools. El padding-bottom
+   empataba en especificidad con una regla propia de la plataforma y perdía el
+   desempate por orden de carga (computaba 0px en vez de 8px), así que se
+   suma la tercera clase (.hl_topbar-tabs, que esta vista también trae)
+   para ganar sin ambigüedad. */
+.hl_wrapper.hl_force-top,
+.hl_wrapper.hl_force-top.hl_topbar-tabs {
+  padding-top: 86px !important;
+  padding-bottom: 0 !important;
+}
+
+/* Contact Details (#record-details-new-ui) trae un header más alto que
+   el estándar (104px, confirmado en Computed — probablemente por el
+   ícono de llamadas/dialer que se agrega ahí al lado). Con eso más el
+   margin-top de 12px del header, hacen falta 116px reales, no 86px —
+   por eso se veía pegado. Ancla puntual a este ID (más específica que
+   la regla general de arriba) para no afectar otras pantallas donde
+   86px sí encaja bien. */
+#record-details-new-ui.hl_wrapper.hl_force-top {
+  padding-top: 134px !important;
+}
+
+/* Páginas con tabs en el header (.topmenu-nav): los tabs llevan 22px de
+   aire extra bajo la píldora (ver .hl_header .topmenu-nav), así que el
+   contenido baja lo mismo para no quedar tapado. */
+.hl_wrapper.hl_force-top.hl_topbar-tabs {
+  padding-top: 100px !important;
+}
+
+/* #conversations-workspace trae my-2 (margin-top y margin-bottom 8px por
+   Tailwind) — el de abajo suma al hueco final, se anula aparte. */
+#conversations-workspace {
+  margin-bottom: 0 !important;
+}
+
+a,
+.contact-name-link {
+  color: var(--bb-accent) !important;
+}
+
+a:hover,
+.contact-name-link:hover {
+  color: var(--bb-accent-dark) !important;
+}
+
+::selection {
+  background: #cfd6d8 !important;
+}
+

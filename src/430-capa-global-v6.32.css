@@ -1,0 +1,231 @@
+/* ═════════════════════════════════════════════════════════════
+   v6.32 — CAPA GLOBAL: NEUMORFISMO + BORDES SUAVES
+   Barrido automático de todas las vistas del menú de sub-cuenta y de
+   agencia (fondos blancos/grises de Tailwind, bordes grises, azules de
+   La plataforma y componentes con esquinas rectas). En vez de seguir parchando
+   página por página, esta capa normaliza los componentes base:
+   1) Bordes suaves: botones, campos, etiquetas y tarjetas con los radios
+      del tema; las capas internas (borde, borde de estado, onda del clic)
+      heredan el radio del componente → nada de cuadros asomándose.
+   2) Superficies: fondos utilitarios blancos/grises dentro del área de
+      trabajo (main.hl_wrapper y las apps montadas como section junto al menú) (.bg-white, .bg-gray-50/25/100, #F9FAFB, #F7F9FD, #ECEEF2)
+      → fondo del tema; las tarjetas redondeadas con borde pasan a relieve
+      sin borde. Excluye modales (tienen su propio estilo y los de pago
+      siguen fuera, ver v6.1).
+   3) Botones/selectores que aún salían blancos o con borde azul.
+   4) Estados de foco/activo consistentes (halo de acento).
+   ═════════════════════════════════════════════════════════════ */
+
+/* 1 · Bordes suaves */
+.hr-button:not(.hr-button--circle):not(.icon-only),
+.n-button:not(.n-button--circle-shape),
+.hl-btn,
+.btn:not(.btn-circle) {
+  border-radius: var(--bb-radius-md) !important;
+}
+.hr-button .hr-button__border,
+.hr-button .hr-button__state-border,
+.hr-button .hr-base-wave,
+.n-button .n-button__border,
+.n-button .n-button__state-border,
+.n-button .n-base-wave {
+  border-radius: inherit !important;
+}
+.hr-button--primary .hr-button__border,
+.hr-button--primary .hr-button__state-border,
+.n-button--primary-type .n-button__border,
+.n-button--primary-type .n-button__state-border {
+  border: none !important;
+}
+.n-input,
+.hr-input,
+.n-base-selection,
+.hr-base-selection,
+input.hl-text-input,
+textarea.hl-text-input,
+.form-control {
+  border-radius: var(--bb-radius-sm) !important;
+}
+.n-input .n-input__border,
+.n-input .n-input__state-border {
+  border: none !important;
+  border-radius: inherit !important;
+}
+.n-input.n-input--focus {
+  box-shadow: var(--bb-shadow-inset-deep), 0 0 0 2px var(--bb-accent-glow) !important;
+}
+.n-tag,
+.hr-tag {
+  border-radius: 999px !important;
+}
+.n-tag .n-tag__border,
+.hr-tag .hr-tag__border {
+  border-radius: inherit !important;
+}
+.btn-circle {
+  border-radius: 50% !important;
+}
+.hl-card,
+.card,
+.n-card,
+.hr-card {
+  border-radius: var(--bb-radius-lg) !important;
+}
+:is(.hr-button, .n-button, .hl-btn):focus-visible {
+  outline: none !important;
+  box-shadow: var(--bb-shadow-soft), 0 0 0 2px var(--bb-accent-glow) !important;
+}
+
+/* 2 · Superficies del área de trabajo */
+:is(.sidebar-v2-location, .sidebar-v2-agency) > :is(main, section) :is(.bg-white, .bg-gray-50, .bg-gray-25, .bg-gray-100, [class*="bg-[#F9FAFB]"], [class*="bg-[#f9fafb]"], [class*="bg-[#F7F9FD]"], [class*="bg-[#ECEEF2]"]):not(:is(.hr-modal, .modal-content, .n-modal, [role="dialog"]) *) {
+  background-color: var(--bb-bg) !important;
+}
+:is(.sidebar-v2-location, .sidebar-v2-agency) > :is(main, section) :is(.bg-white, .bg-gray-50):not(:is(.hr-modal, .modal-content, .n-modal, [role="dialog"]) *):is([class*="rounded-lg"], [class*="rounded-xl"], [class*="rounded-2xl"]):not(button):not(input):not(textarea) {
+  border-color: transparent !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+:is(.sidebar-v2-location, .sidebar-v2-agency) > :is(main, section) .hr-wrapper-container:not(:is(.hr-modal, .modal-content, .n-modal, [role="dialog"]) *),
+:is(.sidebar-v2-location, .sidebar-v2-agency) > :is(main, section) .hl_agency,
+:is(.sidebar-v2-location, .sidebar-v2-agency) > :is(main, section) .hr-base-selection-tags {
+  background-color: transparent !important;
+}
+.hl_sidebar-v2-open-container {
+  background-color: var(--bb-bg) !important;
+}
+/* tarjetas conocidas que venían en blanco */
+.opportunitiesCard.stageHeaderBg,
+.affiliateFeatureCard,
+.sp-v3-platform-card,
+.sp-v3-feature-card,
+.ghl-sidepanel,
+.launchpad-sidebar,
+.launchpad-card,
+.hl_affiliate--header {
+  background-color: var(--bb-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.template-card-action-bar,
+.card-header-wrap.bg-gray-100,
+.sp-v3-connect-btn {
+  background-color: var(--bb-bg) !important;
+  border-color: var(--bb-divider) !important;
+}
+.sp-v3-connect-btn {
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border: none !important;
+}
+
+/* 3 · Botones y selectores que seguían blancos / azules */
+.n-button.n-button--default-type:not(.hl-text-btn):not(.n-button--primary-type):not(.n-button--error-type):not(.n-button--quaternary-type):not(.n-button--tertiary-type) {
+  background-color: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border: none !important;
+  color: var(--bb-text-label) !important;
+}
+.hr-tag.hr-tag--gray {
+  background-color: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border: none !important;
+}
+.hl_header .hl_header--copy-link.btn-primary {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  color: var(--bb-accent) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hl_header .hl_header--copy-link.btn-primary * {
+  color: var(--bb-accent) !important;
+}
+/* selector segmentado (Embudos / Sitios web, etc.) */
+.hr-radio-group:has(> .hr-content-switcher),
+.hr-radio-group:has(.hr-radio-button.hr-content-switcher) {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border-radius: var(--bb-radius-md) !important;
+  padding: 3px !important;
+  border: none !important;
+}
+.hr-radio-button.hr-content-switcher {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+  color: var(--bb-text-muted) !important;
+}
+.hr-radio-button.hr-content-switcher::before,
+.hr-radio-button.hr-content-switcher .hr-radio-button__state-border {
+  display: none !important;
+}
+.hr-radio-button.hr-content-switcher.hr-radio-button--checked {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+}
+
+/* campos de texto antiguos (.hl-text-input / .hl-text-area-input) en
+   cualquier vista → campo hundido */
+input.hl-text-input,
+textarea.hl-text-input,
+textarea.hl-text-area-input {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-inset-deep) !important;
+}
+input.hl-text-input:focus,
+textarea.hl-text-input:focus,
+textarea.hl-text-area-input:focus {
+  box-shadow: var(--bb-shadow-inset-deep), 0 0 0 2px var(--bb-accent-glow) !important;
+  outline: none !important;
+}
+
+/* Avisos/guías de producto de la plataforma (Pendo, ej. "Launch Your Ecomm Store…")
+   blancos con borde azul → tarjeta flotante del tema */
+#pendo-guide-container._pendo-step-container-styles {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: 0 14px 34px rgba(28, 38, 43, 0.22) !important;
+}
+
+/* Apps a pantalla completa sin el menú lateral (ej. Biblioteca de
+   plantillas: .hr-wrapper-container.full-screen) → mismas superficies */
+.hr-wrapper-container.full-screen:not(:is(.hr-modal, .modal-content, .n-modal, [role="dialog"]) *) {
+  background-color: var(--bb-bg) !important;
+}
+.hr-wrapper-container.full-screen :is(.bg-white, .bg-gray-50, .bg-gray-25, .bg-gray-100, [class*="bg-[#F9FAFB]"], [class*="bg-[#F7F9FD]"]):not(:is(.hr-modal, .modal-content, .n-modal, [role="dialog"]) *) {
+  background-color: var(--bb-bg) !important;
+}
+.hr-wrapper-container.full-screen :is(.bg-white, .bg-gray-50):not(:is(.hr-modal, .modal-content, .n-modal, [role="dialog"]) *):is([class*="rounded-lg"], [class*="rounded-xl"], [class*="rounded-2xl"]):not(button):not(input):not(textarea) {
+  border-color: transparent !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hr-wrapper-container.full-screen header.border-b {
+  border-color: var(--bb-divider) !important;
+}
+
+.template-filter-option.rounded-md:is(.bg-white, [class*="bg-"]) {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border-radius: var(--bb-radius-sm) !important;
+  color: var(--bb-accent) !important;
+}
+/* casillas/radios nativos: color de acento del tema */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--bb-accent);
+}
+
+/* encabezado de etapa en Clientes Potenciales: La plataforma lo pinta con una
+   variable en línea (white) y regla con !important → más específica */
+.opportunitiesCard.opportunitiesCard.stageHeaderBg.stageHeaderBg {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+

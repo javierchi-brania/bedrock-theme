@@ -1,0 +1,106 @@
+/* ─────────────────────────────────────────────────────────────
+   PAGOS (v6.23) — ajuste al mockup (vista Payments de brania-bedrock)
+   Sólo aspecto de la PÁGINA; los modales de pago siguen excluidos (v6.1).
+   - Pestañas de la barra (Facturas y estimaciones, Documentos y
+     contratos, Enlaces de pago, Gift Cards…) se partían en 2 líneas →
+     una sola línea; si no caben, la barra se desplaza de lado.
+   - Aviso "Conectar al menos una pasarela…" azul → franja del tema con
+     relieve, ícono y botón en acento.
+   - Tarjetas de totales (.ui-statistic) blancas radio 8px → tarjetas del
+     tema; en Facturas llevan el punto de color del mockup (borrador gris,
+     debido naranja, recibida verde, atrasado rojo).
+   - Botones .ui-button por defecto ("Configuración", "Filtros"…) blancos
+     → relieve del tema (en toda la plataforma).
+   - Tabla (ui-table-container) blanca y encabezado gris → tema; ícono del
+     estado vacío en círculo del tema.
+   ───────────────────────────────────────────────────────────── */
+.hl_header .topmenu-nav {
+  flex-wrap: nowrap !important;
+}
+.hl_header .topmenu-navitem {
+  white-space: nowrap !important;
+  flex: 0 0 auto !important;
+}
+.hl_header .topmenu-navitem br {
+  display: none !important;
+}
+
+#payment-integration-alert {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#payment-integration-alert .hr-alert__border {
+  border: none !important;
+}
+#payment-integration-alert .hr-alert-body__title,
+#payment-integration-alert .hr-alert-body__content {
+  color: var(--bb-text-strong) !important;
+  font-weight: 600 !important;
+}
+#payment-integration-alert .hr-alert__icon,
+#payment-integration-alert .hr-alert__icon * {
+  color: var(--bb-accent) !important;
+}
+#payment-integration-alert .hr-button {
+  color: var(--bb-accent) !important;
+}
+
+.ui-statistic {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.ui-statistic .title {
+  color: var(--bb-text-label) !important;
+}
+body:has(#pg-invoices_btn-settings) .ui-statistic .title::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  margin-right: 7px !important;
+  vertical-align: middle !important;
+  background: var(--bb-text-subtle) !important;
+}
+body:has(#pg-invoices_btn-settings) .ui-statistic:nth-child(2) .title::before { background: var(--bb-warning) !important; }
+body:has(#pg-invoices_btn-settings) .ui-statistic:nth-child(3) .title::before { background: var(--bb-success) !important; }
+body:has(#pg-invoices_btn-settings) .ui-statistic:nth-child(4) .title::before { background: var(--bb-danger) !important; }
+
+.hr-button.ui-button.hr-button--default-type:not(.hr-button--primary):not(.hr-button--text):not(.hr-button--error-type) {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-text-label) !important;
+}
+
+.ui-table-container,
+.ui-table-container__wrapper {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+}
+.ui-table-container__wrapper {
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+.hr-data-table .hr-data-table-table,
+.hr-data-table .hr-data-table-thead {
+  background: var(--bb-bg) !important;
+}
+.hr-data-table .hr-data-table-th {
+  background: var(--bb-bg) !important;
+  border-color: var(--bb-divider) !important;
+  color: var(--bb-text-label) !important;
+}
+.ui-empty-icon {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.ui-empty-icon svg,
+.ui-empty-icon * {
+  color: var(--bb-text-muted) !important;
+}
+

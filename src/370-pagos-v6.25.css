@@ -1,0 +1,89 @@
+/* ─────────────────────────────────────────────────────────────
+   PAGOS — 3ª pasada: sub-páginas y controles (v6.25)
+   - Productos › Colecciones / Inventario: franja de título blanca
+     (.mb-2.5.bg-white.px-3.py-2) y tabla Highrise de otra variante
+     (.hr-table-header-container, .hr-data-table__header, filas TR.flex,
+     .hr-data-table-wrapper-footer) en blanco → tema.
+   - Íconos de estado vacío .hr-icon-wrapper azules → círculo del tema.
+   - Encabezados de tabla que se partían ("Image/n", "Accione/s") →
+     una sola línea.
+   - Casillas (n-checkbox) blanquecinas → hundidas; marcadas en acento.
+   - Filtros tipo grupo de botones (Coupons: Todo / Activo / Programado /
+     Caducado) sin estado activo visible → riel hundido y el activo
+     (.hl-active-btn) en relieve con texto de acento.
+   ───────────────────────────────────────────────────────────── */
+.hl_wrapper .mb-2\.5.bg-white.px-3.py-2 {
+  background: transparent !important;
+}
+.hr-table-header-container,
+.hr-data-table-wrapper-footer,
+.hr-data-table tr.flex,
+.hr-data-table .hr-data-table__header,
+.hr-data-table .hr-data-table__header th {
+  background: var(--bb-bg) !important;
+  border-color: var(--bb-divider) !important;
+}
+.hr-data-table .hr-data-table__header th {
+  color: var(--bb-text-label) !important;
+}
+.hr-icon-wrapper[class] {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hr-icon-wrapper[class] svg,
+.hr-icon-wrapper[class] * {
+  color: var(--bb-text-muted) !important;
+}
+.table-container .n-data-table-th,
+.hr-data-table .hr-data-table-th,
+.hr-data-table .hr-data-table__header th {
+  white-space: nowrap !important;
+}
+.n-checkbox .n-checkbox-box {
+  background: var(--bb-bg) !important;
+  box-shadow: inset 2px 2px 4px #c6cacc, inset -2px -2px 4px #ffffff !important;
+  border-radius: 5px !important;
+}
+.n-checkbox .n-checkbox-box .n-checkbox-box__border {
+  border: none !important;
+}
+.n-checkbox.n-checkbox--checked .n-checkbox-box,
+.n-checkbox.n-checkbox--indeterminate .n-checkbox-box {
+  background: var(--bb-accent) !important;
+  box-shadow: none !important;
+}
+.hl_wrapper .n-button-group:has(.hl-active-btn) {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border-radius: var(--bb-radius-md) !important;
+  padding: 3px !important;
+  gap: 2px !important;
+}
+.hl_wrapper .n-button-group:has(.hl-active-btn) > .n-button.n-button--default-type:not(.hl-text-btn):not(.n-button--primary-type):not(.n-button--error-type) {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 12px !important;
+  color: var(--bb-text-muted) !important;
+}
+.hl_wrapper .n-button-group:has(.hl-active-btn) > .n-button.n-button--default-type.hl-active-btn:not(.hl-text-btn):not(.n-button--primary-type):not(.n-button--error-type) {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+}
+
+/* paginación: botones secundarios deshabilitados (Anterior / Siguiente)
+   quedaban blancos */
+.hr-button.hr-button--default-type.hr-button--secondary.hr-button--disabled {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border: none !important;
+  opacity: .55 !important;
+}
+
+.hl_wrapper .n-button-group > .n-button.hl-active-btn .n-button__content,
+.hl_wrapper .n-button-group > .n-button.hl-active-btn .n-button__content * {
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+}
+

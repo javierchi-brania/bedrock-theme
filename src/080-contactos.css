@@ -1,0 +1,293 @@
+/* ─────────────────────────────────────────────────────────────
+   CONTACTS
+   Brania: table in inset/raised rows, teal tabs, search inset field
+   DOM:    #crm-contacts-view, .contacts-list-view-container
+   ───────────────────────────────────────────────────────────── */
+
+#crm-contacts-view,
+.contacts-list-view-container,
+.contacts-list-view-container .hr-wrapper-container {
+  background: var(--bb-bg) !important;
+}
+
+.hl_topbar-tabs,
+.pipeline-ribbon {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Page title area */
+.contacts-list-view-container h1,
+.contacts-list-view-container h2,
+#crm-contacts-view h1,
+#crm-contacts-view h2 {
+  color: var(--bb-text-strong) !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em;
+}
+
+/* Sub-nav tabs (Smart Lists, Bulk Actions…) */
+/* v6.28: antes también ".hl_topbar-tabs a / button / .active", pero
+   .hl_topbar-tabs es el contenedor de TODA la página (main.hl_wrapper), así
+   que dejaba transparentes/grises todos los botones y enlaces de las vistas
+   con pestañas (ej. "+ Nuevo", el día de hoy del calendario). Se limita a
+   la cinta de Oportunidades. */
+.pipeline-ribbon a,
+.pipeline-ribbon button {
+  color: var(--bb-text-muted) !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.pipeline-ribbon .active {
+  color: var(--bb-accent) !important;
+  box-shadow: inset 0 -2px 0 var(--bb-accent) !important;
+}
+
+/* Main contacts panel shell */
+.contacts-list-view-container .card,
+.contacts-list-view-container .n-card,
+.new-smartlist-ui .card {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+/* Toolbar chips: Filters, Sort, count */
+.contacts-list-view-container .hr-button,
+.contacts-list-view-container button {
+  border-radius: var(--bb-radius-md) !important;
+}
+
+.contacts-list-view-container .hr-input,
+.contacts-list-view-container input[type="search"],
+.contacts-list-view-container .search-input {
+  border-radius: var(--bb-radius-md) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset-deep) !important;
+  border: none !important;
+  color: var(--bb-text) !important;
+}
+
+.contacts-list-view-container .hr-input::placeholder,
+.contacts-list-view-container input::placeholder {
+  color: var(--bb-text-subtle) !important;
+  font-weight: 500 !important;
+}
+
+/* TABLA DE CONTACTOS — es Tabulator (divs), no <table>. Las reglas viejas
+   sobre thead/tbody nunca aplicaban. Todas las filas se renderizan (sin
+   scroll virtual), así que separarlas en píldoras es seguro. Las columnas
+   checkbox + nombre son sticky (tabulator-frozen): necesitan fondo opaco
+   igual al de la fila para no transparentar al hacer scroll horizontal. */
+.new-smartlist-ui.hl_wrapper { background: var(--bb-bg) !important; }
+
+#table-container {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  padding: 14px 16px 6px !important;
+  margin-top: 4px !important;
+}
+
+#table-container .tabulator,
+#table-container .tabulator-tableholder,
+#table-container .tabulator-table,
+#table-container .tabulator-header,
+#table-container .tabulator-header-contents,
+#table-container .tabulator-col,
+#table-container .tabulator-cell,
+#table-container .tabulator-footer {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Encabezado → barra hundida */
+/* Sin padding horizontal: Tabulator calcula el ancho de columnas para
+   llenar el contenedor; cualquier padding lateral lo desborda (scroll
+   horizontal + borde derecho cortado sin redondeo). */
+#table-container .tabulator-header { padding: 0 !important; }
+#table-container .tabulator-headers {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset-deep) !important;
+  border-radius: var(--bb-radius-md) !important;
+}
+#table-container .tabulator-col-title {
+  color: var(--bb-text-label) !important;
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+}
+
+/* Filas → píldoras elevadas separadas */
+#table-container .tabulator-tableholder { padding: 12px 0 8px !important; overflow-x: hidden !important; }
+/* La altura inline (100vh - 270px) es del layout original de la plataforma; con el
+   header neumórfico y la tarjeta, sobraba ~50px y la página hacía scroll. */
+#table-container .my-table.tabulator { height: calc(100vh - 330px) !important; }
+#table-container .tabulator-row {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  margin-bottom: 10px !important;
+  box-shadow: 5px 5px 13px rgba(166, 174, 178, 0.38), -5px -5px 13px rgba(255, 255, 255, 0.9) !important;
+}
+#table-container .tabulator-row:hover { background: var(--bb-bg-hover) !important; }
+#table-container .tabulator-row .tabulator-cell.tabulator-frozen {
+  background: inherit !important;
+}
+#table-container .tabulator-row .tabulator-cell:first-child {
+  border-radius: var(--bb-radius-md) 0 0 var(--bb-radius-md) !important;
+}
+#table-container .tabulator-cell {
+  color: var(--bb-text) !important;
+  font-size: 13px !important;
+}
+#table-container .contact-name-link {
+  color: var(--bb-text-strong) !important;
+  font-weight: 700 !important;
+}
+
+/* Avatar: círculo sólido con inicial blanca (colores rotan por fila;
+   el fondo pastel viene inline, se pisa con !important) */
+#table-container .contact.my-tooltip {
+  color: #fff !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+  background: #6f6499 !important;
+}
+#table-container .tabulator-row:nth-child(5n+2) .contact.my-tooltip { background: #3f7396 !important; }
+#table-container .tabulator-row:nth-child(5n+3) .contact.my-tooltip { background: #2f7d89 !important; }
+#table-container .tabulator-row:nth-child(5n+4) .contact.my-tooltip { background: #c0803e !important; }
+#table-container .tabulator-row:nth-child(5n+5) .contact.my-tooltip { background: #4d8c74 !important; }
+
+/* Tags → píldora teal suave (estilo inline pisado) */
+#table-container .tabulator-cell[tabulator-field="tags"] > div > div {
+  background: rgba(47, 125, 137, 0.08) !important;
+  color: var(--bb-accent) !important;
+  border: 1px solid rgba(47, 125, 137, 0.25) !important;
+  font-weight: 600 !important;
+}
+
+/* Botón copiar (inline blanco) */
+#table-container .copy-icon {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+/* Checkboxes neumórficos */
+#table-container input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 5px !important;
+  background: var(--bb-bg) !important;
+  box-shadow: inset 2px 2px 4px #c6cacc, inset -2px -2px 4px #fff !important;
+  cursor: pointer;
+  vertical-align: middle;
+}
+#table-container input[type="checkbox"]:checked {
+  background: var(--bb-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat !important;
+  box-shadow: none !important;
+}
+
+/* Paginación */
+#table-container .tabulator-footer { padding: 10px 14px 6px !important; }
+#table-container .tabulator-page-counter { color: var(--bb-text-label) !important; font-weight: 600 !important; }
+#table-container .tabulator-paginator label,
+#table-container .tabulator-page[data-page="first"],
+#table-container .tabulator-page[data-page="last"] { display: none !important; }
+#table-container .tabulator-page,
+#table-container .tabulator-page-size {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  color: var(--bb-text-muted) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  padding: 4px 10px !important;
+  margin: 0 3px !important;
+}
+#table-container .tabulator-page:disabled { box-shadow: none !important; opacity: 0.5 !important; }
+#table-container .tabulator-page.active {
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+
+/* Barra de Filters / Sort / buscador / Manage fields */
+.quick-filter-bar #list-view-advance-filter-btn,
+.quick-filter-bar div#list-view-sort-btn,
+.quick-filter-bar .manage-fields {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: 14px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-text-label) !important;
+  font-weight: 600 !important;
+  padding: 6px 12px !important;
+  gap: 6px;
+  align-items: center;
+}
+.quick-filter-bar .search-box {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: 14px !important;
+  box-shadow: var(--bb-shadow-inset-deep) !important;
+}
+.quick-filter-bar .search-box input { background: transparent !important; }
+
+/* Título + contador "5 Contacts" */
+.pipeline-ribbon .smartlist-title { color: var(--bb-text-strong) !important; font-weight: 800 !important; }
+.pipeline-ribbon .count {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+.contact-name-link,
+.contact .contact-name-wrapper {
+  color: var(--bb-text-strong) !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+}
+
+.contact td,
+.contacts-list-view-container tbody td {
+  color: var(--bb-text-label) !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  border: none !important;
+}
+
+/* Tags → pill inset */
+.contacts-list-view-container .tag,
+.contacts-list-view-container .n-tag,
+.contacts-list-view-container .badge {
+  border-radius: 99px !important;
+  background: var(--bb-bg) !important;
+  box-shadow: inset 2px 2px 5px #c6cacc, inset -2px -2px 5px #ffffff !important;
+  border: none !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+}
+
+/* Import / primary CTA */
+.contacts-list-view-container .hr-button--primary-type,
+.contacts-list-view-container .btn-primary {
+  background: var(--bb-accent) !important;
+  color: var(--bb-white) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: 6px 6px 16px var(--bb-accent-glow),
+    -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
+  font-weight: 700 !important;
+}
+

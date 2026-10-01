@@ -1,0 +1,28 @@
+/* v6.18 — Pestañas de la barra superior (.topmenu-navitem, ej.
+   Conversaciones / Acciones manuales / Fragmentos…): La plataforma les pone
+   border-bottom azul de 2px y el CSS les daba radio de 14px + otra línea
+   interna → se veía una "sonrisa" curva doble. Como en el mockup: una sola
+   línea recta de acento, con puntas redondeadas, bajo el texto. */
+.hl_header .topmenu-navitem {
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  position: relative !important;
+}
+.hl_header .topmenu-navitem.active::after,
+.hl_header .topmenu-navitem.router-link-active::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 8px !important;
+  right: 8px !important;
+  bottom: 0 !important;
+  height: 2px !important;
+  border-radius: 2px !important;
+  background: var(--bb-accent) !important;
+}
+.hl_header .topmenu-navitem.active,
+.hl_header .topmenu-navitem.router-link-active {
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+

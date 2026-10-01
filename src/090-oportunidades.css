@@ -1,0 +1,334 @@
+/* ─────────────────────────────────────────────────────────────
+   OPPORTUNITIES
+   Brania: kanban columns as raised cards, stage headers, deal cards
+   DOM:    .crm-opportunities-page, .crm-opportunities-kanban
+   ───────────────────────────────────────────────────────────── */
+
+.crm-opportunities-page,
+.crm-opportunities-content,
+.opportunities-list-wrap,
+.opportunityPage {
+  background: var(--bb-bg) !important;
+}
+
+.crm-opportunities-top-bar,
+.crm-opportunities-toolbar {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  margin: 8px 12px !important;
+  padding: 12px 16px !important;
+}
+
+.crm-opportunities-page h1,
+.crm-opportunities-page h2 {
+  color: var(--bb-text-strong) !important;
+  font-weight: 800 !important;
+}
+
+/* Pipeline selector + search */
+.crm-opportunities-pipeline-dropdown,
+.crm-opportunities-search-input,
+#data-search-opportunities,
+.crm-opportunities-pipeline-selector .hr-input {
+  border-radius: var(--bb-radius-md) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset-deep) !important;
+  border: none !important;
+  color: var(--bb-text-strong) !important;
+  font-weight: 700 !important;
+}
+
+.crm-opportunities-search-input::placeholder,
+#data-search-opportunities::placeholder {
+  color: var(--bb-text-subtle) !important;
+}
+
+/* View toggle (kanban / list) */
+#kanban-toggle-btn,
+.crm-opportunities-views-bar button,
+.crm-opportunities-views-bar .kanban {
+  border-radius: 12px !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-text-subtle) !important;
+}
+
+#kanban-toggle-btn.active,
+.kanban.active {
+  color: var(--bb-accent) !important;
+  box-shadow: 3px 3px 7px rgba(166, 174, 178, 0.45),
+    -3px -3px 7px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Filter / sort chips */
+.crm-opportunities-filter-btn,
+#opportunity-filter-top-bar {
+  border-radius: var(--bb-radius-md) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset-deep) !important;
+  border: none !important;
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+}
+
+/* Add opportunity */
+#data-create-opportunity,
+.crm-opportunities-add-btn {
+  background: var(--bb-accent) !important;
+  color: var(--bb-white) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: 6px 6px 16px var(--bb-accent-glow),
+    -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
+  font-weight: 700 !important;
+}
+
+/* Kanban board area */
+.crm-opportunities-board,
+.crm-opportunities-kanban,
+.opportunities-scroll {
+  background: transparent !important;
+}
+
+/* Stage column shell → Brania stage card */
+.crm-opportunities-stage,
+.crm-opportunities-stages-container > div {
+  background: transparent !important;
+}
+
+.opportunitiesCard,
+.crm-opportunities-stage-header,
+.crm-opportunities-stage-header.ui-card {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-top: 2px solid var(--bb-accent) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+.crm-opportunities-stage-name {
+  color: var(--bb-text-strong) !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+}
+
+.crm-opportunities-stage-count {
+  color: var(--bb-text-subtle) !important;
+  font-size: 12px !important;
+}
+
+.crm-opportunities-stage-value {
+  color: var(--bb-text-strong) !important;
+  font-weight: 700 !important;
+}
+
+/* Opportunity deal cards inside columns */
+.crm-opportunities-stage-cards .card,
+.crm-opportunities-stage-cards > div > div {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+.crm-opportunities-empty-state {
+  background: #f9fafb !important;
+  color: var(--bb-text-subtle) !important;
+  border-radius: var(--bb-radius-lg) !important;
+}
+
+/* ── Opportunities v2 (revisión mockup 25-sep) ── */
+
+/* 1. Barra superior sin tarjeta: elementos directo sobre el fondo */
+#newTopBar.crm-opportunities-top-bar {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 4px 6px !important;
+  margin: 4px 12px 8px !important;
+}
+#newTopBar .w-64 { width: auto !important; min-width: 170px; max-width: 240px !important; }
+
+/* 2. Selector de pipeline → píldora chica elevada */
+#pipelineDropdDown-listview .hr-base-selection {
+  --n-color: var(--bb-bg) !important;
+  --n-color-active: var(--bb-bg) !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-active: none !important;
+  --n-border-focus: none !important;
+  --n-box-shadow-active: none !important;
+  --n-box-shadow-focus: none !important;
+  --n-border-radius: 14px !important;
+  --n-height: 34px !important;
+  --n-font-size: 13px !important;
+  --n-text-color: var(--bb-text-strong) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  font-weight: 700 !important;
+}
+
+/* Menús desplegables de selects (global): fondo Brania, opción activa teal */
+.hr-base-select-menu {
+  --n-color: var(--bb-bg) !important;
+  --n-option-text-color-active: var(--bb-accent) !important;
+  --n-option-check-color: var(--bb-accent) !important;
+  --n-option-color-pending: var(--bb-bg-hover) !important;
+  --n-option-color-active-pending: var(--bb-bg-hover) !important;
+  --n-option-color-active: transparent !important;
+  --n-action-divider-color: var(--bb-divider) !important;
+  background: var(--bb-bg) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  overflow: hidden;
+}
+.hr-base-select-menu .hr-base-select-menu__action,
+.hr-base-select-menu__action * { color: var(--bb-accent) !important; }
+
+/* 5. Botones de la barra (una regla vieja de .pipeline-ribbon button los
+   dejaba planos) */
+#newTopBar .pipeline-ribbon #import-btn {
+  --n-color: var(--bb-bg) !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-focus: none !important;
+  --n-text-color: var(--bb-text-label) !important;
+  --n-text-color-hover: var(--bb-accent) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border-radius: 14px !important;
+  height: 34px !important;
+  padding: 0 14px !important;
+  color: var(--bb-text-label) !important;
+}
+#newTopBar .pipeline-ribbon #add-record-btn {
+  --n-color: var(--bb-accent) !important;
+  --n-color-hover: var(--bb-accent-dark) !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-focus: none !important;
+  background: var(--bb-accent) !important;
+  color: #fff !important;
+  box-shadow: 5px 5px 14px var(--bb-accent-glow) !important;
+  border-radius: 14px !important;
+  height: 34px !important;
+  padding: 0 16px !important;
+}
+#newTopBar .pipeline-ribbon #data-field-download {
+  --n-border: none !important;
+  width: 34px !important; height: 34px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+/* Toggle kanban / lista → segmentado hundido */
+#newTopBar .views {
+  background: var(--bb-bg);
+  box-shadow: var(--bb-shadow-inset);
+  border-radius: 12px;
+  padding: 3px;
+  gap: 3px;
+}
+#newTopBar .views span {
+  width: 28px; height: 28px;
+  display: flex !important; align-items: center; justify-content: center;
+  border-radius: 9px !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+#newTopBar .views span svg { width: 16px !important; height: 16px !important; min-width: 16px; }
+#newTopBar .views span.active {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  box-shadow: 3px 3px 7px rgba(166,174,178,.45), -3px -3px 7px rgba(255,255,255,.9) !important;
+}
+
+/* 3. Columnas sin fondo; encabezado de etapa como píldora */
+.crm-opportunities-page .crm-opportunities-stage-cards,
+.crm-opportunities-page .crm-opportunities-stage-cards.card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 2px 6px !important;
+}
+.crm-opportunities-page .crm-opportunities-stage-header,
+.crm-opportunities-page .crm-opportunities-stage-header.ui-card {
+  border-top: none !important;
+  border-radius: 18px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  margin: 6px 6px 14px !important;
+}
+.crm-opportunities-page .crm-opportunities-stage-name {
+  font-family: var(--bb-font) !important;
+  font-size: 14px !important;
+}
+.crm-opportunities-page .stage-collapse-btn {
+  width: 22px !important; height: 22px !important;
+  border-radius: 50% !important;
+  background: var(--bb-bg) !important;
+  box-shadow: 2px 2px 5px rgba(166,174,178,.45), -2px -2px 5px rgba(255,255,255,.9);
+}
+
+/* 4. Tarjeta de oportunidad: una sola sombra, nombre fuerte */
+.crm-opportunities-page .crm-opportunities-stage-cards > div > div {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.crm-opportunities-page .crm-opportunities-card-wrapper { margin: 4px 2px 14px !important; }
+.crm-opportunities-page .crm-opportunities-card.opportunitiesCard {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: 20px !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+.crm-opportunities-page .crm-opportunities-card .ui-card-content { padding: 14px 16px !important; }
+.crm-opportunities-page .crm-opportunities-card-name a {
+  color: var(--bb-text-strong) !important;
+  font-family: var(--bb-font) !important;
+  font-weight: 700 !important;
+  white-space: normal !important;
+}
+.crm-opportunities-page .crm-opportunities-card-fields td { color: var(--bb-text-muted) !important; }
+.crm-opportunities-page .crm-opportunities-card-fields td.font-semibold { color: var(--bb-text-label) !important; }
+.crm-opportunities-page .crm-opportunities-card .bg-blue-600 { background: var(--bb-accent) !important; }
+.crm-opportunities-page .crm-opportunities-card-assignee .hr-avatar {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: 2px 2px 5px rgba(166,174,178,.45), -2px -2px 5px rgba(255,255,255,.9);
+}
+
+/* Encabezado de etapa: La plataforma lo pinta con variables inline propias
+   (--6347135c fondo, --14f3e9b8 borde) → se pisan las variables */
+.crm-opportunities-page .crm-opportunities-stage-header {
+  --6347135c: var(--bb-bg) !important;
+  --14f3e9b8: transparent !important;
+  background: var(--bb-bg) !important;
+}
+.crm-opportunities-page .crm-opportunities-stage-header .ui-card-content { background: transparent !important; }
+
+/* Recuadro claro detrás de las tarjetas (contenedor de arrastre) */
+.crm-opportunities-page .crm-opportunities-card-wrapper,
+/* v6.1: antes [data-v-bd22f708] — ese hash ya no existía (la plataforma lo cambió). */
+.crm-opportunities-page .crm-opportunities-stage-cards > div {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* "Advanced filters · Sort" en la misma fila que "Open opportunities ·
+   List" (mockup). Son bloques hermanos: se sube la barra de filtros una
+   fila y se deja pasar el clic a lo de abajo (pointer-events). Si se
+   agregan más vistas y se enciman, ajustar el margin-left de .left-box. */
+#OpportunitiesList .quick-filter-bar {
+  margin-top: -46px !important;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+#OpportunitiesList .quick-filter-bar > * { pointer-events: auto; }
+#OpportunitiesList .quick-filter-bar .left-box { margin-left: 250px !important; }
+#OpportunitiesList .stage-scrollable-container { margin-top: 14px !important; }
+

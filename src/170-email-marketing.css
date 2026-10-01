@@ -1,0 +1,15 @@
+/* ─────────────────────────────────────────────────────────────
+   EMAIL MARKETING (iframe cross-origin — dominio externo de email)
+   No se puede tocar nada de adentro del iframe (dominio distinto,
+   same-origin policy). Pero el contenedor del iframe SÍ es nuestro:
+   #emailHome tiene un padding-top:95px inline con !important en su
+   padre (.hl_wrapper) que no se puede pisar — se agrega espacio
+   extra con margin-top (otra propiedad, sin ese bloqueo) y se resta
+   lo mismo de la altura para que no se corte nada abajo.
+   ───────────────────────────────────────────────────────────── */
+
+#emailHome {
+  margin-top: 16px !important;
+  height: calc(100vh - 95px - 16px) !important;
+}
+

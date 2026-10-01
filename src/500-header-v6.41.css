@@ -1,0 +1,9 @@
+/* ===== v6.41 Cabecera: traducir, teléfono y copiloto con el mismo botón neumórfico que el resto ===== */
+.hl_header :is(.feedback-toggle-btn, button.rounded-full.bg-success-600, #hl_header--copilot-icon) { width: 36px !important; height: 36px !important; min-width: 36px !important; border-radius: 50% !important; border: none !important; background: var(--bb-bg) !important; background-image: none !important; box-shadow: 4px 4px 9px #c9cdcf, -4px -4px 9px rgba(255,255,255,.9) !important; transition: box-shadow .15s !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
+.hl_header :is(.feedback-toggle-btn, button.rounded-full.bg-success-600, #hl_header--copilot-icon):hover { box-shadow: 6px 6px 14px #c3c7c9, -6px -6px 14px #fff !important; }
+.hl_header :is(.feedback-toggle-btn, button.rounded-full.bg-success-600, #hl_header--copilot-icon):active { box-shadow: var(--bb-shadow-inset) !important; }
+.hl_header .feedback-toggle-btn, .hl_header .feedback-toggle-btn * { color: #8b5cf6 !important; }
+.hl_header .feedback-toggle-btn .feedback-toggle-icon-bg { background: transparent !important; }
+.hl_header button.rounded-full.bg-success-600 svg, .hl_header button.rounded-full.bg-success-600 svg * { color: var(--bb-success) !important; }
+.hl_header #hl_header--copilot-icon svg, .hl_header #hl_header--copilot-icon svg path { color: #6938ef !important; }
+

@@ -1,0 +1,87 @@
+/* ─────────────────────────────────────────────────────────────
+   CALENDARS
+   DOM: #CalendarPage — barra de herramientas propia (Today/rango de
+   fechas/selects), grilla de FullCalendar (.fc-*), y el drawer
+   "Manage view" (#calendar-view-filter-drawer). Los botones/inputs/
+   selects genéricos (.n-button, .n-input, .n-select) ya quedan
+   cubiertos por las reglas de SETTINGS más arriba — aquí solo lo
+   que es específico de esta pantalla.
+   NOTA: las pestañas de arriba (Calendar view / Appointment list
+   view / Calendar settings, con el ícono de engrane) no vinieron en
+   el HTML que se inspeccionó — si no cambian de color solas, hace
+   falta ese fragmento puntual para poder apuntarles.
+   ───────────────────────────────────────────────────────────── */
+
+#CalendarPage nav {
+  background: var(--bb-bg) !important;
+  border-bottom-color: var(--bb-divider) !important;
+}
+
+/* Píldora de navegación de fechas (< Sep 13 – 19, 2026 >) — div de
+   Tailwind sin clase propia, se apunta por su combinación de clases */
+#CalendarPage nav .border.border-gray-300.rounded-lg {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+
+/* Botón "Manage view" — outline propio, no es .n-button */
+#customizations-button {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+/* Grilla de FullCalendar */
+#CalendarPage .fc {
+  background: transparent !important;
+}
+
+#CalendarPage .fc-col-header-cell,
+#CalendarPage .fc-timegrid-slot,
+#CalendarPage .fc-timegrid-divider,
+#CalendarPage .fc-scrollgrid,
+#CalendarPage .fc-theme-standard td,
+#CalendarPage .fc-theme-standard th {
+  border-color: var(--bb-divider) !important;
+}
+
+#CalendarPage .fc-col-header-cell-cushion {
+  color: var(--bb-text-strong) !important;
+}
+
+#CalendarPage .fc-timegrid-slot-label-cushion {
+  color: var(--bb-text-muted) !important;
+}
+
+#CalendarPage .fc-day-today {
+  background: var(--bb-bg-hover) !important;
+}
+
+#CalendarPage .fc-timegrid-now-indicator-line,
+#CalendarPage .fc-timegrid-now-indicator-arrow {
+  border-color: var(--bb-accent) !important;
+  background: var(--bb-accent) !important;
+}
+
+/* Drawer "Manage view" — mismo patrón que Quick Filters en el
+   Dashboard: abre desde la derecha, se redondea solo el lado
+   izquierdo */
+#calendar-view-filter-drawer {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  border-radius: var(--bb-radius-lg) 0 0 var(--bb-radius-lg) !important;
+}
+
+#calendar-view-filter-drawer .bg-primary-25 {
+  background: var(--bb-bg-hover) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+
+/* Punto activo de los radios ("All" / "Appointments" / "Blocked
+   slots") — se retinta al acento de Brania en vez del azul nativo */
+#calendar-view-filter-drawer .n-radio__dot--checked {
+  background: var(--bb-accent) !important;
+}
+

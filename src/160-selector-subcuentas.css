@@ -1,0 +1,60 @@
+/* ─────────────────────────────────────────────────────────────
+   SELECTOR DE SUB-CUENTAS (location switcher — clic en "FFL prueba"
+   en el sidebar). Mismo bug de z-index que el drawer de Quick
+   Filters: se quedaba por detrás del .hl_header (z-index 1200) por
+   no tener nada puesto — y tampoco tenía nada de estilo Brania.
+   ───────────────────────────────────────────────────────────── */
+
+/* El verdadero techo del popover no es el propio .hl_v2-location_switcher
+   sino su ancestro <aside id="sidebar-v2" class="... z-50">, que crea su
+   propio contexto de apilamiento con z-index:50 — cualquier z-index que
+   le pongamos al popover de adentro queda atrapado compitiendo dentro de
+   ese 50, nunca contra el .hl_header (1200). Se sube el ancestro real. */
+#sidebar-v2 {
+  z-index: 1300 !important;
+}
+
+.hl_v2-location_switcher {
+  z-index: 2000 !important;
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+.hl_v2_tip-arrow {
+  z-index: 2000 !important;
+}
+
+.hl_v2-location_switcher .search-area input {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-text-strong) !important;
+}
+
+#switcher-agency-switch {
+  color: var(--bb-accent) !important;
+}
+
+.hl_swicher-heading {
+  color: var(--bb-text-muted) !important;
+}
+
+.hl_account {
+  border-radius: var(--bb-radius-sm) !important;
+}
+
+.hl_account:hover {
+  background: var(--bb-bg-hover) !important;
+}
+
+.hl_account.active {
+  background: var(--bb-bg-hover) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+
+.hl_location-title {
+  color: var(--bb-text-strong) !important;
+}
+

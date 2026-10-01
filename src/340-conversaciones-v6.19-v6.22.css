@@ -1,0 +1,218 @@
+/* v6.19 — CONVERSACIONES: burbujas y panel de contacto
+   1) Burbujas de mensaje entrante (.chat-bubble-inbound): la "colita"
+   de la plataforma (::after, cuadrito #eceef2 recortado) quedaba encima del avatar
+   como un rombo claro y cortaba las iniciales. Se quita la colita y la
+   burbuja pasa a tarjeta del tema en relieve (esquina superior izquierda
+   más cerrada para indicar de quién es).
+   2) Pestañas Todos los campos / DND / Acciones: con el relleno del riel
+      "Acciones" quedaba cortado → pestañas más compactas.
+   3) Selects del panel (País, Zona horaria…) venían planos, sin el campo
+      hundido que sí tienen los inputs → mismo campo hundido.
+   4) Botones secundarios (ej. "Registros de auditoría"; aplica en toda la
+      plataforma: "Exportar", "Conectar Stripe"…) eran blancos → fondo del
+      tema en relieve, como los botones del mockup. */
+#conversations-new-app .chat-bubble-inbound {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border-radius: 4px 14px 14px 14px !important;
+  margin-left: 4px !important;
+}
+#conversations-new-app .chat-bubble-inbound::after {
+  display: none !important;
+}
+
+#conversations-new-app .hr-tabs-rail {
+  padding: 2px !important;
+}
+#conversations-new-app .hr-tabs-rail .hr-tabs-tab {
+  padding: 3px 6px !important;
+  font-size: 12.5px !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-select {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset-deep) !important;
+  border-radius: var(--bb-radius-md) !important;
+  padding: 6px 10px !important;
+  min-height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+.hr-button.hr-button--default-type.hr-button--secondary.hr-button--secondary {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-text-label) !important;
+}
+.hr-button.hr-button--default-type.hr-button--secondary.hr-button--secondary:hover:not(:disabled) {
+  color: var(--bb-accent) !important;
+}
+
+/* v6.20 — CONVERSACIONES: panel "Detalles del contacto"
+   - El contenido iba pegado a los bordes del área con scroll (overflow),
+     así que la sombra y las esquinas de la tarjeta y de las secciones se
+     cortaban a la derecha/izquierda → se le da aire interno y una sombra
+     más corta que sí cabe.
+   - Al pasar el mouse / enfocar un campo, la plataforma mostraba su borde recto
+     (.hr-input__border / __state-border) sobre el campo hundido → se quita
+     (en toda la plataforma) y el foco se marca con un halo de acento.
+   - Encabezados de sección (Contacto, General Info…) con esquinas y hover
+     del tema.
+   - Botón de canal del chat (burbuja + flecha): hover en píldora, no óvalo. */
+#conversations-new-app .bg-contacts-panel .overflow-y-auto > .flex-col {
+  padding: 6px 10px 6px 6px !important;
+}
+#conversations-new-app .bg-contacts-panel .border.border-gray-200.rounded-md.bg-white {
+  box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-collapse-item {
+  border-radius: var(--bb-radius-sm) !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-collapse-item__header {
+  border-radius: var(--bb-radius-sm) !important;
+  transition: background .15s !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-collapse-item__header:hover {
+  background: var(--bb-bg-hover) !important;
+}
+#conversations-new-app #chat-filter {
+  border-radius: 999px !important;
+  padding: 5px 8px !important;
+}
+
+.hr-input .hr-input__border,
+.hr-input .hr-input__state-border,
+.hr-base-selection .hr-base-selection__border,
+.hr-base-selection .hr-base-selection__state-border {
+  border: none !important;
+  box-shadow: none !important;
+}
+.hr-input.hr-input--focus,
+.hr-base-selection.hr-base-selection--focus,
+.hr-base-selection.hr-base-selection--active {
+  box-shadow: var(--bb-shadow-inset-deep), 0 0 0 2px var(--bb-accent-glow) !important;
+}
+
+/* v6.21 — CONVERSACIONES: armonía del panel "Detalles del contacto"
+   - El contenedor de las pestañas (.hr-tabs-nav--segment-type) incluye
+     también el buscador: al darle hundido (v6.17) se veía un bloque raro
+     detrás de ambos → sin fondo propio; sólo el riel y el buscador van
+     hundidos.
+   - Campos: La plataforma los usa en tamaño 2xs (23px de alto, texto pegado al
+     borde) → 32px de alto con 10px de margen interno, igual que los selects.
+   - Etiquetas (Nombre, Apellidos…) y encabezados de sección con el mismo
+     tamaño y color que el resto del tema. */
+#conversations-new-app .bg-contacts-panel .hr-tabs-nav--segment-type {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-tabs-nav--segment-type .hr-input {
+  margin-top: 6px !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-input {
+  min-height: 32px !important;
+  border-radius: var(--bb-radius-sm) !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-input .hr-input-wrapper {
+  padding: 0 10px !important;
+  min-height: 32px !important;
+  align-items: center !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-input .hr-input__input-el,
+#conversations-new-app .bg-contacts-panel .hr-input .hr-input__input {
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 13px !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-select {
+  min-height: 32px !important;
+  border-radius: var(--bb-radius-sm) !important;
+  font-size: 13px !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-form-item {
+  margin-bottom: 4px !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-form-item-label,
+#conversations-new-app .bg-contacts-panel .hr-form-item-label__text {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: var(--bb-text-label) !important;
+  margin-bottom: 4px !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-collapse-item {
+  background: var(--bb-bg) !important;
+  box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
+  margin-bottom: 10px !important;
+  overflow: hidden !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-collapse-item__header {
+  padding: 10px 12px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--bb-text-strong) !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-collapse-item__content-inner {
+  padding: 4px 12px 12px !important;
+}
+
+/* v6.22 — CONVERSACIONES: panel de contacto, 2ª pasada
+   - Contenido de cada sección con 16px extra (.block-padding) y línea
+     superior: los campos quedaban más a la derecha que el título de la
+     sección → alineados con el título.
+   - Selects del panel: el hr-select ya lleva el hundido; el
+     hr-base-selection de adentro ponía su propio fondo/sombra y al abrir se
+     veía un rectángulo cuadrado → transparente.
+   - Teléfono: el botón "Seleccionar" (tipo de teléfono) iba en relieve y
+     aplastaba el número → botón de texto compacto, sin relieve.
+   - DND: el bloque de canales venía en blanco → fondo del tema.
+   - Pestañas: el riel ocupa todo el ancho y las 3 pestañas se reparten el
+     espacio (antes "Acciones" se salía por la derecha). */
+#conversations-new-app .bg-contacts-panel .hr-collapse-item__content-inner .block-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-top: none !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-select .hr-base-selection,
+#conversations-new-app .bg-contacts-panel .hr-select .hr-base-selection-label {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: inherit !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-select:focus-within {
+  box-shadow: var(--bb-shadow-inset-deep), 0 0 0 2px var(--bb-accent-glow) !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-input-phone .hr-input__suffix .hr-button {
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 2px !important;
+  max-width: 64px !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-input-phone .hr-input__suffix .hr-button__content-default-slot {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: var(--bb-text-muted) !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-collapse-item .bg-white,
+#conversations-new-app .bg-contacts-panel .hr-tabs-pane-wrapper .bg-white {
+  background: transparent !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-tabs-rail {
+  width: 100% !important;
+  display: flex !important;
+  overflow: hidden !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-tabs-rail .hr-tabs-tab-wrapper {
+  flex: 1 1 0 !important;
+  width: auto !important;
+  min-width: auto !important;
+}
+#conversations-new-app .bg-contacts-panel .hr-tabs-rail .hr-tabs-tab {
+  justify-content: center !important;
+  width: auto !important;
+  white-space: nowrap !important;
+  font-size: 12px !important;
+  padding: 3px 4px !important;
+}
+

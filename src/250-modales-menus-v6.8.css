@@ -1,0 +1,42 @@
+/* ─────────────────────────────────────────────────────────────
+   MODALES Y MENÚS FLOTANTES (v6.8) — ej. "Crear instantánea"
+   1) El select (hr-select) traía .bg-white y su etiqueta interna fondo
+      blanco: tapaban el hundido del tema y se veía un rectángulo blanco.
+   2) Modales y menús desplegables usaban la sombra neumórfica "raised",
+      cuyo brillo blanco (-10px -10px) sobre el fondo oscurecido del modal
+      se veía como un halo blanco. Para lo que flota sobre el overlay se
+      usa sólo sombra oscura.
+   3) El menú del select se fundía con el modal (mismo fondo y sombra); se
+      separa con borde sutil y hover en las opciones.
+   ───────────────────────────────────────────────────────────── */
+.hr-select.bg-white,
+.hr-select-wrapper .bg-white {
+  background: transparent !important;
+}
+.hr-base-selection .hr-base-selection-label {
+  background: transparent !important;
+}
+.hr-dialog:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])),
+.hr-modal:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])) {
+  box-shadow: 0 24px 60px rgba(28, 38, 43, 0.35), 0 2px 8px rgba(28, 38, 43, 0.12) !important;
+}
+.hr-base-select-menu {
+  background: var(--bb-bg) !important;
+  border: 1px solid var(--bb-divider) !important;
+  box-shadow: 0 14px 34px rgba(28, 38, 43, 0.22) !important;
+}
+.hr-base-select-menu .hr-base-select-option {
+  border-radius: 8px !important;
+  margin: 0 4px !important;
+}
+.hr-base-select-menu .hr-base-select-option:hover,
+.hr-base-select-menu .hr-base-select-option--pending {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-strong) !important;
+}
+.hr-base-select-menu .hr-base-select-option::before {
+  background: transparent !important;
+}
+.hr-base-select-menu .hr-base-select-option--selected {
+  color: var(--bb-accent) !important;
+}

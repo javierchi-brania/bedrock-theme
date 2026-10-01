@@ -1,0 +1,51 @@
+/* ===== v6.42 Contactos: menú lateral activo + vista de listas inteligentes ===== */
+.sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header #sb_contacts.group, .sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header-without-footer #sb_contacts.group, .sidebar-v2-location:has(.contacts-new-ui) #sb_contacts { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-inset) !important; color: var(--bb-accent) !important; font-weight: 700 !important; }
+.sidebar-v2-location:has(.contacts-new-ui) #sb_contacts { color: rgb(77, 140, 116) !important; }
+.sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header #sb_contacts.group.group, .sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header-without-footer #sb_contacts.group.group, .sidebar-v2-location:has(.contacts-new-ui) #sb_contacts { border-radius: var(--bb-radius-lg) !important; }
+.sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header #sb_contacts.group::before, .sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header-without-footer #sb_contacts.group::before, .sidebar-v2-location:has(.contacts-new-ui) #sb_contacts::before { background: var(--bb-accent) !important; box-shadow: none !important; }
+.sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header #sb_contacts.group img, .sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header-without-footer #sb_contacts.group img, .sidebar-v2-location:has(.contacts-new-ui) #sb_contacts img { filter: brightness(0) invert(1) !important; }
+.sidebar-v2-location:has(.contacts-new-ui) #sb_contacts::before { background: rgb(77, 140, 116) !important; }
+.sidebar-v2-location:has(.contacts-new-ui) .sidebar-v2-location:has(#sb_contacts) .hl_header .container-fluid::before { content: "Contactos"; }
+.contacts-new-ui #smart-list-views-bar { background: transparent !important; border-bottom: none !important; }
+.contacts-new-ui .hl-tabs__tab { border-radius: 10px !important; }
+.contacts-new-ui .hl-tabs__tab--active, .contacts-new-ui .hl-tabs__tab--active .hl-tabs__label { color: var(--bb-accent) !important; }
+.contacts-new-ui .hl-tabs__tab--active::after { background-color: var(--bb-accent) !important; border-radius: 2px !important; }
+.contacts-new-ui .hl-tabs__tab:hover { background: var(--bb-bg-hover) !important; }
+.contacts-new-ui .contacts-table-card { background: var(--bb-bg) !important; border: none !important; border-radius: var(--bb-radius-xl) !important; box-shadow: var(--bb-shadow-raised) !important; }
+.contacts-new-ui .data-count-badge { background: var(--bb-bg) !important; color: var(--bb-accent) !important; box-shadow: var(--bb-shadow-inset) !important; border-radius: 999px !important; }
+.contacts-new-ui .data-count-badge * { color: var(--bb-accent) !important; }
+.hl_header .bg-primary-50.rounded-3xl { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; }
+.hl_header .bg-primary-50.rounded-3xl, .hl_header .bg-primary-50.rounded-3xl > :not(.bg-primary-600) { color: var(--bb-accent) !important; }
+.hl_header .bg-primary-50.rounded-3xl .bg-primary-600 { background: var(--bb-accent) !important; box-shadow: 0 2px 6px var(--bb-accent-glow) !important; }
+/* tabla: una sola tarjeta y filas como píldoras elevadas (la píldora va dentro de la fila para que su sombra no se recorte) */
+.contacts-new-ui #table-container.table-container { background: transparent !important; box-shadow: none !important; border: none !important; }
+.contacts-new-ui #table-container .tabulator-table { padding-top: 6px !important; padding-bottom: 10px !important; }
+.contacts-new-ui #table-container .tabulator-row { position: relative !important; margin: 0 0 4px !important; background: transparent !important; box-shadow: none !important; border: none !important; border-radius: 0 !important; overflow: visible !important; }
+.contacts-new-ui #table-container .tabulator-row::before { content: ""; position: absolute; top: 2px; bottom: 2px; left: 4px; width: calc(100cqw - 16px); border-radius: var(--bb-radius-md); background: var(--bb-bg); box-shadow: 3px 3px 7px rgba(166,174,178,.38), -3px -3px 7px rgba(255,255,255,.9); pointer-events: none; z-index: 0; transition: box-shadow .15s; }
+.contacts-new-ui #table-container .tabulator-row:hover::before { box-shadow: 5px 5px 12px rgba(166,174,178,.55), -5px -5px 12px #fff; }
+.contacts-new-ui #table-container .tabulator-row.tabulator-selected::before { box-shadow: var(--bb-shadow-inset); }
+.contacts-new-ui #table-container .tabulator-row .tabulator-cell { position: relative; z-index: 1; border: none !important; background: transparent !important; }
+.contacts-new-ui .views-bar-wrapper::before, .contacts-new-ui .views-bar-wrapper::after { display: none !important; }
+.contacts-new-ui #table-container .tabulator-tableholder { container-type: inline-size; }
+.contacts-new-ui #table-container .tabulator-row .tabulator-cell.selector { padding-left: 12px !important; padding-right: 2px !important; overflow: visible !important; }
+/* cabecera de la tabla: misma píldora y misma alineación que las filas */
+.contacts-new-ui #table-container .tabulator-header { position: relative !important; container-type: inline-size; background: transparent !important; border: none !important; overflow: visible !important; }
+.contacts-new-ui #table-container .tabulator-header .tabulator-headers { background: transparent !important; box-shadow: none !important; position: relative; z-index: 1; }
+.contacts-new-ui #table-container .tabulator-header::before { content: ""; position: absolute; top: 2px; bottom: 2px; left: 4px; width: calc(100cqw - 16px); border-radius: var(--bb-radius-md); background: var(--bb-bg); box-shadow: var(--bb-shadow-inset); z-index: 0; pointer-events: none; }
+.contacts-new-ui #table-container .tabulator-header .tabulator-col { background: transparent !important; }
+.contacts-new-ui #table-container .tabulator-header .tabulator-col.selector { padding-left: 16px !important; }
+/* Ordenar (popover) */
+.contacts-new-ui .sort-menu { background: var(--bb-bg) !important; border: none !important; border-radius: var(--bb-radius-lg) !important; box-shadow: 0 14px 34px rgba(28,38,43,.22) !important; padding: 16px !important; }
+.contacts-new-ui .sort-menu svg { color: var(--bb-accent) !important; }
+.contacts-new-ui .sort-menu .d-flex > .d-flex:last-child:has(svg) { width: 30px; height: 30px; border-radius: 50%; align-items: center; justify-content: center; background: var(--bb-bg); box-shadow: var(--bb-shadow-soft); margin-left: 8px; cursor: pointer; }
+.contacts-new-ui .sort-menu :is(a, span, div)[class*="clear"], .contacts-new-ui .sort-menu .d-flex > div:last-child:not(:has(*)) { color: var(--bb-accent) !important; }
+/* Filtros (panel lateral) */
+.hr-drawer .hr-base-close.hr-drawer-header__close { width: 30px !important; height: 30px !important; border-radius: 50% !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; border: none !important; }
+.hr-drawer .hr-base-close.hr-drawer-header__close:hover { box-shadow: var(--bb-shadow-raised) !important; color: var(--bb-accent) !important; }
+.hr-drawer:has(#contactinfo) .hr-space.bg-gray-100.border-l { background: var(--bb-bg) !important; border: none !important; border-radius: var(--bb-radius-sm) !important; box-shadow: var(--bb-shadow-inset) !important; margin: 8px 14px !important; width: auto !important; padding: 12px 0 !important; }
+.hr-drawer:has(#contactinfo) .hr-space.bg-gray-100.border-l p { color: var(--bb-text-strong) !important; }
+.hr-drawer:has(#contactinfo) .hr-space.py-2.px-3.border-b { border: none !important; border-radius: 10px !important; margin: 0 14px !important; transition: background .15s; }
+.hr-drawer:has(#contactinfo) .hr-space.py-2.px-3.border-b:hover { background: var(--bb-bg-hover) !important; color: var(--bb-accent) !important; }
+.hr-drawer:has(#contactinfo) .hr-space.py-2.px-3.border-b * { color: var(--bb-text) !important; }
+.hr-drawer:has(#contactinfo) .hr-space.py-2.px-3.border-b:hover * { color: var(--bb-accent) !important; }
+

@@ -1,0 +1,6 @@
+/* ===== v6.34 Sidebar de Configuración: la pastilla activa ya no se corta a la izquierda ===== */
+aside#sidebar-v2:has(#backButtonv2) .hl_nav-header-without-footer { padding-left: 8px !important; padding-right: 4px !important; box-sizing: border-box !important; }
+/* v6.34b títulos de sección del menú de Configuración: sin la línea que se veía como tachado */
+aside#sidebar-v2 p.border-b:has(> span.uppercase) { border-bottom: none !important; line-height: 1.2 !important; margin: 14px 0 4px !important; height: auto !important; }
+aside#sidebar-v2 p.border-b > span.uppercase { background: transparent !important; color: var(--bb-text-header) !important; letter-spacing: .12em !important; font-weight: 700 !important; padding: 0 !important; position: static !important; top: auto !important; }
+

@@ -1,0 +1,77 @@
+/* ─────────────────────────────────────────────────────────────
+   MARKETING (Email Marketing, Snippets, etc.)
+   Estas pantallas usan otro sistema de componentes más (clases
+   .ui-*), además de .hr-tabs-* y .hr-data-table (distintos a los
+   .n-tabs-*/.hr-card ya cubiertos en otras secciones). Mismo truco
+   de siempre para .ui-card (duplicar clase por especificidad).
+   ───────────────────────────────────────────────────────────── */
+
+.ui-header {
+  background: transparent !important;
+}
+
+.ui-card.ui-card {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  border: none !important;
+}
+
+.ui-card-content {
+  background: transparent !important;
+}
+
+/* Tabs (Statistics / Campaigns / Templates, etc.) — sistema hr-tabs,
+   distinto al n-tabs de Company Settings */
+.hr-tabs-tab {
+  color: var(--bb-text-muted) !important;
+}
+
+.hr-tabs-tab--active {
+  color: var(--bb-accent) !important;
+}
+
+.hr-tabs-bar {
+  background: var(--bb-accent) !important;
+}
+
+/* Textos y números de estadísticas */
+.ui-text-sm-medium,
+.ui-text-md-medium,
+.ui-text-lg-medium {
+  color: var(--bb-text-strong) !important;
+}
+
+.ui-text-sm-regular {
+  color: var(--bb-text-muted) !important;
+}
+
+.ui-display-sm-semibold {
+  color: var(--bb-text-strong) !important;
+}
+
+/* Tabla (ej. "Top performing emails") */
+.hr-data-table {
+  background: var(--bb-bg) !important;
+}
+
+.hr-data-table-th {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-strong) !important;
+}
+
+.hr-data-table-td {
+  background: var(--bb-bg) !important;
+  border-color: var(--bb-divider) !important;
+}
+
+/* Switch ("Show statistics in numbers") */
+.hr-switch--active .hr-switch__rail {
+  background: var(--bb-accent) !important;
+}
+
+/* Separadores */
+.hr-divider__line {
+  background: var(--bb-divider) !important;
+}
+

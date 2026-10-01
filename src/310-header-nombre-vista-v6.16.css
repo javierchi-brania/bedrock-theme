@@ -1,0 +1,48 @@
+/* ─────────────────────────────────────────────────────────────
+   HEADER — NOMBRE DE LA VISTA (v6.16) — mockup brania-bedrock.html
+   El mockup muestra a la izquierda del header el nombre de la vista en
+   mayúsculas pequeñas grises ("DASHBOARD", "PAYMENTS"…). La plataforma deja ese
+   lado vacío, así que se toma del ítem activo del menú de la sub-cuenta
+   con :has(). Textos iguales a los del menú (en español). Si se agrega un
+   ítem nuevo al menú, hay que sumar su línea aquí.
+   ───────────────────────────────────────────────────────────── */
+.sidebar-v2-location .hl_header .container-fluid::before {
+  margin-right: auto !important;
+  padding-left: 4px !important;
+  font-family: var(--bb-font) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--bb-text-header) !important;
+  white-space: nowrap !important;
+  align-self: center !important;
+}
+.sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Pregúntale a la IA"; }
+.sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Launchpad"; }
+.sidebar-v2-location:has(#sb_dashboard.active) .hl_header .container-fluid::before { content: "Tablero"; }
+.sidebar-v2-location:has(#sb_conversations.active) .hl_header .container-fluid::before { content: "Conversaciones"; }
+.sidebar-v2-location:has(#sb_calendars.active) .hl_header .container-fluid::before { content: "Calendarios"; }
+.sidebar-v2-location:has(#sb_contacts.active) .hl_header .container-fluid::before { content: "Contactos"; }
+.sidebar-v2-location:has(#sb_opportunities.active) .hl_header .container-fluid::before { content: "Clientes Potenciales"; }
+.sidebar-v2-location:has(#sb_payments.active) .hl_header .container-fluid::before { content: "Pagos"; }
+.sidebar-v2-location:has(#sb_vibe.active) .hl_header .container-fluid::before { content: "AI Studio"; }
+.sidebar-v2-location:has([id="sb_AI Agents"].active) .hl_header .container-fluid::before { content: "Agentes de IA"; }
+.sidebar-v2-location:has(#sb_email-marketing.active) .hl_header .container-fluid::before { content: "Marketing"; }
+.sidebar-v2-location:has(#sb_automation.active) .hl_header .container-fluid::before { content: "Automatización"; }
+.sidebar-v2-location:has(#sb_sites.active) .hl_header .container-fluid::before { content: "Sitios"; }
+.sidebar-v2-location:has(#sb_memberships.active) .hl_header .container-fluid::before { content: "Suscripciones"; }
+.sidebar-v2-location:has(#sb_app-media.active) .hl_header .container-fluid::before { content: "Contenido multimedia"; }
+.sidebar-v2-location:has(#sb_reputation.active) .hl_header .container-fluid::before { content: "Reputación"; }
+.sidebar-v2-location:has(#sb_reporting.active) .hl_header .container-fluid::before { content: "Informes"; }
+.sidebar-v2-location:has(#sb_app-marketplace.active) .hl_header .container-fluid::before { content: "Aplicaciones del mercado"; }
+.sidebar-v2-location:has(#sb_settings.active) .hl_header .container-fluid::before { content: "Configuración"; }
+
+/* Colores por ítem que faltaban (mockup: Payments rojizo → AI Agents
+   naranja). AI Studio no existe en el mockup: se le da el teal de acento
+   para no repetir el naranja de su vecino. */
+#sidebar-v2 [id="sb_AI Agents"].active { color: #c0803e !important; }
+#sidebar-v2 [id="sb_AI Agents"].active::before { background: #c0803e !important; }
+#sb_vibe.active { color: #2f7d89 !important; }
+#sb_vibe.active::before { background: #2f7d89 !important; }
+

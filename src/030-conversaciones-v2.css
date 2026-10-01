@@ -1,0 +1,210 @@
+/* ─────────────────────────────────────────────────────────────
+   CONVERSATIONS v2 (revisión mockup 24-sep) — #conversations-new-app
+   ───────────────────────────────────────────────────────────── */
+
+/* Separación del header (mismo bug que Contact Details: hl_force-top) */
+/* El padding vía :has() sobre el wrapper no llegaba; se aplica directo al
+   layout propio de Conversations (border-box: no cambia la altura total). */
+#conversations-layout {
+  padding-top: 34px !important;
+  padding-bottom: 24px !important;
+  box-sizing: border-box !important;
+}
+
+#conversations-new-app,
+#conversations-layout,
+#conversations-content,
+#conversations-new-app .inbox-panel { background: transparent !important; }
+
+/* Tarjetas separadas: el contenedor cortaba las sombras */
+#conversations-panel {
+  overflow: visible !important;
+  gap: 18px;
+  background: transparent !important;
+}
+#conversations-workspace { overflow: visible !important; margin: 6px 0 10px !important; }
+#conversations-list { border-right: none !important; }
+
+/* Lista "Team inbox" → tarjeta elevada */
+#conversations-new-app .conversation-list-container {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  overflow: hidden;
+}
+#conversations-new-app .conversation-list-container > div,
+#conversations-new-app [data-name="bulk-select-bar"],
+#conversations-new-app .conversation-list-header button {
+  background: transparent !important;
+}
+#conversations-new-app .conversation-list-container .sticky { border-bottom: none !important; }
+#conversations-new-app .conversation-list-header h1 {
+  color: var(--bb-text-strong) !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+}
+/* Tabs Unread / All / Recent / Starred */
+#conversations-new-app .conversation-list-header .rounded-lg { border: none !important; }
+#conversations-new-app .conversation-list-header button svg { width: 16px !important; height: 16px !important; }
+#conversations-new-app .conversation-list-header button span { font-size: 12px !important; font-weight: 600 !important; }
+#conversations-new-app .conversation-list-header button.border-b-blue-600 {
+  border-bottom-color: var(--bb-accent) !important;
+}
+#conversations-new-app .conversation-list-header button.border-b-blue-600 svg,
+#conversations-new-app .conversation-list-header button.border-b-blue-600 span {
+  color: var(--bb-accent) !important;
+}
+/* Filtro / orden → círculos chicos */
+#conv-filter-button-icon,
+#conv-sort-button-icon {
+  width: 28px; height: 28px;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#conv-filter-button-icon svg,
+#conv-sort-button-icon svg { width: 15px !important; height: 15px !important; }
+/* Checkbox "Select all" */
+#bulk-select-all-checkbox {
+  --n-color: var(--bb-bg) !important;
+  --n-color-disabled: var(--bb-bg) !important;
+  --n-border: none !important;
+  --n-border-disabled: none !important;
+  --n-color-checked: var(--bb-accent) !important;
+}
+#bulk-select-all-checkbox .hr-checkbox-box {
+  box-shadow: inset 2px 2px 4px #c6cacc, inset -2px -2px 4px #fff !important;
+  border-radius: 5px !important;
+}
+
+/* Barra izquierda de íconos → círculos chicos elevados */
+#conversations-new-app .inbox-panel .hr-icon { font-size: 13px !important; }
+#conversations-new-app .inbox-panel .hr-icon svg { width: 13px !important; height: 13px !important; }
+#conv-inbox-panel-import-button,
+#conv-inbox-panel-search-button,
+#conversations-new-app .inbox-panel .menu-item,
+#conversations-new-app .views-collapsed-trigger {
+  width: 24px !important; height: 24px !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  display: flex !important; align-items: center; justify-content: center;
+  border-radius: 50% !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  border: none !important;
+  margin: 3px auto !important;
+}
+#conversations-new-app .inbox-panel .menu-item.active {
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+#conversations-new-app .inbox-panel .menu-item.active i { color: var(--bb-accent) !important; }
+#conversations-new-app .inbox-panel .menu-item i:not(.active i) { color: var(--bb-text-muted) !important; }
+#new-conversation-btn-collapsed {
+  --n-color: var(--bb-accent) !important;
+  --n-color-hover: var(--bb-accent-dark) !important;
+  --n-color-pressed: var(--bb-accent-dark) !important;
+  --n-color-focus: var(--bb-accent-dark) !important;
+  --n-border: none !important;
+  --n-border-hover: none !important;
+  --n-border-focus: none !important;
+  width: 26px !important; height: 26px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  box-shadow: 3px 3px 8px var(--bb-accent-glow) !important;
+}
+#new-conversation-btn-collapsed .hr-icon,
+#new-conversation-btn-collapsed svg { width: 13px !important; height: 13px !important; font-size: 13px !important; }
+#conv-inbox-panel-toggle-button {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  width: 20px !important; height: 20px !important;
+  opacity: .55;
+}
+#conv-inbox-panel-toggle-button:hover { opacity: 1; }
+/* Columna de íconos: todos centrados y del mismo tamaño (cada ícono viene
+   envuelto en .menu-option / dropdown-trigger con márgenes distintos) */
+#conversations-new-app .inbox-panel,
+#conversations-new-app .inbox-menu,
+#conversations-new-app .inbox-menu > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+#conversations-new-app .inbox-panel .menu-option,
+#conversations-new-app .inbox-panel .hr-dropdown__container,
+#conversations-new-app .inbox-panel .hr-dropdown__trigger-wrapper {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+#conversations-new-app .inbox-panel .menu-item-content {
+  display: flex !important; align-items: center; justify-content: center;
+  padding: 0 !important; margin: 0 !important; width: 100%; height: 100%;
+}
+#conversations-new-app .inbox-panel .menu-option .divider {
+  width: 22px; margin: 6px auto !important;
+  border-color: var(--bb-divider) !important;
+}
+
+/* Panel central (empty state) → tarjeta elevada */
+#conversations-empty-state {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+#conversations-empty-title {
+  color: var(--bb-text-strong) !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+}
+#conversations-empty-message { color: var(--bb-text-muted) !important; }
+#conversations-view-all-btn {
+  background: var(--bb-accent) !important;
+  border-radius: 999px !important;
+  padding: 10px 28px !important;
+  font-weight: 700 !important;
+  box-shadow: 6px 6px 16px var(--bb-accent-glow), -4px -4px 12px rgba(255,255,255,.75) !important;
+}
+
+/* Panel derecho (detalle de contacto) → tarjeta elevada */
+#conversations-right-column { overflow: visible !important; margin: 6px 0 10px !important; }
+#conversations-contact-details { border-right: none !important; margin-left: 18px !important; }
+#contacts-highrise-right-side-bar-wrapper .bg-white.rounded-lg {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+#contacts-highrise-right-side-bar-wrapper .text-center > .mb-2 {
+  width: 64px; height: 64px;
+  margin: 0 auto 14px !important;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--bb-bg);
+  box-shadow: var(--bb-shadow-soft);
+}
+#contacts-highrise-right-side-bar-wrapper .text-center > .mb-2 svg { width: 30px !important; height: 30px !important; }
+
+/* Barra derecha de íconos (también en Contact Details) */
+/* v6.1: se reemplaza nav[data-v-7338da29] (hash de Vue que cambia con cada
+   actualización de la plataforma) por selectores estables. El único botón del riel
+   sin .sidebar-option-button es el de atajos de teclado. */
+nav .sidebar-option-button,
+nav button:has(> #sidebar-keyboard-shortcuts-icon) {
+  width: 24px !important; height: 24px !important;
+  border-radius: 50% !important;
+  background: var(--bb-bg) !important;
+  box-shadow: 3px 3px 7px rgba(166,174,178,.45), -3px -3px 7px rgba(255,255,255,.9) !important;
+  color: var(--bb-text-muted) !important;
+  margin: 3px 0;
+}
+nav .sidebar-option-button .hr-icon,
+nav #sidebar-keyboard-shortcuts-icon.hr-icon { font-size: 13px !important; }
+nav .sidebar-option-button .hr-icon svg { width: 13px !important; height: 13px !important; }
+nav .sidebar-option-button.text-blue-600 {
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-accent) !important;
+}
+
