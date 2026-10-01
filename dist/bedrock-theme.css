@@ -52,6 +52,11 @@
   --bb-font: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
     sans-serif;
 }
+/**
+ * 10-base: global search, app shell (backgrounds, wrappers), entrance animation.
+ */
+
+/* ── from 010-busqueda-global ── */
 /* ─────────────────────────────────────────────────────────────
    GLOBAL SEARCH MODAL (Ctrl+K / clic en el buscador del sidebar)
    Nunca se había tocado — se veía en blanco puro, sin nada de Brania.
@@ -124,6 +129,185 @@
   border-radius: 0 0 var(--bb-radius-lg) var(--bb-radius-lg) !important;
 }
 
+/* ── from 050-shell ── */
+/* ─────────────────────────────────────────────────────────────
+   GLOBAL SHELL
+   Brania: <div style="background:#e9ebec; font-family:Plus Jakarta Sans">
+   DOM:    .pmd-app, .sidebar-v2-location, .hl_wrapper
+   ───────────────────────────────────────────────────────────── */
+
+.pmd-app,
+.pmd-app__side-dock-main-surface,
+.sidebar-v2-location,
+.hl_wrapper,
+.hl_wrapper-container,
+.font-sans,
+body {
+  font-family: var(--bb-font) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* FIX 4 — el color de texto YA NO se fuerza vía .font-sans/body de forma
+   amplia: .font-sans es una utilidad de Tailwind tan común en el DOM de la plataforma
+   que también le pega a banners/badges que traen su propio fondo oscuro con
+   texto claro (ej. la barra superior de "Setup Guide"/trial) — forzar el
+   mismo gris oscuro ahí deja el texto invisible sobre fondo oscuro. El color
+   de texto de marca solo se aplica dentro del shell donde controlamos el
+   fondo (sidebar, wrapper principal), nunca globalmente. */
+.pmd-app,
+.sidebar-v2-location,
+.hl_wrapper,
+.hl_wrapper-container,
+body {
+  color: var(--bb-text) !important;
+}
+
+/* FIX 1 (v3 → v4): el HTML que mandaste confirma <i class="fas fa-arrow-left">
+   en "Go Back", y sigue roto incluso con `revert`. Eso significa que `revert`
+   no sirve acá: revert salta hasta el default del navegador y se salta
+   también la propia declaración @font-face de Font Awesome que trae la plataforma — no
+   vuelve a "como estaba antes", vuelve a "como si la plataforma no hubiera declarado
+   nada". El fix correcto es poner el nombre real de la fuente de Font
+   Awesome explícitamente. Cubre FA5/FA6 con fallback. */
+.fa,
+.fas,
+.fa-solid {
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "FontAwesome" !important;
+  font-weight: 900 !important;
+}
+
+.far,
+.fa-regular {
+  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "FontAwesome" !important;
+  font-weight: 400 !important;
+}
+
+.fab,
+.fa-brands {
+  font-family: "Font Awesome 5 Brands", "Font Awesome 6 Brands", "FontAwesome" !important;
+  font-weight: 400 !important;
+}
+
+.material-icons,
+.material-icons-outlined {
+  font-family: "Material Icons", "Material Icons Outlined" !important;
+}
+
+/* SVG no dibuja glifos de texto, así que revert es inofensivo acá */
+svg,
+svg * {
+  font-family: revert !important;
+}
+
+/* FIX 5 — se saca .hl_wrapper de este fondo: confirmado inspeccionando que
+   <main class="hl_wrapper"> es justo el elemento padre detrás de la "caja"
+   gris que se veía alrededor/debajo del header. Como .hl_wrapper reserva
+   86px arriba (ver FIX 2) pero el header solo ocupa ~70px con su margen,
+   ese sobrante se pintaba del mismo gris del header y se leía como una caja
+   plana en vez de espacio vacío. Las vistas específicas (dashboard,
+   contactos, oportunidades) ya tienen su propio fondo por separado abajo,
+   así que no pierden el look Brania. */
+.pmd-app,
+.sidebar-v2-location,
+#dashboard-wrapper,
+.location-dashboard-wrapper,
+.contacts-list-view-container,
+.crm-opportunities-page {
+  background: var(--bb-bg) !important;
+}
+
+.hl_wrapper {
+  padding: 16px 18px 22px !important;
+}
+
+/* FIX 2 — compensación genérica: cualquier vista dentro de .hl_wrapper que no
+   tenga su propio override más específico (ver abajo) recibe este padding-top
+   por defecto, para que el header neumórfico (más alto que el original) no le
+   tape el contenido de arriba. Verifica cada vista (Conversaciones, Calendarios,
+   Pagos, Marketing, Automatización, Sites, Memberships, Reputación, Reporting,
+   Marketplace, Settings) y ajusta este valor ±10px si alguna todavía se ve
+   tapada — las reglas de Dashboard y Opportunities de abajo son más específicas
+   y siguen ganando, así que no las toques. */
+.hl_wrapper {
+  padding-top: 86px !important;
+}
+
+/* Conversaciones (y cualquier otra vista con esta clase) trae
+   hl_force-top de la plataforma, que cancela el padding-top de arriba porque tiene
+   más especificidad (dos clases contra una). La combinamos aquí para
+   recuperar el mismo respiro. También bajamos el padding-bottom: este
+   layout es de altura fija a pantalla completa (no hace scroll como
+   Dashboard/Contactos), así que los 22px generales dejaban un hueco antes
+   del borde real de abajo — confirmado en DevTools. El padding-bottom
+   empataba en especificidad con una regla propia de la plataforma y perdía el
+   desempate por orden de carga (computaba 0px en vez de 8px), así que se
+   suma la tercera clase (.hl_topbar-tabs, que esta vista también trae)
+   para ganar sin ambigüedad. */
+.hl_wrapper.hl_force-top {
+  padding-top: 86px !important;
+  padding-bottom: 0 !important;
+}
+
+/* Contact Details (#record-details-new-ui) trae un header más alto que
+   el estándar (104px, confirmado en Computed — probablemente por el
+   ícono de llamadas/dialer que se agrega ahí al lado). Con eso más el
+   margin-top de 12px del header, hacen falta 116px reales, no 86px —
+   por eso se veía pegado. Ancla puntual a este ID (más específica que
+   la regla general de arriba) para no afectar otras pantallas donde
+   86px sí encaja bien. */
+#record-details-new-ui.hl_wrapper.hl_force-top {
+  padding-top: 134px !important;
+}
+
+/* Páginas con tabs en el header (.topmenu-nav): los tabs llevan 22px de
+   aire extra bajo la píldora (ver .hl_header .topmenu-nav), así que el
+   contenido baja lo mismo para no quedar tapado. */
+.hl_wrapper.hl_force-top.hl_topbar-tabs {
+  padding-top: 100px !important;
+  padding-bottom: 0 !important;
+}
+
+/* #conversations-workspace trae my-2 (margin-top y margin-bottom 8px por
+   Tailwind) — el de abajo suma al hueco final, se anula aparte. */
+#conversations-workspace {
+  margin-bottom: 0 !important;
+}
+
+a,
+.contact-name-link {
+  color: var(--bb-accent) !important;
+}
+
+a:hover,
+.contact-name-link:hover {
+  color: var(--bb-accent-dark) !important;
+}
+
+::selection {
+  background: #cfd6d8 !important;
+}
+
+/* ── from 180-animacion ── */
+/* ─────────────────────────────────────────────────────────────
+   ANIMATION (Brania riseIn on page views)
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes bb-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#location-dashboard,
+#crm-contacts-view,
+.crm-opportunities-page {
+  animation: bb-rise-in 0.32s ease both;
+}
 /* ─────────────────────────────────────────────────────────────
    DASHBOARD
    Brania: neumorphic widget cards + teal primary actions
@@ -1107,163 +1291,6 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 #appointment-drawer .hiddenDropDownList [role="button"]:hover { background: var(--bb-bg-hover) !important; }
 #appointment-drawer .dropDownSelectedOption { color: var(--bb-accent) !important; font-weight: 700 !important; }
 
-
-/* ─────────────────────────────────────────────────────────────
-   GLOBAL SHELL
-   Brania: <div style="background:#e9ebec; font-family:Plus Jakarta Sans">
-   DOM:    .pmd-app, .sidebar-v2-location, .hl_wrapper
-   ───────────────────────────────────────────────────────────── */
-
-.pmd-app,
-.pmd-app__side-dock-main-surface,
-.sidebar-v2-location,
-.hl_wrapper,
-.hl_wrapper-container,
-.font-sans,
-body {
-  font-family: var(--bb-font) !important;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* FIX 4 — el color de texto YA NO se fuerza vía .font-sans/body de forma
-   amplia: .font-sans es una utilidad de Tailwind tan común en el DOM de la plataforma
-   que también le pega a banners/badges que traen su propio fondo oscuro con
-   texto claro (ej. la barra superior de "Setup Guide"/trial) — forzar el
-   mismo gris oscuro ahí deja el texto invisible sobre fondo oscuro. El color
-   de texto de marca solo se aplica dentro del shell donde controlamos el
-   fondo (sidebar, wrapper principal), nunca globalmente. */
-.pmd-app,
-.sidebar-v2-location,
-.hl_wrapper,
-.hl_wrapper-container,
-body {
-  color: var(--bb-text) !important;
-}
-
-/* FIX 1 (v3 → v4): el HTML que mandaste confirma <i class="fas fa-arrow-left">
-   en "Go Back", y sigue roto incluso con `revert`. Eso significa que `revert`
-   no sirve acá: revert salta hasta el default del navegador y se salta
-   también la propia declaración @font-face de Font Awesome que trae la plataforma — no
-   vuelve a "como estaba antes", vuelve a "como si la plataforma no hubiera declarado
-   nada". El fix correcto es poner el nombre real de la fuente de Font
-   Awesome explícitamente. Cubre FA5/FA6 con fallback. */
-.fa,
-.fas,
-.fa-solid {
-  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "FontAwesome" !important;
-  font-weight: 900 !important;
-}
-
-.far,
-.fa-regular {
-  font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", "FontAwesome" !important;
-  font-weight: 400 !important;
-}
-
-.fab,
-.fa-brands {
-  font-family: "Font Awesome 5 Brands", "Font Awesome 6 Brands", "FontAwesome" !important;
-  font-weight: 400 !important;
-}
-
-.material-icons,
-.material-icons-outlined {
-  font-family: "Material Icons", "Material Icons Outlined" !important;
-}
-
-/* SVG no dibuja glifos de texto, así que revert es inofensivo acá */
-svg,
-svg * {
-  font-family: revert !important;
-}
-
-/* FIX 5 — se saca .hl_wrapper de este fondo: confirmado inspeccionando que
-   <main class="hl_wrapper"> es justo el elemento padre detrás de la "caja"
-   gris que se veía alrededor/debajo del header. Como .hl_wrapper reserva
-   86px arriba (ver FIX 2) pero el header solo ocupa ~70px con su margen,
-   ese sobrante se pintaba del mismo gris del header y se leía como una caja
-   plana en vez de espacio vacío. Las vistas específicas (dashboard,
-   contactos, oportunidades) ya tienen su propio fondo por separado abajo,
-   así que no pierden el look Brania. */
-.pmd-app,
-.sidebar-v2-location,
-#dashboard-wrapper,
-.location-dashboard-wrapper,
-.contacts-list-view-container,
-.crm-opportunities-page {
-  background: var(--bb-bg) !important;
-}
-
-.hl_wrapper {
-  padding: 16px 18px 22px !important;
-}
-
-/* FIX 2 — compensación genérica: cualquier vista dentro de .hl_wrapper que no
-   tenga su propio override más específico (ver abajo) recibe este padding-top
-   por defecto, para que el header neumórfico (más alto que el original) no le
-   tape el contenido de arriba. Verifica cada vista (Conversaciones, Calendarios,
-   Pagos, Marketing, Automatización, Sites, Memberships, Reputación, Reporting,
-   Marketplace, Settings) y ajusta este valor ±10px si alguna todavía se ve
-   tapada — las reglas de Dashboard y Opportunities de abajo son más específicas
-   y siguen ganando, así que no las toques. */
-.hl_wrapper {
-  padding-top: 86px !important;
-}
-
-/* Conversaciones (y cualquier otra vista con esta clase) trae
-   hl_force-top de la plataforma, que cancela el padding-top de arriba porque tiene
-   más especificidad (dos clases contra una). La combinamos aquí para
-   recuperar el mismo respiro. También bajamos el padding-bottom: este
-   layout es de altura fija a pantalla completa (no hace scroll como
-   Dashboard/Contactos), así que los 22px generales dejaban un hueco antes
-   del borde real de abajo — confirmado en DevTools. El padding-bottom
-   empataba en especificidad con una regla propia de la plataforma y perdía el
-   desempate por orden de carga (computaba 0px en vez de 8px), así que se
-   suma la tercera clase (.hl_topbar-tabs, que esta vista también trae)
-   para ganar sin ambigüedad. */
-.hl_wrapper.hl_force-top,
-.hl_wrapper.hl_force-top.hl_topbar-tabs {
-  padding-top: 86px !important;
-  padding-bottom: 0 !important;
-}
-
-/* Contact Details (#record-details-new-ui) trae un header más alto que
-   el estándar (104px, confirmado en Computed — probablemente por el
-   ícono de llamadas/dialer que se agrega ahí al lado). Con eso más el
-   margin-top de 12px del header, hacen falta 116px reales, no 86px —
-   por eso se veía pegado. Ancla puntual a este ID (más específica que
-   la regla general de arriba) para no afectar otras pantallas donde
-   86px sí encaja bien. */
-#record-details-new-ui.hl_wrapper.hl_force-top {
-  padding-top: 134px !important;
-}
-
-/* Páginas con tabs en el header (.topmenu-nav): los tabs llevan 22px de
-   aire extra bajo la píldora (ver .hl_header .topmenu-nav), así que el
-   contenido baja lo mismo para no quedar tapado. */
-.hl_wrapper.hl_force-top.hl_topbar-tabs {
-  padding-top: 100px !important;
-}
-
-/* #conversations-workspace trae my-2 (margin-top y margin-bottom 8px por
-   Tailwind) — el de abajo suma al hueco final, se anula aparte. */
-#conversations-workspace {
-  margin-bottom: 0 !important;
-}
-
-a,
-.contact-name-link {
-  color: var(--bb-accent) !important;
-}
-
-a:hover,
-.contact-name-link:hover {
-  color: var(--bb-accent-dark) !important;
-}
-
-::selection {
-  background: #cfd6d8 !important;
-}
 
 /* ─────────────────────────────────────────────────────────────
    SIDEBAR
@@ -2618,6 +2645,11 @@ nav .flex.flex-col.items-center.gap-1 {
   margin-top: 10px !important;
 }
 
+/**
+ * 11-components: buttons, inputs, frame spacing, primary buttons, tables, modals and menus, vertical tabs, radios.
+ */
+
+/* ── from 110-componentes-base ── */
 /* ─────────────────────────────────────────────────────────────
    SHARED COMPONENTS (buttons, inputs, modals, tables)
    ───────────────────────────────────────────────────────────── */
@@ -2691,7 +2723,6 @@ nav .flex.flex-col.items-center.gap-1 {
    clase, aunque el resultado visual sea el mismo. */
 .hr-button--primary {
   background: var(--bb-accent) !important;
-  color: var(--bb-white) !important;
   border: none !important;
   box-shadow: 6px 6px 16px var(--bb-accent-glow),
     -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
@@ -2911,7 +2942,7 @@ div:has(> #conv-send-button-simple) {
   background: var(--bb-bg) !important;
   border: none !important;
   border-radius: var(--bb-radius-xl) !important;
-  box-shadow: var(--bb-shadow-raised) !important;
+  /* box-shadow: see v6.8 below */
 }
 
 .hr-dialog__title,
@@ -2949,10 +2980,8 @@ div:has(> #conv-send-button-simple) {
 
 /* Menú desplegable de opciones del select */
 .hr-base-select-menu {
-  background: var(--bb-bg) !important;
-  border: none !important;
   border-radius: var(--bb-radius-md) !important;
-  box-shadow: var(--bb-shadow-raised) !important;
+  /* background, border, box-shadow: see v6.8 below */
 }
 
 .hr-base-select-option:hover,
@@ -3021,6 +3050,272 @@ textarea.form-control:focus {
   background: transparent;
 }
 
+/* ── from 210-espaciado-marco-v6.4 ── */
+/* ─────────────────────────────────────────────────────────────
+   ESPACIADO DEL MARCO (v6.4)
+   Se reducen los huecos alrededor del menú lateral y del header de 14px
+   a 6px uniformes. Además: La plataforma calcula el ancho de header y contenido como
+   (ancho de pantalla − ancho del menú) sin contar el margen del menú, así
+   que ambos se salían ~14px por la derecha (el header quedaba cortado y
+   sin su esquina redondeada). Aquí se descuentan los márgenes.
+   Ancho del menú: 14rem abierto, 3.5rem colapsado (valores de la plataforma).
+   ───────────────────────────────────────────────────────────── */
+.sidebar-v2-agency,
+.sidebar-v2-location {
+  background: var(--bb-bg) !important;
+}
+aside#sidebar-v2 {
+  margin: 6px 0 6px 6px !important;
+}
+.sidebar-v2-agency .hl_header,
+.sidebar-v2-location .hl_header {
+  top: 0 !important;
+  margin: 6px 6px 0 6px !important;
+  width: calc(var(--side-dock-surface-w) - 14rem - 18px) !important;
+}
+.sidebar-v2-agency.v2-collapse .hl_header,
+.sidebar-v2-location.v2-collapse .hl_header {
+  width: calc(var(--side-dock-surface-w) - 3.5rem - 18px) !important;
+}
+.sidebar-v2-agency .hl_wrapper,
+.sidebar-v2-location .hl_wrapper {
+  width: calc(var(--side-dock-surface-w) - 14rem - 6px) !important;
+}
+.sidebar-v2-agency.v2-collapse .hl_wrapper,
+.sidebar-v2-location.v2-collapse .hl_wrapper {
+  width: calc(var(--side-dock-surface-w) - 3.5rem - 6px) !important;
+}
+
+/* ── from 230-botones-primarios-v6.6 ── */
+/* ─────────────────────────────────────────────────────────────
+   BOTONES PRIMARIOS (v6.6)
+   Los botones primarios de Highrise traen también .hr-button--default-type,
+   y la regla ".hr-button.hr-button--default-type.hr-button--default-type"
+   (más específica) les ponía el fondo gris del tema con texto blanco:
+   quedaban ilegibles (ej. "Crear una nueva instantánea" en Snapshots).
+   Aquí se les devuelve el acento del tema (clase repetida a propósito
+   para ganar en especificidad).
+   ───────────────────────────────────────────────────────────── */
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary,
+.ui-button.hr-button--default-type.hr-button--primary.hr-button--primary {
+  background: var(--bb-accent) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:hover:not(:disabled),
+.ui-button.hr-button--default-type.hr-button--primary.hr-button--primary:hover:not(:disabled) {
+  background: var(--bb-accent) !important;
+  filter: brightness(1.08) !important;
+}
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-button__content,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-button__content *,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-icon {
+  color: #fff !important;
+}
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:disabled,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary.hr-button--disabled {
+  opacity: .55 !important;
+}
+
+/* ── from 240-tablas-highrise-v6.7 ── */
+/* ─────────────────────────────────────────────────────────────
+   TABLAS HIGHRISE (hr-data-table) (v6.7) — ej. Snapshots
+   1) El encabezado trae alto fijo de 40px + overflow hidden: los títulos
+      largos ("Última actualización el") se partían y la 2ª línea quedaba
+      cortada. Como la fila tiene alto fijo en línea (style="height:40px"),
+      se reduce el padding vertical para que quepan 2 líneas.
+   2) Las filas venían en blanco sobre la tarjeta gris del tema; pasan al
+      fondo del tema con divisor y hover suave.
+   ───────────────────────────────────────────────────────────── */
+.hr-data-table .hr-data-table__cell-header {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  line-height: 1.2 !important;
+  vertical-align: middle !important;
+}
+.hr-data-table .hr-data-table__body-row,
+.hr-data-table .hr-data-table__body-cell {
+  background: var(--bb-bg) !important;
+}
+.hr-data-table .hr-data-table__body-cell {
+  border-top: 1px solid var(--bb-divider) !important;
+}
+.hr-data-table .hr-data-table__body-row-hover:hover,
+.hr-data-table .hr-data-table__body-row-hover:hover > .hr-data-table__body-cell {
+  background: var(--bb-bg-hover) !important;
+}
+
+/* ── from 250-modales-menus-v6.8 ── */
+/* ─────────────────────────────────────────────────────────────
+   MODALES Y MENÚS FLOTANTES (v6.8) — ej. "Crear instantánea"
+   1) El select (hr-select) traía .bg-white y su etiqueta interna fondo
+      blanco: tapaban el hundido del tema y se veía un rectángulo blanco.
+   2) Modales y menús desplegables usaban la sombra neumórfica "raised",
+      cuyo brillo blanco (-10px -10px) sobre el fondo oscurecido del modal
+      se veía como un halo blanco. Para lo que flota sobre el overlay se
+      usa sólo sombra oscura.
+   3) El menú del select se fundía con el modal (mismo fondo y sombra); se
+      separa con borde sutil y hover en las opciones.
+   ───────────────────────────────────────────────────────────── */
+.hr-select.bg-white,
+.hr-select-wrapper .bg-white {
+  background: transparent !important;
+}
+.hr-base-selection .hr-base-selection-label {
+  background: transparent !important;
+}
+.hr-dialog:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])),
+.hr-modal:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])) {
+  box-shadow: 0 24px 60px rgba(28, 38, 43, 0.35), 0 2px 8px rgba(28, 38, 43, 0.12) !important;
+}
+.hr-base-select-menu {
+  background: var(--bb-bg) !important;
+  border: 1px solid var(--bb-divider) !important;
+  box-shadow: 0 14px 34px rgba(28, 38, 43, 0.22) !important;
+}
+.hr-base-select-menu .hr-base-select-option {
+  border-radius: 8px !important;
+  margin: 0 4px !important;
+}
+.hr-base-select-menu .hr-base-select-option:hover,
+.hr-base-select-menu .hr-base-select-option--pending {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-strong) !important;
+}
+.hr-base-select-menu .hr-base-select-option::before {
+  background: transparent !important;
+}
+.hr-base-select-menu .hr-base-select-option--selected {
+  color: var(--bb-accent) !important;
+}
+
+/* ── from 260-pestanas-verticales-v6.9-v6.10 ── */
+/* ─────────────────────────────────────────────────────────────
+   PESTAÑAS VERTICALES (hr-tabs bar-type, izquierda) (v6.9) — ej. Reventa
+   ".hr-tabs-bar { background: accent }" está pensado para la línea fina
+   de las pestañas de arriba, pero en las pestañas laterales ese "bar" es
+   un bloque del tamaño de la pestaña y se pinta ENCIMA del texto: la
+   pestaña activa ("Email System") quedaba como un rectángulo verde vacío.
+   Aquí pasa a ser la píldora hundida del tema, detrás del texto.
+   ───────────────────────────────────────────────────────────── */
+.hr-tabs-nav--bar-type.hr-tabs-nav--left {
+  background: var(--bb-bg) !important;
+}
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-bar {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border-radius: var(--bb-radius-md) !important;
+  z-index: 0 !important;
+}
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab {
+  position: relative !important;
+  z-index: 1 !important;
+}
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab--active {
+  font-weight: 600 !important;
+}
+/* v6.10 — En Reventa > Subscription la pestaña activa además trae su propio
+   fondo azul claro (#eff4ff de la plataforma) que tapaba la píldora hundida. */
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab,
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab--active,
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab:hover {
+  background: transparent !important;
+  border-left: none !important;
+}
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab:not(.hr-tabs-tab--active):hover {
+  color: var(--bb-text-strong) !important;
+}
+
+/* ── from 270-radios-mi-perfil-v6.11-v6.12 ── */
+/* ─────────────────────────────────────────────────────────────
+   ARMONÍA DE RADIOS + MI PERFIL (v6.11)
+   - Header y menú lateral usaban --bb-radius-xl (26px): con 58px de alto
+     el header se veía casi como píldora. Los contenedores grandes del
+     marco pasan a --bb-radius-lg (18px) para que todo tenga el mismo
+     redondeo.
+   - Mi perfil (.profile-settings-root) traía un contenedor cuadrado
+     gris-50 y una tarjeta blanca con radio 8px y sombra genérica; pasan a
+     la tarjeta del tema, con los mismos radios.
+   ───────────────────────────────────────────────────────────── */
+.hl_header::before,
+aside#sidebar-v2 {
+  border-radius: var(--bb-radius-lg) !important;
+}
+
+/* fondo gris-50 de afuera: se deja transparente (el marco ya es del tema) */
+.profile-settings-root > .bg-gray-50 {
+  background: transparent !important;
+}
+/* contenedor grande (antes blanco, radio 8px) */
+.profile-settings-root .bg-white.shadow-lg {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+/* tarjetas internas ("Datos personales", etc.) */
+.profile-settings-root .bg-white[class*="shadow-[var(--shadow-lg)]"] {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.profile-settings-root .border-b,
+.profile-settings-root .border-t {
+  border-color: var(--bb-divider) !important;
+}
+/* Menú General / Seguridad: el activo traía azul claro (#f5f8ff) */
+.profile-settings-root nav button {
+  border-radius: var(--bb-radius-sm) !important;
+  color: var(--bb-text-muted) !important;
+}
+.profile-settings-root nav button[class*="bg-[#f5f8ff]"] {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-accent) !important;
+  font-weight: 600 !important;
+}
+.profile-settings-root nav button:not([class*="bg-[#f5f8ff]"]):hover {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-strong) !important;
+}
+
+/* Botón primario deshabilitado (ej. "Actualizar perfil"): La plataforma lo pinta
+   azul claro (#b2ccff) con una regla más específica; se usa el acento
+   con la opacidad de deshabilitado. */
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary.hr-button--disabled,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:disabled {
+  background: var(--bb-accent) !important;
+  border-color: var(--bb-accent) !important;
+  color: #fff !important;
+}
+
+/* v6.12 — Botones de texto (Naive UI .hl-text-btn, ej. "Más información →"
+   en los avisos): heredaban el relieve de ".n-button--default-type" sin
+   padding ni radio y se veían como una caja pegada al texto. Vuelven a
+   ser enlaces de texto en color acento. */
+.n-button.n-button--default-type.hl-text-btn,
+.n-button.n-button--default-type.hl-text-btn:hover,
+.n-button.n-button--default-type.hl-text-btn:focus {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  color: var(--bb-accent) !important;
+}
+.n-button.n-button--default-type.hl-text-btn .n-button__content,
+.n-button.n-button--default-type.hl-text-btn .n-button__icon,
+.n-button.n-button--default-type.hl-text-btn * {
+  color: var(--bb-accent) !important;
+}
+.n-button.n-button--default-type.hl-text-btn .n-button__border,
+.n-button.n-button--default-type.hl-text-btn .n-button__state-border {
+  border: none !important;
+}
+.n-button.n-button--default-type.hl-text-btn:hover .n-button__content {
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
 /* ─────────────────────────────────────────────────────────────
    SETTINGS (nivel de agencia) — Company Settings, My Profile, y
    cualquier otra pantalla que use este mismo sistema de componentes
@@ -3445,26 +3740,6 @@ textarea.form-control:focus {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   ANIMATION (Brania riseIn on page views)
-   ───────────────────────────────────────────────────────────── */
-
-@keyframes bb-rise-in {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-#location-dashboard,
-#crm-contacts-view,
-.crm-opportunities-page {
-  animation: bb-rise-in 0.32s ease both;
-}
-/* ─────────────────────────────────────────────────────────────
    SIDEBAR COLAPSADO (v6.2)
    Con el menú colapsado (#sidebar-v2.w-14, 56px) las reglas del menú
    expandido dejaban el ícono pegado a la izquierda (padding-left 14px +
@@ -3530,40 +3805,6 @@ textarea.form-control:focus {
   color: var(--bb-accent) !important;
 }
 /* ─────────────────────────────────────────────────────────────
-   ESPACIADO DEL MARCO (v6.4)
-   Se reducen los huecos alrededor del menú lateral y del header de 14px
-   a 6px uniformes. Además: La plataforma calcula el ancho de header y contenido como
-   (ancho de pantalla − ancho del menú) sin contar el margen del menú, así
-   que ambos se salían ~14px por la derecha (el header quedaba cortado y
-   sin su esquina redondeada). Aquí se descuentan los márgenes.
-   Ancho del menú: 14rem abierto, 3.5rem colapsado (valores de la plataforma).
-   ───────────────────────────────────────────────────────────── */
-.sidebar-v2-agency,
-.sidebar-v2-location {
-  background: var(--bb-bg) !important;
-}
-aside#sidebar-v2 {
-  margin: 6px 0 6px 6px !important;
-}
-.sidebar-v2-agency .hl_header,
-.sidebar-v2-location .hl_header {
-  top: 0 !important;
-  margin: 6px 6px 0 6px !important;
-  width: calc(var(--side-dock-surface-w) - 14rem - 18px) !important;
-}
-.sidebar-v2-agency.v2-collapse .hl_header,
-.sidebar-v2-location.v2-collapse .hl_header {
-  width: calc(var(--side-dock-surface-w) - 3.5rem - 18px) !important;
-}
-.sidebar-v2-agency .hl_wrapper,
-.sidebar-v2-location .hl_wrapper {
-  width: calc(var(--side-dock-surface-w) - 14rem - 6px) !important;
-}
-.sidebar-v2-agency.v2-collapse .hl_wrapper,
-.sidebar-v2-location.v2-collapse .hl_wrapper {
-  width: calc(var(--side-dock-surface-w) - 3.5rem - 6px) !important;
-}
-/* ─────────────────────────────────────────────────────────────
    ASK AI / PREGUNTAR A LA IA (v6.5) — #ask-ai-container-pmd
    App aparte (no vive en .hl_wrapper): traía margin-top de 50px, así que
    el header flotante (6px + 58px) tapaba la parte de arriba del panel.
@@ -3578,7 +3819,7 @@ aside#sidebar-v2 {
   margin: 70px 6px 6px 6px !important;
   width: calc(100% - 12px) !important;
   height: calc(100vh - 76px) !important;
-  border-radius: var(--bb-radius-xl) !important;
+  border-radius: var(--bb-radius-lg) !important; /* v6.11: frame radius harmony (was xl) */
   overflow: hidden !important;
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-raised) !important;
@@ -3653,231 +3894,6 @@ aside#sidebar-v2 {
   opacity: 1 !important;
   filter: brightness(0) invert(1) !important;
 }
-/* ─────────────────────────────────────────────────────────────
-   BOTONES PRIMARIOS (v6.6)
-   Los botones primarios de Highrise traen también .hr-button--default-type,
-   y la regla ".hr-button.hr-button--default-type.hr-button--default-type"
-   (más específica) les ponía el fondo gris del tema con texto blanco:
-   quedaban ilegibles (ej. "Crear una nueva instantánea" en Snapshots).
-   Aquí se les devuelve el acento del tema (clase repetida a propósito
-   para ganar en especificidad).
-   ───────────────────────────────────────────────────────────── */
-.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary,
-.ui-button.hr-button--default-type.hr-button--primary.hr-button--primary {
-  background: var(--bb-accent) !important;
-  color: #fff !important;
-  border: none !important;
-  box-shadow: var(--bb-shadow-soft) !important;
-}
-.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:hover:not(:disabled),
-.ui-button.hr-button--default-type.hr-button--primary.hr-button--primary:hover:not(:disabled) {
-  background: var(--bb-accent) !important;
-  filter: brightness(1.08) !important;
-}
-.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-button__content,
-.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-button__content *,
-.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-icon {
-  color: #fff !important;
-}
-.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:disabled,
-.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary.hr-button--disabled {
-  opacity: .55 !important;
-}
-/* ─────────────────────────────────────────────────────────────
-   TABLAS HIGHRISE (hr-data-table) (v6.7) — ej. Snapshots
-   1) El encabezado trae alto fijo de 40px + overflow hidden: los títulos
-      largos ("Última actualización el") se partían y la 2ª línea quedaba
-      cortada. Como la fila tiene alto fijo en línea (style="height:40px"),
-      se reduce el padding vertical para que quepan 2 líneas.
-   2) Las filas venían en blanco sobre la tarjeta gris del tema; pasan al
-      fondo del tema con divisor y hover suave.
-   ───────────────────────────────────────────────────────────── */
-.hr-data-table .hr-data-table__cell-header {
-  padding-top: 3px !important;
-  padding-bottom: 3px !important;
-  line-height: 1.2 !important;
-  vertical-align: middle !important;
-}
-.hr-data-table .hr-data-table__body-row,
-.hr-data-table .hr-data-table__body-cell {
-  background: var(--bb-bg) !important;
-}
-.hr-data-table .hr-data-table__body-cell {
-  border-top: 1px solid var(--bb-divider) !important;
-}
-.hr-data-table .hr-data-table__body-row-hover:hover,
-.hr-data-table .hr-data-table__body-row-hover:hover > .hr-data-table__body-cell {
-  background: var(--bb-bg-hover) !important;
-}
-/* ─────────────────────────────────────────────────────────────
-   MODALES Y MENÚS FLOTANTES (v6.8) — ej. "Crear instantánea"
-   1) El select (hr-select) traía .bg-white y su etiqueta interna fondo
-      blanco: tapaban el hundido del tema y se veía un rectángulo blanco.
-   2) Modales y menús desplegables usaban la sombra neumórfica "raised",
-      cuyo brillo blanco (-10px -10px) sobre el fondo oscurecido del modal
-      se veía como un halo blanco. Para lo que flota sobre el overlay se
-      usa sólo sombra oscura.
-   3) El menú del select se fundía con el modal (mismo fondo y sombra); se
-      separa con borde sutil y hover en las opciones.
-   ───────────────────────────────────────────────────────────── */
-.hr-select.bg-white,
-.hr-select-wrapper .bg-white {
-  background: transparent !important;
-}
-.hr-base-selection .hr-base-selection-label {
-  background: transparent !important;
-}
-.hr-dialog:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])),
-.hr-modal:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])) {
-  box-shadow: 0 24px 60px rgba(28, 38, 43, 0.35), 0 2px 8px rgba(28, 38, 43, 0.12) !important;
-}
-.hr-base-select-menu {
-  background: var(--bb-bg) !important;
-  border: 1px solid var(--bb-divider) !important;
-  box-shadow: 0 14px 34px rgba(28, 38, 43, 0.22) !important;
-}
-.hr-base-select-menu .hr-base-select-option {
-  border-radius: 8px !important;
-  margin: 0 4px !important;
-}
-.hr-base-select-menu .hr-base-select-option:hover,
-.hr-base-select-menu .hr-base-select-option--pending {
-  background: var(--bb-bg-hover) !important;
-  color: var(--bb-text-strong) !important;
-}
-.hr-base-select-menu .hr-base-select-option::before {
-  background: transparent !important;
-}
-.hr-base-select-menu .hr-base-select-option--selected {
-  color: var(--bb-accent) !important;
-}
-/* ─────────────────────────────────────────────────────────────
-   PESTAÑAS VERTICALES (hr-tabs bar-type, izquierda) (v6.9) — ej. Reventa
-   ".hr-tabs-bar { background: accent }" está pensado para la línea fina
-   de las pestañas de arriba, pero en las pestañas laterales ese "bar" es
-   un bloque del tamaño de la pestaña y se pinta ENCIMA del texto: la
-   pestaña activa ("Email System") quedaba como un rectángulo verde vacío.
-   Aquí pasa a ser la píldora hundida del tema, detrás del texto.
-   ───────────────────────────────────────────────────────────── */
-.hr-tabs-nav--bar-type.hr-tabs-nav--left {
-  background: var(--bb-bg) !important;
-}
-.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-bar {
-  background: var(--bb-bg) !important;
-  box-shadow: var(--bb-shadow-inset) !important;
-  border-radius: var(--bb-radius-md) !important;
-  z-index: 0 !important;
-}
-.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab {
-  position: relative !important;
-  z-index: 1 !important;
-}
-.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab--active {
-  font-weight: 600 !important;
-}
-/* v6.10 — En Reventa > Subscription la pestaña activa además trae su propio
-   fondo azul claro (#eff4ff de la plataforma) que tapaba la píldora hundida. */
-.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab,
-.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab--active,
-.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab:hover {
-  background: transparent !important;
-  border-left: none !important;
-}
-.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab:not(.hr-tabs-tab--active):hover {
-  color: var(--bb-text-strong) !important;
-}
-/* ─────────────────────────────────────────────────────────────
-   ARMONÍA DE RADIOS + MI PERFIL (v6.11)
-   - Header y menú lateral usaban --bb-radius-xl (26px): con 58px de alto
-     el header se veía casi como píldora. Los contenedores grandes del
-     marco pasan a --bb-radius-lg (18px) para que todo tenga el mismo
-     redondeo.
-   - Mi perfil (.profile-settings-root) traía un contenedor cuadrado
-     gris-50 y una tarjeta blanca con radio 8px y sombra genérica; pasan a
-     la tarjeta del tema, con los mismos radios.
-   ───────────────────────────────────────────────────────────── */
-.hl_header::before,
-aside#sidebar-v2 {
-  border-radius: var(--bb-radius-lg) !important;
-}
-#ask-ai-container-pmd .askai-page {
-  border-radius: var(--bb-radius-lg) !important;
-}
-
-/* fondo gris-50 de afuera: se deja transparente (el marco ya es del tema) */
-.profile-settings-root > .bg-gray-50 {
-  background: transparent !important;
-}
-/* contenedor grande (antes blanco, radio 8px) */
-.profile-settings-root .bg-white.shadow-lg {
-  background: var(--bb-bg) !important;
-  border: none !important;
-  border-radius: var(--bb-radius-lg) !important;
-  box-shadow: var(--bb-shadow-raised) !important;
-}
-/* tarjetas internas ("Datos personales", etc.) */
-.profile-settings-root .bg-white[class*="shadow-[var(--shadow-lg)]"] {
-  background: var(--bb-bg) !important;
-  border: none !important;
-  border-radius: var(--bb-radius-sm) !important;
-  box-shadow: var(--bb-shadow-soft) !important;
-}
-.profile-settings-root .border-b,
-.profile-settings-root .border-t {
-  border-color: var(--bb-divider) !important;
-}
-/* Menú General / Seguridad: el activo traía azul claro (#f5f8ff) */
-.profile-settings-root nav button {
-  border-radius: var(--bb-radius-sm) !important;
-  color: var(--bb-text-muted) !important;
-}
-.profile-settings-root nav button[class*="bg-[#f5f8ff]"] {
-  background: var(--bb-bg) !important;
-  box-shadow: var(--bb-shadow-inset) !important;
-  color: var(--bb-accent) !important;
-  font-weight: 600 !important;
-}
-.profile-settings-root nav button:not([class*="bg-[#f5f8ff]"]):hover {
-  background: var(--bb-bg-hover) !important;
-  color: var(--bb-text-strong) !important;
-}
-
-/* Botón primario deshabilitado (ej. "Actualizar perfil"): La plataforma lo pinta
-   azul claro (#b2ccff) con una regla más específica; se usa el acento
-   con la opacidad de deshabilitado. */
-.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary.hr-button--disabled,
-.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:disabled {
-  background: var(--bb-accent) !important;
-  border-color: var(--bb-accent) !important;
-  color: #fff !important;
-}
-
-/* v6.12 — Botones de texto (Naive UI .hl-text-btn, ej. "Más información →"
-   en los avisos): heredaban el relieve de ".n-button--default-type" sin
-   padding ni radio y se veían como una caja pegada al texto. Vuelven a
-   ser enlaces de texto en color acento. */
-.n-button.n-button--default-type.hl-text-btn,
-.n-button.n-button--default-type.hl-text-btn:hover,
-.n-button.n-button--default-type.hl-text-btn:focus {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-  color: var(--bb-accent) !important;
-}
-.n-button.n-button--default-type.hl-text-btn .n-button__content,
-.n-button.n-button--default-type.hl-text-btn .n-button__icon,
-.n-button.n-button--default-type.hl-text-btn * {
-  color: var(--bb-accent) !important;
-}
-.n-button.n-button--default-type.hl-text-btn .n-button__border,
-.n-button.n-button--default-type.hl-text-btn .n-button__state-border {
-  border: none !important;
-}
-.n-button.n-button--default-type.hl-text-btn:hover .n-button__content {
-  text-decoration: underline !important;
-  text-underline-offset: 3px !important;
-}
-
 /* ─────────────────────────────────────────────────────────────
    CONFIGURACIÓN — CONTENEDORES BLANCOS (v6.13)
    Revisadas todas las páginas del menú de Configuración de agencia.
@@ -4952,32 +4968,6 @@ body:has(#pg-invoices_btn-settings) .ui-statistic:nth-child(4) .title::before { 
   text-align: left !important;
 }
 
-/* v6.27 — Tooltips (.hr-tooltip, ej. nombre completo al pasar el mouse
-   sobre una conversación): son también .hr-popover, así que la regla de
-   v6.24 les puso el fondo claro del tema y el texto blanco de la plataforma quedaba
-   invisible. Vuelven a ser oscuros (gris del texto del tema). */
-.hr-popover.hr-tooltip:not(.hr-tooltip--light) {
-  background: var(--bb-text-strong) !important;
-  border: none !important;
-  border-radius: 10px !important;
-  box-shadow: 0 8px 20px rgba(28, 38, 43, 0.25) !important;
-}
-.hr-popover.hr-tooltip:not(.hr-tooltip--light) .hr-popover__arrow,
-.hr-popover.hr-tooltip:not(.hr-tooltip--light) .hr-popover-arrow {
-  background: var(--bb-text-strong) !important;
-}
-.hr-popover.hr-tooltip:not(.hr-tooltip--light),
-.hr-popover.hr-tooltip:not(.hr-tooltip--light) * {
-  color: #fff !important;
-}
-/* Además: una hoja de la plataforma declara ".hr-popover { position: relative;
-   right: 8rem }", que corre TODO popover 128px a la izquierda; en los
-   tooltips se notaba como "muy apartado" del elemento. Se anula sólo en
-   tooltips para no mover otros popovers que la plataforma pudiera acomodar así. */
-.hr-popover.hr-tooltip {
-  right: auto !important;
-}
-
 /* ─────────────────────────────────────────────────────────────
    CALENDARIOS (v6.28) — vista de calendario, lista de citas y controles
    Revisado: Vista de calendario (día/semana/mes), selector de vista y de
@@ -5233,6 +5223,38 @@ body:has(#pg-invoices_btn-settings) .ui-statistic:nth-child(4) .title::before { 
   box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
 }
 
+/**
+ * 19-overrides: global late layer (tooltips, global surfaces, tables). Must stay late: it overrides view rules of equal specificity.
+ */
+
+/* ── from 390-tooltips-v6.27 ── */
+/* v6.27 — Tooltips (.hr-tooltip, ej. nombre completo al pasar el mouse
+   sobre una conversación): son también .hr-popover, así que la regla de
+   v6.24 les puso el fondo claro del tema y el texto blanco de la plataforma quedaba
+   invisible. Vuelven a ser oscuros (gris del texto del tema). */
+.hr-popover.hr-tooltip:not(.hr-tooltip--light) {
+  background: var(--bb-text-strong) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 20px rgba(28, 38, 43, 0.25) !important;
+}
+.hr-popover.hr-tooltip:not(.hr-tooltip--light) .hr-popover__arrow,
+.hr-popover.hr-tooltip:not(.hr-tooltip--light) .hr-popover-arrow {
+  background: var(--bb-text-strong) !important;
+}
+.hr-popover.hr-tooltip:not(.hr-tooltip--light),
+.hr-popover.hr-tooltip:not(.hr-tooltip--light) * {
+  color: #fff !important;
+}
+/* Además: una hoja de la plataforma declara ".hr-popover { position: relative;
+   right: 8rem }", que corre TODO popover 128px a la izquierda; en los
+   tooltips se notaba como "muy apartado" del elemento. Se anula sólo en
+   tooltips para no mover otros popovers que la plataforma pudiera acomodar así. */
+.hr-popover.hr-tooltip {
+  right: auto !important;
+}
+
+/* ── from 430-capa-global-v6.32 ── */
 /* ═════════════════════════════════════════════════════════════
    v6.32 — CAPA GLOBAL: NEUMORFISMO + BORDES SUAVES
    Barrido automático de todas las vistas del menú de sub-cuenta y de
@@ -5276,8 +5298,6 @@ body:has(#pg-invoices_btn-settings) .ui-statistic:nth-child(4) .title::before { 
 .hr-input,
 .n-base-selection,
 .hr-base-selection,
-input.hl-text-input,
-textarea.hl-text-input,
 .form-control {
   border-radius: var(--bb-radius-sm) !important;
 }
@@ -5463,7 +5483,25 @@ input[type="radio"] {
   box-shadow: var(--bb-shadow-soft) !important;
 }
 
-
+/* ── from 520-tablas-highrise-v6.43 ── */
+/* ===== v6.43 Tablas Highrise (hr-data-table): sin cuadrícula dura, divisores suaves y tarjeta redondeada (global) ===== */
+.hr-data-table-wrapper { border: none !important; border-radius: var(--bb-radius-xl) !important; }
+.hr-data-table-wrapper .hr-data-table { border: none !important; border-radius: 0 !important; background: transparent !important; }
+.hr-data-table-wrapper .hr-data-table :is(td, th) { border-left: none !important; border-right: none !important; border-top: none !important; }
+.hr-data-table-wrapper .hr-data-table :is(td, th):is(.hr-data-table-bdr-rgt, .hr-data-table-bdr-lft) { border-right: none !important; border-left: none !important; }
+.hr-data-table-wrapper .hr-data-table td { border-bottom: 1px solid rgba(150, 160, 165, .18) !important; background: transparent !important; }
+.hr-data-table-wrapper .hr-data-table tbody tr:last-child td { border-bottom: none !important; }
+.hr-data-table-wrapper .hr-data-table thead th { border-bottom: 1px solid rgba(150, 160, 165, .28) !important; background: transparent !important; }
+.hr-data-table-wrapper .hr-data-table tbody tr:hover td { background: var(--bb-bg-hover) !important; }
+.hr-data-table-wrapper .hr-data-table tbody tr:hover td:first-child { border-radius: 12px 0 0 12px; }
+.hr-data-table-wrapper .hr-data-table tbody tr:hover td:last-child { border-radius: 0 12px 12px 0; }
+.hr-button.hr-button--secondary.hr-button--disabled.hr-button--disabled.hr-button--disabled { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; opacity: .6; }
+.hr-button.hr-button--secondary { --n-color: var(--bb-bg) !important; --n-color-hover: var(--bb-bg-hover) !important; --n-color-pressed: var(--bb-bg) !important; --n-color-focus: var(--bb-bg) !important; --n-color-disabled: var(--bb-bg) !important; }
+/* menús desplegables Highrise (versión anterior hr-dropdown__container) (global) */
+.hr-dropdown-menu.hr-dropdown__container { background: var(--bb-bg) !important; border: none !important; border-radius: 14px !important; box-shadow: 0 14px 34px rgba(28,38,43,.22) !important; padding: 6px !important; }
+.hr-dropdown-menu.hr-dropdown__container .hr-dropdown-option-body { border-radius: 10px !important; }
+.hr-dropdown-menu.hr-dropdown__container .hr-dropdown-option:hover .hr-dropdown-option-body { background: var(--bb-bg-hover) !important; color: var(--bb-accent) !important; }
+.hr-dropdown-menu.hr-dropdown__container .hr-popover-shared__arrow, .hr-dropdown-menu.hr-dropdown__container .hr-popover-arrow { display: none !important; }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
@@ -5815,25 +5853,6 @@ button.sidebar-option-button { transition: box-shadow .15s, color .15s !importan
 .hr-drawer:has(#contactinfo) .hr-space.py-2.px-3.border-b:hover { background: var(--bb-bg-hover) !important; color: var(--bb-accent) !important; }
 .hr-drawer:has(#contactinfo) .hr-space.py-2.px-3.border-b * { color: var(--bb-text) !important; }
 .hr-drawer:has(#contactinfo) .hr-space.py-2.px-3.border-b:hover * { color: var(--bb-accent) !important; }
-
-/* ===== v6.43 Tablas Highrise (hr-data-table): sin cuadrícula dura, divisores suaves y tarjeta redondeada (global) ===== */
-.hr-data-table-wrapper { border: none !important; border-radius: var(--bb-radius-xl) !important; }
-.hr-data-table-wrapper .hr-data-table { border: none !important; border-radius: 0 !important; background: transparent !important; }
-.hr-data-table-wrapper .hr-data-table :is(td, th) { border-left: none !important; border-right: none !important; border-top: none !important; }
-.hr-data-table-wrapper .hr-data-table :is(td, th):is(.hr-data-table-bdr-rgt, .hr-data-table-bdr-lft) { border-right: none !important; border-left: none !important; }
-.hr-data-table-wrapper .hr-data-table td { border-bottom: 1px solid rgba(150, 160, 165, .18) !important; background: transparent !important; }
-.hr-data-table-wrapper .hr-data-table tbody tr:last-child td { border-bottom: none !important; }
-.hr-data-table-wrapper .hr-data-table thead th { border-bottom: 1px solid rgba(150, 160, 165, .28) !important; background: transparent !important; }
-.hr-data-table-wrapper .hr-data-table tbody tr:hover td { background: var(--bb-bg-hover) !important; }
-.hr-data-table-wrapper .hr-data-table tbody tr:hover td:first-child { border-radius: 12px 0 0 12px; }
-.hr-data-table-wrapper .hr-data-table tbody tr:hover td:last-child { border-radius: 0 12px 12px 0; }
-.hr-button.hr-button--secondary.hr-button--disabled.hr-button--disabled.hr-button--disabled { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; opacity: .6; }
-.hr-button.hr-button--secondary { --n-color: var(--bb-bg) !important; --n-color-hover: var(--bb-bg-hover) !important; --n-color-pressed: var(--bb-bg) !important; --n-color-focus: var(--bb-bg) !important; --n-color-disabled: var(--bb-bg) !important; }
-/* menús desplegables Highrise (versión anterior hr-dropdown__container) (global) */
-.hr-dropdown-menu.hr-dropdown__container { background: var(--bb-bg) !important; border: none !important; border-radius: 14px !important; box-shadow: 0 14px 34px rgba(28,38,43,.22) !important; padding: 6px !important; }
-.hr-dropdown-menu.hr-dropdown__container .hr-dropdown-option-body { border-radius: 10px !important; }
-.hr-dropdown-menu.hr-dropdown__container .hr-dropdown-option:hover .hr-dropdown-option-body { background: var(--bb-bg-hover) !important; color: var(--bb-accent) !important; }
-.hr-dropdown-menu.hr-dropdown__container .hr-popover-shared__arrow, .hr-dropdown-menu.hr-dropdown__container .hr-popover-arrow { display: none !important; }
 
 /* ===== v6.44 Configuración › Campos personalizados / Objetos (crmObjectsSettingsApp) ===== */
 .crmObjectsSettingsApp.bg-gray-50, .crmObjectsSettingsApp .bg-gray-50 { background: transparent !important; }

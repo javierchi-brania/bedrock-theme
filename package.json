@@ -1,6 +1,6 @@
 {
   "name": "bedrock-theme",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "description": "Neumorphic theme \"BRANIA BEDROCK\" loaded by the platform from jsDelivr.",
   "type": "module",
@@ -17,6 +17,7 @@
     "url": "git+https://github.com/javierchi-brania/bedrock-theme.git"
   },
   "devDependencies": {
+    "@bramus/specificity": "^2.4.2",
     "postcss": "^8.5.28"
   }
 }

@@ -1,3 +1,8 @@
+/**
+ * 11-components: buttons, inputs, frame spacing, primary buttons, tables, modals and menus, vertical tabs, radios.
+ */
+
+/* ── from 110-componentes-base ── */
 /* ─────────────────────────────────────────────────────────────
    SHARED COMPONENTS (buttons, inputs, modals, tables)
    ───────────────────────────────────────────────────────────── */
@@ -71,7 +76,6 @@
    clase, aunque el resultado visual sea el mismo. */
 .hr-button--primary {
   background: var(--bb-accent) !important;
-  color: var(--bb-white) !important;
   border: none !important;
   box-shadow: 6px 6px 16px var(--bb-accent-glow),
     -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
@@ -291,7 +295,7 @@ div:has(> #conv-send-button-simple) {
   background: var(--bb-bg) !important;
   border: none !important;
   border-radius: var(--bb-radius-xl) !important;
-  box-shadow: var(--bb-shadow-raised) !important;
+  /* box-shadow: see v6.8 below */
 }
 
 .hr-dialog__title,
@@ -329,10 +333,8 @@ div:has(> #conv-send-button-simple) {
 
 /* Menú desplegable de opciones del select */
 .hr-base-select-menu {
-  background: var(--bb-bg) !important;
-  border: none !important;
   border-radius: var(--bb-radius-md) !important;
-  box-shadow: var(--bb-shadow-raised) !important;
+  /* background, border, box-shadow: see v6.8 below */
 }
 
 .hr-base-select-option:hover,
@@ -401,3 +403,269 @@ textarea.form-control:focus {
   background: transparent;
 }
 
+/* ── from 210-espaciado-marco-v6.4 ── */
+/* ─────────────────────────────────────────────────────────────
+   ESPACIADO DEL MARCO (v6.4)
+   Se reducen los huecos alrededor del menú lateral y del header de 14px
+   a 6px uniformes. Además: La plataforma calcula el ancho de header y contenido como
+   (ancho de pantalla − ancho del menú) sin contar el margen del menú, así
+   que ambos se salían ~14px por la derecha (el header quedaba cortado y
+   sin su esquina redondeada). Aquí se descuentan los márgenes.
+   Ancho del menú: 14rem abierto, 3.5rem colapsado (valores de la plataforma).
+   ───────────────────────────────────────────────────────────── */
+.sidebar-v2-agency,
+.sidebar-v2-location {
+  background: var(--bb-bg) !important;
+}
+aside#sidebar-v2 {
+  margin: 6px 0 6px 6px !important;
+}
+.sidebar-v2-agency .hl_header,
+.sidebar-v2-location .hl_header {
+  top: 0 !important;
+  margin: 6px 6px 0 6px !important;
+  width: calc(var(--side-dock-surface-w) - 14rem - 18px) !important;
+}
+.sidebar-v2-agency.v2-collapse .hl_header,
+.sidebar-v2-location.v2-collapse .hl_header {
+  width: calc(var(--side-dock-surface-w) - 3.5rem - 18px) !important;
+}
+.sidebar-v2-agency .hl_wrapper,
+.sidebar-v2-location .hl_wrapper {
+  width: calc(var(--side-dock-surface-w) - 14rem - 6px) !important;
+}
+.sidebar-v2-agency.v2-collapse .hl_wrapper,
+.sidebar-v2-location.v2-collapse .hl_wrapper {
+  width: calc(var(--side-dock-surface-w) - 3.5rem - 6px) !important;
+}
+
+/* ── from 230-botones-primarios-v6.6 ── */
+/* ─────────────────────────────────────────────────────────────
+   BOTONES PRIMARIOS (v6.6)
+   Los botones primarios de Highrise traen también .hr-button--default-type,
+   y la regla ".hr-button.hr-button--default-type.hr-button--default-type"
+   (más específica) les ponía el fondo gris del tema con texto blanco:
+   quedaban ilegibles (ej. "Crear una nueva instantánea" en Snapshots).
+   Aquí se les devuelve el acento del tema (clase repetida a propósito
+   para ganar en especificidad).
+   ───────────────────────────────────────────────────────────── */
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary,
+.ui-button.hr-button--default-type.hr-button--primary.hr-button--primary {
+  background: var(--bb-accent) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:hover:not(:disabled),
+.ui-button.hr-button--default-type.hr-button--primary.hr-button--primary:hover:not(:disabled) {
+  background: var(--bb-accent) !important;
+  filter: brightness(1.08) !important;
+}
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-button__content,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-button__content *,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary .hr-icon {
+  color: #fff !important;
+}
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:disabled,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary.hr-button--disabled {
+  opacity: .55 !important;
+}
+
+/* ── from 240-tablas-highrise-v6.7 ── */
+/* ─────────────────────────────────────────────────────────────
+   TABLAS HIGHRISE (hr-data-table) (v6.7) — ej. Snapshots
+   1) El encabezado trae alto fijo de 40px + overflow hidden: los títulos
+      largos ("Última actualización el") se partían y la 2ª línea quedaba
+      cortada. Como la fila tiene alto fijo en línea (style="height:40px"),
+      se reduce el padding vertical para que quepan 2 líneas.
+   2) Las filas venían en blanco sobre la tarjeta gris del tema; pasan al
+      fondo del tema con divisor y hover suave.
+   ───────────────────────────────────────────────────────────── */
+.hr-data-table .hr-data-table__cell-header {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  line-height: 1.2 !important;
+  vertical-align: middle !important;
+}
+.hr-data-table .hr-data-table__body-row,
+.hr-data-table .hr-data-table__body-cell {
+  background: var(--bb-bg) !important;
+}
+.hr-data-table .hr-data-table__body-cell {
+  border-top: 1px solid var(--bb-divider) !important;
+}
+.hr-data-table .hr-data-table__body-row-hover:hover,
+.hr-data-table .hr-data-table__body-row-hover:hover > .hr-data-table__body-cell {
+  background: var(--bb-bg-hover) !important;
+}
+
+/* ── from 250-modales-menus-v6.8 ── */
+/* ─────────────────────────────────────────────────────────────
+   MODALES Y MENÚS FLOTANTES (v6.8) — ej. "Crear instantánea"
+   1) El select (hr-select) traía .bg-white y su etiqueta interna fondo
+      blanco: tapaban el hundido del tema y se veía un rectángulo blanco.
+   2) Modales y menús desplegables usaban la sombra neumórfica "raised",
+      cuyo brillo blanco (-10px -10px) sobre el fondo oscurecido del modal
+      se veía como un halo blanco. Para lo que flota sobre el overlay se
+      usa sólo sombra oscura.
+   3) El menú del select se fundía con el modal (mismo fondo y sombra); se
+      separa con borde sutil y hover en las opciones.
+   ───────────────────────────────────────────────────────────── */
+.hr-select.bg-white,
+.hr-select-wrapper .bg-white {
+  background: transparent !important;
+}
+.hr-base-selection .hr-base-selection-label {
+  background: transparent !important;
+}
+.hr-dialog:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])),
+.hr-modal:not(:has([id*="payment" i], [class*="payment" i], [class*="invoice" i], [class*="stripe" i])) {
+  box-shadow: 0 24px 60px rgba(28, 38, 43, 0.35), 0 2px 8px rgba(28, 38, 43, 0.12) !important;
+}
+.hr-base-select-menu {
+  background: var(--bb-bg) !important;
+  border: 1px solid var(--bb-divider) !important;
+  box-shadow: 0 14px 34px rgba(28, 38, 43, 0.22) !important;
+}
+.hr-base-select-menu .hr-base-select-option {
+  border-radius: 8px !important;
+  margin: 0 4px !important;
+}
+.hr-base-select-menu .hr-base-select-option:hover,
+.hr-base-select-menu .hr-base-select-option--pending {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-strong) !important;
+}
+.hr-base-select-menu .hr-base-select-option::before {
+  background: transparent !important;
+}
+.hr-base-select-menu .hr-base-select-option--selected {
+  color: var(--bb-accent) !important;
+}
+
+/* ── from 260-pestanas-verticales-v6.9-v6.10 ── */
+/* ─────────────────────────────────────────────────────────────
+   PESTAÑAS VERTICALES (hr-tabs bar-type, izquierda) (v6.9) — ej. Reventa
+   ".hr-tabs-bar { background: accent }" está pensado para la línea fina
+   de las pestañas de arriba, pero en las pestañas laterales ese "bar" es
+   un bloque del tamaño de la pestaña y se pinta ENCIMA del texto: la
+   pestaña activa ("Email System") quedaba como un rectángulo verde vacío.
+   Aquí pasa a ser la píldora hundida del tema, detrás del texto.
+   ───────────────────────────────────────────────────────────── */
+.hr-tabs-nav--bar-type.hr-tabs-nav--left {
+  background: var(--bb-bg) !important;
+}
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-bar {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border-radius: var(--bb-radius-md) !important;
+  z-index: 0 !important;
+}
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab {
+  position: relative !important;
+  z-index: 1 !important;
+}
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab--active {
+  font-weight: 600 !important;
+}
+/* v6.10 — En Reventa > Subscription la pestaña activa además trae su propio
+   fondo azul claro (#eff4ff de la plataforma) que tapaba la píldora hundida. */
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab,
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab--active,
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab:hover {
+  background: transparent !important;
+  border-left: none !important;
+}
+.hr-tabs-nav--bar-type.hr-tabs-nav--left .hr-tabs-tab:not(.hr-tabs-tab--active):hover {
+  color: var(--bb-text-strong) !important;
+}
+
+/* ── from 270-radios-mi-perfil-v6.11-v6.12 ── */
+/* ─────────────────────────────────────────────────────────────
+   ARMONÍA DE RADIOS + MI PERFIL (v6.11)
+   - Header y menú lateral usaban --bb-radius-xl (26px): con 58px de alto
+     el header se veía casi como píldora. Los contenedores grandes del
+     marco pasan a --bb-radius-lg (18px) para que todo tenga el mismo
+     redondeo.
+   - Mi perfil (.profile-settings-root) traía un contenedor cuadrado
+     gris-50 y una tarjeta blanca con radio 8px y sombra genérica; pasan a
+     la tarjeta del tema, con los mismos radios.
+   ───────────────────────────────────────────────────────────── */
+.hl_header::before,
+aside#sidebar-v2 {
+  border-radius: var(--bb-radius-lg) !important;
+}
+
+/* fondo gris-50 de afuera: se deja transparente (el marco ya es del tema) */
+.profile-settings-root > .bg-gray-50 {
+  background: transparent !important;
+}
+/* contenedor grande (antes blanco, radio 8px) */
+.profile-settings-root .bg-white.shadow-lg {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+/* tarjetas internas ("Datos personales", etc.) */
+.profile-settings-root .bg-white[class*="shadow-[var(--shadow-lg)]"] {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.profile-settings-root .border-b,
+.profile-settings-root .border-t {
+  border-color: var(--bb-divider) !important;
+}
+/* Menú General / Seguridad: el activo traía azul claro (#f5f8ff) */
+.profile-settings-root nav button {
+  border-radius: var(--bb-radius-sm) !important;
+  color: var(--bb-text-muted) !important;
+}
+.profile-settings-root nav button[class*="bg-[#f5f8ff]"] {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-accent) !important;
+  font-weight: 600 !important;
+}
+.profile-settings-root nav button:not([class*="bg-[#f5f8ff]"]):hover {
+  background: var(--bb-bg-hover) !important;
+  color: var(--bb-text-strong) !important;
+}
+
+/* Botón primario deshabilitado (ej. "Actualizar perfil"): La plataforma lo pinta
+   azul claro (#b2ccff) con una regla más específica; se usa el acento
+   con la opacidad de deshabilitado. */
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary.hr-button--disabled,
+.hr-button.hr-button--default-type.hr-button--primary.hr-button--primary:disabled {
+  background: var(--bb-accent) !important;
+  border-color: var(--bb-accent) !important;
+  color: #fff !important;
+}
+
+/* v6.12 — Botones de texto (Naive UI .hl-text-btn, ej. "Más información →"
+   en los avisos): heredaban el relieve de ".n-button--default-type" sin
+   padding ni radio y se veían como una caja pegada al texto. Vuelven a
+   ser enlaces de texto en color acento. */
+.n-button.n-button--default-type.hl-text-btn,
+.n-button.n-button--default-type.hl-text-btn:hover,
+.n-button.n-button--default-type.hl-text-btn:focus {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  color: var(--bb-accent) !important;
+}
+.n-button.n-button--default-type.hl-text-btn .n-button__content,
+.n-button.n-button--default-type.hl-text-btn .n-button__icon,
+.n-button.n-button--default-type.hl-text-btn * {
+  color: var(--bb-accent) !important;
+}
+.n-button.n-button--default-type.hl-text-btn .n-button__border,
+.n-button.n-button--default-type.hl-text-btn .n-button__state-border {
+  border: none !important;
+}
+.n-button.n-button--default-type.hl-text-btn:hover .n-button__content {
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}

@@ -1,3 +1,35 @@
+/**
+ * 19-overrides: global late layer (tooltips, global surfaces, tables). Must stay late: it overrides view rules of equal specificity.
+ */
+
+/* ── from 390-tooltips-v6.27 ── */
+/* v6.27 — Tooltips (.hr-tooltip, ej. nombre completo al pasar el mouse
+   sobre una conversación): son también .hr-popover, así que la regla de
+   v6.24 les puso el fondo claro del tema y el texto blanco de la plataforma quedaba
+   invisible. Vuelven a ser oscuros (gris del texto del tema). */
+.hr-popover.hr-tooltip:not(.hr-tooltip--light) {
+  background: var(--bb-text-strong) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 20px rgba(28, 38, 43, 0.25) !important;
+}
+.hr-popover.hr-tooltip:not(.hr-tooltip--light) .hr-popover__arrow,
+.hr-popover.hr-tooltip:not(.hr-tooltip--light) .hr-popover-arrow {
+  background: var(--bb-text-strong) !important;
+}
+.hr-popover.hr-tooltip:not(.hr-tooltip--light),
+.hr-popover.hr-tooltip:not(.hr-tooltip--light) * {
+  color: #fff !important;
+}
+/* Además: una hoja de la plataforma declara ".hr-popover { position: relative;
+   right: 8rem }", que corre TODO popover 128px a la izquierda; en los
+   tooltips se notaba como "muy apartado" del elemento. Se anula sólo en
+   tooltips para no mover otros popovers que la plataforma pudiera acomodar así. */
+.hr-popover.hr-tooltip {
+  right: auto !important;
+}
+
+/* ── from 430-capa-global-v6.32 ── */
 /* ═════════════════════════════════════════════════════════════
    v6.32 — CAPA GLOBAL: NEUMORFISMO + BORDES SUAVES
    Barrido automático de todas las vistas del menú de sub-cuenta y de
@@ -41,8 +73,6 @@
 .hr-input,
 .n-base-selection,
 .hr-base-selection,
-input.hl-text-input,
-textarea.hl-text-input,
 .form-control {
   border-radius: var(--bb-radius-sm) !important;
 }
@@ -228,4 +258,22 @@ input[type="radio"] {
   box-shadow: var(--bb-shadow-soft) !important;
 }
 
-
+/* ── from 520-tablas-highrise-v6.43 ── */
+/* ===== v6.43 Tablas Highrise (hr-data-table): sin cuadrícula dura, divisores suaves y tarjeta redondeada (global) ===== */
+.hr-data-table-wrapper { border: none !important; border-radius: var(--bb-radius-xl) !important; }
+.hr-data-table-wrapper .hr-data-table { border: none !important; border-radius: 0 !important; background: transparent !important; }
+.hr-data-table-wrapper .hr-data-table :is(td, th) { border-left: none !important; border-right: none !important; border-top: none !important; }
+.hr-data-table-wrapper .hr-data-table :is(td, th):is(.hr-data-table-bdr-rgt, .hr-data-table-bdr-lft) { border-right: none !important; border-left: none !important; }
+.hr-data-table-wrapper .hr-data-table td { border-bottom: 1px solid rgba(150, 160, 165, .18) !important; background: transparent !important; }
+.hr-data-table-wrapper .hr-data-table tbody tr:last-child td { border-bottom: none !important; }
+.hr-data-table-wrapper .hr-data-table thead th { border-bottom: 1px solid rgba(150, 160, 165, .28) !important; background: transparent !important; }
+.hr-data-table-wrapper .hr-data-table tbody tr:hover td { background: var(--bb-bg-hover) !important; }
+.hr-data-table-wrapper .hr-data-table tbody tr:hover td:first-child { border-radius: 12px 0 0 12px; }
+.hr-data-table-wrapper .hr-data-table tbody tr:hover td:last-child { border-radius: 0 12px 12px 0; }
+.hr-button.hr-button--secondary.hr-button--disabled.hr-button--disabled.hr-button--disabled { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; opacity: .6; }
+.hr-button.hr-button--secondary { --n-color: var(--bb-bg) !important; --n-color-hover: var(--bb-bg-hover) !important; --n-color-pressed: var(--bb-bg) !important; --n-color-focus: var(--bb-bg) !important; --n-color-disabled: var(--bb-bg) !important; }
+/* menús desplegables Highrise (versión anterior hr-dropdown__container) (global) */
+.hr-dropdown-menu.hr-dropdown__container { background: var(--bb-bg) !important; border: none !important; border-radius: 14px !important; box-shadow: 0 14px 34px rgba(28,38,43,.22) !important; padding: 6px !important; }
+.hr-dropdown-menu.hr-dropdown__container .hr-dropdown-option-body { border-radius: 10px !important; }
+.hr-dropdown-menu.hr-dropdown__container .hr-dropdown-option:hover .hr-dropdown-option-body { background: var(--bb-bg-hover) !important; color: var(--bb-accent) !important; }
+.hr-dropdown-menu.hr-dropdown__container .hr-popover-shared__arrow, .hr-dropdown-menu.hr-dropdown__container .hr-popover-arrow { display: none !important; }

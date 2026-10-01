@@ -13,7 +13,7 @@
   margin: 70px 6px 6px 6px !important;
   width: calc(100% - 12px) !important;
   height: calc(100vh - 76px) !important;
-  border-radius: var(--bb-radius-xl) !important;
+  border-radius: var(--bb-radius-lg) !important; /* v6.11: frame radius harmony (was xl) */
   overflow: hidden !important;
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-raised) !important;
