@@ -1,7 +1,7 @@
 {
   "$comment": "Concatenation order of src/ into dist/bedrock-theme.css. Later rules win: order is part of the theme.",
   "files": [
-    "000-tokens.css",
+    "00-tokens.css",
     "010-busqueda-global.css",
     "020-tablero.css",
     "030-conversaciones-v2.css",
