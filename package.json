@@ -1,0 +1,22 @@
+{
+  "name": "bedrock-theme",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Neumorphic theme \"BRANIA BEDROCK\" loaded by the platform from jsDelivr.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check",
+    "diff": "node scripts/rules-diff.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javierchi-brania/bedrock-theme.git"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.28"
+  }
+}

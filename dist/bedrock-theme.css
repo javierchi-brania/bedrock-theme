@@ -5,9 +5,9 @@
  * Reference design: brania-bedrock.html (neumorphic soft UI)
  *
  * DOM sources mapped:
- *   - gohl_css.txt          → Dashboard (#location-dashboard)
- *   - Gohl contacts.txt     → Contacts (#crm-contacts-view)
- *   - gohl_oportunities.txt → Opportunities (.crm-opportunities-page)
+ *   - dashboard-dom.html     → Dashboard (#location-dashboard)
+ *   - contacts-dom.html      → Contacts (#crm-contacts-view)
+ *   - opportunities-dom.html → Opportunities (.crm-opportunities-page)
  *
  * v6 — cambios sobre la versión anterior:
  *   Se agrega la sección CONVERSATIONS (nivel de sub-cuenta), confirmada con
