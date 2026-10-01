@@ -5,7 +5,7 @@
  * 00-tokens: font and design tokens. Every other section reads these variables.
  * The :root block below is also copied inline into embed/editor.css by the build
  * (critical tokens, avoids a flash while the theme loads): edit it only here.
- * History of the original single-file CSS: docs/legacy-changelog.md
+ * History of the original single-file CSS: backup/legacy-changelog.md
  */
 
 /* Must stay the first rule of the theme (an @import after any rule is ignored). */
