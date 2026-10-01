@@ -5502,6 +5502,69 @@ input[type="radio"] {
 .hr-dropdown-menu.hr-dropdown__container .hr-dropdown-option-body { border-radius: 10px !important; }
 .hr-dropdown-menu.hr-dropdown__container .hr-dropdown-option:hover .hr-dropdown-option-body { background: var(--bb-bg-hover) !important; color: var(--bb-accent) !important; }
 .hr-dropdown-menu.hr-dropdown__container .hr-popover-shared__arrow, .hr-dropdown-menu.hr-dropdown__container .hr-popover-arrow { display: none !important; }
+
+/* ── v1.2.1: correcciones globales ── */
+/* Barra de carga superior (al navegar): azul de la plataforma → acento */
+.n-loading-bar {
+  background: var(--bb-accent) !important;
+  box-shadow: 0 0 6px var(--bb-accent-glow) !important;
+}
+
+/* Spinners (selects, tablas, páginas): el SVG usa currentColor */
+.hr-base-loading__icon,
+.n-base-loading__icon {
+  color: var(--bb-accent) !important;
+}
+
+/* Anillos de progreso de los widgets del tablero: el gráfico pinta el arco
+   con fill="#53B1FD" en línea; un atributo SVG pierde contra el CSS */
+.vue-echarts-inner path[fill="#53B1FD" i] {
+  fill: var(--bb-accent) !important;
+}
+.vue-echarts-inner path[stroke="#53B1FD" i] {
+  stroke: var(--bb-accent) !important;
+}
+
+/* Avatares con iniciales: la plataforma rota colores pastel por contacto
+   (background-color en línea). Se conserva la rotación; sólo los tonos
+   azules pasan a un pastel del acento */
+:is(.hr-avatar, .n-avatar):is([style*="background-color: var(--blue-"], [style*="background-color: var(--indigo-"]) {
+  background-color: color-mix(in srgb, var(--bb-accent) 30%, var(--bb-bg)) !important;
+}
+:is(.hr-avatar, .n-avatar):is([style*="background-color: var(--blue-"], [style*="background-color: var(--indigo-"]) :is(.hr-avatar__text, .n-avatar__text, p, span) {
+  color: var(--bb-accent-dark) !important;
+}
+
+/* Insignia de canal sobre el avatar (lista e hilo): el color del canal va en
+   línea; sólo el azul pasa al acento, los demás canales conservan el suyo */
+.rounded-full[style*="border-color: rgb(21, 94, 239)"] {
+  background-color: var(--bb-bg) !important;
+  border-color: var(--bb-accent) !important;
+}
+.rounded-full > svg[style*="color: rgb(21, 94, 239)"] {
+  color: var(--bb-accent) !important;
+}
+
+/* Etiqueta Beta/Nueva del sidebar: píldora sin borde */
+.hl_new_badge {
+  border: none !important;
+  border-radius: 999px !important;
+  padding-left: 7px !important;
+  padding-right: 7px !important;
+}
+
+/* Etiquetas de estado: píldoras sin borde (el relieve lo da el fondo) */
+.hr-tag .hr-tag__border,
+.n-tag .n-tag__border {
+  border: none !important;
+}
+
+/* Botones secundarios: sin el borde de 1px (la profundidad la da la sombra).
+   Los de error conservan su contorno */
+.hr-button:not([class*="--error"]) :is(.hr-button__border, .hr-button__state-border),
+.n-button.n-button--default-type:not(.n-button--error-type) :is(.n-button__border, .n-button__state-border) {
+  border: none !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
