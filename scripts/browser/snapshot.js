@@ -20,8 +20,9 @@
   const HOST_ID = 'customCss';
   const PREVIEW_ID = 'bb-preview';
   const REPO = 'javierchi-brania/bedrock-theme';
-  const settle = () =>
-    new Promise((r) => setTimeout(() => requestAnimationFrame(() => requestAnimationFrame(r)), 1500));
+  // setTimeout, not requestAnimationFrame: rAF never fires in a background tab.
+  // getComputedStyle forces the style recalculation anyway.
+  const settle = () => new Promise((r) => setTimeout(r, 1500));
 
   const label = (el) => {
     const cls = typeof el.className === 'string' ? el.className.trim().split(/\s+/).slice(0, 3).join('.') : '';
@@ -57,12 +58,13 @@
   }
 
   const host = () => document.getElementById(HOST_ID);
-  let importText = null;
+  // Kept on window so restore() still works if bbSnap is redefined mid-check.
+  const IMPORT_KEY = '__bbSnapImport';
 
   async function preview(url) {
     const sheet = host().sheet;
     if (sheet.cssRules[0] instanceof CSSImportRule) {
-      importText = sheet.cssRules[0].cssText;
+      window[IMPORT_KEY] = sheet.cssRules[0].cssText;
       sheet.deleteRule(0);
     }
     const res = await fetch(url, { cache: 'no-store' });
@@ -81,8 +83,9 @@
   async function restore() {
     document.getElementById(PREVIEW_ID)?.remove();
     const sheet = host().sheet;
-    if (importText && !(sheet.cssRules[0] instanceof CSSImportRule)) sheet.insertRule(importText, 0);
-    importText = null;
+    const text = window[IMPORT_KEY];
+    if (text && !(sheet.cssRules[0] instanceof CSSImportRule)) sheet.insertRule(text, 0);
+    delete window[IMPORT_KEY];
     await settle();
     return sheet.cssRules[0]?.cssText;
   }
