@@ -1,6 +1,16 @@
-@import url("https://cdn.jsdelivr.net/gh/javierchi-brania/bedrock-theme@v1.1.0/dist/bedrock-theme.css");
-/* Critical tokens inline to avoid a flash while the theme loads.
-   Generated from src/00-tokens.css by `npm run build`: do not edit by hand. */
+/**
+ * BRANIA BEDROCK — neumorphic soft UI theme for the platform.
+ * Loaded from jsDelivr via the @import in the custom CSS field (embed/editor.css).
+ *
+ * 00-tokens: font and design tokens. Every other section reads these variables.
+ * The :root block below is also copied inline into embed/editor.css by the build
+ * (critical tokens, avoids a flash while the theme loads): edit it only here.
+ * History of the original single-file CSS: docs/legacy-changelog.md
+ */
+
+/* Must stay the first rule of the theme (an @import after any rule is ignored). */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
 :root {
   /* Surface */
   --bb-bg: #e9ebec;
@@ -42,4 +52,3 @@
   --bb-font: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
     sans-serif;
 }
-body { background: var(--bb-bg); }

@@ -1,14 +1,18 @@
 #!/usr/bin/env node
-// Builds dist/bedrock-theme.css from src/ in the order of src/manifest.json.
+// Builds dist/bedrock-theme.css from src/ in the order of src/manifest.json,
+// and embed/editor.css (@import of this version + the :root tokens inline).
 //
-//   node scripts/build.mjs           write dist/
-//   node scripts/build.mjs --check   fail if dist/ is stale (used by CI)
+//   node scripts/build.mjs           write dist/ and embed/
+//   node scripts/build.mjs --check   fail if dist/ or embed/ is stale (used by CI)
 //
 // Fails when: a src/*.css file is missing from the manifest (or vice versa),
 // the CSS does not parse, or a vendor name leaks into the repo.
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { DIST, toLF, parse, topLevel, countStyleRules } from './lib/css.mjs';
+
+const TOKENS = 'src/00-tokens.css';
+const EMBED = 'embed/editor.css';
 
 const check = process.argv.includes('--check');
 const fail = (msg) => {
@@ -71,13 +75,33 @@ for (const file of files) {
 }
 if (leaks.length) fail(`vendor name found (say "la plataforma" / "the platform"):\n  ${leaks.join('\n  ')}`);
 
-// 5. Write or compare
+// 5. embed/editor.css: @import of this version + the :root tokens inline
+const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+const repo = pkg.repository.url.match(/github\.com\/(.+?)(\.git)?$/)[1];
+const tokens = parse(toLF(readFileSync(TOKENS, 'utf8')), TOKENS).nodes.find(
+  (n) => n.type === 'rule' && n.selector === ':root',
+);
+if (!tokens) fail(`${TOKENS} has no :root rule`);
+const embed = `@import url("https://cdn.jsdelivr.net/gh/${repo}@v${pkg.version}/${DIST}");
+/* Critical tokens inline to avoid a flash while the theme loads.
+   Generated from ${TOKENS} by \`npm run build\`: do not edit by hand. */
+${tokens.toString()}
+body { background: var(--bb-bg); }
+`;
+
+// 6. Write or compare
 const stats = `${topLevel(root).length} top-level rules, ${countStyleRules(root)} style rules, ${Buffer.byteLength(css)} bytes`;
+const outputs = [
+  [DIST, css],
+  [EMBED, embed],
+];
 if (check) {
-  const current = existsSync(DIST) ? toLF(readFileSync(DIST, 'utf8')) : '';
-  if (current !== css) fail(`${DIST} is stale: run \`npm run build\` and commit the result`);
-  console.log(`✔ ${DIST} is up to date (${stats})`);
+  for (const [file, text] of outputs) {
+    const current = existsSync(file) ? toLF(readFileSync(file, 'utf8')) : '';
+    if (current !== text) fail(`${file} is stale: run \`npm run build\` and commit the result`);
+  }
+  console.log(`✔ ${DIST} and ${EMBED} are up to date (${stats})`);
 } else {
-  writeFileSync(DIST, css);
-  console.log(`✔ ${DIST}: ${stats}`);
+  for (const [file, text] of outputs) writeFileSync(file, text);
+  console.log(`✔ ${DIST}: ${stats}\n✔ ${EMBED}: @import v${pkg.version}`);
 }
