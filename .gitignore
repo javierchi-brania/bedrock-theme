@@ -3,3 +3,5 @@ odd/
 node_modules/
 backup/*.css
 snapshots/
+*.tmp
+*.tmp.*

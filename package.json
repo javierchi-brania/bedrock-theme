@@ -17,6 +17,7 @@
     "url": "git+https://github.com/javierchi-brania/bedrock-theme.git"
   },
   "devDependencies": {
+    "@bramus/specificity": "^2.4.2",
     "postcss": "^8.5.28"
   }
 }
