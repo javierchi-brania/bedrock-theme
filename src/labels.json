@@ -434,7 +434,7 @@
    "font": "body"
   },
   {
-   "sel": "#sad-pagination .hr-dropdown-cntr > p",
+   "sel": ".hr-pagination-cntr .hr-dropdown-cntr > p:first-child",
    "text": "Filas por página",
    "font": "xs"
   },

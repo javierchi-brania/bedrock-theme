@@ -841,7 +841,7 @@
   line-height: 19px;
 }
 #agent-studio-container .agents-page__banner-text::after {
-  content: " son agentes basados en instrucciones: dales un prompt, conocimiento, búsqueda web e integraciones, y úsalos en el chat o con disparadores.";
+  content: "\00a0son agentes basados en instrucciones: dales un prompt, conocimiento, búsqueda web e integraciones, y úsalos en el chat o con disparadores.";
   font-size: 13.5px;
   line-height: 19px;
 }

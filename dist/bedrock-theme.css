@@ -7373,7 +7373,7 @@ div#fc-calendar-container-v2 {
   line-height: 19px;
 }
 #agent-studio-container .agents-page__banner-text::after {
-  content: " son agentes basados en instrucciones: dales un prompt, conocimiento, búsqueda web e integraciones, y úsalos en el chat o con disparadores.";
+  content: "\00a0son agentes basados en instrucciones: dales un prompt, conocimiento, búsqueda web e integraciones, y úsalos en el chat o con disparadores.";
   font-size: 13.5px;
   line-height: 19px;
 }
@@ -7511,7 +7511,7 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #sad-table th:nth-child(4) span.mr-1,
 #sad-table th:nth-child(5) span.mr-1,
 #sad-table th:nth-child(7) .hr-ellipsis > span,
-#sad-pagination .hr-dropdown-cntr > p,
+.hr-pagination-cntr .hr-dropdown-cntr > p:first-child,
 #hr-prev-button .hr-button__content > p,
 #next-button .hr-button__content > p,
 #empty-sad-empty p.hr-text-lg,
@@ -7600,7 +7600,7 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #sad-table th:nth-child(4) span.mr-1::after,
 #sad-table th:nth-child(5) span.mr-1::after,
 #sad-table th:nth-child(7) .hr-ellipsis > span::after,
-#sad-pagination .hr-dropdown-cntr > p::after,
+.hr-pagination-cntr .hr-dropdown-cntr > p:first-child::after,
 #hr-prev-button .hr-button__content > p::after,
 #next-button .hr-button__content > p::after,
 #empty-sad-empty p.hr-text-lg::after,
@@ -8032,7 +8032,7 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   font-size: 14px;
   line-height: 20px;
 }
-#sad-pagination .hr-dropdown-cntr > p::after {
+.hr-pagination-cntr .hr-dropdown-cntr > p:first-child::after {
   content: "Filas por página";
   font-size: 11px;
   line-height: 16px;
