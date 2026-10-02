@@ -6085,7 +6085,21 @@ svg.custom-icon[fill="currentColor"] {
 #launchpad-app-v2 {
   background: var(--bb-bg) !important;
 }
-/* ===== v6.34 Sidebar de Configuración: la pastilla activa ya no se corta a la izquierda ===== */
+
+/* v1.3.5: the guide card (nav.launchpad-sidebar) sat flush against the left and top
+   edges of its clipping containers (the scroller .hr-config-provider and the
+   overflow-hidden row), so its rounded corners and raised shadow were cut in a straight
+   line. Both containers grow 32px outward (negative margin + equal padding): the clip
+   edge moves away and nothing changes position. */
+.hr-wrapper-container.launchpad > .hr-config-provider {
+  margin-left: -32px !important;
+  padding-left: 32px !important;
+}
+.launchpad-home > div.flex.h-full.overflow-hidden:has(> nav.launchpad-sidebar) {
+  margin-top: -32px !important;
+  padding-top: 32px !important;
+  height: calc(100% + 32px) !important;
+}/* ===== v6.34 Sidebar de Configuración: la pastilla activa ya no se corta a la izquierda ===== */
 aside#sidebar-v2:has(#backButtonv2) .hl_nav-header-without-footer { padding-left: 8px !important; padding-right: 4px !important; box-sizing: border-box !important; }
 /* v6.34b títulos de sección del menú de Configuración: sin la línea que se veía como tachado */
 aside#sidebar-v2 p.border-b:has(> span.uppercase) { border-bottom: none !important; line-height: 1.2 !important; margin: 14px 0 4px !important; height: auto !important; }
