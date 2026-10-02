@@ -3662,6 +3662,25 @@ aside#sidebar-v2 {
   background: var(--bb-divider) !important;
 }
 
+/* v1.2.3: Social Planner (#social-planner-mf). The onboarding panel is a white
+   surface set inline (background, 12px radius, generic shadow) → theme card. */
+.hr-wrapper-container.social-planner > .hr-config-provider > div > div > div[style*="box-shadow"] {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+/* Its feature illustration paints labels, badges and dots with inline blue
+   (rgb(37, 99, 235) / rgb(29, 78, 216)) → accent. Matches the inline style text. */
+/* (^= / "; " so that background-color does not match) */
+#social-planner-mf :is(
+  [style^="color: rgb(37, 99, 235)"], [style*="; color: rgb(37, 99, 235)"],
+  [style^="color: rgb(29, 78, 216)"], [style*="; color: rgb(29, 78, 216)"]
+) {
+  color: var(--bb-accent) !important;
+}
+#social-planner-mf :is([style*="background: rgb(37, 99, 235)"], [style*="background-color: rgb(37, 99, 235)"]) {
+  background: var(--bb-accent) !important;
+}
 /* ─────────────────────────────────────────────────────────────
    SELECTOR DE SUB-CUENTAS (location switcher — clic en "FFL prueba"
    en el sidebar). Mismo bug de z-index que el drawer de Quick
@@ -4396,6 +4415,7 @@ aside#sidebar-v2 {
       tema en relieve, como los botones del mockup. */
 #conversations-new-app .chat-bubble-inbound {
   background: var(--bb-bg) !important;
+  border-color: transparent !important; /* v1.2.3: was a 1px grey outline */
   box-shadow: var(--bb-shadow-soft) !important;
   border-radius: 4px 14px 14px 14px !important;
   margin-left: 4px !important;
@@ -4523,6 +4543,7 @@ aside#sidebar-v2 {
 }
 #conversations-new-app .bg-contacts-panel .hr-collapse-item {
   background: var(--bb-bg) !important;
+  border-color: transparent !important; /* v1.2.3: was a 1px grey outline */
   box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
   margin-bottom: 10px !important;
   overflow: hidden !important;
@@ -4599,6 +4620,19 @@ aside#sidebar-v2 {
   padding: 3px 4px !important;
 }
 
+/* v1.2.3: "Cargar más" at the end of the list was flat blue text → soft pill, accent */
+#conv-conversation-list-load-more-button {
+  color: var(--bb-accent) !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#conv-conversation-list-load-more-button * {
+  color: inherit !important;
+}
+/* v1.2.3: composer channel switch ("Cambiar canal de mensaje"): blue icon → accent */
+#conv-provider-select-trigger svg {
+  color: var(--bb-accent) !important;
+}
 /* ─────────────────────────────────────────────────────────────
    PAGOS (v6.23) — ajuste al mockup (vista Payments de brania-bedrock)
    Sólo aspecto de la PÁGINA; los modales de pago siguen excluidos (v6.1).

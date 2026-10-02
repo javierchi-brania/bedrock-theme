@@ -75,3 +75,22 @@
   background: var(--bb-divider) !important;
 }
 
+/* v1.2.3: Social Planner (#social-planner-mf). The onboarding panel is a white
+   surface set inline (background, 12px radius, generic shadow) → theme card. */
+.hr-wrapper-container.social-planner > .hr-config-provider > div > div > div[style*="box-shadow"] {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+/* Its feature illustration paints labels, badges and dots with inline blue
+   (rgb(37, 99, 235) / rgb(29, 78, 216)) → accent. Matches the inline style text. */
+/* (^= / "; " so that background-color does not match) */
+#social-planner-mf :is(
+  [style^="color: rgb(37, 99, 235)"], [style*="; color: rgb(37, 99, 235)"],
+  [style^="color: rgb(29, 78, 216)"], [style*="; color: rgb(29, 78, 216)"]
+) {
+  color: var(--bb-accent) !important;
+}
+#social-planner-mf :is([style*="background: rgb(37, 99, 235)"], [style*="background-color: rgb(37, 99, 235)"]) {
+  background: var(--bb-accent) !important;
+}
