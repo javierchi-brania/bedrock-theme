@@ -4270,9 +4270,17 @@ aside#sidebar-v2 {
    lo mismo de la altura para que no se corte nada abajo.
    ───────────────────────────────────────────────────────────── */
 
+/* v1.4.1: the theme header ends at y=134, so the iframe (y=111) still sat under it, cut in
+   a straight line with square corners. It now starts at y=140 (6px clear) and sits as a
+   card: 18px side/bottom room, rounded, soft shadow. */
 #emailHome {
-  margin-top: 16px !important;
-  height: calc(100vh - 95px - 16px) !important;
+  margin: 45px 18px 0 18px !important;
+  width: auto !important;
+  height: calc(100vh - 95px - 45px - 18px) !important;
+}
+#emailHome > iframe {
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -4418,7 +4426,24 @@ aside#sidebar-v2 {
     content: "¿En qué estás pensando, " var(--bb-user-name) "?";
   }
 }
-/* ─────────────────────────────────────────────────────────────
+
+/* v1.4.1: the assistant side panel is fixed at top 0 and 100vh tall (inline), so the theme
+   header (z 1200) covered its toolbar (title, new chat, close) and it was a white strip.
+   It now floats as a theme card under the header: 6px clear, rounded, page surface.
+   Not the full assistant page (#ask-ai-container-pmd), which uses the same class. */
+.askai-sidebar:not(#ask-ai-container-pmd .askai-sidebar) {
+  top: 140px !important;
+  bottom: 6px !important;
+  right: 6px !important;
+  height: auto !important;
+  border-radius: var(--bb-radius-lg) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  overflow: hidden !important;
+}
+.askai-sidebar:not(#ask-ai-container-pmd .askai-sidebar) :is(.askai-sidebar__main, .askai-sidebar__content, .askai-sidebar__body) {
+  background: transparent !important;
+}/* ─────────────────────────────────────────────────────────────
    CONFIGURACIÓN — CONTENEDORES BLANCOS (v6.13)
    Revisadas todas las páginas del menú de Configuración de agencia.
    Patrones que seguían en blanco/gris-50 cuadrado:
@@ -6285,6 +6310,58 @@ section > .vibe-page {
   border-radius: var(--bb-radius-lg) !important;
   overflow: hidden !important;
   box-shadow: var(--bb-shadow-soft) !important;
+}
+
+/* v1.4.1: Automatización is a cross-origin iframe in #workflowBuilder (inline 100vh tall,
+   full width from y=128): it ran under the theme header (ends at 134) and past the bottom
+   and right edges. It now sits as a card under the header, like the other views. */
+#app #workflowBuilder.hl_sidebar-v2-open-container {
+  margin: 12px 18px 0 18px !important;
+  width: auto !important;
+  max-width: calc(100% - 36px) !important;
+  height: calc(100vh - 128px - 12px - 18px) !important;
+}
+#workflowBuilder > iframe {
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}/* Marketing › Afiliados: same full-width iframe from y=128 (its parent has no class or id,
+   so the iframe itself is the card) */
+iframe[src*="client-app-affiliate-manager"] {
+  display: block !important;
+  margin: 12px 18px 0 18px !important;
+  width: calc(100% - 36px) !important;
+  height: calc(100vh - 128px - 30px) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}/* Configuración › Perfil de empresa: the iframe container is 100vh tall (inline) inside a
+   wrapper with 86px of top padding, so its bottom 86px were cut by the wrapper */
+#app #companySettingsPage {
+  height: calc(100vh - 86px - 18px) !important;
+  width: auto !important;
+  margin: 0 18px !important;
+}
+#companySettingsPage iframe {
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+/* Configuración › Servicios de correo: the iframe started at y=50, under the theme header
+   (ends at 64), full width, square */
+#isvApp.hl_settings--body > #isvAppSection {
+  margin: 20px 18px 0 18px !important;
+  height: calc(100vh - 50px - 20px - 18px) !important;
+  width: auto !important;
+}
+#isvAppSection > iframe {
+  height: 100% !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}/* Marketing › Cuentas regresivas (and any page with the same nesting): the data table card sat
+   inside the page's table card, each with its own shadow and radius (26 vs 18) → one card */
+.ui-table-container__wrapper { overflow: hidden !important; }
+.ui-table-container__wrapper :is(.ui-table-container, .hr-data-table-wrapper) {
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }

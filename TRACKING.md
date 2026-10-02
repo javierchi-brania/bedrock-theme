@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.3.13` (saved 2026-10-02; checked on every module).
-**In progress:** `v1.4.0` published (horizontal logo): waits for the user to upload `assets/brand/brania-logo-upload-512.png` as the white-label logo. Next work: the backlog from the full inspection (below).
+**Live in the platform:** `v1.4.0` (logo uploaded and import updated 2026-10-02).
+**In progress:** `v1.4.1` (iframe views as cards, assistant panel under the header) in review. Agentes de IA pass on branch `fix/agentes-ia` (not merged).
 
 ## Releases
 
@@ -37,7 +37,8 @@ publish is in [README.md](README.md).
 | v1.3.11 | fixes | Pagos › Enlaces de pago and Configuración no longer start under the header | live |
 | v1.3.12 | fixes | Estudio de IA no longer under the sidebar and header; sidebar fits the screen height | |
 | v1.3.13 | labels, fixes | Spanish sweep: Encuestas and Códigos QR landings, social planner "Comunidad", Labs card in teal | live |
-| v1.4.0 | feature | Horizontal sidebar logo (hexagon in the raised disc + "BRANIA" wordmark); the uploaded logo doubles as the favicon | published, waits for the logo upload |
+| v1.4.0 | feature | Horizontal sidebar logo (hexagon in the raised disc + "BRANIA" wordmark); the uploaded logo doubles as the favicon | live |
+| v1.4.1 | fixes | Iframe views as rounded cards below the header (Correos, Automatización, Afiliados, Perfil de empresa, Servicios de correo); single card in Cuentas regresivas; Pregúntale a BRANIA panel as a floating card below the header | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -84,7 +85,7 @@ Selectors were taken from the live DOM. Check them again before writing a rule.
 - [ ] **H Configuración menu:** `#sb_Opportunities-Pipelines` has no visible label. Its label `::after` "Oportunidades y embudos" is 175px inside a 164px `span.nav-title.hl_text-overflow`, and an overflowing atomic inline-block disappears under `text-overflow: ellipsis`. Shorten the label ("Embudos") or let long sidebar labels use `display: inline`. `#sb_domains-urlRedirects` is also cut ("Dominios y redireccion…").
 - [ ] **H Membresías › Cursos › Tablero:** the "Haga realidad sus ideas" banner is solid black. `.rounded-xl.overflow-hidden.bg-blue-600 > .absolute.inset-0.bg-black.bg-opacity-20` computes to rgb(0,0,0) at full opacity: the Tailwind opacity variable is probably lost through a theme rule.
 - [ ] **H Agentes de IA › Estudio de agentes:** the page header ("Agentes gestionados" and its buttons) is under the fixed header. `#agent-studio-container` padding-top is 92px but `header.hl_header` ends at 134px. Check whether this is a regression from the v1.3.12 header and sidebar changes.
-- [ ] **H AI assistant panel** (Tamaulipas): its toolbar (Nuevo chat, Cerrar) is under `header.hl_header`, so the close button is hidden. `.askai-sidebar` / `.askai-sidebar__main` are #fff with 0 radius.
+- [x] → v1.4.1. **H AI assistant panel** (Tamaulipas): its toolbar (Nuevo chat, Cerrar) is under `header.hl_header`, so the close button is hidden. `.askai-sidebar` / `.askai-sidebar__main` are #fff with 0 radius.
 - [ ] **H Sitios › Códigos QR:** the page cannot scroll, so the feature cards are cut. `.qrCodeListApp div.h-full.w-full.overflow-hidden` is 751px tall for 829px of content.
 - [ ] **M Pagos › Cupones:** the selected filter ("Todo") is raised. Selected must be sunken: `.n-button-group .n-button.hl-active-btn`.
 - [ ] **M Contactos › Filtros drawer:** the last field of each group is outdented and grey (#8b9397, margin-left 0 instead of 14px): `.hr-drawer-body-content-wrapper .hr-collapse-transition > div:last-child`.
@@ -159,7 +160,21 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.0 (published): horizontal logo and favicon
+### v1.4.1 (in review): iframe views and the assistant panel
+
+Iframe views were full-bleed squares whose top was cut under the fixed header (ends at 134px with page tabs, 64px without). They are now cards starting 6px below the header, with 18px side gutters, radius lg and a soft shadow.
+
+| Change | Where | Verified |
+|---|---|---|
+| `#emailHome` margin 45px 18px 0, height to the viewport bottom; iframe rounded | Marketing › Correos electrónicos | rect 266,140–1874,973 |
+| `#workflowBuilder` (inside the 128px platform padding) margin 12px 18px 0; iframe rounded | Automatización | rect 248,140–1902,973 |
+| Affiliate manager iframe: margin 12px 18px 0, rounded | Afiliados | capture |
+| `#companySettingsPage` (inline 100vh inside 86px padding: bottom 86px cut) → height to the viewport bottom, gutters, iframe rounded | Configuración › Perfil de empresa | rect 266,86–1884,973 |
+| `#isvAppSection` started at y=50 under the 64px header → margin 20px 18px 0; iframe rounded | Configuración › Servicios de correo | rect 248,70–1892,973 at the commit SHA |
+| Table inside the page table card (`.ui-table-container__wrapper` > `.hr-data-table-wrapper`): two cards, each with its own shadow and radius (18 / 26) → one card: the inner one is flat and transparent, the outer clips it | Marketing › Cuentas regresivas (and any page with the same nesting) | capture at the commit SHA |
+| Assistant panel opened from any section: top 0 under the header (toolbar with Nuevo chat / Cerrar hidden), white, square → floating card top 140, right/bottom 6, page surface, raised. The full assistant page (`#ask-ai-container-pmd`) is untouched | Pregúntale a BRANIA panel | rect 1404,140–1904,985, toolbar visible |
+
+### v1.4.0 (published, live): horizontal logo and favicon
 
 The platform has a single white-label "Logo" image, used for both the sidebar logo and the favicon (no separate favicon field). The previous upload had the bubble and the "BRANIA" text baked in, so the favicon was a squashed logo.
 
