@@ -4443,7 +4443,13 @@ aside#sidebar-v2 {
 }
 .askai-sidebar:not(#ask-ai-container-pmd .askai-sidebar) :is(.askai-sidebar__main, .askai-sidebar__content, .askai-sidebar__body) {
   background: transparent !important;
-}/* ─────────────────────────────────────────────────────────────
+}/* v1.4.2: the composer draws the typed text twice: in the textarea and in a mirror layer
+   on top of it (for highlights). The theme font reached the textarea but not the mirror
+   (Inter), so the two copies did not line up and the text looked doubled */
+.askai-composer-textarea__mirror {
+  font-family: var(--bb-font) !important;
+}
+/* ─────────────────────────────────────────────────────────────
    CONFIGURACIÓN — CONTENEDORES BLANCOS (v6.13)
    Revisadas todas las páginas del menú de Configuración de agencia.
    Patrones que seguían en blanco/gris-50 cuadrado:
