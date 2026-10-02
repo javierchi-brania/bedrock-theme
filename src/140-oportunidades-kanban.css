@@ -61,3 +61,18 @@
   background: var(--bb-bg) !important;
   border-top: 1px solid var(--bb-divider) !important;
 }
+
+/* v1.2.8: "Añadir oportunidad" modal (.crm-opportunities-modal).
+   Active section in the left menu: blue tint, blue text, 5px corners → inset, accent. */
+.crm-opportunities-modal button.bg-blue-50 {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+/* "Gestionar campos" link: blue → accent */
+.crm-opportunities-modal .cursor-pointer[class*="text-blue"],
+.crm-opportunities-modal .cursor-pointer[class*="text-blue"] * {
+  color: var(--bb-accent) !important;
+}
+

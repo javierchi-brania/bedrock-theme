@@ -3677,6 +3677,21 @@ aside#sidebar-v2 {
   background: var(--bb-bg) !important;
   border-top: 1px solid var(--bb-divider) !important;
 }
+
+/* v1.2.8: "Añadir oportunidad" modal (.crm-opportunities-modal).
+   Active section in the left menu: blue tint, blue text, 5px corners → inset, accent. */
+.crm-opportunities-modal button.bg-blue-50 {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+/* "Gestionar campos" link: blue → accent */
+.crm-opportunities-modal .cursor-pointer[class*="text-blue"],
+.crm-opportunities-modal .cursor-pointer[class*="text-blue"] * {
+  color: var(--bb-accent) !important;
+}
+
 /* ─────────────────────────────────────────────────────────────
    MARKETING (Email Marketing, Snippets, etc.)
    Estas pantallas usan otro sistema de componentes más (clases
@@ -5774,6 +5789,11 @@ input[type="radio"] {
 .lds-ring > div {
   border-top-color: var(--bb-accent) !important;
 }
+/* v1.2.8: multi-select fields (tags inside .hr-base-selection, e.g. "Añadir seguidores"):
+   the tag area stayed white inside the sunken field → transparent */
+.hr-base-selection .hr-base-selection-tags {
+  background: transparent !important;
+}
 /* v1.2.2: icons of text buttons ("+ Filtros rápidos", "Ir a tareas"…): platform blue → accent */
 .hr-button.hr-button--text .hr-icon-inner,
 .hr-button.hr-button--text .hr-icon-inner svg {
@@ -6258,6 +6278,11 @@ div#fc-calendar-container-v2 {
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title,
 #ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title,
+.crm-opportunities-modal .ui-modal-heading .title,
+.crm-opportunities-modal .ui-modal-heading .description,
+.crm-opportunities-modal button.bg-blue-50,
+.crm-opportunities-modal .hr-form-item:has(#OpportunityPipeline) .hr-form-item-label__text,
+.crm-opportunities-modal .hr-form-item:has(#OpportunityStage) .hr-form-item-label__text,
 #tb_payment-invoices > span.flex.items-center,
 #tb_payment-invoices a[href$="/payments/v2/estimates"] > span.flex.items-center,
 #tb-sub_all-abandoned-checkouts > span.flex.items-center,
@@ -6317,6 +6342,11 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title::after,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title::after,
 #ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title::after,
+.crm-opportunities-modal .ui-modal-heading .title::after,
+.crm-opportunities-modal .ui-modal-heading .description::after,
+.crm-opportunities-modal button.bg-blue-50::after,
+.crm-opportunities-modal .hr-form-item:has(#OpportunityPipeline) .hr-form-item-label__text::after,
+.crm-opportunities-modal .hr-form-item:has(#OpportunityStage) .hr-form-item-label__text::after,
 #tb_payment-invoices > span.flex.items-center::after,
 #tb_payment-invoices a[href$="/payments/v2/estimates"] > span.flex.items-center::after,
 #tb-sub_all-abandoned-checkouts > span.flex.items-center::after,
@@ -6356,6 +6386,10 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap::after,
 [id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after {
   display: inline-block;
+}
+.crm-opportunities-modal .ui-modal-heading .title > i {
+  font-size: 18px !important;
+  line-height: 28px !important;
 }
 #tb_payment-invoices > span.flex.items-center > i {
   font-size: 14px !important;
@@ -6458,6 +6492,32 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
   content: "Riesgo bajo";
   font-size: 16px;
   line-height: 24px;
+}
+.crm-opportunities-modal .ui-modal-heading .title::after {
+  content: "Añadir una nueva oportunidad";
+  font-size: 18px;
+  line-height: 28px;
+  order: -1;
+}
+.crm-opportunities-modal .ui-modal-heading .description::after {
+  content: "Crea una oportunidad con sus detalles y un contacto";
+  font-size: 14px;
+  line-height: 20px;
+}
+.crm-opportunities-modal button.bg-blue-50::after {
+  content: "Información de la oportunidad";
+  font-size: 12px;
+  line-height: 16px;
+}
+.crm-opportunities-modal .hr-form-item:has(#OpportunityPipeline) .hr-form-item-label__text::after {
+  content: "Embudo de venta";
+  font-size: 14px;
+  line-height: 17.5px;
+}
+.crm-opportunities-modal .hr-form-item:has(#OpportunityStage) .hr-form-item-label__text::after {
+  content: "Etapa";
+  font-size: 14px;
+  line-height: 17.5px;
 }
 #tb_payment-invoices > span.flex.items-center::after {
   content: "Facturas y cotizaciones";

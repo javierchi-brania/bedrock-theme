@@ -7,7 +7,11 @@
   "title": "20px/30px",
   "moduleTitle": "18px/28px",
   "risk": "16px/24px",
-  "button": "13.5px/13.5px"
+  "button": "13.5px/13.5px",
+  "modalTitle": "18px/28px",
+  "field": "14px/17.5px",
+  "small": "12px/16px",
+  "body": "14px/20px"
  },
  "labels": [
   {
@@ -99,6 +103,32 @@
    "sel": "#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title",
    "text": "Riesgo bajo",
    "font": "risk"
+  },
+  {
+   "sel": ".crm-opportunities-modal .ui-modal-heading .title",
+   "text": "Añadir una nueva oportunidad",
+   "font": "modalTitle",
+   "icon": true
+  },
+  {
+   "sel": ".crm-opportunities-modal .ui-modal-heading .description",
+   "text": "Crea una oportunidad con sus detalles y un contacto",
+   "font": "body"
+  },
+  {
+   "sel": ".crm-opportunities-modal button.bg-blue-50",
+   "text": "Información de la oportunidad",
+   "font": "small"
+  },
+  {
+   "sel": ".crm-opportunities-modal .hr-form-item:has(#OpportunityPipeline) .hr-form-item-label__text",
+   "text": "Embudo de venta",
+   "font": "field"
+  },
+  {
+   "sel": ".crm-opportunities-modal .hr-form-item:has(#OpportunityStage) .hr-form-item-label__text",
+   "text": "Etapa",
+   "font": "field"
   },
   {
    "sel": "#tb_payment-invoices > span.flex.items-center",
