@@ -1,0 +1,31 @@
+/**
+ * 51-informes: Informes (custom reports, ad reports, attribution, calls, agents,
+ * appointments, local marketing audit). New section (v1.3.1).
+ */
+
+/* Ad reports (Google Ads, Meta): metric cards were white with 7px corners → raised cards */
+.ad-reporting-container .flex-container > .flex-child {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
+/* Highcharts (any view): transparent chart background; the platform-blue series (line,
+   markers and the light-blue area gradient) → accent. Matched by the colors the platform
+   passes as SVG attributes; CSS properties win over presentation attributes. */
+.highcharts-background {
+  fill: transparent !important;
+}
+.highcharts-graph[stroke="#3B82F6" i] {
+  stroke: var(--bb-accent) !important;
+}
+:is(.highcharts-point, .highcharts-markers path)[fill="#3B82F6" i] {
+  fill: var(--bb-accent) !important;
+}
+.highcharts-root stop[stop-color="#A6C9F8" i] {
+  stop-color: var(--bb-accent-200) !important;
+}
+.highcharts-root stop[stop-color="#EEF5FF" i] {
+  stop-color: var(--bb-bg) !important;
+}
