@@ -8,8 +8,16 @@
    lo mismo de la altura para que no se corte nada abajo.
    ───────────────────────────────────────────────────────────── */
 
+/* v1.4.1: the theme header ends at y=134, so the iframe (y=111) still sat under it, cut in
+   a straight line with square corners. It now starts at y=140 (6px clear) and sits as a
+   card: 18px side/bottom room, rounded, soft shadow. */
 #emailHome {
-  margin-top: 16px !important;
-  height: calc(100vh - 95px - 16px) !important;
+  margin: 45px 18px 0 18px !important;
+  width: auto !important;
+  height: calc(100vh - 95px - 45px - 18px) !important;
+}
+#emailHome > iframe {
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
 }
 

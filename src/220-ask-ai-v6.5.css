@@ -114,3 +114,21 @@
     content: "¿En qué estás pensando, " var(--bb-user-name) "?";
   }
 }
+
+/* v1.4.1: the assistant side panel is fixed at top 0 and 100vh tall (inline), so the theme
+   header (z 1200) covered its toolbar (title, new chat, close) and it was a white strip.
+   It now floats as a theme card under the header: 6px clear, rounded, page surface.
+   Not the full assistant page (#ask-ai-container-pmd), which uses the same class. */
+.askai-sidebar:not(#ask-ai-container-pmd .askai-sidebar) {
+  top: 140px !important;
+  bottom: 6px !important;
+  right: 6px !important;
+  height: auto !important;
+  border-radius: var(--bb-radius-lg) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  overflow: hidden !important;
+}
+.askai-sidebar:not(#ask-ai-container-pmd .askai-sidebar) :is(.askai-sidebar__main, .askai-sidebar__content, .askai-sidebar__body) {
+  background: transparent !important;
+}

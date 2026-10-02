@@ -543,3 +543,17 @@ section > .vibe-page {
   overflow: hidden !important;
   box-shadow: var(--bb-shadow-soft) !important;
 }
+
+/* v1.4.1: Automatización is a cross-origin iframe in #workflowBuilder (inline 100vh tall,
+   full width from y=128): it ran under the theme header (ends at 134) and past the bottom
+   and right edges. It now sits as a card under the header, like the other views. */
+#app #workflowBuilder.hl_sidebar-v2-open-container {
+  margin: 12px 18px 0 18px !important;
+  width: auto !important;
+  max-width: calc(100% - 36px) !important;
+  height: calc(100vh - 128px - 12px - 18px) !important;
+}
+#workflowBuilder > iframe {
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
