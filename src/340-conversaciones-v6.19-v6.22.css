@@ -29,7 +29,7 @@
   padding: 3px 6px !important;
   font-size: 12.5px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-select {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-select {
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-inset-deep) !important;
   border-radius: var(--bb-radius-md) !important;
@@ -59,20 +59,20 @@
    - Encabezados de sección (Contacto, General Info…) con esquinas y hover
      del tema.
    - Botón de canal del chat (burbuja + flecha): hover en píldora, no óvalo. */
-#conversations-new-app .bg-contacts-panel .overflow-y-auto > .flex-col {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .overflow-y-auto > .flex-col {
   padding: 6px 10px 6px 6px !important;
 }
-#conversations-new-app .bg-contacts-panel .border.border-gray-200.rounded-md.bg-white {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .border.border-gray-200.rounded-md.bg-white {
   box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item {
   border-radius: var(--bb-radius-sm) !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item__header {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item__header {
   border-radius: var(--bb-radius-sm) !important;
   transition: background .15s !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item__header:hover {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item__header:hover {
   background: var(--bb-bg-hover) !important;
 }
 #conversations-new-app #chat-filter {
@@ -102,57 +102,57 @@
      borde) → 32px de alto con 10px de margen interno, igual que los selects.
    - Etiquetas (Nombre, Apellidos…) y encabezados de sección con el mismo
      tamaño y color que el resto del tema. */
-#conversations-new-app .bg-contacts-panel .hr-tabs-nav--segment-type {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-nav--segment-type {
   background: transparent !important;
   box-shadow: none !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-tabs-nav--segment-type .hr-input {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-nav--segment-type .hr-input {
   margin-top: 6px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-input {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input {
   min-height: 32px !important;
   border-radius: var(--bb-radius-sm) !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-input .hr-input-wrapper {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input .hr-input-wrapper {
   padding: 0 10px !important;
   min-height: 32px !important;
   align-items: center !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-input .hr-input__input-el,
-#conversations-new-app .bg-contacts-panel .hr-input .hr-input__input {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input .hr-input__input-el,
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input .hr-input__input {
   height: 32px !important;
   line-height: 32px !important;
   font-size: 13px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-select {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-select {
   min-height: 32px !important;
   border-radius: var(--bb-radius-sm) !important;
   font-size: 13px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-form-item {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-form-item {
   margin-bottom: 4px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-form-item-label,
-#conversations-new-app .bg-contacts-panel .hr-form-item-label__text {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-form-item-label,
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-form-item-label__text {
   font-size: 12px !important;
   font-weight: 600 !important;
   color: var(--bb-text-label) !important;
   margin-bottom: 4px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item {
   background: var(--bb-bg) !important;
   border-color: transparent !important; /* v1.2.3: was a 1px grey outline */
   box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
   margin-bottom: 10px !important;
   overflow: hidden !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item__header {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item__header {
   padding: 10px 12px !important;
   font-size: 13px !important;
   font-weight: 700 !important;
   color: var(--bb-text-strong) !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item__content-inner {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item__content-inner {
   padding: 4px 12px 12px !important;
 }
 
@@ -168,49 +168,49 @@
    - DND: el bloque de canales venía en blanco → fondo del tema.
    - Pestañas: el riel ocupa todo el ancho y las 3 pestañas se reparten el
      espacio (antes "Acciones" se salía por la derecha). */
-#conversations-new-app .bg-contacts-panel .hr-collapse-item__content-inner .block-padding {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item__content-inner .block-padding {
   padding-left: 0 !important;
   padding-right: 0 !important;
   border-top: none !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-select .hr-base-selection,
-#conversations-new-app .bg-contacts-panel .hr-select .hr-base-selection-label {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-select .hr-base-selection,
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-select .hr-base-selection-label {
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
   border-radius: inherit !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-select:focus-within {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-select:focus-within {
   box-shadow: var(--bb-shadow-inset-deep), 0 0 0 2px var(--bb-accent-glow) !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-input-phone .hr-input__suffix .hr-button {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input-phone .hr-input__suffix .hr-button {
   box-shadow: none !important;
   background: transparent !important;
   padding: 0 2px !important;
   max-width: 64px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-input-phone .hr-input__suffix .hr-button__content-default-slot {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input-phone .hr-input__suffix .hr-button__content-default-slot {
   font-size: 11px !important;
   font-weight: 600 !important;
   color: var(--bb-text-muted) !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item .bg-white,
-#conversations-new-app .bg-contacts-panel .hr-tabs-pane-wrapper .bg-white {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item .bg-white,
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-pane-wrapper .bg-white {
   background: transparent !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-tabs-rail {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-rail {
   width: 100% !important;
   display: flex !important;
   overflow: hidden !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-tabs-rail .hr-tabs-tab-wrapper {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-rail .hr-tabs-tab-wrapper {
   flex: 1 1 0 !important;
   width: auto !important;
   min-width: auto !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-tabs-rail .hr-tabs-tab {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-rail .hr-tabs-tab {
   justify-content: center !important;
   width: auto !important;
   white-space: nowrap !important;
