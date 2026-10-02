@@ -1,0 +1,38 @@
+/**
+ * 54-membresias: Membresías (client portal, courses, communities). New section (v1.3.5).
+ */
+
+/* "Su marca. Su aplicación." banner: its pictures are background images with an English
+   "Learn More" button drawn in them → themed raised card, Spanish button drawn with ::after */
+a.branded-banner {
+  position: relative !important;
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  cursor: pointer;
+}
+a.branded-banner .title {
+  color: var(--bb-text-strong) !important;
+}
+a.branded-banner .subtitle {
+  color: var(--bb-text-label) !important;
+}
+a.branded-banner::after {
+  content: "Conocer más →";
+  position: absolute;
+  right: 38px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  border-radius: var(--bb-radius-md);
+  background: var(--bb-accent);
+  color: var(--bb-white);
+  font-family: var(--bb-font);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  box-shadow: 6px 6px 16px var(--bb-accent-glow), -4px -4px 12px rgba(255, 255, 255, 0.75);
+}
+a.branded-banner:hover::after {
+  background: var(--bb-accent-dark);
+}

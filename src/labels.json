@@ -15,7 +15,8 @@
   "pager": "14px/14px",
   "nTab": "14px/21px",
   "colTitle": "12.5px/18.75px",
-  "tablePager": "14px/21px"
+  "tablePager": "14px/21px",
+  "newBadge": "9.6px/11px"
  },
  "labels": [
   {
@@ -366,6 +367,11 @@
    "sel": ".tabulator .tabulator-footer .tabulator-paginator .tabulator-page[data-page=\"prev\"]",
    "text": "Anterior",
    "font": "tablePager"
+  },
+  {
+   "sel": ".hl_new_badge_top_menu",
+   "text": "Nuevo",
+   "font": "newBadge"
   }
  ]
 }
