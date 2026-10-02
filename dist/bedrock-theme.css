@@ -7339,10 +7339,34 @@ div#fc-calendar-container-v2 {
   .review-reply-preview-card__reply, .ship-ai-card-icon-wrap, .ship-ai-card-badge) {
   background-color: var(--bb-accent-50) !important;
 }
+/* "Activar ahora" reads its colors from the platform purple palette (inline --n-color vars) */
 .ai-value-landing .ship-ai-deploy-btn {
+  --n-color: var(--bb-accent) !important;
+  --n-color-hover: var(--bb-accent-dark) !important;
+  --n-color-pressed: var(--bb-accent-dark) !important;
+  --n-color-focus: var(--bb-accent-dark) !important;
   background: var(--bb-accent) !important;
-  border-color: transparent !important;
   box-shadow: 6px 6px 16px var(--bb-accent-glow), -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
+}
+.ai-value-landing .ship-ai-deploy-btn .n-button__border,
+.ai-value-landing .ship-ai-deploy-btn .n-button__state-border {
+  border-color: transparent !important;
+}
+.ai-value-landing .compare-col-revenue {
+  border-color: var(--bb-accent-200) !important;
+}
+/* Illustrations: the hero orb (SVG gradients) and the voice test orb (canvas) can only be
+   recolored with a filter: purple / blue → accent hue */
+.ai-value-landing .hero-orb-svg {
+  filter: hue-rotate(-70deg) saturate(0.7) !important;
+}
+.ai-value-landing .vto__canvas {
+  filter: hue-rotate(-30deg) saturate(0.6) !important;
+}
+.ai-value-landing .vto__btn {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  box-shadow: var(--bb-shadow-soft) !important;
 }
 
 /* ── generated from src/labels.json (Spanish labels): edit the JSON, not this block ── */
