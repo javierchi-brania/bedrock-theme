@@ -3291,8 +3291,14 @@ div:has(> #conv-send-button-simple) {
 }
 .hr-radio .hr-radio__dot {
   background: var(--bb-bg) !important;
-  border: none !important;
   box-shadow: var(--bb-shadow-inset) !important;
+}
+/* the platform adds a 1px border on hover and the 8px center is placed for a 1px border:
+   with none it sat 1px off and jumped on hover → constant 1px border, transparent at rest
+   (the platform's hover color still shows as an accent ring) */
+.hr-radio .hr-radio__dot,
+.hr-radio:is(:hover, :focus-within) .hr-radio__dot {
+  border: 1px solid transparent !important;
 }
 .hr-radio.hr-radio--checked .hr-radio__dot {
   background: var(--bb-accent) !important;
