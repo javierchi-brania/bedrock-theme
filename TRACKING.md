@@ -38,7 +38,7 @@ publish is in [README.md](README.md).
 | v1.3.12 | fixes | Estudio de IA no longer under the sidebar and header; sidebar fits the screen height | |
 | v1.3.13 | labels, fixes | Spanish sweep: Encuestas and Códigos QR landings, social planner "Comunidad", Labs card in teal | live |
 | v1.4.0 | feature | Horizontal sidebar logo (hexagon in the raised disc + "BRANIA" wordmark); the uploaded logo doubles as the favicon | live |
-| v1.4.1 | fixes | Iframe views as rounded cards below the header (Correos, Automatización, Afiliados, Perfil de empresa, Servicios de correo); Pregúntale a BRANIA panel as a floating card below the header | in review |
+| v1.4.1 | fixes | Iframe views as rounded cards below the header (Correos, Automatización, Afiliados, Perfil de empresa, Servicios de correo); single card in Cuentas regresivas; Pregúntale a BRANIA panel as a floating card below the header | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -171,6 +171,7 @@ Iframe views were full-bleed squares whose top was cut under the fixed header (e
 | Affiliate manager iframe: margin 12px 18px 0, rounded | Afiliados | capture |
 | `#companySettingsPage` (inline 100vh inside 86px padding: bottom 86px cut) → height to the viewport bottom, gutters, iframe rounded | Configuración › Perfil de empresa | rect 266,86–1884,973 |
 | `#isvAppSection` started at y=50 under the 64px header → margin 20px 18px 0; iframe rounded | Configuración › Servicios de correo | rect 248,70–1892,973 at the commit SHA |
+| Table inside the page table card (`.ui-table-container__wrapper` > `.hr-data-table-wrapper`): two cards, each with its own shadow and radius (18 / 26) → one card: the inner one is flat and transparent, the outer clips it | Marketing › Cuentas regresivas (and any page with the same nesting) | capture at the commit SHA |
 | Assistant panel opened from any section: top 0 under the header (toolbar with Nuevo chat / Cerrar hidden), white, square → floating card top 140, right/bottom 6, page surface, raised. The full assistant page (`#ask-ai-container-pmd`) is untouched | Pregúntale a BRANIA panel | rect 1404,140–1904,985, toolbar visible |
 
 ### v1.4.0 (published, live): horizontal logo and favicon
