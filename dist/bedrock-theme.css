@@ -6646,7 +6646,8 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label,
 #custom-values-table th:nth-child(4) .hr-ellipsis > span,
 #task .tabulator-col[tabulator-field="relations.TASK_CONTACT_ASSOCIATION"] .tabulator-col-title,
-#advanced-fitler-drawer .hr-drawer-footer .hr-button__content > span.ml-1 {
+#advanced-fitler-drawer .hr-drawer-footer .hr-button__content > span.ml-1,
+.tabulator-page[data-page="prev"] {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -6717,7 +6718,8 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label::after,
 #custom-values-table th:nth-child(4) .hr-ellipsis > span::after,
 #task .tabulator-col[tabulator-field="relations.TASK_CONTACT_ASSOCIATION"] .tabulator-col-title::after,
-#advanced-fitler-drawer .hr-drawer-footer .hr-button__content > span.ml-1::after {
+#advanced-fitler-drawer .hr-drawer-footer .hr-button__content > span.ml-1::after,
+.tabulator-page[data-page="prev"]::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -7079,4 +7081,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Borrar todos los filtros";
   font-size: 14px;
   line-height: 14px;
+}
+.tabulator-page[data-page="prev"]::after {
+  content: "Anterior";
+  font-size: 14px;
+  line-height: 21px;
 }

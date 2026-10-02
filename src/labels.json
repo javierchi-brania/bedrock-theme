@@ -14,7 +14,8 @@
   "body": "14px/20px",
   "pager": "14px/14px",
   "nTab": "14px/21px",
-  "colTitle": "12.5px/18.75px"
+  "colTitle": "12.5px/18.75px",
+  "tablePager": "14px/21px"
  },
  "labels": [
   {
@@ -360,6 +361,11 @@
    "sel": "#advanced-fitler-drawer .hr-drawer-footer .hr-button__content > span.ml-1",
    "text": "Borrar todos los filtros",
    "font": "pager"
+  },
+  {
+   "sel": ".tabulator-page[data-page=\"prev\"]",
+   "text": "Anterior",
+   "font": "tablePager"
   }
  ]
 }
