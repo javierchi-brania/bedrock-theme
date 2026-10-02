@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.0` (logo uploaded and import updated 2026-10-02).
-**In progress:** `v1.4.1` (iframe views as cards, assistant panel under the header) in review. Agentes de IA pass on branch `fix/agentes-ia` (not merged).
+**Live in the platform:** `v1.4.1` (2026-10-02).
+**In progress:** `v1.4.2` (assistant composer text doubled) in review. Agentes de IA pass on branch `fix/agentes-ia` (not merged).
 
 ## Releases
 
@@ -38,7 +38,8 @@ publish is in [README.md](README.md).
 | v1.3.12 | fixes | Estudio de IA no longer under the sidebar and header; sidebar fits the screen height | |
 | v1.3.13 | labels, fixes | Spanish sweep: Encuestas and Códigos QR landings, social planner "Comunidad", Labs card in teal | live |
 | v1.4.0 | feature | Horizontal sidebar logo (hexagon in the raised disc + "BRANIA" wordmark); the uploaded logo doubles as the favicon | live |
-| v1.4.1 | fixes | Iframe views as rounded cards below the header (Correos, Automatización, Afiliados, Perfil de empresa, Servicios de correo); single card in Cuentas regresivas; Pregúntale a BRANIA panel as a floating card below the header | in review |
+| v1.4.1 | fixes | Iframe views as rounded cards below the header (Correos, Automatización, Afiliados, Perfil de empresa, Servicios de correo); single card in Cuentas regresivas; Pregúntale a BRANIA panel as a floating card below the header | live |
+| v1.4.2 | fix | Pregúntale a BRANIA composer: typed text no longer doubled | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -160,7 +161,13 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.1 (in review): iframe views and the assistant panel
+### v1.4.2 (in review): assistant composer text
+
+| Change | Where | Verified |
+|---|---|---|
+| The composer draws the typed text in the textarea (theme font) and in a mirror layer on top (`.askai-composer-textarea__mirror`, Inter): different fonts, so the two copies did not line up and the text looked doubled → the mirror uses the theme font | Pregúntale a BRANIA panel and page | both copies start at the same point with the same font; zoom capture |
+
+### v1.4.1 (published, live): iframe views and the assistant panel
 
 Iframe views were full-bleed squares whose top was cut under the fixed header (ends at 134px with page tabs, 64px without). They are now cards starting 6px below the header, with 18px side gutters, radius lg and a soft shadow.
 
