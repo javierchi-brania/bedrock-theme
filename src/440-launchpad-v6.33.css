@@ -40,8 +40,10 @@
    The step container's id is its own title. */
 [id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span {
   font-size: 0 !important;
+  line-height: 0 !important;
 }
 [id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after {
+  display: inline-block;
   content: "Captura nuevos clientes potenciales con anuncios de Facebook e Instagram";
   font-size: 14px;
   line-height: 20px;

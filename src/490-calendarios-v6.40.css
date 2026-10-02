@@ -45,8 +45,10 @@
    always the first three children of the bar; custom smart lists come after. */
 #AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap {
   font-size: 0 !important;
+  line-height: 0 !important;
 }
 #AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap::after {
+  display: inline-block;
   font-size: 14px;
   line-height: 20px;
 }

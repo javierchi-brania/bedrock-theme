@@ -1623,8 +1623,10 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
    hide the original text and draw the Spanish one. */
 #sb_launchpad .nav-title {
   font-size: 0 !important;
+  line-height: 0 !important;
 }
 #sb_launchpad .nav-title::after {
+  display: inline-block;
   content: "Primeros pasos";
   font-size: 13.5px;
   line-height: 20px;
@@ -3684,8 +3686,10 @@ aside#sidebar-v2 {
    carries thresholds set in "Ajuste la configuración de riesgo", so it is left as is. */
 #ForecastDashboard .fd-slippage-row-title {
   font-size: 0 !important;
+  line-height: 0 !important;
 }
 #ForecastDashboard .fd-slippage-row-title::after {
+  display: inline-block;
   font-size: 16px;
   line-height: 24px;
 }
@@ -5856,8 +5860,10 @@ input[type="radio"] {
    The step container's id is its own title. */
 [id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span {
   font-size: 0 !important;
+  line-height: 0 !important;
 }
 [id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after {
+  display: inline-block;
   content: "Captura nuevos clientes potenciales con anuncios de Facebook e Instagram";
   font-size: 14px;
   line-height: 20px;
@@ -6129,8 +6135,10 @@ button.sidebar-option-button { transition: box-shadow .15s, color .15s !importan
    always the first three children of the bar; custom smart lists come after. */
 #AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap {
   font-size: 0 !important;
+  line-height: 0 !important;
 }
 #AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap::after {
+  display: inline-block;
   font-size: 14px;
   line-height: 20px;
 }
