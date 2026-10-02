@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.3.9` (saved 2026-10-02).
-**In progress:** `v1.3.10` (assistant labels always in Spanish; needs the user's approval, then tag and update the platform field).
+**Live in the platform:** `v1.3.10` (saved 2026-10-02).
+**In progress:** `v1.3.11` (Pagos header overlap; needs the user's approval, then tag and update the platform field).
 
 ## Releases
 
@@ -33,7 +33,8 @@ publish is in [README.md](README.md).
 | v1.3.7 | fixes | Oportunidades board: stage headers and cards no longer clipped by the horizontal scrollers | live |
 | v1.3.8 | labels, fixes | "Pregúntale a la IA" → "Ask BRANIA" (sidebar item and header AI button tooltip); Oportunidades board empty state | live |
 | v1.3.9 | labels | The AI assistant label follows the profile language: "Pregúntale a BRANIA" (Spanish) / "Ask BRANIA" (other languages) | live |
-| v1.3.10 | labels | Assistant labels always Spanish: `<html lang>` is not the UI language | in review |
+| v1.3.10 | labels | Assistant labels always Spanish: `<html lang>` is not the UI language | live |
+| v1.3.11 | fixes | Pagos › Enlaces de pago and Configuración no longer start under the header | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -69,7 +70,15 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.10 (in review): assistant labels always in Spanish
+### v1.3.11 (in review): Pagos header overlap
+
+| Fix | Where | Verified |
+|---|---|---|
+| The opaque fixed header (with the page tabs row) ends at y=134, but Enlaces de pago and Configuración start their content at y=128 (platform `#app .sidebar-v2-location .hl_wrapper.hl_topbar-tabs { padding-top: var(--v2-topbar-height) !important }` = 128px, no inner margin): the header covered the top 6px of the title and the "Crear un nuevo enlace de pago" button → content 12px lower (6px clear) | Pagos › Enlaces de pago, Configuración | measured: content top 140 vs header bottom 134; the other 9 Pagos tabs have their own margin (nothing under the header) |
+
+Note: every view with page tabs gets `--v2-topbar-height` (128px) of padding while the theme header ends at 134px; most views have an inner margin. If another view looks cut at the top, check for content starting at 128.
+
+### v1.3.10 (published, live): assistant labels always in Spanish
 
 v1.3.9 keyed the assistant labels on `html:lang(es)`, but `<html lang>` is not the UI language: the "Brania.Ai" sub-account shows a Spanish UI ("Pregúntale a la IA", "Tablero"…) with `lang="en_US"`, so it got "Ask BRANIA". The labels are now unconditional ("Pregúntale a BRANIA", "¿En qué estás pensando, <name>?", composer reveal), in line with "todo en español".
 
