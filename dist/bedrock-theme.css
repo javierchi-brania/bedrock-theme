@@ -1619,6 +1619,16 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 #sb_app-marketplace.active::before { background: #6f6499 !important; }
 #sb_settings.active::before { background: #4d8c74 !important; }
 
+/* v1.2.3: the platform has no Spanish label for this item ("Launchpad") →
+   hide the original text and draw the Spanish one. */
+#sb_launchpad .nav-title {
+  font-size: 0 !important;
+}
+#sb_launchpad .nav-title::after {
+  content: "Primeros pasos";
+  font-size: 13.5px;
+  line-height: 20px;
+}
 /* ─────────────────────────────────────────────────────────────
    TOP HEADER
    Brania: <header style="border-radius:26px; box-shadow:...">
@@ -4187,7 +4197,7 @@ aside#sidebar-v2 {
   align-self: center !important;
 }
 .sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Pregúntale a la IA"; }
-.sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Launchpad"; }
+.sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Primeros pasos"; } /* v1.2.3: no English */
 .sidebar-v2-location:has(#sb_dashboard.active) .hl_header .container-fluid::before { content: "Tablero"; }
 .sidebar-v2-location:has(#sb_conversations.active) .hl_header .container-fluid::before { content: "Conversaciones"; }
 .sidebar-v2-location:has(#sb_calendars.active) .hl_header .container-fluid::before { content: "Calendarios"; }
@@ -5722,6 +5732,17 @@ input[type="radio"] {
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab .hr-tabs-tab__label { background: transparent !important; border-radius: var(--bb-radius-sm) !important; width: 100%; }
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab .hr-tabs-tab__label > div { width: 100% !important; }
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab:not(.hr-tabs-tab--active):hover .hr-tabs-tab__label > div.flex { background: var(--bb-bg-hover) !important; box-shadow: var(--bb-shadow-inset) !important; }
+
+/* v1.2.3: English word in a step title ("leads") → the term the guide uses elsewhere.
+   The step container's id is its own title. */
+[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span {
+  font-size: 0 !important;
+}
+[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after {
+  content: "Captura nuevos clientes potenciales con anuncios de Facebook e Instagram";
+  font-size: 14px;
+  line-height: 20px;
+}
 /* ===== v6.34 Sidebar de Configuración: la pastilla activa ya no se corta a la izquierda ===== */
 aside#sidebar-v2:has(#backButtonv2) .hl_nav-header-without-footer { padding-left: 8px !important; padding-right: 4px !important; box-sizing: border-box !important; }
 /* v6.34b títulos de sección del menú de Configuración: sin la línea que se veía como tachado */

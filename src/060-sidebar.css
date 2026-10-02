@@ -327,3 +327,13 @@
 #sb_app-marketplace.active::before { background: #6f6499 !important; }
 #sb_settings.active::before { background: #4d8c74 !important; }
 
+/* v1.2.3: the platform has no Spanish label for this item ("Launchpad") →
+   hide the original text and draw the Spanish one. */
+#sb_launchpad .nav-title {
+  font-size: 0 !important;
+}
+#sb_launchpad .nav-title::after {
+  content: "Primeros pasos";
+  font-size: 13.5px;
+  line-height: 20px;
+}

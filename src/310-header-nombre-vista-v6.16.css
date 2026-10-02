@@ -19,7 +19,7 @@
   align-self: center !important;
 }
 .sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Pregúntale a la IA"; }
-.sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Launchpad"; }
+.sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Primeros pasos"; } /* v1.2.3: no English */
 .sidebar-v2-location:has(#sb_dashboard.active) .hl_header .container-fluid::before { content: "Tablero"; }
 .sidebar-v2-location:has(#sb_conversations.active) .hl_header .container-fluid::before { content: "Conversaciones"; }
 .sidebar-v2-location:has(#sb_calendars.active) .hl_header .container-fluid::before { content: "Calendarios"; }

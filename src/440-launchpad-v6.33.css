@@ -35,3 +35,14 @@
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab .hr-tabs-tab__label { background: transparent !important; border-radius: var(--bb-radius-sm) !important; width: 100%; }
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab .hr-tabs-tab__label > div { width: 100% !important; }
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab:not(.hr-tabs-tab--active):hover .hr-tabs-tab__label > div.flex { background: var(--bb-bg-hover) !important; box-shadow: var(--bb-shadow-inset) !important; }
+
+/* v1.2.3: English word in a step title ("leads") → the term the guide uses elsewhere.
+   The step container's id is its own title. */
+[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span {
+  font-size: 0 !important;
+}
+[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after {
+  content: "Captura nuevos clientes potenciales con anuncios de Facebook e Instagram";
+  font-size: 14px;
+  line-height: 20px;
+}
