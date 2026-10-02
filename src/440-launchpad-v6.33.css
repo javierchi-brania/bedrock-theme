@@ -54,7 +54,10 @@
 }
 .launchpad-home > div.flex.h-full.overflow-hidden:has(> nav.launchpad-sidebar) {
   margin-top: -32px !important;
+  margin-left: -32px !important;
   padding-top: 32px !important;
+  padding-left: 32px !important;
+  width: calc(100% + 32px) !important;
   height: calc(100% + 32px) !important;
 }/* ...and its white highlight reaches 36px (-10px offset + 26px blur) while the outer
    clip (sidebar column) is 32px away: a smaller highlight for this card keeps it inside. */
