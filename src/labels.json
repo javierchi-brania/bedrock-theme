@@ -75,6 +75,11 @@
    "font": "moduleTitle"
   },
   {
+   "sel": ".hl_header:has(#tb_clientportalCommunities) .topmenu-navtitle",
+   "text": "Membresías",
+   "font": "moduleTitle"
+  },
+  {
    "sel": "#tb_opportunities-tab > span.flex.items-center",
    "text": "Oportunidades",
    "font": "tab"

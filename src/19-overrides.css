@@ -474,3 +474,18 @@ input[type="radio"] {
   opacity: 0.5 !important;
 }
 
+/* v1.3.2: platform icons (.custom-icon) declare fill="currentColor" but a platform rule
+   repaints them in literal blue: keep the attribute's intent (they follow the text color,
+   already teal through the palette remap). Seen in Configuración › Objetos, Reputación ›
+   Widgets, Agentes de IA › Estudio de agentes. */
+svg.custom-icon [fill="currentColor"],
+svg.custom-icon[fill="currentColor"] {
+  fill: currentColor !important;
+}
+
+/* v1.3.2: default avatar (no initials, e.g. the 👋 greeting): grey-50 circle → sunken */
+.hr-avatar.ui-avatar__default {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+

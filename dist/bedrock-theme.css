@@ -5967,6 +5967,21 @@ input[type="radio"] {
   opacity: 0.5 !important;
 }
 
+/* v1.3.2: platform icons (.custom-icon) declare fill="currentColor" but a platform rule
+   repaints them in literal blue: keep the attribute's intent (they follow the text color,
+   already teal through the palette remap). Seen in Configuración › Objetos, Reputación ›
+   Widgets, Agentes de IA › Estudio de agentes. */
+svg.custom-icon [fill="currentColor"],
+svg.custom-icon[fill="currentColor"] {
+  fill: currentColor !important;
+}
+
+/* v1.3.2: default avatar (no initials, e.g. the 👋 greeting): grey-50 circle → sunken */
+.hr-avatar.ui-avatar__default {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
@@ -6426,6 +6441,7 @@ div#fc-calendar-container-v2 {
 [id="sb_common.sidebar.privateIntegrations"] .hl_text-overflow,
 #sb_Opportunities-Pipelines .hl_text-overflow,
 .hl_header:has(#tb_opportunities-tab) .topmenu-navtitle,
+.hl_header:has(#tb_clientportalCommunities) .topmenu-navtitle,
 #tb_opportunities-tab > span.flex.items-center,
 #tb_pipeline > span.flex.items-center,
 #opportunities .hr-collapse-item__header-main p.hr-text.hr-text-lg,
@@ -6490,6 +6506,7 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 [id="sb_common.sidebar.privateIntegrations"] .hl_text-overflow::after,
 #sb_Opportunities-Pipelines .hl_text-overflow::after,
 .hl_header:has(#tb_opportunities-tab) .topmenu-navtitle::after,
+.hl_header:has(#tb_clientportalCommunities) .topmenu-navtitle::after,
 #tb_opportunities-tab > span.flex.items-center::after,
 #tb_pipeline > span.flex.items-center::after,
 #opportunities .hr-collapse-item__header-main p.hr-text.hr-text-lg::after,
@@ -6614,6 +6631,11 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 }
 .hl_header:has(#tb_opportunities-tab) .topmenu-navtitle::after {
   content: "Oportunidades";
+  font-size: 18px;
+  line-height: 28px;
+}
+.hl_header:has(#tb_clientportalCommunities) .topmenu-navtitle::after {
+  content: "Membresías";
   font-size: 18px;
   line-height: 28px;
 }
