@@ -494,4 +494,26 @@ svg.custom-icon[fill="currentColor"] {
 .hr-tag.ui-primary * {
   color: var(--bb-accent) !important;
 }
+.hr-tag.ui-primary {
+  background-color: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+/* v1.3.2: component pagination (.hr-pagination, e.g. Aplicaciones): the active page had a
+   blue outline and text with 3px corners → sunken accent; others without outline */
+.hr-pagination .hr-pagination-item {
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-sm) !important;
+}
+.hr-pagination .hr-pagination-item--clickable:not(.hr-pagination-item--active) {
+  color: var(--bb-text-label) !important;
+}
+.hr-pagination .hr-pagination-item--clickable:not(.hr-pagination-item--active):hover {
+  background: var(--bb-bg-hover) !important;
+}
+.hr-pagination .hr-pagination-item--active {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
 
