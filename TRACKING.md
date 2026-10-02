@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.3` (2026-10-02).
-**In progress:** nothing open; `v1.4.4` published (assistant composer spacing).
+**Live in the platform:** `v1.4.4` (2026-10-02).
+**In progress:** nothing open; `v1.4.5` published (bubble sidebar logo).
 
 ## Releases
 
@@ -41,7 +41,8 @@ publish is in [README.md](README.md).
 | v1.4.1 | fixes | Iframe views as rounded cards below the header (Correos, Automatización, Afiliados, Perfil de empresa, Servicios de correo); single card in Cuentas regresivas; Pregúntale a BRANIA panel as a floating card below the header | live |
 | v1.4.2 | fix | Pregúntale a BRANIA composer: typed text no longer doubled | live |
 | v1.4.3 | fixes | Agentes de IA: every tab in the theme (Estudio de agentes under the header, Primeros pasos, IA de voz, Plantillas, Base de conocimiento, IA de contenido, Registros, Agentes por industria); theme radios round | live |
-| v1.4.4 | fix | Pregúntale a BRANIA composer: 10px between the text field and the buttons | published |
+| v1.4.4 | fix | Pregúntale a BRANIA composer: 10px between the text field and the buttons | live |
+| v1.4.5 | feature | Sidebar logo: raised sphere with the black hexagon and "BRANIA" inside, in relief (user choice after previews) | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -163,7 +164,17 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.4 (published): assistant composer spacing
+### v1.4.5 (published): bubble sidebar logo
+
+User choice after in-page previews (vertical / horizontal, black / grey, flat / sphere / relief): the original bubble look in black. The uploaded logo (hexagon on a light disc) stays as the favicon; the theme draws the sidebar logo.
+
+| Change | Where | Verified |
+|---|---|---|
+| Sphere 92px (`::before`: radial gradient lit from the top left, raised outer shadow, inner shading) with the black hexagon (36px, new `assets/brand/brania-mark-black.png` cropped from the brand artwork) and the wordmark (72px wide) inside, both in relief (`::after`, white highlight + soft shadow). Sizes follow the first bubble logo; block 80 → 108px tall | sidebar | in-page preview with absolute asset URLs, captures |
+| Collapsed sidebar: 40px sphere with the hexagon only | sidebar (collapsed) | preview |
+| Replaces the v1.4.0 horizontal layout (disc + wordmark to the right). Same key: nothing changes while the logo is the previous upload (`a180a840-…`) | sidebar | |
+
+### v1.4.4 (published, live): assistant composer spacing
 
 | Change | Where | Verified |
 |---|---|---|
