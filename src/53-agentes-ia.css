@@ -807,8 +807,9 @@
   .review-reply-preview-card__reply, .ship-ai-card-icon-wrap, .ship-ai-card-badge) {
   background-color: var(--bb-accent-50) !important;
 }
-/* "Activar ahora" reads its colors from the platform purple palette (inline --n-color vars) */
-.ai-value-landing .ship-ai-deploy-btn {
+/* "Activar ahora" reads its colors from the platform purple palette (inline --n-color vars);
+   a platform rule of the same specificity loads later, hence the extra class */
+.ai-value-landing .ship-ai-card-footer .ship-ai-deploy-btn {
   --n-color: var(--bb-accent) !important;
   --n-color-hover: var(--bb-accent-dark) !important;
   --n-color-pressed: var(--bb-accent-dark) !important;
