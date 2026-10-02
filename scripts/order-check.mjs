@@ -137,7 +137,9 @@ for (const list of buckets.values()) {
       const x = list[i];
       const y = list[j]; // x before y in the reference
       if (x.newPos < y.newPos) continue; // order kept
-      if (x.sel === y.sel || (x.prop === y.prop && x.value === y.value)) continue;
+      // Same selector and property is covered by the effective-declarations diff;
+      // a shorthand vs its longhand on the same selector (margin vs margin-bottom) is not.
+      if ((x.sel === y.sel && x.prop === y.prop) || (x.prop === y.prop && x.value === y.value)) continue;
       if (!overlaps(x.prop, y.prop)) continue;
       if (!compatible(x.subj, y.subj)) continue;
       pairs.push({ was_first: x, now_first: y });

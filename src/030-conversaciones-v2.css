@@ -22,7 +22,8 @@
   gap: 18px;
   background: transparent !important;
 }
-#conversations-workspace { overflow: visible !important; margin: 6px 0 10px !important; }
+/* margin-bottom 0: el my-2 de Tailwind sumaba al hueco final (antes lo anulaba una regla de 050-shell que iba después) */
+#conversations-workspace { overflow: visible !important; margin: 6px 0 0 !important; }
 #conversations-list { border-right: none !important; }
 
 /* Lista "Team inbox" → tarjeta elevada */
