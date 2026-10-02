@@ -1,0 +1,715 @@
+/**
+ * 53-agentes-ia: Agentes de IA. New section (v1.3.5).
+ *
+ * Primeros pasos (.ai-value-landing) is a promotional page the platform only half
+ * translated. Its fixed texts are replaced the way src/labels.json does it (hidden text,
+ * Spanish text in ::after with the original metrics). They live here because the page
+ * needs ::before parts (headings with an emphasized phrase) and per-tab variants of the
+ * rotating "ship AI" panel, keyed on the active tab.
+ */
+
+.ai-value-landing .hero-eyebrow,
+.ai-value-landing .hero-toast:nth-of-type(1) .hero-toast-title,
+.ai-value-landing .hero-toast:nth-of-type(1) .hero-toast-time,
+.ai-value-landing .hero-toast:nth-of-type(2) .hero-toast-title,
+.ai-value-landing .hero-toast:nth-of-type(2) .hero-toast-time,
+.ai-value-landing .hero-stats-item:nth-of-type(1) .hero-stats-label,
+.ai-value-landing .hero-stats-item:nth-of-type(3) .hero-stats-label,
+.ai-value-landing .hero-stats-item:nth-of-type(5) .hero-stats-label,
+.ai-value-landing .compare-table-title,
+.ai-value-landing .compare-table-sub,
+.ai-value-landing th.compare-col-estimate .compare-header-cell > span:nth-of-type(2),
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(1) .compare-impact-badge,
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(6) .compare-impact-badge,
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(1) .compare-estimate-cell,
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(2) .compare-estimate-cell,
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(3) .compare-estimate-cell,
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(4) .compare-estimate-cell,
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(5) .compare-estimate-cell,
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(6) .compare-estimate-cell,
+.ai-value-landing section.feature-row:nth-of-type(3) .feature-eyebrow > span,
+.ai-value-landing section.feature-row:nth-of-type(2) .agent-conversation-panel__title-text,
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__title-text,
+.ai-value-landing .agent-conversation-panel__agent-label-text,
+.ai-value-landing section.feature-row:nth-of-type(2) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(1) .agent-conversation-panel__user-text,
+.ai-value-landing section.feature-row:nth-of-type(2) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(2) .agent-conversation-panel__user-text,
+.ai-value-landing section.feature-row:nth-of-type(2) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(3) .agent-conversation-panel__agent-text,
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__interaction:nth-child(1) > :nth-child(1) .agent-conversation-panel__user-text,
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__interaction:nth-child(1) > :nth-child(2) .agent-conversation-panel__agent-text,
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(1) .agent-conversation-panel__user-text,
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(2) .agent-conversation-panel__user-text,
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(3) .agent-conversation-panel__agent-text,
+.ai-value-landing .review-reply-preview-card__title,
+.ai-value-landing .review-reply-preview-card__subtitle,
+.ai-value-landing .review-reply-preview-card__reply-label-text,
+.ai-value-landing .trust-eyebrow,
+.ai-value-landing .ship-ai-eyebrow,
+.ai-value-landing .ship-ai-heading,
+.ai-value-landing .ship-ai-tab:nth-child(1) .ship-ai-tab-title,
+.ai-value-landing .ship-ai-tab:nth-child(1) .ship-ai-tab-hint,
+.ai-value-landing .ship-ai-tab:nth-child(2) .ship-ai-tab-title,
+.ai-value-landing .ship-ai-tab:nth-child(2) .ship-ai-tab-hint,
+.ai-value-landing .ship-ai-tab:nth-child(3) .ship-ai-tab-title,
+.ai-value-landing .ship-ai-tab:nth-child(3) .ship-ai-tab-hint,
+.ai-value-landing .ship-ai-tab:nth-child(4) .ship-ai-tab-title,
+.ai-value-landing .ship-ai-tab:nth-child(4) .ship-ai-tab-hint,
+.ai-value-landing .ship-ai-tab-link,
+.ai-value-landing .ship-ai-card-footer p.hr-text,
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-tab-desc,
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-name,
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-status,
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-badge,
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card li:nth-child(1) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card li:nth-child(2) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card li:nth-child(3) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card li:nth-child(4) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-tab-desc,
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-name,
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-status,
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-badge,
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card li:nth-child(1) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card li:nth-child(2) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card li:nth-child(3) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card li:nth-child(4) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-tab-desc,
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-name,
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-status,
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-badge,
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card li:nth-child(1) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card li:nth-child(2) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card li:nth-child(3) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card li:nth-child(4) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-tab-desc,
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-name,
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-status,
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-badge,
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label,
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(1) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(2) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(3) > span,
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(4) > span {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+.ai-value-landing .hero-eyebrow::after {
+  display: inline-block;
+  content: "Plataforma impulsada por IA";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+.ai-value-landing .hero-toast:nth-of-type(1) .hero-toast-title::after {
+  display: inline-block;
+  content: "Reseña respondida";
+  font-size: 13px;
+  line-height: 15.6px;
+}
+.ai-value-landing .hero-toast:nth-of-type(1) .hero-toast-time::after {
+  display: inline-block;
+  content: "hace 5 s";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+.ai-value-landing .hero-toast:nth-of-type(2) .hero-toast-title::after {
+  display: inline-block;
+  content: "Cita confirmada";
+  font-size: 13px;
+  line-height: 15.6px;
+}
+.ai-value-landing .hero-toast:nth-of-type(2) .hero-toast-time::after {
+  display: inline-block;
+  content: "hace 8 s";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+.ai-value-landing .hero-stats-item:nth-of-type(1) .hero-stats-label::after {
+  display: inline-block;
+  content: "Llamadas atendidas";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+.ai-value-landing .hero-stats-item:nth-of-type(3) .hero-stats-label::after {
+  display: inline-block;
+  content: "Citas agendadas";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+.ai-value-landing .hero-stats-item:nth-of-type(5) .hero-stats-label::after {
+  display: inline-block;
+  content: "Mensajes";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+.ai-value-landing .compare-table-title::after {
+  display: inline-block;
+  content: "Los números no mienten";
+  font-size: 28px;
+  line-height: 33.6px;
+}
+.ai-value-landing .compare-table-sub::after {
+  display: inline-block;
+  content: "El 80% de los leads se pierde en los primeros 5 minutos. Responde al instante y gánale a tu competencia.";
+  font-size: 15px;
+  line-height: 24px;
+}
+.ai-value-landing th.compare-col-estimate .compare-header-cell > span:nth-of-type(2)::after {
+  display: inline-block;
+  content: "Estimado";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(1) .compare-impact-badge::after {
+  display: inline-block;
+  content: "Muy alta";
+  font-size: 12px;
+  line-height: 18px;
+}
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(6) .compare-impact-badge::after {
+  display: inline-block;
+  content: "Muy alta";
+  font-size: 12px;
+  line-height: 18px;
+}
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(1) .compare-estimate-cell::after {
+  display: inline-block;
+  content: "+$12k–$28k/mes";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(2) .compare-estimate-cell::after {
+  display: inline-block;
+  content: "+$8k–$18k/mes";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(3) .compare-estimate-cell::after {
+  display: inline-block;
+  content: "+$6k–$14k/mes";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(4) .compare-estimate-cell::after {
+  display: inline-block;
+  content: "+$4k–$10k/mes";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(5) .compare-estimate-cell::after {
+  display: inline-block;
+  content: "+$2k–$6k/mes";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing .compare-table-native tbody tr:nth-of-type(6) .compare-estimate-cell::after {
+  display: inline-block;
+  content: "+$15k–$40k/mes";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing section.feature-row:nth-of-type(3) .feature-eyebrow > span::after {
+  display: inline-block;
+  content: "Agendador de citas";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+.ai-value-landing section.feature-row:nth-of-type(2) .agent-conversation-panel__title-text::after {
+  display: inline-block;
+  content: "Conversión de leads";
+  font-size: 14px;
+  line-height: 21px;
+}
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__title-text::after {
+  display: inline-block;
+  content: "Agendador de citas";
+  font-size: 14px;
+  line-height: 21px;
+}
+.ai-value-landing .agent-conversation-panel__agent-label-text::after {
+  display: inline-block;
+  content: "Agente de IA";
+  font-size: 14px;
+  line-height: 21px;
+}
+.ai-value-landing section.feature-row:nth-of-type(2) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(1) .agent-conversation-panel__user-text::after {
+  display: inline-block;
+  content: "Me parece bien. ¿Me puedes mandar los precios?";
+  font-size: 14px;
+  line-height: 22.4px;
+}
+.ai-value-landing section.feature-row:nth-of-type(2) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(2) .agent-conversation-panel__user-text::after {
+  display: inline-block;
+  content: "Y, ¿cuál es la forma más rápida de empezar?";
+  font-size: 14px;
+  line-height: 22.4px;
+}
+.ai-value-landing section.feature-row:nth-of-type(2) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(3) .agent-conversation-panel__agent-text::after {
+  display: inline-block;
+  content: "Claro. Ya te mandé los precios; el siguiente paso más rápido es agendar una llamada de bienvenida de 15 minutos.";
+  font-size: 15px;
+  line-height: 25.5px;
+}
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__interaction:nth-child(1) > :nth-child(1) .agent-conversation-panel__user-text::after {
+  display: inline-block;
+  content: "Necesito cambiar mi cita. ¿Tienes algo después de las 4 PM hoy?";
+  font-size: 14px;
+  line-height: 22.4px;
+}
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__interaction:nth-child(1) > :nth-child(2) .agent-conversation-panel__agent-text::after {
+  display: inline-block;
+  content: "Sí, puedo pasarte a las 4:30 PM hoy. ¿Confirmo ese horario?";
+  font-size: 15px;
+  line-height: 25.5px;
+}
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(1) .agent-conversation-panel__user-text::after {
+  display: inline-block;
+  content: "Las 4:30 PM me quedan bien.";
+  font-size: 14px;
+  line-height: 22.4px;
+}
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(2) .agent-conversation-panel__user-text::after {
+  display: inline-block;
+  content: "Mándame también la dirección por mensaje, por favor.";
+  font-size: 14px;
+  line-height: 22.4px;
+}
+.ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__interaction:nth-child(2) > :nth-child(3) .agent-conversation-panel__agent-text::after {
+  display: inline-block;
+  content: "Listo. Tu cita quedó a las 4:30 PM y ya te mandé la dirección a tu celular.";
+  font-size: 15px;
+  line-height: 25.5px;
+}
+.ai-value-landing .review-reply-preview-card__title::after {
+  display: inline-block;
+  content: "Agente de respuesta a reseñas";
+  font-size: 14px;
+  line-height: 17.5px;
+}
+.ai-value-landing .review-reply-preview-card__subtitle::after {
+  display: inline-block;
+  content: "Respuestas con IA a las opiniones de tus clientes";
+  font-size: 14px;
+  line-height: 19.6px;
+}
+.ai-value-landing .review-reply-preview-card__reply-label-text::after {
+  display: inline-block;
+  content: "Agente de IA · Respuesta automática";
+  font-size: 14px;
+  line-height: 21px;
+}
+.ai-value-landing .trust-eyebrow::after {
+  display: inline-block;
+  content: "La confianza de toda la plataforma";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+.ai-value-landing .ship-ai-eyebrow::after {
+  display: inline-block;
+  content: "Encuentra los agentes ideales para tu negocio";
+  font-size: 13px;
+  line-height: 18.2px;
+}
+.ai-value-landing .ship-ai-heading::after {
+  display: inline-block;
+  content: "Lanza IA a tu manera";
+  font-size: 38px;
+  line-height: 41.8px;
+}
+.ai-value-landing .ship-ai-tab:nth-child(1) .ship-ai-tab-title::after {
+  display: inline-block;
+  content: "Agente de voz";
+  font-size: 15px;
+  line-height: 18px;
+}
+.ai-value-landing .ship-ai-tab:nth-child(1) .ship-ai-tab-hint::after {
+  display: inline-block;
+  content: "Configuración más rápida";
+  font-size: 12px;
+  line-height: 18px;
+}
+.ai-value-landing .ship-ai-tab:nth-child(2) .ship-ai-tab-title::after {
+  display: inline-block;
+  content: "Agente de ventas";
+  font-size: 15px;
+  line-height: 18px;
+}
+.ai-value-landing .ship-ai-tab:nth-child(2) .ship-ai-tab-hint::after {
+  display: inline-block;
+  content: "Ideal para captar leads";
+  font-size: 12px;
+  line-height: 18px;
+}
+.ai-value-landing .ship-ai-tab:nth-child(3) .ship-ai-tab-title::after {
+  display: inline-block;
+  content: "Agendador de citas";
+  font-size: 15px;
+  line-height: 18px;
+}
+.ai-value-landing .ship-ai-tab:nth-child(3) .ship-ai-tab-hint::after {
+  display: inline-block;
+  content: "Genera más citas";
+  font-size: 12px;
+  line-height: 18px;
+}
+.ai-value-landing .ship-ai-tab:nth-child(4) .ship-ai-tab-title::after {
+  display: inline-block;
+  content: "Gestor de reputación con IA";
+  font-size: 15px;
+  line-height: 18px;
+}
+.ai-value-landing .ship-ai-tab:nth-child(4) .ship-ai-tab-hint::after {
+  display: inline-block;
+  content: "Resultados con poco esfuerzo";
+  font-size: 12px;
+  line-height: 18px;
+}
+.ai-value-landing .ship-ai-tab-link::after {
+  display: inline-block;
+  content: "Empezar →";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing .ship-ai-card-footer p.hr-text::after {
+  display: inline-block;
+  content: "Activar ahora →";
+  font-size: 14px;
+  line-height: 14px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-tab-desc::after {
+  display: inline-block;
+  content: "No vuelvas a perder una llamada: agenda citas y conversa con tus leads. Se acabó la música de espera.";
+  font-size: 13.5px;
+  line-height: 22.275px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-name::after {
+  display: inline-block;
+  content: "Agente de voz";
+  font-size: 17px;
+  line-height: 22.1px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-status::after {
+  display: inline-block;
+  content: "0% de llamadas perdidas";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-badge::after {
+  display: inline-block;
+  content: "Configuración más rápida";
+  font-size: 12px;
+  line-height: 18px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Llamadas perdidas";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Respuesta promedio";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Disponibilidad";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card li:nth-child(1) > span::after {
+  display: inline-block;
+  content: "Contesta en automático todas las llamadas entrantes";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card li:nth-child(2) > span::after {
+  display: inline-block;
+  content: "Agenda citas con una conversación natural";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card li:nth-child(3) > span::after {
+  display: inline-block;
+  content: "Funciona fuera de horario y en horas pico";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card li:nth-child(4) > span::after {
+  display: inline-block;
+  content: "Transfiere a una persona cuando hace falta";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-tab-desc::after {
+  display: inline-block;
+  content: "Atiende a cada lead en cuanto te escribe por SMS, email, chat y más, y guíalo a tus siguientes pasos.";
+  font-size: 13.5px;
+  line-height: 22.275px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-name::after {
+  display: inline-block;
+  content: "Agente de ventas";
+  font-size: 17px;
+  line-height: 22.1px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-status::after {
+  display: inline-block;
+  content: "48% de tasa de conversión";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-badge::after {
+  display: inline-block;
+  content: "Ideal para captar leads";
+  font-size: 12px;
+  line-height: 18px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Conversión";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Chats perdidos";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Disponibilidad";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card li:nth-child(1) > span::after {
+  display: inline-block;
+  content: "Responde al instante por SMS, email y chat web";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card li:nth-child(2) > span::after {
+  display: inline-block;
+  content: "Califica leads con preguntas de seguimiento inteligentes";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card li:nth-child(3) > span::after {
+  display: inline-block;
+  content: "Envía ofertas, precios y enlaces para agendar";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card li:nth-child(4) > span::after {
+  display: inline-block;
+  content: "Pasa la conversación a tu equipo de ventas sin fricción";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-tab-desc::after {
+  display: inline-block;
+  content: "Convierte leads en citas agendadas a toda hora: recaba datos, propone horarios y llena tu calendario en automático.";
+  font-size: 13.5px;
+  line-height: 22.275px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-name::after {
+  display: inline-block;
+  content: "Agendador de citas";
+  font-size: 17px;
+  line-height: 22.1px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-status::after {
+  display: inline-block;
+  content: "+38% más citas";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-badge::after {
+  display: inline-block;
+  content: "Genera más citas";
+  font-size: 12px;
+  line-height: 18px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Más citas";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Tiempo para agendar";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Disponibilidad";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card li:nth-child(1) > span::after {
+  display: inline-block;
+  content: "Propone horarios disponibles en automático";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card li:nth-child(2) > span::after {
+  display: inline-block;
+  content: "Recaba los datos del cliente antes de la llamada";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card li:nth-child(3) > span::after {
+  display: inline-block;
+  content: "Envía recordatorios para reducir inasistencias";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card li:nth-child(4) > span::after {
+  display: inline-block;
+  content: "Se sincroniza con tu calendario actual";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-tab-desc::after {
+  display: inline-block;
+  content: "Responde las reseñas de Google y Facebook con respuestas redactadas por IA que apruebas antes de publicarse.";
+  font-size: 13.5px;
+  line-height: 22.275px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-name::after {
+  display: inline-block;
+  content: "Gestor de reputación con IA";
+  font-size: 17px;
+  line-height: 22.1px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-status::after {
+  display: inline-block;
+  content: "98% de tasa de respuesta";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-badge::after {
+  display: inline-block;
+  content: "Resultados con poco esfuerzo";
+  font-size: 12px;
+  line-height: 18px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Tasa de respuesta";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Calificación promedio";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label::after {
+  display: inline-block;
+  content: "Tiempo de respuesta";
+  font-size: 11px;
+  line-height: 14.3px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(1) > span::after {
+  display: inline-block;
+  content: "Redacta respuestas personalizadas a reseñas";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(2) > span::after {
+  display: inline-block;
+  content: "Funciona en Google y Facebook";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(3) > span::after {
+  display: inline-block;
+  content: "Te deja aprobar antes de publicar";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(4) > span::after {
+  display: inline-block;
+  content: "Mejora tu posicionamiento con respuestas recientes";
+  font-size: 13.5px;
+  line-height: 20.25px;
+}
+
+/* Headings with an emphasized phrase */
+.ai-value-landing .hero-heading,
+.ai-value-landing section.feature-row:nth-of-type(1) .feature-heading,
+.ai-value-landing section.feature-row:nth-of-type(2) .feature-heading,
+.ai-value-landing section.feature-row:nth-of-type(3) .feature-heading,
+.ai-value-landing section.feature-row:nth-of-type(4) .feature-heading {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+.ai-value-landing .hero-heading::before {
+  content: "Tu negocio está ";
+  font-size: 44px;
+  line-height: 48.4px;
+}
+.ai-value-landing .hero-heading > em::after {
+  content: "perdiendo";
+  font-size: 44px;
+  line-height: 48.4px;
+}
+.ai-value-landing .hero-heading::after {
+  content: " clientes todos los días";
+  font-size: 44px;
+  line-height: 48.4px;
+}
+.ai-value-landing section.feature-row:nth-of-type(1) .feature-heading::before {
+  content: "No vuelvas a perder ";
+  font-size: 40px;
+  line-height: 46px;
+}
+.ai-value-landing section.feature-row:nth-of-type(1) .feature-heading > em::after {
+  content: "ni una llamada";
+  font-size: 40px;
+  line-height: 46px;
+}
+.ai-value-landing section.feature-row:nth-of-type(2) .feature-heading::before {
+  content: "Convierte leads en ";
+  font-size: 40px;
+  line-height: 46px;
+}
+.ai-value-landing section.feature-row:nth-of-type(2) .feature-heading > em::after {
+  content: "ventas, en automático";
+  font-size: 40px;
+  line-height: 46px;
+}
+.ai-value-landing section.feature-row:nth-of-type(3) .feature-heading::before {
+  content: "Agenda más citas, ";
+  font-size: 40px;
+  line-height: 46px;
+}
+.ai-value-landing section.feature-row:nth-of-type(3) .feature-heading > em::after {
+  content: "en automático";
+  font-size: 40px;
+  line-height: 46px;
+}
+.ai-value-landing section.feature-row:nth-of-type(4) .feature-heading::before {
+  content: "Construye una reputación de 5 estrellas ";
+  font-size: 40px;
+  line-height: 46px;
+}
+.ai-value-landing section.feature-row:nth-of-type(4) .feature-heading > em::after {
+  content: "en automático";
+  font-size: 40px;
+  line-height: 46px;
+}
