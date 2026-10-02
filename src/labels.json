@@ -479,6 +479,21 @@
    "sel": "#bulkActionsList p.hr-text-4xl",
    "text": "Acciones en lote",
    "font": "title"
+  },
+  {
+   "sel": "#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule",
+   "text": "Pospuesta 2+ veces o 14+ días",
+   "font": "body"
+  },
+  {
+   "sel": "#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule",
+   "text": "Pospuesta 1+ vez o 7+ días (sin contar las de riesgo alto)",
+   "font": "body"
+  },
+  {
+   "sel": "#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule",
+   "text": "Pospuesta 1+ vez o 1+ día (sin contar alto ni medio)",
+   "font": "body"
   }
  ]
 }

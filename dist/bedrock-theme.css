@@ -7975,7 +7975,10 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #pipeline-page-title,
 #pipeline-page-description,
 #pipeline-page #primary-blue span.font-semibold,
-#bulkActionsList p.hr-text-4xl {
+#bulkActionsList p.hr-text-4xl,
+#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule,
+#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule,
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8068,7 +8071,10 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #pipeline-page-title::after,
 #pipeline-page-description::after,
 #pipeline-page #primary-blue span.font-semibold::after,
-#bulkActionsList p.hr-text-4xl::after {
+#bulkActionsList p.hr-text-4xl::after,
+#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule::after,
+#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule::after,
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8540,4 +8546,19 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Acciones en lote";
   font-size: 20px;
   line-height: 30px;
+}
+#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule::after {
+  content: "Pospuesta 2+ veces o 14+ días";
+  font-size: 14px;
+  line-height: 20px;
+}
+#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule::after {
+  content: "Pospuesta 1+ vez o 7+ días (sin contar las de riesgo alto)";
+  font-size: 14px;
+  line-height: 20px;
+}
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after {
+  content: "Pospuesta 1+ vez o 1+ día (sin contar alto ni medio)";
+  font-size: 14px;
+  line-height: 20px;
 }
