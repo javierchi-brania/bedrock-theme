@@ -6501,10 +6501,10 @@ div#fc-calendar-container-v2 {
 
 /* Directorios (listings) landing: the headline highlight is inline "color: blue" and the
    rest inline "color: black" → accent and theme text */
-.ui-display-sm-semibold[style*="color: black"] {
+.ui-display-sm-semibold:is([style^="color: black"], [style*="; color: black"]) {
   color: var(--bb-text) !important;
 }
-.ui-display-sm-semibold [style*="color: blue"] {
+.ui-display-sm-semibold :is([style^="color: blue"], [style*="; color: blue"]) {
   color: var(--bb-accent) !important;
 }
 /* Promo boxes with a 1px grey border and 12px corners → sunken panels */
