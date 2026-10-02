@@ -344,6 +344,11 @@
    "sel": "#attribution-dashboard [data-name=\"opportunities\"] .n-tabs-tab__label",
    "text": "Oportunidades",
    "font": "nTab"
+  },
+  {
+   "sel": "#custom-values-table th:nth-child(4) .hr-ellipsis > span",
+   "text": "Clave",
+   "font": "body"
   }
  ]
 }

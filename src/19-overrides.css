@@ -212,6 +212,10 @@ textarea.hl-text-area-input:focus {
   box-shadow: var(--bb-shadow-inset-deep), 0 0 0 2px var(--bb-accent-glow) !important;
   outline: none !important;
 }
+/* v1.3.2: disabled ones kept a platform #ececec fill (Social planner, Afiliados dates) */
+input.hl-text-input.hl-text-input:disabled {
+  background: var(--bb-bg) !important;
+}
 
 /* Avisos/guías de producto de la plataforma (Pendo, ej. "Launch Your Ecomm Store…")
    blancos con borde azul → tarjeta flotante del tema */

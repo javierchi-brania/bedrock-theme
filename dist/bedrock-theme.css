@@ -5705,6 +5705,10 @@ textarea.hl-text-area-input:focus {
   box-shadow: var(--bb-shadow-inset-deep), 0 0 0 2px var(--bb-accent-glow) !important;
   outline: none !important;
 }
+/* v1.3.2: disabled ones kept a platform #ececec fill (Social planner, Afiliados dates) */
+input.hl-text-input.hl-text-input:disabled {
+  background: var(--bb-bg) !important;
+}
 
 /* Avisos/guías de producto de la plataforma (Pendo, ej. "Launch Your Ecomm Store…")
    blancos con borde azul → tarjeta flotante del tema */
@@ -6587,7 +6591,8 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 [id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span,
 #app-pagination-previous .hr-button__content,
 #app-pagination-next .hr-button__content,
-#attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label {
+#attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label,
+#custom-values-table th:nth-child(4) .hr-ellipsis > span {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -6655,7 +6660,8 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 [id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after,
 #app-pagination-previous .hr-button__content::after,
 #app-pagination-next .hr-button__content::after,
-#attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label::after {
+#attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label::after,
+#custom-values-table th:nth-child(4) .hr-ellipsis > span::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -7002,4 +7008,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Oportunidades";
   font-size: 14px;
   line-height: 21px;
+}
+#custom-values-table th:nth-child(4) .hr-ellipsis > span::after {
+  content: "Clave";
+  font-size: 14px;
+  line-height: 20px;
 }
