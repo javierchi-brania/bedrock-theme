@@ -29,3 +29,17 @@
 .highcharts-root stop[stop-color="#EEF5FF" i] {
   stop-color: var(--bb-bg) !important;
 }
+
+/* Informe de atribución: the sticky filter bar (.header-background) was #f1f4f7 → page background */
+.header-background.sticky {
+  background: var(--bb-bg) !important;
+}
+/* Stat cards: the title has a fixed 20px height, so a two-line Spanish title ran over the
+   value below → height follows the text */
+#attribution-dashboard .hl-card-content .stat-text {
+  height: auto !important;
+}
+/* Empty-state placeholder chart (blurred ECharts canvas, platform blue) → accent hue */
+.blur-chart canvas {
+  filter: hue-rotate(-30deg) saturate(0.55) !important;
+}

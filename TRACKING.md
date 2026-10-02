@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.2.8` (saved 2026-10-02).
-**In progress:** `v1.3.1` (branch `feat/platform-palette`).
+**In progress:** `v1.3.2` (branch `fix/v1.3.2`).
 
 ## Releases
 
@@ -24,7 +24,8 @@ publish is in [README.md](README.md).
 | v1.2.7 | fixes | Opaque header and dashboard toolbar (content showed through when scrolling); Panel and calendar backgrounds | |
 | v1.2.8 | fixes | Contact detail page and the add-opportunity modal | live |
 | v1.3.0 | refactor | 20-sidebar + 21-sidebar-switcher | compare vs v1.2.8: 0 differences |
-| v1.3.1 | fixes | Platform palette → teal everywhere (goal: theme the whole platform) | in progress |
+| v1.3.1 | fixes | Platform palette → teal everywhere (goal: theme the whole platform) | |
+| v1.3.2 | fixes | Consistency polish: Aplicaciones, Reputación, Informe de atribución, shared component patterns | in progress |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -60,7 +61,25 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.1 (in progress): theme the whole platform
+### v1.3.2 (in progress): consistency polish
+
+| Fix | Where | Verified |
+|---|---|---|
+| Custom SVG icons keep `currentColor` (an inner `fill` was forced to a literal) | Aplicaciones and any `svg.custom-icon` | fill teal |
+| Default avatar (`.hr-avatar.ui-avatar__default`) sunken on the page surface | every view | capture |
+| Primary tags (`.hr-tag.ui-primary`, "Pagado") text in accent on a soft pill, like "Gratis" | Aplicaciones | capture |
+| Component pagination (`.hr-pagination`): no outline, 14px corners, active sunken in accent; Spanish "Anterior / Siguiente" | Aplicaciones | capture |
+| Segmented radio buttons (`.n-radio-button.radio-group-button`): soft pills, checked sunken in accent | Informe de atribución and any view | capture |
+| Informe de atribución: sticky filter bar on the page surface; stat titles no longer run over the value; placeholder chart (canvas) shifted to the accent hue; third tab "Oportunidades" (was a second "Clientes potenciales") | Informes | capture |
+| New section `52-reputacion`: Directorios headline highlight (inline `color: blue`) in accent, bordered promo boxes sunken; Resumen action cards ("Conectar Google Business Profile"…) soft raised | Reputación | captures |
+| Disabled legacy inputs (`input.hl-text-input:disabled`) lost the platform `#ececec` fill | Planificador de redes, Afiliados | computed |
+| Labels: Membresías module title; "Clave" column (was "Key") | Membresías, Configuración › Valores personalizados | capture |
+
+English text scan (visible text nodes, not hidden labels) on Tablero, Contactos, Oportunidades,
+Pagos, Calendarios, Automatización, Sitios, Multimedia, Reputación: only live data (pipeline stage
+"New Lead") and product guides from the platform (see Decisions pending).
+
+### v1.3.1 (published): theme the whole platform
 
 Goal (2026-10-02): neumorphism on every native view. A sweep over 60 sub-tabs of Sitios (14),
 Reputación (8), Informes (8), Agentes de IA (9), Membresías (5), Multimedia, Aplicaciones and
@@ -80,9 +99,7 @@ Checked the global palette remap on the main views: Tablero / Conversaciones onl
 new tokens and elements that used the blue palette (select auxiliary icons, the selected inbox
 item, now dark teal on an inset).
 
-Still open from the sweep: default avatar grey surface (`.hr-avatar.ui-avatar__default`);
-"Pagado" light-blue badge and English pagination labels (Previous / Next) in Aplicaciones;
-"Quick Question" pop-up.
+Items left open by the sweep were closed in v1.3.2.
 
 ### v1.2.8 (published, live)
 
@@ -177,7 +194,7 @@ New token: `--bb-accent-filter` paints any monochrome `<img>` icon in the exact 
 ### Open findings (by view)
 
 **Global / header**
-- [ ] A "Quick Question" pop-up (product survey, English, unthemed) appeared on Agentes de IA › Primeros pasos; check if it is the same guide container as the NPS survey (`#pendo-guide-container`) with another template.
+- [x] "Quick Question" pop-up and the "Learn More" / "Submit" banners: platform product guides in `#pendo-guide-container` (already themed). Their text is English and dynamic. *Decision pending: hide them.*
 - [ ] User avatar (`.avatar_img`) is purple `rgb(127,117,189)`. *Decision pending.*
 - [ ] Header translate icon (`#i18n-feedback`) and AI sparkle icon are purple. *Decision pending.*
 - [x] Help icon `#hl_header--help-icon`: its blue background is inline `!important`, so the 40px inset shadow is the right workaround (documented in 070). Nothing to change.
@@ -202,7 +219,7 @@ New token: `--bb-accent-filter` paints any monochrome `<img>` icon in the exact 
 
 **Marketing › Planificador de redes**
 - [x] White panel and blue illustration → v1.2.3.
-- [ ] Date inputs off palette (`#ececec`) (not seen in this review; recheck when the scheduler is open).
+- [x] Date inputs off palette (`#ececec`): disabled state → v1.3.2.
 - [ ] Illustration cards use pastel gradients (lavender, mint, yellow, light blue). Left as illustration; decide if they should be neutral.
 
 **Language**
@@ -232,11 +249,14 @@ load in the audit; confirm one by one).
 - Contactos pagination "Prev Page" flat: it is disabled on page 1; the active page is inset and "Next" raised, as designed.
 - Conversaciones list tabs ("No leído"…) flat: inline tabs with an underline, as designed.
 - Oportunidades header actions group 1px border: not reproducible.
+- `div.hr-input-container` 4px corners: the container is transparent; the field inside is rounded and sunken.
+- Course "quick help" cards `rgb(230,240,242)`: that is `--bb-accent-50` from the palette remap.
 
 ## Decisions pending
 1. Purple avatar and header icons: teal or keep?
 2. Sidebar per-item colors (mockup cycle) vs a single teal; muted blue for Conversaciones.
-3. Dead selectors: remove the ones that match nothing in any visited view, or only after
+3. Platform product guides (English announcements and surveys, `#pendo-guide-container`): keep themed or hide?
+4. Dead selectors: remove the ones that match nothing in any visited view, or only after
    opening the states they could target (modals, menus, tooltips)?
 
 ## Lessons
