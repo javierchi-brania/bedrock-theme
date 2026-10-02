@@ -475,3 +475,45 @@
     display: none !important;
   }
 }
+
+/* v1.4.0: horizontal logo. The platform uses one image for the sidebar logo and the
+   favicon, so the uploaded logo is now the hexagon on a light disc
+   (assets/brand/brania-logo-upload-512.png) and the theme draws the "BRANIA" wordmark next
+   to it (assets/brand/brania-wordmark.png, cropped from the original artwork: its letters
+   cannot be matched with a font). Keyed on the logo NOT being the previous upload (logo +
+   wordmark baked in, file a180a840-…), so nothing changes until the new image is uploaded. */
+#sidebar-v2 .agency-logo-container:has(> img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"])) {
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  gap: 14px !important;
+  padding: 16px 18px 12px !important;
+}
+#sidebar-v2 .agency-logo-container > img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"]) {
+  width: 52px !important;
+  height: 52px !important;
+  max-width: none !important;
+  max-height: none !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  flex: none !important;
+}
+#sidebar-v2 .agency-logo-container:has(> img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"]))::after {
+  content: "";
+  display: block;
+  width: 118px;
+  height: 15px;
+  background: url("../assets/brand/brania-wordmark.png") left center / contain no-repeat;
+}
+/* collapsed: only the hexagon */
+#sidebar-v2.w-14 .agency-logo-container:has(> img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"])) {
+  justify-content: center !important;
+  padding: 14px 0 10px !important;
+}
+#sidebar-v2.w-14 .agency-logo-container:has(> img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"]))::after {
+  display: none;
+}
+#sidebar-v2.w-14 .agency-logo-container > img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"]) {
+  width: 40px !important;
+  height: 40px !important;
+}
