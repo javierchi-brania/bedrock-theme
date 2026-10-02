@@ -318,9 +318,11 @@ a:hover,
   background: var(--bb-bg) !important;
 }
 
+/* v1.2.7: the toolbar is sticky; transparent, the cards scrolled under it showed
+   through. Page surface behind it (same look at rest). */
 #location-dashboard-header,
 .location-dashboard_header {
-  background: transparent !important;
+  background: var(--bb-bg) !important;
   border: none !important;
   padding: 10px 12px 4px !important;
   z-index: 100 !important;
