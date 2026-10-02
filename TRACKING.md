@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.3.11` (saved 2026-10-02).
-**In progress:** `v1.3.12` (Estudio de IA under the sidebar; needs the user's approval, then tag and update the platform field).
+**Live in the platform:** `v1.3.12` (saved 2026-10-02).
+**In progress:** `v1.3.13` (Spanish sweep of the remaining views; merged, not tagged: needs the user's approval, then tag and update the platform field).
 
 ## Releases
 
@@ -35,7 +35,8 @@ publish is in [README.md](README.md).
 | v1.3.9 | labels | The AI assistant label follows the profile language: "Pregúntale a BRANIA" (Spanish) / "Ask BRANIA" (other languages) | live |
 | v1.3.10 | labels | Assistant labels always Spanish: `<html lang>` is not the UI language | live |
 | v1.3.11 | fixes | Pagos › Enlaces de pago and Configuración no longer start under the header | live |
-| v1.3.12 | fixes | Estudio de IA no longer under the sidebar and header; sidebar fits the screen height | in review |
+| v1.3.12 | fixes | Estudio de IA no longer under the sidebar and header; sidebar fits the screen height | live |
+| v1.3.13 | labels, fixes | Spanish sweep: Encuestas and Códigos QR landings, social planner "Comunidad", Labs card in teal | merged, not tagged |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -71,7 +72,22 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.12 (in review): Estudio de IA under the sidebar
+### v1.3.13 (merged, not tagged): Spanish sweep of the remaining views
+
+| Fix | Where | Verified |
+|---|---|---|
+| Encuestas landing: the 4 bullets were odd machine translations ("Unidad / dispositivo de almacenamiento", "involucrar inmediatamente a Hecho…") and the buttons English / formal → rewritten; "Crear encuesta", "Ver vista previa de la encuesta" | Sitios › Encuestas | capture |
+| Códigos QR landing: "Analytics" feature card → "Analítica"; odd bullet "Personalizar el diseño de tu QR y Apariencia" → "Personaliza el diseño y la apariencia de tu QR" | Sitios › Códigos QR | capture |
+| Social planner channel "Community" → "Comunidad" | Marketing › Planificador | capture |
+| New section `55-configuracion`: Labs welcome card was a platform-blue gradient → accent gradient, theme radius and elevation | Configuración › Labs | capture |
+
+Swept and clean (only brand / product names or live data): Marketing › Fragmentos, Cuentas regresivas,
+Enlaces de activación, Paneles de marca; Sitios › Sitios web, Blogs, Cuestionarios, Tiendas, Seminarios web,
+Widget de chat; Reputación › Solicitudes, Testimonios en video, Widgets, Configuración; Pagos › Pedidos,
+Suscripciones, Cupones, Configuración; Membresías › Cursos, Comunidades, Certificados; Multimedia;
+Configuración › Embudos, Calendarios, Sistema telefónico, WhatsApp, Objetos, Registros de auditoría, Integraciones.
+
+### v1.3.12 (published, live): Estudio de IA under the sidebar
 
 | Fix | Where | Verified |
 |---|---|---|
@@ -355,7 +371,9 @@ New token: `--bb-accent-filter` paints any monochrome `<img>` icon in the exact 
 **Language**
 - [ ] Dynamic text that CSS cannot translate (live data mixed in one text node): conversation activity lines ("DnD enabled by customer for all channels", "Opportunity … created in …"), counters like "0 Managed Agents", "1 - 20 of 30", "0 - 0 of 0", contact type value "Lead".
 - [ ] Dashboard widget titles in English in the Capilea Mexico sub-account ("Opportunity status", "Funnel", "Tasks", "Manual actions", "Lead source report"…) and pipeline / stage names ("Marketing Pipeline", "New Lead"): they are the account's own data; rename them in the platform.
-- [ ] Not swept yet (most are cross-origin iframes or need data): Marketing sub-tabs other than Planificador, Sitios sub-tabs, Agentes de IA › IA de voz / IA conversacional / Base de conocimiento / Plantillas / IA de contenido / Registros (scanned: clean except "Text" in IA de contenido, not inspected), Agentes por industria › Registros tab, modals and drawers in general.
+- [ ] Not swept yet: modals and drawers in general (open each one), Agentes por industria › Registros. Agentes de IA now shows only "Agentes por industria" in this sub-account; the other tabs (IA de voz, IA conversacional, Base de conocimiento, Plantillas, IA de contenido, Registros) were clean when they were visible.
+- [ ] Configuración › Labs: the beta features catalog (titles, descriptions, "Overview") is English platform content that changes often; left as is.
+- [ ] Product names left as they are: "Gokollab Marketplace" (Membresías), Google Contacts / Forms, GBP.
 - [x] Pagos tabs, Marketing "Affiliate Manager", Tareas title and button → v1.2.5.
 - [ ] Left in English because the text is live data or carries live numbers: "262 Tasks" count, "Buscar para Tarea Título" (placeholder), Pronóstico risk rules ("Slipped 2+ times o 14+ days": thresholds come from settings), pipeline status names (Open / Won / Lost / Abandoned in the forecast table and canvas chart).
 - [ ] Dates in list views use the English format ("Aug 18, 2026 07:14 PM") — not fixable with CSS.
