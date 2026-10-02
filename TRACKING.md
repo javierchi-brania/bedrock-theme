@@ -73,7 +73,8 @@ resolves its own conflicts with them.
 | Active view tab ("Oportunidades abiertas") underline `::after` `#004EEB` → accent | Oportunidades | computed |
 | Board / list toggle: 1px outline removed | Oportunidades | computed |
 | List view (Tabulator): white table, light header, square cells → the Contactos table theme, shared by widening the 080 / 510 selectors with `:is()` (same specificity: Contactos compare v1.3.5 vs branch = 0 differences) | Oportunidades › lista | capture |
-\ scrollers flush with the cards (0px left/top) cut every raised card → outer scroller loses its side margin, content gets 34–48px room | Oportunidades › Pronóstico | `bbAudit.clipped()`: 0 |
+| List cells: status / tag pills (inline white, 1px outline) → soft pills; active sort chip (inline light blue) → accent; contact avatar inline light blue → accent pastel | Oportunidades › lista | capture |
+| Pronóstico: three nested scrollers flush with the cards (0px left/top) cut every raised card → outer scroller loses its side margin, content gets 34–48px room | Oportunidades › Pronóstico | `bbAudit.clipped()`: 0 |
 | Pronóstico risk rows: straight 3px left border on rounded cards → rounded bar inside (danger / warning / success tokens) | Pronóstico | capture |
 | Pronóstico: active "Resumen / Cronograma de previsiones" tab had no indicator → sunken, accent; pipeline select flat → sunken field | Pronóstico | capture |
 | Embudos de venta and Acciones en lote: 16px page padding put the table cards against the right edge (shadow cut); the pipelines table sat in an overflow-hidden wrapper of its exact size → 24/36px side padding, wrapper visible, room under the pager | Embudos de venta, Acciones en lote | `bbAudit.clipped()`: 0 |
