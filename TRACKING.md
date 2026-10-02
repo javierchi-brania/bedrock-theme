@@ -75,6 +75,7 @@ Decision 2026-10-02 (user): "todo debe estar en español".
 | Estudio de agentes: title, subtitle, buttons, sort, search, columns, empty state, info banner (accent tint), "Filas por página" / "Anterior" / "Siguiente" | Agentes de IA › Estudio de agentes | capture |
 | Agentes por industria: title, tabs (Agentes / Registros), headers, buttons, empty state, the 3 template cards (subtitle, tags, description, capabilities, Precargado, Usar este agente / Próximamente) by their stable ids | Agentes de IA › Agentes por industria | capture |
 | New section `54-membresias`: "Su marca. Su aplicación." banner was background images with an English "Learn More" drawn in them → raised themed card with a Spanish "Conocer más →" button | Membresías › Portal del cliente | capture |
+| Panel guide card (`nav.launchpad-sidebar`): its scroller and row containers clipped it flush at the left and top, cutting the rounded corners and the raised shadow in a straight line → both containers grow 32px outward (negative margin + padding), nothing moves | Panel | capture; card and list keep their position |
 | Labels: "Nuevo" badge in top menus (`.hl_new_badge_top_menu`), "Filas por página" in component pagination | Membresías and any view | capture |
 
 English text sweep (visible text nodes) over Tablero, Conversaciones, Calendarios, Pagos, Oportunidades,

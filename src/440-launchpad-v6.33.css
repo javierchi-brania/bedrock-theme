@@ -42,3 +42,25 @@
 #launchpad-app-v2 {
   background: var(--bb-bg) !important;
 }
+
+/* v1.3.5: the guide card (nav.launchpad-sidebar) sat flush against the left and top
+   edges of its clipping containers (the scroller .hr-config-provider and the
+   overflow-hidden row), so its rounded corners and raised shadow were cut in a straight
+   line. Both containers grow 32px outward (negative margin + equal padding): the clip
+   edge moves away and nothing changes position. */
+.hr-wrapper-container.launchpad > .hr-config-provider {
+  margin-left: -32px !important;
+  padding-left: 32px !important;
+}
+.launchpad-home > div.flex.h-full.overflow-hidden:has(> nav.launchpad-sidebar) {
+  margin-top: -32px !important;
+  margin-left: -32px !important;
+  padding-top: 32px !important;
+  padding-left: 32px !important;
+  width: calc(100% + 32px) !important;
+  height: calc(100% + 32px) !important;
+}/* ...and its white highlight reaches 36px (-10px offset + 26px blur) while the outer
+   clip (sidebar column) is 32px away: a smaller highlight for this card keeps it inside. */
+.launchpad-home nav.launchpad-sidebar {
+  box-shadow: 10px 12px 30px rgba(166, 174, 178, 0.5), -8px -8px 20px rgba(255, 255, 255, 0.9) !important;
+}
