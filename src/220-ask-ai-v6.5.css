@@ -137,3 +137,15 @@
 .askai-composer-textarea__mirror {
   font-family: var(--bb-font) !important;
 }
+/* v1.4.4: the action buttons (point, dictation, voice) touched the text field and each other
+   (0 and 6px apart, with the theme's raised shadows they looked glued) → 10px gaps */
+.askai-composer-bar .askai-composer-actions {
+  margin-left: 10px !important;
+  gap: 10px !important;
+}
+.askai-composer-bar .askai-composer-actions__right {
+  gap: 10px !important;
+}
+.askai-composer-bar .askai-composer-bar__tool-menu {
+  margin-right: 10px !important;
+}
