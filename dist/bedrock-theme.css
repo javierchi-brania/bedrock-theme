@@ -6186,6 +6186,7 @@ button.sidebar-option-button { transition: box-shadow .15s, color .15s !importan
 #sb_import-data .hl_text-overflow,
 #sb_manage-scoring .hl_text-overflow,
 [id="sb_common.sidebar.privateIntegrations"] .hl_text-overflow,
+#sb_Opportunities-Pipelines .hl_text-overflow,
 .hl_header:has(#tb_opportunities-tab) .topmenu-navtitle,
 #tb_opportunities-tab > span.flex.items-center,
 #tb_pipeline > span.flex.items-center,
@@ -6243,6 +6244,7 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #sb_import-data .hl_text-overflow::after,
 #sb_manage-scoring .hl_text-overflow::after,
 [id="sb_common.sidebar.privateIntegrations"] .hl_text-overflow::after,
+#sb_Opportunities-Pipelines .hl_text-overflow::after,
 .hl_header:has(#tb_opportunities-tab) .topmenu-navtitle::after,
 #tb_opportunities-tab > span.flex.items-center::after,
 #tb_pipeline > span.flex.items-center::after,
@@ -6348,6 +6350,11 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 }
 [id="sb_common.sidebar.privateIntegrations"] .hl_text-overflow::after {
   content: "Integraciones privadas";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+#sb_Opportunities-Pipelines .hl_text-overflow::after {
+  content: "Oportunidades y embudos";
   font-size: 13.5px;
   line-height: 20px;
 }

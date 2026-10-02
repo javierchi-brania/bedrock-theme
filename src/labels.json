@@ -61,6 +61,11 @@
    "font": "sidebar"
   },
   {
+   "sel": "#sb_Opportunities-Pipelines .hl_text-overflow",
+   "text": "Oportunidades y embudos",
+   "font": "sidebar"
+  },
+  {
    "sel": ".hl_header:has(#tb_opportunities-tab) .topmenu-navtitle",
    "text": "Oportunidades",
    "font": "moduleTitle"
