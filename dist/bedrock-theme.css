@@ -8119,7 +8119,7 @@ a.branded-banner:hover::after {
   box-shadow: var(--bb-shadow-raised) !important;
 }
 /**
- * 56-agentes-ia-fixes: Agentes de IA visual pass (v1.4.1). Hand-written; the Spanish
+ * 56-agentes-ia-fixes: Agentes de IA visual pass (v1.4.3). Hand-written; the Spanish
  * texts and the Primeros pasos theme live in 53-agentes-ia (generated, do not edit there).
  *
  * The theme header ends at y=134 (pill + page tabs row): views whose content starts higher
