@@ -5931,6 +5931,23 @@ input[type="radio"] {
 .border-blue-200, .border-primary-200, .border-blue-300, .border-primary-300 { border-color: var(--bb-accent-200) !important; }
 .border-blue-400, .border-primary-400, .border-blue-500, .border-primary-500, .border-blue-600, .border-primary-600, .border-blue-700, .border-primary-700 { border-color: var(--bb-accent) !important; }
 
+/* v1.3.1: Bootstrap-Vue tables (.b-table-wrapper.table-hl, older views such as the ad
+   reports): white rows and grey lines → page surface, divider lines, theme hover */
+.table-hl .table,
+.table-hl .table > :is(thead, tbody, tfoot) > tr {
+  background: transparent !important;
+}
+.table-hl .table > :is(thead, tbody, tfoot) > tr,
+.table-hl .table > :is(thead, tbody, tfoot) > tr > :is(th, td) {
+  border-color: var(--bb-divider) !important;
+}
+.table-hl .table > thead > tr > th {
+  color: var(--bb-text-label) !important;
+}
+.table-hl .table-hover > tbody > tr:hover {
+  background: var(--bb-bg-hover) !important;
+}
+
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
