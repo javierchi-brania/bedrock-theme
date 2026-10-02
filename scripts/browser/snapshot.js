@@ -8,6 +8,14 @@
 //   const b = bbSnap.take(); bbSnap.diff(a2, b);   // the refactor: must be 0
 //   bbSnap.restore();                              // back to the @import (nothing saved)
 //
+//   await bbSnap.compare('v1.2.1', '<commitSHA>')  // preferred: both sides through a
+//                                                  // <style>, waits for fonts; returns
+//                                                  // { differences, groups: {"el prop": n} }
+//
+// Swapping the stylesheet re-registers the web font: until it loads, text falls back
+// and widths/heights change everywhere. compare() avoids that noise; when comparing by
+// hand, await document.fonts.ready and give it a few seconds before take().
+//
 // preview() removes the @import from the live stylesheet in memory only and puts
 // the fetched CSS in a <style> right before it, so the cascade order is the same.
 // It never touches the custom CSS editor.
@@ -15,14 +23,25 @@
   const PROPS = [
     'background-color', 'background-image', 'box-shadow', 'border-radius',
     'border-color', 'border-width', 'color', 'padding', 'gap', 'font-family',
-    'font-weight', 'opacity', 'margin', 'width', 'height',
+    'font-weight', 'opacity', 'margin', 'width', 'height', 'stroke', 'fill', 'filter',
   ];
   const HOST_ID = 'customCss';
   const PREVIEW_ID = 'bb-preview';
   const REPO = 'javierchi-brania/bedrock-theme';
   // setTimeout, not requestAnimationFrame: rAF never fires in a background tab.
   // getComputedStyle forces the style recalculation anyway.
-  const settle = () => new Promise((r) => setTimeout(r, 1500));
+  // Timers are throttled in background tabs; a worker's are not.
+  const worker = new Worker(URL.createObjectURL(new Blob(['onmessage=e=>setTimeout(()=>postMessage(1),e.data)'])));
+  const sleep = (ms) =>
+    new Promise((r) => {
+      const h = () => (worker.removeEventListener('message', h), r());
+      worker.addEventListener('message', h);
+      worker.postMessage(ms);
+    });
+  const settle = async () => {
+    await document.fonts.ready;
+    await sleep(2500);
+  };
 
   const label = (el) => {
     const cls = typeof el.className === 'string' ? el.className.trim().split(/\s+/).slice(0, 3).join('.') : '';
@@ -92,6 +111,22 @@
 
   const cdn = (ref) => `https://cdn.jsdelivr.net/gh/${REPO}@${ref}/dist/bedrock-theme.css`;
 
-  window.bbSnap = { take, diff, preview, restore, cdn, PROPS };
+  // Both refs through the same <style> mechanism, so only the CSS differs.
+  async function compare(refA, refB, limit = 500) {
+    await preview(cdn(refA));
+    const a = take();
+    await preview(cdn(refB));
+    const b = take();
+    await restore();
+    const d = diff(a, b, limit);
+    const groups = {};
+    for (const s of d.sample) {
+      const k = `${s.el.replace(/^(w+).*?([.#][w-]+)?.*$/, '$1$2')} ${s.prop}`;
+      groups[k] = (groups[k] ?? 0) + 1;
+    }
+    return { view: location.pathname.split('/').slice(4, 6).join('/'), elements: d.elements, domChanged: d.domChanged, differences: d.differences, groups };
+  }
+
+  window.bbSnap = { take, diff, preview, restore, compare, cdn, PROPS };
   return 'bbSnap ready';
 })();

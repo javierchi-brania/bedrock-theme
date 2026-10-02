@@ -97,6 +97,7 @@ body:has(#pg-invoices_btn-settings) .ui-statistic:nth-child(4) .title::before { 
 }
 .ui-empty-icon {
   background: var(--bb-bg) !important;
+  border-color: var(--bb-bg) !important; /* v1.2.2: was a light-blue 8px ring */
   box-shadow: var(--bb-shadow-soft) !important;
 }
 .ui-empty-icon svg,

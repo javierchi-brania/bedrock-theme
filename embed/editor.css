@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/gh/javierchi-brania/bedrock-theme@v1.2.1/dist/bedrock-theme.css");
+@import url("https://cdn.jsdelivr.net/gh/javierchi-brania/bedrock-theme@v1.2.2/dist/bedrock-theme.css");
 /* Critical tokens inline to avoid a flash while the theme loads.
    Generated from src/00-tokens.css by `npm run build`: do not edit by hand. */
 :root {
@@ -23,6 +23,9 @@
   --bb-success: #4d8c74;
   --bb-warning: #c08a3e;
   --bb-danger: #b0525c;
+  /* paints a monochrome <img> icon in --bb-accent (exact: rgb(47, 125, 137)) */
+  --bb-accent-filter: brightness(0) saturate(100%) invert(14%) sepia(80%) saturate(5543%)
+    hue-rotate(179deg) brightness(107%) contrast(63%);
 
   /* Radii */
   --bb-radius-xl: 26px;
