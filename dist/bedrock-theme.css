@@ -6010,6 +6010,28 @@ svg.custom-icon[fill="currentColor"] {
   box-shadow: var(--bb-shadow-inset) !important;
 }
 
+
+/* v1.3.2: segmented radio buttons (.n-radio-button, e.g. Primera / Última atribución):
+   white with a blue outline when checked → soft pills, checked sunken in accent */
+.n-radio-button.radio-group-button {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  color: var(--bb-text-label) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.n-radio-button.radio-group-button .n-radio-button__state-border {
+  box-shadow: none !important;
+}
+.n-radio-button.radio-group-button:hover:not(.n-radio-button--checked) {
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+.n-radio-button.radio-group-button.n-radio-button--checked {
+  color: var(--bb-accent) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+.n-radio-button.radio-group-button.n-radio-button--checked * {
+  color: inherit !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
@@ -6456,6 +6478,50 @@ div#fc-calendar-container-v2 {
   stop-color: var(--bb-bg) !important;
 }
 
+/* Informe de atribución: the sticky filter bar (.header-background) was #f1f4f7 → page background */
+.header-background.sticky {
+  background: var(--bb-bg) !important;
+}
+/* Stat cards: the title has a fixed 20px height, so a two-line Spanish title ran over the
+   value below → height follows the text */
+#attribution-dashboard .hl-card-content .stat-text {
+  height: auto !important;
+}
+/* Empty-state placeholder chart (blurred ECharts canvas, platform blue) → accent hue */
+.blur-chart canvas {
+  filter: hue-rotate(-30deg) saturate(0.55) !important;
+}
+/**
+ * 52-reputacion: Reputación (reviews, directories, widgets). New section (v1.3.2).
+ */
+
+/* Directorios (listings) landing: the headline highlight is inline "color: blue" and the
+   rest inline "color: black" → accent and theme text */
+.ui-display-sm-semibold[style*="color: black"] {
+  color: var(--bb-text) !important;
+}
+.ui-display-sm-semibold [style*="color: blue"] {
+  color: var(--bb-accent) !important;
+}
+/* Promo boxes with a 1px grey border and 12px corners → sunken panels */
+.rounded-\[12px\].border.border-gray-300 {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+/* Resumen: "getting started" action cards (Conectar Google Business Profile, …) were flat
+   with a 1px border → soft raised tiles, more raised on hover */
+.cursor-pointer.rounded-lg.border.border-gray-200 {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.cursor-pointer.rounded-lg.border.border-gray-200:hover {
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+
 /* ── generated from src/labels.json (Spanish labels): edit the JSON, not this block ── */
 #sb_launchpad .hl_text-overflow,
 #sb_opportunities .hl_text-overflow,
@@ -6520,7 +6586,8 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap,
 [id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span,
 #app-pagination-previous .hr-button__content,
-#app-pagination-next .hr-button__content {
+#app-pagination-next .hr-button__content,
+#attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -6587,7 +6654,8 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap::after,
 [id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after,
 #app-pagination-previous .hr-button__content::after,
-#app-pagination-next .hr-button__content::after {
+#app-pagination-next .hr-button__content::after,
+#attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -6929,4 +6997,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Siguiente";
   font-size: 14px;
   line-height: 14px;
+}
+#attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label::after {
+  content: "Oportunidades";
+  font-size: 14px;
+  line-height: 21px;
 }

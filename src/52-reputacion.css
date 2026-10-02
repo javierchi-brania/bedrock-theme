@@ -1,0 +1,30 @@
+/**
+ * 52-reputacion: Reputación (reviews, directories, widgets). New section (v1.3.2).
+ */
+
+/* Directorios (listings) landing: the headline highlight is inline "color: blue" and the
+   rest inline "color: black" → accent and theme text */
+.ui-display-sm-semibold[style*="color: black"] {
+  color: var(--bb-text) !important;
+}
+.ui-display-sm-semibold [style*="color: blue"] {
+  color: var(--bb-accent) !important;
+}
+/* Promo boxes with a 1px grey border and 12px corners → sunken panels */
+.rounded-\[12px\].border.border-gray-300 {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+/* Resumen: "getting started" action cards (Conectar Google Business Profile, …) were flat
+   with a 1px border → soft raised tiles, more raised on hover */
+.cursor-pointer.rounded-lg.border.border-gray-200 {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.cursor-pointer.rounded-lg.border.border-gray-200:hover {
+  box-shadow: var(--bb-shadow-raised) !important;
+}
