@@ -363,7 +363,7 @@
    "font": "pager"
   },
   {
-   "sel": ".tabulator-footer .tabulator-paginator .tabulator-page[data-page=\"prev\"]",
+   "sel": ".tabulator .tabulator-footer .tabulator-paginator .tabulator-page[data-page=\"prev\"]",
    "text": "Anterior",
    "font": "tablePager"
   }
