@@ -196,4 +196,14 @@
 }
 .crm-opportunities-page .scrollable.opportunities-scroll {
   padding: 10px 16px 0 !important;
+}/* v1.3.8: board empty state ("Ninguna oportunidad coincide…"). The platform overlay
+   (.crm-opportunities-empty-state, absolute, 60px from the top) had a solid near-white
+   fill that covered the lower half of the stage headers → transparent (higher specificity:
+   a platform rule kept the fill). Its illustration is an SVG with white panels → dimmed
+   to the page surface. */
+#app .crm-opportunities-board > div.crm-opportunities-empty-state.crm-opportunities-empty-state {
+  background: transparent !important;
+}
+.crm-opportunities-empty-state img {
+  filter: brightness(0.92) saturate(0.85);
 }
