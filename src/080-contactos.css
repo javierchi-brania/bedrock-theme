@@ -356,3 +356,12 @@ hlcontentwrap .wrapper #views-bar .view.active .view-label {
   width: auto !important;
   padding-top: 12px !important;
 }
+/* v1.3.3: the frozen right column header ("Acciones" in Tareas) was transparent: when the table
+   overflows, the scrolled header ("Debido a fecha") showed through → opaque, continuing the
+   sunken header bar (rounded right end, same inner shadow) */
+#table-container .tabulator-headers .tabulator-col.tabulator-frozen.tabulator-frozen-right,
+hlcontentwrap .wrapper .table-container .tabulator-headers .tabulator-col.tabulator-frozen.tabulator-frozen-right {
+  background: var(--bb-bg) !important;
+  border-radius: 0 var(--bb-radius-md) var(--bb-radius-md) 0 !important;
+  box-shadow: inset -3px -3px 8px #ffffff, inset 0 3px 8px -2px #c6cacc !important;
+}
