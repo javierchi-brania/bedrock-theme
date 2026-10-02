@@ -85,13 +85,16 @@ npm run diff -- --base v1.0.0      # ...or vs any git ref; --base-file <css>, --
 ```
 
 The build fails if a CSS file does not parse, if `src/` and `src/manifest.json`
-disagree, or if a vendor name appears in the repo (functional `.ghl-*` selectors
-are allowed).
+disagree, if a vendor name appears in the repo (functional `.ghl-*` selectors
+are allowed), or if a literal color outside `00-tokens` is not in
+`scripts/color-baseline.json` (it flags platform blues). Use a `--bb-*` token; if a
+literal is really intended, `node scripts/build.mjs --accept-colors` and explain it in the PR.
 
 The rules diff has two views: **rules** (each top-level rule as canonical text,
 comments ignored, plus whether shared rules kept their order) and **effective
 declarations** (context + selector + property → winning value after source order
-and `!important`). A pure refactor keeps the second view identical. CI posts the
+and `!important`; shorthands such as `margin` are expanded per side, so `margin`
+vs a later `margin-bottom` is caught). A pure refactor keeps the second view identical. CI posts the
 diff on every PR.
 
 ## Publishing a change
