@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.2.1` (custom CSS field, since 2026-10-02). `v1.2.6` is published: change the `@import` to use it.
-**In progress:** `v1.2.7` (branch `fix/v1.2.7`).
+**Live in the platform:** `v1.2.1` (custom CSS field, since 2026-10-02). `v1.2.7` is published: change the `@import` to use it.
+**In progress:** `v1.2.8` (branch `fix/v1.2.8`).
 
 ## Releases
 
@@ -21,7 +21,8 @@ publish is in [README.md](README.md).
 | v1.2.4 | fixes | Sub-tab sweep: list views (Tareas, Empresas), Pagos sub-tabs | |
 | v1.2.5 | fixes | Sub-tab sweep: Calendarios, Oportunidades, Marketing; Spanish labels outside Launchpad | |
 | v1.2.6 | fixes | Spanish labels everywhere from `src/labels.json`; Launchpad → Panel; odd translations | |
-| v1.2.7 | fixes | Opaque header and dashboard toolbar (content showed through when scrolling); Panel and calendar backgrounds | in progress |
+| v1.2.7 | fixes | Opaque header and dashboard toolbar (content showed through when scrolling); Panel and calendar backgrounds | |
+| v1.2.8 | fixes | Contact detail page and the add-opportunity modal | in progress |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -56,7 +57,20 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.2.7 (in progress)
+### v1.2.8 (in progress)
+
+| Fix | Where | Verified |
+|---|---|---|
+| The contact panel rules (sections as cards, headers, tabs) now cover the contact detail page too: `:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel` (both ids, same specificity) | Contactos › detalle | capture; Conversaciones compare: only the intended elements |
+| Segmented tabs (Todos los campos / DND / Acciones): white rail with separators → raised group, active segment sunken | contact panel (both pages) | capture |
+| Contact header block outline, center "Conversaciones" tab and lead-source link (blue) → none / accent | Contactos › detalle | capture |
+| AI promo banner ("Deja que AI redacte…"): gradient + outline + blue icon → theme card, accent icon | Contactos › detalle, Conversaciones | capture |
+| Add-opportunity modal: active left-menu item → inset accent; "Gestionar campos" → accent; multi-select tag area (Seguidores) transparent | Oportunidades › Añadir oportunidad | capture |
+| Labels: modal title "Añadir una nueva oportunidad", description, "Información de la oportunidad", "Embudo de venta", "Etapa"; panel section "Oportunidades" (was "Clientes Potenciales", wrapped on two lines) | modal, contact panel | capture |
+
+Reviewed, nothing to change: opening an opportunity card leads to the contact detail (covered above); "Añadir lista inteligente" drawer is themed. English left: placeholders ("New smart list", "Introducir el nombre del cliente potencial") cannot be changed with CSS; activity feed sentences ("Opportunity … created in …") are live data.
+
+### v1.2.7 (published)
 
 | Fix | Where | Verified |
 |---|---|---|
