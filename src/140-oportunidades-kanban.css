@@ -76,3 +76,113 @@
   color: var(--bb-accent) !important;
 }
 
+
+/* v1.3.6: Oportunidades visual pass.
+   Board: each stage column is a scroller (overflow-y: auto) with only 2px/6px around the
+   cards, so the raised card shadow (~40px) was cut in straight lines (a pale rectangle
+   behind every card). The scroller grows outward (negative margin + padding, cards keep
+   their position) and the cards use the soft shadow, which fits in that room. */
+.crm-opportunities-page .crm-opportunities-stage-cards.card {
+  margin: -20px -18px 0 !important;
+  padding: 22px 24px 24px !important;
+}
+.crm-opportunities-page .crm-opportunities-card.opportunitiesCard {
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.crm-opportunities-page .crm-opportunities-card.opportunitiesCard:hover {
+  box-shadow: 7px 7px 16px rgba(166, 174, 178, 0.5), -7px -7px 16px rgba(255, 255, 255, 0.9) !important;
+}
+/* Active view tab ("Oportunidades abiertas") underline: platform blue → accent */
+#views-bar .view.active::after {
+  background: var(--bb-accent) !important;
+}
+/* Board / list toggle: the platform 1px outline around the sunken group */
+#newTopBar .views {
+  border: none !important;
+}
+/* List view: same table theme as Contactos (selectors shared in 080 and 510). */
+/* List cells: status and tag pills come with inline white / #f2f4f7 fills and a 1px outline */
+.crm-opportunities-list-view .tabulator-cell div[style*="border-radius:16px"] {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: 2px 2px 5px rgba(166, 174, 178, 0.45), -2px -2px 5px rgba(255, 255, 255, 0.9) !important;
+}
+/* Active sort indicator: inline light-blue chip with a blue arrow → accent */
+.crm-opportunities-list-view .tabulator-col span[style*="#2E90FA" i] {
+  background-color: var(--bb-accent-50) !important;
+  color: var(--bb-accent) !important;
+}
+/* Contact avatar with an inline light-blue fill → accent pastel (as the v1.2.1 avatars) */
+.crm-opportunities-list-view .n-avatar[style*="rgb(178, 221, 255)"] {
+  background: color-mix(in srgb, var(--bb-accent) 30%, var(--bb-bg)) !important;
+  color: var(--bb-accent-dark) !important;
+}
+/* v1.3.6 › Pronóstico. Three nested scrollers sit flush with the cards (0px left/top),
+   so every raised card was cut in straight lines. The outer one drops its side margin
+   and the content gets room for the shadows. */
+#ForecastDashboard div.ml-3.mr-3.flex-1.overflow-x-hidden {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+#ForecastDashboard div.w-full.max-w-full.overflow-x-hidden > .space-y-6 {
+  padding: 34px 36px 48px 36px !important;
+}
+/* Risk rows: a straight 3px left border on a rounded card → a rounded bar inside */
+#ForecastDashboard .fd-slippage-row-inner {
+  position: relative;
+  border-left: none !important;
+  padding-left: 22px !important;
+}
+#ForecastDashboard .fd-slippage-row-inner::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  bottom: 16px;
+  width: 4px;
+  border-radius: 4px;
+  background: var(--bb-text-muted);
+}
+#ForecastDashboard .fd-slippage-row-high::before { background: var(--bb-danger); }
+#ForecastDashboard .fd-slippage-row-medium::before { background: var(--bb-warning); }
+#ForecastDashboard .fd-slippage-row-low::before { background: var(--bb-success); }
+/* Resumen / Cronograma de previsiones: the active one had no indicator */
+#ForecastDashboard .view-tab {
+  border-radius: var(--bb-radius-sm) !important;
+}
+#ForecastDashboard .view-tab--active {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+#ForecastDashboard .view-tab--active,
+#ForecastDashboard .view-tab--active * {
+  color: var(--bb-accent) !important;
+}
+/* Pipeline selector: flat → sunken field like the other selects */
+#pipelineDropdDown-forecast .hr-base-selection {
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+
+/* v1.3.6 › Embudos de venta and Acciones en lote: 16px page padding left the table cards
+   against the right edge of the screen (shadow cut); the pipelines table was also inside
+   an overflow-hidden wrapper of its exact size. */
+.hr-wrapper-container.pipeline-page-wrapper,
+#bulkActionsList > .hr-wrapper-container {
+  padding-left: 24px !important;
+  padding-right: 36px !important;
+}
+.crm-opportunities-pipeline-table-wrapper {
+  overflow: visible !important;
+  padding-bottom: 40px !important;
+}
+#pipeline-table-wrapper .hr-data-table-wrapper-footer {
+  padding-bottom: 14px !important;
+}/* A platform view sheet loaded after the theme forces 8px corners on these table cards
+   (the global 26px rule loses on specificity): ids win. */
+:is(#bulk-actions-container-div #bulk-actions-data-table-wrapper, #pipeline-page #pipeline-table-wrapper, #ForecastDashboard #fd-summary-table-wrapper).hr-data-table-wrapper {
+  border-radius: var(--bb-radius-xl) !important;
+}/* Pronóstico summary table: "Ingresos esperados" values come with an inline platform blue
+   (rgb(21, 112, 239)); the chart legend dot is already the accent → same accent here. */
+#fd-summary-table-wrapper span[style*="color: rgb(21, 112, 239)"] {
+  color: var(--bb-accent) !important;
+}

@@ -2067,14 +2067,14 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 #table-container .tabulator-col,
 #table-container .tabulator-cell,
 #table-container .tabulator-footer,
-hlcontentwrap .wrapper .table-container .tabulator,
-hlcontentwrap .wrapper .table-container .tabulator-tableholder,
-hlcontentwrap .wrapper .table-container .tabulator-table,
-hlcontentwrap .wrapper .table-container .tabulator-header,
-hlcontentwrap .wrapper .table-container .tabulator-header-contents,
-hlcontentwrap .wrapper .table-container .tabulator-col,
-hlcontentwrap .wrapper .table-container .tabulator-cell,
-hlcontentwrap .wrapper .table-container .tabulator-footer {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-tableholder,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-table,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-header,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-header-contents,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-col,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-cell,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-footer {
   background: transparent !important;
   border: none !important;
 }
@@ -2084,15 +2084,15 @@ hlcontentwrap .wrapper .table-container .tabulator-footer {
    llenar el contenedor; cualquier padding lateral lo desborda (scroll
    horizontal + borde derecho cortado sin redondeo). */
 #table-container .tabulator-header,
-hlcontentwrap .wrapper .table-container .tabulator-header { padding: 0 !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-header { padding: 0 !important; }
 #table-container .tabulator-headers,
-hlcontentwrap .wrapper .table-container .tabulator-headers {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-headers {
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-inset-deep) !important;
   border-radius: var(--bb-radius-md) !important;
 }
 #table-container .tabulator-col-title,
-hlcontentwrap .wrapper .table-container .tabulator-col-title {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-col-title {
   color: var(--bb-text-label) !important;
   font-size: 12.5px !important;
   font-weight: 700 !important;
@@ -2104,7 +2104,7 @@ hlcontentwrap .wrapper .table-container .tabulator-col-title {
    header neumórfico y la tarjeta, sobraba ~50px y la página hacía scroll. */
 #table-container .my-table.tabulator { height: calc(100vh - 330px) !important; }
 #table-container .tabulator-row,
-hlcontentwrap .wrapper .table-container .tabulator-row {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-row {
   background: var(--bb-bg) !important;
   border: none !important;
   border-radius: var(--bb-radius-md) !important;
@@ -2112,17 +2112,17 @@ hlcontentwrap .wrapper .table-container .tabulator-row {
   box-shadow: 5px 5px 13px rgba(166, 174, 178, 0.38), -5px -5px 13px rgba(255, 255, 255, 0.9) !important;
 }
 #table-container .tabulator-row:hover,
-hlcontentwrap .wrapper .table-container .tabulator-row:hover { background: var(--bb-bg-hover) !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-row:hover { background: var(--bb-bg-hover) !important; }
 #table-container .tabulator-row .tabulator-cell.tabulator-frozen,
-hlcontentwrap .wrapper .table-container .tabulator-row .tabulator-cell.tabulator-frozen {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-row .tabulator-cell.tabulator-frozen {
   background: inherit !important;
 }
 #table-container .tabulator-row .tabulator-cell:first-child,
-hlcontentwrap .wrapper .table-container .tabulator-row .tabulator-cell:first-child {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-row .tabulator-cell:first-child {
   border-radius: var(--bb-radius-md) 0 0 var(--bb-radius-md) !important;
 }
 #table-container .tabulator-cell,
-hlcontentwrap .wrapper .table-container .tabulator-cell {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-cell {
   color: var(--bb-text) !important;
   font-size: 13px !important;
 }
@@ -2154,7 +2154,7 @@ hlcontentwrap .wrapper .table-container .tabulator-cell {
 
 /* Botón copiar (inline blanco) */
 #table-container .copy-icon,
-hlcontentwrap .wrapper .table-container .copy-icon {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .copy-icon {
   background: var(--bb-bg) !important;
   border: none !important;
   box-shadow: var(--bb-shadow-soft) !important;
@@ -2162,7 +2162,7 @@ hlcontentwrap .wrapper .table-container .copy-icon {
 
 /* Checkboxes neumórficos */
 #table-container input[type="checkbox"],
-hlcontentwrap .wrapper .table-container input[type="checkbox"] {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container input[type="checkbox"] {
   appearance: none !important;
   -webkit-appearance: none !important;
   width: 16px !important;
@@ -2174,26 +2174,26 @@ hlcontentwrap .wrapper .table-container input[type="checkbox"] {
   vertical-align: middle;
 }
 #table-container input[type="checkbox"]:checked,
-hlcontentwrap .wrapper .table-container input[type="checkbox"]:checked {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container input[type="checkbox"]:checked {
   background: var(--bb-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat !important;
   box-shadow: none !important;
 }
 
 /* Paginación */
 #table-container .tabulator-footer,
-hlcontentwrap .wrapper .table-container .tabulator-footer { padding: 10px 14px 6px !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-footer { padding: 10px 14px 6px !important; }
 #table-container .tabulator-page-counter,
-hlcontentwrap .wrapper .table-container .tabulator-page-counter { color: var(--bb-text-label) !important; font-weight: 600 !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page-counter { color: var(--bb-text-label) !important; font-weight: 600 !important; }
 #table-container .tabulator-paginator label,
 #table-container .tabulator-page[data-page="first"],
 #table-container .tabulator-page[data-page="last"],
-hlcontentwrap .wrapper .table-container .tabulator-paginator label,
-hlcontentwrap .wrapper .table-container .tabulator-page[data-page="first"],
-hlcontentwrap .wrapper .table-container .tabulator-page[data-page="last"] { display: none !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-paginator label,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page[data-page="first"],
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page[data-page="last"] { display: none !important; }
 #table-container .tabulator-page,
 #table-container .tabulator-page-size,
-hlcontentwrap .wrapper .table-container .tabulator-page,
-hlcontentwrap .wrapper .table-container .tabulator-page-size {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page-size {
   background: var(--bb-bg) !important;
   border: none !important;
   border-radius: 12px !important;
@@ -2203,9 +2203,9 @@ hlcontentwrap .wrapper .table-container .tabulator-page-size {
   margin: 0 3px !important;
 }
 #table-container .tabulator-page:disabled,
-hlcontentwrap .wrapper .table-container .tabulator-page:disabled { box-shadow: none !important; opacity: 0.5 !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page:disabled { box-shadow: none !important; opacity: 0.5 !important; }
 #table-container .tabulator-page.active,
-hlcontentwrap .wrapper .table-container .tabulator-page.active {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page.active {
   color: var(--bb-accent) !important;
   font-weight: 700 !important;
   box-shadow: var(--bb-shadow-inset) !important;
@@ -2323,7 +2323,7 @@ hlcontentwrap .wrapper #views-bar .view.active .view-label {
    overflows, the scrolled header ("Debido a fecha") showed through → opaque, continuing the
    sunken header bar (rounded right end, same inner shadow) */
 #table-container .tabulator-headers .tabulator-col.tabulator-frozen.tabulator-frozen-right,
-hlcontentwrap .wrapper .table-container .tabulator-headers .tabulator-col.tabulator-frozen.tabulator-frozen-right {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-headers .tabulator-col.tabulator-frozen.tabulator-frozen-right {
   background: var(--bb-bg) !important;
   border-radius: 0 var(--bb-radius-md) var(--bb-radius-md) 0 !important;
   box-shadow: inset -3px -3px 8px #ffffff, inset 0 3px 8px -2px #c6cacc !important;
@@ -3917,6 +3917,116 @@ aside#sidebar-v2 {
   color: var(--bb-accent) !important;
 }
 
+
+/* v1.3.6: Oportunidades visual pass.
+   Board: each stage column is a scroller (overflow-y: auto) with only 2px/6px around the
+   cards, so the raised card shadow (~40px) was cut in straight lines (a pale rectangle
+   behind every card). The scroller grows outward (negative margin + padding, cards keep
+   their position) and the cards use the soft shadow, which fits in that room. */
+.crm-opportunities-page .crm-opportunities-stage-cards.card {
+  margin: -20px -18px 0 !important;
+  padding: 22px 24px 24px !important;
+}
+.crm-opportunities-page .crm-opportunities-card.opportunitiesCard {
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.crm-opportunities-page .crm-opportunities-card.opportunitiesCard:hover {
+  box-shadow: 7px 7px 16px rgba(166, 174, 178, 0.5), -7px -7px 16px rgba(255, 255, 255, 0.9) !important;
+}
+/* Active view tab ("Oportunidades abiertas") underline: platform blue → accent */
+#views-bar .view.active::after {
+  background: var(--bb-accent) !important;
+}
+/* Board / list toggle: the platform 1px outline around the sunken group */
+#newTopBar .views {
+  border: none !important;
+}
+/* List view: same table theme as Contactos (selectors shared in 080 and 510). */
+/* List cells: status and tag pills come with inline white / #f2f4f7 fills and a 1px outline */
+.crm-opportunities-list-view .tabulator-cell div[style*="border-radius:16px"] {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: 2px 2px 5px rgba(166, 174, 178, 0.45), -2px -2px 5px rgba(255, 255, 255, 0.9) !important;
+}
+/* Active sort indicator: inline light-blue chip with a blue arrow → accent */
+.crm-opportunities-list-view .tabulator-col span[style*="#2E90FA" i] {
+  background-color: var(--bb-accent-50) !important;
+  color: var(--bb-accent) !important;
+}
+/* Contact avatar with an inline light-blue fill → accent pastel (as the v1.2.1 avatars) */
+.crm-opportunities-list-view .n-avatar[style*="rgb(178, 221, 255)"] {
+  background: color-mix(in srgb, var(--bb-accent) 30%, var(--bb-bg)) !important;
+  color: var(--bb-accent-dark) !important;
+}
+/* v1.3.6 › Pronóstico. Three nested scrollers sit flush with the cards (0px left/top),
+   so every raised card was cut in straight lines. The outer one drops its side margin
+   and the content gets room for the shadows. */
+#ForecastDashboard div.ml-3.mr-3.flex-1.overflow-x-hidden {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+#ForecastDashboard div.w-full.max-w-full.overflow-x-hidden > .space-y-6 {
+  padding: 34px 36px 48px 36px !important;
+}
+/* Risk rows: a straight 3px left border on a rounded card → a rounded bar inside */
+#ForecastDashboard .fd-slippage-row-inner {
+  position: relative;
+  border-left: none !important;
+  padding-left: 22px !important;
+}
+#ForecastDashboard .fd-slippage-row-inner::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  bottom: 16px;
+  width: 4px;
+  border-radius: 4px;
+  background: var(--bb-text-muted);
+}
+#ForecastDashboard .fd-slippage-row-high::before { background: var(--bb-danger); }
+#ForecastDashboard .fd-slippage-row-medium::before { background: var(--bb-warning); }
+#ForecastDashboard .fd-slippage-row-low::before { background: var(--bb-success); }
+/* Resumen / Cronograma de previsiones: the active one had no indicator */
+#ForecastDashboard .view-tab {
+  border-radius: var(--bb-radius-sm) !important;
+}
+#ForecastDashboard .view-tab--active {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+#ForecastDashboard .view-tab--active,
+#ForecastDashboard .view-tab--active * {
+  color: var(--bb-accent) !important;
+}
+/* Pipeline selector: flat → sunken field like the other selects */
+#pipelineDropdDown-forecast .hr-base-selection {
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+
+/* v1.3.6 › Embudos de venta and Acciones en lote: 16px page padding left the table cards
+   against the right edge of the screen (shadow cut); the pipelines table was also inside
+   an overflow-hidden wrapper of its exact size. */
+.hr-wrapper-container.pipeline-page-wrapper,
+#bulkActionsList > .hr-wrapper-container {
+  padding-left: 24px !important;
+  padding-right: 36px !important;
+}
+.crm-opportunities-pipeline-table-wrapper {
+  overflow: visible !important;
+  padding-bottom: 40px !important;
+}
+#pipeline-table-wrapper .hr-data-table-wrapper-footer {
+  padding-bottom: 14px !important;
+}/* A platform view sheet loaded after the theme forces 8px corners on these table cards
+   (the global 26px rule loses on specificity): ids win. */
+:is(#bulk-actions-container-div #bulk-actions-data-table-wrapper, #pipeline-page #pipeline-table-wrapper, #ForecastDashboard #fd-summary-table-wrapper).hr-data-table-wrapper {
+  border-radius: var(--bb-radius-xl) !important;
+}/* Pronóstico summary table: "Ingresos esperados" values come with an inline platform blue
+   (rgb(21, 112, 239)); the chart legend dot is already the accent → same accent here. */
+#fd-summary-table-wrapper span[style*="color: rgb(21, 112, 239)"] {
+  color: var(--bb-accent) !important;
+}
 /* ─────────────────────────────────────────────────────────────
    MARKETING (Email Marketing, Snippets, etc.)
    Estas pantallas usan otro sistema de componentes más (clases
@@ -6406,22 +6516,22 @@ div#fc-calendar-container-v2 {
 .hl_header .bg-primary-50.rounded-3xl, .hl_header .bg-primary-50.rounded-3xl > :not(.bg-primary-600) { color: var(--bb-accent) !important; }
 .hl_header .bg-primary-50.rounded-3xl .bg-primary-600 { background: var(--bb-accent) !important; box-shadow: 0 2px 6px var(--bb-accent-glow) !important; }
 /* tabla: una sola tarjeta y filas como píldoras elevadas (la píldora va dentro de la fila para que su sombra no se recorte) */
-.contacts-new-ui #table-container.table-container { background: transparent !important; box-shadow: none !important; border: none !important; }
-.contacts-new-ui #table-container .tabulator-table { padding-top: 6px !important; padding-bottom: 10px !important; }
-.contacts-new-ui #table-container .tabulator-row { position: relative !important; margin: 0 0 4px !important; background: transparent !important; box-shadow: none !important; border: none !important; border-radius: 0 !important; overflow: visible !important; }
-.contacts-new-ui #table-container .tabulator-row::before { content: ""; position: absolute; top: 2px; bottom: 2px; left: 4px; width: calc(100cqw - 16px); border-radius: var(--bb-radius-md); background: var(--bb-bg); box-shadow: 3px 3px 7px rgba(166,174,178,.38), -3px -3px 7px rgba(255,255,255,.9); pointer-events: none; z-index: 0; transition: box-shadow .15s; }
-.contacts-new-ui #table-container .tabulator-row:hover::before { box-shadow: 5px 5px 12px rgba(166,174,178,.55), -5px -5px 12px #fff; }
-.contacts-new-ui #table-container .tabulator-row.tabulator-selected::before { box-shadow: var(--bb-shadow-inset); }
-.contacts-new-ui #table-container .tabulator-row .tabulator-cell { position: relative; z-index: 1; border: none !important; background: transparent !important; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container).table-container { background: transparent !important; box-shadow: none !important; border: none !important; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-table { padding-top: 6px !important; padding-bottom: 10px !important; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-row { position: relative !important; margin: 0 0 4px !important; background: transparent !important; box-shadow: none !important; border: none !important; border-radius: 0 !important; overflow: visible !important; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-row::before { content: ""; position: absolute; top: 2px; bottom: 2px; left: 4px; width: calc(100cqw - 16px); border-radius: var(--bb-radius-md); background: var(--bb-bg); box-shadow: 3px 3px 7px rgba(166,174,178,.38), -3px -3px 7px rgba(255,255,255,.9); pointer-events: none; z-index: 0; transition: box-shadow .15s; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-row:hover::before { box-shadow: 5px 5px 12px rgba(166,174,178,.55), -5px -5px 12px #fff; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-row.tabulator-selected::before { box-shadow: var(--bb-shadow-inset); }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-row .tabulator-cell { position: relative; z-index: 1; border: none !important; background: transparent !important; }
 .contacts-new-ui .views-bar-wrapper::before, .contacts-new-ui .views-bar-wrapper::after { display: none !important; }
-.contacts-new-ui #table-container .tabulator-tableholder { container-type: inline-size; }
-.contacts-new-ui #table-container .tabulator-row .tabulator-cell.selector { padding-left: 12px !important; padding-right: 2px !important; overflow: visible !important; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-tableholder { container-type: inline-size; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-row .tabulator-cell.selector { padding-left: 12px !important; padding-right: 2px !important; overflow: visible !important; }
 /* cabecera de la tabla: misma píldora y misma alineación que las filas */
-.contacts-new-ui #table-container .tabulator-header { position: relative !important; container-type: inline-size; background: transparent !important; border: none !important; overflow: visible !important; }
-.contacts-new-ui #table-container .tabulator-header .tabulator-headers { background: transparent !important; box-shadow: none !important; position: relative; z-index: 1; }
-.contacts-new-ui #table-container .tabulator-header::before { content: ""; position: absolute; top: 2px; bottom: 2px; left: 4px; width: calc(100cqw - 16px); border-radius: var(--bb-radius-md); background: var(--bb-bg); box-shadow: var(--bb-shadow-inset); z-index: 0; pointer-events: none; }
-.contacts-new-ui #table-container .tabulator-header .tabulator-col { background: transparent !important; }
-.contacts-new-ui #table-container .tabulator-header .tabulator-col.selector { padding-left: 16px !important; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-header { position: relative !important; container-type: inline-size; background: transparent !important; border: none !important; overflow: visible !important; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-header .tabulator-headers { background: transparent !important; box-shadow: none !important; position: relative; z-index: 1; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-header::before { content: ""; position: absolute; top: 2px; bottom: 2px; left: 4px; width: calc(100cqw - 16px); border-radius: var(--bb-radius-md); background: var(--bb-bg); box-shadow: var(--bb-shadow-inset); z-index: 0; pointer-events: none; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-header .tabulator-col { background: transparent !important; }
+:is(.contacts-new-ui #table-container, .crm-opportunities-list-view .table-container) .tabulator-header .tabulator-col.selector { padding-left: 16px !important; }
 /* Ordenar (popover) */
 .contacts-new-ui .sort-menu { background: var(--bb-bg) !important; border: none !important; border-radius: var(--bb-radius-lg) !important; box-shadow: 0 14px 34px rgba(28,38,43,.22) !important; padding: 16px !important; }
 .contacts-new-ui .sort-menu svg { color: var(--bb-accent) !important; }
@@ -7866,7 +7976,14 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #hr-prev-button .hr-button__content > p,
 #next-button .hr-button__content > p,
 #empty-sad-empty p.hr-text-lg,
-#empty-sad-empty p.hr-text-md {
+#empty-sad-empty p.hr-text-md,
+#pipeline-page-title,
+#pipeline-page-description,
+#pipeline-page #primary-blue span.font-semibold,
+#bulkActionsList p.hr-text-4xl,
+#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule,
+#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule,
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -7955,7 +8072,14 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #hr-prev-button .hr-button__content > p::after,
 #next-button .hr-button__content > p::after,
 #empty-sad-empty p.hr-text-lg::after,
-#empty-sad-empty p.hr-text-md::after {
+#empty-sad-empty p.hr-text-md::after,
+#pipeline-page-title::after,
+#pipeline-page-description::after,
+#pipeline-page #primary-blue span.font-semibold::after,
+#bulkActionsList p.hr-text-4xl::after,
+#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule::after,
+#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule::after,
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8407,4 +8531,39 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Crea tu primer agente gestionado para empezar.";
   font-size: 13px;
   line-height: 18px;
+}
+#pipeline-page-title::after {
+  content: "Embudos de venta";
+  font-size: 20px;
+  line-height: 30px;
+}
+#pipeline-page-description::after {
+  content: "Utilice los embudos de venta para dar seguimiento a las oportunidades y al progreso de las ventas en cada etapa.";
+  font-size: 12px;
+  line-height: 17px;
+}
+#pipeline-page #primary-blue span.font-semibold::after {
+  content: "Crear embudo";
+  font-size: 13px;
+  line-height: 18px;
+}
+#bulkActionsList p.hr-text-4xl::after {
+  content: "Acciones en lote";
+  font-size: 20px;
+  line-height: 30px;
+}
+#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule::after {
+  content: "Pospuesta 2+ veces o 14+ días";
+  font-size: 14px;
+  line-height: 20px;
+}
+#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule::after {
+  content: "Pospuesta 1+ vez o 7+ días (sin contar las de riesgo alto)";
+  font-size: 14px;
+  line-height: 20px;
+}
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after {
+  content: "Pospuesta 1+ vez o 1+ día (sin contar alto ni medio)";
+  font-size: 14px;
+  line-height: 20px;
 }

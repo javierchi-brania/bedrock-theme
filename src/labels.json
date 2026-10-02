@@ -21,7 +21,9 @@
   "body21": "14px/21px",
   "small18": "13px/18px",
   "th13": "13px/15.6px",
-  "xs": "11px/16px"
+  "xs": "11px/16px",
+  "desc12": "12px/17px",
+  "btn13": "13px/18px"
  },
  "labels": [
   {
@@ -457,6 +459,41 @@
    "sel": "#empty-sad-empty p.hr-text-md",
    "text": "Crea tu primer agente gestionado para empezar.",
    "font": "small18"
+  },
+  {
+   "sel": "#pipeline-page-title",
+   "text": "Embudos de venta",
+   "font": "title"
+  },
+  {
+   "sel": "#pipeline-page-description",
+   "text": "Utilice los embudos de venta para dar seguimiento a las oportunidades y al progreso de las ventas en cada etapa.",
+   "font": "desc12"
+  },
+  {
+   "sel": "#pipeline-page #primary-blue span.font-semibold",
+   "text": "Crear embudo",
+   "font": "btn13"
+  },
+  {
+   "sel": "#bulkActionsList p.hr-text-4xl",
+   "text": "Acciones en lote",
+   "font": "title"
+  },
+  {
+   "sel": "#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule",
+   "text": "Pospuesta 2+ veces o 14+ días",
+   "font": "body"
+  },
+  {
+   "sel": "#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule",
+   "text": "Pospuesta 1+ vez o 7+ días (sin contar las de riesgo alto)",
+   "font": "body"
+  },
+  {
+   "sel": "#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule",
+   "text": "Pospuesta 1+ vez o 1+ día (sin contar alto ni medio)",
+   "font": "body"
   }
  ]
 }

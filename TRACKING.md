@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.3.4` (saved 2026-10-02).
-**In progress:** `v1.3.5` (merged to `main`, **not tagged yet**: needs the user's approval, then tag and update the platform field).
+**Live in the platform:** `v1.3.5` (saved 2026-10-02).
+**In progress:** `v1.3.6` (Oportunidades visual pass; needs the user's approval, then tag and update the platform field).
 
 ## Releases
 
@@ -28,7 +28,8 @@ publish is in [README.md](README.md).
 | v1.3.2 | fixes | Consistency polish: Aplicaciones, Reputación, Informe de atribución, shared component patterns | |
 | v1.3.3 | fixes | Loading skeletons (Contactos, Tareas, Oportunidades), Tareas header fixes | |
 | v1.3.4 | fixes | Contactos filters drawer, "Anterior" in table pagination | live |
-| v1.3.5 | fixes | Everything in Spanish: product guides hidden, Agentes de IA pages translated and themed, Membresías banner | merged, not tagged |
+| v1.3.5 | fixes | Everything in Spanish: product guides hidden, Agentes de IA pages translated and themed, Membresías banner, Panel guide card edges | live |
+| v1.3.6 | fixes | Oportunidades: board cards no longer clipped, accent view tab, list view with the Contactos table theme | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -64,7 +65,28 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.5 (merged, not tagged): everything in Spanish
+### v1.3.6 (in review): Oportunidades
+
+| Fix | Where | Verified |
+|---|---|---|
+| Board cards: each stage column is a scroller with 2px/6px around the cards, so the raised shadow was cut in straight lines (pale rectangle behind every card) → the scroller grows outward (negative margin + padding; cards keep their position) and cards use the soft shadow (hover a bit higher), which fits | Oportunidades › tablero | card at the same position; capture |
+| Active view tab ("Oportunidades abiertas") underline `::after` `#004EEB` → accent | Oportunidades | computed |
+| Board / list toggle: 1px outline removed | Oportunidades | computed |
+| List view (Tabulator): white table, light header, square cells → the Contactos table theme, shared by widening the 080 / 510 selectors with `:is()` (same specificity: Contactos compare v1.3.5 vs branch = 0 differences) | Oportunidades › lista | capture |
+| List cells: status / tag pills (inline white, 1px outline) → soft pills; active sort chip (inline light blue) → accent; contact avatar inline light blue → accent pastel | Oportunidades › lista | capture |
+| Pronóstico: three nested scrollers flush with the cards (0px left/top) cut every raised card → outer scroller loses its side margin, content gets 34–48px room | Oportunidades › Pronóstico | `bbAudit.clipped()`: 0 |
+| Pronóstico risk rows: straight 3px left border on rounded cards → rounded bar inside (danger / warning / success tokens) | Pronóstico | capture |
+| Pronóstico: active "Resumen / Cronograma de previsiones" tab had no indicator → sunken, accent; pipeline select flat → sunken field | Pronóstico | capture |
+| Embudos de venta and Acciones en lote: 16px page padding put the table cards against the right edge (shadow cut); the pipelines table sat in an overflow-hidden wrapper of its exact size → 24/36px side padding, wrapper visible, room under the pager | Embudos de venta, Acciones en lote | `bbAudit.clipped()`: 0 |
+| Table cards (Acciones en lote, Embudos de venta, Pronóstico summary): a platform view sheet loaded after the theme forced 8px corners → id selectors keep 26px | Acciones en lote, Embudos de venta, Pronóstico | computed: 26px on the three |
+| Labels: "Secuencias" page → "Embudos de venta" (title, description, "Crear embudo"), matching the tab; "Acciones en bloque" → "Acciones en lote" | Embudos de venta, Acciones en lote | capture |
+| Labels: Pronóstico risk rules ("Slipped 2+ times o 14+ days"…) in Spanish **with the current thresholds hard-coded** (decision 2026-10-02, user). ⚠️ If "Ajuste la configuración de riesgo" changes, update the three texts in `src/labels.json` | Pronóstico | capture |
+| Pronóstico summary table: "Ingresos esperados" values come with an inline platform blue → accent, like the legend dot | Pronóstico | computed |
+
+Left in English (live data, not fixable with CSS): chart axis Open / Won / Lost / Abandoned (canvas) and the same names in the summary table: grouped by status, by owner or by close date the table has the same structure (rows only carry an index), so a CSS label would mislabel owners or dates, pager "1 - 2 of 2" / "Page 1 of 1"; the pipeline select default "Todas las secuencias" (its label also shows the chosen pipeline name).
+
+New tool: `bbAudit.clipped()` lists box-shadows cut by an overflow container.
+### v1.3.5 (published, live): everything in Spanish
 
 Decision 2026-10-02 (user): "todo debe estar en español".
 
