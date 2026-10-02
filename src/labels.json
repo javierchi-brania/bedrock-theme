@@ -27,7 +27,8 @@
   "tooltip11": "11px/16.5px",
   "brand15": "15px/15px",
   "greeting28": "28px/34px",
-  "menu14": "14px/20px"
+  "menu14": "14px/20px",
+  "display30": "30px/38px"
  },
  "labels": [
   {
@@ -633,6 +634,26 @@
    "sel": "#sp-v3-platform-community > div:nth-child(2)",
    "text": "Comunidad",
    "font": "body21"
+  },
+  {
+   "sel": "#content-ai-dashboard .hl-header .title.hl-display-sm-medium",
+   "text": "IA de contenido",
+   "font": "display30"
+  },
+  {
+   "sel": "#content-ai-dashboard .n-tabs-wrapper > .n-tabs-tab-wrapper:nth-child(2) .n-tabs-tab__label",
+   "text": "Texto",
+   "font": "nTab"
+  },
+  {
+   "sel": "#content-ai-dashboard .n-tabs-wrapper > .n-tabs-tab-wrapper:nth-child(3) .n-tabs-tab__label",
+   "text": "Imagen",
+   "font": "nTab"
+  },
+  {
+   "sel": "#ai-employee-upgrade .n-button__content > span",
+   "text": "Pasar al plan ilimitado de Empleado IA",
+   "font": "brand15"
   }
  ]
 }

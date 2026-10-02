@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.1` (2026-10-02).
-**In progress:** `v1.4.2` (assistant composer text doubled) in review. Agentes de IA pass on branch `fix/agentes-ia` (not merged).
+**Live in the platform:** `v1.4.2` (2026-10-02).
+**In progress:** nothing open; `v1.4.3` published (Agentes de IA pass).
 
 ## Releases
 
@@ -39,7 +39,8 @@ publish is in [README.md](README.md).
 | v1.3.13 | labels, fixes | Spanish sweep: Encuestas and Códigos QR landings, social planner "Comunidad", Labs card in teal | live |
 | v1.4.0 | feature | Horizontal sidebar logo (hexagon in the raised disc + "BRANIA" wordmark); the uploaded logo doubles as the favicon | live |
 | v1.4.1 | fixes | Iframe views as rounded cards below the header (Correos, Automatización, Afiliados, Perfil de empresa, Servicios de correo); single card in Cuentas regresivas; Pregúntale a BRANIA panel as a floating card below the header | live |
-| v1.4.2 | fix | Pregúntale a BRANIA composer: typed text no longer doubled | in review |
+| v1.4.2 | fix | Pregúntale a BRANIA composer: typed text no longer doubled | live |
+| v1.4.3 | fixes | Agentes de IA: every tab in the theme (Estudio de agentes under the header, Primeros pasos, IA de voz, Plantillas, Base de conocimiento, IA de contenido, Registros, Agentes por industria); theme radios round | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -85,7 +86,7 @@ Selectors were taken from the live DOM. Check them again before writing a rule.
 - [ ] **H Informes › Informe del agente:** the leaderboard card `#reporting-agent-dashboard .card.leader-board` gets the page surface (#e9ebec) but keeps its white text (24px title; `th` at rgba(255,255,255,.7)), so it is unreadable. Make the text dark, or keep a dark card.
 - [ ] **H Configuración menu:** `#sb_Opportunities-Pipelines` has no visible label. Its label `::after` "Oportunidades y embudos" is 175px inside a 164px `span.nav-title.hl_text-overflow`, and an overflowing atomic inline-block disappears under `text-overflow: ellipsis`. Shorten the label ("Embudos") or let long sidebar labels use `display: inline`. `#sb_domains-urlRedirects` is also cut ("Dominios y redireccion…").
 - [ ] **H Membresías › Cursos › Tablero:** the "Haga realidad sus ideas" banner is solid black. `.rounded-xl.overflow-hidden.bg-blue-600 > .absolute.inset-0.bg-black.bg-opacity-20` computes to rgb(0,0,0) at full opacity: the Tailwind opacity variable is probably lost through a theme rule.
-- [ ] **H Agentes de IA › Estudio de agentes:** the page header ("Agentes gestionados" and its buttons) is under the fixed header. `#agent-studio-container` padding-top is 92px but `header.hl_header` ends at 134px. Check whether this is a regression from the v1.3.12 header and sidebar changes.
+- [x] → v1.4.3. **H Agentes de IA › Estudio de agentes:** the page header ("Agentes gestionados" and its buttons) is under the fixed header. `#agent-studio-container` padding-top is 92px but `header.hl_header` ends at 134px. Check whether this is a regression from the v1.3.12 header and sidebar changes.
 - [x] → v1.4.1. **H AI assistant panel** (Tamaulipas): its toolbar (Nuevo chat, Cerrar) is under `header.hl_header`, so the close button is hidden. `.askai-sidebar` / `.askai-sidebar__main` are #fff with 0 radius.
 - [ ] **H Sitios › Códigos QR:** the page cannot scroll, so the feature cards are cut. `.qrCodeListApp div.h-full.w-full.overflow-hidden` is 751px tall for 829px of content.
 - [ ] **M Pagos › Cupones:** the selected filter ("Todo") is raised. Selected must be sunken: `.n-button-group .n-button.hl-active-btn`.
@@ -100,7 +101,7 @@ White or flat surfaces → page surface / raised or sunken:
 - [ ] H Contactos › contact detail: field sections `#record-blocks-container .hr-collapse-item__content-inner` are #fff with square corners.
 - [ ] H Tareas and Empresas: list on a flat #f9fafb full-width box with 0 radius (`#CustomObjectsList div.wrapper`, `#BusinessList div.wrapper`), with an empty ~90px gap above the Tareas list.
 - [ ] H Agentes de IA › Agentes por industria: `div.ia-canvas` #fff with 1px #eaecf0 border; `div.home` #f9fafb; `div.home-tabs` #fff; card bodies `div.template-card__body` and pills `span.template-card__subtype-pill` white.
-- [ ] H Agentes de IA › Estudio de agentes (`.sa-shell-host`, `.agents-shell`, `.agents-page`, `.agents-page__footer`), Registros de agentes (`#agent-logs-content`, `div.metrics-stat-card`, `div.metrics-chart-card`, `.chart-type-toggle`), IA de contenido (`div.hl-statistic`): white.
+- [x] → v1.4.3. H Agentes de IA › Estudio de agentes (`.sa-shell-host`, `.agents-shell`, `.agents-page`, `.agents-page__footer`), Registros de agentes (`#agent-logs-content`, `div.metrics-stat-card`, `div.metrics-chart-card`, `.chart-type-toggle`), IA de contenido (`div.hl-statistic`): white.
 - [ ] H Sitios › Analítica: KPI cards `label.hr-radio-button.ui-radio-group-item.compact-radio-item` are white with 12px corners; the selected one has a 1px #155eef border and a blue title. Segment rail `.hr-tabs--segment-type .hr-tabs-rail` is flat #f7f7fa.
 - [ ] H Reputación › Configuración: selected radio card `label.hr-radio-button--checked.ui-radio-group-item` is white with a #155eef border. Widgets segment: capsule white and raised, rail #f7f7fa (selected must be sunken).
 - [ ] H Configuración › Objetos (`.custom-obj-list .ui-header` white with a 1px border, title #004eeb), Redireccionamiento de URL (`.hl-statistic` white with a 1px border, 8px radius), Integraciones (`.integration-card .card-header` #fff, card radius 4px).
@@ -161,13 +162,29 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.2 (in review): assistant composer text
+### v1.4.3 (published): Agentes de IA visual pass
+
+New hand-written section `56-agentes-ia-fixes` (after `55-configuracion`; the generated `53-agentes-ia` keeps the texts).
+
+| Change | Where | Verified |
+|---|---|---|
+| Container padding 92 → 118px: title and buttons start at y=140 (were under the header); near-white shells → page surface; table header/footer padding so the 26px corners do not cut the sort button and pager | Estudio de agentes | title rect 258,140 |
+| Feature sections, demos, bubbles, badges, tabs, buttons in the theme | Primeros pasos | captures |
+| Stats, chips, orb (accent glow, canvas hue-rotate), gradient text, hint | IA de voz | captures |
+| Radios (global `.hr-radio`): the sunken shadow was on the square 18x24 dot wrapper, the dot white with a blue center → sunken round dot; checked: raised accent dot with a surface center. Constant 1px transparent border: the platform adds one on hover and the center is placed for it (without it the center sat 1px off and jumped on hover) | Plantillas de agentes (filters) and every theme radio | zoom capture |
+| Template cards: lavender header artwork with square corners → accent tint, clipped by the card; "Gratis" pill accent tint; first row's shadow had no room at the scroller top | Plantillas de agentes | capture, clip audit |
+| "What's new" carousel: mint/lavender gradient, blue border, purple icon → raised surface, accent icon and dots. Table card inside the list card (two cards, shadow cut on all sides) → one card | Base de conocimiento | clip audit |
+| Stat cards white/8px → raised theme cards, accent icons; source filter (square raised buttons) → sunken pill rail with the active one raised; upgrade link purple → accent; the Texto/Imagen pane wrapper (overflow hidden) cut the cards' shadows flat → widened with negative margin + padding; labels "IA de contenido", "Texto", "Imagen", "Pasar al plan ilimitado de Empleado IA" | IA de contenido | capture, scan |
+| Table header/footer padding (filter chips and pager were cut); "7/10 columnas" near-white → surface; Métricas: 20+ white stat/chart cards → soft raised; bars/line toggle → sunken pill | Registros de agentes | clip audit, capture |
+| App 1696px wide in a 1654px slot (24px past the viewport) and starting at y=128 → fits, starts at 140; gallery taller than its slot (canvas bottom cut) → fits; near-white page, white canvas, blue/green/purple heroes and avatars → surface, accent | Agentes por industria | rects 248,140–1902,917; canvas 264,196–1886,901 |
+
+### v1.4.2 (published, live): assistant composer text
 
 | Change | Where | Verified |
 |---|---|---|
 | The composer draws the typed text in the textarea (theme font) and in a mirror layer on top (`.askai-composer-textarea__mirror`, Inter): different fonts, so the two copies did not line up and the text looked doubled → the mirror uses the theme font | Pregúntale a BRANIA panel and page | both copies start at the same point with the same font; zoom capture |
 
-### v1.4.1 (published, live): iframe views and the assistant panel
+### v1.4.1 (published): iframe views and the assistant panel
 
 Iframe views were full-bleed squares whose top was cut under the fixed header (ends at 134px with page tabs, 64px without). They are now cards starting 6px below the header, with 18px side gutters, radius lg and a soft shadow.
 

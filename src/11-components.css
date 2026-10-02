@@ -309,13 +309,32 @@ div:has(> #conv-send-button-simple) {
 }
 
 /* Radios (ej. "Single Contact Conversation" / "Group Conversation") */
+/* v1.4.3: the sunken shadow sat on the square dot wrapper (18x24) and the dot stayed white
+   with a grey ring and a blue center → sunken round dot; checked: raised accent dot with a
+   surface center */
 .hr-radio__dot-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.hr-radio .hr-radio__dot {
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-inset) !important;
 }
-
-.hr-radio--checked .hr-radio__dot {
+/* the platform adds a 1px border on hover and the 8px center is placed for a 1px border:
+   with none it sat 1px off and jumped on hover → constant 1px border, transparent at rest
+   (the platform's hover color still shows as an accent ring) */
+.hr-radio .hr-radio__dot,
+.hr-radio:is(:hover, :focus-within) .hr-radio__dot {
+  border: 1px solid transparent !important;
+}
+.hr-radio.hr-radio--checked .hr-radio__dot {
   background: var(--bb-accent) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hr-radio.hr-radio--checked .hr-radio__dot::before {
+  background: var(--bb-bg) !important;
+  width: 8px !important;
+  height: 8px !important;
 }
 
 /* Selects (ej. "Select Contact" / "Chat Type") */

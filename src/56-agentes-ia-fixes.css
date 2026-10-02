@@ -1,0 +1,308 @@
+/**
+ * 56-agentes-ia-fixes: Agentes de IA visual pass (v1.4.3). Hand-written; the Spanish
+ * texts and the Primeros pasos theme live in 53-agentes-ia (generated, do not edit there).
+ *
+ * The theme header ends at y=134 (pill + page tabs row): views whose content starts higher
+ * are pushed to y=140 (6px clear), as everywhere else.
+ */
+
+/* ── Estudio de agentes ── */
+/* near-white page (#fff / #f9fafb shells) → page surface; its container had 92px of top
+   padding (platform header height), so the title and buttons sat under the theme header */
+#agent-studio-container {
+  background: var(--bb-bg) !important;
+  padding-top: 118px !important;
+}
+#agent-studio-container :is(.sa-shell-host, .agents-shell, .agents-shell__body, .agents-page) {
+  background: transparent !important;
+}
+/* table card against the right edge of the scroller: room for its shadow */
+#agent-studio-container .agents-page {
+  padding-right: 40px !important;
+}
+/* table header/footer flush with the card edges: the 26px corners cut the sort button and
+   the pager; the footer row had its own white fill */
+#agent-studio-container #sad-wrapper .hr-data-table-wrapper-header {
+  padding: 14px 18px 6px !important;
+}
+#agent-studio-container #sad-wrapper .hr-data-table-wrapper-footer {
+  padding: 10px 18px 14px !important;
+}
+#agent-studio-container .agents-page__footer {
+  background: transparent !important;
+}
+
+/* ── Primeros pasos (.ai-value-landing) ── */
+/* demo sections: near-white #fafaf9 with a 1px border → page surface (the grid stays) */
+.ai-value-landing .feature-sections {
+  background-color: var(--bb-bg) !important;
+  border: none !important;
+}
+/* the demo column clipped the conversation and review cards in straight lines */
+.ai-value-landing .feature-demo {
+  overflow: visible !important;
+}
+/* customer chat bubbles: white with a 1px outline → soft pills */
+.ai-value-landing .agent-conversation-panel__user-bubble {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+/* comparison header badges, ship-AI icon and badge, trust bar: 1px outlines */
+.ai-value-landing :is(.compare-header-badge, .ship-ai-card-icon-wrap, .ship-ai-card-badge),
+.ai-value-landing .trust-section {
+  border: none !important;
+}
+/* "ship AI" rotating panel: inactive tab titles #d7d3d0, nearly invisible */
+.ai-value-landing .ship-ai-tab:not(.ship-ai-tab--active) :is(h3, h4, p, span) {
+  color: var(--bb-text-muted) !important;
+}
+/* "Empezar" button: purple outline */
+.ai-value-landing .n-button .n-button__border {
+  border-color: transparent !important;
+}
+/* buttons flush with the bottom of their cards (shadow cut): room below */
+.ai-value-landing .vtp-screen,
+.ai-value-landing .ship-ai-card {
+  padding-bottom: 16px !important;
+}
+/* ── IA de voz (#voice-ai) ── */
+/* welcome stats block: flat #f9fafb → page surface */
+#voice-ai section.welcome-stats {
+  background: var(--bb-bg) !important;
+}
+/* prompt suggestion chips: white with a 1px outline → soft pills */
+#voice-ai span.prompt-chip {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: 2px 2px 6px rgba(166, 174, 178, 0.45), -2px -2px 6px rgba(255, 255, 255, 0.9) !important;
+}
+/* platform purple (#7a5af8 / #6938ef) → accent: orb glow and rings, typing cursor,
+   templates eyebrow and "browse all" button */
+#voice-ai div.orb-shadow {
+  background: var(--bb-accent) !important;
+}
+#voice-ai span.orb-ring {
+  border-color: var(--bb-accent-glow) !important;
+}
+#voice-ai span.typewriter-cursor {
+  color: var(--bb-accent) !important;
+}
+#voice-ai div.tpl-header__eyebrow {
+  background: var(--bb-accent-50) !important;
+  color: var(--bb-accent) !important;
+}
+#voice-ai button.tpl-browse-all__btn {
+  background: var(--bb-accent) !important;
+  box-shadow: 0 2px 8px var(--bb-accent-glow) !important;
+}/* "está listo." gradient text, orb glow and the "Asistente de IA de …" hint: purple
+   gradients → teal ramp. The dotted sphere is a canvas (its dots cannot be styled): a hue
+   filter moves it to teal, as the Primeros pasos orb in 53-agentes-ia. */
+#voice-ai span.gradient-text {
+  background-image: linear-gradient(90deg, var(--bb-accent) 0%, var(--bb-accent-400) 35%, var(--bb-accent-dark) 70%, var(--bb-accent) 100%) !important;
+}
+#voice-ai div.orb-glow {
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--bb-accent) 28%, transparent) 0%, color-mix(in srgb, var(--bb-accent) 10%, transparent) 45%, transparent 70%) !important;
+}
+#voice-ai canvas.orb-canvas {
+  filter: hue-rotate(-75deg) saturate(0.7);
+}
+#voice-ai .orb-hint-inner {
+  background-image: linear-gradient(135deg, var(--bb-accent-dark) 0%, var(--bb-accent) 100%) !important;
+  box-shadow: 0 0 24px var(--bb-accent-glow) !important;
+}
+/* ── Plantillas de agentes ── */
+/* card header: lavender artwork (background image) with square corners over the 18px
+   card → accent-tinted surface, clipped by the card */
+.bot-card.ui-card {
+  overflow: hidden !important;
+}
+.bot-card .bot-header {
+  background: color-mix(in srgb, var(--bb-accent) 9%, var(--bb-bg)) !important;
+  border-bottom-color: var(--bb-divider) !important;
+}
+.bot-card .bot-header .text-purple-900 {
+  color: var(--bb-text-strong) !important;
+}
+/* first row of cards against the top of the scroller: their shadow was cut */
+div.overflow-y-auto.grid-cols-12:has(> .col-span-10 .bot-card) {
+  padding-top: 12px !important;
+  margin-top: -12px !important;
+}
+/* "Gratis" pill: near-white with a grey border → accent tint ("Pagado" keeps its green) */
+.bot-card .hr-tag.ui-default {
+  background: color-mix(in srgb, var(--bb-accent) 10%, var(--bb-bg)) !important;
+  border-color: transparent !important;
+  color: var(--bb-text-label) !important;
+}
+
+/* ── Base de conocimiento ── */
+/* "what's new" carousel: mint/lavender gradient with a blue 1px border, purple icon, grey
+   and green dots → raised surface card, accent icon and dots */
+#kb-whats-new-banner.kb-whats-new-banner {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  overflow: visible !important;
+}
+.kb-whats-new-banner .kb-whats-new-banner__icon {
+  background: var(--bb-accent) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.kb-whats-new-banner .kb-whats-new-banner__title {
+  color: var(--bb-text-strong) !important;
+}
+.kb-whats-new-banner .kb-whats-new-banner__description {
+  color: var(--bb-text-label) !important;
+}
+.kb-whats-new-banner .kb-whats-new-banner__dot {
+  background: color-mix(in srgb, var(--bb-accent) 25%, var(--bb-bg)) !important;
+}
+.kb-whats-new-banner .kb-whats-new-banner__dot--active {
+  background: var(--bb-accent) !important;
+}
+/* the table card sat inside the list card (both raised, 26px), its shadow cut on all sides
+   → one card: the table is flat */
+#knowledge-base-list-card #knowledge-base-table-wrapper {
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
+/* ── IA de contenido ── */
+/* the Texto/Imagen pane wrapper clips (overflow hidden for the tab animation): the stat
+   cards and the table card had their shadows cut flat at the left, top and bottom → room */
+#content-ai-dashboard .n-tabs-pane-wrapper {
+  margin: -20px -32px -36px !important;
+  padding: 20px 32px 36px !important;
+}
+/* stat cards: white with a grey border and 8px corners → raised theme cards; green icon
+   disc → accent tint */
+#content-ai-dashboard .hl-statistic {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+#content-ai-dashboard .hl-statistic .icon {
+  background: color-mix(in srgb, var(--bb-accent) 14%, var(--bb-bg)) !important;
+  border-color: color-mix(in srgb, var(--bb-accent) 6%, var(--bb-bg)) !important;
+  color: var(--bb-accent) !important;
+}
+#content-ai-dashboard .hl-statistic .icon svg {
+  color: var(--bb-accent) !important;
+}
+/* source filter: a row of square raised buttons → sunken pill rail, active segment raised */
+#content-ai-dashboard .filter-bar .n-button-group {
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  padding: 4px !important;
+  gap: 2px;
+}
+#content-ai-dashboard .filter-bar .n-button-group > .n-button {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 999px !important;
+}
+#content-ai-dashboard .filter-bar .n-button-group > .n-button :is(.n-button__border, .n-button__state-border) {
+  border: none !important;
+}
+#content-ai-dashboard .filter-bar .n-button-group > .n-button.hl-active-btn {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-accent) !important;
+}
+/* upgrade link: purple → accent */
+#ai-employee-upgrade.n-button,
+#ai-employee-upgrade.n-button :is(span, svg, path) {
+  color: var(--bb-accent) !important;
+}
+
+/* ── Registros de agentes ── */
+/* table header/footer flush with the 26px card corners: the sort chip, filters and pager
+   were cut (same as Estudio de agentes) */
+#agent-logs-content .hr-data-table-wrapper > .hr-data-table-wrapper-header {
+  padding: 14px 18px 6px !important;
+}
+#agent-logs-content .hr-data-table-wrapper > .hr-data-table-wrapper-footer {
+  padding: 10px 18px 14px !important;
+  background: transparent !important;
+}
+#agent-logs-content #column-eye-icon {
+  background: var(--bb-bg) !important;
+}
+/* Métricas: white cards with a grey border and 8px corners → soft raised theme cards;
+   bars/line toggle → sunken pill, active option raised */
+#agent-logs-content :is(.metrics-stat-card, .metrics-chart-card) {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#agent-logs-content .chart-type-toggle {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  padding: 3px !important;
+  overflow: visible !important;
+}
+#agent-logs-content .chart-type-toggle__option {
+  border: none !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+}
+#agent-logs-content .chart-type-toggle__option--active {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-accent) !important;
+}
+
+/* ── Agentes por industria ── */
+/* the app was 1696px wide in a 1654px slot (its right 24px past the viewport) and started
+   at y=128 under the header; near-white page, white canvas with a grey border, cards with
+   a blue/green/purple hero and avatar → theme surface, accent */
+#industry-agents-dashboard.industry-agents-wrapper {
+  width: auto !important;
+  max-width: 100% !important;
+  margin-top: 12px !important;
+  height: calc(100vh - 140px - 18px) !important;
+}
+#industry-agents-dashboard .home {
+  background: transparent !important;
+}
+#industry-agents-dashboard .home-tabs {
+  background: transparent !important;
+  border-bottom-color: var(--bb-divider) !important;
+}
+/* the gallery had a fixed height taller than its slot: the canvas bottom was cut */
+#industry-agents-dashboard .home-content > .gallery {
+  height: auto !important;
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
+  box-sizing: border-box !important;
+}
+#industry-agents-dashboard .ia-canvas {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#industry-agents-dashboard .template-card__hero {
+  background: color-mix(in srgb, var(--bb-accent) 9%, var(--bb-bg)) !important;
+  border-color: var(--bb-divider) !important;
+}
+#industry-agents-dashboard .template-card__avatar {
+  background: var(--bb-accent) !important;
+}
+#industry-agents-dashboard .template-card__body {
+  background: transparent !important;
+}
+#industry-agents-dashboard .template-card__subtype-pill {
+  background: color-mix(in srgb, var(--bb-accent) 10%, var(--bb-bg)) !important;
+  border-color: transparent !important;
+  color: var(--bb-text-label) !important;
+}
