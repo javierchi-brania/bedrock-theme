@@ -7,7 +7,7 @@ Last update: 2026-10-02.
 
 ## State
 
-- **Live in the platform:** `v1.3.9` (the user saved the custom CSS field).
+- **Live in the platform:** `v1.3.10` (the user saved the custom CSS field).
 - **On `main`, not tagged:** `v1.3.5` ("everything in Spanish"). It is merged but not
   released: the platform keeps loading `v1.3.4` until it is tagged and the field is updated.
 - No open branches with pending work.

@@ -87,3 +87,15 @@
   font-weight: 700 !important;
 }
 
+
+/* v1.3.11: the opaque fixed header (with the page tabs row) ends at y=134 but these two
+   Pagos pages start their content at y=128 (wrapper padding-top 128px, no inner margin),
+   so the header covered the top 6px of the title and the "Crear un nuevo enlace de pago"
+   button. Content moves 12px down: 6px clear under the header, as in the other tabs. */
+/* the platform sets it with #app .sidebar-v2-location .hl_wrapper.hl_topbar-tabs !important */
+#app .sidebar-v2-location #paymentlinksDashboardApp.hl_wrapper.hl_topbar-tabs {
+  padding-top: 140px !important;
+}
+#payment-settings {
+  margin-top: 12px !important;
+}
