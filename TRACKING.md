@@ -62,6 +62,7 @@ resolves its own conflicts with them.
 | Composer channel switch icon: blue → accent | Conversaciones | compare: 2 icons |
 | Social Planner onboarding panel: inline white surface → theme card (radius lg, raised) | Marketing › Planificador | compare: 1 element, capture |
 | Social Planner illustration: inline blue labels, badge and day pills → accent; light-blue chips → theme pills (brand dots keep their colors) | Marketing › Planificador | capture |
+| No English in Launchpad: sidebar item and header title "Launchpad" → "Primeros pasos"; step "Captura nuevos leads…" → "…clientes potenciales…" | Launchpad | capture |
 
 ### v1.2.2 (published)
 
@@ -98,6 +99,8 @@ New token: `--bb-accent-filter` paints any monochrome `<img>` icon in the exact 
 
 **Launchpad**
 - [ ] `#launchpad-micro-app` computes `#f9fafb`; looks covered by the content. Verify.
+- [x] Language: reviewed the 5 guide categories with every step expanded; only "Launchpad" and "leads" were English (→ v1.2.3). Brand names (Facebook, Instagram, Messenger, Stripe, WordPress) and SMS/CRM stay. "Marketing" is accepted in Spanish; *decide* if it should be "Mercadotecnia".
+- [ ] Text replacements are tied to the platform text (the step selector uses the step title as id): if the platform renames a step, the rule stops matching (no harm, the original text shows).
 
 **Marketing › Planificador de redes**
 - [x] White panel and blue illustration → v1.2.3.
@@ -134,6 +137,7 @@ load in the audit; confirm one by one).
 - **Font reload noise:** swapping the stylesheet re-registers the web font, so widths and
   heights change everywhere until it loads. Use `bbSnap.compare(prevTag, sha)` (both sides
   through a `<style>`, waits for `document.fonts.ready`).
+- **Replacing platform text:** `font-size: 0` on the text element + `::after { content: "…"; font-size: …; line-height: … }` with the original metrics. Only for fixed labels; dynamic text cannot be translated with CSS.
 - **Inline `!important`** (e.g. `border-radius: 0px !important` on "Cargar más") cannot be overridden from a stylesheet: shape and clip a same-size wrapper with `:has(> …)`.
 - **Inline style matching:** `[style*="color: rgb(…)"]` also matches `background-color`; use `^=` and `"; color:"`.
 - **compare() noise:** ignore `#claude-agent-*` elements: they belong to the browser automation extension, not to the page.
