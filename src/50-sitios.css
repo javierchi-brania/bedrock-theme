@@ -1,0 +1,17 @@
+/**
+ * 50-sitios: Sitios (funnels, websites, stores, webinars, blogs, forms, surveys, quizzes,
+ * chat widget, QR codes…). New section (v1.3.1): these views had no rules of their own.
+ */
+
+/* Forms / surveys / quizzes app wrapper: platform grey-50 around the content → page surface */
+.hr-wrapper-container.formSurveyApp {
+  background: var(--bb-bg) !important;
+}
+
+/* Feature cards on the landing pages (e.g. "Características del formulario"): the
+   illustration well was near-white with a 1px outline → sunken well */
+.landing-page-shell .hr-card-content > .w-full > .mx-auto {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
