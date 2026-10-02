@@ -5385,7 +5385,17 @@ a.documentation-link {
   font-weight: 700 !important;
 }
 
-/* v6.26 — CONVERSACIONES: panel de bandejas EXPANDIDO (botón ›)
+
+/* v1.3.11: the opaque fixed header (with the page tabs row) ends at y=134 but these two
+   Pagos pages start their content at y=128 (wrapper padding-top 128px, no inner margin),
+   so the header covered the top 6px of the title and the "Crear un nuevo enlace de pago"
+   button. Content moves 12px down: 6px clear under the header, as in the other tabs. */
+#paymentlinksDashboardApp.hl_wrapper {
+  padding-top: 140px !important;
+}
+#payment-settings {
+  margin-top: 12px !important;
+}/* v6.26 — CONVERSACIONES: panel de bandejas EXPANDIDO (botón ›)
    Las reglas del riel de íconos (v6: .inbox-panel .menu-item a 24×24px
    en círculo) también se aplicaban con el panel abierto, así que "Mi
    bandeja de entrada", "Todo", "Asignado a mí"… quedaban como circulitos
