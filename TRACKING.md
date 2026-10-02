@@ -23,7 +23,7 @@ publish is in [README.md](README.md).
 | v1.2.6 | fixes | Spanish labels everywhere from `src/labels.json`; Launchpad → Panel; odd translations | |
 | v1.2.7 | fixes | Opaque header and dashboard toolbar (content showed through when scrolling); Panel and calendar backgrounds | |
 | v1.2.8 | fixes | Contact detail page and the add-opportunity modal | live |
-| v1.3.0 | refactor | 20-sidebar + 21-sidebar-switcher | in progress — 0 visual diff |
+| v1.3.0 | refactor | 20-sidebar + 21-sidebar-switcher | in progress — compare vs v1.2.8: 0 differences (Tablero, Pregúntale a la IA, Configuración, Estudio de IA, Agentes de IA) |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -152,6 +152,7 @@ New token: `--bb-accent-filter` paints any monochrome `<img>` icon in the exact 
 ### Open findings (by view)
 
 **Global / header**
+- [ ] A "Quick Question" pop-up (product survey, English, unthemed) appeared on Agentes de IA › Primeros pasos; check if it is the same guide container as the NPS survey (`#pendo-guide-container`) with another template.
 - [ ] User avatar (`.avatar_img`) is purple `rgb(127,117,189)`. *Decision pending.*
 - [ ] Header translate icon (`#i18n-feedback`) and AI sparkle icon are purple. *Decision pending.*
 - [x] Help icon `#hl_header--help-icon`: its blue background is inline `!important`, so the 40px inset shadow is the right workaround (documented in 070). Nothing to change.
