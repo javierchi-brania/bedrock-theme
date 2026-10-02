@@ -5,6 +5,7 @@
 //   bbAudit.run({ top: 30 })   limit the groups returned (sorted by count)
 //   bbAudit.mark('blue')    outlines the offending elements of one rule on screen
 //   bbAudit.unmark()
+//   bbAudit.clipped()       box-shadows cut by an overflow container (the most common defect)
 //
 // Rules (Bedrock: teal accent, neumorphic depth, smooth edges):
 //   blue        a blue color (platform accent) instead of the teal accent
@@ -160,6 +161,47 @@
   }
   const unmark = () => document.getElementById('bb-audit-layer')?.remove();
 
-  window.bbAudit = { run, mark, unmark };
-  return 'bbAudit ready';
+  // Shadows cut by a clipping ancestor: for every element with an outer box-shadow, the
+  // nearest overflow != visible ancestor is checked against the shadow reach on each side
+  // (offset + ~0.75 × blur + spread). Lists "element ⟂ container  side room/needed".
+  function clipped() {
+    const reach = (sh) => {
+      const e = { L: 0, R: 0, T: 0, B: 0 };
+      for (const part of sh.split(/,(?![^(]*\))/)) {
+        if (/inset/.test(part)) continue;
+        const color = part.match(/rgba?\([^)]*\)/)?.[0] || '';
+        if (+(color.match(/,\s*([\d.]+)\)$/)?.[1] ?? 1) < 0.2) continue;
+        const [x = 0, y = 0, b = 0, s = 0] = part.replace(/rgba?\([^)]*\)/, '').trim().split(/\s+/).map(parseFloat).filter((n) => !isNaN(n));
+        const r = b * 0.75 + s;
+        e.L = Math.max(e.L, r - x); e.R = Math.max(e.R, r + x); e.T = Math.max(e.T, r - y); e.B = Math.max(e.B, r + y);
+      }
+      return e;
+    };
+    const out = new Map();
+    for (const el of document.querySelectorAll('body *')) {
+      const cs = getComputedStyle(el);
+      if (cs.boxShadow === 'none' || !el.offsetWidth) continue;
+      const r = el.getBoundingClientRect();
+      if (r.width < 40 || r.height < 20) continue;
+      const e = reach(cs.boxShadow);
+      for (let a = el.parentElement; a && a !== document.body; a = a.parentElement) {
+        const c = getComputedStyle(a);
+        if (c.overflowX === 'visible' && c.overflowY === 'visible') continue;
+        const p = a.getBoundingClientRect();
+        const sides = [];
+        if (e.L > 4 && r.left - p.left < e.L - 2) sides.push(`L${Math.round(r.left - p.left)}/${Math.round(e.L)}`);
+        if (e.R > 4 && p.right - r.right < e.R - 2) sides.push(`R${Math.round(p.right - r.right)}/${Math.round(e.R)}`);
+        if (e.T > 4 && r.top - p.top < e.T - 2) sides.push(`T${Math.round(r.top - p.top)}/${Math.round(e.T)}`);
+        if (e.B > 4 && r.bottom <= p.bottom + 1 && p.bottom - r.bottom < e.B - 2) sides.push(`B${Math.round(p.bottom - r.bottom)}/${Math.round(e.B)}`);
+        if (sides.length) {
+          const k = `${label(el)} ⟂ ${label(a)}  ${sides.join(' ')}`;
+          out.set(k, (out.get(k) || 0) + 1);
+        }
+        break;
+      }
+    }
+    return [...out].map(([k, n]) => `${n}× ${k}`);
+  }
+
+  window.bbAudit = { run, mark, unmark, clipped };  return 'bbAudit ready';
 })();
