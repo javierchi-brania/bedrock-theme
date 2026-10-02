@@ -8114,7 +8114,8 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 #create-new-survey-label,
 .landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p,
 #awesome-features .grid > .hr-card:nth-child(3) .hr-card-content > div > .text-md,
-#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2) {
+#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2),
+#sp-v3-platform-community > div:nth-child(2) {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8236,7 +8237,8 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 #create-new-survey-label::after,
 .landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p::after,
 #awesome-features .grid > .hr-card:nth-child(3) .hr-card-content > div > .text-md::after,
-#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2)::after {
+#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2)::after,
+#sp-v3-platform-community > div:nth-child(2)::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8851,6 +8853,11 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
 }
 #landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2)::after {
   content: "Personaliza el diseño y la apariencia de tu QR";
+  font-size: 14px;
+  line-height: 21px;
+}
+#sp-v3-platform-community > div:nth-child(2)::after {
+  content: "Comunidad";
   font-size: 14px;
   line-height: 21px;
 }

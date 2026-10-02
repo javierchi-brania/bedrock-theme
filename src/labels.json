@@ -628,6 +628,11 @@
    "sel": "#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2)",
    "text": "Personaliza el diseño y la apariencia de tu QR",
    "font": "body21"
+  },
+  {
+   "sel": "#sp-v3-platform-community > div:nth-child(2)",
+   "text": "Comunidad",
+   "font": "body21"
   }
  ]
 }
