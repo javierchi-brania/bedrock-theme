@@ -5839,6 +5839,13 @@ input[type="radio"] {
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab .hr-tabs-tab__label { background: transparent !important; border-radius: var(--bb-radius-sm) !important; width: 100%; }
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab .hr-tabs-tab__label > div { width: 100% !important; }
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab:not(.hr-tabs-tab--active):hover .hr-tabs-tab__label > div.flex { background: var(--bb-bg-hover) !important; box-shadow: var(--bb-shadow-inset) !important; }
+
+/* v1.2.7: Panel (Launchpad) page background was the platform near-white #f9fafb
+   (visible around the guide) → page surface. */
+#launchpad-micro-app,
+#launchpad-app-v2 {
+  background: var(--bb-bg) !important;
+}
 /* ===== v6.34 Sidebar de Configuración: la pastilla activa ya no se corta a la izquierda ===== */
 aside#sidebar-v2:has(#backButtonv2) .hl_nav-header-without-footer { padding-left: 8px !important; padding-right: 4px !important; box-sizing: border-box !important; }
 /* v6.34b títulos de sección del menú de Configuración: sin la línea que se veía como tachado */
@@ -6101,6 +6108,12 @@ button.sidebar-option-button { transition: box-shadow .15s, color .15s !importan
 }
 #AppointmentList .n-space.cursor-pointer[class*="border-primary"] .whitespace-nowrap {
   color: var(--bb-accent) !important;
+}
+
+/* v1.2.7: Vista de calendario: the grid container is white; it showed as a white band
+   above and left of the grid → page surface. */
+#fc-calendar-container-v2 {
+  background: var(--bb-bg) !important;
 }
 /* ===== v6.41 Cabecera: traducir, teléfono y copiloto con el mismo botón neumórfico que el resto ===== */
 .hl_header :is(.feedback-toggle-btn, button.rounded-full.bg-success-600, #hl_header--copilot-icon) { width: 36px !important; height: 36px !important; min-width: 36px !important; border-radius: 50% !important; border: none !important; background: var(--bb-bg) !important; background-image: none !important; box-shadow: 4px 4px 9px #c9cdcf, -4px -4px 9px rgba(255,255,255,.9) !important; transition: box-shadow .15s !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
