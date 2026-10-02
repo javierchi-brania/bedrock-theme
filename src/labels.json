@@ -497,12 +497,22 @@
    "font": "body"
   },
   {
-   "sel": "#sb_ask-ai .nav-title",
+   "sel": "html:lang(es) #sb_ask-ai .nav-title",
+   "text": "Pregúntale a BRANIA",
+   "font": "sidebar"
+  },
+  {
+   "sel": "html:not(:lang(es)) #sb_ask-ai .nav-title",
    "text": "Ask BRANIA",
    "font": "sidebar"
   },
   {
-   "sel": "body:has(#hl_header--copilot-icon:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "sel": "html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Pregúntale a BRANIA",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
    "text": "Ask BRANIA",
    "font": "tooltip11"
   }
