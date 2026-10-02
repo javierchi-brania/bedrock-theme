@@ -100,13 +100,8 @@
 #newTopBar .views {
   border: none !important;
 }
-/* List view: same table theme as Contactos (selectors shared in 080 and 510), on a raised card */
-.opportunityPage .crm-opportunities-list-view .table-container {
-  background: var(--bb-bg) !important;
-  border-radius: var(--bb-radius-xl) !important;
-  box-shadow: var(--bb-shadow-raised) !important;
-  padding: 14px 16px 6px !important;
-}/* List cells: status and tag pills come with inline white / #f2f4f7 fills and a 1px outline */
+/* List view: same table theme as Contactos (selectors shared in 080 and 510). */
+/* List cells: status and tag pills come with inline white / #f2f4f7 fills and a 1px outline */
 .crm-opportunities-list-view .tabulator-cell div[style*="border-radius:16px"] {
   background: var(--bb-bg) !important;
   border: none !important;
