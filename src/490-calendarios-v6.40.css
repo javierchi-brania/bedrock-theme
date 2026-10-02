@@ -33,3 +33,25 @@
 #fc-calendar-container-v2 .fc .fc-timegrid-axis-cushion, #fc-calendar-container-v2 .fc .fc-timegrid-slot-label-cushion { padding-left: 6px !important; padding-right: 8px !important; }
 #fc-calendar-container-v2 div.absolute.top-1.z-10.break-words { left: 32px !important; width: 61px !important; top: 28px !important; font-size: 10px !important; line-height: 1.3 !important; color: var(--bb-text-muted) !important; }
 
+/* v1.2.5: Calendarios › Vista de lista de citas (#AppointmentList).
+   Active list tab: blue underline and label → accent. */
+#AppointmentList .n-space.cursor-pointer[class*="border-primary"] {
+  border-bottom-color: var(--bb-accent) !important;
+}
+#AppointmentList .n-space.cursor-pointer[class*="border-primary"] .whitespace-nowrap {
+  color: var(--bb-accent) !important;
+}
+/* The three fixed tabs have no Spanish label (Upcoming / Cancelled / All). They are
+   always the first three children of the bar; custom smart lists come after. */
+#AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+#AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap::after {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;
+}
+#AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap::after { content: "Próximas"; }
+#AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap::after { content: "Canceladas"; }
+#AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap::after { content: "Todas"; }

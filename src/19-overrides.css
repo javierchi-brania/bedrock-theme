@@ -347,6 +347,10 @@ input[type="radio"] {
 .v-spinner .v-moon3 {
   border-color: var(--bb-accent) !important;
 }
+/* v1.2.5: ring spinner (.lds-ring, e.g. while an embedded app loads): blue top arc → accent */
+.lds-ring > div {
+  border-top-color: var(--bb-accent) !important;
+}
 /* v1.2.2: icons of text buttons ("+ Filtros rápidos", "Ir a tareas"…): platform blue → accent */
 .hr-button.hr-button--text .hr-icon-inner,
 .hr-button.hr-button--text .hr-icon-inner svg {

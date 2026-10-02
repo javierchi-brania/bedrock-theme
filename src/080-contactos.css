@@ -346,3 +346,24 @@ hlcontentwrap .wrapper #views-bar .view.active::after {
 hlcontentwrap .wrapper #views-bar .view.active .view-label {
   color: var(--bb-accent) !important;
 }
+
+/* v1.2.5: Contactos › Tareas has English labels ("Tasks", "Añadir Task") → Spanish.
+   Scoped to the page that holds #task (.smartlist-title is shared with Empresas). The
+   count ("262 Tasks") mixes a live number with the word, so it is left as is. */
+hlcontentwrap .wrapper:has(#task) .smartlist-title,
+#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
+  display: inline-block;
+  content: "Tareas";
+  font-size: 20px;
+  line-height: 30px;
+}
+#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content::after {
+  display: inline-block;
+  content: "Añadir tarea";
+  font-size: 13.5px;
+  line-height: 13.5px;
+}

@@ -331,8 +331,10 @@
    hide the original text and draw the Spanish one. */
 #sb_launchpad .nav-title {
   font-size: 0 !important;
+  line-height: 0 !important;
 }
 #sb_launchpad .nav-title::after {
+  display: inline-block;
   content: "Primeros pasos";
   font-size: 13.5px;
   line-height: 20px;
