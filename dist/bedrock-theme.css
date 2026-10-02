@@ -1816,47 +1816,74 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
   }
 }
 
-/* v1.4.0: horizontal logo. The platform uses one image for the sidebar logo and the
-   favicon, so the uploaded logo is now the hexagon on a light disc
-   (assets/brand/brania-logo-upload-512.png) and the theme draws the "BRANIA" wordmark next
-   to it (assets/brand/brania-wordmark.png, cropped from the original artwork: its letters
-   cannot be matched with a font). Keyed on the logo NOT being the previous upload (logo +
-   wordmark baked in, file a180a840-…), so nothing changes until the new image is uploaded. */
+/* v1.4.5: bubble logo. The platform uses one image for the sidebar logo and the favicon,
+   so the uploaded logo is the hexagon on a light disc (assets/brand/brania-logo-upload-512.png)
+   and the theme draws the sidebar logo itself: a raised sphere (::before) with the black
+   hexagon and the "BRANIA" wordmark inside, in relief (::after; both images cropped from the
+   original artwork). Sizes follow the first bubble logo (hexagon ~36px, wordmark 72px).
+   Keyed on the logo NOT being the previous upload (logo + wordmark baked in, file
+   a180a840-…), so with that image nothing changes. */
 #sidebar-v2 .agency-logo-container:has(> img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"])) {
-  flex-direction: row !important;
-  justify-content: flex-start !important;
-  gap: 14px !important;
-  padding: 16px 18px 12px !important;
+  --bb-logo-d: 92px;
+  position: relative !important;
+  isolation: isolate;
+  height: 108px !important;
+  min-height: 108px !important;
+  padding: 0 !important;
+  margin-top: 6px !important;
 }
 #sidebar-v2 .agency-logo-container > img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"]) {
-  width: 52px !important;
-  height: 52px !important;
-  max-width: none !important;
-  max-height: none !important;
-  padding: 0 !important;
-  border-radius: 50% !important;
-  box-shadow: var(--bb-shadow-soft) !important;
-  flex: none !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
 }
+/* sphere: light from the top left, darker towards the bottom-right edge */
+#sidebar-v2 .agency-logo-container:has(> img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"]))::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: var(--bb-logo-d);
+  height: var(--bb-logo-d);
+  left: calc(50% - var(--bb-logo-d) / 2);
+  top: calc(50% - var(--bb-logo-d) / 2);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%,
+    color-mix(in srgb, var(--bb-white) 85%, var(--bb-bg)) 0%,
+    color-mix(in srgb, var(--bb-white) 30%, var(--bb-bg)) 35%,
+    color-mix(in srgb, var(--bb-divider) 30%, var(--bb-bg)) 72%,
+    color-mix(in srgb, var(--bb-divider) 85%, var(--bb-bg)) 100%);
+  box-shadow:
+    8px 10px 18px color-mix(in srgb, var(--bb-text-muted) 55%, transparent),
+    -6px -6px 14px color-mix(in srgb, var(--bb-white) 95%, transparent),
+    inset -4px -6px 10px color-mix(in srgb, var(--bb-text-muted) 30%, transparent),
+    inset 4px 4px 8px color-mix(in srgb, var(--bb-white) 85%, transparent);
+}
+/* hexagon + wordmark in relief (white highlight top-left, soft shadow bottom-right) */
 #sidebar-v2 .agency-logo-container:has(> img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"]))::after {
   content: "";
-  display: block;
-  width: 118px;
-  height: 15px;
-  background: url("../assets/brand/brania-wordmark.png") left center / contain no-repeat;
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    url("../assets/brand/brania-mark-black.png") center 25px / auto 36px no-repeat,
+    url("../assets/brand/brania-wordmark.png") center 71px / auto 9px no-repeat;
+  filter:
+    drop-shadow(-1px -1px 1px color-mix(in srgb, var(--bb-white) 95%, transparent))
+    drop-shadow(2px 3px 3px color-mix(in srgb, var(--bb-text-strong) 40%, transparent));
 }
-/* collapsed: only the hexagon */
+/* collapsed: a small sphere with the hexagon only */
 #sidebar-v2.w-14 .agency-logo-container:has(> img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"])) {
-  justify-content: center !important;
-  padding: 14px 0 10px !important;
+  --bb-logo-d: 40px;
+  height: 56px !important;
+  min-height: 56px !important;
 }
 #sidebar-v2.w-14 .agency-logo-container:has(> img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"]))::after {
-  display: none;
+  background: url("../assets/brand/brania-mark-black.png") center / auto 20px no-repeat;
 }
-#sidebar-v2.w-14 .agency-logo-container > img.agency-logo:not([src*="a180a840-84a8-4645-a94d-ba94cb8873a0"]) {
-  width: 40px !important;
-  height: 40px !important;
-}/* ─────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────
    TOP HEADER
    Brania: <header style="border-radius:26px; box-shadow:...">
    DOM:    .hl_header, .hl_header--controls
