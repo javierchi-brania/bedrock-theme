@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.3.6` (saved 2026-10-02).
-**In progress:** `v1.3.7` (Oportunidades board edges; needs the user's approval, then tag and update the platform field).
+**Live in the platform:** `v1.3.7` (saved 2026-10-02).
+**In progress:** `v1.3.8` (Ask BRANIA; needs the user's approval, then tag and update the platform field).
 
 ## Releases
 
@@ -30,7 +30,8 @@ publish is in [README.md](README.md).
 | v1.3.4 | fixes | Contactos filters drawer, "Anterior" in table pagination | live |
 | v1.3.5 | fixes | Everything in Spanish: product guides hidden, Agentes de IA pages translated and themed, Membresías banner, Panel guide card edges | live |
 | v1.3.6 | fixes | Oportunidades: board cards no longer clipped, accent view tab, list view with the Contactos table theme | live |
-| v1.3.7 | fixes | Oportunidades board: stage headers and cards no longer clipped by the horizontal scrollers | in review |
+| v1.3.7 | fixes | Oportunidades board: stage headers and cards no longer clipped by the horizontal scrollers | live |
+| v1.3.8 | labels | "Pregúntale a la IA" → "Ask BRANIA" (sidebar item and header AI button tooltip) | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -66,7 +67,18 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.7 (in review): Oportunidades board edges
+### v1.3.8 (in review): Ask BRANIA
+
+Decision 2026-10-02 (user): the AI assistant is "Ask BRANIA" (brand in capitals, like the logo), in the sidebar and the header button.
+
+| Fix | Where | Verified |
+|---|---|---|
+| Sidebar item `#sb_ask-ai` "Pregúntale a la IA" → "Ask BRANIA" | sidebar | computed; item height unchanged (40px) |
+| Header AI button tooltip → "Ask BRANIA". It is a Bootstrap tooltip appended to `<body>` with no link to its trigger, so the label targets `body:has(#hl_header--copilot-icon:hover) .tooltip .tooltip-inner` (while that button is hovered the visible tooltip is its own) | header | hover capture; other header tooltips unchanged |
+
+Not changed: the button's native `title` / `aria-label` (attributes, not stylable).
+
+### v1.3.7 (published, live): Oportunidades board edges
 
 | Fix | Where | Verified |
 |---|---|---|
