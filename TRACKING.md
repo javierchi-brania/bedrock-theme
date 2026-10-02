@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.3.13` (saved 2026-10-02; checked on every module).
-**In progress:** — Next work: the backlog from the full inspection (below).
+**In progress:** `v1.4.0` published (horizontal logo): waits for the user to upload `assets/brand/brania-logo-upload-512.png` as the white-label logo. Next work: the backlog from the full inspection (below).
 
 ## Releases
 
@@ -37,6 +37,7 @@ publish is in [README.md](README.md).
 | v1.3.11 | fixes | Pagos › Enlaces de pago and Configuración no longer start under the header | live |
 | v1.3.12 | fixes | Estudio de IA no longer under the sidebar and header; sidebar fits the screen height | |
 | v1.3.13 | labels, fixes | Spanish sweep: Encuestas and Códigos QR landings, social planner "Comunidad", Labs card in teal | live |
+| v1.4.0 | feature | Horizontal sidebar logo (hexagon in the raised disc + "BRANIA" wordmark); the uploaded logo doubles as the favicon | published, waits for the logo upload |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -157,6 +158,18 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.0 (published): horizontal logo and favicon
+
+The platform has a single white-label "Logo" image, used for both the sidebar logo and the favicon (no separate favicon field). The previous upload had the bubble and the "BRANIA" text baked in, so the favicon was a squashed logo.
+
+| Change | Where | Verified |
+|---|---|---|
+| New logo to upload: `assets/brand/brania-logo-upload-512.png` (black hexagon on a light disc, transparent outside; readable on dark and light tab bars). The user uploads it in agency settings › Company › White Label › Logo | favicon, sidebar | previews at 16/32/64px on dark/light tabs |
+| Sidebar: hexagon disc (52px, soft shadow = raised) + wordmark `assets/brand/brania-wordmark.png` (cropped from the original artwork, black; its letters cannot be matched with a font) to the right; collapsed: only the disc (40px) | sidebar | in-page preview with the new image; logo block 122 → 80px tall |
+| Keyed on the logo NOT being the previous upload (`a180a840-…` in the src): with the old image nothing changes, so the theme can ship before the upload | sidebar | old image: unchanged |
+
+Notes: the wordmark is referenced relatively (`../assets/brand/…`), so it resolves on jsDelivr from the tagged `dist/`; in a `bbSnap.preview()` (CSS inlined in the page) it does not load — expected. If the logo is replaced again, update the `a180a840` key in 20-sidebar.
 
 ### v1.3.13 (published, live): Spanish sweep of the remaining views
 
