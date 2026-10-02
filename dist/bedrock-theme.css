@@ -6636,54 +6636,63 @@ div#fc-calendar-container-v2 {
 }
 .ai-value-landing .hero-eyebrow::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Plataforma impulsada por IA";
   font-size: 11px;
   line-height: 16.5px;
 }
 .ai-value-landing .hero-toast:nth-of-type(1) .hero-toast-title::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Reseña respondida";
   font-size: 13px;
   line-height: 15.6px;
 }
 .ai-value-landing .hero-toast:nth-of-type(1) .hero-toast-time::after {
   display: inline-block;
+  white-space: nowrap;
   content: "hace 5 s";
   font-size: 11px;
   line-height: 16.5px;
 }
 .ai-value-landing .hero-toast:nth-of-type(2) .hero-toast-title::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Cita confirmada";
   font-size: 13px;
   line-height: 15.6px;
 }
 .ai-value-landing .hero-toast:nth-of-type(2) .hero-toast-time::after {
   display: inline-block;
+  white-space: nowrap;
   content: "hace 8 s";
   font-size: 11px;
   line-height: 16.5px;
 }
 .ai-value-landing .hero-stats-item:nth-of-type(1) .hero-stats-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Llamadas atendidas";
   font-size: 11px;
   line-height: 16.5px;
 }
 .ai-value-landing .hero-stats-item:nth-of-type(3) .hero-stats-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Citas agendadas";
   font-size: 11px;
   line-height: 16.5px;
 }
 .ai-value-landing .hero-stats-item:nth-of-type(5) .hero-stats-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Mensajes";
   font-size: 11px;
   line-height: 16.5px;
 }
 .ai-value-landing .compare-table-title::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Los números no mienten";
   font-size: 28px;
   line-height: 33.6px;
@@ -6696,78 +6705,91 @@ div#fc-calendar-container-v2 {
 }
 .ai-value-landing th.compare-col-estimate .compare-header-cell > span:nth-of-type(2)::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Estimado";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing .compare-table-native tbody tr:nth-of-type(1) .compare-impact-badge::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Muy alta";
   font-size: 12px;
   line-height: 18px;
 }
 .ai-value-landing .compare-table-native tbody tr:nth-of-type(6) .compare-impact-badge::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Muy alta";
   font-size: 12px;
   line-height: 18px;
 }
 .ai-value-landing .compare-table-native tbody tr:nth-of-type(1) .compare-estimate-cell::after {
   display: inline-block;
+  white-space: nowrap;
   content: "+$12k–$28k/mes";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing .compare-table-native tbody tr:nth-of-type(2) .compare-estimate-cell::after {
   display: inline-block;
+  white-space: nowrap;
   content: "+$8k–$18k/mes";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing .compare-table-native tbody tr:nth-of-type(3) .compare-estimate-cell::after {
   display: inline-block;
+  white-space: nowrap;
   content: "+$6k–$14k/mes";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing .compare-table-native tbody tr:nth-of-type(4) .compare-estimate-cell::after {
   display: inline-block;
+  white-space: nowrap;
   content: "+$4k–$10k/mes";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing .compare-table-native tbody tr:nth-of-type(5) .compare-estimate-cell::after {
   display: inline-block;
+  white-space: nowrap;
   content: "+$2k–$6k/mes";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing .compare-table-native tbody tr:nth-of-type(6) .compare-estimate-cell::after {
   display: inline-block;
+  white-space: nowrap;
   content: "+$15k–$40k/mes";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing section.feature-row:nth-of-type(3) .feature-eyebrow > span::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Agendador de citas";
   font-size: 11px;
   line-height: 16.5px;
 }
 .ai-value-landing section.feature-row:nth-of-type(2) .agent-conversation-panel__title-text::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Conversión de leads";
   font-size: 14px;
   line-height: 21px;
 }
 .ai-value-landing section.feature-row:nth-of-type(3) .agent-conversation-panel__title-text::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Agendador de citas";
   font-size: 14px;
   line-height: 21px;
 }
 .ai-value-landing .agent-conversation-panel__agent-label-text::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Agente de IA";
   font-size: 14px;
   line-height: 21px;
@@ -6822,96 +6844,112 @@ div#fc-calendar-container-v2 {
 }
 .ai-value-landing .review-reply-preview-card__title::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Agente de respuesta a reseñas";
   font-size: 14px;
   line-height: 17.5px;
 }
 .ai-value-landing .review-reply-preview-card__subtitle::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Respuestas con IA a las opiniones de tus clientes";
   font-size: 14px;
   line-height: 19.6px;
 }
 .ai-value-landing .review-reply-preview-card__reply-label-text::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Agente de IA · Respuesta automática";
   font-size: 14px;
   line-height: 21px;
 }
 .ai-value-landing .trust-eyebrow::after {
   display: inline-block;
+  white-space: nowrap;
   content: "La confianza de toda la plataforma";
   font-size: 11px;
   line-height: 16.5px;
 }
 .ai-value-landing .ship-ai-eyebrow::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Encuentra los agentes ideales para tu negocio";
   font-size: 13px;
   line-height: 18.2px;
 }
 .ai-value-landing .ship-ai-heading::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Lanza IA a tu manera";
   font-size: 38px;
   line-height: 41.8px;
 }
 .ai-value-landing .ship-ai-tab:nth-child(1) .ship-ai-tab-title::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Agente de voz";
   font-size: 15px;
   line-height: 18px;
 }
 .ai-value-landing .ship-ai-tab:nth-child(1) .ship-ai-tab-hint::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Configuración más rápida";
   font-size: 12px;
   line-height: 18px;
 }
 .ai-value-landing .ship-ai-tab:nth-child(2) .ship-ai-tab-title::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Agente de ventas";
   font-size: 15px;
   line-height: 18px;
 }
 .ai-value-landing .ship-ai-tab:nth-child(2) .ship-ai-tab-hint::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Ideal para captar leads";
   font-size: 12px;
   line-height: 18px;
 }
 .ai-value-landing .ship-ai-tab:nth-child(3) .ship-ai-tab-title::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Agendador de citas";
   font-size: 15px;
   line-height: 18px;
 }
 .ai-value-landing .ship-ai-tab:nth-child(3) .ship-ai-tab-hint::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Genera más citas";
   font-size: 12px;
   line-height: 18px;
 }
 .ai-value-landing .ship-ai-tab:nth-child(4) .ship-ai-tab-title::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Gestor de reputación con IA";
   font-size: 15px;
   line-height: 18px;
 }
 .ai-value-landing .ship-ai-tab:nth-child(4) .ship-ai-tab-hint::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Resultados con poco esfuerzo";
   font-size: 12px;
   line-height: 18px;
 }
 .ai-value-landing .ship-ai-tab-link::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Empezar →";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing .ship-ai-card-footer p.hr-text::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Activar ahora →";
   font-size: 14px;
   line-height: 14px;
@@ -6924,36 +6962,42 @@ div#fc-calendar-container-v2 {
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-name::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Agente de voz";
   font-size: 17px;
   line-height: 22.1px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-status::after {
   display: inline-block;
+  white-space: nowrap;
   content: "0% de llamadas perdidas";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-badge::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Configuración más rápida";
   font-size: 12px;
   line-height: 18px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Llamadas perdidas";
   font-size: 11px;
   line-height: 14.3px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Respuesta promedio";
   font-size: 11px;
   line-height: 14.3px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(1).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Disponibilidad";
   font-size: 11px;
   line-height: 14.3px;
@@ -6990,36 +7034,42 @@ div#fc-calendar-container-v2 {
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-name::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Agente de ventas";
   font-size: 17px;
   line-height: 22.1px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-status::after {
   display: inline-block;
+  white-space: nowrap;
   content: "48% de tasa de conversión";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-badge::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Ideal para captar leads";
   font-size: 12px;
   line-height: 18px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Conversión";
   font-size: 11px;
   line-height: 14.3px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Chats perdidos";
   font-size: 11px;
   line-height: 14.3px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(2).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Disponibilidad";
   font-size: 11px;
   line-height: 14.3px;
@@ -7056,36 +7106,42 @@ div#fc-calendar-container-v2 {
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-name::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Agendador de citas";
   font-size: 17px;
   line-height: 22.1px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-status::after {
   display: inline-block;
+  white-space: nowrap;
   content: "+38% más citas";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-badge::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Genera más citas";
   font-size: 12px;
   line-height: 18px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Más citas";
   font-size: 11px;
   line-height: 14.3px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Tiempo para agendar";
   font-size: 11px;
   line-height: 14.3px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(3).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Disponibilidad";
   font-size: 11px;
   line-height: 14.3px;
@@ -7122,36 +7178,42 @@ div#fc-calendar-container-v2 {
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-name::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Gestor de reputación con IA";
   font-size: 17px;
   line-height: 22.1px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-status::after {
   display: inline-block;
+  white-space: nowrap;
   content: "98% de tasa de respuesta";
   font-size: 13px;
   line-height: 19.5px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-badge::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Resultados con poco esfuerzo";
   font-size: 12px;
   line-height: 18px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-stat:nth-child(1) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Tasa de respuesta";
   font-size: 11px;
   line-height: 14.3px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-stat:nth-child(2) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Calificación promedio";
   font-size: 11px;
   line-height: 14.3px;
 }
 .ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card-stat:nth-child(3) .ship-ai-card-stat-label::after {
   display: inline-block;
+  white-space: nowrap;
   content: "Tiempo de respuesta";
   font-size: 11px;
   line-height: 14.3px;
@@ -7244,6 +7306,43 @@ div#fc-calendar-container-v2 {
   content: "en automático";
   font-size: 40px;
   line-height: 46px;
+}
+
+/* Surfaces: the page brings its own white sections and purple accents → theme surfaces,
+   raised cards and the accent */
+.ai-value-landing,
+.ai-value-landing :is(.hero, .trust-section) {
+  background: var(--bb-bg) !important;
+}
+.ai-value-landing :is(.hero-toast, .hero-stats-bar, .compare-table-wrap, .ship-ai-card) {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+.ai-value-landing .hero-toast {
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.ai-value-landing .agent-conversation-panel__body {
+  background: var(--bb-bg) !important;
+}
+.ai-value-landing :is(.hero-eyebrow, .hero-heading-em, .compare-text-cell, .feature-cta-link,
+  .agent-conversation-panel__title-icon, .agent-conversation-panel__agent-label-icon,
+  .agent-conversation-panel__agent-label-text, .review-reply-preview-card__reply-label,
+  .review-reply-preview-card__reply-label-text, .trust-eyebrow, .ship-ai-tab-link,
+  .ship-ai-card-icon-wrap, .ship-ai-card-icon, .ship-ai-card-badge) {
+  color: var(--bb-accent) !important;
+}
+.ai-value-landing :is(.hero-eyebrow-dot, .hero-toast-dot, .ship-ai-card-status-dot) {
+  background: var(--bb-accent) !important;
+}
+.ai-value-landing :is(.hero-eyebrow, .compare-header-badge, .compare-col-revenue,
+  .review-reply-preview-card__reply, .ship-ai-card-icon-wrap, .ship-ai-card-badge) {
+  background-color: var(--bb-accent-50) !important;
+}
+.ai-value-landing .ship-ai-deploy-btn {
+  background: var(--bb-accent) !important;
+  border-color: transparent !important;
+  box-shadow: 6px 6px 16px var(--bb-accent-glow), -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
 }
 
 /* ── generated from src/labels.json (Spanish labels): edit the JSON, not this block ── */
