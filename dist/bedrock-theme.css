@@ -1876,7 +1876,15 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 #table-container .tabulator-header-contents,
 #table-container .tabulator-col,
 #table-container .tabulator-cell,
-#table-container .tabulator-footer {
+#table-container .tabulator-footer,
+#CustomObjectsList .table-container .tabulator,
+#CustomObjectsList .table-container .tabulator-tableholder,
+#CustomObjectsList .table-container .tabulator-table,
+#CustomObjectsList .table-container .tabulator-header,
+#CustomObjectsList .table-container .tabulator-header-contents,
+#CustomObjectsList .table-container .tabulator-col,
+#CustomObjectsList .table-container .tabulator-cell,
+#CustomObjectsList .table-container .tabulator-footer {
   background: transparent !important;
   border: none !important;
 }
