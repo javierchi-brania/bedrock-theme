@@ -3352,6 +3352,16 @@ textarea.form-control:focus {
 aside#sidebar-v2 {
   margin: 6px 0 6px 6px !important;
 }
+/* v1.3.12: the sidebar was 100vh tall plus its 6px top/bottom margins (12px taller than the
+   screen): its bottom corners were cut and the page could scroll by up to 12px (toggling the
+   sidebar moved the views, e.g. Estudio de IA, under the header). It now fits the screen;
+   its inner h-screen columns follow it, the menu keeps its own scroll. */
+aside#sidebar-v2 {
+  height: calc(100vh - 12px) !important;
+}
+aside#sidebar-v2 .h-screen {
+  height: 100% !important;
+}
 .sidebar-v2-agency .hl_header,
 .sidebar-v2-location .hl_header {
   top: 0 !important;
@@ -6217,14 +6227,25 @@ svg.custom-icon[fill="currentColor"] {
   opacity: 0 !important;
   transition: none !important;
 }
-/* v1.3.12: Estudio de IA is a cross-origin iframe inside .vibe-page (absolute, left 0,
-   full width) whose containing block was the whole page, so it ran under the sidebar:
-   its own left menu (Inicio, Proyectos…) was hidden behind the expanded sidebar and
-   overlapped the collapsed one. The section that holds it becomes its containing block,
-   so the studio starts where the sidebar ends in both states. */
+/* v1.3.12: Estudio de IA is a cross-origin iframe inside .vibe-page (absolute, top/left 0,
+   full size) whose containing block was the whole page, so it ran under the sidebar (its
+   own left menu hidden behind the expanded sidebar, overlapping the collapsed one) and
+   under the header (top of its menu cut). The section that holds it becomes its containing
+   block, and the studio sits like any view card: 6px from the sidebar, 6px under the header
+   (which ends at 64px), 6px from the right and bottom edges, rounded. */
 section:has(> .vibe-page) {
   position: relative !important;
-}/* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
+}
+section > .vibe-page {
+  top: 70px !important;
+  left: 6px !important;
+  width: calc(100% - 12px) !important;
+  height: calc(100% - 76px) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  overflow: hidden !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+/* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
 .launchpad-home #launchpad-progress-label, .launchpad-home .hr-progress-graph-indicator, .launchpad-home .hr-progress-text { color: var(--bb-text-muted) !important; }

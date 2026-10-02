@@ -420,6 +420,16 @@ textarea.form-control:focus {
 aside#sidebar-v2 {
   margin: 6px 0 6px 6px !important;
 }
+/* v1.3.12: the sidebar was 100vh tall plus its 6px top/bottom margins (12px taller than the
+   screen): its bottom corners were cut and the page could scroll by up to 12px (toggling the
+   sidebar moved the views, e.g. Estudio de IA, under the header). It now fits the screen;
+   its inner h-screen columns follow it, the menu keeps its own scroll. */
+aside#sidebar-v2 {
+  height: calc(100vh - 12px) !important;
+}
+aside#sidebar-v2 .h-screen {
+  height: 100% !important;
+}
 .sidebar-v2-agency .hl_header,
 .sidebar-v2-location .hl_header {
   top: 0 !important;

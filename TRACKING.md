@@ -35,7 +35,7 @@ publish is in [README.md](README.md).
 | v1.3.9 | labels | The AI assistant label follows the profile language: "Pregúntale a BRANIA" (Spanish) / "Ask BRANIA" (other languages) | live |
 | v1.3.10 | labels | Assistant labels always Spanish: `<html lang>` is not the UI language | live |
 | v1.3.11 | fixes | Pagos › Enlaces de pago and Configuración no longer start under the header | live |
-| v1.3.12 | fixes | Estudio de IA starts where the sidebar ends (its menu was under the sidebar) | in review |
+| v1.3.12 | fixes | Estudio de IA no longer under the sidebar and header; sidebar fits the screen height | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -75,7 +75,8 @@ resolves its own conflicts with them.
 
 | Fix | Where | Verified |
 |---|---|---|
-| Estudio de IA is a cross-origin iframe inside `.vibe-page` (absolute, left 0, full width) whose containing block was the whole page: it ran under the sidebar, so its own left menu (Inicio, Proyectos…) was hidden behind the expanded sidebar and overlapped the collapsed one → `section:has(> .vibe-page)` is its containing block; the studio starts at the sidebar edge in both states | Estudio de IA | measured: studio x = sidebar right (230 expanded, 62 collapsed); captures |
+| Estudio de IA is a cross-origin iframe inside `.vibe-page` (absolute, top/left 0, full size) whose containing block was the whole page: it ran under the sidebar (its own menu hidden behind the expanded sidebar, overlapping the collapsed one) and under the header (top of its menu cut) → the section is its containing block; the studio sits as a view card: 6px from the sidebar, 6px under the header, rounded | Estudio de IA | measured both states: studio x = sidebar right + 6, top 70 (header ends at 64); captures |
+| The sidebar was `100vh` + 6px top/bottom margins (12px taller than the screen): bottom corners cut and the page could scroll by up to 12px when toggling the sidebar → `height: calc(100vh - 12px)`, inner `.h-screen` columns `100%`; the menu keeps its own scroll | every view | container scrollHeight = clientHeight (935); no scroll after toggling |
 
 Pending (user, later): favicon with the logo only (no "BRANIA" text) — set in the agency white-label settings, not in the theme; offer to prepare a square 512px PNG from the logo.
 
