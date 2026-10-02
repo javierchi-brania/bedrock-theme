@@ -7993,7 +7993,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #bulkActionsList p.hr-text-4xl,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule,
-#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule {
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule,
+#sb_ask-ai .nav-title,
+body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8089,7 +8091,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #bulkActionsList p.hr-text-4xl::after,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule::after,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule::after,
-#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after {
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after,
+#sb_ask-ai .nav-title::after,
+body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8576,4 +8580,14 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Pospuesta 1+ vez o 1+ día (sin contar alto ni medio)";
   font-size: 14px;
   line-height: 20px;
+}
+#sb_ask-ai .nav-title::after {
+  content: "Ask BRANIA";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Ask BRANIA";
+  font-size: 11px;
+  line-height: 16.5px;
 }
