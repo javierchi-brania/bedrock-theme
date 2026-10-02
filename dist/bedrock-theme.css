@@ -4037,6 +4037,16 @@ aside#sidebar-v2 {
 }
 .crm-opportunities-page .scrollable.opportunities-scroll {
   padding: 10px 16px 0 !important;
+}/* v1.3.8: board empty state ("Ninguna oportunidad coincide…"). The platform overlay
+   (.crm-opportunities-empty-state, absolute, 60px from the top) had a solid near-white
+   fill that covered the lower half of the stage headers → transparent (higher specificity:
+   a platform rule kept the fill). Its illustration is an SVG with white panels → dimmed
+   to the page surface. */
+#app .crm-opportunities-board > div.crm-opportunities-empty-state.crm-opportunities-empty-state {
+  background: transparent !important;
+}
+.crm-opportunities-empty-state img {
+  filter: brightness(0.92) saturate(0.85);
 }/* ─────────────────────────────────────────────────────────────
    MARKETING (Email Marketing, Snippets, etc.)
    Estas pantallas usan otro sistema de componentes más (clases
@@ -7993,7 +8003,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #bulkActionsList p.hr-text-4xl,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule,
-#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule {
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule,
+#sb_ask-ai .nav-title,
+body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8089,7 +8101,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #bulkActionsList p.hr-text-4xl::after,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule::after,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule::after,
-#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after {
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after,
+#sb_ask-ai .nav-title::after,
+body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8576,4 +8590,14 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Pospuesta 1+ vez o 1+ día (sin contar alto ni medio)";
   font-size: 14px;
   line-height: 20px;
+}
+#sb_ask-ai .nav-title::after {
+  content: "Ask BRANIA";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Ask BRANIA";
+  font-size: 11px;
+  line-height: 16.5px;
 }
