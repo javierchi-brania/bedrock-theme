@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.3.2` (saved 2026-10-02).
-**In progress:** `v1.3.3` (branch `fix/v1.3.3`).
+**In progress:** `v1.3.4` (branch `fix/v1.3.4`).
 
 ## Releases
 
@@ -26,7 +26,8 @@ publish is in [README.md](README.md).
 | v1.3.0 | refactor | 20-sidebar + 21-sidebar-switcher | compare vs v1.2.8: 0 differences |
 | v1.3.1 | fixes | Platform palette → teal everywhere (goal: theme the whole platform) | |
 | v1.3.2 | fixes | Consistency polish: Aplicaciones, Reputación, Informe de atribución, shared component patterns | live |
-| v1.3.3 | fixes | Loading skeletons (Contactos, Tareas, Oportunidades), Tareas header fixes | in progress |
+| v1.3.3 | fixes | Loading skeletons (Contactos, Tareas, Oportunidades), Tareas header fixes | |
+| v1.3.4 | fixes | Contactos filters drawer, "Anterior" in table pagination | in progress |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -62,7 +63,14 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.3 (in progress): loading states
+### v1.3.4 (in progress): filters drawer
+
+| Fix | Where | Verified |
+|---|---|---|
+| Advanced filters drawer: the filter list sat on a white band (`bg-white`) and each group was a light grey box with a 1px border → drawer surface, groups as soft raised panels | Contactos › Filtros | capture |
+| Labels: "Borrar todos los filtros" (was "Borra todos los filtros"); table pagination "Anterior" (was "Previo") | Contactos, Tareas | captures |
+
+### v1.3.3 (published): loading states
 
 | Fix | Where | Verified |
 |---|---|---|
@@ -281,6 +289,7 @@ load in the audit; confirm one by one).
   through a `<style>`, waits for `document.fonts.ready`).
 - **Replacing platform text:** `font-size: 0` on the text element + `::after { content: "…"; font-size: …; line-height: … }` with the original metrics. Only for fixed labels; dynamic text cannot be translated with CSS.
 - **Injected component styles** can repeat the theme's selector with `!important` after the theme loads (calendar container): add a type or class to the selector to win on specificity.
+- **Label specificity vs late platform sheets:** the platform appends view stylesheets (e.g. Contactos) after the theme, so an equal-specificity `!important` rule of theirs wins. If a label shows both texts, raise its selector above theirs (test by inserting the rule right after the theme `<style>`, not at the end of `<head>`, and wait for the 0.2s transitions before reading computed values).
 - **Loading states** only exist for a moment: catch them with a MutationObserver started right after navigating, or force the hidden skeleton visible (`style.display`) to style it.
 - **Reload flicker** comes from the platform: it injects the custom CSS (`<style id="customCss">`) after its own interface has painted (about 0.4 s later). Not fixable from CSS.
 - **Sticky/fixed bars** must be opaque (page surface), or scrolled content shows through them.
