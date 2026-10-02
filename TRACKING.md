@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.2` (2026-10-02).
-**In progress:** `v1.4.3` (Agentes de IA visual pass, round radios) in review.
+**In progress:** nothing open; `v1.4.3` published (Agentes de IA pass).
 
 ## Releases
 
@@ -40,7 +40,7 @@ publish is in [README.md](README.md).
 | v1.4.0 | feature | Horizontal sidebar logo (hexagon in the raised disc + "BRANIA" wordmark); the uploaded logo doubles as the favicon | live |
 | v1.4.1 | fixes | Iframe views as rounded cards below the header (Correos, Automatización, Afiliados, Perfil de empresa, Servicios de correo); single card in Cuentas regresivas; Pregúntale a BRANIA panel as a floating card below the header | live |
 | v1.4.2 | fix | Pregúntale a BRANIA composer: typed text no longer doubled | live |
-| v1.4.3 | fixes | Agentes de IA: every tab in the theme (Estudio de agentes under the header, Primeros pasos, IA de voz, Plantillas, Base de conocimiento, IA de contenido, Registros, Agentes por industria); theme radios round | in review |
+| v1.4.3 | fixes | Agentes de IA: every tab in the theme (Estudio de agentes under the header, Primeros pasos, IA de voz, Plantillas, Base de conocimiento, IA de contenido, Registros, Agentes por industria); theme radios round | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -162,7 +162,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.3 (in review): Agentes de IA visual pass
+### v1.4.3 (published): Agentes de IA visual pass
 
 New hand-written section `56-agentes-ia-fixes` (after `55-configuracion`; the generated `53-agentes-ia` keeps the texts).
 
