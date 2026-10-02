@@ -488,4 +488,10 @@ svg.custom-icon[fill="currentColor"] {
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-inset) !important;
 }
+/* v1.3.2: primary tags (.hr-tag.ui-primary, e.g. "Pagado" in Aplicaciones) carry their blue
+   in inline component variables → accent text and close icon */
+.hr-tag.ui-primary,
+.hr-tag.ui-primary * {
+  color: var(--bb-accent) !important;
+}
 

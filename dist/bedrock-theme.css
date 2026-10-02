@@ -5981,6 +5981,12 @@ svg.custom-icon[fill="currentColor"] {
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-inset) !important;
 }
+/* v1.3.2: primary tags (.hr-tag.ui-primary, e.g. "Pagado" in Aplicaciones) carry their blue
+   in inline component variables → accent text and close icon */
+.hr-tag.ui-primary,
+.hr-tag.ui-primary * {
+  color: var(--bb-accent) !important;
+}
 
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
@@ -6490,7 +6496,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap,
 #AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap,
 #AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap,
-[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span {
+[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span,
+#app-pagination-previous .hr-button__content,
+#app-pagination-next .hr-button__content {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -6555,7 +6563,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap::after,
 #AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap::after,
 #AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap::after,
-[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after {
+[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after,
+#app-pagination-previous .hr-button__content::after,
+#app-pagination-next .hr-button__content::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -6887,4 +6897,14 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Captura nuevos clientes potenciales con anuncios de Facebook e Instagram";
   font-size: 14px;
   line-height: 20px;
+}
+#app-pagination-previous .hr-button__content::after {
+  content: "Anterior";
+  font-size: 14px;
+  line-height: 14px;
+}
+#app-pagination-next .hr-button__content::after {
+  content: "Siguiente";
+  font-size: 14px;
+  line-height: 14px;
 }

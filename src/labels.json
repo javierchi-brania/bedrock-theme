@@ -11,7 +11,8 @@
   "modalTitle": "18px/28px",
   "field": "14px/17.5px",
   "small": "12px/16px",
-  "body": "14px/20px"
+  "body": "14px/20px",
+  "pager": "14px/14px"
  },
  "labels": [
   {
@@ -327,6 +328,16 @@
    "sel": "[id=\"Captura nuevos leads con anuncios de Facebook e Instagram\"] .hr-collapse-item__header-main p.hr-text > span",
    "text": "Captura nuevos clientes potenciales con anuncios de Facebook e Instagram",
    "font": "submenu"
+  },
+  {
+   "sel": "#app-pagination-previous .hr-button__content",
+   "text": "Anterior",
+   "font": "pager"
+  },
+  {
+   "sel": "#app-pagination-next .hr-button__content",
+   "text": "Siguiente",
+   "font": "pager"
   }
  ]
 }
