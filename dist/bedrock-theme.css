@@ -6171,7 +6171,15 @@ svg.custom-icon[fill="currentColor"] {
   --n-color-start: color-mix(in srgb, var(--bb-divider) 45%, var(--bb-bg)) !important;
   --n-color-end: var(--bb-divider) !important;
 }
-/* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
+
+/* v1.3.9: Bootstrap tooltips hide instantly instead of a 0.15s fade. They are appended to
+   <body> with no link to their trigger, so a relabelled tooltip (header AI button, see
+   labels.json) can only be targeted while its trigger is hovered; during the fade-out the
+   original platform text flashed. */
+.tooltip[class*="bs-tooltip-"]:not(.show) {
+  opacity: 0 !important;
+  transition: none !important;
+}/* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
 .launchpad-home #launchpad-progress-label, .launchpad-home .hr-progress-graph-indicator, .launchpad-home .hr-progress-text { color: var(--bb-text-muted) !important; }
