@@ -64,7 +64,7 @@ if (empty.length) fail(`declarations without value:\n  ${empty.join('\n  ')}`);
 
 // 4. Vendor names must not appear anywhere (functional .ghl-* selectors are allowed)
 const FORBIDDEN = /gohighlevel|\bhighlevel\b|leadconnector|\bgohl|\bghl\b(?!-)/i;
-const files = ['README.md', 'TRACKING.md', 'package.json', 'embed', 'scripts', 'src', '.github']
+const files = ['README.md', 'TRACKING.md', 'HANDOFF.md', 'package.json', 'embed', 'scripts', 'src', '.github']
   .filter(existsSync)
   .flatMap((p) =>
     statSync(p).isDirectory()
