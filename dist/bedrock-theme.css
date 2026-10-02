@@ -2121,6 +2121,27 @@ hlcontentwrap .wrapper #views-bar .view.active::after {
 hlcontentwrap .wrapper #views-bar .view.active .view-label {
   color: var(--bb-accent) !important;
 }
+
+/* v1.2.5: Contactos › Tareas has English labels ("Tasks", "Añadir Task") → Spanish.
+   Scoped to the page that holds #task (.smartlist-title is shared with Empresas). The
+   count ("262 Tasks") mixes a live number with the word, so it is left as is. */
+hlcontentwrap .wrapper:has(#task) .smartlist-title,
+#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
+  display: inline-block;
+  content: "Tareas";
+  font-size: 20px;
+  line-height: 30px;
+}
+#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content::after {
+  display: inline-block;
+  content: "Añadir tarea";
+  font-size: 13.5px;
+  line-height: 13.5px;
+}
 /* ─────────────────────────────────────────────────────────────
    OPPORTUNITIES
    Brania: kanban columns as raised cards, stage headers, deal cards
@@ -4517,6 +4538,53 @@ aside#sidebar-v2 {
   border-bottom: none !important;
 }
 
+/* v1.2.5: header tabs and submenu items that have no Spanish label → Spanish.
+   Each item has a stable id; the label is its span.flex.items-center. */
+#tb_payments-coupons > span.flex.items-center,
+#tb_gift-cards > span.flex.items-center,
+#tb-sub_all-products > span.flex.items-center,
+#tb-sub_all-collections > span.flex.items-center,
+#tb-sub_all-inventory > span.flex.items-center,
+#tb-sub_product-reviews > span.flex.items-center,
+#tb-sub_campaigns > span.flex.items-center,
+#tb-sub_affiliates-tab > span.flex.items-center,
+#tb-sub_payouts-tab > span.flex.items-center,
+#tb-sub_media-tab > span.flex.items-center,
+#tb_affiliate-manager > span.flex.items-center:first-child {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+#tb_payments-coupons > span.flex.items-center::after,
+#tb_gift-cards > span.flex.items-center::after,
+#tb-sub_all-products > span.flex.items-center::after,
+#tb-sub_all-collections > span.flex.items-center::after,
+#tb-sub_all-inventory > span.flex.items-center::after,
+#tb-sub_product-reviews > span.flex.items-center::after,
+#tb-sub_campaigns > span.flex.items-center::after,
+#tb-sub_affiliates-tab > span.flex.items-center::after,
+#tb-sub_payouts-tab > span.flex.items-center::after,
+#tb-sub_media-tab > span.flex.items-center::after,
+#tb_affiliate-manager > span.flex.items-center:first-child::after {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb_payments-coupons > span.flex.items-center::after,
+#tb_gift-cards > span.flex.items-center::after,
+#tb_affiliate-manager > span.flex.items-center:first-child::after {
+  line-height: 25.6px;
+}
+#tb_payments-coupons > span.flex.items-center::after { content: "Cupones"; }
+#tb_gift-cards > span.flex.items-center::after { content: "Tarjetas de regalo"; }
+#tb-sub_all-products > span.flex.items-center::after { content: "Productos"; }
+#tb-sub_all-collections > span.flex.items-center::after { content: "Colecciones"; }
+#tb-sub_all-inventory > span.flex.items-center::after { content: "Inventario"; }
+#tb-sub_product-reviews > span.flex.items-center::after { content: "Reseñas"; }
+#tb-sub_campaigns > span.flex.items-center::after { content: "Campañas"; }
+#tb-sub_affiliates-tab > span.flex.items-center::after { content: "Afiliados"; }
+#tb-sub_payouts-tab > span.flex.items-center::after { content: "Pagos a afiliados"; }
+#tb-sub_media-tab > span.flex.items-center::after { content: "Recursos"; }
+#tb_affiliate-manager > span.flex.items-center:first-child::after { content: "Afiliados"; }
 /* v6.19 — CONVERSACIONES: burbujas y panel de contacto
    1) Burbujas de mensaje entrante (.chat-bubble-inbound): la "colita"
    de la plataforma (::after, cuadrito #eceef2 recortado) quedaba encima del avatar
@@ -5748,6 +5816,10 @@ input[type="radio"] {
 }
 .v-spinner .v-moon3 {
   border-color: var(--bb-accent) !important;
+}
+/* v1.2.5: ring spinner (.lds-ring, e.g. while an embedded app loads): blue top arc → accent */
+.lds-ring > div {
+  border-top-color: var(--bb-accent) !important;
 }
 /* v1.2.2: icons of text buttons ("+ Filtros rápidos", "Ir a tareas"…): platform blue → accent */
 .hr-button.hr-button--text .hr-icon-inner,
