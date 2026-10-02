@@ -26,7 +26,8 @@
   "btn13": "13px/18px",
   "tooltip11": "11px/16.5px",
   "brand15": "15px/15px",
-  "greeting28": "28px/34px"
+  "greeting28": "28px/34px",
+  "menu14": "14px/20px"
  },
  "labels": [
   {
@@ -517,6 +518,76 @@
    "sel": ".askai-welcome-header__title",
    "text": "¿En qué estás pensando?",
    "font": "greeting28"
+  },
+  {
+   "sel": "body:has(#sb_launchpad:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Panel",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "body:has(#sb_opportunities:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Oportunidades",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "body:has(#sb_vibe:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Estudio de IA",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "body:has(#sb_memberships:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Membresías",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "body:has(#sb_app-media:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Multimedia",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "body:has(#sb_app-marketplace:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Aplicaciones",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "body:has(#sb_location-email-services:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Servicios de correo",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "body:has(#sb_import-data:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Importar datos",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "body:has(#sb_manage-scoring:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Puntuación",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "body:has([id=\"sb_common.sidebar.privateIntegrations\"]:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Integraciones privadas",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Oportunidades y embudos",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "body:has(#sb_ask-ai:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Pregúntale a BRANIA",
+   "font": "tooltip11"
+  },
+  {
+   "sel": ".askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label",
+   "text": "Plantillas",
+   "font": "menu14"
+  },
+  {
+   "sel": ".askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label",
+   "text": "Personalizar",
+   "font": "menu14"
   }
  ]
 }

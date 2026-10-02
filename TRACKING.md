@@ -73,6 +73,12 @@ resolves its own conflicts with them.
 
 v1.3.9 keyed the assistant labels on `html:lang(es)`, but `<html lang>` is not the UI language: the "Brania.Ai" sub-account shows a Spanish UI ("Pregúntale a la IA", "Tablero"…) with `lang="en_US"`, so it got "Ask BRANIA". The labels are now unconditional ("Pregúntale a BRANIA", "¿En qué estás pensando, <name>?", composer reveal), in line with "todo en español".
 
+| Fix | Where | Verified |
+|---|---|---|
+| Collapsed sidebar tooltips (assistant page): the Bootstrap tooltip showed the original platform name ("Launchpad"…) → each relabelled sidebar item gets the same label in its tooltip (`body:has(<item>:hover) .tooltip .tooltip-inner`, 12 items, generated from the sidebar labels) | assistant page and any collapsed sidebar | hover capture |
+| Header view title on the assistant page "Pregúntale a la IA" → "Pregúntale a BRANIA" (theme rule in 310) | assistant page | capture |
+| Assistant page left menu "Templates" / "Customize" → "Plantillas" / "Personalizar" | assistant page | capture |
+
 Lesson: do not use `<html lang>` to pick a language; it follows a setting that can differ from the UI text.
 
 ### v1.3.9 (published, live): Pregúntale a BRANIA

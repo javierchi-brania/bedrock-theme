@@ -4565,7 +4565,7 @@ aside#sidebar-v2 {
   white-space: nowrap !important;
   align-self: center !important;
 }
-.sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Pregúntale a la IA"; }
+.sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Pregúntale a BRANIA"; }
 .sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Panel"; }
 .sidebar-v2-location:has(#sb_dashboard.active) .hl_header .container-fluid::before { content: "Tablero"; }
 .sidebar-v2-location:has(#sb_conversations.active) .hl_header .container-fluid::before { content: "Conversaciones"; }
@@ -8041,7 +8041,21 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #sb_ask-ai .nav-title,
 body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner,
 .askai-sidebar-header__brand-text,
-.askai-welcome-header__title {
+.askai-welcome-header__title,
+body:has(#sb_launchpad:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_opportunities:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_vibe:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_memberships:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_app-media:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_app-marketplace:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_location-email-services:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_import-data:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_manage-scoring:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has([id="sb_common.sidebar.privateIntegrations"]:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
+.askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label,
+.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8141,7 +8155,21 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #sb_ask-ai .nav-title::after,
 body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 .askai-sidebar-header__brand-text::after,
-.askai-welcome-header__title::after {
+.askai-welcome-header__title::after,
+body:has(#sb_launchpad:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_opportunities:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_vibe:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_memberships:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_app-media:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_app-marketplace:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_location-email-services:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_import-data:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_manage-scoring:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has([id="sb_common.sidebar.privateIntegrations"]:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+.askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label::after,
+.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8648,4 +8676,74 @@ body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner
   content: "¿En qué estás pensando?";
   font-size: 28px;
   line-height: 34px;
+}
+body:has(#sb_launchpad:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Panel";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_opportunities:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Oportunidades";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_vibe:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Estudio de IA";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_memberships:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Membresías";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_app-media:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Multimedia";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_app-marketplace:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Aplicaciones";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_location-email-services:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Servicios de correo";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_import-data:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Importar datos";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_manage-scoring:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Puntuación";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has([id="sb_common.sidebar.privateIntegrations"]:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Integraciones privadas";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Oportunidades y embudos";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Pregúntale a BRANIA";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+.askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label::after {
+  content: "Plantillas";
+  font-size: 14px;
+  line-height: 20px;
+}
+.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label::after {
+  content: "Personalizar";
+  font-size: 14px;
+  line-height: 20px;
 }
