@@ -180,7 +180,6 @@ Configuración › Embudos, Calendarios, Sistema telefónico, WhatsApp, Objetos,
 | Estudio de IA is a cross-origin iframe inside `.vibe-page` (absolute, top/left 0, full size) whose containing block was the whole page: it ran under the sidebar (its own menu hidden behind the expanded sidebar, overlapping the collapsed one) and under the header (top of its menu cut) → the section is its containing block; the studio sits as a view card: 6px from the sidebar, 6px under the header, rounded | Estudio de IA | measured both states: studio x = sidebar right + 6, top 70 (header ends at 64); captures |
 | The sidebar was `100vh` + 6px top/bottom margins (12px taller than the screen): bottom corners cut and the page could scroll by up to 12px when toggling the sidebar → `height: calc(100vh - 12px)`, inner `.h-screen` columns `100%`; the menu keeps its own scroll | every view | container scrollHeight = clientHeight (935); no scroll after toggling |
 
-Pending (user, later): favicon with the logo only (no "BRANIA" text) — set in the agency white-label settings, not in the theme; offer to prepare a square 512px PNG from the logo.
 
 ### v1.3.11 (published, live): Pagos header overlap
 
