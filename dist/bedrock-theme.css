@@ -1624,12 +1624,16 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
    DOM:    .hl_header, .hl_header--controls
    ───────────────────────────────────────────────────────────── */
 
+/* v1.2.7: the header box (pill + page tabs row) is fixed; it was transparent, so
+   content scrolled under it showed through the tabs. It now has the page surface (looks
+   the same at rest), square corners (the pill ::before keeps its own radius, so nothing
+   peeks through its corners) and a solid 6px band above it (its top margin). */
 .hl_header,
 .hl_header.hl_header--collapse {
-  background: transparent !important;
+  background: var(--bb-bg) !important;
   border: none !important;
-  border-radius: var(--bb-radius-xl) !important;
-  box-shadow: none !important;
+  border-radius: 0 !important;
+  box-shadow: 0 -6px 0 var(--bb-bg) !important;
   margin: 12px 14px 0 0 !important;
   min-height: 58px !important;
   z-index: 1200 !important;
@@ -1645,7 +1649,7 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 /* La píldora del header se dibuja con ::before limitada a la fila de los
    íconos (máx. 64px). En páginas sin tabs el header mide ~60px y la
    píldora lo cubre entero; en páginas con tabs (.topmenu-nav, 2ª fila)
-   los tabs quedan abajo sin fondo, como en el mockup. */
+   los tabs quedan abajo sin píldora, como en el mockup (sobre el fondo del header). */
 .hl_header::before {
   content: "";
   position: absolute;
