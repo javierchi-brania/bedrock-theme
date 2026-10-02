@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.2.8` (saved 2026-10-02).
-**In progress:** `v1.3.2` (branch `fix/v1.3.2`).
+**Live in the platform:** `v1.3.2` (saved 2026-10-02).
+**In progress:** `v1.3.3` (branch `fix/v1.3.3`).
 
 ## Releases
 
@@ -22,10 +22,11 @@ publish is in [README.md](README.md).
 | v1.2.5 | fixes | Sub-tab sweep: Calendarios, Oportunidades, Marketing; Spanish labels outside Launchpad | |
 | v1.2.6 | fixes | Spanish labels everywhere from `src/labels.json`; Launchpad → Panel; odd translations | |
 | v1.2.7 | fixes | Opaque header and dashboard toolbar (content showed through when scrolling); Panel and calendar backgrounds | |
-| v1.2.8 | fixes | Contact detail page and the add-opportunity modal | live |
+| v1.2.8 | fixes | Contact detail page and the add-opportunity modal | |
 | v1.3.0 | refactor | 20-sidebar + 21-sidebar-switcher | compare vs v1.2.8: 0 differences |
 | v1.3.1 | fixes | Platform palette → teal everywhere (goal: theme the whole platform) | |
-| v1.3.2 | fixes | Consistency polish: Aplicaciones, Reputación, Informe de atribución, shared component patterns | in progress |
+| v1.3.2 | fixes | Consistency polish: Aplicaciones, Reputación, Informe de atribución, shared component patterns | live |
+| v1.3.3 | fixes | Contactos loading skeleton | in progress |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
