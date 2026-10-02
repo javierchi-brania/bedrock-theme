@@ -618,6 +618,16 @@
    "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p",
    "text": "Ver vista previa de la encuesta",
    "font": "body"
+  },
+  {
+   "sel": "#awesome-features .grid > .hr-card:nth-child(3) .hr-card-content > div > .text-md",
+   "text": "Analítica",
+   "font": "body21"
+  },
+  {
+   "sel": "#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2)",
+   "text": "Personaliza el diseño y la apariencia de tu QR",
+   "font": "body21"
   }
  ]
 }
