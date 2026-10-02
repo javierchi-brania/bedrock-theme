@@ -41,3 +41,11 @@
 #AppointmentList .n-space.cursor-pointer[class*="border-primary"] .whitespace-nowrap {
   color: var(--bb-accent) !important;
 }
+
+/* v1.2.7: Vista de calendario: the grid container is white; it showed as a white band
+   above and left of the grid → page surface. The platform sets it white !important in a
+   <style> injected after the theme with the same selector, so this one needs the type
+   selector to win on specificity. */
+div#fc-calendar-container-v2 {
+  background: var(--bb-bg) !important;
+}

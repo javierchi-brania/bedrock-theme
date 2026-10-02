@@ -318,9 +318,13 @@ a:hover,
   background: var(--bb-bg) !important;
 }
 
+/* v1.2.7: the toolbar is sticky; transparent, the cards scrolled under it showed
+   through. Page surface behind it (same look at rest), extended upwards with a solid
+   shadow to cover the ~22px band between it and the fixed header. */
 #location-dashboard-header,
 .location-dashboard_header {
-  background: transparent !important;
+  background: var(--bb-bg) !important;
+  box-shadow: 0 -30px 0 var(--bb-bg) !important;
   border: none !important;
   padding: 10px 12px 4px !important;
   z-index: 100 !important;
@@ -1624,12 +1628,16 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
    DOM:    .hl_header, .hl_header--controls
    ───────────────────────────────────────────────────────────── */
 
+/* v1.2.7: the header box (pill + page tabs row) is fixed; it was transparent, so
+   content scrolled under it showed through the tabs. It now has the page surface (looks
+   the same at rest), square corners (the pill ::before keeps its own radius, so nothing
+   peeks through its corners) and a solid 6px band above it (its top margin). */
 .hl_header,
 .hl_header.hl_header--collapse {
-  background: transparent !important;
+  background: var(--bb-bg) !important;
   border: none !important;
-  border-radius: var(--bb-radius-xl) !important;
-  box-shadow: none !important;
+  border-radius: 0 !important;
+  box-shadow: 0 -6px 0 var(--bb-bg) !important;
   margin: 12px 14px 0 0 !important;
   min-height: 58px !important;
   z-index: 1200 !important;
@@ -1645,7 +1653,7 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 /* La píldora del header se dibuja con ::before limitada a la fila de los
    íconos (máx. 64px). En páginas sin tabs el header mide ~60px y la
    píldora lo cubre entero; en páginas con tabs (.topmenu-nav, 2ª fila)
-   los tabs quedan abajo sin fondo, como en el mockup. */
+   los tabs quedan abajo sin píldora, como en el mockup (sobre el fondo del header). */
 .hl_header::before {
   content: "";
   position: absolute;
@@ -5831,6 +5839,13 @@ input[type="radio"] {
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab .hr-tabs-tab__label { background: transparent !important; border-radius: var(--bb-radius-sm) !important; width: 100%; }
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab .hr-tabs-tab__label > div { width: 100% !important; }
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab:not(.hr-tabs-tab--active):hover .hr-tabs-tab__label > div.flex { background: var(--bb-bg-hover) !important; box-shadow: var(--bb-shadow-inset) !important; }
+
+/* v1.2.7: Panel (Launchpad) page background was the platform near-white #f9fafb
+   (visible around the guide) → page surface. */
+#launchpad-micro-app,
+#launchpad-app-v2 {
+  background: var(--bb-bg) !important;
+}
 /* ===== v6.34 Sidebar de Configuración: la pastilla activa ya no se corta a la izquierda ===== */
 aside#sidebar-v2:has(#backButtonv2) .hl_nav-header-without-footer { padding-left: 8px !important; padding-right: 4px !important; box-sizing: border-box !important; }
 /* v6.34b títulos de sección del menú de Configuración: sin la línea que se veía como tachado */
@@ -6093,6 +6108,14 @@ button.sidebar-option-button { transition: box-shadow .15s, color .15s !importan
 }
 #AppointmentList .n-space.cursor-pointer[class*="border-primary"] .whitespace-nowrap {
   color: var(--bb-accent) !important;
+}
+
+/* v1.2.7: Vista de calendario: the grid container is white; it showed as a white band
+   above and left of the grid → page surface. The platform sets it white !important in a
+   <style> injected after the theme with the same selector, so this one needs the type
+   selector to win on specificity. */
+div#fc-calendar-container-v2 {
+  background: var(--bb-bg) !important;
 }
 /* ===== v6.41 Cabecera: traducir, teléfono y copiloto con el mismo botón neumórfico que el resto ===== */
 .hl_header :is(.feedback-toggle-btn, button.rounded-full.bg-success-600, #hl_header--copilot-icon) { width: 36px !important; height: 36px !important; min-width: 36px !important; border-radius: 50% !important; border: none !important; background: var(--bb-bg) !important; background-image: none !important; box-shadow: 4px 4px 9px #c9cdcf, -4px -4px 9px rgba(255,255,255,.9) !important; transition: box-shadow .15s !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
