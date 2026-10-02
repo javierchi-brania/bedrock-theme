@@ -7,22 +7,21 @@ Last update: 2026-10-02.
 
 ## State
 
-- **Live in the platform:** `v1.3.11` (the user saved the custom CSS field).
-- **On `main`, not tagged:** `v1.3.5` ("everything in Spanish"). It is merged but not
-  released: the platform keeps loading `v1.3.4` until it is tagged and the field is updated.
-- No open branches with pending work.
+- **Live in the platform:** `v1.3.12` (the user saved the custom CSS field).
+- **On `main`, not tagged:** `v1.3.13` (Spanish sweep of the remaining views). It needs the
+  user's approval, then the tag and the platform field update.
+- Two sessions work on this repo (Javier's and Tomás's). Always branch from the latest
+  `main`, check open PRs first, and keep PRs small.
 
 ## Next steps
 
-1. **Release v1.3.5** once the user approves the visual changes (Agentes de IA pages,
-   Membresías banner, product guides hidden):
-   `git tag v1.3.5 && git push origin v1.3.5`. The release workflow publishes and checks the CDN.
+1. **Release v1.3.13** once the user approves: `git tag v1.3.13 && git push origin v1.3.13`.
+   The release workflow publishes and checks the CDN.
 2. **Update the platform field** (agency settings → Empresa → Marca Blanca → CSS personalizado):
    replace its content with `embed/editor.css` of the tag. Back up the old content first
    (localStorage). Only the user presses "Guardar cambios".
-3. **Keep sweeping for English text** in the views listed under TRACKING › Open findings ›
-   Language (Marketing and Sitios sub-tabs, the remaining Agentes de IA tabs, modals and
-   drawers). Fixed labels go in `src/labels.json`; pages that need more go in a generator
+3. **Keep sweeping for English text** in what is listed under TRACKING › Open findings ›
+   Language (mainly modals and drawers: open each one). Fixed labels go in `src/labels.json`; pages that need more go in a generator
    like `scripts/gen-agentes-ia.mjs`.
 4. **Pending user decisions** (TRACKING › Decisions pending): purple AI palette and header
    icons, sidebar per-item colors, dead selectors.

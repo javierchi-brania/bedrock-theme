@@ -588,6 +588,51 @@
    "sel": ".askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label",
    "text": "Personalizar",
    "font": "menu14"
+  },
+  {
+   "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)",
+   "text": "Obtén información y toma decisiones más inteligentes con encuestas",
+   "font": "body"
+  },
+  {
+   "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)",
+   "text": "Crea encuestas fácilmente con el editor de arrastrar y soltar",
+   "font": "body"
+  },
+  {
+   "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2)",
+   "text": "Configura flujos de trabajo para dar seguimiento al instante a quienes completan o abandonan la encuesta",
+   "font": "body"
+  },
+  {
+   "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)",
+   "text": "Accede a analíticas en tiempo real para medir y mejorar el rendimiento de tus encuestas",
+   "font": "body"
+  },
+  {
+   "sel": "#create-new-survey-label",
+   "text": "Crear encuesta",
+   "font": "body"
+  },
+  {
+   "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p",
+   "text": "Ver vista previa de la encuesta",
+   "font": "body"
+  },
+  {
+   "sel": "#awesome-features .grid > .hr-card:nth-child(3) .hr-card-content > div > .text-md",
+   "text": "Analítica",
+   "font": "body21"
+  },
+  {
+   "sel": "#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2)",
+   "text": "Personaliza el diseño y la apariencia de tu QR",
+   "font": "body21"
+  },
+  {
+   "sel": "#sp-v3-platform-community > div:nth-child(2)",
+   "text": "Comunidad",
+   "font": "body21"
   }
  ]
 }

@@ -7983,6 +7983,17 @@ a.branded-banner::after {
 a.branded-banner:hover::after {
   background: var(--bb-accent-dark);
 }
+/**
+ * 55-configuracion: Configuración pages of the sub-account. New section (v1.3.13).
+ */
+
+/* Labs: the "Le damos la bienvenida a nuestro programa Beta" card is a platform-blue gradient
+   → accent gradient, theme radius and elevation */
+#labs-card {
+  background-image: linear-gradient(90deg, var(--bb-accent) 0%, var(--bb-accent-dark) 100%) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
 
 /* ── generated from src/labels.json (Spanish labels): edit the JSON, not this block ── */
 #sb_launchpad .hl_text-overflow,
@@ -8095,7 +8106,16 @@ body:has([id="sb_common.sidebar.privateIntegrations"]:hover) .tooltip[role="tool
 body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role="tooltip"] .tooltip-inner,
 body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 .askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label,
-.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label {
+.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2),
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2),
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2),
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2),
+#create-new-survey-label,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p,
+#awesome-features .grid > .hr-card:nth-child(3) .hr-card-content > div > .text-md,
+#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2),
+#sp-v3-platform-community > div:nth-child(2) {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8209,7 +8229,16 @@ body:has([id="sb_common.sidebar.privateIntegrations"]:hover) .tooltip[role="tool
 body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 .askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label::after,
-.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label::after {
+.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label::after,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)::after,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)::after,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2)::after,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)::after,
+#create-new-survey-label::after,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p::after,
+#awesome-features .grid > .hr-card:nth-child(3) .hr-card-content > div > .text-md::after,
+#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2)::after,
+#sp-v3-platform-community > div:nth-child(2)::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8786,4 +8815,49 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
   content: "Personalizar";
   font-size: 14px;
   line-height: 20px;
+}
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)::after {
+  content: "Obtén información y toma decisiones más inteligentes con encuestas";
+  font-size: 14px;
+  line-height: 20px;
+}
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)::after {
+  content: "Crea encuestas fácilmente con el editor de arrastrar y soltar";
+  font-size: 14px;
+  line-height: 20px;
+}
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2)::after {
+  content: "Configura flujos de trabajo para dar seguimiento al instante a quienes completan o abandonan la encuesta";
+  font-size: 14px;
+  line-height: 20px;
+}
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)::after {
+  content: "Accede a analíticas en tiempo real para medir y mejorar el rendimiento de tus encuestas";
+  font-size: 14px;
+  line-height: 20px;
+}
+#create-new-survey-label::after {
+  content: "Crear encuesta";
+  font-size: 14px;
+  line-height: 20px;
+}
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p::after {
+  content: "Ver vista previa de la encuesta";
+  font-size: 14px;
+  line-height: 20px;
+}
+#awesome-features .grid > .hr-card:nth-child(3) .hr-card-content > div > .text-md::after {
+  content: "Analítica";
+  font-size: 14px;
+  line-height: 21px;
+}
+#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2)::after {
+  content: "Personaliza el diseño y la apariencia de tu QR";
+  font-size: 14px;
+  line-height: 21px;
+}
+#sp-v3-platform-community > div:nth-child(2)::after {
+  content: "Comunidad";
+  font-size: 14px;
+  line-height: 21px;
 }
