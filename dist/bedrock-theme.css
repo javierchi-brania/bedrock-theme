@@ -3677,6 +3677,21 @@ aside#sidebar-v2 {
   background: var(--bb-bg) !important;
   border-top: 1px solid var(--bb-divider) !important;
 }
+
+/* v1.2.8: "Añadir oportunidad" modal (.crm-opportunities-modal).
+   Active section in the left menu: blue tint, blue text, 5px corners → inset, accent. */
+.crm-opportunities-modal button.bg-blue-50 {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+/* "Gestionar campos" link: blue → accent */
+.crm-opportunities-modal .cursor-pointer[class*="text-blue"],
+.crm-opportunities-modal .cursor-pointer[class*="text-blue"] * {
+  color: var(--bb-accent) !important;
+}
+
 /* ─────────────────────────────────────────────────────────────
    MARKETING (Email Marketing, Snippets, etc.)
    Estas pantallas usan otro sistema de componentes más (clases
@@ -4528,7 +4543,7 @@ aside#sidebar-v2 {
   padding: 3px 6px !important;
   font-size: 12.5px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-select {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-select {
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-inset-deep) !important;
   border-radius: var(--bb-radius-md) !important;
@@ -4558,20 +4573,20 @@ aside#sidebar-v2 {
    - Encabezados de sección (Contacto, General Info…) con esquinas y hover
      del tema.
    - Botón de canal del chat (burbuja + flecha): hover en píldora, no óvalo. */
-#conversations-new-app .bg-contacts-panel .overflow-y-auto > .flex-col {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .overflow-y-auto > .flex-col {
   padding: 6px 10px 6px 6px !important;
 }
-#conversations-new-app .bg-contacts-panel .border.border-gray-200.rounded-md.bg-white {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .border.border-gray-200.rounded-md.bg-white {
   box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item {
   border-radius: var(--bb-radius-sm) !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item__header {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item__header {
   border-radius: var(--bb-radius-sm) !important;
   transition: background .15s !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item__header:hover {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item__header:hover {
   background: var(--bb-bg-hover) !important;
 }
 #conversations-new-app #chat-filter {
@@ -4601,57 +4616,57 @@ aside#sidebar-v2 {
      borde) → 32px de alto con 10px de margen interno, igual que los selects.
    - Etiquetas (Nombre, Apellidos…) y encabezados de sección con el mismo
      tamaño y color que el resto del tema. */
-#conversations-new-app .bg-contacts-panel .hr-tabs-nav--segment-type {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-nav--segment-type {
   background: transparent !important;
   box-shadow: none !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-tabs-nav--segment-type .hr-input {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-nav--segment-type .hr-input {
   margin-top: 6px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-input {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input {
   min-height: 32px !important;
   border-radius: var(--bb-radius-sm) !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-input .hr-input-wrapper {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input .hr-input-wrapper {
   padding: 0 10px !important;
   min-height: 32px !important;
   align-items: center !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-input .hr-input__input-el,
-#conversations-new-app .bg-contacts-panel .hr-input .hr-input__input {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input .hr-input__input-el,
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input .hr-input__input {
   height: 32px !important;
   line-height: 32px !important;
   font-size: 13px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-select {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-select {
   min-height: 32px !important;
   border-radius: var(--bb-radius-sm) !important;
   font-size: 13px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-form-item {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-form-item {
   margin-bottom: 4px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-form-item-label,
-#conversations-new-app .bg-contacts-panel .hr-form-item-label__text {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-form-item-label,
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-form-item-label__text {
   font-size: 12px !important;
   font-weight: 600 !important;
   color: var(--bb-text-label) !important;
   margin-bottom: 4px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item {
   background: var(--bb-bg) !important;
   border-color: transparent !important; /* v1.2.3: was a 1px grey outline */
   box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
   margin-bottom: 10px !important;
   overflow: hidden !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item__header {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item__header {
   padding: 10px 12px !important;
   font-size: 13px !important;
   font-weight: 700 !important;
   color: var(--bb-text-strong) !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item__content-inner {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item__content-inner {
   padding: 4px 12px 12px !important;
 }
 
@@ -4667,49 +4682,49 @@ aside#sidebar-v2 {
    - DND: el bloque de canales venía en blanco → fondo del tema.
    - Pestañas: el riel ocupa todo el ancho y las 3 pestañas se reparten el
      espacio (antes "Acciones" se salía por la derecha). */
-#conversations-new-app .bg-contacts-panel .hr-collapse-item__content-inner .block-padding {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item__content-inner .block-padding {
   padding-left: 0 !important;
   padding-right: 0 !important;
   border-top: none !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-select .hr-base-selection,
-#conversations-new-app .bg-contacts-panel .hr-select .hr-base-selection-label {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-select .hr-base-selection,
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-select .hr-base-selection-label {
   background: transparent !important;
   box-shadow: none !important;
   border: none !important;
   border-radius: inherit !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-select:focus-within {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-select:focus-within {
   box-shadow: var(--bb-shadow-inset-deep), 0 0 0 2px var(--bb-accent-glow) !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-input-phone .hr-input__suffix .hr-button {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input-phone .hr-input__suffix .hr-button {
   box-shadow: none !important;
   background: transparent !important;
   padding: 0 2px !important;
   max-width: 64px !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-input-phone .hr-input__suffix .hr-button__content-default-slot {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-input-phone .hr-input__suffix .hr-button__content-default-slot {
   font-size: 11px !important;
   font-weight: 600 !important;
   color: var(--bb-text-muted) !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-collapse-item .bg-white,
-#conversations-new-app .bg-contacts-panel .hr-tabs-pane-wrapper .bg-white {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item .bg-white,
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-pane-wrapper .bg-white {
   background: transparent !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-tabs-rail {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-rail {
   width: 100% !important;
   display: flex !important;
   overflow: hidden !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-tabs-rail .hr-tabs-tab-wrapper {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-rail .hr-tabs-tab-wrapper {
   flex: 1 1 0 !important;
   width: auto !important;
   min-width: auto !important;
 }
-#conversations-new-app .bg-contacts-panel .hr-tabs-rail .hr-tabs-tab {
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-tabs-rail .hr-tabs-tab {
   justify-content: center !important;
   width: auto !important;
   white-space: nowrap !important;
@@ -4735,6 +4750,47 @@ div:has(> #conv-conversation-list-load-more-button) {
 #conv-provider-select-trigger svg {
   color: var(--bb-accent) !important;
 }
+
+/* v1.2.8: contact panel (Conversaciones and Contactos › detalle).
+   Segmented tabs (Todos los campos / DND / Acciones): white rail with a grey border →
+   raised group; the active capsule is sunken (selected = inset). */
+:is(#conversations-new-app, #record-details-new-ui) .hr-tabs-nav--segment-type .hr-tabs-rail {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+:is(#conversations-new-app, #record-details-new-ui) .hr-tabs-nav--segment-type .hr-tabs-capsule {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+:is(#conversations-new-app, #record-details-new-ui) .hr-tabs-nav--segment-type .hr-tabs-tab-wrapper {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+/* Contact header block (name, owner, followers): 1px grey outline → none */
+#record-details-lhs .border.border-gray-200 {
+  border-color: transparent !important;
+}
+/* Contactos › detalle: center tab ("Conversaciones") and the lead source link were blue */
+#record-details-new-ui button.text-blue-600.border-blue-600 {
+  color: var(--bb-accent) !important;
+  border-bottom-color: var(--bb-accent) !important;
+}
+#internal-source-lead {
+  color: var(--bb-accent) !important;
+}
+/* AI promo banner ("Deja que AI redacte tus respuestas"): gradient with a grey outline and
+   a blue icon → theme card, accent icon */
+.ai-growth-promo-banner {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.ai-growth-promo-banner svg {
+  color: var(--bb-accent) !important;
+}
+
 /* ─────────────────────────────────────────────────────────────
    PAGOS (v6.23) — ajuste al mockup (vista Payments de brania-bedrock)
    Sólo aspecto de la PÁGINA; los modales de pago siguen excluidos (v6.1).
@@ -5733,6 +5789,11 @@ input[type="radio"] {
 .lds-ring > div {
   border-top-color: var(--bb-accent) !important;
 }
+/* v1.2.8: multi-select fields (tags inside .hr-base-selection, e.g. "Añadir seguidores"):
+   the tag area stayed white inside the sunken field → transparent */
+.hr-base-selection .hr-base-selection-tags {
+  background: transparent !important;
+}
 /* v1.2.2: icons of text buttons ("+ Filtros rápidos", "Ir a tareas"…): platform blue → accent */
 .hr-button.hr-button--text .hr-icon-inner,
 .hr-button.hr-button--text .hr-icon-inner svg {
@@ -5888,11 +5949,11 @@ input[id^="composer-input-"] { background: transparent !important; }
 [class*="chat-bubble-"]::after, [class*="chat-bubble-"]::before { display: none !important; }
 .chat-bubble-inbound.chat-bubble-inbound { border-radius: 8px 18px 18px 18px !important; }
 [class*="chat-bubble-"]:not(.chat-bubble-inbound) { border-radius: 18px 8px 18px 18px !important; }
-#conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail { overflow: visible !important; padding: 3px !important; border-radius: var(--bb-radius-sm) !important; }
-#conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab-wrapper { flex: 1 1 auto !important; min-width: 0 !important; }
-#conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab { padding: 4px 4px !important; min-width: 0 !important; max-width: 100% !important; overflow: hidden !important; justify-content: center; font-size: 11.5px !important; }
-#conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab__label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-#conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab__label, #conversations-new-app .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab__label * { font-size: 11px !important; letter-spacing: 0 !important; }
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel #record-details-tabs .hr-tabs-rail { overflow: visible !important; padding: 3px !important; border-radius: var(--bb-radius-sm) !important; }
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab-wrapper { flex: 1 1 auto !important; min-width: 0 !important; }
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab { padding: 4px 4px !important; min-width: 0 !important; max-width: 100% !important; overflow: hidden !important; justify-content: center; font-size: 11.5px !important; }
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab__label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+:is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab__label, :is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel #record-details-tabs .hr-tabs-rail .hr-tabs-tab__label * { font-size: 11px !important; letter-spacing: 0 !important; }
 [class*="chat-"][class$="-hidden"], .chat-outbound-hidden, .chat-inbound-hidden, .chat-internal-comment-hidden { display: none !important; }
 /* Conversaciones › Filtros (drawer) */
 .hr-drawer:has(#and-or-toggle-or) .border-b.border-gray-300 { border-bottom-color: var(--bb-divider) !important; }
@@ -6213,9 +6274,15 @@ div#fc-calendar-container-v2 {
 .hl_header:has(#tb_opportunities-tab) .topmenu-navtitle,
 #tb_opportunities-tab > span.flex.items-center,
 #tb_pipeline > span.flex.items-center,
+#opportunities .hr-collapse-item__header-main p.hr-text.hr-text-lg,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title,
 #ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title,
+.crm-opportunities-modal .ui-modal-heading .title,
+.crm-opportunities-modal .ui-modal-heading .description,
+.crm-opportunities-modal button.bg-blue-50,
+.crm-opportunities-modal .hr-form-item:has(#OpportunityPipeline) .hr-form-item-label__text,
+.crm-opportunities-modal .hr-form-item:has(#OpportunityStage) .hr-form-item-label__text,
 #tb_payment-invoices > span.flex.items-center,
 #tb_payment-invoices a[href$="/payments/v2/estimates"] > span.flex.items-center,
 #tb-sub_all-abandoned-checkouts > span.flex.items-center,
@@ -6271,9 +6338,15 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 .hl_header:has(#tb_opportunities-tab) .topmenu-navtitle::after,
 #tb_opportunities-tab > span.flex.items-center::after,
 #tb_pipeline > span.flex.items-center::after,
+#opportunities .hr-collapse-item__header-main p.hr-text.hr-text-lg::after,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title::after,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title::after,
 #ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title::after,
+.crm-opportunities-modal .ui-modal-heading .title::after,
+.crm-opportunities-modal .ui-modal-heading .description::after,
+.crm-opportunities-modal button.bg-blue-50::after,
+.crm-opportunities-modal .hr-form-item:has(#OpportunityPipeline) .hr-form-item-label__text::after,
+.crm-opportunities-modal .hr-form-item:has(#OpportunityStage) .hr-form-item-label__text::after,
 #tb_payment-invoices > span.flex.items-center::after,
 #tb_payment-invoices a[href$="/payments/v2/estimates"] > span.flex.items-center::after,
 #tb-sub_all-abandoned-checkouts > span.flex.items-center::after,
@@ -6313,6 +6386,10 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap::after,
 [id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after {
   display: inline-block;
+}
+.crm-opportunities-modal .ui-modal-heading .title > i {
+  font-size: 18px !important;
+  line-height: 28px !important;
 }
 #tb_payment-invoices > span.flex.items-center > i {
   font-size: 14px !important;
@@ -6396,6 +6473,11 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
   font-size: 14px;
   line-height: 25.6px;
 }
+#opportunities .hr-collapse-item__header-main p.hr-text.hr-text-lg::after {
+  content: "Oportunidades";
+  font-size: 14px;
+  line-height: 20px;
+}
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title::after {
   content: "Riesgo alto";
   font-size: 16px;
@@ -6410,6 +6492,32 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
   content: "Riesgo bajo";
   font-size: 16px;
   line-height: 24px;
+}
+.crm-opportunities-modal .ui-modal-heading .title::after {
+  content: "Añadir una nueva oportunidad";
+  font-size: 18px;
+  line-height: 28px;
+  order: -1;
+}
+.crm-opportunities-modal .ui-modal-heading .description::after {
+  content: "Crea una oportunidad con sus detalles y un contacto";
+  font-size: 14px;
+  line-height: 20px;
+}
+.crm-opportunities-modal button.bg-blue-50::after {
+  content: "Información de la oportunidad";
+  font-size: 12px;
+  line-height: 16px;
+}
+.crm-opportunities-modal .hr-form-item:has(#OpportunityPipeline) .hr-form-item-label__text::after {
+  content: "Embudo de venta";
+  font-size: 14px;
+  line-height: 17.5px;
+}
+.crm-opportunities-modal .hr-form-item:has(#OpportunityStage) .hr-form-item-label__text::after {
+  content: "Etapa";
+  font-size: 14px;
+  line-height: 17.5px;
 }
 #tb_payment-invoices > span.flex.items-center::after {
   content: "Facturas y cotizaciones";

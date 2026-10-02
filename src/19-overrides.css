@@ -351,6 +351,11 @@ input[type="radio"] {
 .lds-ring > div {
   border-top-color: var(--bb-accent) !important;
 }
+/* v1.2.8: multi-select fields (tags inside .hr-base-selection, e.g. "Añadir seguidores"):
+   the tag area stayed white inside the sunken field → transparent */
+.hr-base-selection .hr-base-selection-tags {
+  background: transparent !important;
+}
 /* v1.2.2: icons of text buttons ("+ Filtros rápidos", "Ir a tareas"…): platform blue → accent */
 .hr-button.hr-button--text .hr-icon-inner,
 .hr-button.hr-button--text .hr-icon-inner svg {
