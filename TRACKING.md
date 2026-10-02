@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.4` (2026-10-02).
-**In progress:** `v1.4.5` (bubble sidebar logo) in review.
+**In progress:** nothing open; `v1.4.5` published (bubble sidebar logo).
 
 ## Releases
 
@@ -42,7 +42,7 @@ publish is in [README.md](README.md).
 | v1.4.2 | fix | Pregúntale a BRANIA composer: typed text no longer doubled | live |
 | v1.4.3 | fixes | Agentes de IA: every tab in the theme (Estudio de agentes under the header, Primeros pasos, IA de voz, Plantillas, Base de conocimiento, IA de contenido, Registros, Agentes por industria); theme radios round | live |
 | v1.4.4 | fix | Pregúntale a BRANIA composer: 10px between the text field and the buttons | live |
-| v1.4.5 | feature | Sidebar logo: raised sphere with the black hexagon and "BRANIA" inside, in relief (user choice after previews) | in review |
+| v1.4.5 | feature | Sidebar logo: raised sphere with the black hexagon and "BRANIA" inside, in relief (user choice after previews) | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -164,7 +164,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.5 (in review): bubble sidebar logo
+### v1.4.5 (published): bubble sidebar logo
 
 User choice after in-page previews (vertical / horizontal, black / grey, flat / sphere / relief): the original bubble look in black. The uploaded logo (hexagon on a light disc) stays as the favicon; the theme draws the sidebar logo.
 
