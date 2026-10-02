@@ -3,6 +3,8 @@
 Neumorphic theme "BRANIA BEDROCK". The platform loads `dist/bedrock-theme.css`
 from jsDelivr via an `@import` in its custom CSS field (see `embed/editor.css`).
 
+Progress, open findings and pending decisions: [TRACKING.md](TRACKING.md).
+
 ## Layout
 
 ```
