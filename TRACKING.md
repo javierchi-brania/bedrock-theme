@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.4` (2026-10-02).
-**In progress:** nothing open; `v1.4.5` published (bubble sidebar logo).
+**Live in the platform:** `v1.4.5` (2026-10-02).
+**In progress:** nothing open; `v1.4.6` published (wordmark below the sphere).
 
 ## Releases
 
@@ -42,7 +42,8 @@ publish is in [README.md](README.md).
 | v1.4.2 | fix | Pregúntale a BRANIA composer: typed text no longer doubled | live |
 | v1.4.3 | fixes | Agentes de IA: every tab in the theme (Estudio de agentes under the header, Primeros pasos, IA de voz, Plantillas, Base de conocimiento, IA de contenido, Registros, Agentes por industria); theme radios round | live |
 | v1.4.4 | fix | Pregúntale a BRANIA composer: 10px between the text field and the buttons | live |
-| v1.4.5 | feature | Sidebar logo: raised sphere with the black hexagon and "BRANIA" inside, in relief (user choice after previews) | published |
+| v1.4.5 | feature | Sidebar logo: raised sphere with the black hexagon and "BRANIA" inside, in relief (user choice after previews) | live |
+| v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -164,7 +165,11 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.5 (published): bubble sidebar logo
+### v1.4.6 (published): wordmark below the sphere
+
+User choice: the "BRANIA outside" variant at the v1.4.5 logo sizes. Sphere 92 → 72px (top 6px) with only the hexagon (36px) in it; wordmark (72 × 9px) below, outside the sphere, both in relief. Block stays 108px tall, so the menu does not move. Collapsed: 40px sphere, top 8px (centered in the 56px block). Verified with an in-page override on the live v1.4.5 assets.
+
+### v1.4.5 (published, live): bubble sidebar logo
 
 User choice after in-page previews (vertical / horizontal, black / grey, flat / sphere / relief): the original bubble look in black. The uploaded logo (hexagon on a light disc) stays as the favicon; the theme draws the sidebar logo.
 
