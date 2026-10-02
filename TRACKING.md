@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.3.2` (saved 2026-10-02).
-**In progress:** `v1.3.4` (branch `fix/v1.3.4`).
+**Live in the platform:** `v1.3.4` (saved 2026-10-02).
+**In progress:** —
 
 ## Releases
 
@@ -25,9 +25,9 @@ publish is in [README.md](README.md).
 | v1.2.8 | fixes | Contact detail page and the add-opportunity modal | |
 | v1.3.0 | refactor | 20-sidebar + 21-sidebar-switcher | compare vs v1.2.8: 0 differences |
 | v1.3.1 | fixes | Platform palette → teal everywhere (goal: theme the whole platform) | |
-| v1.3.2 | fixes | Consistency polish: Aplicaciones, Reputación, Informe de atribución, shared component patterns | live |
+| v1.3.2 | fixes | Consistency polish: Aplicaciones, Reputación, Informe de atribución, shared component patterns | |
 | v1.3.3 | fixes | Loading skeletons (Contactos, Tareas, Oportunidades), Tareas header fixes | |
-| v1.3.4 | fixes | Contactos filters drawer, "Anterior" in table pagination | in progress |
+| v1.3.4 | fixes | Contactos filters drawer, "Anterior" in table pagination | live |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -63,7 +63,7 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.4 (in progress): filters drawer
+### v1.3.4 (published, live): filters drawer
 
 | Fix | Where | Verified |
 |---|---|---|
@@ -82,7 +82,7 @@ resolves its own conflicts with them.
 
 Checked during load: Pagos › Facturas (spinner on the page surface) and Empresas: nothing to change.
 
-### v1.3.2 (published, live): consistency polish
+### v1.3.2 (published): consistency polish
 
 | Fix | Where | Verified |
 |---|---|---|
