@@ -3,14 +3,16 @@
  * chat widget, QR codes…). New section (v1.3.1): these views had no rules of their own.
  */
 
-/* Forms / surveys / quizzes app wrapper: platform grey-50 around the content → page surface */
+/* Forms / surveys / quizzes app wrapper: platform grey-50 around the content. The grey is
+   inline !important (cannot be overridden), so a solid inset shadow paints the page surface
+   over it (shadows sit above the background, below the content). */
 .hr-wrapper-container.formSurveyApp {
-  background: var(--bb-bg) !important;
+  box-shadow: inset 0 0 0 100vmax var(--bb-bg) !important;
 }
 
-/* Feature cards on the landing pages (e.g. "Características del formulario"): the
-   illustration well was near-white with a 1px outline → sunken well */
-.landing-page-shell .hr-card-content > .w-full > .mx-auto {
+/* Cards on the landing pages ("Características…", "Inicio con una plantilla"): the
+   illustration / template preview well was near-white with a 1px outline → sunken well */
+.landing-page-shell .hr-card .mx-auto.w-full {
   background: var(--bb-bg) !important;
   border-color: transparent !important;
   box-shadow: var(--bb-shadow-inset) !important;
