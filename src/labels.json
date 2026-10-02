@@ -13,7 +13,8 @@
   "small": "12px/16px",
   "body": "14px/20px",
   "pager": "14px/14px",
-  "nTab": "14px/21px"
+  "nTab": "14px/21px",
+  "colTitle": "12.5px/18.75px"
  },
  "labels": [
   {
@@ -349,6 +350,11 @@
    "sel": "#custom-values-table th:nth-child(4) .hr-ellipsis > span",
    "text": "Clave",
    "font": "body"
+  },
+  {
+   "sel": ".tabulator-col[tabulator-field=\"relations.TASK_CONTACT_ASSOCIATION\"] .tabulator-col-title",
+   "text": "Contactos asociados",
+   "font": "colTitle"
   }
  ]
 }

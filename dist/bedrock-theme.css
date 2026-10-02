@@ -6622,7 +6622,8 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #app-pagination-previous .hr-button__content,
 #app-pagination-next .hr-button__content,
 #attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label,
-#custom-values-table th:nth-child(4) .hr-ellipsis > span {
+#custom-values-table th:nth-child(4) .hr-ellipsis > span,
+.tabulator-col[tabulator-field="relations.TASK_CONTACT_ASSOCIATION"] .tabulator-col-title {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -6691,7 +6692,8 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #app-pagination-previous .hr-button__content::after,
 #app-pagination-next .hr-button__content::after,
 #attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label::after,
-#custom-values-table th:nth-child(4) .hr-ellipsis > span::after {
+#custom-values-table th:nth-child(4) .hr-ellipsis > span::after,
+.tabulator-col[tabulator-field="relations.TASK_CONTACT_ASSOCIATION"] .tabulator-col-title::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -7043,4 +7045,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Clave";
   font-size: 14px;
   line-height: 20px;
+}
+.tabulator-col[tabulator-field="relations.TASK_CONTACT_ASSOCIATION"] .tabulator-col-title::after {
+  content: "Contactos asociados";
+  font-size: 12.5px;
+  line-height: 18.75px;
 }
