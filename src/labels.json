@@ -1,638 +1,659 @@
 {
- "$comment": "Spanish labels for fixed platform text that has no Spanish version (or reads oddly). The build turns this into CSS (scripts/lib/labels.mjs). One entry per label; 'font' = metrics of the original text; 'icon' = the element also holds a dropdown chevron. Never use it for text with live data.",
- "fonts": {
-  "sidebar": "13.5px/20px",
-  "tab": "14px/25.6px",
-  "submenu": "14px/20px",
-  "title": "20px/30px",
-  "moduleTitle": "18px/28px",
-  "risk": "16px/24px",
-  "button": "13.5px/13.5px",
-  "modalTitle": "18px/28px",
-  "field": "14px/17.5px",
-  "small": "12px/16px",
-  "body": "14px/20px",
-  "pager": "14px/14px",
-  "nTab": "14px/21px",
-  "colTitle": "12.5px/18.75px",
-  "tablePager": "14px/21px",
-  "newBadge": "9.6px/11px",
-  "pageTitle22": "22px/30px",
-  "body21": "14px/21px",
-  "small18": "13px/18px",
-  "th13": "13px/15.6px",
-  "xs": "11px/16px",
-  "desc12": "12px/17px",
-  "btn13": "13px/18px",
-  "tooltip11": "11px/16.5px",
-  "brand15": "15px/15px",
-  "greeting28": "28px/34px",
-  "menu14": "14px/20px"
- },
- "labels": [
-  {
-   "sel": "#sb_launchpad .hl_text-overflow",
-   "text": "Panel",
-   "font": "sidebar"
-  },
-  {
-   "sel": "#sb_opportunities .hl_text-overflow",
-   "text": "Oportunidades",
-   "font": "sidebar"
-  },
-  {
-   "sel": "#sb_vibe .hl_text-overflow",
-   "text": "Estudio de IA",
-   "font": "sidebar"
-  },
-  {
-   "sel": "#sb_memberships .hl_text-overflow",
-   "text": "Membresías",
-   "font": "sidebar"
-  },
-  {
-   "sel": "#sb_app-media .hl_text-overflow",
-   "text": "Multimedia",
-   "font": "sidebar"
-  },
-  {
-   "sel": "#sb_app-marketplace .hl_text-overflow",
-   "text": "Aplicaciones",
-   "font": "sidebar"
-  },
-  {
-   "sel": "#sb_location-email-services .hl_text-overflow",
-   "text": "Servicios de correo",
-   "font": "sidebar"
-  },
-  {
-   "sel": "#sb_import-data .hl_text-overflow",
-   "text": "Importar datos",
-   "font": "sidebar"
-  },
-  {
-   "sel": "#sb_manage-scoring .hl_text-overflow",
-   "text": "Puntuación",
-   "font": "sidebar"
-  },
-  {
-   "sel": "[id=\"sb_common.sidebar.privateIntegrations\"] .hl_text-overflow",
-   "text": "Integraciones privadas",
-   "font": "sidebar"
-  },
-  {
-   "sel": "#sb_Opportunities-Pipelines .hl_text-overflow",
-   "text": "Oportunidades y embudos",
-   "font": "sidebar"
-  },
-  {
-   "sel": ".hl_header:has(#tb_opportunities-tab) .topmenu-navtitle",
-   "text": "Oportunidades",
-   "font": "moduleTitle"
-  },
-  {
-   "sel": ".hl_header:has(#tb_clientportalCommunities) .topmenu-navtitle",
-   "text": "Membresías",
-   "font": "moduleTitle"
-  },
-  {
-   "sel": "#tb_opportunities-tab > span.flex.items-center",
-   "text": "Oportunidades",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_pipeline > span.flex.items-center",
-   "text": "Embudos de venta",
-   "font": "tab"
-  },
-  {
-   "sel": "#opportunities .hr-collapse-item__header-main p.hr-text.hr-text-lg",
-   "text": "Oportunidades",
-   "font": "submenu"
-  },
-  {
-   "sel": "#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title",
-   "text": "Riesgo alto",
-   "font": "risk"
-  },
-  {
-   "sel": "#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title",
-   "text": "Riesgo medio",
-   "font": "risk"
-  },
-  {
-   "sel": "#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title",
-   "text": "Riesgo bajo",
-   "font": "risk"
-  },
-  {
-   "sel": ".crm-opportunities-modal .ui-modal-heading .title",
-   "text": "Añadir una nueva oportunidad",
-   "font": "modalTitle",
-   "icon": true
-  },
-  {
-   "sel": ".crm-opportunities-modal .ui-modal-heading .description",
-   "text": "Crea una oportunidad con sus detalles y un contacto",
-   "font": "body"
-  },
-  {
-   "sel": ".crm-opportunities-modal button.bg-blue-50",
-   "text": "Información de la oportunidad",
-   "font": "small"
-  },
-  {
-   "sel": ".crm-opportunities-modal .hr-form-item:has(#OpportunityPipeline) .hr-form-item-label__text",
-   "text": "Embudo de venta",
-   "font": "field"
-  },
-  {
-   "sel": ".crm-opportunities-modal .hr-form-item:has(#OpportunityStage) .hr-form-item-label__text",
-   "text": "Etapa",
-   "font": "field"
-  },
-  {
-   "sel": "#tb_payment-invoices > span.flex.items-center",
-   "text": "Facturas y cotizaciones",
-   "font": "tab",
-   "icon": true
-  },
-  {
-   "sel": "#tb_payment-invoices a[href$=\"/payments/v2/estimates\"] > span.flex.items-center",
-   "text": "Cotizaciones",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb-sub_all-abandoned-checkouts > span.flex.items-center",
-   "text": "Carritos abandonados",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb-sub_all-products > span.flex.items-center",
-   "text": "Productos",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb-sub_all-collections > span.flex.items-center",
-   "text": "Colecciones",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb-sub_all-inventory > span.flex.items-center",
-   "text": "Inventario",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb-sub_product-reviews > span.flex.items-center",
-   "text": "Reseñas",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb_payments-coupons > span.flex.items-center",
-   "text": "Cupones",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_gift-cards > span.flex.items-center",
-   "text": "Tarjetas de regalo",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_countdown-timer > span.flex.items-center",
-   "text": "Cuentas regresivas",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_affiliate-manager > span.flex.items-center:first-child",
-   "text": "Afiliados",
-   "font": "tab",
-   "icon": true
-  },
-  {
-   "sel": "#tb-sub_campaigns > span.flex.items-center",
-   "text": "Campañas",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb-sub_affiliates-tab > span.flex.items-center",
-   "text": "Afiliados",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb-sub_payouts-tab > span.flex.items-center",
-   "text": "Pagos a afiliados",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb-sub_media-tab > span.flex.items-center",
-   "text": "Recursos",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb_ai-agents-agent-studio > span.flex.items-center",
-   "text": "Estudio de agentes",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_ai-agents-voice-ai > span.flex.items-center",
-   "text": "IA de voz",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_ai-agents-conversation-ai > span.flex.items-center",
-   "text": "IA conversacional",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_ai-agents-knowledge-base > span.flex.items-center",
-   "text": "Base de conocimiento",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_ai-agents-agent-templates > span.flex.items-center",
-   "text": "Plantillas de agentes",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_ai-agents-content-ai > span.flex.items-center",
-   "text": "IA de contenido",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_agent-logs > span.flex.items-center",
-   "text": "Registros de agentes",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_ai-agents-industry-agents > span.flex.items-center",
-   "text": "Agentes por industria",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_workflow-overview > span.flex.items-center",
-   "text": "Resumen",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_analytics > span.flex.items-center",
-   "text": "Analítica",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb-sub_branded-app > span.flex.items-center",
-   "text": "App con tu marca",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb-sub_branded-app-memberships > span.flex.items-center",
-   "text": "App con tu marca",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb-sub_communities-branded-app > span.flex.items-center",
-   "text": "App con tu marca",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb_certificates > span.flex.items-center",
-   "text": "Certificados",
-   "font": "tab",
-   "icon": true
-  },
-  {
-   "sel": "#tb-sub_certificates-email-settings > span.flex.items-center",
-   "text": "Configuración de correo",
-   "font": "submenu"
-  },
-  {
-   "sel": "#tb_reputation-overview > span.flex.items-center",
-   "text": "Resumen",
-   "font": "tab"
-  },
-  {
-   "sel": "#tb_online-listings > span.flex.items-center",
-   "text": "Directorios",
-   "font": "tab"
-  },
-  {
-   "sel": "hlcontentwrap .wrapper:has(#task) .smartlist-title",
-   "text": "Tareas",
-   "font": "title"
-  },
-  {
-   "sel": "#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content",
-   "text": "Añadir tarea",
-   "font": "button"
-  },
-  {
-   "sel": "#AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap",
-   "text": "Próximas",
-   "font": "submenu"
-  },
-  {
-   "sel": "#AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap",
-   "text": "Canceladas",
-   "font": "submenu"
-  },
-  {
-   "sel": "#AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap",
-   "text": "Todas",
-   "font": "submenu"
-  },
-  {
-   "sel": "[id=\"Captura nuevos leads con anuncios de Facebook e Instagram\"] .hr-collapse-item__header-main p.hr-text > span",
-   "text": "Captura nuevos clientes potenciales con anuncios de Facebook e Instagram",
-   "font": "submenu"
-  },
-  {
-   "sel": "#app-pagination-previous .hr-button__content",
-   "text": "Anterior",
-   "font": "pager"
-  },
-  {
-   "sel": "#app-pagination-next .hr-button__content",
-   "text": "Siguiente",
-   "font": "pager"
-  },
-  {
-   "sel": "#attribution-dashboard [data-name=\"opportunities\"] .n-tabs-tab__label",
-   "text": "Oportunidades",
-   "font": "nTab"
-  },
-  {
-   "sel": "#custom-values-table th:nth-child(4) .hr-ellipsis > span",
-   "text": "Clave",
-   "font": "body"
-  },
-  {
-   "sel": "#task .tabulator-col[tabulator-field=\"relations.TASK_CONTACT_ASSOCIATION\"] .tabulator-col-title",
-   "text": "Contactos asociados",
-   "font": "colTitle"
-  },
-  {
-   "sel": "#advanced-fitler-drawer .hr-drawer-footer .hr-button__content > span.ml-1",
-   "text": "Borrar todos los filtros",
-   "font": "pager"
-  },
-  {
-   "sel": ".tabulator .tabulator-footer .tabulator-paginator .tabulator-page[data-page=\"prev\"]",
-   "text": "Anterior",
-   "font": "tablePager"
-  },
-  {
-   "sel": ".hl_new_badge_top_menu",
-   "text": "Nuevo",
-   "font": "newBadge"
-  },
-  {
-   "sel": "#agent-studio-container .agents-shell__title",
-   "text": "Agentes gestionados",
-   "font": "pageTitle22"
-  },
-  {
-   "sel": "#agent-studio-container .agents-shell__subtitle",
-   "text": "Crea y administra agentes de IA para tu negocio",
-   "font": "body21"
-  },
-  {
-   "sel": "#cad-new-sub-folder-label .agents-shell__btn-content",
-   "text": "Nueva carpeta",
-   "font": "pager"
-  },
-  {
-   "sel": "#cad-create-sub-label .agents-shell__btn-content",
-   "text": "Crear agente gestionado",
-   "font": "pager"
-  },
-  {
-   "sel": "#sad-sort-btn .hr-space-inner > span",
-   "text": "Ordenar por",
-   "font": "small18"
-  },
-  {
-   "sel": "#sad-wrapper-header-global-filter .hr-input__placeholder > span",
-   "text": "Buscar",
-   "font": "body21"
-  },
-  {
-   "sel": "#sad-table th:nth-child(2) .hr-ellipsis > span",
-   "text": "Nombre",
-   "font": "body"
-  },
-  {
-   "sel": "#sad-table th:nth-child(3) span.mr-1",
-   "text": "Estado",
-   "font": "th13"
-  },
-  {
-   "sel": "#sad-table th:nth-child(4) span.mr-1",
-   "text": "Última actualización",
-   "font": "th13"
-  },
-  {
-   "sel": "#sad-table th:nth-child(5) span.mr-1",
-   "text": "Creado el",
-   "font": "th13"
-  },
-  {
-   "sel": "#sad-table th:nth-child(7) .hr-ellipsis > span",
-   "text": "Acciones",
-   "font": "body"
-  },
-  {
-   "sel": ".hr-pagination-cntr .hr-dropdown-cntr > p:first-child",
-   "text": "Filas por página",
-   "font": "xs"
-  },
-  {
-   "sel": "#hr-prev-button .hr-button__content > p",
-   "text": "Anterior",
-   "font": "xs"
-  },
-  {
-   "sel": "#next-button .hr-button__content > p",
-   "text": "Siguiente",
-   "font": "xs"
-  },
-  {
-   "sel": "#empty-sad-empty p.hr-text-lg",
-   "text": "Aún no hay agentes gestionados",
-   "font": "body"
-  },
-  {
-   "sel": "#empty-sad-empty p.hr-text-md",
-   "text": "Crea tu primer agente gestionado para empezar.",
-   "font": "small18"
-  },
-  {
-   "sel": "#pipeline-page-title",
-   "text": "Embudos de venta",
-   "font": "title"
-  },
-  {
-   "sel": "#pipeline-page-description",
-   "text": "Utilice los embudos de venta para dar seguimiento a las oportunidades y al progreso de las ventas en cada etapa.",
-   "font": "desc12"
-  },
-  {
-   "sel": "#pipeline-page #primary-blue span.font-semibold",
-   "text": "Crear embudo",
-   "font": "btn13"
-  },
-  {
-   "sel": "#bulkActionsList p.hr-text-4xl",
-   "text": "Acciones en lote",
-   "font": "title"
-  },
-  {
-   "sel": "#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule",
-   "text": "Pospuesta 2+ veces o 14+ días",
-   "font": "body"
-  },
-  {
-   "sel": "#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule",
-   "text": "Pospuesta 1+ vez o 7+ días (sin contar las de riesgo alto)",
-   "font": "body"
-  },
-  {
-   "sel": "#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule",
-   "text": "Pospuesta 1+ vez o 1+ día (sin contar alto ni medio)",
-   "font": "body"
-  },
-  {
-   "sel": "#sb_ask-ai .nav-title",
-   "text": "Pregúntale a BRANIA",
-   "font": "sidebar"
-  },
-  {
-   "sel": "body:has(#hl_header--copilot-icon:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Pregúntale a BRANIA",
-   "font": "tooltip11"
-  },
-  {
-   "sel": ".askai-sidebar-header__brand-text",
-   "text": "Pregúntale a BRANIA",
-   "font": "brand15"
-  },
-  {
-   "sel": ".askai-welcome-header__title",
-   "text": "¿En qué estás pensando?",
-   "font": "greeting28"
-  },
-  {
-   "sel": "body:has(#sb_launchpad:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Panel",
-   "font": "tooltip11"
-  },
-  {
-   "sel": "body:has(#sb_opportunities:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Oportunidades",
-   "font": "tooltip11"
-  },
-  {
-   "sel": "body:has(#sb_vibe:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Estudio de IA",
-   "font": "tooltip11"
-  },
-  {
-   "sel": "body:has(#sb_memberships:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Membresías",
-   "font": "tooltip11"
-  },
-  {
-   "sel": "body:has(#sb_app-media:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Multimedia",
-   "font": "tooltip11"
-  },
-  {
-   "sel": "body:has(#sb_app-marketplace:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Aplicaciones",
-   "font": "tooltip11"
-  },
-  {
-   "sel": "body:has(#sb_location-email-services:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Servicios de correo",
-   "font": "tooltip11"
-  },
-  {
-   "sel": "body:has(#sb_import-data:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Importar datos",
-   "font": "tooltip11"
-  },
-  {
-   "sel": "body:has(#sb_manage-scoring:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Puntuación",
-   "font": "tooltip11"
-  },
-  {
-   "sel": "body:has([id=\"sb_common.sidebar.privateIntegrations\"]:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Integraciones privadas",
-   "font": "tooltip11"
-  },
-  {
-   "sel": "body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Oportunidades y embudos",
-   "font": "tooltip11"
-  },
-  {
-   "sel": "body:has(#sb_ask-ai:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Pregúntale a BRANIA",
-   "font": "tooltip11"
-  },
-  {
-   "sel": ".askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label",
-   "text": "Plantillas",
-   "font": "menu14"
-  },
-  {
-   "sel": ".askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label",
-   "text": "Personalizar",
-   "font": "menu14"
-  },
-  {
-   "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)",
-   "text": "Obtén información y toma decisiones más inteligentes con encuestas",
-   "font": "body"
-  },
-  {
-   "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)",
-   "text": "Crea encuestas fácilmente con el editor de arrastrar y soltar",
-   "font": "body"
-  },
-  {
-   "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2)",
-   "text": "Configura flujos de trabajo para dar seguimiento al instante a quienes completan o abandonan la encuesta",
-   "font": "body"
-  },
-  {
-   "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)",
-   "text": "Accede a analíticas en tiempo real para medir y mejorar el rendimiento de tus encuestas",
-   "font": "body"
-  },
-  {
-   "sel": "#create-new-survey-label",
-   "text": "Crear encuesta",
-   "font": "body"
-  },
-  {
-   "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p",
-   "text": "Ver vista previa de la encuesta",
-   "font": "body"
-  },
-  {
-   "sel": "#awesome-features .grid > .hr-card:nth-child(3) .hr-card-content > div > .text-md",
-   "text": "Analítica",
-   "font": "body21"
-  },
-  {
-   "sel": "#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2)",
-   "text": "Personaliza el diseño y la apariencia de tu QR",
-   "font": "body21"
-  },
-  {
-   "sel": "#sp-v3-platform-community > div:nth-child(2)",
-   "text": "Comunidad",
-   "font": "body21"
-  }
- ]
+  "$comment": "Spanish labels for fixed platform text that has no Spanish version (or reads oddly). The build turns this into CSS (scripts/lib/labels.mjs). One entry per label; 'font' = metrics of the original text; 'icon' = the element also holds a dropdown chevron. Never use it for text with live data.",
+  "fonts": {
+    "sidebar": "13.5px/20px",
+    "tab": "14px/25.6px",
+    "submenu": "14px/20px",
+    "title": "20px/30px",
+    "moduleTitle": "18px/28px",
+    "risk": "16px/24px",
+    "button": "13.5px/13.5px",
+    "modalTitle": "18px/28px",
+    "field": "14px/17.5px",
+    "small": "12px/16px",
+    "body": "14px/20px",
+    "pager": "14px/14px",
+    "nTab": "14px/21px",
+    "colTitle": "12.5px/18.75px",
+    "tablePager": "14px/21px",
+    "newBadge": "9.6px/11px",
+    "pageTitle22": "22px/30px",
+    "body21": "14px/21px",
+    "small18": "13px/18px",
+    "th13": "13px/15.6px",
+    "xs": "11px/16px",
+    "desc12": "12px/17px",
+    "btn13": "13px/18px",
+    "tooltip11": "11px/16.5px",
+    "brand15": "15px/15px",
+    "greeting28": "28px/34px",
+    "menu14": "14px/20px",
+    "display30": "30px/38px"
+  },
+  "labels": [
+    {
+      "sel": "#sb_launchpad .hl_text-overflow",
+      "text": "Panel",
+      "font": "sidebar"
+    },
+    {
+      "sel": "#sb_opportunities .hl_text-overflow",
+      "text": "Oportunidades",
+      "font": "sidebar"
+    },
+    {
+      "sel": "#sb_vibe .hl_text-overflow",
+      "text": "Estudio de IA",
+      "font": "sidebar"
+    },
+    {
+      "sel": "#sb_memberships .hl_text-overflow",
+      "text": "Membresías",
+      "font": "sidebar"
+    },
+    {
+      "sel": "#sb_app-media .hl_text-overflow",
+      "text": "Multimedia",
+      "font": "sidebar"
+    },
+    {
+      "sel": "#sb_app-marketplace .hl_text-overflow",
+      "text": "Aplicaciones",
+      "font": "sidebar"
+    },
+    {
+      "sel": "#sb_location-email-services .hl_text-overflow",
+      "text": "Servicios de correo",
+      "font": "sidebar"
+    },
+    {
+      "sel": "#sb_import-data .hl_text-overflow",
+      "text": "Importar datos",
+      "font": "sidebar"
+    },
+    {
+      "sel": "#sb_manage-scoring .hl_text-overflow",
+      "text": "Puntuación",
+      "font": "sidebar"
+    },
+    {
+      "sel": "[id=\"sb_common.sidebar.privateIntegrations\"] .hl_text-overflow",
+      "text": "Integraciones privadas",
+      "font": "sidebar"
+    },
+    {
+      "sel": "#sb_Opportunities-Pipelines .hl_text-overflow",
+      "text": "Oportunidades y embudos",
+      "font": "sidebar"
+    },
+    {
+      "sel": ".hl_header:has(#tb_opportunities-tab) .topmenu-navtitle",
+      "text": "Oportunidades",
+      "font": "moduleTitle"
+    },
+    {
+      "sel": ".hl_header:has(#tb_clientportalCommunities) .topmenu-navtitle",
+      "text": "Membresías",
+      "font": "moduleTitle"
+    },
+    {
+      "sel": "#tb_opportunities-tab > span.flex.items-center",
+      "text": "Oportunidades",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_pipeline > span.flex.items-center",
+      "text": "Embudos de venta",
+      "font": "tab"
+    },
+    {
+      "sel": "#opportunities .hr-collapse-item__header-main p.hr-text.hr-text-lg",
+      "text": "Oportunidades",
+      "font": "submenu"
+    },
+    {
+      "sel": "#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title",
+      "text": "Riesgo alto",
+      "font": "risk"
+    },
+    {
+      "sel": "#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title",
+      "text": "Riesgo medio",
+      "font": "risk"
+    },
+    {
+      "sel": "#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title",
+      "text": "Riesgo bajo",
+      "font": "risk"
+    },
+    {
+      "sel": ".crm-opportunities-modal .ui-modal-heading .title",
+      "text": "Añadir una nueva oportunidad",
+      "font": "modalTitle",
+      "icon": true
+    },
+    {
+      "sel": ".crm-opportunities-modal .ui-modal-heading .description",
+      "text": "Crea una oportunidad con sus detalles y un contacto",
+      "font": "body"
+    },
+    {
+      "sel": ".crm-opportunities-modal button.bg-blue-50",
+      "text": "Información de la oportunidad",
+      "font": "small"
+    },
+    {
+      "sel": ".crm-opportunities-modal .hr-form-item:has(#OpportunityPipeline) .hr-form-item-label__text",
+      "text": "Embudo de venta",
+      "font": "field"
+    },
+    {
+      "sel": ".crm-opportunities-modal .hr-form-item:has(#OpportunityStage) .hr-form-item-label__text",
+      "text": "Etapa",
+      "font": "field"
+    },
+    {
+      "sel": "#tb_payment-invoices > span.flex.items-center",
+      "text": "Facturas y cotizaciones",
+      "font": "tab",
+      "icon": true
+    },
+    {
+      "sel": "#tb_payment-invoices a[href$=\"/payments/v2/estimates\"] > span.flex.items-center",
+      "text": "Cotizaciones",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb-sub_all-abandoned-checkouts > span.flex.items-center",
+      "text": "Carritos abandonados",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb-sub_all-products > span.flex.items-center",
+      "text": "Productos",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb-sub_all-collections > span.flex.items-center",
+      "text": "Colecciones",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb-sub_all-inventory > span.flex.items-center",
+      "text": "Inventario",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb-sub_product-reviews > span.flex.items-center",
+      "text": "Reseñas",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb_payments-coupons > span.flex.items-center",
+      "text": "Cupones",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_gift-cards > span.flex.items-center",
+      "text": "Tarjetas de regalo",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_countdown-timer > span.flex.items-center",
+      "text": "Cuentas regresivas",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_affiliate-manager > span.flex.items-center:first-child",
+      "text": "Afiliados",
+      "font": "tab",
+      "icon": true
+    },
+    {
+      "sel": "#tb-sub_campaigns > span.flex.items-center",
+      "text": "Campañas",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb-sub_affiliates-tab > span.flex.items-center",
+      "text": "Afiliados",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb-sub_payouts-tab > span.flex.items-center",
+      "text": "Pagos a afiliados",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb-sub_media-tab > span.flex.items-center",
+      "text": "Recursos",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb_ai-agents-agent-studio > span.flex.items-center",
+      "text": "Estudio de agentes",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_ai-agents-voice-ai > span.flex.items-center",
+      "text": "IA de voz",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_ai-agents-conversation-ai > span.flex.items-center",
+      "text": "IA conversacional",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_ai-agents-knowledge-base > span.flex.items-center",
+      "text": "Base de conocimiento",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_ai-agents-agent-templates > span.flex.items-center",
+      "text": "Plantillas de agentes",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_ai-agents-content-ai > span.flex.items-center",
+      "text": "IA de contenido",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_agent-logs > span.flex.items-center",
+      "text": "Registros de agentes",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_ai-agents-industry-agents > span.flex.items-center",
+      "text": "Agentes por industria",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_workflow-overview > span.flex.items-center",
+      "text": "Resumen",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_analytics > span.flex.items-center",
+      "text": "Analítica",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb-sub_branded-app > span.flex.items-center",
+      "text": "App con tu marca",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb-sub_branded-app-memberships > span.flex.items-center",
+      "text": "App con tu marca",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb-sub_communities-branded-app > span.flex.items-center",
+      "text": "App con tu marca",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb_certificates > span.flex.items-center",
+      "text": "Certificados",
+      "font": "tab",
+      "icon": true
+    },
+    {
+      "sel": "#tb-sub_certificates-email-settings > span.flex.items-center",
+      "text": "Configuración de correo",
+      "font": "submenu"
+    },
+    {
+      "sel": "#tb_reputation-overview > span.flex.items-center",
+      "text": "Resumen",
+      "font": "tab"
+    },
+    {
+      "sel": "#tb_online-listings > span.flex.items-center",
+      "text": "Directorios",
+      "font": "tab"
+    },
+    {
+      "sel": "hlcontentwrap .wrapper:has(#task) .smartlist-title",
+      "text": "Tareas",
+      "font": "title"
+    },
+    {
+      "sel": "#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content",
+      "text": "Añadir tarea",
+      "font": "button"
+    },
+    {
+      "sel": "#AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap",
+      "text": "Próximas",
+      "font": "submenu"
+    },
+    {
+      "sel": "#AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap",
+      "text": "Canceladas",
+      "font": "submenu"
+    },
+    {
+      "sel": "#AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap",
+      "text": "Todas",
+      "font": "submenu"
+    },
+    {
+      "sel": "[id=\"Captura nuevos leads con anuncios de Facebook e Instagram\"] .hr-collapse-item__header-main p.hr-text > span",
+      "text": "Captura nuevos clientes potenciales con anuncios de Facebook e Instagram",
+      "font": "submenu"
+    },
+    {
+      "sel": "#app-pagination-previous .hr-button__content",
+      "text": "Anterior",
+      "font": "pager"
+    },
+    {
+      "sel": "#app-pagination-next .hr-button__content",
+      "text": "Siguiente",
+      "font": "pager"
+    },
+    {
+      "sel": "#attribution-dashboard [data-name=\"opportunities\"] .n-tabs-tab__label",
+      "text": "Oportunidades",
+      "font": "nTab"
+    },
+    {
+      "sel": "#custom-values-table th:nth-child(4) .hr-ellipsis > span",
+      "text": "Clave",
+      "font": "body"
+    },
+    {
+      "sel": "#task .tabulator-col[tabulator-field=\"relations.TASK_CONTACT_ASSOCIATION\"] .tabulator-col-title",
+      "text": "Contactos asociados",
+      "font": "colTitle"
+    },
+    {
+      "sel": "#advanced-fitler-drawer .hr-drawer-footer .hr-button__content > span.ml-1",
+      "text": "Borrar todos los filtros",
+      "font": "pager"
+    },
+    {
+      "sel": ".tabulator .tabulator-footer .tabulator-paginator .tabulator-page[data-page=\"prev\"]",
+      "text": "Anterior",
+      "font": "tablePager"
+    },
+    {
+      "sel": ".hl_new_badge_top_menu",
+      "text": "Nuevo",
+      "font": "newBadge"
+    },
+    {
+      "sel": "#agent-studio-container .agents-shell__title",
+      "text": "Agentes gestionados",
+      "font": "pageTitle22"
+    },
+    {
+      "sel": "#agent-studio-container .agents-shell__subtitle",
+      "text": "Crea y administra agentes de IA para tu negocio",
+      "font": "body21"
+    },
+    {
+      "sel": "#cad-new-sub-folder-label .agents-shell__btn-content",
+      "text": "Nueva carpeta",
+      "font": "pager"
+    },
+    {
+      "sel": "#cad-create-sub-label .agents-shell__btn-content",
+      "text": "Crear agente gestionado",
+      "font": "pager"
+    },
+    {
+      "sel": "#sad-sort-btn .hr-space-inner > span",
+      "text": "Ordenar por",
+      "font": "small18"
+    },
+    {
+      "sel": "#sad-wrapper-header-global-filter .hr-input__placeholder > span",
+      "text": "Buscar",
+      "font": "body21"
+    },
+    {
+      "sel": "#sad-table th:nth-child(2) .hr-ellipsis > span",
+      "text": "Nombre",
+      "font": "body"
+    },
+    {
+      "sel": "#sad-table th:nth-child(3) span.mr-1",
+      "text": "Estado",
+      "font": "th13"
+    },
+    {
+      "sel": "#sad-table th:nth-child(4) span.mr-1",
+      "text": "Última actualización",
+      "font": "th13"
+    },
+    {
+      "sel": "#sad-table th:nth-child(5) span.mr-1",
+      "text": "Creado el",
+      "font": "th13"
+    },
+    {
+      "sel": "#sad-table th:nth-child(7) .hr-ellipsis > span",
+      "text": "Acciones",
+      "font": "body"
+    },
+    {
+      "sel": ".hr-pagination-cntr .hr-dropdown-cntr > p:first-child",
+      "text": "Filas por página",
+      "font": "xs"
+    },
+    {
+      "sel": "#hr-prev-button .hr-button__content > p",
+      "text": "Anterior",
+      "font": "xs"
+    },
+    {
+      "sel": "#next-button .hr-button__content > p",
+      "text": "Siguiente",
+      "font": "xs"
+    },
+    {
+      "sel": "#empty-sad-empty p.hr-text-lg",
+      "text": "Aún no hay agentes gestionados",
+      "font": "body"
+    },
+    {
+      "sel": "#empty-sad-empty p.hr-text-md",
+      "text": "Crea tu primer agente gestionado para empezar.",
+      "font": "small18"
+    },
+    {
+      "sel": "#pipeline-page-title",
+      "text": "Embudos de venta",
+      "font": "title"
+    },
+    {
+      "sel": "#pipeline-page-description",
+      "text": "Utilice los embudos de venta para dar seguimiento a las oportunidades y al progreso de las ventas en cada etapa.",
+      "font": "desc12"
+    },
+    {
+      "sel": "#pipeline-page #primary-blue span.font-semibold",
+      "text": "Crear embudo",
+      "font": "btn13"
+    },
+    {
+      "sel": "#bulkActionsList p.hr-text-4xl",
+      "text": "Acciones en lote",
+      "font": "title"
+    },
+    {
+      "sel": "#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule",
+      "text": "Pospuesta 2+ veces o 14+ días",
+      "font": "body"
+    },
+    {
+      "sel": "#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule",
+      "text": "Pospuesta 1+ vez o 7+ días (sin contar las de riesgo alto)",
+      "font": "body"
+    },
+    {
+      "sel": "#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule",
+      "text": "Pospuesta 1+ vez o 1+ día (sin contar alto ni medio)",
+      "font": "body"
+    },
+    {
+      "sel": "#sb_ask-ai .nav-title",
+      "text": "Pregúntale a BRANIA",
+      "font": "sidebar"
+    },
+    {
+      "sel": "body:has(#hl_header--copilot-icon:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Pregúntale a BRANIA",
+      "font": "tooltip11"
+    },
+    {
+      "sel": ".askai-sidebar-header__brand-text",
+      "text": "Pregúntale a BRANIA",
+      "font": "brand15"
+    },
+    {
+      "sel": ".askai-welcome-header__title",
+      "text": "¿En qué estás pensando?",
+      "font": "greeting28"
+    },
+    {
+      "sel": "body:has(#sb_launchpad:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Panel",
+      "font": "tooltip11"
+    },
+    {
+      "sel": "body:has(#sb_opportunities:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Oportunidades",
+      "font": "tooltip11"
+    },
+    {
+      "sel": "body:has(#sb_vibe:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Estudio de IA",
+      "font": "tooltip11"
+    },
+    {
+      "sel": "body:has(#sb_memberships:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Membresías",
+      "font": "tooltip11"
+    },
+    {
+      "sel": "body:has(#sb_app-media:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Multimedia",
+      "font": "tooltip11"
+    },
+    {
+      "sel": "body:has(#sb_app-marketplace:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Aplicaciones",
+      "font": "tooltip11"
+    },
+    {
+      "sel": "body:has(#sb_location-email-services:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Servicios de correo",
+      "font": "tooltip11"
+    },
+    {
+      "sel": "body:has(#sb_import-data:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Importar datos",
+      "font": "tooltip11"
+    },
+    {
+      "sel": "body:has(#sb_manage-scoring:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Puntuación",
+      "font": "tooltip11"
+    },
+    {
+      "sel": "body:has([id=\"sb_common.sidebar.privateIntegrations\"]:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Integraciones privadas",
+      "font": "tooltip11"
+    },
+    {
+      "sel": "body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Oportunidades y embudos",
+      "font": "tooltip11"
+    },
+    {
+      "sel": "body:has(#sb_ask-ai:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+      "text": "Pregúntale a BRANIA",
+      "font": "tooltip11"
+    },
+    {
+      "sel": ".askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label",
+      "text": "Plantillas",
+      "font": "menu14"
+    },
+    {
+      "sel": ".askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label",
+      "text": "Personalizar",
+      "font": "menu14"
+    },
+    {
+      "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)",
+      "text": "Obtén información y toma decisiones más inteligentes con encuestas",
+      "font": "body"
+    },
+    {
+      "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)",
+      "text": "Crea encuestas fácilmente con el editor de arrastrar y soltar",
+      "font": "body"
+    },
+    {
+      "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2)",
+      "text": "Configura flujos de trabajo para dar seguimiento al instante a quienes completan o abandonan la encuesta",
+      "font": "body"
+    },
+    {
+      "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)",
+      "text": "Accede a analíticas en tiempo real para medir y mejorar el rendimiento de tus encuestas",
+      "font": "body"
+    },
+    {
+      "sel": "#create-new-survey-label",
+      "text": "Crear encuesta",
+      "font": "body"
+    },
+    {
+      "sel": ".landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p",
+      "text": "Ver vista previa de la encuesta",
+      "font": "body"
+    },
+    {
+      "sel": "#awesome-features .grid > .hr-card:nth-child(3) .hr-card-content > div > .text-md",
+      "text": "Analítica",
+      "font": "body21"
+    },
+    {
+      "sel": "#landing-page .header .my-8 > div:nth-child(4) > span:nth-child(2)",
+      "text": "Personaliza el diseño y la apariencia de tu QR",
+      "font": "body21"
+    },
+    {
+      "sel": "#sp-v3-platform-community > div:nth-child(2)",
+      "text": "Comunidad",
+      "font": "body21"
+    },
+    {
+      "sel": "#content-ai-dashboard .hl-header .title.hl-display-sm-medium",
+      "text": "IA de contenido",
+      "font": "display30"
+    },
+    {
+      "sel": "#content-ai-dashboard .n-tabs-wrapper > .n-tabs-tab-wrapper:nth-child(2) .n-tabs-tab__label",
+      "text": "Texto",
+      "font": "nTab"
+    },
+    {
+      "sel": "#content-ai-dashboard .n-tabs-wrapper > .n-tabs-tab-wrapper:nth-child(3) .n-tabs-tab__label",
+      "text": "Imagen",
+      "font": "nTab"
+    },
+    {
+      "sel": "#ai-employee-upgrade .n-button__content > span",
+      "text": "Pasar al plan ilimitado de Empleado IA",
+      "font": "brand15"
+    }
+  ]
 }

@@ -124,3 +124,93 @@
 .bot-card .bot-header .text-purple-900 {
   color: var(--bb-text-strong) !important;
 }
+/* first row of cards against the top of the scroller: their shadow was cut */
+div.overflow-y-auto.grid-cols-12:has(> .col-span-10 .bot-card) {
+  padding-top: 12px !important;
+  margin-top: -12px !important;
+}
+/* "Gratis" pill: near-white with a grey border → accent tint ("Pagado" keeps its green) */
+.bot-card .hr-tag.ui-default {
+  background: color-mix(in srgb, var(--bb-accent) 10%, var(--bb-bg)) !important;
+  border-color: transparent !important;
+  color: var(--bb-text-label) !important;
+}
+
+/* ── Base de conocimiento ── */
+/* "what's new" carousel: mint/lavender gradient with a blue 1px border, purple icon, grey
+   and green dots → raised surface card, accent icon and dots */
+#kb-whats-new-banner.kb-whats-new-banner {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  overflow: visible !important;
+}
+.kb-whats-new-banner .kb-whats-new-banner__icon {
+  background: var(--bb-accent) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.kb-whats-new-banner .kb-whats-new-banner__title {
+  color: var(--bb-text-strong) !important;
+}
+.kb-whats-new-banner .kb-whats-new-banner__description {
+  color: var(--bb-text-label) !important;
+}
+.kb-whats-new-banner .kb-whats-new-banner__dot {
+  background: color-mix(in srgb, var(--bb-accent) 25%, var(--bb-bg)) !important;
+}
+.kb-whats-new-banner .kb-whats-new-banner__dot--active {
+  background: var(--bb-accent) !important;
+}
+/* the table card sat inside the list card (both raised, 26px), its shadow cut on all sides
+   → one card: the table is flat */
+#knowledge-base-list-card #knowledge-base-table-wrapper {
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+
+/* ── IA de contenido ── */
+/* stat cards: white with a grey border and 8px corners → raised theme cards; green icon
+   disc → accent tint */
+#content-ai-dashboard .hl-statistic {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+#content-ai-dashboard .hl-statistic .icon {
+  background: color-mix(in srgb, var(--bb-accent) 14%, var(--bb-bg)) !important;
+  border-color: color-mix(in srgb, var(--bb-accent) 6%, var(--bb-bg)) !important;
+  color: var(--bb-accent) !important;
+}
+#content-ai-dashboard .hl-statistic .icon svg {
+  color: var(--bb-accent) !important;
+}
+/* source filter: a row of square raised buttons → sunken pill rail, active segment raised */
+#content-ai-dashboard .filter-bar .n-button-group {
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  padding: 4px !important;
+  gap: 2px;
+}
+#content-ai-dashboard .filter-bar .n-button-group > .n-button {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 999px !important;
+}
+#content-ai-dashboard .filter-bar .n-button-group > .n-button :is(.n-button__border, .n-button__state-border) {
+  border: none !important;
+}
+#content-ai-dashboard .filter-bar .n-button-group > .n-button.hl-active-btn {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-accent) !important;
+}
+/* upgrade link: purple → accent */
+#ai-employee-upgrade.n-button,
+#ai-employee-upgrade.n-button :is(span, svg, path) {
+  color: var(--bb-accent) !important;
+}
