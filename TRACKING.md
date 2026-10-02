@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.2.1` (custom CSS field, since 2026-10-02). `v1.2.5` is published: change the `@import` to use it.
-**In progress:** `v1.2.6` (branch `fix/v1.2.6`).
+**Live in the platform:** `v1.2.1` (custom CSS field, since 2026-10-02). `v1.2.6` is published: change the `@import` to use it.
+**In progress:** `v1.2.7` (branch `fix/v1.2.7`).
 
 ## Releases
 
@@ -20,7 +20,8 @@ publish is in [README.md](README.md).
 | v1.2.3 | fixes | Conversaciones, Marketing › Planificador, Launchpad in Spanish | |
 | v1.2.4 | fixes | Sub-tab sweep: list views (Tareas, Empresas), Pagos sub-tabs | |
 | v1.2.5 | fixes | Sub-tab sweep: Calendarios, Oportunidades, Marketing; Spanish labels outside Launchpad | |
-| v1.2.6 | fixes | Spanish labels everywhere from `src/labels.json`; Launchpad → Panel; odd translations | in progress |
+| v1.2.6 | fixes | Spanish labels everywhere from `src/labels.json`; Launchpad → Panel; odd translations | |
+| v1.2.7 | fixes | Opaque header and dashboard toolbar (content showed through when scrolling); Panel and calendar backgrounds | in progress |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -55,7 +56,16 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.2.6 (in progress)
+### v1.2.7 (in progress)
+
+| Fix | Where | Verified |
+|---|---|---|
+| Header box (pill + page tabs row) was transparent: scrolled content showed through the tabs → page surface, square box (the pill keeps its radius), solid 6px band above | every view with page tabs | Marketing scrolled: clean; compare: only the header (3 props) |
+| Dashboard sticky toolbar (Dashboard / Nuevo / Últimos 30 días / Editar tablero) was transparent → page surface, extended 30px up to cover the band under the header | Tablero | scrolled capture |
+| Panel page background was the platform near-white #f9fafb → page surface | Panel | compare: 2 elements |
+| Calendar grid container white band (top and left) → page surface; the platform injects `#fc-calendar-container-v2 { background: #fff !important }` after the theme, so the rule uses `div#…` | Calendarios › Vista de calendario | compare: 1 element |
+
+### v1.2.6 (published)
 
 All Spanish label replacements now live in `src/labels.json` (55 labels); the hand-written
 blocks were removed from the section files. Dropdown tabs keep their chevron (it was lost
@@ -128,23 +138,23 @@ New token: `--bb-accent-filter` paints any monochrome `<img>` icon in the exact 
 **Global / header**
 - [ ] User avatar (`.avatar_img`) is purple `rgb(127,117,189)`. *Decision pending.*
 - [ ] Header translate icon (`#i18n-feedback`) and AI sparkle icon are purple. *Decision pending.*
-- [ ] Help icon `#hl_header--help-icon`: blue background hidden behind a 40px inset shadow. Set the background to a token (no visual change, less fragile).
+- [x] Help icon `#hl_header--help-icon`: its blue background is inline `!important`, so the 40px inset shadow is the right workaround (documented in 070). Nothing to change.
 
 **Sidebar**
-- [ ] Per-item color cycle is missing `#sb_ask-ai` and `#sb_AI\ Agents` (the id has a space); AI Studio (`#sb_vibe`) breaks the order of the cycle.
+- [x] Per-item color cycle: "Agentes de IA" was already in it (`[id="sb_AI Agents"]`); "Pregúntale a la IA" falls back to the accent, which is the color the cycle gives it (it sits before Panel/red).
 - [ ] Conversaciones active color `#3f7396` is a muted blue from the mockup. *Decision pending: keep or move to teal.*
 
 **Header (page tabs)**
-- [ ] The tabs bar under the header is transparent: content scrolled under it shows through the tabs (seen in Marketing › Planificador).
+- [x] Transparent tabs row → v1.2.7 (also the dashboard toolbar).
 
 **Conversaciones**
 - [x] Bubbles, contact panel sections, "Cargar más", channel switch icon → v1.2.3.
 
 **Calendarios**
-- [ ] `#fc-calendar-container` computes a white background; looks covered by the grid. Verify.
+- [x] `#fc-calendar-container-v2` white band → v1.2.7.
 
 **Launchpad**
-- [ ] `#launchpad-micro-app` computes `#f9fafb`; looks covered by the content. Verify.
+- [x] `#launchpad-micro-app` near-white background → v1.2.7.
 - [x] Language: reviewed the 5 guide categories with every step expanded; only "Launchpad" and "leads" were English (→ v1.2.3). Brand names (Facebook, Instagram, Messenger, Stripe, WordPress) and SMS/CRM stay. "Marketing" is accepted in Spanish; *decide* if it should be "Mercadotecnia".
 - [ ] Text replacements are tied to the platform text (the step selector uses the step title as id): if the platform renames a step, the rule stops matching (no harm, the original text shows).
 
@@ -162,7 +172,7 @@ New token: `--bb-accent-filter` paints any monochrome `<img>` icon in the exact 
 - [ ] The chart is a canvas: its "Ingresos esperados" series stays platform blue; the legend dot and the table column keep the same blue so they still match the bars.
 
 **Marketing › Administrador de anuncios**
-- [ ] Feature cards: grey illustration areas (`.bg-gray-50`) report square corners; verify visually (the tab froze during the review).
+- [x] Feature cards verified: rounded and raised; the grey areas are the illustrations inside them (false positive).
 
 **Clean in the last review:** Contactos, Oportunidades (board), Pagos (all sub-tabs), Ask AI, Configuración native pages
 (calendars, objects, users, tags), Contactos › Acciones en lote, Conversaciones (all sub-tabs), Clientes Potenciales › Secuencia and Acciones en lote, Marketing › Fragmentos, Temporizadores, Enlaces de activación, Paneles de marca.
@@ -195,6 +205,8 @@ load in the audit; confirm one by one).
   heights change everywhere until it loads. Use `bbSnap.compare(prevTag, sha)` (both sides
   through a `<style>`, waits for `document.fonts.ready`).
 - **Replacing platform text:** `font-size: 0` on the text element + `::after { content: "…"; font-size: …; line-height: … }` with the original metrics. Only for fixed labels; dynamic text cannot be translated with CSS.
+- **Injected component styles** can repeat the theme's selector with `!important` after the theme loads (calendar container): add a type or class to the selector to win on specificity.
+- **Sticky/fixed bars** must be opaque (page surface), or scrolled content shows through them.
 - **Inline `!important`** (e.g. `border-radius: 0px !important` on "Cargar más") cannot be overridden from a stylesheet: shape and clip a same-size wrapper with `:has(> …)`.
 - **Inline style matching:** `[style*="color: rgb(…)"]` also matches `background-color`; use `^=` and `"; color:"`.
 - **compare() noise:** ignore `#claude-agent-*` elements: they belong to the browser automation extension, not to the page.
