@@ -91,13 +91,14 @@
 
 /* v1.3.9: the assistant panel mounts in English ("What's on your mind…", "Ask anything…")
    and its Spanish strings arrive ~0.5s later, with no DOM change other than the text, so
-   the switch cannot be detected. With a Spanish profile the welcome stage (greeting and
-   composer) fades in after 0.6s, once the Spanish text is there. The panel is re-mounted on
-   every open, so the delay runs each time. The panel title is a fixed label (labels.json). */
+   the switch cannot be detected. The title and the greeting are fixed labels (labels.json);
+   the composer placeholder cannot be relabelled, so with a Spanish profile the composer
+   field fades in after 0.6s, once the Spanish placeholder is there. The panel is re-mounted
+   on every open, so the delay runs each time. */
 @keyframes bb-askai-reveal {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-html:lang(es) .askai-sidebar .askai-revamp-welcome-stage {
+html:lang(es) .askai-sidebar .askai-composer-textarea__field textarea {
   animation: bb-askai-reveal 0.2s ease-out 0.6s both;
 }

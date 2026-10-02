@@ -4344,14 +4344,15 @@ aside#sidebar-v2 {
 
 /* v1.3.9: the assistant panel mounts in English ("What's on your mind…", "Ask anything…")
    and its Spanish strings arrive ~0.5s later, with no DOM change other than the text, so
-   the switch cannot be detected. With a Spanish profile the welcome stage (greeting and
-   composer) fades in after 0.6s, once the Spanish text is there. The panel is re-mounted on
-   every open, so the delay runs each time. The panel title is a fixed label (labels.json). */
+   the switch cannot be detected. The title and the greeting are fixed labels (labels.json);
+   the composer placeholder cannot be relabelled, so with a Spanish profile the composer
+   field fades in after 0.6s, once the Spanish placeholder is there. The panel is re-mounted
+   on every open, so the delay runs each time. */
 @keyframes bb-askai-reveal {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-html:lang(es) .askai-sidebar .askai-revamp-welcome-stage {
+html:lang(es) .askai-sidebar .askai-composer-textarea__field textarea {
   animation: bb-askai-reveal 0.2s ease-out 0.6s both;
 }
 /* ─────────────────────────────────────────────────────────────
@@ -8030,7 +8031,8 @@ html:not(:lang(es)) #sb_ask-ai .nav-title,
 html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner,
 html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner,
 html:lang(es) .askai-sidebar-header__brand-text,
-html:not(:lang(es)) .askai-sidebar-header__brand-text {
+html:not(:lang(es)) .askai-sidebar-header__brand-text,
+html:lang(es) .askai-welcome-header__title {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8132,7 +8134,8 @@ html:not(:lang(es)) #sb_ask-ai .nav-title::after,
 html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 html:lang(es) .askai-sidebar-header__brand-text::after,
-html:not(:lang(es)) .askai-sidebar-header__brand-text::after {
+html:not(:lang(es)) .askai-sidebar-header__brand-text::after,
+html:lang(es) .askai-welcome-header__title::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8649,4 +8652,9 @@ html:not(:lang(es)) .askai-sidebar-header__brand-text::after {
   content: "Ask BRANIA";
   font-size: 15px;
   line-height: 15px;
+}
+html:lang(es) .askai-welcome-header__title::after {
+  content: "¿En qué estás pensando?";
+  font-size: 28px;
+  line-height: 34px;
 }

@@ -25,7 +25,8 @@
   "desc12": "12px/17px",
   "btn13": "13px/18px",
   "tooltip11": "11px/16.5px",
-  "brand15": "15px/15px"
+  "brand15": "15px/15px",
+  "greeting28": "28px/34px"
  },
  "labels": [
   {
@@ -526,6 +527,11 @@
    "sel": "html:not(:lang(es)) .askai-sidebar-header__brand-text",
    "text": "Ask BRANIA",
    "font": "brand15"
+  },
+  {
+   "sel": "html:lang(es) .askai-welcome-header__title",
+   "text": "¿En qué estás pensando?",
+   "font": "greeting28"
   }
  ]
 }
