@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.3.12` (saved 2026-10-02).
-**In progress:** `v1.3.13` (Spanish sweep of the remaining views; merged, not tagged: needs the user's approval, then tag and update the platform field).
+**Live in the platform:** `v1.3.13` (saved 2026-10-02; checked on every module).
+**In progress:** — Next work: the backlog from the full inspection (below).
 
 ## Releases
 
@@ -35,8 +35,8 @@ publish is in [README.md](README.md).
 | v1.3.9 | labels | The AI assistant label follows the profile language: "Pregúntale a BRANIA" (Spanish) / "Ask BRANIA" (other languages) | live |
 | v1.3.10 | labels | Assistant labels always Spanish: `<html lang>` is not the UI language | live |
 | v1.3.11 | fixes | Pagos › Enlaces de pago and Configuración no longer start under the header | live |
-| v1.3.12 | fixes | Estudio de IA no longer under the sidebar and header; sidebar fits the screen height | live |
-| v1.3.13 | labels, fixes | Spanish sweep: Encuestas and Códigos QR landings, social planner "Comunidad", Labs card in teal | merged, not tagged |
+| v1.3.12 | fixes | Estudio de IA no longer under the sidebar and header; sidebar fits the screen height | |
+| v1.3.13 | labels, fixes | Spanish sweep: Encuestas and Códigos QR landings, social planner "Comunidad", Labs card in teal | live |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -70,9 +70,95 @@ Why 11 and 19 are not at the top: moving them past the view segments flips the
 cascade against view rules of equal specificity (see README). Each view refactor
 resolves its own conflicts with them.
 
+## Backlog from the full inspection (2026-10-02, v1.3.13 live)
+
+Six read-only inspections in parallel covered every module of the Capilea Mexico sub-account
+(`qkTUUwSESyjvFnBVUzrZ`) and, for Agentes de IA and the assistant, Tamaulipas (`FdAFeRpEKIdcsvcFKvcO`).
+Every page loaded `@v1.3.13`. Severity: **H** very visible, **M** visible, **L** minor.
+Selectors were taken from the live DOM. Check them again before writing a rule.
+
+### 1. Theme bugs (caused by the theme or regressions): fix first
+
+- [ ] **H Informes › Informe del agente:** the leaderboard card `#reporting-agent-dashboard .card.leader-board` gets the page surface (#e9ebec) but keeps its white text (24px title; `th` at rgba(255,255,255,.7)), so it is unreadable. Make the text dark, or keep a dark card.
+- [ ] **H Configuración menu:** `#sb_Opportunities-Pipelines` has no visible label. Its label `::after` "Oportunidades y embudos" is 175px inside a 164px `span.nav-title.hl_text-overflow`, and an overflowing atomic inline-block disappears under `text-overflow: ellipsis`. Shorten the label ("Embudos") or let long sidebar labels use `display: inline`. `#sb_domains-urlRedirects` is also cut ("Dominios y redireccion…").
+- [ ] **H Membresías › Cursos › Tablero:** the "Haga realidad sus ideas" banner is solid black. `.rounded-xl.overflow-hidden.bg-blue-600 > .absolute.inset-0.bg-black.bg-opacity-20` computes to rgb(0,0,0) at full opacity: the Tailwind opacity variable is probably lost through a theme rule.
+- [ ] **H Agentes de IA › Estudio de agentes:** the page header ("Agentes gestionados" and its buttons) is under the fixed header. `#agent-studio-container` padding-top is 92px but `header.hl_header` ends at 134px. Check whether this is a regression from the v1.3.12 header and sidebar changes.
+- [ ] **H AI assistant panel** (Tamaulipas): its toolbar (Nuevo chat, Cerrar) is under `header.hl_header`, so the close button is hidden. `.askai-sidebar` / `.askai-sidebar__main` are #fff with 0 radius.
+- [ ] **H Sitios › Códigos QR:** the page cannot scroll, so the feature cards are cut. `.qrCodeListApp div.h-full.w-full.overflow-hidden` is 751px tall for 829px of content.
+- [ ] **M Pagos › Cupones:** the selected filter ("Todo") is raised. Selected must be sunken: `.n-button-group .n-button.hl-active-btn`.
+- [ ] **M Contactos › Filtros drawer:** the last field of each group is outdented and grey (#8b9397, margin-left 0 instead of 14px): `.hr-drawer-body-content-wrapper .hr-collapse-transition > div:last-child`.
+- [ ] **M Conversaciones › contact panel:** the phone-type button shows "Sele…" and the number is cut ("55 0000 00"): `[id^=phone-label-] .hr-button` is 64px. The sticky tabs/search area in `#record-details-lhs` has gaps, so labels show through when scrolling.
+- [ ] **M Aplicaciones:** the sticky `footer.pagination-wrapper` lets the cards show through. **M Membresías analytics:** content shows above the sticky filter row (`.membershipAnalyticsApp .sticky.-top-2.z-10`).
+- [ ] **L Contactos:** after Escape a black focus outline appears on `div.hr-config-provider`.
+
+### 2. Surfaces and colors still off-theme
+
+White or flat surfaces → page surface / raised or sunken:
+- [ ] H Contactos › contact detail: field sections `#record-blocks-container .hr-collapse-item__content-inner` are #fff with square corners.
+- [ ] H Tareas and Empresas: list on a flat #f9fafb full-width box with 0 radius (`#CustomObjectsList div.wrapper`, `#BusinessList div.wrapper`), with an empty ~90px gap above the Tareas list.
+- [ ] H Agentes de IA › Agentes por industria: `div.ia-canvas` #fff with 1px #eaecf0 border; `div.home` #f9fafb; `div.home-tabs` #fff; card bodies `div.template-card__body` and pills `span.template-card__subtype-pill` white.
+- [ ] H Agentes de IA › Estudio de agentes (`.sa-shell-host`, `.agents-shell`, `.agents-page`, `.agents-page__footer`), Registros de agentes (`#agent-logs-content`, `div.metrics-stat-card`, `div.metrics-chart-card`, `.chart-type-toggle`), IA de contenido (`div.hl-statistic`): white.
+- [ ] H Sitios › Analítica: KPI cards `label.hr-radio-button.ui-radio-group-item.compact-radio-item` are white with 12px corners; the selected one has a 1px #155eef border and a blue title. Segment rail `.hr-tabs--segment-type .hr-tabs-rail` is flat #f7f7fa.
+- [ ] H Reputación › Configuración: selected radio card `label.hr-radio-button--checked.ui-radio-group-item` is white with a #155eef border. Widgets segment: capsule white and raised, rail #f7f7fa (selected must be sunken).
+- [ ] H Configuración › Objetos (`.custom-obj-list .ui-header` white with a 1px border, title #004eeb), Redireccionamiento de URL (`.hl-statistic` white with a 1px border, 8px radius), Integraciones (`.integration-card .card-header` #fff, card radius 4px).
+- [ ] H Sitios › Widget de chat: header strip `.hr-tabs-nav--line-type.hr-tabs-nav` flat white with no padding; "+ Nuevo" touches the edge.
+- [ ] M Facturación `#location-billing` #fcfcfd (white strip at the bottom); Aplicaciones `section` #fcfcfd; "Gratis" tags `div.hr-tag.ui-tag` white; Multimedia modal `.n-card.n-modal.hl-modal` #fff; Informes custom-report cards (`#location-custom-reports .grid-cols-3 > div.p-4`, 1px border, 4px radius), call-sources table (`#widget-data-table`), `#ads-date-picker-input` (also cut) and `div.search` / `#filter-input` white.
+- [ ] M Agentes de IA › Primeros pasos: `div.feature-sections` #fafaf9 with 1px border; user chat bubbles white with 1px border; inactive "ship AI" tab titles #d7d3d0 (nearly invisible). IA de voz `section.welcome-stats` flat #f9fafb, `span.prompt-chip` white with border.
+- [ ] M Membresías: `.n-input-group-label` and `.n-tag` #fafafc; off switch rail `.hr-switch__rail` #f2f4f7 (nearly invisible); checked `.n-checkbox--checked` shows no tick.
+- [ ] M Pagos › Configuración › Recibos: editor `.editor-container` flat 1px #d0d5dd border. Pronóstico: "No close date" column header `.forecast1-column-header--undated` #fff.
+- [ ] M Calendarios settings: active services sub-tab `.py-[8px].px-[10px].rounded-[4px]` flat with 4px radius; "Recomendado" badge `div.bg-primary-50` gets card padding (115×54).
+- [ ] L Seguimiento externo `.cm-editor` dark #282c34 with 0 radius; Blogs split button `.hr-button-group` square right edge; WordPress `.n-carousel` clips the raised shadows; Fragmentos / Usuarios table header search and button flush with the card edge (`.hr-table-header-container`).
+
+Platform blue or purple:
+- [ ] H Calendarios (and settings): purple gradient AI tab `.calendar-ai-edge-tab`.
+- [ ] H Configuración › Sistema telefónico: active tab underline #188bf6 (`ul.hl_affiliate--nav li.--active a`), hero `.phoneIntegrationApp .hero-section-container` #b2ccff with square corners, message ramp `#SettingMessageRamp` #155eef, Voz sub-nav selected #155eef, selected provider `label.hr-radio-button--checked` #eff4ff / #155eef.
+- [ ] H Informes: `button.btn.btn-blue` ("Recuperar"), `button.btn.btn-link`, `button.btn.btn-outline-primary` and "Haga clic aquí" in platform blue.
+- [ ] H Membresías: email settings active inner tab #004eeb, `#magic-link-expiry-alert` #edf5fe; Gokollab (`#gokollab`) purple banner and `#product-create`; sample-data banners #f5f8ff with blue border; analytics funnel blue→purple gradient.
+- [ ] H Agentes de IA › IA de voz: orb `div.orb-shadow` / `span.orb-ring`, cursor, `div.tpl-header__eyebrow`, `button.tpl-browse-all__btn` #6938ef. IA de contenido: `button#ai-employee-upgrade` #5b25d0. Primeros pasos: Empezar button `.n-button__border` #6938ef.
+- [ ] M Conversaciones: "Detalles" link #004EEB, outbound bubble #eaeffc with a 1px border. Citas: active `.n-pagination-item--active` #155eef (also Informes), status select with a 2px red border. Pronóstico: "Total" `.fd-summary-total-weighted` #1570ef. Etiquetas: active tab label #155eef. Membresías "Más información" #155eef. Aplicaciones "WL" tag #026aa2. Base de conocimiento `#kb-whats-new-banner` (blue border, lavender icon). Plantillas de agentes `div.bot-header` lavender image. Agentes por industria avatars `div.template-card__avatar` #3b82f6 / #8b5cf6. Planificador feature cards `button.sp-v3-feature-card > div` violet/blue gradients. Paneles de marca illustrations `svg [fill="#C3B5FD"]`. Cuestionarios mockups (`.quiz-slide__qcard`, `.quiz-btn--solid`, …) #155eef. Tarjetas de regalo illustration `#gift-cards-container img` blue. Header assistant icon `#hl_header--copilot-icon` #6938ef.
+- [ ] Decision: per-module sidebar colors (Tablero copper, Calendarios / Automatización violet, Multimedia maroon, Reputación orange) — see Decisions pending.
+
+### 3. Fixed English labels (`src/labels.json`)
+
+- [ ] H Pagination component everywhere: "1 - 4 of 4", "0 - 0 of 0", "Page 1 of 1" (`[id$=pagination] p.hr-text.hr-text-xs`, 11px/16px; `#searchable-table-pagination`). These carry numbers in one text node: not translatable with a label; needs another approach (or accept).
+- [ ] H Tablero: selects showing the raw value "all" → "Todos" (`#location-dashboard_select--task-user-selection`, `…--manual-action-campaign-selection`, `…--manual-action-user-selection`, `…--user-sales-efficiency` `.hr-base-selection-input__content`, 14px/18px).
+- [ ] H Citas: status "New (action required)" → "Nueva (requiere acción)" (`div.n-select[id$=-status] .n-base-selection-input__content`, 15px/22.5px).
+- [ ] H Pronóstico: Open / Won / Lost / Abandoned (`#fd-summary-table span.truncate`, 13px), "No close date" (`.forecast1-undated-header__title`, 14/20), months (`#ForecastDashboard div.truncate.text-sm.font-bold`, 14/20), "of" in `.forecast1-column-header__metric-line`.
+- [ ] H Oportunidad modal: "Expected Close Date" (`span.hr-form-item-label__text`, 14/17.5), "Select Date" (`#OpportunityForecastExpectedCloseDate span`, 14/21).
+- [ ] H Configuración: "Pipelines" tab (`#tb_Pipelines`), header "Clientes Potenciales & Pipelines" (`div.topmenu-navtitle`, 18/28), message ramp texts, "Learn More" ×4, "Start Registration", "No Data", "Actions" (`#import-history-table`), "Labs" (`#labs_title`).
+- [ ] H Membresías: email-settings inner tabs `.n-tabs-tab[data-name=…] .n-tabs-tab__label` (14/21), magic-link alert, Gokollab texts, certificates typewriter (`span.whitespace-pre.text-blue-600`, cycles English: needs a different approach).
+- [ ] H Agentes por industria › Registros: "Conversation logs", subtitle, "Add filter", column headers, empty state (selectors in `#industry-agents-dashboard .ia-canvas`). IA de contenido: "Content AI", tabs Text / Image, upgrade button. Aplicaciones instaladas: "Search", "App Name". AI assistant onboarding popovers `.askai-announce` (New, Work side by side, Skip, Got it…).
+- [ ] M Fragmentos: column "Type". Pagos › Integraciones: "Manual Payment Methods" and the provider descriptions. Recibos editor placeholder "Write something ..." (`data-placeholder`). Registros de agentes "Default". Plantillas de agentes "+1 More". Reventa de apps category labels. Ganancias "Free". "0 Managed Agents" (count). "19 Tasks" (count). Contact type value "Lead" (select value). Membresías "less than a minute ago". Informes appointment cells "Third Party", "new".
+
+### 4. Odd Spanish (machine translation, usted / tú, Spain Spanish)
+
+Worst ones (meaningless or wrong):
+- [ ] Tiendas onboarding modal `#stores-onboarding-modal` (also blocks the page: no close button).
+- [ ] Formularios / Encuestas feature cards `#feature-card-N div.text-[15px]` ("Habilitar Clientes para Crear compra…", "Botón de opción Botón").
+- [ ] Paneles de marca description and Voz de la marca empty state; Reputación › Directorios (`#online-listings-container`: "Una herramienta para Domine", "No salgas tu reputación…", `#pitch-button` "Listados de activadores").
+- [ ] Sitios › Analítica: card label "in" / "in Tasa de conversión", "Página Visualizaciones".
+- [ ] Cuentas regresivas "Cuenta atrás" (title, description, empty state).
+- [ ] Enlaces de pago empty button "Generar Relación" → "Generar enlace"; Facturas "Factura(s) en Debido" / "en Atrasado".
+- [ ] Oportunidad modal: "Actualización" (button) → "Actualizar", title "Añadir una nueva oportunidad" while editing, "Contacto Detalles", "contactos adicional (Máx.. : 10)", "Objetos de los miembros".
+- [ ] Contact detail: "Contacto Detalles", "¡Adhiérase para llevar a cabo el seguimiento!".
+- [ ] Tareas: "Debido a fecha" → "Fecha de vencimiento".
+- [ ] Configuración: "Personalizar oportunidad Configuración", "Descargar-in Dominio", "Creada Activado", "Integraciones Privado", "Solo visible para Tú", "Interrupción de Llamar", and a translated code value `data-debug=«verdadero»` that breaks the instructions.
+- [ ] Membresías: "…Portal del cliente y infantil Aplicaciones", "Habilitar O Deshabilitar el Correo electrónico Recordatorio…", "Credencial Emitido / Expirado".
+- [ ] Agentes de IA › Primeros pasos hero paragraph ("estás desaparecido El 62%…", "200.000 dólares", "no-show").
+
+Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain Spanish ("Añadir", "Coste", "vídeo", "Introduzca", "Recogida en tienda", « » quotes). Decide the policy (see Decisions pending) before rewriting it page by page.
+
+### 5. Not fixable from the theme
+
+- Cross-origin iframes: Automatización, Correos electrónicos, Afiliados, Perfil de empresa, Servicios de correo, Calendarios › Reuniones / Preferencias / Mi disponibilidad, Estudio de IA, Auditoría de Marketing Local.
+- Canvas charts (labels and colors): Pronóstico "Oportunidades por estado", Sitios › Analítica legends and axes, Informes de citas (statuses, weekdays), Tablero legends.
+- Live data and seeded defaults: widget titles, pipeline and stage names, example tasks and businesses, dispositions, SMS defaults, folder names, audit-log sources, conversation activity lines, US date formats.
+- Text baked into images: Membresías app banner and tiles, Formularios / Encuestas / QR illustrations.
+- White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
+
 ## Design fixes
 
-### v1.3.13 (merged, not tagged): Spanish sweep of the remaining views
+### v1.3.13 (published, live): Spanish sweep of the remaining views
 
 | Fix | Where | Verified |
 |---|---|---|
@@ -87,7 +173,7 @@ Widget de chat; Reputación › Solicitudes, Testimonios en video, Widgets, Conf
 Suscripciones, Cupones, Configuración; Membresías › Cursos, Comunidades, Certificados; Multimedia;
 Configuración › Embudos, Calendarios, Sistema telefónico, WhatsApp, Objetos, Registros de auditoría, Integraciones.
 
-### v1.3.12 (published, live): Estudio de IA under the sidebar
+### v1.3.12 (published): Estudio de IA under the sidebar
 
 | Fix | Where | Verified |
 |---|---|---|
@@ -408,6 +494,8 @@ load in the audit; confirm one by one).
 2. Sidebar per-item colors (mockup cycle) vs a single teal; muted blue for Conversaciones.
 3. Dead selectors: remove the ones that match nothing in any visited view, or only after
    opening the states they could target (modals, menus, tooltips)?
+4. Spanish register: the platform mixes *usted* and *tú* and uses Spain Spanish ("Añadir", "Coste", "vídeo"). Rewrite to *tú* + Mexican Spanish everywhere (large: many labels), or only fix wrong / meaningless texts?
+5. Per-module sidebar colors confirmed by the inspection (Tablero copper, Calendarios and Automatización violet, Multimedia maroon, Reputación orange): keep the mockup cycle or make all teal (same question as 2).
 
 ## Lessons
 - **v1.2.0 regression:** `margin` (030) vs a later `margin-bottom: 0` (050) on the same selector.

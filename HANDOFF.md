@@ -7,16 +7,16 @@ Last update: 2026-10-02.
 
 ## State
 
-- **Live in the platform:** `v1.3.12` (the user saved the custom CSS field).
-- **On `main`, not tagged:** `v1.3.13` (Spanish sweep of the remaining views). It needs the
-  user's approval, then the tag and the platform field update.
+- **Live in the platform:** `v1.3.13` (the user saved the custom CSS field; checked on every module).
+- Nothing merged and untagged. No open branches with pending work.
 - Two sessions work on this repo (Javier's and Tomás's). Always branch from the latest
   `main`, check open PRs first, and keep PRs small.
 
 ## Next steps
 
-1. **Release v1.3.13** once the user approves: `git tag v1.3.13 && git push origin v1.3.13`.
-   The release workflow publishes and checks the CDN.
+1. **Work the backlog** in TRACKING › "Backlog from the full inspection": section 1 (theme bugs)
+   first, then 2 (off-theme surfaces and colors), 3 (English labels), 4 (odd Spanish, after the
+   register decision). One small PR per group; release and update the field after approval.
 2. **Update the platform field** (agency settings → Empresa → Marca Blanca → CSS personalizado):
    replace its content with `embed/editor.css` of the tag. Back up the old content first
    (localStorage). Only the user presses "Guardar cambios".
