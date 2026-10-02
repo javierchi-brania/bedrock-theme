@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.3.7` (saved 2026-10-02).
-**In progress:** `v1.3.8` (Ask BRANIA; needs the user's approval, then tag and update the platform field).
+**In progress:** `v1.3.8` (Ask BRANIA, Oportunidades empty state; needs the user's approval, then tag and update the platform field).
 
 ## Releases
 
@@ -31,7 +31,7 @@ publish is in [README.md](README.md).
 | v1.3.5 | fixes | Everything in Spanish: product guides hidden, Agentes de IA pages translated and themed, Membresías banner, Panel guide card edges | live |
 | v1.3.6 | fixes | Oportunidades: board cards no longer clipped, accent view tab, list view with the Contactos table theme | live |
 | v1.3.7 | fixes | Oportunidades board: stage headers and cards no longer clipped by the horizontal scrollers | live |
-| v1.3.8 | labels | "Pregúntale a la IA" → "Ask BRANIA" (sidebar item and header AI button tooltip) | in review |
+| v1.3.8 | labels, fixes | "Pregúntale a la IA" → "Ask BRANIA" (sidebar item and header AI button tooltip); Oportunidades board empty state | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -67,7 +67,7 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.8 (in review): Ask BRANIA
+### v1.3.8 (in review): Ask BRANIA, Oportunidades empty state
 
 Decision 2026-10-02 (user): the AI assistant is "Ask BRANIA" (brand in capitals, like the logo), in the sidebar and the header button.
 
@@ -75,6 +75,7 @@ Decision 2026-10-02 (user): the AI assistant is "Ask BRANIA" (brand in capitals,
 |---|---|---|
 | Sidebar item `#sb_ask-ai` "Pregúntale a la IA" → "Ask BRANIA" | sidebar | computed; item height unchanged (40px) |
 | Header AI button tooltip → "Ask BRANIA". It is a Bootstrap tooltip appended to `<body>` with no link to its trigger, so the label targets `body:has(#hl_header--copilot-icon:hover) .tooltip .tooltip-inner` (while that button is hovered the visible tooltip is its own) | header | hover capture; other header tooltips unchanged |
+| Board empty state ("Ninguna oportunidad coincide con los filtros actuales"): the platform overlay `.crm-opportunities-empty-state` (absolute, 60px down) had a solid near-white fill that covered the lower half of the stage headers → transparent (a platform rule kept the fill: `#app` + doubled class); its SVG illustration with white panels → dimmed to the page surface | Oportunidades › tablero vacío | capture |
 
 Not changed: the button's native `title` / `aria-label` (attributes, not stylable).
 
