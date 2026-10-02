@@ -2103,8 +2103,20 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
   box-shadow: var(--bb-shadow-soft) !important;
   color: var(--bb-text-label) !important;
 }
-#CustomObjectsList .tabulator-col .tabulator-col-sorter svg,
-#CustomObjectsList .tabulator-col .tabulator-col-sorter svg * {
+/* sort indicator: blue icon on a light-blue circle → accent on a sunken circle */
+#CustomObjectsList .tabulator-col .tabulator-col-sorter > span {
+  color: var(--bb-accent) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+/* views bar (Todo / Vence hoy / Atrasado…): blue underline → accent; active label in accent */
+#CustomObjectsList #views-bar {
+  border-bottom-color: var(--bb-divider) !important;
+}
+#CustomObjectsList #views-bar .view.active::after {
+  background: var(--bb-accent) !important;
+}
+#CustomObjectsList #views-bar .view.active .view-label {
   color: var(--bb-accent) !important;
 }
 /* ─────────────────────────────────────────────────────────────
