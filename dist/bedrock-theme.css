@@ -8095,7 +8095,13 @@ body:has([id="sb_common.sidebar.privateIntegrations"]:hover) .tooltip[role="tool
 body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role="tooltip"] .tooltip-inner,
 body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 .askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label,
-.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label {
+.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2),
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2),
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2),
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2),
+#create-new-survey-label,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8209,7 +8215,13 @@ body:has([id="sb_common.sidebar.privateIntegrations"]:hover) .tooltip[role="tool
 body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 .askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label::after,
-.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label::after {
+.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label::after,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)::after,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)::after,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2)::after,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)::after,
+#create-new-survey-label::after,
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8784,6 +8796,36 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
 }
 .askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label::after {
   content: "Personalizar";
+  font-size: 14px;
+  line-height: 20px;
+}
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)::after {
+  content: "Obtén información y toma decisiones más inteligentes con encuestas";
+  font-size: 14px;
+  line-height: 20px;
+}
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(2) > span:nth-child(2)::after {
+  content: "Crea encuestas fácilmente con el editor de arrastrar y soltar";
+  font-size: 14px;
+  line-height: 20px;
+}
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2)::after {
+  content: "Configura flujos de trabajo para dar seguimiento al instante a quienes completan o abandonan la encuesta";
+  font-size: 14px;
+  line-height: 20px;
+}
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)::after {
+  content: "Accede a analíticas en tiempo real para medir y mejorar el rendimiento de tus encuestas";
+  font-size: 14px;
+  line-height: 20px;
+}
+#create-new-survey-label::after {
+  content: "Crear encuesta";
+  font-size: 14px;
+  line-height: 20px;
+}
+.landing-hero-copy:has(#create-new-survey-label) > div:nth-child(3) > button:nth-child(2) p::after {
+  content: "Ver vista previa de la encuesta";
   font-size: 14px;
   line-height: 20px;
 }
