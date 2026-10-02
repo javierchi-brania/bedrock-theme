@@ -1294,6 +1294,14 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 #appointment-drawer .dropDownSelectedOption { color: var(--bb-accent) !important; font-weight: 700 !important; }
 
 
+/**
+ * 20-sidebar: main sidebar (frame, items, per-item active color cycle, collapsed and
+ * narrow modes) and the settings sidebar. The sub-account switcher lives in
+ * 21-sidebar-switcher (it must stay later: it overrides components of equal specificity).
+ * Spanish labels for sidebar items: src/labels.json.
+ */
+
+/* ── from 060-sidebar ── */
 /* ─────────────────────────────────────────────────────────────
    SIDEBAR
    Brania: <aside style="width:252px; border-radius:28px; box-shadow:...">
@@ -1424,7 +1432,6 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 #sb_contacts.active { color: #4d8c74 !important; }
 #sb_opportunities.active { color: #2f7d89 !important; }
 #sb_payments.active { color: #b0525c !important; }
-[id="sb_AI Agents"].active { color: #c0803e !important; }
 #sb_email-marketing.active { color: #3f7396 !important; }
 #sb_automation.active { color: #6f6499 !important; }
 #sb_sites.active { color: #4d8c74 !important; }
@@ -1612,7 +1619,6 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 #sb_contacts.active::before { background: #4d8c74 !important; }
 #sb_opportunities.active::before { background: #2f7d89 !important; }
 #sb_payments.active::before { background: #b0525c !important; }
-[id="sb_AI Agents"].active::before { background: #c0803e !important; }
 #sb_email-marketing.active::before { background: #3f7396 !important; }
 #sb_automation.active::before { background: #6f6499 !important; }
 #sb_sites.active::before { background: #4d8c74 !important; }
@@ -1622,6 +1628,149 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 #sb_reporting.active::before { background: #3f7396 !important; }
 #sb_app-marketplace.active::before { background: #6f6499 !important; }
 #sb_settings.active::before { background: #4d8c74 !important; }
+/* Agentes de IA (orange after Pagos) and Estudio de IA (teal, not in the mockup: avoids
+   repeating its neighbour's orange). #sidebar-v2 is needed: [id="…"] only weighs as a
+   class (the id has a space). Moved here from the header file. */
+#sidebar-v2 [id="sb_AI Agents"].active { color: #c0803e !important; }
+#sidebar-v2 [id="sb_AI Agents"].active::before { background: #c0803e !important; }
+#sb_vibe.active { color: #2f7d89 !important; }
+#sb_vibe.active::before { background: #2f7d89 !important; }
+
+/* ── from 190-sidebar-colapsado-v6.2 ── */
+/* ─────────────────────────────────────────────────────────────
+   SIDEBAR COLAPSADO (v6.2)
+   Con el menú colapsado (#sidebar-v2.w-14, 56px) las reglas del menú
+   expandido dejaban el ícono pegado a la izquierda (padding-left 14px +
+   margin-right del ícono) y el círculo del ::before en left:7px, así que
+   el círculo se salía y se cortaba por la derecha. Aquí se centra todo.
+   ───────────────────────────────────────────────────────────── */
+#sidebar-v2.w-14 .hl_nav-header,
+#sidebar-v2.w-14 .hl_nav-header-without-footer {
+  scrollbar-width: none !important; /* la barra de scroll quitaba 10px */
+}
+#sidebar-v2.w-14 .group:not(.divider) {
+  width: 36px !important;
+  min-width: 36px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  justify-content: center !important;
+}
+#sidebar-v2.w-14 .group:not(.divider)::before {
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+#sidebar-v2.w-14 .group:not(.divider) img,
+#sidebar-v2.w-14 .group:not(.divider) i,
+#sidebar-v2.w-14 .group:not(.divider) svg {
+  margin: 0 !important;
+}
+/* Íconos Font Awesome (SaaS, Afiliados, Plantillas, Universidad, App):
+   salían negros; se igualan al gris de los íconos en imagen. */
+#sidebar-v2 .group:not(.divider) .nav-fa-icon {
+  color: var(--bb-text-muted) !important;
+}
+#sidebar-v2 .group.active .nav-fa-icon,
+#sidebar-v2 .group.exact-active .nav-fa-icon {
+  color: #fff !important;
+}
+
+/* ── from 290-sidebar-subcuenta-v6.14 ── */
+/* ─────────────────────────────────────────────────────────────
+   MENÚ LATERAL DE SUB-CUENTA (v6.14)
+   1) "Configuración" (.hl_nav-settings, absoluto abajo) quedaba encima
+      del último ítem ("Aplicaciones del mercado"): se le da fondo y
+      divisor, y la lista reserva espacio abajo para poder terminar de
+      desplazarse por encima.
+   2) El separador entre "Pagos" y "AI Studio" medía 53px (padding + my-3):
+      se compacta.
+   3) Colapsado: el selector de sub-cuenta, el buscador y el rayo (acciones
+      rápidas) eran píldoras deformes / aplastadas dentro de un contenedor
+      de 28px; pasan a círculos del mismo tamaño que los ítems.
+   ───────────────────────────────────────────────────────────── */
+#sidebar-v2 .hl_nav-header {
+  padding-bottom: 60px !important;
+}
+#sidebar-v2 .hl_nav-settings {
+  background: var(--bb-bg) !important;
+  border-top: 1px solid var(--bb-divider) !important;
+  padding-top: 4px !important;
+  border-radius: 0 0 var(--bb-radius-lg) var(--bb-radius-lg) !important;
+  z-index: 2 !important;
+}
+#sidebar-v2 .group.divider {
+  padding: 2px 12px !important;
+  min-height: 0 !important;
+}
+#sidebar-v2 .group.divider > p {
+  margin: 6px 0 !important;
+  border-color: var(--bb-divider) !important;
+}
+
+#sidebar-v2.w-14 #location-switcher-sidbar-v2 {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  margin: 0 auto 10px !important;
+  border-radius: 50% !important;
+  justify-content: center !important;
+}
+#sidebar-v2.w-14 div:has(> #globalSearchOpener) {
+  height: auto !important;
+  gap: 8px !important;
+  margin-bottom: 14px !important;
+}
+#sidebar-v2.w-14 #globalSearchOpener,
+#sidebar-v2.w-14 #quickActions {
+  width: 36px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  flex: none !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  border-radius: 50% !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#sidebar-v2.w-14 #globalSearchOpener svg {
+  margin: 0 !important;
+}
+#sidebar-v2.w-14 #globalSearchOpener div {
+  justify-content: center !important;
+  width: auto !important;
+}
+#sidebar-v2.w-14 #globalSearchOpener .search-placeholder,
+#sidebar-v2.w-14 #globalSearchOpener kbd {
+  display: none !important;
+}
+#sidebar-v2.w-14 #quickActions img {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* ── from 410-sidebar-angosto-v6.29 ── */
+/* v6.29 — MENÚ COLAPSADO EN PANTALLAS ANGOSTAS (<640px)
+   La plataforma oculta el texto de cada ítem con clases "sm:hidden md:hidden", que
+   sólo actúan desde 640px. En ventanas más angostas el menú colapsado
+   (56px) mostraba el texto cortado ("P…", "L…", "C…") y las etiquetas
+   "Nueva" encima de los íconos. Con el menú colapsado se ocultan siempre. */
+#sidebar-v2.w-14 .group .nav-title,
+#sidebar-v2.w-14 .group .hl_text-overflow,
+#sidebar-v2.w-14 .group > span:not(:first-child),
+#sidebar-v2.w-14 .group [class*="lg:block"] {
+  display: none !important;
+}
+
+/* El botón para expandir el menú (›) la plataforma lo oculta entre 640 y 1024px
+   (sm:hidden lg:block), pero bajo 640px se quedaba visible y encima del
+   engrane de Configuración → se oculta también ahí, igual que la plataforma hace en
+   tabletas. */
+@media (max-width: 639.98px) {
+  #sidebar-v2 [class*="-right-2"][class*="bottom-5"][class*="sm:hidden"] {
+    display: none !important;
+  }
+}
 /* ─────────────────────────────────────────────────────────────
    TOP HEADER
    Brania: <header style="border-radius:26px; box-shadow:...">
@@ -3870,44 +4019,6 @@ aside#sidebar-v2 {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   SIDEBAR COLAPSADO (v6.2)
-   Con el menú colapsado (#sidebar-v2.w-14, 56px) las reglas del menú
-   expandido dejaban el ícono pegado a la izquierda (padding-left 14px +
-   margin-right del ícono) y el círculo del ::before en left:7px, así que
-   el círculo se salía y se cortaba por la derecha. Aquí se centra todo.
-   ───────────────────────────────────────────────────────────── */
-#sidebar-v2.w-14 .hl_nav-header,
-#sidebar-v2.w-14 .hl_nav-header-without-footer {
-  scrollbar-width: none !important; /* la barra de scroll quitaba 10px */
-}
-#sidebar-v2.w-14 .group:not(.divider) {
-  width: 36px !important;
-  min-width: 36px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  justify-content: center !important;
-}
-#sidebar-v2.w-14 .group:not(.divider)::before {
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-}
-#sidebar-v2.w-14 .group:not(.divider) img,
-#sidebar-v2.w-14 .group:not(.divider) i,
-#sidebar-v2.w-14 .group:not(.divider) svg {
-  margin: 0 !important;
-}
-/* Íconos Font Awesome (SaaS, Afiliados, Plantillas, Universidad, App):
-   salían negros; se igualan al gris de los íconos en imagen. */
-#sidebar-v2 .group:not(.divider) .nav-fa-icon {
-  color: var(--bb-text-muted) !important;
-}
-#sidebar-v2 .group.active .nav-fa-icon,
-#sidebar-v2 .group.exact-active .nav-fa-icon {
-  color: #fff !important;
-}
-/* ─────────────────────────────────────────────────────────────
    MENÚ DE CONFIGURACIÓN (v6.3)
    Los elementos del menú de Settings no traen ícono, pero heredaban el
    círculo ::before de los ítems con ícono: se veía un medio círculo detrás
@@ -4158,77 +4269,6 @@ aside#sidebar-v2 {
   background: transparent !important;
 }
 /* ─────────────────────────────────────────────────────────────
-   MENÚ LATERAL DE SUB-CUENTA (v6.14)
-   1) "Configuración" (.hl_nav-settings, absoluto abajo) quedaba encima
-      del último ítem ("Aplicaciones del mercado"): se le da fondo y
-      divisor, y la lista reserva espacio abajo para poder terminar de
-      desplazarse por encima.
-   2) El separador entre "Pagos" y "AI Studio" medía 53px (padding + my-3):
-      se compacta.
-   3) Colapsado: el selector de sub-cuenta, el buscador y el rayo (acciones
-      rápidas) eran píldoras deformes / aplastadas dentro de un contenedor
-      de 28px; pasan a círculos del mismo tamaño que los ítems.
-   ───────────────────────────────────────────────────────────── */
-#sidebar-v2 .hl_nav-header {
-  padding-bottom: 60px !important;
-}
-#sidebar-v2 .hl_nav-settings {
-  background: var(--bb-bg) !important;
-  border-top: 1px solid var(--bb-divider) !important;
-  padding-top: 4px !important;
-  border-radius: 0 0 var(--bb-radius-lg) var(--bb-radius-lg) !important;
-  z-index: 2 !important;
-}
-#sidebar-v2 .group.divider {
-  padding: 2px 12px !important;
-  min-height: 0 !important;
-}
-#sidebar-v2 .group.divider > p {
-  margin: 6px 0 !important;
-  border-color: var(--bb-divider) !important;
-}
-
-#sidebar-v2.w-14 #location-switcher-sidbar-v2 {
-  width: 40px !important;
-  height: 40px !important;
-  padding: 0 !important;
-  margin: 0 auto 10px !important;
-  border-radius: 50% !important;
-  justify-content: center !important;
-}
-#sidebar-v2.w-14 div:has(> #globalSearchOpener) {
-  height: auto !important;
-  gap: 8px !important;
-  margin-bottom: 14px !important;
-}
-#sidebar-v2.w-14 #globalSearchOpener,
-#sidebar-v2.w-14 #quickActions {
-  width: 36px !important;
-  height: 36px !important;
-  min-height: 36px !important;
-  flex: none !important;
-  padding: 0 !important;
-  margin: 0 auto !important;
-  border-radius: 50% !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-#sidebar-v2.w-14 #globalSearchOpener svg {
-  margin: 0 !important;
-}
-#sidebar-v2.w-14 #globalSearchOpener div {
-  justify-content: center !important;
-  width: auto !important;
-}
-#sidebar-v2.w-14 #globalSearchOpener .search-placeholder,
-#sidebar-v2.w-14 #globalSearchOpener kbd {
-  display: none !important;
-}
-#sidebar-v2.w-14 #quickActions img {
-  width: 14px !important;
-  height: 14px !important;
-}
-/* ─────────────────────────────────────────────────────────────
    ASK AI + BOTONES DE PELIGRO (v6.15)
    1) "Inicie un nuevo chat" (estado vacío del panel de Ask AI): la regla
       de v6.5 que aplana los botones del panel izquierdo (más específica
@@ -4313,13 +4353,6 @@ aside#sidebar-v2 {
 .sidebar-v2-location:has(#sb_app-marketplace.active) .hl_header .container-fluid::before { content: "Aplicaciones"; }
 .sidebar-v2-location:has(#sb_settings.active) .hl_header .container-fluid::before { content: "Configuración"; }
 
-/* Colores por ítem que faltaban (mockup: Payments rojizo → AI Agents
-   naranja). AI Studio no existe en el mockup: se le da el teal de acento
-   para no repetir el naranja de su vecino. */
-#sidebar-v2 [id="sb_AI Agents"].active { color: #c0803e !important; }
-#sidebar-v2 [id="sb_AI Agents"].active::before { background: #c0803e !important; }
-#sb_vibe.active { color: #2f7d89 !important; }
-#sb_vibe.active::before { background: #2f7d89 !important; }
 
 /* ─────────────────────────────────────────────────────────────
    CONVERSACIONES — AJUSTE AL MOCKUP (v6.17) — #conversations-new-app
@@ -5281,28 +5314,6 @@ a.documentation-link {
 }
 .industry-type-select-style.industry-type-select-style .n-base-selection.n-base-selection .n-base-selection-label {
   background: transparent !important;
-}
-
-/* v6.29 — MENÚ COLAPSADO EN PANTALLAS ANGOSTAS (<640px)
-   La plataforma oculta el texto de cada ítem con clases "sm:hidden md:hidden", que
-   sólo actúan desde 640px. En ventanas más angostas el menú colapsado
-   (56px) mostraba el texto cortado ("P…", "L…", "C…") y las etiquetas
-   "Nueva" encima de los íconos. Con el menú colapsado se ocultan siempre. */
-#sidebar-v2.w-14 .group .nav-title,
-#sidebar-v2.w-14 .group .hl_text-overflow,
-#sidebar-v2.w-14 .group > span:not(:first-child),
-#sidebar-v2.w-14 .group [class*="lg:block"] {
-  display: none !important;
-}
-
-/* El botón para expandir el menú (›) la plataforma lo oculta entre 640 y 1024px
-   (sm:hidden lg:block), pero bajo 640px se quedaba visible y encima del
-   engrane de Configuración → se oculta también ahí, igual que la plataforma hace en
-   tabletas. */
-@media (max-width: 639.98px) {
-  #sidebar-v2 [class*="-right-2"][class*="bottom-5"][class*="sm:hidden"] {
-    display: none !important;
-  }
 }
 
 /* v6.30 — ASK AI › "Cuenta" → modal de Personalización (.pz-modal)

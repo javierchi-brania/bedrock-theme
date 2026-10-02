@@ -38,11 +38,4 @@
 .sidebar-v2-location:has(#sb_app-marketplace.active) .hl_header .container-fluid::before { content: "Aplicaciones"; }
 .sidebar-v2-location:has(#sb_settings.active) .hl_header .container-fluid::before { content: "Configuración"; }
 
-/* Colores por ítem que faltaban (mockup: Payments rojizo → AI Agents
-   naranja). AI Studio no existe en el mockup: se le da el teal de acento
-   para no repetir el naranja de su vecino. */
-#sidebar-v2 [id="sb_AI Agents"].active { color: #c0803e !important; }
-#sidebar-v2 [id="sb_AI Agents"].active::before { background: #c0803e !important; }
-#sb_vibe.active { color: #2f7d89 !important; }
-#sb_vibe.active::before { background: #2f7d89 !important; }
 

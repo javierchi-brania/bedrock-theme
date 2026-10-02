@@ -39,7 +39,8 @@ refactor release merges one target's segments into a single file.
 | ~~010-busqueda-global, 050-shell, 180-animacion~~ | **10-base** ✅ v1.2.0 |
 | ~~110-componentes-base, 210-espaciado-marco-v6.4, 230-botones-primarios-v6.6, 240-tablas-highrise-v6.7, 250-modales-menus-v6.8, 260-pestanas-verticales-v6.9-v6.10, 270-radios-mi-perfil-v6.11-v6.12~~ | **11-components** ✅ v1.2.0 |
 | ~~390-tooltips-v6.27, 430-capa-global-v6.32, 520-tablas-highrise-v6.43~~ | **19-overrides** ✅ v1.2.0 |
-| 060-sidebar, 160-selector-subcuentas, 190-sidebar-colapsado-v6.2, 290-sidebar-subcuenta-v6.14, 410-sidebar-angosto-v6.29 | 20-sidebar |
+| ~~060-sidebar, 190-sidebar-colapsado-v6.2, 290-sidebar-subcuenta-v6.14, 410-sidebar-angosto-v6.29~~ | **20-sidebar** ✅ v1.3.0 (at the slot of 060) |
+| ~~160-selector-subcuentas~~ | **21-sidebar-switcher** ✅ v1.3.0 (stays at the slot of 160: it overrides components of equal specificity) |
 | 070-header, 310-header-nombre-vista-v6.16, 330-header-pestanas-v6.18, 500-header-v6.41 | 30-header |
 | 440-launchpad-v6.33 | 40-launchpad |
 | 020-tablero, 460-tablero-v6.35 | 41-tablero |
