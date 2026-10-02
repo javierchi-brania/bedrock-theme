@@ -4748,6 +4748,10 @@ div:has(> #conv-conversation-list-load-more-button) {
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-inset) !important;
 }
+:is(#conversations-new-app, #record-details-new-ui) .hr-tabs-nav--segment-type .hr-tabs-tab-wrapper {
+  background: transparent !important;
+  border-color: transparent !important;
+}
 /* Contact header block (name, owner, followers): 1px grey outline → none */
 #record-details-lhs .border.border-gray-200 {
   border-color: transparent !important;
@@ -6250,7 +6254,7 @@ div#fc-calendar-container-v2 {
 .hl_header:has(#tb_opportunities-tab) .topmenu-navtitle,
 #tb_opportunities-tab > span.flex.items-center,
 #tb_pipeline > span.flex.items-center,
-#opportunities .hr-collapse-item__header-main p.hr-text,
+#opportunities .hr-collapse-item__header-main p.hr-text.hr-text-lg,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title,
 #ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title,
@@ -6309,7 +6313,7 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 .hl_header:has(#tb_opportunities-tab) .topmenu-navtitle::after,
 #tb_opportunities-tab > span.flex.items-center::after,
 #tb_pipeline > span.flex.items-center::after,
-#opportunities .hr-collapse-item__header-main p.hr-text::after,
+#opportunities .hr-collapse-item__header-main p.hr-text.hr-text-lg::after,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title::after,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title::after,
 #ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title::after,
@@ -6435,7 +6439,7 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
   font-size: 14px;
   line-height: 25.6px;
 }
-#opportunities .hr-collapse-item__header-main p.hr-text::after {
+#opportunities .hr-collapse-item__header-main p.hr-text.hr-text-lg::after {
   content: "Oportunidades";
   font-size: 14px;
   line-height: 20px;

@@ -249,6 +249,10 @@ div:has(> #conv-conversation-list-load-more-button) {
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-inset) !important;
 }
+:is(#conversations-new-app, #record-details-new-ui) .hr-tabs-nav--segment-type .hr-tabs-tab-wrapper {
+  background: transparent !important;
+  border-color: transparent !important;
+}
 /* Contact header block (name, owner, followers): 1px grey outline → none */
 #record-details-lhs .border.border-gray-200 {
   border-color: transparent !important;

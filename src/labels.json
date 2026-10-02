@@ -81,7 +81,7 @@
    "font": "tab"
   },
   {
-   "sel": "#opportunities .hr-collapse-item__header-main p.hr-text",
+   "sel": "#opportunities .hr-collapse-item__header-main p.hr-text.hr-text-lg",
    "text": "Oportunidades",
    "font": "submenu"
   },
