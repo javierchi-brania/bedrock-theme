@@ -6216,6 +6216,14 @@ svg.custom-icon[fill="currentColor"] {
 .tooltip[class*="bs-tooltip-"]:not(.show) {
   opacity: 0 !important;
   transition: none !important;
+}
+/* v1.3.12: Estudio de IA is a cross-origin iframe inside .vibe-page (absolute, left 0,
+   full width) whose containing block was the whole page, so it ran under the sidebar:
+   its own left menu (Inicio, Proyectos…) was hidden behind the expanded sidebar and
+   overlapped the collapsed one. The section that holds it becomes its containing block,
+   so the studio starts where the sidebar ends in both states. */
+section:has(> .vibe-page) {
+  position: relative !important;
 }/* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
