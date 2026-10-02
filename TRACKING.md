@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.3.4` (saved 2026-10-02).
-**In progress:** `v1.3.5` (merged to `main`, **not tagged yet**: needs the user's approval, then tag and update the platform field).
+**Live in the platform:** `v1.3.5` (saved 2026-10-02).
+**In progress:** `v1.3.6` (Oportunidades visual pass; needs the user's approval, then tag and update the platform field).
 
 ## Releases
 
@@ -28,7 +28,8 @@ publish is in [README.md](README.md).
 | v1.3.2 | fixes | Consistency polish: Aplicaciones, Reputación, Informe de atribución, shared component patterns | |
 | v1.3.3 | fixes | Loading skeletons (Contactos, Tareas, Oportunidades), Tareas header fixes | |
 | v1.3.4 | fixes | Contactos filters drawer, "Anterior" in table pagination | live |
-| v1.3.5 | fixes | Everything in Spanish: product guides hidden, Agentes de IA pages translated and themed, Membresías banner | merged, not tagged |
+| v1.3.5 | fixes | Everything in Spanish: product guides hidden, Agentes de IA pages translated and themed, Membresías banner, Panel guide card edges | live |
+| v1.3.6 | fixes | Oportunidades: board cards no longer clipped, accent view tab, list view with the Contactos table theme | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -64,7 +65,18 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.5 (merged, not tagged): everything in Spanish
+### v1.3.6 (in review): Oportunidades
+
+| Fix | Where | Verified |
+|---|---|---|
+| Board cards: each stage column is a scroller with 2px/6px around the cards, so the raised shadow was cut in straight lines (pale rectangle behind every card) → the scroller grows outward (negative margin + padding; cards keep their position) and cards use the soft shadow (hover a bit higher), which fits | Oportunidades › tablero | card at the same position; capture |
+| Active view tab ("Oportunidades abiertas") underline `::after` `#004EEB` → accent | Oportunidades | computed |
+| Board / list toggle: 1px outline removed | Oportunidades | computed |
+| List view (Tabulator): white table, light header, square cells → the Contactos table theme, shared by widening the 080 / 510 selectors with `:is()` (same specificity: Contactos compare v1.3.5 vs branch = 0 differences) | Oportunidades › lista | capture |
+| List cells: status / tag pills (inline white, 1px outline) → soft pills; active sort chip (inline light blue) → accent; contact avatar inline light blue → accent pastel | Oportunidades › lista | capture |
+
+Checked, nothing to change: Pronóstico (the blue is the canvas chart series, kept so legend and table match), Embudos de venta, Acciones en lote (audit: only container false positives).
+### v1.3.5 (published, live): everything in Spanish
 
 Decision 2026-10-02 (user): "todo debe estar en español".
 
