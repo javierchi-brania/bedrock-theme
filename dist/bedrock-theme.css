@@ -30,6 +30,18 @@
   --bb-accent: #2f7d89;
   --bb-accent-dark: #236470;
   --bb-accent-glow: rgba(47, 125, 137, 0.35);
+  /* teal ramp (the platform palette is remapped onto it, see 10-base) */
+  --bb-accent-25: #f3f8f9;
+  --bb-accent-50: #e6f0f2;
+  --bb-accent-100: #cde2e5;
+  --bb-accent-200: #a7cdd3;
+  --bb-accent-300: #7bb3bb;
+  --bb-accent-400: #4f969f;
+  --bb-accent-500: #3b8893;
+  --bb-accent-600: var(--bb-accent);
+  --bb-accent-700: var(--bb-accent-dark);
+  --bb-accent-800: #1b4f59;
+  --bb-accent-900: #143b43;
   --bb-success: #4d8c74;
   --bb-warning: #c08a3e;
   --bb-danger: #b0525c;
@@ -305,6 +317,38 @@ a:hover,
 .crm-opportunities-page {
   animation: bb-rise-in 0.32s ease both;
 }
+
+/* ── platform palette → teal ──
+   The platform's components and utilities read their brand color from :root variables
+   (--primary-25 … --primary-900, defined in its component stylesheet; --blue-* for blue
+   accents). Remapping them onto the teal ramp themes every component that uses them at
+   once (buttons, links, icons, radios, sort indicators, focus rings…), in every view.
+   !important: the platform defines them on :root too, in a sheet loaded after the theme. */
+:root {
+  --primary-25: var(--bb-accent-25) !important;
+  --primary-50: var(--bb-accent-50) !important;
+  --primary-100: var(--bb-accent-100) !important;
+  --primary-200: var(--bb-accent-200) !important;
+  --primary-300: var(--bb-accent-300) !important;
+  --primary-400: var(--bb-accent-400) !important;
+  --primary-500: var(--bb-accent-500) !important;
+  --primary-600: var(--bb-accent-600) !important;
+  --primary-700: var(--bb-accent-700) !important;
+  --primary-800: var(--bb-accent-800) !important;
+  --primary-900: var(--bb-accent-900) !important;
+  --blue-25: var(--bb-accent-25) !important;
+  --blue-50: var(--bb-accent-50) !important;
+  --blue-100: var(--bb-accent-100) !important;
+  --blue-200: var(--bb-accent-200) !important;
+  --blue-300: var(--bb-accent-300) !important;
+  --blue-400: var(--bb-accent-400) !important;
+  --blue-500: var(--bb-accent-500) !important;
+  --blue-600: var(--bb-accent-600) !important;
+  --blue-700: var(--bb-accent-700) !important;
+  --blue-800: var(--bb-accent-800) !important;
+  --blue-900: var(--bb-accent-900) !important;
+}
+
 /* ─────────────────────────────────────────────────────────────
    DASHBOARD
    Brania: neumorphic widget cards + teal primary actions
@@ -5874,6 +5918,19 @@ input[type="radio"] {
 .n-button.n-button--default-type:not(.n-button--error-type) :is(.n-button__border, .n-button__state-border) {
   border: none !important;
 }
+
+/* ── Tailwind blue utilities → teal ──
+   They hold literal colors (not the --primary-* variables), so they need their own rules. */
+.text-blue-400, .text-blue-500 { color: var(--bb-accent-500) !important; }
+.text-blue-600, .text-blue-700 { color: var(--bb-accent) !important; }
+.text-blue-800, .text-blue-900 { color: var(--bb-accent-dark) !important; }
+.bg-blue-25, .bg-blue-50 { background-color: var(--bb-accent-25) !important; }
+.bg-blue-100 { background-color: var(--bb-accent-50) !important; }
+.bg-blue-500, .bg-blue-600 { background-color: var(--bb-accent) !important; }
+.bg-blue-700 { background-color: var(--bb-accent-dark) !important; }
+.border-blue-200, .border-blue-300 { border-color: var(--bb-accent-200) !important; }
+.border-blue-400, .border-blue-500, .border-blue-600, .border-blue-700 { border-color: var(--bb-accent) !important; }
+
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }

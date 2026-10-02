@@ -30,6 +30,18 @@
   --bb-accent: #2f7d89;
   --bb-accent-dark: #236470;
   --bb-accent-glow: rgba(47, 125, 137, 0.35);
+  /* teal ramp (the platform palette is remapped onto it, see 10-base) */
+  --bb-accent-25: #f3f8f9;
+  --bb-accent-50: #e6f0f2;
+  --bb-accent-100: #cde2e5;
+  --bb-accent-200: #a7cdd3;
+  --bb-accent-300: #7bb3bb;
+  --bb-accent-400: #4f969f;
+  --bb-accent-500: #3b8893;
+  --bb-accent-600: var(--bb-accent);
+  --bb-accent-700: var(--bb-accent-dark);
+  --bb-accent-800: #1b4f59;
+  --bb-accent-900: #143b43;
   --bb-success: #4d8c74;
   --bb-warning: #c08a3e;
   --bb-danger: #b0525c;
