@@ -4345,14 +4345,14 @@ aside#sidebar-v2 {
 /* v1.3.9: the assistant panel mounts in English ("What's on your mind…", "Ask anything…")
    and its Spanish strings arrive ~0.5s later, with no DOM change other than the text, so
    the switch cannot be detected. The title and the greeting are fixed labels (labels.json);
-   the composer placeholder cannot be relabelled, so with a Spanish profile the composer
+   the composer placeholder cannot be relabelled, so the composer
    field fades in after 0.6s, once the Spanish placeholder is there. The panel is re-mounted
    on every open, so the delay runs each time. */
 @keyframes bb-askai-reveal {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-html:lang(es) .askai-sidebar .askai-composer-textarea__field textarea {
+.askai-sidebar .askai-composer-textarea__field textarea {
   animation: bb-askai-reveal 0.2s ease-out 0.6s both;
 }
 /* Greeting with the user's name: the name is in the user-name attribute of the welcome
@@ -4363,7 +4363,7 @@ html:lang(es) .askai-sidebar .askai-composer-textarea__field textarea {
   .askai-welcome[user-name]:not([user-name=""]) {
     --bb-user-name: attr(user-name);
   }
-  html:lang(es) .askai-welcome[user-name]:not([user-name=""]) .askai-welcome-header__title::after {
+  .askai-welcome[user-name]:not([user-name=""]) .askai-welcome-header__title::after {
     content: "¿En qué estás pensando, " var(--bb-user-name) "?";
   }
 }
@@ -4565,7 +4565,7 @@ html:lang(es) .askai-sidebar .askai-composer-textarea__field textarea {
   white-space: nowrap !important;
   align-self: center !important;
 }
-.sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Pregúntale a la IA"; }
+.sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Pregúntale a BRANIA"; }
 .sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Panel"; }
 .sidebar-v2-location:has(#sb_dashboard.active) .hl_header .container-fluid::before { content: "Tablero"; }
 .sidebar-v2-location:has(#sb_conversations.active) .hl_header .container-fluid::before { content: "Conversaciones"; }
@@ -8038,13 +8038,24 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule,
 #ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule,
-html:lang(es) #sb_ask-ai .nav-title,
-html:not(:lang(es)) #sb_ask-ai .nav-title,
-html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner,
-html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner,
-html:lang(es) .askai-sidebar-header__brand-text,
-html:not(:lang(es)) .askai-sidebar-header__brand-text,
-html:lang(es) .askai-welcome-header__title {
+#sb_ask-ai .nav-title,
+body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner,
+.askai-sidebar-header__brand-text,
+.askai-welcome-header__title,
+body:has(#sb_launchpad:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_opportunities:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_vibe:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_memberships:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_app-media:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_app-marketplace:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_location-email-services:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_import-data:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_manage-scoring:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has([id="sb_common.sidebar.privateIntegrations"]:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role="tooltip"] .tooltip-inner,
+body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
+.askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label,
+.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8141,13 +8152,24 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule::after,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule::after,
 #ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after,
-html:lang(es) #sb_ask-ai .nav-title::after,
-html:not(:lang(es)) #sb_ask-ai .nav-title::after,
-html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
-html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
-html:lang(es) .askai-sidebar-header__brand-text::after,
-html:not(:lang(es)) .askai-sidebar-header__brand-text::after,
-html:lang(es) .askai-welcome-header__title::after {
+#sb_ask-ai .nav-title::after,
+body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+.askai-sidebar-header__brand-text::after,
+.askai-welcome-header__title::after,
+body:has(#sb_launchpad:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_opportunities:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_vibe:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_memberships:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_app-media:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_app-marketplace:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_location-email-services:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_import-data:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_manage-scoring:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has([id="sb_common.sidebar.privateIntegrations"]:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+.askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label::after,
+.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8635,38 +8657,93 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   font-size: 14px;
   line-height: 20px;
 }
-html:lang(es) #sb_ask-ai .nav-title::after {
+#sb_ask-ai .nav-title::after {
   content: "Pregúntale a BRANIA";
   font-size: 13.5px;
   line-height: 20px;
 }
-html:not(:lang(es)) #sb_ask-ai .nav-title::after {
-  content: "Ask BRANIA";
-  font-size: 13.5px;
-  line-height: 20px;
-}
-html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
   content: "Pregúntale a BRANIA";
   font-size: 11px;
   line-height: 16.5px;
 }
-html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
-  content: "Ask BRANIA";
-  font-size: 11px;
-  line-height: 16.5px;
-}
-html:lang(es) .askai-sidebar-header__brand-text::after {
+.askai-sidebar-header__brand-text::after {
   content: "Pregúntale a BRANIA";
   font-size: 15px;
   line-height: 15px;
 }
-html:not(:lang(es)) .askai-sidebar-header__brand-text::after {
-  content: "Ask BRANIA";
-  font-size: 15px;
-  line-height: 15px;
-}
-html:lang(es) .askai-welcome-header__title::after {
+.askai-welcome-header__title::after {
   content: "¿En qué estás pensando?";
   font-size: 28px;
   line-height: 34px;
+}
+body:has(#sb_launchpad:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Panel";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_opportunities:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Oportunidades";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_vibe:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Estudio de IA";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_memberships:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Membresías";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_app-media:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Multimedia";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_app-marketplace:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Aplicaciones";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_location-email-services:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Servicios de correo";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_import-data:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Importar datos";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_manage-scoring:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Puntuación";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has([id="sb_common.sidebar.privateIntegrations"]:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Integraciones privadas";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Oportunidades y embudos";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Pregúntale a BRANIA";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+.askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label::after {
+  content: "Plantillas";
+  font-size: 14px;
+  line-height: 20px;
+}
+.askai-left-panel__menu > button:nth-child(4) .askai-left-panel__menu-row-label::after {
+  content: "Personalizar";
+  font-size: 14px;
+  line-height: 20px;
 }

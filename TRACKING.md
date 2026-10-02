@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.3.8` (saved 2026-10-02).
-**In progress:** `v1.3.9` (Pregúntale a BRANIA; needs the user's approval, then tag and update the platform field).
+**Live in the platform:** `v1.3.9` (saved 2026-10-02).
+**In progress:** `v1.3.10` (assistant labels always in Spanish; needs the user's approval, then tag and update the platform field).
 
 ## Releases
 
@@ -32,7 +32,8 @@ publish is in [README.md](README.md).
 | v1.3.6 | fixes | Oportunidades: board cards no longer clipped, accent view tab, list view with the Contactos table theme | live |
 | v1.3.7 | fixes | Oportunidades board: stage headers and cards no longer clipped by the horizontal scrollers | live |
 | v1.3.8 | labels, fixes | "Pregúntale a la IA" → "Ask BRANIA" (sidebar item and header AI button tooltip); Oportunidades board empty state | live |
-| v1.3.9 | labels | The AI assistant label follows the profile language: "Pregúntale a BRANIA" (Spanish) / "Ask BRANIA" (other languages) | in review |
+| v1.3.9 | labels | The AI assistant label follows the profile language: "Pregúntale a BRANIA" (Spanish) / "Ask BRANIA" (other languages) | live |
+| v1.3.10 | labels | Assistant labels always Spanish: `<html lang>` is not the UI language | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -68,7 +69,19 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.9 (in review): Pregúntale a BRANIA
+### v1.3.10 (in review): assistant labels always in Spanish
+
+v1.3.9 keyed the assistant labels on `html:lang(es)`, but `<html lang>` is not the UI language: the "Brania.Ai" sub-account shows a Spanish UI ("Pregúntale a la IA", "Tablero"…) with `lang="en_US"`, so it got "Ask BRANIA". The labels are now unconditional ("Pregúntale a BRANIA", "¿En qué estás pensando, <name>?", composer reveal), in line with "todo en español".
+
+| Fix | Where | Verified |
+|---|---|---|
+| Collapsed sidebar tooltips (assistant page): the Bootstrap tooltip showed the original platform name ("Launchpad"…) → each relabelled sidebar item gets the same label in its tooltip (`body:has(<item>:hover) .tooltip .tooltip-inner`, 12 items, generated from the sidebar labels) | assistant page and any collapsed sidebar | hover capture |
+| Header view title on the assistant page "Pregúntale a la IA" → "Pregúntale a BRANIA" (theme rule in 310) | assistant page | capture |
+| Assistant page left menu "Templates" / "Customize" → "Plantillas" / "Personalizar" | assistant page | capture |
+
+Lesson: do not use `<html lang>` to pick a language; it follows a setting that can differ from the UI text.
+
+### v1.3.9 (published, live): Pregúntale a BRANIA
 
 Decision 2026-10-02 (user): in Spanish the assistant is "Pregúntale a BRANIA" (the platform's own "Pregúntale a la IA" wording with the brand); other languages keep "Ask BRANIA".
 
