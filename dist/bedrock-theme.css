@@ -2309,6 +2309,25 @@ hlcontentwrap .wrapper #views-bar .view.active::after {
 hlcontentwrap .wrapper #views-bar .view.active .view-label {
   color: var(--bb-accent) !important;
 }
+
+/* v1.3.3: the loading skeleton (see 19-overrides) starts 40px from the top, which here is
+   over the bottom of the sunken header (card padding 14/16) → below the header, inside the padding */
+#table-container > .skeleton-loader {
+  top: 53px !important;
+  left: 16px !important;
+  right: 16px !important;
+  width: auto !important;
+  padding-top: 12px !important;
+}
+/* v1.3.3: the frozen right column header ("Acciones" in Tareas) was transparent: when the table
+   overflows, the scrolled header ("Debido a fecha") showed through → opaque, continuing the
+   sunken header bar (rounded right end, same inner shadow) */
+#table-container .tabulator-headers .tabulator-col.tabulator-frozen.tabulator-frozen-right,
+hlcontentwrap .wrapper .table-container .tabulator-headers .tabulator-col.tabulator-frozen.tabulator-frozen-right {
+  background: var(--bb-bg) !important;
+  border-radius: 0 var(--bb-radius-md) var(--bb-radius-md) 0 !important;
+  box-shadow: inset -3px -3px 8px #ffffff, inset 0 3px 8px -2px #c6cacc !important;
+}
 /* ─────────────────────────────────────────────────────────────
    OPPORTUNITIES
    Brania: kanban columns as raised cards, stage headers, deal cards
@@ -6036,6 +6055,26 @@ svg.custom-icon[fill="currentColor"] {
 .n-radio-button.radio-group-button.n-radio-button--checked * {
   color: inherit !important;
 }
+
+/* v1.3.3: loading skeletons. List tables (Contactos, Tareas): a white overlay with grid lines
+   → page surface, sunken bars */
+.table-container > .skeleton-loader {
+  background: var(--bb-bg) !important;
+}
+.table-container > .skeleton-loader .skeleton-cell {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+.table-container > .skeleton-loader .skeleton-data {
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+/* Component skeleton (.hr-skeleton, e.g. Oportunidades cards): pulses #eee → #ddd, made for
+   white cards → pulses between darker tones of the page surface */
+.hr-skeleton {
+  --n-color-start: color-mix(in srgb, var(--bb-divider) 45%, var(--bb-bg)) !important;
+  --n-color-end: var(--bb-divider) !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
@@ -6592,7 +6631,8 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #app-pagination-previous .hr-button__content,
 #app-pagination-next .hr-button__content,
 #attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label,
-#custom-values-table th:nth-child(4) .hr-ellipsis > span {
+#custom-values-table th:nth-child(4) .hr-ellipsis > span,
+#task .tabulator-col[tabulator-field="relations.TASK_CONTACT_ASSOCIATION"] .tabulator-col-title {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -6661,7 +6701,8 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #app-pagination-previous .hr-button__content::after,
 #app-pagination-next .hr-button__content::after,
 #attribution-dashboard [data-name="opportunities"] .n-tabs-tab__label::after,
-#custom-values-table th:nth-child(4) .hr-ellipsis > span::after {
+#custom-values-table th:nth-child(4) .hr-ellipsis > span::after,
+#task .tabulator-col[tabulator-field="relations.TASK_CONTACT_ASSOCIATION"] .tabulator-col-title::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -7013,4 +7054,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Clave";
   font-size: 14px;
   line-height: 20px;
+}
+#task .tabulator-col[tabulator-field="relations.TASK_CONTACT_ASSOCIATION"] .tabulator-col-title::after {
+  content: "Contactos asociados";
+  font-size: 12.5px;
+  line-height: 18.75px;
 }

@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.2.8` (saved 2026-10-02).
-**In progress:** `v1.3.2` (branch `fix/v1.3.2`).
+**Live in the platform:** `v1.3.2` (saved 2026-10-02).
+**In progress:** `v1.3.3` (branch `fix/v1.3.3`).
 
 ## Releases
 
@@ -22,10 +22,11 @@ publish is in [README.md](README.md).
 | v1.2.5 | fixes | Sub-tab sweep: Calendarios, Oportunidades, Marketing; Spanish labels outside Launchpad | |
 | v1.2.6 | fixes | Spanish labels everywhere from `src/labels.json`; Launchpad → Panel; odd translations | |
 | v1.2.7 | fixes | Opaque header and dashboard toolbar (content showed through when scrolling); Panel and calendar backgrounds | |
-| v1.2.8 | fixes | Contact detail page and the add-opportunity modal | live |
+| v1.2.8 | fixes | Contact detail page and the add-opportunity modal | |
 | v1.3.0 | refactor | 20-sidebar + 21-sidebar-switcher | compare vs v1.2.8: 0 differences |
 | v1.3.1 | fixes | Platform palette → teal everywhere (goal: theme the whole platform) | |
-| v1.3.2 | fixes | Consistency polish: Aplicaciones, Reputación, Informe de atribución, shared component patterns | in progress |
+| v1.3.2 | fixes | Consistency polish: Aplicaciones, Reputación, Informe de atribución, shared component patterns | live |
+| v1.3.3 | fixes | Loading skeletons (Contactos, Tareas, Oportunidades), Tareas header fixes | in progress |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -61,7 +62,19 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.2 (in progress): consistency polish
+### v1.3.3 (in progress): loading states
+
+| Fix | Where | Verified |
+|---|---|---|
+| List table skeleton (`.table-container > .skeleton-loader`): white overlay with grid lines → page surface, sunken bars | Contactos, Tareas | captures (skeleton forced visible) |
+| Contactos: the skeleton started 40px from the top, over the bottom of the sunken header → below the header, inside the card padding | Contactos | capture |
+| Component skeleton (`.hr-skeleton`): pulse colors for white cards (#eee → #ddd) → darker tones of the page surface | Oportunidades cards and any view | computed |
+| Frozen right header column ("Acciones") opaque, continuing the sunken bar: the overflowing "Debido a fecha" header showed through | Tareas | capture |
+| Label: "Contactos asociados" column (was "Asociado Contacts") | Tareas | capture |
+
+Checked during load: Pagos › Facturas (spinner on the page surface) and Empresas: nothing to change.
+
+### v1.3.2 (published, live): consistency polish
 
 | Fix | Where | Verified |
 |---|---|---|
@@ -268,6 +281,8 @@ load in the audit; confirm one by one).
   through a `<style>`, waits for `document.fonts.ready`).
 - **Replacing platform text:** `font-size: 0` on the text element + `::after { content: "…"; font-size: …; line-height: … }` with the original metrics. Only for fixed labels; dynamic text cannot be translated with CSS.
 - **Injected component styles** can repeat the theme's selector with `!important` after the theme loads (calendar container): add a type or class to the selector to win on specificity.
+- **Loading states** only exist for a moment: catch them with a MutationObserver started right after navigating, or force the hidden skeleton visible (`style.display`) to style it.
+- **Reload flicker** comes from the platform: it injects the custom CSS (`<style id="customCss">`) after its own interface has painted (about 0.4 s later). Not fixable from CSS.
 - **Sticky/fixed bars** must be opaque (page surface), or scrolled content shows through them.
 - **Brand variables first:** the platform reads its brand color from :root variables (`--primary-*`, `--blue-*`). Remapping them themes most components at once; Tailwind utilities with literal colors need their own rules.
 - **Inline `!important` backgrounds** can be covered with `box-shadow: inset 0 0 0 100vmax <color>` (above the background, below the content).

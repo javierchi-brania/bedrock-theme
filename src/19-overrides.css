@@ -543,3 +543,23 @@ svg.custom-icon[fill="currentColor"] {
 .n-radio-button.radio-group-button.n-radio-button--checked * {
   color: inherit !important;
 }
+
+/* v1.3.3: loading skeletons. List tables (Contactos, Tareas): a white overlay with grid lines
+   → page surface, sunken bars */
+.table-container > .skeleton-loader {
+  background: var(--bb-bg) !important;
+}
+.table-container > .skeleton-loader .skeleton-cell {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+.table-container > .skeleton-loader .skeleton-data {
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+/* Component skeleton (.hr-skeleton, e.g. Oportunidades cards): pulses #eee → #ddd, made for
+   white cards → pulses between darker tones of the page surface */
+.hr-skeleton {
+  --n-color-start: color-mix(in srgb, var(--bb-divider) 45%, var(--bb-bg)) !important;
+  --n-color-end: var(--bb-divider) !important;
+}
