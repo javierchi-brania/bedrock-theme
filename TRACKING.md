@@ -76,6 +76,8 @@ Decision 2026-10-02 (user): in Spanish the assistant is "Pregúntale a BRANIA" (
 |---|---|---|
 | Sidebar item and header AI button tooltip keyed on `html:lang(es)` (the platform sets `<html lang>` from the profile language): Spanish → "Pregúntale a BRANIA", otherwise "Ask BRANIA" | sidebar, header | computed with `lang="es"`; `lang="en"` forced in the page → "Ask BRANIA" |
 | Header AI button tooltip flashed the original "Pregúntale a la IA" when the mouse left: the label needs the trigger hovered and the Bootstrap tooltip faded out for 0.15s → Bootstrap tooltips hide instantly (opacity 0, no transition, once `.show` is removed) | header, any Bootstrap tooltip | class/opacity log on hover out: opacity 0 as soon as `.show` is removed |
+| Assistant panel title "Ask AI" / "Preguntar a la AI" → fixed label "Pregúntale a BRANIA" (Spanish) / "Ask BRANIA" | Pregúntale a BRANIA panel | computed |
+| Assistant panel mounts in English and gets its Spanish strings ~0.5s later (same DOM, only the text changes: not detectable) → with a Spanish profile the welcome stage (greeting + composer) fades in after 0.6s. ⚠️ If the platform gets slower, English may show again for a moment: raise the delay in `220-ask-ai-v6.5.css` | Pregúntale a BRANIA panel | mutation log: EN → ES in 0.46–0.51s over 6 opens |
 
 Pattern for any label that must differ per language: prefix the selector with `html:lang(es)` / `html:not(:lang(es))`.
 

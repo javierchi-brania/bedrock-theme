@@ -4341,6 +4341,19 @@ aside#sidebar-v2 {
   opacity: 1 !important;
   filter: brightness(0) invert(1) !important;
 }
+
+/* v1.3.9: the assistant panel mounts in English ("What's on your mind…", "Ask anything…")
+   and its Spanish strings arrive ~0.5s later, with no DOM change other than the text, so
+   the switch cannot be detected. With a Spanish profile the welcome stage (greeting and
+   composer) fades in after 0.6s, once the Spanish text is there. The panel is re-mounted on
+   every open, so the delay runs each time. The panel title is a fixed label (labels.json). */
+@keyframes bb-askai-reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+html:lang(es) .askai-sidebar .askai-revamp-welcome-stage {
+  animation: bb-askai-reveal 0.2s ease-out 0.6s both;
+}
 /* ─────────────────────────────────────────────────────────────
    CONFIGURACIÓN — CONTENEDORES BLANCOS (v6.13)
    Revisadas todas las páginas del menú de Configuración de agencia.
@@ -8015,7 +8028,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 html:lang(es) #sb_ask-ai .nav-title,
 html:not(:lang(es)) #sb_ask-ai .nav-title,
 html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner,
-html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner {
+html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner,
+html:lang(es) .askai-sidebar-header__brand-text,
+html:not(:lang(es)) .askai-sidebar-header__brand-text {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8115,7 +8130,9 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 html:lang(es) #sb_ask-ai .nav-title::after,
 html:not(:lang(es)) #sb_ask-ai .nav-title::after,
 html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
-html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+html:lang(es) .askai-sidebar-header__brand-text::after,
+html:not(:lang(es)) .askai-sidebar-header__brand-text::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8622,4 +8639,14 @@ html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tool
   content: "Ask BRANIA";
   font-size: 11px;
   line-height: 16.5px;
+}
+html:lang(es) .askai-sidebar-header__brand-text::after {
+  content: "Pregúntale a BRANIA";
+  font-size: 15px;
+  line-height: 15px;
+}
+html:not(:lang(es)) .askai-sidebar-header__brand-text::after {
+  content: "Ask BRANIA";
+  font-size: 15px;
+  line-height: 15px;
 }
