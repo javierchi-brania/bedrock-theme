@@ -31,3 +31,45 @@
   padding-top: 0 !important;
 }
 
+/* v1.2.5: Clientes Potenciales › Pronóstico (#ForecastDashboard).
+   The chart is a canvas (its blue "Ingresos esperados" series cannot be restyled), so
+   that series keeps its blue in the legend and the table to stay consistent with the
+   bars. Only the interface chrome changes here. */
+#ForecastDashboard .fd-slippage-manage-btn,
+#ForecastDashboard .fd-slippage-manage-btn * {
+  color: var(--bb-accent) !important;
+}
+#ForecastDashboard .fd-slippage-summary-chip {
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#ForecastDashboard :is(.fd-slippage-summary-chip-label, .fd-slippage-summary-chip-count) {
+  color: var(--bb-accent) !important;
+}
+#ForecastDashboard .fd-slippage-summary-chip-count {
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+#ForecastDashboard .fd-readiness-icon-wrap.fd-readiness-icon-blue {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+#ForecastDashboard .fd-summary-total-row {
+  background: var(--bb-bg) !important;
+  border-top: 1px solid var(--bb-divider) !important;
+}
+/* Risk titles have no Spanish label. The rule text under them ("Slipped 2+ times…")
+   carries thresholds set in "Ajuste la configuración de riesgo", so it is left as is. */
+#ForecastDashboard .fd-slippage-row-title {
+  font-size: 0 !important;
+}
+#ForecastDashboard .fd-slippage-row-title::after {
+  font-size: 16px;
+  line-height: 24px;
+}
+#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title::after { content: "Riesgo alto"; }
+#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title::after { content: "Riesgo medio"; }
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title::after { content: "Riesgo bajo"; }

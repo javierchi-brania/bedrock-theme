@@ -3650,6 +3650,48 @@ aside#sidebar-v2 {
   padding-top: 0 !important;
 }
 
+/* v1.2.5: Clientes Potenciales › Pronóstico (#ForecastDashboard).
+   The chart is a canvas (its blue "Ingresos esperados" series cannot be restyled), so
+   that series keeps its blue in the legend and the table to stay consistent with the
+   bars. Only the interface chrome changes here. */
+#ForecastDashboard .fd-slippage-manage-btn,
+#ForecastDashboard .fd-slippage-manage-btn * {
+  color: var(--bb-accent) !important;
+}
+#ForecastDashboard .fd-slippage-summary-chip {
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#ForecastDashboard :is(.fd-slippage-summary-chip-label, .fd-slippage-summary-chip-count) {
+  color: var(--bb-accent) !important;
+}
+#ForecastDashboard .fd-slippage-summary-chip-count {
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+#ForecastDashboard .fd-readiness-icon-wrap.fd-readiness-icon-blue {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+#ForecastDashboard .fd-summary-total-row {
+  background: var(--bb-bg) !important;
+  border-top: 1px solid var(--bb-divider) !important;
+}
+/* Risk titles have no Spanish label. The rule text under them ("Slipped 2+ times…")
+   carries thresholds set in "Ajuste la configuración de riesgo", so it is left as is. */
+#ForecastDashboard .fd-slippage-row-title {
+  font-size: 0 !important;
+}
+#ForecastDashboard .fd-slippage-row-title::after {
+  font-size: 16px;
+  line-height: 24px;
+}
+#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title::after { content: "Riesgo alto"; }
+#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title::after { content: "Riesgo medio"; }
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title::after { content: "Riesgo bajo"; }
 /* ─────────────────────────────────────────────────────────────
    MARKETING (Email Marketing, Snippets, etc.)
    Estas pantallas usan otro sistema de componentes más (clases
@@ -6075,6 +6117,26 @@ button.sidebar-option-button { transition: box-shadow .15s, color .15s !importan
 #fc-calendar-container-v2 .fc .fc-timegrid-axis-cushion, #fc-calendar-container-v2 .fc .fc-timegrid-slot-label-cushion { padding-left: 6px !important; padding-right: 8px !important; }
 #fc-calendar-container-v2 div.absolute.top-1.z-10.break-words { left: 32px !important; width: 61px !important; top: 28px !important; font-size: 10px !important; line-height: 1.3 !important; color: var(--bb-text-muted) !important; }
 
+/* v1.2.5: Calendarios › Vista de lista de citas (#AppointmentList).
+   Active list tab: blue underline and label → accent. */
+#AppointmentList .n-space.cursor-pointer[class*="border-primary"] {
+  border-bottom-color: var(--bb-accent) !important;
+}
+#AppointmentList .n-space.cursor-pointer[class*="border-primary"] .whitespace-nowrap {
+  color: var(--bb-accent) !important;
+}
+/* The three fixed tabs have no Spanish label (Upcoming / Cancelled / All). They are
+   always the first three children of the bar; custom smart lists come after. */
+#AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap {
+  font-size: 0 !important;
+}
+#AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap::after {
+  font-size: 14px;
+  line-height: 20px;
+}
+#AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap::after { content: "Próximas"; }
+#AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap::after { content: "Canceladas"; }
+#AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap::after { content: "Todas"; }
 /* ===== v6.41 Cabecera: traducir, teléfono y copiloto con el mismo botón neumórfico que el resto ===== */
 .hl_header :is(.feedback-toggle-btn, button.rounded-full.bg-success-600, #hl_header--copilot-icon) { width: 36px !important; height: 36px !important; min-width: 36px !important; border-radius: 50% !important; border: none !important; background: var(--bb-bg) !important; background-image: none !important; box-shadow: 4px 4px 9px #c9cdcf, -4px -4px 9px rgba(255,255,255,.9) !important; transition: box-shadow .15s !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
 .hl_header :is(.feedback-toggle-btn, button.rounded-full.bg-success-600, #hl_header--copilot-icon):hover { box-shadow: 6px 6px 14px #c3c7c9, -6px -6px 14px #fff !important; }
