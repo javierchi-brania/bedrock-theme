@@ -172,6 +172,12 @@ div.overflow-y-auto.grid-cols-12:has(> .col-span-10 .bot-card) {
 }
 
 /* ── IA de contenido ── */
+/* the Texto/Imagen pane wrapper clips (overflow hidden for the tab animation): the stat
+   cards and the table card had their shadows cut flat at the left, top and bottom → room */
+#content-ai-dashboard .n-tabs-pane-wrapper {
+  margin: -20px -32px -36px !important;
+  padding: 20px 32px 36px !important;
+}
 /* stat cards: white with a grey border and 8px corners → raised theme cards; green icon
    disc → accent tint */
 #content-ai-dashboard .hl-statistic {
