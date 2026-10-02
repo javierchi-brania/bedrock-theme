@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.3.7` (saved 2026-10-02).
-**In progress:** `v1.3.8` (Ask BRANIA, Oportunidades empty state; needs the user's approval, then tag and update the platform field).
+**Live in the platform:** `v1.3.8` (saved 2026-10-02).
+**In progress:** `v1.3.9` (Pregúntale a BRANIA; needs the user's approval, then tag and update the platform field).
 
 ## Releases
 
@@ -31,7 +31,8 @@ publish is in [README.md](README.md).
 | v1.3.5 | fixes | Everything in Spanish: product guides hidden, Agentes de IA pages translated and themed, Membresías banner, Panel guide card edges | live |
 | v1.3.6 | fixes | Oportunidades: board cards no longer clipped, accent view tab, list view with the Contactos table theme | live |
 | v1.3.7 | fixes | Oportunidades board: stage headers and cards no longer clipped by the horizontal scrollers | live |
-| v1.3.8 | labels, fixes | "Pregúntale a la IA" → "Ask BRANIA" (sidebar item and header AI button tooltip); Oportunidades board empty state | in review |
+| v1.3.8 | labels, fixes | "Pregúntale a la IA" → "Ask BRANIA" (sidebar item and header AI button tooltip); Oportunidades board empty state | live |
+| v1.3.9 | labels | The AI assistant label follows the profile language: "Pregúntale a BRANIA" (Spanish) / "Ask BRANIA" (other languages) | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -67,7 +68,20 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.8 (in review): Ask BRANIA, Oportunidades empty state
+### v1.3.9 (in review): Pregúntale a BRANIA
+
+Decision 2026-10-02 (user): in Spanish the assistant is "Pregúntale a BRANIA" (the platform's own "Pregúntale a la IA" wording with the brand); other languages keep "Ask BRANIA".
+
+| Fix | Where | Verified |
+|---|---|---|
+| Sidebar item and header AI button tooltip keyed on `html:lang(es)` (the platform sets `<html lang>` from the profile language): Spanish → "Pregúntale a BRANIA", otherwise "Ask BRANIA" | sidebar, header | computed with `lang="es"`; `lang="en"` forced in the page → "Ask BRANIA" |
+| Header AI button tooltip flashed the original "Pregúntale a la IA" when the mouse left: the label needs the trigger hovered and the Bootstrap tooltip faded out for 0.15s → Bootstrap tooltips hide instantly (opacity 0, no transition, once `.show` is removed) | header, any Bootstrap tooltip | class/opacity log on hover out: opacity 0 as soon as `.show` is removed |
+| Assistant panel title "Ask AI" / "Preguntar a la AI" → fixed label "Pregúntale a BRANIA" (Spanish) / "Ask BRANIA" | Pregúntale a BRANIA panel | computed |
+| Assistant panel mounts in English and gets its Spanish strings ~0.5s later (same DOM, only the text changes: not detectable). Greeting → "¿En qué estás pensando, <name>?" (user decision: informal; the name comes from the `user-name` attribute through `attr()` in a custom property, Chrome 133+; fallback "¿En qué estás pensando?"); the composer placeholder cannot be relabelled → with a Spanish profile the composer field fades in after 0.6s. ⚠️ If the platform gets slower, "Ask anything…" may show for a moment: raise the delay in `220-ask-ai-v6.5.css` | Pregúntale a BRANIA panel | mutation log: EN → ES in 0.46–0.51s over 6 opens |
+
+Pattern for any label that must differ per language: prefix the selector with `html:lang(es)` / `html:not(:lang(es))`.
+
+### v1.3.8 (published, live): Ask BRANIA, Oportunidades empty state
 
 Decision 2026-10-02 (user): the AI assistant is "Ask BRANIA" (brand in capitals, like the logo), in the sidebar and the header button.
 

@@ -4341,6 +4341,32 @@ aside#sidebar-v2 {
   opacity: 1 !important;
   filter: brightness(0) invert(1) !important;
 }
+
+/* v1.3.9: the assistant panel mounts in English ("What's on your mind…", "Ask anything…")
+   and its Spanish strings arrive ~0.5s later, with no DOM change other than the text, so
+   the switch cannot be detected. The title and the greeting are fixed labels (labels.json);
+   the composer placeholder cannot be relabelled, so with a Spanish profile the composer
+   field fades in after 0.6s, once the Spanish placeholder is there. The panel is re-mounted
+   on every open, so the delay runs each time. */
+@keyframes bb-askai-reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+html:lang(es) .askai-sidebar .askai-composer-textarea__field textarea {
+  animation: bb-askai-reveal 0.2s ease-out 0.6s both;
+}
+/* Greeting with the user's name: the name is in the user-name attribute of the welcome
+   section; attr() in a custom property (Chrome 133+) carries it down as a string. Without
+   that support, or with no name, the fixed label "¿En qué estás pensando?" (labels.json)
+   stays. */
+@supports (x: attr(x type(*))) {
+  .askai-welcome[user-name]:not([user-name=""]) {
+    --bb-user-name: attr(user-name);
+  }
+  html:lang(es) .askai-welcome[user-name]:not([user-name=""]) .askai-welcome-header__title::after {
+    content: "¿En qué estás pensando, " var(--bb-user-name) "?";
+  }
+}
 /* ─────────────────────────────────────────────────────────────
    CONFIGURACIÓN — CONTENEDORES BLANCOS (v6.13)
    Revisadas todas las páginas del menú de Configuración de agencia.
@@ -6171,7 +6197,15 @@ svg.custom-icon[fill="currentColor"] {
   --n-color-start: color-mix(in srgb, var(--bb-divider) 45%, var(--bb-bg)) !important;
   --n-color-end: var(--bb-divider) !important;
 }
-/* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
+
+/* v1.3.9: Bootstrap tooltips hide instantly instead of a 0.15s fade. They are appended to
+   <body> with no link to their trigger, so a relabelled tooltip (header AI button, see
+   labels.json) can only be targeted while its trigger is hovered; during the fade-out the
+   original platform text flashed. */
+.tooltip[class*="bs-tooltip-"]:not(.show) {
+  opacity: 0 !important;
+  transition: none !important;
+}/* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
 .launchpad-home #launchpad-progress-label, .launchpad-home .hr-progress-graph-indicator, .launchpad-home .hr-progress-text { color: var(--bb-text-muted) !important; }
@@ -8004,8 +8038,13 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule,
 #ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule,
-#sb_ask-ai .nav-title,
-body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner {
+html:lang(es) #sb_ask-ai .nav-title,
+html:not(:lang(es)) #sb_ask-ai .nav-title,
+html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner,
+html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner,
+html:lang(es) .askai-sidebar-header__brand-text,
+html:not(:lang(es)) .askai-sidebar-header__brand-text,
+html:lang(es) .askai-welcome-header__title {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8102,8 +8141,13 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule::after,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule::after,
 #ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after,
-#sb_ask-ai .nav-title::after,
-body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+html:lang(es) #sb_ask-ai .nav-title::after,
+html:not(:lang(es)) #sb_ask-ai .nav-title::after,
+html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
+html:lang(es) .askai-sidebar-header__brand-text::after,
+html:not(:lang(es)) .askai-sidebar-header__brand-text::after,
+html:lang(es) .askai-welcome-header__title::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8591,13 +8635,38 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   font-size: 14px;
   line-height: 20px;
 }
-#sb_ask-ai .nav-title::after {
+html:lang(es) #sb_ask-ai .nav-title::after {
+  content: "Pregúntale a BRANIA";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+html:not(:lang(es)) #sb_ask-ai .nav-title::after {
   content: "Ask BRANIA";
   font-size: 13.5px;
   line-height: 20px;
 }
-body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
+  content: "Pregúntale a BRANIA";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
   content: "Ask BRANIA";
   font-size: 11px;
   line-height: 16.5px;
+}
+html:lang(es) .askai-sidebar-header__brand-text::after {
+  content: "Pregúntale a BRANIA";
+  font-size: 15px;
+  line-height: 15px;
+}
+html:not(:lang(es)) .askai-sidebar-header__brand-text::after {
+  content: "Ask BRANIA";
+  font-size: 15px;
+  line-height: 15px;
+}
+html:lang(es) .askai-welcome-header__title::after {
+  content: "¿En qué estás pensando?";
+  font-size: 28px;
+  line-height: 34px;
 }

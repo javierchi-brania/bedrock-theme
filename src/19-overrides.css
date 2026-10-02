@@ -516,3 +516,12 @@ svg.custom-icon[fill="currentColor"] {
   --n-color-start: color-mix(in srgb, var(--bb-divider) 45%, var(--bb-bg)) !important;
   --n-color-end: var(--bb-divider) !important;
 }
+
+/* v1.3.9: Bootstrap tooltips hide instantly instead of a 0.15s fade. They are appended to
+   <body> with no link to their trigger, so a relabelled tooltip (header AI button, see
+   labels.json) can only be targeted while its trigger is hovered; during the fade-out the
+   original platform text flashed. */
+.tooltip[class*="bs-tooltip-"]:not(.show) {
+  opacity: 0 !important;
+  transition: none !important;
+}

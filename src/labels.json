@@ -24,7 +24,9 @@
   "xs": "11px/16px",
   "desc12": "12px/17px",
   "btn13": "13px/18px",
-  "tooltip11": "11px/16.5px"
+  "tooltip11": "11px/16.5px",
+  "brand15": "15px/15px",
+  "greeting28": "28px/34px"
  },
  "labels": [
   {
@@ -497,14 +499,39 @@
    "font": "body"
   },
   {
-   "sel": "#sb_ask-ai .nav-title",
+   "sel": "html:lang(es) #sb_ask-ai .nav-title",
+   "text": "Pregúntale a BRANIA",
+   "font": "sidebar"
+  },
+  {
+   "sel": "html:not(:lang(es)) #sb_ask-ai .nav-title",
    "text": "Ask BRANIA",
    "font": "sidebar"
   },
   {
-   "sel": "body:has(#hl_header--copilot-icon:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "sel": "html:lang(es) body:has(#hl_header--copilot-icon:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
+   "text": "Pregúntale a BRANIA",
+   "font": "tooltip11"
+  },
+  {
+   "sel": "html:not(:lang(es)) body:has(#hl_header--copilot-icon:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
    "text": "Ask BRANIA",
    "font": "tooltip11"
+  },
+  {
+   "sel": "html:lang(es) .askai-sidebar-header__brand-text",
+   "text": "Pregúntale a BRANIA",
+   "font": "brand15"
+  },
+  {
+   "sel": "html:not(:lang(es)) .askai-sidebar-header__brand-text",
+   "text": "Ask BRANIA",
+   "font": "brand15"
+  },
+  {
+   "sel": "html:lang(es) .askai-welcome-header__title",
+   "text": "¿En qué estás pensando?",
+   "font": "greeting28"
   }
  ]
 }

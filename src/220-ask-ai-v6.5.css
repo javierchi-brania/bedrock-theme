@@ -88,3 +88,29 @@
   opacity: 1 !important;
   filter: brightness(0) invert(1) !important;
 }
+
+/* v1.3.9: the assistant panel mounts in English ("What's on your mind…", "Ask anything…")
+   and its Spanish strings arrive ~0.5s later, with no DOM change other than the text, so
+   the switch cannot be detected. The title and the greeting are fixed labels (labels.json);
+   the composer placeholder cannot be relabelled, so with a Spanish profile the composer
+   field fades in after 0.6s, once the Spanish placeholder is there. The panel is re-mounted
+   on every open, so the delay runs each time. */
+@keyframes bb-askai-reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+html:lang(es) .askai-sidebar .askai-composer-textarea__field textarea {
+  animation: bb-askai-reveal 0.2s ease-out 0.6s both;
+}
+/* Greeting with the user's name: the name is in the user-name attribute of the welcome
+   section; attr() in a custom property (Chrome 133+) carries it down as a string. Without
+   that support, or with no name, the fixed label "¿En qué estás pensando?" (labels.json)
+   stays. */
+@supports (x: attr(x type(*))) {
+  .askai-welcome[user-name]:not([user-name=""]) {
+    --bb-user-name: attr(user-name);
+  }
+  html:lang(es) .askai-welcome[user-name]:not([user-name=""]) .askai-welcome-header__title::after {
+    content: "¿En qué estás pensando, " var(--bb-user-name) "?";
+  }
+}
