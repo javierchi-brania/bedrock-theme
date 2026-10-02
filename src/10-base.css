@@ -248,3 +248,35 @@ a:hover,
 .crm-opportunities-page {
   animation: bb-rise-in 0.32s ease both;
 }
+
+/* ── platform palette → teal ──
+   The platform's components and utilities read their brand color from :root variables
+   (--primary-25 … --primary-900, defined in its component stylesheet; --blue-* for blue
+   accents). Remapping them onto the teal ramp themes every component that uses them at
+   once (buttons, links, icons, radios, sort indicators, focus rings…), in every view.
+   !important: the platform defines them on :root too, in a sheet loaded after the theme. */
+:root {
+  --primary-25: var(--bb-accent-25) !important;
+  --primary-50: var(--bb-accent-50) !important;
+  --primary-100: var(--bb-accent-100) !important;
+  --primary-200: var(--bb-accent-200) !important;
+  --primary-300: var(--bb-accent-300) !important;
+  --primary-400: var(--bb-accent-400) !important;
+  --primary-500: var(--bb-accent-500) !important;
+  --primary-600: var(--bb-accent-600) !important;
+  --primary-700: var(--bb-accent-700) !important;
+  --primary-800: var(--bb-accent-800) !important;
+  --primary-900: var(--bb-accent-900) !important;
+  --blue-25: var(--bb-accent-25) !important;
+  --blue-50: var(--bb-accent-50) !important;
+  --blue-100: var(--bb-accent-100) !important;
+  --blue-200: var(--bb-accent-200) !important;
+  --blue-300: var(--bb-accent-300) !important;
+  --blue-400: var(--bb-accent-400) !important;
+  --blue-500: var(--bb-accent-500) !important;
+  --blue-600: var(--bb-accent-600) !important;
+  --blue-700: var(--bb-accent-700) !important;
+  --blue-800: var(--bb-accent-800) !important;
+  --blue-900: var(--bb-accent-900) !important;
+}
+

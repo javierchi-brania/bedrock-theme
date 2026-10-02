@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.2.8` (saved 2026-10-02).
-**In progress:** `v1.3.0` (branch `refactor/20-sidebar`).
+**In progress:** `v1.3.1` (branch `feat/platform-palette`).
 
 ## Releases
 
@@ -23,7 +23,8 @@ publish is in [README.md](README.md).
 | v1.2.6 | fixes | Spanish labels everywhere from `src/labels.json`; Launchpad → Panel; odd translations | |
 | v1.2.7 | fixes | Opaque header and dashboard toolbar (content showed through when scrolling); Panel and calendar backgrounds | |
 | v1.2.8 | fixes | Contact detail page and the add-opportunity modal | live |
-| v1.3.0 | refactor | 20-sidebar + 21-sidebar-switcher | in progress — compare vs v1.2.8: 0 differences (Tablero, Pregúntale a la IA, Configuración, Estudio de IA, Agentes de IA) |
+| v1.3.0 | refactor | 20-sidebar + 21-sidebar-switcher | compare vs v1.2.8: 0 differences |
+| v1.3.1 | fixes | Platform palette → teal everywhere (goal: theme the whole platform) | in progress |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -38,8 +39,8 @@ separate release, with before/after captures.
 | 10-base | 010, 050, 180 (right after tokens) | ✅ v1.2.0 |
 | 11-components | 110, 210, 230, 240, 250, 260, 270 (at the slot of 110) | ✅ v1.2.0 |
 | 19-overrides | 390, 430, 520 (at the slot of 430: late global layer) | ✅ v1.2.0 |
-| 20-sidebar | 060, 190, 290, 410 (at the slot of 060) | 🔄 v1.3.0 |
-| 21-sidebar-switcher | 160 (stays at its slot: it overrides components of equal specificity) | 🔄 v1.3.0 |
+| 20-sidebar | 060, 190, 290, 410 (at the slot of 060) | ✅ v1.3.0 |
+| 21-sidebar-switcher | 160 (stays at its slot: it overrides components of equal specificity) | ✅ v1.3.0 |
 | 30-header | 070, 310, 330, 500 | ⬜ |
 | 40-launchpad | 440 | ⬜ |
 | 41-tablero | 020, 460 | ⬜ |
@@ -58,6 +59,30 @@ cascade against view rules of equal specificity (see README). Each view refactor
 resolves its own conflicts with them.
 
 ## Design fixes
+
+### v1.3.1 (in progress): theme the whole platform
+
+Goal (2026-10-02): neumorphism on every native view. A sweep over 60 sub-tabs of Sitios (14),
+Reputación (8), Informes (8), Agentes de IA (9), Membresías (5), Multimedia, Aplicaciones and
+Configuración (19) showed all of them are native (stylable); the most repeated issue by far is
+platform blue (icons, radios, sort indicators, links, progress bars).
+
+| Fix | Where | Verified |
+|---|---|---|
+| Teal ramp tokens `--bb-accent-25 … --bb-accent-900` (600 = accent, 700 = accent-dark) | 00-tokens | — |
+| The platform palette variables `--primary-*` and `--blue-*` (its components read their brand color from them) remapped to the ramp on `:root` | every view | blue elements: Configuración › Etiquetas 14 → 0, Reputación 4 → 1, Cursos 0 |
+| Tailwind `text-/bg-/border-` + `blue-*` / `primary-*` utilities (literal colors) → ramp | every view | same |
+| New section `50-sitios`: forms/surveys/quizzes app surface (inline `!important` grey covered with a solid inset shadow), landing-page wells (features, template previews) sunken | Sitios › Formularios, Encuestas, Cuestionarios | captures |
+| New section `51-informes`: ad report metric cards raised; Highcharts (any view) transparent background, platform-blue series (#3B82F6 line, light-blue area gradient) → accent | Informes › Google Ads, Meta | capture |
+| Global patterns (19-overrides): Bootstrap-Vue tables (`.table-hl`) on the page surface with divider lines; Bootstrap pagination as soft pills, active sunken | Informes and any older view | captures |
+
+Checked the global palette remap on the main views: Tablero / Conversaciones only change the
+new tokens and elements that used the blue palette (select auxiliary icons, the selected inbox
+item, now dark teal on an inset).
+
+Still open from the sweep: default avatar grey surface (`.hr-avatar.ui-avatar__default`);
+"Pagado" light-blue badge and English pagination labels (Previous / Next) in Aplicaciones;
+"Quick Question" pop-up.
 
 ### v1.2.8 (published, live)
 
@@ -224,6 +249,8 @@ load in the audit; confirm one by one).
 - **Replacing platform text:** `font-size: 0` on the text element + `::after { content: "…"; font-size: …; line-height: … }` with the original metrics. Only for fixed labels; dynamic text cannot be translated with CSS.
 - **Injected component styles** can repeat the theme's selector with `!important` after the theme loads (calendar container): add a type or class to the selector to win on specificity.
 - **Sticky/fixed bars** must be opaque (page surface), or scrolled content shows through them.
+- **Brand variables first:** the platform reads its brand color from :root variables (`--primary-*`, `--blue-*`). Remapping them themes most components at once; Tailwind utilities with literal colors need their own rules.
+- **Inline `!important` backgrounds** can be covered with `box-shadow: inset 0 0 0 100vmax <color>` (above the background, below the content).
 - **Inline `!important`** (e.g. `border-radius: 0px !important` on "Cargar más") cannot be overridden from a stylesheet: shape and clip a same-size wrapper with `:has(> …)`.
 - **Inline style matching:** `[style*="color: rgb(…)"]` also matches `background-color`; use `^=` and `"; color:"`.
 - **compare() noise:** ignore `#claude-agent-*` elements: they belong to the browser automation extension, not to the page.

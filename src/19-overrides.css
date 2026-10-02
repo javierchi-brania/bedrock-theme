@@ -425,3 +425,52 @@ input[type="radio"] {
 .n-button.n-button--default-type:not(.n-button--error-type) :is(.n-button__border, .n-button__state-border) {
   border: none !important;
 }
+
+/* ── Tailwind blue / primary utilities → teal ──
+   They hold literal colors (not the --primary-* variables), so they need their own rules. */
+.text-blue-400, .text-primary-400, .text-blue-500, .text-primary-500 { color: var(--bb-accent-500) !important; }
+.text-blue-600, .text-primary-600, .text-blue-700, .text-primary-700 { color: var(--bb-accent) !important; }
+.text-blue-800, .text-primary-800, .text-blue-900, .text-primary-900 { color: var(--bb-accent-dark) !important; }
+.bg-blue-25, .bg-primary-25, .bg-blue-50, .bg-primary-50 { background-color: var(--bb-accent-25) !important; }
+.bg-blue-100, .bg-primary-100 { background-color: var(--bb-accent-50) !important; }
+.bg-blue-500, .bg-primary-500, .bg-blue-600, .bg-primary-600 { background-color: var(--bb-accent) !important; }
+.bg-blue-700, .bg-primary-700 { background-color: var(--bb-accent-dark) !important; }
+.border-blue-200, .border-primary-200, .border-blue-300, .border-primary-300 { border-color: var(--bb-accent-200) !important; }
+.border-blue-400, .border-primary-400, .border-blue-500, .border-primary-500, .border-blue-600, .border-primary-600, .border-blue-700, .border-primary-700 { border-color: var(--bb-accent) !important; }
+
+/* v1.3.1: Bootstrap-Vue tables (.b-table-wrapper.table-hl, older views such as the ad
+   reports): white rows and grey lines → page surface, divider lines, theme hover */
+.table-hl .table,
+.table-hl .table > :is(thead, tbody, tfoot) > tr {
+  background: transparent !important;
+}
+.table-hl .table > :is(thead, tbody, tfoot) > tr,
+.table-hl .table > :is(thead, tbody, tfoot) > tr > :is(th, td) {
+  border-color: var(--bb-divider) !important;
+}
+.table-hl .table > thead > tr > th {
+  color: var(--bb-text-label) !important;
+}
+.table-hl .table-hover > tbody > tr:hover {
+  background: var(--bb-bg-hover) !important;
+}
+/* Bootstrap pagination (.pagination, with the Bootstrap-Vue tables): white buttons and a
+   blue active page → soft pills, active page sunken in accent */
+.pagination .page-link {
+  background: var(--bb-bg) !important;
+  color: var(--bb-text-label) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  margin: 0 3px !important;
+}
+.pagination .page-item.active .page-link {
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+.pagination .page-item.disabled .page-link {
+  box-shadow: none !important;
+  opacity: 0.5 !important;
+}
+
