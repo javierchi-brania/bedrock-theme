@@ -355,6 +355,11 @@
    "sel": "#task .tabulator-col[tabulator-field=\"relations.TASK_CONTACT_ASSOCIATION\"] .tabulator-col-title",
    "text": "Contactos asociados",
    "font": "colTitle"
+  },
+  {
+   "sel": "#advanced-fitler-drawer .hr-drawer-footer .hr-button__content > span.ml-1",
+   "text": "Borrar todos los filtros",
+   "font": "pager"
   }
  ]
 }

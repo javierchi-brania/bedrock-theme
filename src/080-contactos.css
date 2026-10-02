@@ -365,3 +365,16 @@ hlcontentwrap .wrapper .table-container .tabulator-headers .tabulator-col.tabula
   border-radius: 0 var(--bb-radius-md) var(--bb-radius-md) 0 !important;
   box-shadow: inset -3px -3px 8px #ffffff, inset 0 3px 8px -2px #c6cacc !important;
 }
+
+/* v1.3.4: advanced filters drawer (#advanced-fitler-drawer, the id is misspelled by the platform).
+   The filter list sat on a white band (bg-white) and each filter group was a light grey box
+   with a 1px border → drawer surface, groups as soft raised panels */
+#advanced-fitler-drawer .hr-space.bg-white {
+  background: transparent !important;
+}
+#advanced-fitler-drawer .hr-space.bg-gray-50.border {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
