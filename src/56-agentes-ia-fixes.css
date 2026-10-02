@@ -111,3 +111,16 @@
   background-image: linear-gradient(135deg, var(--bb-accent-dark) 0%, var(--bb-accent) 100%) !important;
   box-shadow: 0 0 24px var(--bb-accent-glow) !important;
 }
+/* ── Plantillas de agentes ── */
+/* card header: lavender artwork (background image) with square corners over the 18px
+   card → accent-tinted surface, clipped by the card */
+.bot-card.ui-card {
+  overflow: hidden !important;
+}
+.bot-card .bot-header {
+  background: color-mix(in srgb, var(--bb-accent) 9%, var(--bb-bg)) !important;
+  border-bottom-color: var(--bb-divider) !important;
+}
+.bot-card .bot-header .text-purple-900 {
+  color: var(--bb-text-strong) !important;
+}
