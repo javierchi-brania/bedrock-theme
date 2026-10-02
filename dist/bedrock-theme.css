@@ -7356,6 +7356,27 @@ div#fc-calendar-container-v2 {
 .ai-value-landing .compare-col-revenue {
   border-color: var(--bb-accent-200) !important;
 }
+/* Estudio de agentes: the info banner is "<b>Managed Agents</b> are …" in English on light
+   blue → Spanish text (bold part in the <b>), accent tint. Other texts: src/labels.json */
+#agent-studio-container .agents-page__banner {
+  background: var(--bb-accent-50) !important;
+  border-color: transparent !important;
+  color: var(--bb-accent) !important;
+}
+#agent-studio-container .agents-page__banner-text {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+#agent-studio-container .agents-page__banner-text > b::after {
+  content: "Agentes gestionados";
+  font-size: 13.5px;
+  line-height: 19px;
+}
+#agent-studio-container .agents-page__banner-text::after {
+  content: " son agentes basados en instrucciones: dales un prompt, conocimiento, búsqueda web e integraciones, y úsalos en el chat o con disparadores.";
+  font-size: 13.5px;
+  line-height: 19px;
+}
 /* Illustrations: the hero orb (SVG gradients) and the voice test orb (canvas) can only be
    recolored with a filter: purple / blue → accent hue */
 .ai-value-landing .hero-orb-svg {
@@ -7478,7 +7499,23 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #task .tabulator-col[tabulator-field="relations.TASK_CONTACT_ASSOCIATION"] .tabulator-col-title,
 #advanced-fitler-drawer .hr-drawer-footer .hr-button__content > span.ml-1,
 .tabulator .tabulator-footer .tabulator-paginator .tabulator-page[data-page="prev"],
-.hl_new_badge_top_menu {
+.hl_new_badge_top_menu,
+#agent-studio-container .agents-shell__title,
+#agent-studio-container .agents-shell__subtitle,
+#cad-new-sub-folder-label .agents-shell__btn-content,
+#cad-create-sub-label .agents-shell__btn-content,
+#sad-sort-btn .hr-space-inner > span,
+#sad-wrapper-header-global-filter .hr-input__placeholder > span,
+#sad-table th:nth-child(2) .hr-ellipsis > span,
+#sad-table th:nth-child(3) span.mr-1,
+#sad-table th:nth-child(4) span.mr-1,
+#sad-table th:nth-child(5) span.mr-1,
+#sad-table th:nth-child(7) .hr-ellipsis > span,
+#sad-pagination .hr-dropdown-cntr > p,
+#hr-prev-button .hr-button__content > p,
+#next-button .hr-button__content > p,
+#empty-sad-empty p.hr-text-lg,
+#empty-sad-empty p.hr-text-md {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -7551,7 +7588,23 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #task .tabulator-col[tabulator-field="relations.TASK_CONTACT_ASSOCIATION"] .tabulator-col-title::after,
 #advanced-fitler-drawer .hr-drawer-footer .hr-button__content > span.ml-1::after,
 .tabulator .tabulator-footer .tabulator-paginator .tabulator-page[data-page="prev"]::after,
-.hl_new_badge_top_menu::after {
+.hl_new_badge_top_menu::after,
+#agent-studio-container .agents-shell__title::after,
+#agent-studio-container .agents-shell__subtitle::after,
+#cad-new-sub-folder-label .agents-shell__btn-content::after,
+#cad-create-sub-label .agents-shell__btn-content::after,
+#sad-sort-btn .hr-space-inner > span::after,
+#sad-wrapper-header-global-filter .hr-input__placeholder > span::after,
+#sad-table th:nth-child(2) .hr-ellipsis > span::after,
+#sad-table th:nth-child(3) span.mr-1::after,
+#sad-table th:nth-child(4) span.mr-1::after,
+#sad-table th:nth-child(5) span.mr-1::after,
+#sad-table th:nth-child(7) .hr-ellipsis > span::after,
+#sad-pagination .hr-dropdown-cntr > p::after,
+#hr-prev-button .hr-button__content > p::after,
+#next-button .hr-button__content > p::after,
+#empty-sad-empty p.hr-text-lg::after,
+#empty-sad-empty p.hr-text-md::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -7923,4 +7976,84 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Nuevo";
   font-size: 9.6px;
   line-height: 11px;
+}
+#agent-studio-container .agents-shell__title::after {
+  content: "Agentes gestionados";
+  font-size: 22px;
+  line-height: 30px;
+}
+#agent-studio-container .agents-shell__subtitle::after {
+  content: "Crea y administra agentes de IA para tu negocio";
+  font-size: 14px;
+  line-height: 21px;
+}
+#cad-new-sub-folder-label .agents-shell__btn-content::after {
+  content: "Nueva carpeta";
+  font-size: 14px;
+  line-height: 14px;
+}
+#cad-create-sub-label .agents-shell__btn-content::after {
+  content: "Crear agente gestionado";
+  font-size: 14px;
+  line-height: 14px;
+}
+#sad-sort-btn .hr-space-inner > span::after {
+  content: "Ordenar por";
+  font-size: 13px;
+  line-height: 18px;
+}
+#sad-wrapper-header-global-filter .hr-input__placeholder > span::after {
+  content: "Buscar";
+  font-size: 14px;
+  line-height: 21px;
+}
+#sad-table th:nth-child(2) .hr-ellipsis > span::after {
+  content: "Nombre";
+  font-size: 14px;
+  line-height: 20px;
+}
+#sad-table th:nth-child(3) span.mr-1::after {
+  content: "Estado";
+  font-size: 13px;
+  line-height: 15.6px;
+}
+#sad-table th:nth-child(4) span.mr-1::after {
+  content: "Última actualización";
+  font-size: 13px;
+  line-height: 15.6px;
+}
+#sad-table th:nth-child(5) span.mr-1::after {
+  content: "Creado el";
+  font-size: 13px;
+  line-height: 15.6px;
+}
+#sad-table th:nth-child(7) .hr-ellipsis > span::after {
+  content: "Acciones";
+  font-size: 14px;
+  line-height: 20px;
+}
+#sad-pagination .hr-dropdown-cntr > p::after {
+  content: "Filas por página";
+  font-size: 11px;
+  line-height: 16px;
+}
+#hr-prev-button .hr-button__content > p::after {
+  content: "Anterior";
+  font-size: 11px;
+  line-height: 16px;
+}
+#next-button .hr-button__content > p::after {
+  content: "Siguiente";
+  font-size: 11px;
+  line-height: 16px;
+}
+#empty-sad-empty p.hr-text-lg::after {
+  content: "Aún no hay agentes gestionados";
+  font-size: 14px;
+  line-height: 20px;
+}
+#empty-sad-empty p.hr-text-md::after {
+  content: "Crea tu primer agente gestionado para empezar.";
+  font-size: 13px;
+  line-height: 18px;
 }

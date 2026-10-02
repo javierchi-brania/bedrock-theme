@@ -16,7 +16,12 @@
   "nTab": "14px/21px",
   "colTitle": "12.5px/18.75px",
   "tablePager": "14px/21px",
-  "newBadge": "9.6px/11px"
+  "newBadge": "9.6px/11px",
+  "pageTitle22": "22px/30px",
+  "body21": "14px/21px",
+  "small18": "13px/18px",
+  "th13": "13px/15.6px",
+  "xs": "11px/16px"
  },
  "labels": [
   {
@@ -372,6 +377,86 @@
    "sel": ".hl_new_badge_top_menu",
    "text": "Nuevo",
    "font": "newBadge"
+  },
+  {
+   "sel": "#agent-studio-container .agents-shell__title",
+   "text": "Agentes gestionados",
+   "font": "pageTitle22"
+  },
+  {
+   "sel": "#agent-studio-container .agents-shell__subtitle",
+   "text": "Crea y administra agentes de IA para tu negocio",
+   "font": "body21"
+  },
+  {
+   "sel": "#cad-new-sub-folder-label .agents-shell__btn-content",
+   "text": "Nueva carpeta",
+   "font": "pager"
+  },
+  {
+   "sel": "#cad-create-sub-label .agents-shell__btn-content",
+   "text": "Crear agente gestionado",
+   "font": "pager"
+  },
+  {
+   "sel": "#sad-sort-btn .hr-space-inner > span",
+   "text": "Ordenar por",
+   "font": "small18"
+  },
+  {
+   "sel": "#sad-wrapper-header-global-filter .hr-input__placeholder > span",
+   "text": "Buscar",
+   "font": "body21"
+  },
+  {
+   "sel": "#sad-table th:nth-child(2) .hr-ellipsis > span",
+   "text": "Nombre",
+   "font": "body"
+  },
+  {
+   "sel": "#sad-table th:nth-child(3) span.mr-1",
+   "text": "Estado",
+   "font": "th13"
+  },
+  {
+   "sel": "#sad-table th:nth-child(4) span.mr-1",
+   "text": "Última actualización",
+   "font": "th13"
+  },
+  {
+   "sel": "#sad-table th:nth-child(5) span.mr-1",
+   "text": "Creado el",
+   "font": "th13"
+  },
+  {
+   "sel": "#sad-table th:nth-child(7) .hr-ellipsis > span",
+   "text": "Acciones",
+   "font": "body"
+  },
+  {
+   "sel": "#sad-pagination .hr-dropdown-cntr > p",
+   "text": "Filas por página",
+   "font": "xs"
+  },
+  {
+   "sel": "#hr-prev-button .hr-button__content > p",
+   "text": "Anterior",
+   "font": "xs"
+  },
+  {
+   "sel": "#next-button .hr-button__content > p",
+   "text": "Siguiente",
+   "font": "xs"
+  },
+  {
+   "sel": "#empty-sad-empty p.hr-text-lg",
+   "text": "Aún no hay agentes gestionados",
+   "font": "body"
+  },
+  {
+   "sel": "#empty-sad-empty p.hr-text-md",
+   "text": "Crea tu primer agente gestionado para empezar.",
+   "font": "small18"
   }
  ]
 }

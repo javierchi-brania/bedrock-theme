@@ -824,6 +824,27 @@
 .ai-value-landing .compare-col-revenue {
   border-color: var(--bb-accent-200) !important;
 }
+/* Estudio de agentes: the info banner is "<b>Managed Agents</b> are …" in English on light
+   blue → Spanish text (bold part in the <b>), accent tint. Other texts: src/labels.json */
+#agent-studio-container .agents-page__banner {
+  background: var(--bb-accent-50) !important;
+  border-color: transparent !important;
+  color: var(--bb-accent) !important;
+}
+#agent-studio-container .agents-page__banner-text {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+#agent-studio-container .agents-page__banner-text > b::after {
+  content: "Agentes gestionados";
+  font-size: 13.5px;
+  line-height: 19px;
+}
+#agent-studio-container .agents-page__banner-text::after {
+  content: " son agentes basados en instrucciones: dales un prompt, conocimiento, búsqueda web e integraciones, y úsalos en el chat o con disparadores.";
+  font-size: 13.5px;
+  line-height: 19px;
+}
 /* Illustrations: the hero orb (SVG gradients) and the voice test orb (canvas) can only be
    recolored with a filter: purple / blue → accent hue */
 .ai-value-landing .hero-orb-svg {
