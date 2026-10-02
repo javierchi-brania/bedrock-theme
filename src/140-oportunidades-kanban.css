@@ -76,3 +76,34 @@
   color: var(--bb-accent) !important;
 }
 
+
+/* v1.3.6: Oportunidades visual pass.
+   Board: each stage column is a scroller (overflow-y: auto) with only 2px/6px around the
+   cards, so the raised card shadow (~40px) was cut in straight lines (a pale rectangle
+   behind every card). The scroller grows outward (negative margin + padding, cards keep
+   their position) and the cards use the soft shadow, which fits in that room. */
+.crm-opportunities-page .crm-opportunities-stage-cards.card {
+  margin: -20px -18px 0 !important;
+  padding: 22px 24px 24px !important;
+}
+.crm-opportunities-page .crm-opportunities-card.opportunitiesCard {
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.crm-opportunities-page .crm-opportunities-card.opportunitiesCard:hover {
+  box-shadow: 7px 7px 16px rgba(166, 174, 178, 0.5), -7px -7px 16px rgba(255, 255, 255, 0.9) !important;
+}
+/* Active view tab ("Oportunidades abiertas") underline: platform blue → accent */
+#views-bar .view.active::after {
+  background: var(--bb-accent) !important;
+}
+/* Board / list toggle: the platform 1px outline around the sunken group */
+#newTopBar .views {
+  border: none !important;
+}
+/* List view: same table theme as Contactos (selectors shared in 080 and 510), on a raised card */
+.crm-opportunities-list-view .table-container {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  padding: 14px 16px 6px !important;
+}

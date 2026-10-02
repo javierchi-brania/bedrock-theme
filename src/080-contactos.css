@@ -104,14 +104,14 @@
 #table-container .tabulator-col,
 #table-container .tabulator-cell,
 #table-container .tabulator-footer,
-hlcontentwrap .wrapper .table-container .tabulator,
-hlcontentwrap .wrapper .table-container .tabulator-tableholder,
-hlcontentwrap .wrapper .table-container .tabulator-table,
-hlcontentwrap .wrapper .table-container .tabulator-header,
-hlcontentwrap .wrapper .table-container .tabulator-header-contents,
-hlcontentwrap .wrapper .table-container .tabulator-col,
-hlcontentwrap .wrapper .table-container .tabulator-cell,
-hlcontentwrap .wrapper .table-container .tabulator-footer {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-tableholder,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-table,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-header,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-header-contents,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-col,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-cell,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-footer {
   background: transparent !important;
   border: none !important;
 }
@@ -121,15 +121,15 @@ hlcontentwrap .wrapper .table-container .tabulator-footer {
    llenar el contenedor; cualquier padding lateral lo desborda (scroll
    horizontal + borde derecho cortado sin redondeo). */
 #table-container .tabulator-header,
-hlcontentwrap .wrapper .table-container .tabulator-header { padding: 0 !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-header { padding: 0 !important; }
 #table-container .tabulator-headers,
-hlcontentwrap .wrapper .table-container .tabulator-headers {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-headers {
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-inset-deep) !important;
   border-radius: var(--bb-radius-md) !important;
 }
 #table-container .tabulator-col-title,
-hlcontentwrap .wrapper .table-container .tabulator-col-title {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-col-title {
   color: var(--bb-text-label) !important;
   font-size: 12.5px !important;
   font-weight: 700 !important;
@@ -141,7 +141,7 @@ hlcontentwrap .wrapper .table-container .tabulator-col-title {
    header neumórfico y la tarjeta, sobraba ~50px y la página hacía scroll. */
 #table-container .my-table.tabulator { height: calc(100vh - 330px) !important; }
 #table-container .tabulator-row,
-hlcontentwrap .wrapper .table-container .tabulator-row {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-row {
   background: var(--bb-bg) !important;
   border: none !important;
   border-radius: var(--bb-radius-md) !important;
@@ -149,17 +149,17 @@ hlcontentwrap .wrapper .table-container .tabulator-row {
   box-shadow: 5px 5px 13px rgba(166, 174, 178, 0.38), -5px -5px 13px rgba(255, 255, 255, 0.9) !important;
 }
 #table-container .tabulator-row:hover,
-hlcontentwrap .wrapper .table-container .tabulator-row:hover { background: var(--bb-bg-hover) !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-row:hover { background: var(--bb-bg-hover) !important; }
 #table-container .tabulator-row .tabulator-cell.tabulator-frozen,
-hlcontentwrap .wrapper .table-container .tabulator-row .tabulator-cell.tabulator-frozen {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-row .tabulator-cell.tabulator-frozen {
   background: inherit !important;
 }
 #table-container .tabulator-row .tabulator-cell:first-child,
-hlcontentwrap .wrapper .table-container .tabulator-row .tabulator-cell:first-child {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-row .tabulator-cell:first-child {
   border-radius: var(--bb-radius-md) 0 0 var(--bb-radius-md) !important;
 }
 #table-container .tabulator-cell,
-hlcontentwrap .wrapper .table-container .tabulator-cell {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-cell {
   color: var(--bb-text) !important;
   font-size: 13px !important;
 }
@@ -191,7 +191,7 @@ hlcontentwrap .wrapper .table-container .tabulator-cell {
 
 /* Botón copiar (inline blanco) */
 #table-container .copy-icon,
-hlcontentwrap .wrapper .table-container .copy-icon {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .copy-icon {
   background: var(--bb-bg) !important;
   border: none !important;
   box-shadow: var(--bb-shadow-soft) !important;
@@ -199,7 +199,7 @@ hlcontentwrap .wrapper .table-container .copy-icon {
 
 /* Checkboxes neumórficos */
 #table-container input[type="checkbox"],
-hlcontentwrap .wrapper .table-container input[type="checkbox"] {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container input[type="checkbox"] {
   appearance: none !important;
   -webkit-appearance: none !important;
   width: 16px !important;
@@ -211,26 +211,26 @@ hlcontentwrap .wrapper .table-container input[type="checkbox"] {
   vertical-align: middle;
 }
 #table-container input[type="checkbox"]:checked,
-hlcontentwrap .wrapper .table-container input[type="checkbox"]:checked {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container input[type="checkbox"]:checked {
   background: var(--bb-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat !important;
   box-shadow: none !important;
 }
 
 /* Paginación */
 #table-container .tabulator-footer,
-hlcontentwrap .wrapper .table-container .tabulator-footer { padding: 10px 14px 6px !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-footer { padding: 10px 14px 6px !important; }
 #table-container .tabulator-page-counter,
-hlcontentwrap .wrapper .table-container .tabulator-page-counter { color: var(--bb-text-label) !important; font-weight: 600 !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page-counter { color: var(--bb-text-label) !important; font-weight: 600 !important; }
 #table-container .tabulator-paginator label,
 #table-container .tabulator-page[data-page="first"],
 #table-container .tabulator-page[data-page="last"],
-hlcontentwrap .wrapper .table-container .tabulator-paginator label,
-hlcontentwrap .wrapper .table-container .tabulator-page[data-page="first"],
-hlcontentwrap .wrapper .table-container .tabulator-page[data-page="last"] { display: none !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-paginator label,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page[data-page="first"],
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page[data-page="last"] { display: none !important; }
 #table-container .tabulator-page,
 #table-container .tabulator-page-size,
-hlcontentwrap .wrapper .table-container .tabulator-page,
-hlcontentwrap .wrapper .table-container .tabulator-page-size {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page,
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page-size {
   background: var(--bb-bg) !important;
   border: none !important;
   border-radius: 12px !important;
@@ -240,9 +240,9 @@ hlcontentwrap .wrapper .table-container .tabulator-page-size {
   margin: 0 3px !important;
 }
 #table-container .tabulator-page:disabled,
-hlcontentwrap .wrapper .table-container .tabulator-page:disabled { box-shadow: none !important; opacity: 0.5 !important; }
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page:disabled { box-shadow: none !important; opacity: 0.5 !important; }
 #table-container .tabulator-page.active,
-hlcontentwrap .wrapper .table-container .tabulator-page.active {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-page.active {
   color: var(--bb-accent) !important;
   font-weight: 700 !important;
   box-shadow: var(--bb-shadow-inset) !important;
@@ -360,7 +360,7 @@ hlcontentwrap .wrapper #views-bar .view.active .view-label {
    overflows, the scrolled header ("Debido a fecha") showed through → opaque, continuing the
    sunken header bar (rounded right end, same inner shadow) */
 #table-container .tabulator-headers .tabulator-col.tabulator-frozen.tabulator-frozen-right,
-hlcontentwrap .wrapper .table-container .tabulator-headers .tabulator-col.tabulator-frozen.tabulator-frozen-right {
+:is(hlcontentwrap .wrapper, .crm-opportunities-list-view) .table-container .tabulator-headers .tabulator-col.tabulator-frozen.tabulator-frozen-right {
   background: var(--bb-bg) !important;
   border-radius: 0 var(--bb-radius-md) var(--bb-radius-md) 0 !important;
   box-shadow: inset -3px -3px 8px #ffffff, inset 0 3px 8px -2px #c6cacc !important;
