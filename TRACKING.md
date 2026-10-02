@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.2.1` (custom CSS field, since 2026-10-02). `v1.2.2` is published: change the `@import` to use it.
-**In progress:** `v1.2.3` (branch `fix/v1.2.3`).
+**Live in the platform:** `v1.2.1` (custom CSS field, since 2026-10-02). `v1.2.3` is published: change the `@import` to use it.
+**In progress:** `v1.2.4` (branch `fix/v1.2.4`).
 
 ## Releases
 
@@ -17,7 +17,8 @@ publish is in [README.md](README.md).
 | v1.2.0 | refactor | Base layer → `10-base`, `11-components`, `19-overrides` | ⚠️ 10px bottom gap in Conversaciones (fixed in v1.2.1). Do not use. |
 | v1.2.1 | fixes | Global teal and pill fixes + v1.2.0 regression | loading bar, spinners, dashboard rings, avatars, channel badges, tags, secondary buttons |
 | v1.2.2 | fixes | Second review round: survey (NPS), spinner, text-button icons, progress rings, header megaphone, empty-state icon | |
-| v1.2.3 | fixes | Conversaciones and Marketing › Planificador (see below) | in progress |
+| v1.2.3 | fixes | Conversaciones, Marketing › Planificador, Launchpad in Spanish | |
+| v1.2.4 | fixes | Sub-tab sweep: list views (Tareas, Empresas), Pagos sub-tabs | in progress |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -52,7 +53,16 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.2.3 (in progress)
+### v1.2.4 (in progress)
+
+| Fix | Where | Verified |
+|---|---|---|
+| List views on the shared table (`hlcontentwrap .wrapper`): the contacts table rules now also cover them (pill rows, sunken header, pagination, checkboxes), plus quick-filter pills, sort indicator and views bar in accent | Contactos › Tareas, Contactos › Empresas | compare: Empresas 526 changes (the table); Contactos 0 |
+| Empty-state icon `.hl-empty-icon`: same light-blue ring as `.ui-empty-icon` | Pagos › Documentos, Pedidos, Enlaces, Transacciones, Productos | rule shared with `.ui-empty-icon` |
+| Pagos › Configuración side menu: active item blue tint, blue text, 3px corners → inset, accent, radius sm | Pagos › Configuración | compare: 28 changes, all in the menu |
+| "Ver documentación" links: blue → accent | Pagos › Tarjetas de regalo | — |
+
+### v1.2.3 (published)
 
 | Fix | Where | Verified |
 |---|---|---|
@@ -107,8 +117,13 @@ New token: `--bb-accent-filter` paints any monochrome `<img>` icon in the exact 
 - [ ] Date inputs off palette (`#ececec`) (not seen in this review; recheck when the scheduler is open).
 - [ ] Illustration cards use pastel gradients (lavender, mint, yellow, light blue). Left as illustration; decide if they should be neutral.
 
-**Clean in the last review:** Contactos, Oportunidades (board), Pagos, Ask AI, Configuración native pages
-(calendars, objects, users, tags).
+**Language (outside Launchpad, not requested yet)**
+- [ ] Pagos tabs: "Coupons", "Gift Cards", "Products" (dropdown) are English.
+- [ ] Contactos › Tareas: "Tasks", "262 Tasks", "Añadir Task", "Buscar para Tarea Título".
+- [ ] Dates in list views use the English format ("Aug 18, 2026 07:14 PM") — not fixable with CSS.
+
+**Clean in the last review:** Contactos, Oportunidades (board), Pagos (all sub-tabs), Ask AI, Configuración native pages
+(calendars, objects, users, tags), Contactos › Acciones en lote.
 
 ### Not stylable (cross-origin iframes)
 Configuración › Empresa, Calendarios › Reuniones, Automatización, Email Marketing.

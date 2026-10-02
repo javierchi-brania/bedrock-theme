@@ -1876,7 +1876,15 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 #table-container .tabulator-header-contents,
 #table-container .tabulator-col,
 #table-container .tabulator-cell,
-#table-container .tabulator-footer {
+#table-container .tabulator-footer,
+hlcontentwrap .wrapper .table-container .tabulator,
+hlcontentwrap .wrapper .table-container .tabulator-tableholder,
+hlcontentwrap .wrapper .table-container .tabulator-table,
+hlcontentwrap .wrapper .table-container .tabulator-header,
+hlcontentwrap .wrapper .table-container .tabulator-header-contents,
+hlcontentwrap .wrapper .table-container .tabulator-col,
+hlcontentwrap .wrapper .table-container .tabulator-cell,
+hlcontentwrap .wrapper .table-container .tabulator-footer {
   background: transparent !important;
   border: none !important;
 }
@@ -1885,13 +1893,16 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 /* Sin padding horizontal: Tabulator calcula el ancho de columnas para
    llenar el contenedor; cualquier padding lateral lo desborda (scroll
    horizontal + borde derecho cortado sin redondeo). */
-#table-container .tabulator-header { padding: 0 !important; }
-#table-container .tabulator-headers {
+#table-container .tabulator-header,
+hlcontentwrap .wrapper .table-container .tabulator-header { padding: 0 !important; }
+#table-container .tabulator-headers,
+hlcontentwrap .wrapper .table-container .tabulator-headers {
   background: var(--bb-bg) !important;
   box-shadow: var(--bb-shadow-inset-deep) !important;
   border-radius: var(--bb-radius-md) !important;
 }
-#table-container .tabulator-col-title {
+#table-container .tabulator-col-title,
+hlcontentwrap .wrapper .table-container .tabulator-col-title {
   color: var(--bb-text-label) !important;
   font-size: 12.5px !important;
   font-weight: 700 !important;
@@ -1902,21 +1913,26 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 /* La altura inline (100vh - 270px) es del layout original de la plataforma; con el
    header neumórfico y la tarjeta, sobraba ~50px y la página hacía scroll. */
 #table-container .my-table.tabulator { height: calc(100vh - 330px) !important; }
-#table-container .tabulator-row {
+#table-container .tabulator-row,
+hlcontentwrap .wrapper .table-container .tabulator-row {
   background: var(--bb-bg) !important;
   border: none !important;
   border-radius: var(--bb-radius-md) !important;
   margin-bottom: 10px !important;
   box-shadow: 5px 5px 13px rgba(166, 174, 178, 0.38), -5px -5px 13px rgba(255, 255, 255, 0.9) !important;
 }
-#table-container .tabulator-row:hover { background: var(--bb-bg-hover) !important; }
-#table-container .tabulator-row .tabulator-cell.tabulator-frozen {
+#table-container .tabulator-row:hover,
+hlcontentwrap .wrapper .table-container .tabulator-row:hover { background: var(--bb-bg-hover) !important; }
+#table-container .tabulator-row .tabulator-cell.tabulator-frozen,
+hlcontentwrap .wrapper .table-container .tabulator-row .tabulator-cell.tabulator-frozen {
   background: inherit !important;
 }
-#table-container .tabulator-row .tabulator-cell:first-child {
+#table-container .tabulator-row .tabulator-cell:first-child,
+hlcontentwrap .wrapper .table-container .tabulator-row .tabulator-cell:first-child {
   border-radius: var(--bb-radius-md) 0 0 var(--bb-radius-md) !important;
 }
-#table-container .tabulator-cell {
+#table-container .tabulator-cell,
+hlcontentwrap .wrapper .table-container .tabulator-cell {
   color: var(--bb-text) !important;
   font-size: 13px !important;
 }
@@ -1947,14 +1963,16 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 }
 
 /* Botón copiar (inline blanco) */
-#table-container .copy-icon {
+#table-container .copy-icon,
+hlcontentwrap .wrapper .table-container .copy-icon {
   background: var(--bb-bg) !important;
   border: none !important;
   box-shadow: var(--bb-shadow-soft) !important;
 }
 
 /* Checkboxes neumórficos */
-#table-container input[type="checkbox"] {
+#table-container input[type="checkbox"],
+hlcontentwrap .wrapper .table-container input[type="checkbox"] {
   appearance: none !important;
   -webkit-appearance: none !important;
   width: 16px !important;
@@ -1965,19 +1983,27 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
   cursor: pointer;
   vertical-align: middle;
 }
-#table-container input[type="checkbox"]:checked {
+#table-container input[type="checkbox"]:checked,
+hlcontentwrap .wrapper .table-container input[type="checkbox"]:checked {
   background: var(--bb-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat !important;
   box-shadow: none !important;
 }
 
 /* Paginación */
-#table-container .tabulator-footer { padding: 10px 14px 6px !important; }
-#table-container .tabulator-page-counter { color: var(--bb-text-label) !important; font-weight: 600 !important; }
+#table-container .tabulator-footer,
+hlcontentwrap .wrapper .table-container .tabulator-footer { padding: 10px 14px 6px !important; }
+#table-container .tabulator-page-counter,
+hlcontentwrap .wrapper .table-container .tabulator-page-counter { color: var(--bb-text-label) !important; font-weight: 600 !important; }
 #table-container .tabulator-paginator label,
 #table-container .tabulator-page[data-page="first"],
-#table-container .tabulator-page[data-page="last"] { display: none !important; }
+#table-container .tabulator-page[data-page="last"],
+hlcontentwrap .wrapper .table-container .tabulator-paginator label,
+hlcontentwrap .wrapper .table-container .tabulator-page[data-page="first"],
+hlcontentwrap .wrapper .table-container .tabulator-page[data-page="last"] { display: none !important; }
 #table-container .tabulator-page,
-#table-container .tabulator-page-size {
+#table-container .tabulator-page-size,
+hlcontentwrap .wrapper .table-container .tabulator-page,
+hlcontentwrap .wrapper .table-container .tabulator-page-size {
   background: var(--bb-bg) !important;
   border: none !important;
   border-radius: 12px !important;
@@ -1986,8 +2012,10 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
   padding: 4px 10px !important;
   margin: 0 3px !important;
 }
-#table-container .tabulator-page:disabled { box-shadow: none !important; opacity: 0.5 !important; }
-#table-container .tabulator-page.active {
+#table-container .tabulator-page:disabled,
+hlcontentwrap .wrapper .table-container .tabulator-page:disabled { box-shadow: none !important; opacity: 0.5 !important; }
+#table-container .tabulator-page.active,
+hlcontentwrap .wrapper .table-container .tabulator-page.active {
   color: var(--bb-accent) !important;
   font-weight: 700 !important;
   box-shadow: var(--bb-shadow-inset) !important;
@@ -2064,6 +2092,33 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
   font-weight: 700 !important;
 }
 
+/* v1.2.4: the rules above that start with #table-container also cover the other
+   list views built on the same table (hlcontentwrap .wrapper: Contactos › Tareas,
+   Empresas…). Added as sibling selectors so the contacts specificity is unchanged.
+   Layout-specific rules (table height, holder overflow) and contact-only cells stay
+   contacts-only. */
+hlcontentwrap .wrapper .quick-filter.button {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-text-label) !important;
+}
+/* sort indicator: blue icon on a light-blue circle → accent on a sunken circle */
+hlcontentwrap .wrapper .tabulator-col .tabulator-col-sorter > span {
+  color: var(--bb-accent) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+/* views bar (Todo / Vence hoy / Atrasado…): blue underline → accent; active label in accent */
+hlcontentwrap .wrapper #views-bar {
+  border-bottom-color: var(--bb-divider) !important;
+}
+hlcontentwrap .wrapper #views-bar .view.active::after {
+  background: var(--bb-accent) !important;
+}
+hlcontentwrap .wrapper #views-bar .view.active .view-label {
+  color: var(--bb-accent) !important;
+}
 /* ─────────────────────────────────────────────────────────────
    OPPORTUNITIES
    Brania: kanban columns as raised cards, stage headers, deal cards
@@ -4751,16 +4806,38 @@ body:has(#pg-invoices_btn-settings) .ui-statistic:nth-child(4) .title::before { 
   border-color: var(--bb-divider) !important;
   color: var(--bb-text-label) !important;
 }
-.ui-empty-icon {
+.ui-empty-icon,
+.hl-empty-icon { /* v1.2.4: same empty-state icon under another class (Pagos sub-tabs) */
   background: var(--bb-bg) !important;
   border-color: var(--bb-bg) !important; /* v1.2.2: was a light-blue 8px ring */
   box-shadow: var(--bb-shadow-soft) !important;
 }
 .ui-empty-icon svg,
-.ui-empty-icon * {
+.ui-empty-icon *,
+.hl-empty-icon svg,
+.hl-empty-icon * {
   color: var(--bb-text-muted) !important;
 }
 
+/* v1.2.4: Pagos › Configuración side menu (Recibos, Impuestos, Notificaciones…):
+   the active item was a blue tint with blue text and 3px corners → selected = inset,
+   accent text. Matched by href (no stable container); the header tab is not in a list. */
+ul a[href*="/payments/settings/"] {
+  color: var(--bb-text-label) !important;
+  border-radius: var(--bb-radius-sm) !important;
+}
+ul a[href*="/payments/settings/"].router-link-active {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+ul a[href*="/payments/settings/"]:not(.router-link-active):hover {
+  background: var(--bb-bg-hover) !important;
+}
+/* v1.2.4: "Ver documentación" links (e.g. Tarjetas de regalo): blue → accent */
+a.documentation-link {
+  color: var(--bb-accent) !important;
+}
 /* ─────────────────────────────────────────────────────────────
    PAGOS — 2ª pasada: todas las pestañas y lo desplegable (v6.24)
    Revisadas: Facturas, Documentos y contratos, Pedidos, Suscripciones,
