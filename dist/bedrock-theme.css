@@ -1618,19 +1618,6 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
 #sb_reporting.active::before { background: #3f7396 !important; }
 #sb_app-marketplace.active::before { background: #6f6499 !important; }
 #sb_settings.active::before { background: #4d8c74 !important; }
-
-/* v1.2.3: the platform has no Spanish label for this item ("Launchpad") →
-   hide the original text and draw the Spanish one. */
-#sb_launchpad .nav-title {
-  font-size: 0 !important;
-  line-height: 0 !important;
-}
-#sb_launchpad .nav-title::after {
-  display: inline-block;
-  content: "Primeros pasos";
-  font-size: 13.5px;
-  line-height: 20px;
-}
 /* ─────────────────────────────────────────────────────────────
    TOP HEADER
    Brania: <header style="border-radius:26px; box-shadow:...">
@@ -2120,27 +2107,6 @@ hlcontentwrap .wrapper #views-bar .view.active::after {
 }
 hlcontentwrap .wrapper #views-bar .view.active .view-label {
   color: var(--bb-accent) !important;
-}
-
-/* v1.2.5: Contactos › Tareas has English labels ("Tasks", "Añadir Task") → Spanish.
-   Scoped to the page that holds #task (.smartlist-title is shared with Empresas). The
-   count ("262 Tasks") mixes a live number with the word, so it is left as is. */
-hlcontentwrap .wrapper:has(#task) .smartlist-title,
-#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content {
-  font-size: 0 !important;
-  line-height: 0 !important;
-}
-hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
-  display: inline-block;
-  content: "Tareas";
-  font-size: 20px;
-  line-height: 30px;
-}
-#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content::after {
-  display: inline-block;
-  content: "Añadir tarea";
-  font-size: 13.5px;
-  line-height: 13.5px;
 }
 /* ─────────────────────────────────────────────────────────────
    OPPORTUNITIES
@@ -3703,20 +3669,6 @@ aside#sidebar-v2 {
   background: var(--bb-bg) !important;
   border-top: 1px solid var(--bb-divider) !important;
 }
-/* Risk titles have no Spanish label. The rule text under them ("Slipped 2+ times…")
-   carries thresholds set in "Ajuste la configuración de riesgo", so it is left as is. */
-#ForecastDashboard .fd-slippage-row-title {
-  font-size: 0 !important;
-  line-height: 0 !important;
-}
-#ForecastDashboard .fd-slippage-row-title::after {
-  display: inline-block;
-  font-size: 16px;
-  line-height: 24px;
-}
-#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title::after { content: "Riesgo alto"; }
-#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title::after { content: "Riesgo medio"; }
-#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title::after { content: "Riesgo bajo"; }
 /* ─────────────────────────────────────────────────────────────
    MARKETING (Email Marketing, Snippets, etc.)
    Estas pantallas usan otro sistema de componentes más (clases
@@ -4319,23 +4271,23 @@ aside#sidebar-v2 {
   align-self: center !important;
 }
 .sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Pregúntale a la IA"; }
-.sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Primeros pasos"; } /* v1.2.3: no English */
+.sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Panel"; }
 .sidebar-v2-location:has(#sb_dashboard.active) .hl_header .container-fluid::before { content: "Tablero"; }
 .sidebar-v2-location:has(#sb_conversations.active) .hl_header .container-fluid::before { content: "Conversaciones"; }
 .sidebar-v2-location:has(#sb_calendars.active) .hl_header .container-fluid::before { content: "Calendarios"; }
 .sidebar-v2-location:has(#sb_contacts.active) .hl_header .container-fluid::before { content: "Contactos"; }
-.sidebar-v2-location:has(#sb_opportunities.active) .hl_header .container-fluid::before { content: "Clientes Potenciales"; }
+.sidebar-v2-location:has(#sb_opportunities.active) .hl_header .container-fluid::before { content: "Oportunidades"; }
 .sidebar-v2-location:has(#sb_payments.active) .hl_header .container-fluid::before { content: "Pagos"; }
-.sidebar-v2-location:has(#sb_vibe.active) .hl_header .container-fluid::before { content: "AI Studio"; }
+.sidebar-v2-location:has(#sb_vibe.active) .hl_header .container-fluid::before { content: "Estudio de IA"; }
 .sidebar-v2-location:has([id="sb_AI Agents"].active) .hl_header .container-fluid::before { content: "Agentes de IA"; }
 .sidebar-v2-location:has(#sb_email-marketing.active) .hl_header .container-fluid::before { content: "Marketing"; }
 .sidebar-v2-location:has(#sb_automation.active) .hl_header .container-fluid::before { content: "Automatización"; }
 .sidebar-v2-location:has(#sb_sites.active) .hl_header .container-fluid::before { content: "Sitios"; }
-.sidebar-v2-location:has(#sb_memberships.active) .hl_header .container-fluid::before { content: "Suscripciones"; }
-.sidebar-v2-location:has(#sb_app-media.active) .hl_header .container-fluid::before { content: "Contenido multimedia"; }
+.sidebar-v2-location:has(#sb_memberships.active) .hl_header .container-fluid::before { content: "Membresías"; }
+.sidebar-v2-location:has(#sb_app-media.active) .hl_header .container-fluid::before { content: "Multimedia"; }
 .sidebar-v2-location:has(#sb_reputation.active) .hl_header .container-fluid::before { content: "Reputación"; }
 .sidebar-v2-location:has(#sb_reporting.active) .hl_header .container-fluid::before { content: "Informes"; }
-.sidebar-v2-location:has(#sb_app-marketplace.active) .hl_header .container-fluid::before { content: "Aplicaciones del mercado"; }
+.sidebar-v2-location:has(#sb_app-marketplace.active) .hl_header .container-fluid::before { content: "Aplicaciones"; }
 .sidebar-v2-location:has(#sb_settings.active) .hl_header .container-fluid::before { content: "Configuración"; }
 
 /* Colores por ítem que faltaban (mockup: Payments rojizo → AI Agents
@@ -4537,54 +4489,6 @@ aside#sidebar-v2 {
   box-shadow: none !important;
   border-bottom: none !important;
 }
-
-/* v1.2.5: header tabs and submenu items that have no Spanish label → Spanish.
-   Each item has a stable id; the label is its span.flex.items-center. */
-#tb_payments-coupons > span.flex.items-center,
-#tb_gift-cards > span.flex.items-center,
-#tb-sub_all-products > span.flex.items-center,
-#tb-sub_all-collections > span.flex.items-center,
-#tb-sub_all-inventory > span.flex.items-center,
-#tb-sub_product-reviews > span.flex.items-center,
-#tb-sub_campaigns > span.flex.items-center,
-#tb-sub_affiliates-tab > span.flex.items-center,
-#tb-sub_payouts-tab > span.flex.items-center,
-#tb-sub_media-tab > span.flex.items-center,
-#tb_affiliate-manager > span.flex.items-center:first-child {
-  font-size: 0 !important;
-  line-height: 0 !important;
-}
-#tb_payments-coupons > span.flex.items-center::after,
-#tb_gift-cards > span.flex.items-center::after,
-#tb-sub_all-products > span.flex.items-center::after,
-#tb-sub_all-collections > span.flex.items-center::after,
-#tb-sub_all-inventory > span.flex.items-center::after,
-#tb-sub_product-reviews > span.flex.items-center::after,
-#tb-sub_campaigns > span.flex.items-center::after,
-#tb-sub_affiliates-tab > span.flex.items-center::after,
-#tb-sub_payouts-tab > span.flex.items-center::after,
-#tb-sub_media-tab > span.flex.items-center::after,
-#tb_affiliate-manager > span.flex.items-center:first-child::after {
-  display: inline-block;
-  font-size: 14px;
-  line-height: 20px;
-}
-#tb_payments-coupons > span.flex.items-center::after,
-#tb_gift-cards > span.flex.items-center::after,
-#tb_affiliate-manager > span.flex.items-center:first-child::after {
-  line-height: 25.6px;
-}
-#tb_payments-coupons > span.flex.items-center::after { content: "Cupones"; }
-#tb_gift-cards > span.flex.items-center::after { content: "Tarjetas de regalo"; }
-#tb-sub_all-products > span.flex.items-center::after { content: "Productos"; }
-#tb-sub_all-collections > span.flex.items-center::after { content: "Colecciones"; }
-#tb-sub_all-inventory > span.flex.items-center::after { content: "Inventario"; }
-#tb-sub_product-reviews > span.flex.items-center::after { content: "Reseñas"; }
-#tb-sub_campaigns > span.flex.items-center::after { content: "Campañas"; }
-#tb-sub_affiliates-tab > span.flex.items-center::after { content: "Afiliados"; }
-#tb-sub_payouts-tab > span.flex.items-center::after { content: "Pagos a afiliados"; }
-#tb-sub_media-tab > span.flex.items-center::after { content: "Recursos"; }
-#tb_affiliate-manager > span.flex.items-center:first-child::after { content: "Afiliados"; }
 /* v6.19 — CONVERSACIONES: burbujas y panel de contacto
    1) Burbujas de mensaje entrante (.chat-bubble-inbound): la "colita"
    de la plataforma (::after, cuadrito #eceef2 recortado) quedaba encima del avatar
@@ -5927,19 +5831,6 @@ input[type="radio"] {
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab .hr-tabs-tab__label { background: transparent !important; border-radius: var(--bb-radius-sm) !important; width: 100%; }
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab .hr-tabs-tab__label > div { width: 100% !important; }
 .launchpad-home #launchpad-navigation-tabs .hr-tabs-tab:not(.hr-tabs-tab--active):hover .hr-tabs-tab__label > div.flex { background: var(--bb-bg-hover) !important; box-shadow: var(--bb-shadow-inset) !important; }
-
-/* v1.2.3: English word in a step title ("leads") → the term the guide uses elsewhere.
-   The step container's id is its own title. */
-[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span {
-  font-size: 0 !important;
-  line-height: 0 !important;
-}
-[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after {
-  display: inline-block;
-  content: "Captura nuevos clientes potenciales con anuncios de Facebook e Instagram";
-  font-size: 14px;
-  line-height: 20px;
-}
 /* ===== v6.34 Sidebar de Configuración: la pastilla activa ya no se corta a la izquierda ===== */
 aside#sidebar-v2:has(#backButtonv2) .hl_nav-header-without-footer { padding-left: 8px !important; padding-right: 4px !important; box-sizing: border-box !important; }
 /* v6.34b títulos de sección del menú de Configuración: sin la línea que se veía como tachado */
@@ -6203,20 +6094,6 @@ button.sidebar-option-button { transition: box-shadow .15s, color .15s !importan
 #AppointmentList .n-space.cursor-pointer[class*="border-primary"] .whitespace-nowrap {
   color: var(--bb-accent) !important;
 }
-/* The three fixed tabs have no Spanish label (Upcoming / Cancelled / All). They are
-   always the first three children of the bar; custom smart lists come after. */
-#AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap {
-  font-size: 0 !important;
-  line-height: 0 !important;
-}
-#AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap::after {
-  display: inline-block;
-  font-size: 14px;
-  line-height: 20px;
-}
-#AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap::after { content: "Próximas"; }
-#AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap::after { content: "Canceladas"; }
-#AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap::after { content: "Todas"; }
 /* ===== v6.41 Cabecera: traducir, teléfono y copiloto con el mismo botón neumórfico que el resto ===== */
 .hl_header :is(.feedback-toggle-btn, button.rounded-full.bg-success-600, #hl_header--copilot-icon) { width: 36px !important; height: 36px !important; min-width: 36px !important; border-radius: 50% !important; border: none !important; background: var(--bb-bg) !important; background-image: none !important; box-shadow: 4px 4px 9px #c9cdcf, -4px -4px 9px rgba(255,255,255,.9) !important; transition: box-shadow .15s !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
 .hl_header :is(.feedback-toggle-btn, button.rounded-full.bg-success-600, #hl_header--copilot-icon):hover { box-shadow: 6px 6px 14px #c3c7c9, -6px -6px 14px #fff !important; }
@@ -6298,3 +6175,402 @@ button.sidebar-option-button { transition: box-shadow .15s, color .15s !importan
 .crmObjectsSettingsApp .object-card.object-card--selected svg { color: var(--bb-accent) !important; }
 .crmObjectsSettingsApp .object-card svg :is(path, rect, circle, line, polyline, polygon)[fill]:not([fill="none"]) { fill: currentColor !important; }
 .crmObjectsSettingsApp .object-card svg [stroke]:not([stroke="none"]) { stroke: currentColor !important; }
+/* ── generated from src/labels.json (Spanish labels): edit the JSON, not this block ── */
+#sb_launchpad .hl_text-overflow,
+#sb_opportunities .hl_text-overflow,
+#sb_vibe .hl_text-overflow,
+#sb_memberships .hl_text-overflow,
+#sb_app-media .hl_text-overflow,
+#sb_app-marketplace .hl_text-overflow,
+#sb_location-email-services .hl_text-overflow,
+#sb_import-data .hl_text-overflow,
+#sb_manage-scoring .hl_text-overflow,
+[id="sb_common.sidebar.privateIntegrations"] .hl_text-overflow,
+.hl_header:has(#tb_opportunities-tab) .topmenu-navtitle,
+#tb_opportunities-tab > span.flex.items-center,
+#tb_pipeline > span.flex.items-center,
+#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title,
+#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title,
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title,
+#tb_payment-invoices > span.flex.items-center,
+#tb_payment-invoices a[href$="/payments/v2/estimates"] > span.flex.items-center,
+#tb-sub_all-abandoned-checkouts > span.flex.items-center,
+#tb-sub_all-products > span.flex.items-center,
+#tb-sub_all-collections > span.flex.items-center,
+#tb-sub_all-inventory > span.flex.items-center,
+#tb-sub_product-reviews > span.flex.items-center,
+#tb_payments-coupons > span.flex.items-center,
+#tb_gift-cards > span.flex.items-center,
+#tb_countdown-timer > span.flex.items-center,
+#tb_affiliate-manager > span.flex.items-center:first-child,
+#tb-sub_campaigns > span.flex.items-center,
+#tb-sub_affiliates-tab > span.flex.items-center,
+#tb-sub_payouts-tab > span.flex.items-center,
+#tb-sub_media-tab > span.flex.items-center,
+#tb_ai-agents-agent-studio > span.flex.items-center,
+#tb_ai-agents-voice-ai > span.flex.items-center,
+#tb_ai-agents-conversation-ai > span.flex.items-center,
+#tb_ai-agents-knowledge-base > span.flex.items-center,
+#tb_ai-agents-agent-templates > span.flex.items-center,
+#tb_ai-agents-content-ai > span.flex.items-center,
+#tb_agent-logs > span.flex.items-center,
+#tb_ai-agents-industry-agents > span.flex.items-center,
+#tb_workflow-overview > span.flex.items-center,
+#tb_analytics > span.flex.items-center,
+#tb-sub_branded-app > span.flex.items-center,
+#tb-sub_branded-app-memberships > span.flex.items-center,
+#tb-sub_communities-branded-app > span.flex.items-center,
+#tb_certificates > span.flex.items-center,
+#tb-sub_certificates-email-settings > span.flex.items-center,
+#tb_reputation-overview > span.flex.items-center,
+#tb_online-listings > span.flex.items-center,
+hlcontentwrap .wrapper:has(#task) .smartlist-title,
+#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content,
+#AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap,
+#AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap,
+#AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap,
+[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+#sb_launchpad .hl_text-overflow::after,
+#sb_opportunities .hl_text-overflow::after,
+#sb_vibe .hl_text-overflow::after,
+#sb_memberships .hl_text-overflow::after,
+#sb_app-media .hl_text-overflow::after,
+#sb_app-marketplace .hl_text-overflow::after,
+#sb_location-email-services .hl_text-overflow::after,
+#sb_import-data .hl_text-overflow::after,
+#sb_manage-scoring .hl_text-overflow::after,
+[id="sb_common.sidebar.privateIntegrations"] .hl_text-overflow::after,
+.hl_header:has(#tb_opportunities-tab) .topmenu-navtitle::after,
+#tb_opportunities-tab > span.flex.items-center::after,
+#tb_pipeline > span.flex.items-center::after,
+#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title::after,
+#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title::after,
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title::after,
+#tb_payment-invoices > span.flex.items-center::after,
+#tb_payment-invoices a[href$="/payments/v2/estimates"] > span.flex.items-center::after,
+#tb-sub_all-abandoned-checkouts > span.flex.items-center::after,
+#tb-sub_all-products > span.flex.items-center::after,
+#tb-sub_all-collections > span.flex.items-center::after,
+#tb-sub_all-inventory > span.flex.items-center::after,
+#tb-sub_product-reviews > span.flex.items-center::after,
+#tb_payments-coupons > span.flex.items-center::after,
+#tb_gift-cards > span.flex.items-center::after,
+#tb_countdown-timer > span.flex.items-center::after,
+#tb_affiliate-manager > span.flex.items-center:first-child::after,
+#tb-sub_campaigns > span.flex.items-center::after,
+#tb-sub_affiliates-tab > span.flex.items-center::after,
+#tb-sub_payouts-tab > span.flex.items-center::after,
+#tb-sub_media-tab > span.flex.items-center::after,
+#tb_ai-agents-agent-studio > span.flex.items-center::after,
+#tb_ai-agents-voice-ai > span.flex.items-center::after,
+#tb_ai-agents-conversation-ai > span.flex.items-center::after,
+#tb_ai-agents-knowledge-base > span.flex.items-center::after,
+#tb_ai-agents-agent-templates > span.flex.items-center::after,
+#tb_ai-agents-content-ai > span.flex.items-center::after,
+#tb_agent-logs > span.flex.items-center::after,
+#tb_ai-agents-industry-agents > span.flex.items-center::after,
+#tb_workflow-overview > span.flex.items-center::after,
+#tb_analytics > span.flex.items-center::after,
+#tb-sub_branded-app > span.flex.items-center::after,
+#tb-sub_branded-app-memberships > span.flex.items-center::after,
+#tb-sub_communities-branded-app > span.flex.items-center::after,
+#tb_certificates > span.flex.items-center::after,
+#tb-sub_certificates-email-settings > span.flex.items-center::after,
+#tb_reputation-overview > span.flex.items-center::after,
+#tb_online-listings > span.flex.items-center::after,
+hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
+#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content::after,
+#AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap::after,
+#AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap::after,
+#AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap::after,
+[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after {
+  display: inline-block;
+}
+#tb_payment-invoices > span.flex.items-center > i {
+  font-size: 14px !important;
+  line-height: 25.6px !important;
+}
+#tb_affiliate-manager > span.flex.items-center:first-child > i {
+  font-size: 14px !important;
+  line-height: 25.6px !important;
+}
+#tb_certificates > span.flex.items-center > i {
+  font-size: 14px !important;
+  line-height: 25.6px !important;
+}
+#sb_launchpad .hl_text-overflow::after {
+  content: "Panel";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+#sb_opportunities .hl_text-overflow::after {
+  content: "Oportunidades";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+#sb_vibe .hl_text-overflow::after {
+  content: "Estudio de IA";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+#sb_memberships .hl_text-overflow::after {
+  content: "Membresías";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+#sb_app-media .hl_text-overflow::after {
+  content: "Multimedia";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+#sb_app-marketplace .hl_text-overflow::after {
+  content: "Aplicaciones";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+#sb_location-email-services .hl_text-overflow::after {
+  content: "Servicios de correo";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+#sb_import-data .hl_text-overflow::after {
+  content: "Importar datos";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+#sb_manage-scoring .hl_text-overflow::after {
+  content: "Puntuación";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+[id="sb_common.sidebar.privateIntegrations"] .hl_text-overflow::after {
+  content: "Integraciones privadas";
+  font-size: 13.5px;
+  line-height: 20px;
+}
+.hl_header:has(#tb_opportunities-tab) .topmenu-navtitle::after {
+  content: "Oportunidades";
+  font-size: 18px;
+  line-height: 28px;
+}
+#tb_opportunities-tab > span.flex.items-center::after {
+  content: "Oportunidades";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_pipeline > span.flex.items-center::after {
+  content: "Embudos de venta";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title::after {
+  content: "Riesgo alto";
+  font-size: 16px;
+  line-height: 24px;
+}
+#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title::after {
+  content: "Riesgo medio";
+  font-size: 16px;
+  line-height: 24px;
+}
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title::after {
+  content: "Riesgo bajo";
+  font-size: 16px;
+  line-height: 24px;
+}
+#tb_payment-invoices > span.flex.items-center::after {
+  content: "Facturas y cotizaciones";
+  font-size: 14px;
+  line-height: 25.6px;
+  order: -1;
+}
+#tb_payment-invoices a[href$="/payments/v2/estimates"] > span.flex.items-center::after {
+  content: "Cotizaciones";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb-sub_all-abandoned-checkouts > span.flex.items-center::after {
+  content: "Carritos abandonados";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb-sub_all-products > span.flex.items-center::after {
+  content: "Productos";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb-sub_all-collections > span.flex.items-center::after {
+  content: "Colecciones";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb-sub_all-inventory > span.flex.items-center::after {
+  content: "Inventario";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb-sub_product-reviews > span.flex.items-center::after {
+  content: "Reseñas";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb_payments-coupons > span.flex.items-center::after {
+  content: "Cupones";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_gift-cards > span.flex.items-center::after {
+  content: "Tarjetas de regalo";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_countdown-timer > span.flex.items-center::after {
+  content: "Cuentas regresivas";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_affiliate-manager > span.flex.items-center:first-child::after {
+  content: "Afiliados";
+  font-size: 14px;
+  line-height: 25.6px;
+  order: -1;
+}
+#tb-sub_campaigns > span.flex.items-center::after {
+  content: "Campañas";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb-sub_affiliates-tab > span.flex.items-center::after {
+  content: "Afiliados";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb-sub_payouts-tab > span.flex.items-center::after {
+  content: "Pagos a afiliados";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb-sub_media-tab > span.flex.items-center::after {
+  content: "Recursos";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb_ai-agents-agent-studio > span.flex.items-center::after {
+  content: "Estudio de agentes";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_ai-agents-voice-ai > span.flex.items-center::after {
+  content: "IA de voz";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_ai-agents-conversation-ai > span.flex.items-center::after {
+  content: "IA conversacional";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_ai-agents-knowledge-base > span.flex.items-center::after {
+  content: "Base de conocimiento";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_ai-agents-agent-templates > span.flex.items-center::after {
+  content: "Plantillas de agentes";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_ai-agents-content-ai > span.flex.items-center::after {
+  content: "IA de contenido";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_agent-logs > span.flex.items-center::after {
+  content: "Registros de agentes";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_ai-agents-industry-agents > span.flex.items-center::after {
+  content: "Agentes por industria";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_workflow-overview > span.flex.items-center::after {
+  content: "Resumen";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_analytics > span.flex.items-center::after {
+  content: "Analítica";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb-sub_branded-app > span.flex.items-center::after {
+  content: "App con tu marca";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb-sub_branded-app-memberships > span.flex.items-center::after {
+  content: "App con tu marca";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb-sub_communities-branded-app > span.flex.items-center::after {
+  content: "App con tu marca";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb_certificates > span.flex.items-center::after {
+  content: "Certificados";
+  font-size: 14px;
+  line-height: 25.6px;
+  order: -1;
+}
+#tb-sub_certificates-email-settings > span.flex.items-center::after {
+  content: "Configuración de correo";
+  font-size: 14px;
+  line-height: 20px;
+}
+#tb_reputation-overview > span.flex.items-center::after {
+  content: "Resumen";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_online-listings > span.flex.items-center::after {
+  content: "Directorios";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
+  content: "Tareas";
+  font-size: 20px;
+  line-height: 30px;
+}
+#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content::after {
+  content: "Añadir tarea";
+  font-size: 13.5px;
+  line-height: 13.5px;
+}
+#AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap::after {
+  content: "Próximas";
+  font-size: 14px;
+  line-height: 20px;
+}
+#AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap::after {
+  content: "Canceladas";
+  font-size: 14px;
+  line-height: 20px;
+}
+#AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap::after {
+  content: "Todas";
+  font-size: 14px;
+  line-height: 20px;
+}
+[id="Captura nuevos leads con anuncios de Facebook e Instagram"] .hr-collapse-item__header-main p.hr-text > span::after {
+  content: "Captura nuevos clientes potenciales con anuncios de Facebook e Instagram";
+  font-size: 14px;
+  line-height: 20px;
+}

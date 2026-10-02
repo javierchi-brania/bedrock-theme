@@ -44,6 +44,7 @@
     "490-calendarios-v6.40.css",
     "500-header-v6.41.css",
     "510-contactos-v6.42.css",
-    "530-configuracion-objetos-v6.44.css"
+    "530-configuracion-objetos-v6.44.css",
+    "labels.json"
   ]
 }
