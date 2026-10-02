@@ -98,7 +98,48 @@
 .ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(1) > span,
 .ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(2) > span,
 .ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(3) > span,
-.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(4) > span {
+.ai-value-landing:has(.ship-ai-tab:nth-child(4).ship-ai-tab--active) .ship-ai-card li:nth-child(4) > span,
+#industry-agents-dashboard .home-tabs__title,
+#industry-agents-home-tabs .hr-tabs-tab[data-name="agents"] .hr-tabs-tab__label,
+#industry-agents-home-tabs .hr-tabs-tab[data-name="logs"] .hr-tabs-tab__label,
+#industry-agents-dashboard .gallery-header .hr-space-inner > div > p:nth-child(1),
+#industry-agents-dashboard .gallery-header .hr-space-inner > div > p:nth-child(2),
+#add-industry-agent .hr-button__content > p,
+#industry-agents-dashboard .gallery-empty p:nth-of-type(1),
+#industry-agents-dashboard .gallery-empty p:nth-of-type(2),
+#add-first-agent .hr-button__content > p,
+#industry-agents-dashboard .available-section__header .hr-space-inner > div > p:nth-child(1),
+#industry-agents-dashboard .available-section__header .hr-space-inner > div > p:nth-child(2),
+#industry-agents-dashboard .template-card__cta[id^="available-create-"] .hr-button__content > p,
+#industry-agents-dashboard .template-card__cta[id^="available-soon-"] .hr-button__content > p,
+#industry-agents-dashboard .template-card__prefilled-inner,
+#available-card-home-services-inbound .template-card__subtitle,
+#available-card-home-services-inbound .template-card__subtype-pill:nth-of-type(1),
+#available-card-home-services-inbound .template-card__subtype-pill:nth-of-type(2),
+#available-card-home-services-inbound .template-card__subtype-pill:nth-of-type(3),
+#available-card-home-services-inbound .template-card__desc,
+#available-card-home-services-inbound .template-card__cap-row:nth-child(1) .template-card__cap-label,
+#available-card-home-services-inbound .template-card__cap-row:nth-child(2) .template-card__cap-label,
+#available-card-home-services-inbound .template-card__cap-row:nth-child(3) .template-card__cap-label,
+#available-card-home-services-inbound .template-card__cap-row:nth-child(4) .template-card__cap-label,
+#available-card-real-estate-followup .template-card__subtitle,
+#available-card-real-estate-followup .template-card__subtype-pill:nth-of-type(1),
+#available-card-real-estate-followup .template-card__subtype-pill:nth-of-type(2),
+#available-card-real-estate-followup .template-card__subtype-pill:nth-of-type(3),
+#available-card-real-estate-followup .template-card__desc,
+#available-card-real-estate-followup .template-card__cap-row:nth-child(1) .template-card__cap-label,
+#available-card-real-estate-followup .template-card__cap-row:nth-child(2) .template-card__cap-label,
+#available-card-real-estate-followup .template-card__cap-row:nth-child(3) .template-card__cap-label,
+#available-card-real-estate-followup .template-card__cap-row:nth-child(4) .template-card__cap-label,
+#available-card-health-wellness-appointment .template-card__subtitle,
+#available-card-health-wellness-appointment .template-card__subtype-pill:nth-of-type(1),
+#available-card-health-wellness-appointment .template-card__subtype-pill:nth-of-type(2),
+#available-card-health-wellness-appointment .template-card__subtype-pill:nth-of-type(3),
+#available-card-health-wellness-appointment .template-card__desc,
+#available-card-health-wellness-appointment .template-card__cap-row:nth-child(1) .template-card__cap-label,
+#available-card-health-wellness-appointment .template-card__cap-row:nth-child(2) .template-card__cap-label,
+#available-card-health-wellness-appointment .template-card__cap-row:nth-child(3) .template-card__cap-label,
+#available-card-health-wellness-appointment .template-card__cap-row:nth-child(4) .template-card__cap-label {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -709,6 +750,289 @@
   content: "Mejora tu posicionamiento con respuestas recientes";
   font-size: 13.5px;
   line-height: 20.25px;
+}
+#industry-agents-dashboard .home-tabs__title::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Agentes por industria";
+  font-size: 16px;
+  line-height: 24px;
+}
+#industry-agents-home-tabs .hr-tabs-tab[data-name="agents"] .hr-tabs-tab__label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Agentes";
+  font-size: 14px;
+  line-height: 20px;
+}
+#industry-agents-home-tabs .hr-tabs-tab[data-name="logs"] .hr-tabs-tab__label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Registros";
+  font-size: 14px;
+  line-height: 20px;
+}
+#industry-agents-dashboard .gallery-header .hr-space-inner > div > p:nth-child(1)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Mis agentes";
+  font-size: 13px;
+  line-height: 18px;
+}
+#industry-agents-dashboard .gallery-header .hr-space-inner > div > p:nth-child(2)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Tus agentes de IA configurados y activos.";
+  font-size: 12px;
+  line-height: 17px;
+}
+#add-industry-agent .hr-button__content > p::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Añadir agente";
+  font-size: 13px;
+  line-height: 18px;
+}
+#industry-agents-dashboard .gallery-empty p:nth-of-type(1)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Aún no hay agentes";
+  font-size: 13px;
+  line-height: 18px;
+}
+#industry-agents-dashboard .gallery-empty p:nth-of-type(2)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Añade tu primer agente por industria para empezar.";
+  font-size: 12px;
+  line-height: 17px;
+}
+#add-first-agent .hr-button__content > p::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Añadir agente por industria";
+  font-size: 14px;
+  line-height: 20px;
+}
+#industry-agents-dashboard .available-section__header .hr-space-inner > div > p:nth-child(1)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Agentes disponibles";
+  font-size: 13px;
+  line-height: 18px;
+}
+#industry-agents-dashboard .available-section__header .hr-space-inner > div > p:nth-child(2)::after {
+  display: inline-block;
+  content: "Plantillas preconfiguradas: la mayoría de las secciones ya vienen llenas. Solo revisa y activa.";
+  font-size: 12px;
+  line-height: 17px;
+}
+#industry-agents-dashboard .template-card__cta[id^="available-create-"] .hr-button__content > p::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Usar este agente";
+  font-size: 14px;
+  line-height: 20px;
+}
+#industry-agents-dashboard .template-card__cta[id^="available-soon-"] .hr-button__content > p::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Próximamente";
+  font-size: 14px;
+  line-height: 20px;
+}
+#industry-agents-dashboard .template-card__prefilled-inner::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Precargado";
+  font-size: 11px;
+  line-height: 16px;
+}
+#available-card-home-services-inbound .template-card__subtitle::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Servicios para el hogar · Entrante";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-home-services-inbound .template-card__subtype-pill:nth-of-type(1)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Climatización";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-home-services-inbound .template-card__subtype-pill:nth-of-type(2)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Plomería";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-home-services-inbound .template-card__subtype-pill:nth-of-type(3)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Electricidad";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-home-services-inbound .template-card__desc::after {
+  display: inline-block;
+  content: "Capta leads, califica solicitudes de servicio y da cobertura 24/7 fuera de horario a negocios de servicios para el hogar.";
+  font-size: 13px;
+  line-height: 20.8px;
+}
+#available-card-home-services-inbound .template-card__cap-row:nth-child(1) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Citas entrantes";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-home-services-inbound .template-card__cap-row:nth-child(2) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Captación de leads";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-home-services-inbound .template-card__cap-row:nth-child(3) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Atención de emergencias";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-home-services-inbound .template-card__cap-row:nth-child(4) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "IA fuera de horario";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-real-estate-followup .template-card__subtitle::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Bienes raíces · Saliente";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-real-estate-followup .template-card__subtype-pill:nth-of-type(1)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Residencial";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-real-estate-followup .template-card__subtype-pill:nth-of-type(2)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Comercial";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-real-estate-followup .template-card__subtype-pill:nth-of-type(3)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Rentas";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-real-estate-followup .template-card__desc::after {
+  display: inline-block;
+  content: "Califica leads entrantes, les da seguimiento inmediato y agenda visitas para equipos inmobiliarios.";
+  font-size: 13px;
+  line-height: 20.8px;
+}
+#available-card-real-estate-followup .template-card__cap-row:nth-child(1) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Calificación de leads";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-real-estate-followup .template-card__cap-row:nth-child(2) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Respuesta inmediata";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-real-estate-followup .template-card__cap-row:nth-child(3) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Agenda de visitas";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-real-estate-followup .template-card__cap-row:nth-child(4) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Seguimiento saliente";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-health-wellness-appointment .template-card__subtitle::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Salud y bienestar · Entrante";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-health-wellness-appointment .template-card__subtype-pill:nth-of-type(1)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Bienestar";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-health-wellness-appointment .template-card__subtype-pill:nth-of-type(2)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Spa";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-health-wellness-appointment .template-card__subtype-pill:nth-of-type(3)::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Fitness";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-health-wellness-appointment .template-card__desc::after {
+  display: inline-block;
+  content: "Agenda citas, registra a clientes nuevos y responde preguntas frecuentes de negocios de bienestar.";
+  font-size: 13px;
+  line-height: 20.8px;
+}
+#available-card-health-wellness-appointment .template-card__cap-row:nth-child(1) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Agenda de citas";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-health-wellness-appointment .template-card__cap-row:nth-child(2) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Registro de clientes nuevos";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-health-wellness-appointment .template-card__cap-row:nth-child(3) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Preguntas frecuentes";
+  font-size: 13px;
+  line-height: 18px;
+}
+#available-card-health-wellness-appointment .template-card__cap-row:nth-child(4) .template-card__cap-label::after {
+  display: inline-block;
+  white-space: nowrap;
+  content: "Recordatorios";
+  font-size: 13px;
+  line-height: 18px;
 }
 
 /* Headings with an emphasized phrase */
