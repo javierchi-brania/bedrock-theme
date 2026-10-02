@@ -7366,6 +7366,10 @@ div#fc-calendar-container-v2 {
 #agent-studio-container .agents-page__banner-text {
   font-size: 0 !important;
   line-height: 0 !important;
+  color: var(--bb-accent-dark) !important;
+}
+#agent-studio-container .agents-page__banner-text > b {
+  color: inherit !important;
 }
 #agent-studio-container .agents-page__banner-text > b::after {
   content: "Agentes gestionados";
