@@ -6099,6 +6099,10 @@ svg.custom-icon[fill="currentColor"] {
   margin-top: -32px !important;
   padding-top: 32px !important;
   height: calc(100% + 32px) !important;
+}/* ...and its white highlight reaches 36px (-10px offset + 26px blur) while the outer
+   clip (sidebar column) is 32px away: a smaller highlight for this card keeps it inside. */
+.launchpad-home nav.launchpad-sidebar {
+  box-shadow: 10px 12px 30px rgba(166, 174, 178, 0.5), -8px -8px 20px rgba(255, 255, 255, 0.9) !important;
 }/* ===== v6.34 Sidebar de Configuración: la pastilla activa ya no se corta a la izquierda ===== */
 aside#sidebar-v2:has(#backButtonv2) .hl_nav-header-without-footer { padding-left: 8px !important; padding-right: 4px !important; box-sizing: border-box !important; }
 /* v6.34b títulos de sección del menú de Configuración: sin la línea que se veía como tachado */
