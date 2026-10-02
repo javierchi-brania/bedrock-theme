@@ -587,4 +587,11 @@ iframe[src*="client-app-affiliate-manager"] {
   height: 100% !important;
   border-radius: var(--bb-radius-lg) !important;
   box-shadow: var(--bb-shadow-soft) !important;
+}/* Marketing › Cuentas regresivas (and any page with the same nesting): the data table card sat
+   inside the page's table card, each with its own shadow and radius (26 vs 18) → one card */
+.ui-table-container__wrapper { overflow: hidden !important; }
+.ui-table-container__wrapper :is(.ui-table-container, .hr-data-table-wrapper) {
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
 }
