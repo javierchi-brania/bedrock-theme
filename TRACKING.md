@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.2.1` (custom CSS field, since 2026-10-02). `v1.2.7` is published: change the `@import` to use it.
-**In progress:** `v1.2.8` (branch `fix/v1.2.8`).
+**Live in the platform:** `v1.2.8` (saved 2026-10-02).
+**In progress:** `v1.3.0` (branch `refactor/20-sidebar`).
 
 ## Releases
 
@@ -22,7 +22,8 @@ publish is in [README.md](README.md).
 | v1.2.5 | fixes | Sub-tab sweep: Calendarios, Oportunidades, Marketing; Spanish labels outside Launchpad | |
 | v1.2.6 | fixes | Spanish labels everywhere from `src/labels.json`; Launchpad → Panel; odd translations | |
 | v1.2.7 | fixes | Opaque header and dashboard toolbar (content showed through when scrolling); Panel and calendar backgrounds | |
-| v1.2.8 | fixes | Contact detail page and the add-opportunity modal | in progress |
+| v1.2.8 | fixes | Contact detail page and the add-opportunity modal | live |
+| v1.3.0 | refactor | 20-sidebar + 21-sidebar-switcher | in progress — compare vs v1.2.8: 0 differences (Tablero, Pregúntale a la IA, Configuración, Estudio de IA, Agentes de IA) |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -37,7 +38,8 @@ separate release, with before/after captures.
 | 10-base | 010, 050, 180 (right after tokens) | ✅ v1.2.0 |
 | 11-components | 110, 210, 230, 240, 250, 260, 270 (at the slot of 110) | ✅ v1.2.0 |
 | 19-overrides | 390, 430, 520 (at the slot of 430: late global layer) | ✅ v1.2.0 |
-| 20-sidebar | 060, 160, 190, 290, 410 | ⬜ |
+| 20-sidebar | 060, 190, 290, 410 (at the slot of 060) | 🔄 v1.3.0 |
+| 21-sidebar-switcher | 160 (stays at its slot: it overrides components of equal specificity) | 🔄 v1.3.0 |
 | 30-header | 070, 310, 330, 500 | ⬜ |
 | 40-launchpad | 440 | ⬜ |
 | 41-tablero | 020, 460 | ⬜ |
@@ -57,7 +59,7 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.2.8 (in progress)
+### v1.2.8 (published, live)
 
 | Fix | Where | Verified |
 |---|---|---|
@@ -150,6 +152,7 @@ New token: `--bb-accent-filter` paints any monochrome `<img>` icon in the exact 
 ### Open findings (by view)
 
 **Global / header**
+- [ ] A "Quick Question" pop-up (product survey, English, unthemed) appeared on Agentes de IA › Primeros pasos; check if it is the same guide container as the NPS survey (`#pendo-guide-container`) with another template.
 - [ ] User avatar (`.avatar_img`) is purple `rgb(127,117,189)`. *Decision pending.*
 - [ ] Header translate icon (`#i18n-feedback`) and AI sparkle icon are purple. *Decision pending.*
 - [x] Help icon `#hl_header--help-icon`: its blue background is inline `!important`, so the 40px inset shadow is the right workaround (documented in 070). Nothing to change.
