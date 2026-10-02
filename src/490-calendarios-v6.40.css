@@ -41,17 +41,3 @@
 #AppointmentList .n-space.cursor-pointer[class*="border-primary"] .whitespace-nowrap {
   color: var(--bb-accent) !important;
 }
-/* The three fixed tabs have no Spanish label (Upcoming / Cancelled / All). They are
-   always the first three children of the bar; custom smart lists come after. */
-#AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap {
-  font-size: 0 !important;
-  line-height: 0 !important;
-}
-#AppointmentList .n-space.border-b > :is(:nth-child(1), :nth-child(2), :nth-child(3)) .whitespace-nowrap::after {
-  display: inline-block;
-  font-size: 14px;
-  line-height: 20px;
-}
-#AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap::after { content: "Próximas"; }
-#AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap::after { content: "Canceladas"; }
-#AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap::after { content: "Todas"; }

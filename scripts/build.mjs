@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { DIST, toLF, parse, topLevel, countStyleRules } from './lib/css.mjs';
+import { labelsToCss } from './lib/labels.mjs';
 
 const TOKENS = 'src/00-tokens.css';
 const EMBED = 'embed/editor.css';
@@ -25,7 +26,8 @@ const fail = (msg) => {
 // 1. Manifest <-> src/ consistency
 const manifest = JSON.parse(readFileSync('src/manifest.json', 'utf8'));
 const listed = manifest.files;
-const onDisk = readdirSync('src').filter((f) => f.endsWith('.css'));
+// .css sections and .json data files (labels.json) that the build turns into CSS
+const onDisk = readdirSync('src').filter((f) => f.endsWith('.css') || (f.endsWith('.json') && f !== 'manifest.json'));
 const dupes = listed.filter((f, i) => listed.indexOf(f) !== i);
 const unlisted = onDisk.filter((f) => !listed.includes(f));
 const missing = listed.filter((f) => !onDisk.includes(f));
@@ -38,7 +40,8 @@ let css = '';
 const starts = [];
 for (const file of listed) {
   starts.push({ file, line: css.split('\n').length });
-  css += toLF(readFileSync(join('src', file), 'utf8'));
+  const text = toLF(readFileSync(join('src', file), 'utf8'));
+  css += file.endsWith('.json') ? labelsToCss(JSON.parse(text), `src/${file}`) : text;
 }
 const origin = (line) => {
   const s = starts.findLast((x) => x.line <= line);

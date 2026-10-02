@@ -19,13 +19,18 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import Specificity from '@bramus/specificity';
 import { parse, splitSelectors, toLF } from './lib/css.mjs';
+import { labelsToCss } from './lib/labels.mjs';
 
 const args = process.argv.slice(2);
 const opt = (n) => (args.includes(n) ? args[args.indexOf(n) + 1] : undefined);
 const git = (...a) => execFileSync('git', a, { encoding: 'utf8', maxBuffer: 64 << 20 });
 
 const ref = opt('--base') ?? git('describe', '--tags', '--abbrev=0').trim();
-const load = (read) => JSON.parse(read('src/manifest.json')).files.map((f) => ({ file: f, css: toLF(read(join('src', f).replace(/\\/g, '/'))) }));
+const load = (read) =>
+  JSON.parse(read('src/manifest.json')).files.map((f) => {
+    const text = toLF(read(join('src', f).replace(/\\/g, '/')));
+    return { file: f, css: f.endsWith('.json') ? labelsToCss(JSON.parse(text), `src/${f}`) : text };
+  });
 const before = load((p) => git('show', `${ref}:${p}`));
 const after = load((p) => readFileSync(p, 'utf8'));
 

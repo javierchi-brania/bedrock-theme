@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.2.1` (custom CSS field, since 2026-10-02). `v1.2.4` is published: change the `@import` to use it.
-**In progress:** `v1.2.5` (branch `fix/v1.2.5`).
+**Live in the platform:** `v1.2.1` (custom CSS field, since 2026-10-02). `v1.2.5` is published: change the `@import` to use it.
+**In progress:** `v1.2.6` (branch `fix/v1.2.6`).
 
 ## Releases
 
@@ -19,7 +19,8 @@ publish is in [README.md](README.md).
 | v1.2.2 | fixes | Second review round: survey (NPS), spinner, text-button icons, progress rings, header megaphone, empty-state icon | |
 | v1.2.3 | fixes | Conversaciones, Marketing › Planificador, Launchpad in Spanish | |
 | v1.2.4 | fixes | Sub-tab sweep: list views (Tareas, Empresas), Pagos sub-tabs | |
-| v1.2.5 | fixes | Sub-tab sweep: Calendarios, Oportunidades, Marketing; Spanish labels outside Launchpad | in progress |
+| v1.2.5 | fixes | Sub-tab sweep: Calendarios, Oportunidades, Marketing; Spanish labels outside Launchpad | |
+| v1.2.6 | fixes | Spanish labels everywhere from `src/labels.json`; Launchpad → Panel; odd translations | in progress |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -54,7 +55,31 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.2.5 (in progress)
+### v1.2.6 (in progress)
+
+All Spanish label replacements now live in `src/labels.json` (55 labels); the hand-written
+blocks were removed from the section files. Dropdown tabs keep their chevron (it was lost
+on "Afiliados" in v1.2.5).
+
+| Area | Original | Now |
+|---|---|---|
+| Sidebar | Launchpad · Clientes Potenciales · AI Studio · Suscripciones (memberships) · Contenido multimedia Unidad / dispositivo de almacenamiento · Aplicaciones del mercado | Panel · Oportunidades · Estudio de IA · Membresías · Multimedia · Aplicaciones |
+| Header titles | same as the sidebar | same as the sidebar |
+| Configuración menu | Clientes Potenciales & Pipelines · Email Services · Importar estadísticas · Gestionar la puntuación · Integraciones Privado | Oportunidades y embudos · Servicios de correo · Importar datos · Puntuación · Integraciones privadas |
+| Oportunidades | Clientes Potenciales (title and tab) · Secuencia (pipelines) · High/Medium/Low risk | Oportunidades · Embudos de venta · Riesgo alto/medio/bajo |
+| Pagos | Facturas y estimaciones · Estimaciones · Cajas abandonadas · Products/Collections/Inventory/Reviews · Coupons · Gift Cards | Facturas y cotizaciones · Cotizaciones · Carritos abandonados · Productos/Colecciones/Inventario/Reseñas · Cupones · Tarjetas de regalo |
+| Marketing | Temporizadores de cuenta atrás · Affiliate Manager (Campaign, Affiliate, Payout, Media) | Cuentas regresivas · Afiliados (Campañas, Afiliados, Pagos a afiliados, Recursos) |
+| Agentes de IA | Agent Studio · AIde voz · Conversation AI · Base de Conocimiento · Plantillas de Agentes · Content AI · Agent Logs · Industry Agents | Estudio de agentes · IA de voz · IA conversacional · Base de conocimiento · Plantillas de agentes · IA de contenido · Registros de agentes · Agentes por industria |
+| Automatización, Reputación | Visión general · Listados | Resumen · Directorios |
+| Sitios, Membresías | Analytics · Branded Mobile App · Certificado · Configuración del email | Analítica · App con tu marca · Certificados · Configuración de correo |
+| Contactos › Tareas, Calendarios, Panel | Tasks · Añadir Task · Upcoming/Cancelled/All · "…nuevos leads…" | Tareas · Añadir tarea · Próximas/Canceladas/Todas · "…nuevos clientes potenciales…" |
+
+Kept on purpose: brand and product names (Stripe, WordPress, WhatsApp, Google Ads, Meta, GBP,
+Gokollab Marketplace), widely used Spanish loanwords (Marketing, Blogs, Widgets), "Testimonios
+en vídeo" (holds a "Nueva" badge inside the label), and the "Fragmentos" tabs (snippets).
+*Decide:* "Embudos de venta" (pipelines) sits next to Sitios › "Embudos" (funnels).
+
+### v1.2.5 (published)
 
 | Fix | Where | Verified |
 |---|---|---|

@@ -1,0 +1,292 @@
+{
+ "$comment": "Spanish labels for fixed platform text that has no Spanish version (or reads oddly). The build turns this into CSS (scripts/lib/labels.mjs). One entry per label; 'font' = metrics of the original text; 'icon' = the element also holds a dropdown chevron. Never use it for text with live data.",
+ "fonts": {
+  "sidebar": "13.5px/20px",
+  "tab": "14px/25.6px",
+  "submenu": "14px/20px",
+  "title": "20px/30px",
+  "moduleTitle": "18px/28px",
+  "risk": "16px/24px",
+  "button": "13.5px/13.5px"
+ },
+ "labels": [
+  {
+   "sel": "#sb_launchpad .hl_text-overflow",
+   "text": "Panel",
+   "font": "sidebar"
+  },
+  {
+   "sel": "#sb_opportunities .hl_text-overflow",
+   "text": "Oportunidades",
+   "font": "sidebar"
+  },
+  {
+   "sel": "#sb_vibe .hl_text-overflow",
+   "text": "Estudio de IA",
+   "font": "sidebar"
+  },
+  {
+   "sel": "#sb_memberships .hl_text-overflow",
+   "text": "Membresías",
+   "font": "sidebar"
+  },
+  {
+   "sel": "#sb_app-media .hl_text-overflow",
+   "text": "Multimedia",
+   "font": "sidebar"
+  },
+  {
+   "sel": "#sb_app-marketplace .hl_text-overflow",
+   "text": "Aplicaciones",
+   "font": "sidebar"
+  },
+  {
+   "sel": "#sb_location-email-services .hl_text-overflow",
+   "text": "Servicios de correo",
+   "font": "sidebar"
+  },
+  {
+   "sel": "#sb_import-data .hl_text-overflow",
+   "text": "Importar datos",
+   "font": "sidebar"
+  },
+  {
+   "sel": "#sb_manage-scoring .hl_text-overflow",
+   "text": "Puntuación",
+   "font": "sidebar"
+  },
+  {
+   "sel": "[id=\"sb_common.sidebar.privateIntegrations\"] .hl_text-overflow",
+   "text": "Integraciones privadas",
+   "font": "sidebar"
+  },
+  {
+   "sel": "#sb_Opportunities-Pipelines .hl_text-overflow",
+   "text": "Oportunidades y embudos",
+   "font": "sidebar"
+  },
+  {
+   "sel": ".hl_header:has(#tb_opportunities-tab) .topmenu-navtitle",
+   "text": "Oportunidades",
+   "font": "moduleTitle"
+  },
+  {
+   "sel": "#tb_opportunities-tab > span.flex.items-center",
+   "text": "Oportunidades",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_pipeline > span.flex.items-center",
+   "text": "Embudos de venta",
+   "font": "tab"
+  },
+  {
+   "sel": "#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title",
+   "text": "Riesgo alto",
+   "font": "risk"
+  },
+  {
+   "sel": "#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title",
+   "text": "Riesgo medio",
+   "font": "risk"
+  },
+  {
+   "sel": "#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title",
+   "text": "Riesgo bajo",
+   "font": "risk"
+  },
+  {
+   "sel": "#tb_payment-invoices > span.flex.items-center",
+   "text": "Facturas y cotizaciones",
+   "font": "tab",
+   "icon": true
+  },
+  {
+   "sel": "#tb_payment-invoices a[href$=\"/payments/v2/estimates\"] > span.flex.items-center",
+   "text": "Cotizaciones",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb-sub_all-abandoned-checkouts > span.flex.items-center",
+   "text": "Carritos abandonados",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb-sub_all-products > span.flex.items-center",
+   "text": "Productos",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb-sub_all-collections > span.flex.items-center",
+   "text": "Colecciones",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb-sub_all-inventory > span.flex.items-center",
+   "text": "Inventario",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb-sub_product-reviews > span.flex.items-center",
+   "text": "Reseñas",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb_payments-coupons > span.flex.items-center",
+   "text": "Cupones",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_gift-cards > span.flex.items-center",
+   "text": "Tarjetas de regalo",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_countdown-timer > span.flex.items-center",
+   "text": "Cuentas regresivas",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_affiliate-manager > span.flex.items-center:first-child",
+   "text": "Afiliados",
+   "font": "tab",
+   "icon": true
+  },
+  {
+   "sel": "#tb-sub_campaigns > span.flex.items-center",
+   "text": "Campañas",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb-sub_affiliates-tab > span.flex.items-center",
+   "text": "Afiliados",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb-sub_payouts-tab > span.flex.items-center",
+   "text": "Pagos a afiliados",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb-sub_media-tab > span.flex.items-center",
+   "text": "Recursos",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb_ai-agents-agent-studio > span.flex.items-center",
+   "text": "Estudio de agentes",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_ai-agents-voice-ai > span.flex.items-center",
+   "text": "IA de voz",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_ai-agents-conversation-ai > span.flex.items-center",
+   "text": "IA conversacional",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_ai-agents-knowledge-base > span.flex.items-center",
+   "text": "Base de conocimiento",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_ai-agents-agent-templates > span.flex.items-center",
+   "text": "Plantillas de agentes",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_ai-agents-content-ai > span.flex.items-center",
+   "text": "IA de contenido",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_agent-logs > span.flex.items-center",
+   "text": "Registros de agentes",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_ai-agents-industry-agents > span.flex.items-center",
+   "text": "Agentes por industria",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_workflow-overview > span.flex.items-center",
+   "text": "Resumen",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_analytics > span.flex.items-center",
+   "text": "Analítica",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb-sub_branded-app > span.flex.items-center",
+   "text": "App con tu marca",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb-sub_branded-app-memberships > span.flex.items-center",
+   "text": "App con tu marca",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb-sub_communities-branded-app > span.flex.items-center",
+   "text": "App con tu marca",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb_certificates > span.flex.items-center",
+   "text": "Certificados",
+   "font": "tab",
+   "icon": true
+  },
+  {
+   "sel": "#tb-sub_certificates-email-settings > span.flex.items-center",
+   "text": "Configuración de correo",
+   "font": "submenu"
+  },
+  {
+   "sel": "#tb_reputation-overview > span.flex.items-center",
+   "text": "Resumen",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_online-listings > span.flex.items-center",
+   "text": "Directorios",
+   "font": "tab"
+  },
+  {
+   "sel": "hlcontentwrap .wrapper:has(#task) .smartlist-title",
+   "text": "Tareas",
+   "font": "title"
+  },
+  {
+   "sel": "#add-record-btn:is(hlcontentwrap .wrapper:has(#task) *) .hr-button__content",
+   "text": "Añadir tarea",
+   "font": "button"
+  },
+  {
+   "sel": "#AppointmentList .n-space.border-b > :nth-child(1) .whitespace-nowrap",
+   "text": "Próximas",
+   "font": "submenu"
+  },
+  {
+   "sel": "#AppointmentList .n-space.border-b > :nth-child(2) .whitespace-nowrap",
+   "text": "Canceladas",
+   "font": "submenu"
+  },
+  {
+   "sel": "#AppointmentList .n-space.border-b > :nth-child(3) .whitespace-nowrap",
+   "text": "Todas",
+   "font": "submenu"
+  },
+  {
+   "sel": "[id=\"Captura nuevos leads con anuncios de Facebook e Instagram\"] .hr-collapse-item__header-main p.hr-text > span",
+   "text": "Captura nuevos clientes potenciales con anuncios de Facebook e Instagram",
+   "font": "submenu"
+  }
+ ]
+}

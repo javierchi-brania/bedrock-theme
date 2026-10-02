@@ -19,23 +19,23 @@
   align-self: center !important;
 }
 .sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Pregúntale a la IA"; }
-.sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Primeros pasos"; } /* v1.2.3: no English */
+.sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Panel"; }
 .sidebar-v2-location:has(#sb_dashboard.active) .hl_header .container-fluid::before { content: "Tablero"; }
 .sidebar-v2-location:has(#sb_conversations.active) .hl_header .container-fluid::before { content: "Conversaciones"; }
 .sidebar-v2-location:has(#sb_calendars.active) .hl_header .container-fluid::before { content: "Calendarios"; }
 .sidebar-v2-location:has(#sb_contacts.active) .hl_header .container-fluid::before { content: "Contactos"; }
-.sidebar-v2-location:has(#sb_opportunities.active) .hl_header .container-fluid::before { content: "Clientes Potenciales"; }
+.sidebar-v2-location:has(#sb_opportunities.active) .hl_header .container-fluid::before { content: "Oportunidades"; }
 .sidebar-v2-location:has(#sb_payments.active) .hl_header .container-fluid::before { content: "Pagos"; }
-.sidebar-v2-location:has(#sb_vibe.active) .hl_header .container-fluid::before { content: "AI Studio"; }
+.sidebar-v2-location:has(#sb_vibe.active) .hl_header .container-fluid::before { content: "Estudio de IA"; }
 .sidebar-v2-location:has([id="sb_AI Agents"].active) .hl_header .container-fluid::before { content: "Agentes de IA"; }
 .sidebar-v2-location:has(#sb_email-marketing.active) .hl_header .container-fluid::before { content: "Marketing"; }
 .sidebar-v2-location:has(#sb_automation.active) .hl_header .container-fluid::before { content: "Automatización"; }
 .sidebar-v2-location:has(#sb_sites.active) .hl_header .container-fluid::before { content: "Sitios"; }
-.sidebar-v2-location:has(#sb_memberships.active) .hl_header .container-fluid::before { content: "Suscripciones"; }
-.sidebar-v2-location:has(#sb_app-media.active) .hl_header .container-fluid::before { content: "Contenido multimedia"; }
+.sidebar-v2-location:has(#sb_memberships.active) .hl_header .container-fluid::before { content: "Membresías"; }
+.sidebar-v2-location:has(#sb_app-media.active) .hl_header .container-fluid::before { content: "Multimedia"; }
 .sidebar-v2-location:has(#sb_reputation.active) .hl_header .container-fluid::before { content: "Reputación"; }
 .sidebar-v2-location:has(#sb_reporting.active) .hl_header .container-fluid::before { content: "Informes"; }
-.sidebar-v2-location:has(#sb_app-marketplace.active) .hl_header .container-fluid::before { content: "Aplicaciones del mercado"; }
+.sidebar-v2-location:has(#sb_app-marketplace.active) .hl_header .container-fluid::before { content: "Aplicaciones"; }
 .sidebar-v2-location:has(#sb_settings.active) .hl_header .container-fluid::before { content: "Configuración"; }
 
 /* Colores por ítem que faltaban (mockup: Payments rojizo → AI Agents

@@ -61,17 +61,3 @@
   background: var(--bb-bg) !important;
   border-top: 1px solid var(--bb-divider) !important;
 }
-/* Risk titles have no Spanish label. The rule text under them ("Slipped 2+ times…")
-   carries thresholds set in "Ajuste la configuración de riesgo", so it is left as is. */
-#ForecastDashboard .fd-slippage-row-title {
-  font-size: 0 !important;
-  line-height: 0 !important;
-}
-#ForecastDashboard .fd-slippage-row-title::after {
-  display: inline-block;
-  font-size: 16px;
-  line-height: 24px;
-}
-#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title::after { content: "Riesgo alto"; }
-#ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-title::after { content: "Riesgo medio"; }
-#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-title::after { content: "Riesgo bajo"; }
