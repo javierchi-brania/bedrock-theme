@@ -105,8 +105,8 @@
 #industry-agents-dashboard .gallery-header .hr-space-inner > div > p:nth-child(1),
 #industry-agents-dashboard .gallery-header .hr-space-inner > div > p:nth-child(2),
 #add-industry-agent .hr-button__content > p,
-#industry-agents-dashboard .gallery-empty p:nth-of-type(1),
-#industry-agents-dashboard .gallery-empty p:nth-of-type(2),
+#industry-agents-dashboard .gallery-empty > p:nth-of-type(1),
+#industry-agents-dashboard .gallery-empty > p:nth-of-type(2),
 #add-first-agent .hr-button__content > p,
 #industry-agents-dashboard .available-section__header .hr-space-inner > div > p:nth-child(1),
 #industry-agents-dashboard .available-section__header .hr-space-inner > div > p:nth-child(2),
@@ -793,14 +793,14 @@
   font-size: 13px;
   line-height: 18px;
 }
-#industry-agents-dashboard .gallery-empty p:nth-of-type(1)::after {
+#industry-agents-dashboard .gallery-empty > p:nth-of-type(1)::after {
   display: inline-block;
   white-space: nowrap;
   content: "Aún no hay agentes";
   font-size: 13px;
   line-height: 18px;
 }
-#industry-agents-dashboard .gallery-empty p:nth-of-type(2)::after {
+#industry-agents-dashboard .gallery-empty > p:nth-of-type(2)::after {
   display: inline-block;
   white-space: nowrap;
   content: "Añade tu primer agente por industria para empezar.";
