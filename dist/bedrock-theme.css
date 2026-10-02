@@ -4027,7 +4027,17 @@ aside#sidebar-v2 {
 #fd-summary-table-wrapper span[style*="color: rgb(21, 112, 239)"] {
   color: var(--bb-accent) !important;
 }
-/* ─────────────────────────────────────────────────────────────
+/* v1.3.7: the board columns are inside two horizontal scrollers (stage-scrollable-container
+   and opportunities-scroll) that started 6-8px from the stage headers and cards, so their
+   shadows were still cut on the left (a pale vertical band) and at the top. The outer one
+   loses its side margin and the inner one gets the same room as padding (cards keep their
+   x); 10px at the top for the header shadow. */
+.crm-opportunities-page .stage-scrollable-container.overflow-x-scroll {
+  margin: 0 !important;
+}
+.crm-opportunities-page .scrollable.opportunities-scroll {
+  padding: 10px 16px 0 !important;
+}/* ─────────────────────────────────────────────────────────────
    MARKETING (Email Marketing, Snippets, etc.)
    Estas pantallas usan otro sistema de componentes más (clases
    .ui-*), además de .hr-tabs-* y .hr-data-table (distintos a los

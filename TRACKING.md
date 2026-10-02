@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.3.5` (saved 2026-10-02).
-**In progress:** `v1.3.6` (Oportunidades visual pass; needs the user's approval, then tag and update the platform field).
+**Live in the platform:** `v1.3.6` (saved 2026-10-02).
+**In progress:** `v1.3.7` (Oportunidades board edges; needs the user's approval, then tag and update the platform field).
 
 ## Releases
 
@@ -29,7 +29,8 @@ publish is in [README.md](README.md).
 | v1.3.3 | fixes | Loading skeletons (Contactos, Tareas, Oportunidades), Tareas header fixes | |
 | v1.3.4 | fixes | Contactos filters drawer, "Anterior" in table pagination | live |
 | v1.3.5 | fixes | Everything in Spanish: product guides hidden, Agentes de IA pages translated and themed, Membresías banner, Panel guide card edges | live |
-| v1.3.6 | fixes | Oportunidades: board cards no longer clipped, accent view tab, list view with the Contactos table theme | in review |
+| v1.3.6 | fixes | Oportunidades: board cards no longer clipped, accent view tab, list view with the Contactos table theme | live |
+| v1.3.7 | fixes | Oportunidades board: stage headers and cards no longer clipped by the horizontal scrollers | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -65,7 +66,15 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.3.6 (in review): Oportunidades
+### v1.3.7 (in review): Oportunidades board edges
+
+| Fix | Where | Verified |
+|---|---|---|
+| The board columns sit inside two horizontal scrollers (`stage-scrollable-container`, `opportunities-scroll`) that started 6-8px from the stage headers and cards: their shadows were still cut on the left (pale vertical band) and at the top. The outer one loses its side margin, the inner one gets 16px side padding (cards keep their x) and 10px at the top | Oportunidades › tablero | `bbAudit.clipped()`: 0; capture |
+
+Lesson: v1.3.6 widened the column scroller but not its scrolling ancestors. Run `bbAudit.clipped()` after every shadow fix: it reports the nearest clipping ancestor, fix it and run again.
+
+### v1.3.6 (published, live): Oportunidades
 
 | Fix | Where | Verified |
 |---|---|---|
