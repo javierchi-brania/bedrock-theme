@@ -236,3 +236,40 @@ div:has(> #conv-conversation-list-load-more-button) {
 #conv-provider-select-trigger svg {
   color: var(--bb-accent) !important;
 }
+
+/* v1.2.8: contact panel (Conversaciones and Contactos › detalle).
+   Segmented tabs (Todos los campos / DND / Acciones): white rail with a grey border →
+   raised group; the active capsule is sunken (selected = inset). */
+:is(#conversations-new-app, #record-details-new-ui) .hr-tabs-nav--segment-type .hr-tabs-rail {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+:is(#conversations-new-app, #record-details-new-ui) .hr-tabs-nav--segment-type .hr-tabs-capsule {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+/* Contact header block (name, owner, followers): 1px grey outline → none */
+#record-details-lhs .border.border-gray-200 {
+  border-color: transparent !important;
+}
+/* Contactos › detalle: center tab ("Conversaciones") and the lead source link were blue */
+#record-details-new-ui button.text-blue-600.border-blue-600 {
+  color: var(--bb-accent) !important;
+  border-bottom-color: var(--bb-accent) !important;
+}
+#internal-source-lead {
+  color: var(--bb-accent) !important;
+}
+/* AI promo banner ("Deja que AI redacte tus respuestas"): gradient with a grey outline and
+   a blue icon → theme card, accent icon */
+.ai-growth-promo-banner {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.ai-growth-promo-banner svg {
+  color: var(--bb-accent) !important;
+}
+

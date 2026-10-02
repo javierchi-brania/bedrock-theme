@@ -81,6 +81,11 @@
    "font": "tab"
   },
   {
+   "sel": "#opportunities .hr-collapse-item__header-main p.hr-text",
+   "text": "Oportunidades",
+   "font": "submenu"
+  },
+  {
    "sel": "#ForecastDashboard .fd-slippage-row-high .fd-slippage-row-title",
    "text": "Riesgo alto",
    "font": "risk"
