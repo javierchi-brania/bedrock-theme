@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.2.1` (custom CSS field, since 2026-10-02). `v1.2.3` is published: change the `@import` to use it.
-**In progress:** `v1.2.4` (branch `fix/v1.2.4`).
+**Live in the platform:** `v1.2.1` (custom CSS field, since 2026-10-02). `v1.2.4` is published: change the `@import` to use it.
+**In progress:** `v1.2.5` (branch `fix/v1.2.5`).
 
 ## Releases
 
@@ -18,7 +18,8 @@ publish is in [README.md](README.md).
 | v1.2.1 | fixes | Global teal and pill fixes + v1.2.0 regression | loading bar, spinners, dashboard rings, avatars, channel badges, tags, secondary buttons |
 | v1.2.2 | fixes | Second review round: survey (NPS), spinner, text-button icons, progress rings, header megaphone, empty-state icon | |
 | v1.2.3 | fixes | Conversaciones, Marketing › Planificador, Launchpad in Spanish | |
-| v1.2.4 | fixes | Sub-tab sweep: list views (Tareas, Empresas), Pagos sub-tabs | in progress |
+| v1.2.4 | fixes | Sub-tab sweep: list views (Tareas, Empresas), Pagos sub-tabs | |
+| v1.2.5 | fixes | Sub-tab sweep: Calendarios, Oportunidades, Marketing; Spanish labels outside Launchpad | in progress |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -53,7 +54,17 @@ resolves its own conflicts with them.
 
 ## Design fixes
 
-### v1.2.4 (in progress)
+### v1.2.5 (in progress)
+
+| Fix | Where | Verified |
+|---|---|---|
+| Appointment list: active tab underline and label → accent; fixed tabs Upcoming / Cancelled / All → Próximas / Canceladas / Todas | Calendarios › Vista de lista de citas | capture |
+| Forecast chrome: risk settings link, summary chip, "missing close date" icon → accent / theme pills; totals row white → surface; risk titles → Riesgo alto / medio / bajo | Clientes Potenciales › Pronóstico | compare: only those elements |
+| Ring spinner (`.lds-ring`) shown while embedded apps load: blue → accent | Marketing › Correos electrónicos (and any `.lds-ring`) | — |
+| Spanish labels: Pagos tabs (Cupones, Tarjetas de regalo; Productos submenu: Productos, Colecciones, Inventario, Reseñas), Marketing "Affiliate Manager" → Afiliados (submenu: Campañas, Afiliados, Pagos a afiliados, Recursos), Tareas title and "Añadir tarea" | Pagos, Marketing, Contactos › Tareas | capture |
+| Text replacements keep the original line height (`line-height: 0` on the hidden text, `inline-block` on `::after`). Fixes a v1.2.3 regression: the Launchpad sidebar item was 5px taller (45px vs 40px) | sidebar, Launchpad step, all replacements | compare: sidebar item 45 → 40px; Pronóstico cards unchanged |
+
+### v1.2.4 (published)
 
 | Fix | Where | Verified |
 |---|---|---|
@@ -117,16 +128,22 @@ New token: `--bb-accent-filter` paints any monochrome `<img>` icon in the exact 
 - [ ] Date inputs off palette (`#ececec`) (not seen in this review; recheck when the scheduler is open).
 - [ ] Illustration cards use pastel gradients (lavender, mint, yellow, light blue). Left as illustration; decide if they should be neutral.
 
-**Language (outside Launchpad, not requested yet)**
-- [ ] Pagos tabs: "Coupons", "Gift Cards", "Products" (dropdown) are English.
-- [ ] Contactos › Tareas: "Tasks", "262 Tasks", "Añadir Task", "Buscar para Tarea Título".
+**Language**
+- [x] Pagos tabs, Marketing "Affiliate Manager", Tareas title and button → v1.2.5.
+- [ ] Left in English because the text is live data or carries live numbers: "262 Tasks" count, "Buscar para Tarea Título" (placeholder), Pronóstico risk rules ("Slipped 2+ times o 14+ days": thresholds come from settings), pipeline status names (Open / Won / Lost / Abandoned in the forecast table and canvas chart).
 - [ ] Dates in list views use the English format ("Aug 18, 2026 07:14 PM") — not fixable with CSS.
 
+**Clientes Potenciales › Pronóstico**
+- [ ] The chart is a canvas: its "Ingresos esperados" series stays platform blue; the legend dot and the table column keep the same blue so they still match the bars.
+
+**Marketing › Administrador de anuncios**
+- [ ] Feature cards: grey illustration areas (`.bg-gray-50`) report square corners; verify visually (the tab froze during the review).
+
 **Clean in the last review:** Contactos, Oportunidades (board), Pagos (all sub-tabs), Ask AI, Configuración native pages
-(calendars, objects, users, tags), Contactos › Acciones en lote.
+(calendars, objects, users, tags), Contactos › Acciones en lote, Conversaciones (all sub-tabs), Clientes Potenciales › Secuencia and Acciones en lote, Marketing › Fragmentos, Temporizadores, Enlaces de activación, Paneles de marca.
 
 ### Not stylable (cross-origin iframes)
-Configuración › Empresa, Calendarios › Reuniones, Automatización, Email Marketing.
+Configuración › Empresa, Calendarios › Reuniones, Automatización, Email Marketing (Marketing › Correos electrónicos), Marketing › Affiliate Manager.
 Probably also Informes, Medios, Reputación, Sitios, Membresías, Integraciones (content did not
 load in the audit; confirm one by one).
 
@@ -156,5 +173,7 @@ load in the audit; confirm one by one).
 - **Inline `!important`** (e.g. `border-radius: 0px !important` on "Cargar más") cannot be overridden from a stylesheet: shape and clip a same-size wrapper with `:has(> …)`.
 - **Inline style matching:** `[style*="color: rgb(…)"]` also matches `background-color`; use `^=` and `"; color:"`.
 - **compare() noise:** ignore `#claude-agent-*` elements: they belong to the browser automation extension, not to the page.
+- **Text replacement metrics:** with only `font-size: 0`, the hidden text still leaves a strut and the `::after` sits on the baseline: rows grow (6px per title in Pronóstico, 5px on the sidebar item). Always pair `font-size: 0; line-height: 0` with `::after { display: inline-block; font-size; line-height }`.
+- **Canvas charts** cannot be restyled: keep their legend and table colors as they are so they keep matching.
 - **Background tabs:** timers are throttled, animations and lazy content do not run. Take a
   screenshot first to force rendering, and sleep with a worker.
