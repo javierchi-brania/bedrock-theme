@@ -12,10 +12,12 @@
 }
 
 /* v1.2.7: the toolbar is sticky; transparent, the cards scrolled under it showed
-   through. Page surface behind it (same look at rest). */
+   through. Page surface behind it (same look at rest), extended upwards with a solid
+   shadow to cover the ~22px band between it and the fixed header. */
 #location-dashboard-header,
 .location-dashboard_header {
   background: var(--bb-bg) !important;
+  box-shadow: 0 -30px 0 var(--bb-bg) !important;
   border: none !important;
   padding: 10px 12px 4px !important;
   z-index: 100 !important;
