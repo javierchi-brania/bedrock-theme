@@ -33,6 +33,9 @@
   --bb-success: #4d8c74;
   --bb-warning: #c08a3e;
   --bb-danger: #b0525c;
+  /* paints a monochrome <img> icon in --bb-accent (exact: rgb(47, 125, 137)) */
+  --bb-accent-filter: brightness(0) saturate(100%) invert(14%) sepia(80%) saturate(5543%)
+    hue-rotate(179deg) brightness(107%) contrast(63%);
 
   /* Radii */
   --bb-radius-xl: 26px;

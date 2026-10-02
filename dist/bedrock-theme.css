@@ -33,6 +33,9 @@
   --bb-success: #4d8c74;
   --bb-warning: #c08a3e;
   --bb-danger: #b0525c;
+  /* paints a monochrome <img> icon in --bb-accent (exact: rgb(47, 125, 137)) */
+  --bb-accent-filter: brightness(0) saturate(100%) invert(14%) sepia(80%) saturate(5543%)
+    hue-rotate(179deg) brightness(107%) contrast(63%);
 
   /* Radii */
   --bb-radius-xl: 26px;
@@ -4695,6 +4698,7 @@ body:has(#pg-invoices_btn-settings) .ui-statistic:nth-child(4) .title::before { 
 }
 .ui-empty-icon {
   background: var(--bb-bg) !important;
+  border-color: var(--bb-bg) !important; /* v1.2.2: was a light-blue 8px ring */
   box-shadow: var(--bb-shadow-soft) !important;
 }
 .ui-empty-icon svg,
@@ -5559,6 +5563,26 @@ input[type="radio"] {
 .hr-base-loading__icon,
 .n-base-loading__icon {
   color: var(--bb-accent) !important;
+}
+/* v1.2.2: page spinner (.v-spinner "moon"): inline blue fill and ring → accent */
+.v-spinner .v-moon2 {
+  background-color: var(--bb-accent) !important;
+}
+.v-spinner .v-moon3 {
+  border-color: var(--bb-accent) !important;
+}
+/* v1.2.2: icons of text buttons ("+ Filtros rápidos", "Ir a tareas"…): platform blue → accent */
+.hr-button.hr-button--text .hr-icon-inner,
+.hr-button.hr-button--text .hr-icon-inner svg {
+  color: var(--bb-accent) !important;
+}
+/* v1.2.2: progress rings (Launchpad steps): inline blue stroke → accent */
+.hr-progress-graph-circle-fill {
+  stroke: var(--bb-accent) !important;
+}
+/* v1.2.2: "Novedades" pill in the header: its megaphone is a blue <img> → accent */
+.feature-discovery-main-container .bg-primary-50 img {
+  filter: var(--bb-accent-filter) !important;
 }
 
 /* Anillos de progreso de los widgets del tablero: el gráfico pinta el arco

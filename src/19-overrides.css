@@ -340,6 +340,26 @@ input[type="radio"] {
 .n-base-loading__icon {
   color: var(--bb-accent) !important;
 }
+/* v1.2.2: page spinner (.v-spinner "moon"): inline blue fill and ring → accent */
+.v-spinner .v-moon2 {
+  background-color: var(--bb-accent) !important;
+}
+.v-spinner .v-moon3 {
+  border-color: var(--bb-accent) !important;
+}
+/* v1.2.2: icons of text buttons ("+ Filtros rápidos", "Ir a tareas"…): platform blue → accent */
+.hr-button.hr-button--text .hr-icon-inner,
+.hr-button.hr-button--text .hr-icon-inner svg {
+  color: var(--bb-accent) !important;
+}
+/* v1.2.2: progress rings (Launchpad steps): inline blue stroke → accent */
+.hr-progress-graph-circle-fill {
+  stroke: var(--bb-accent) !important;
+}
+/* v1.2.2: "Novedades" pill in the header: its megaphone is a blue <img> → accent */
+.feature-discovery-main-container .bg-primary-50 img {
+  filter: var(--bb-accent-filter) !important;
+}
 
 /* Anillos de progreso de los widgets del tablero: el gráfico pinta el arco
    con fill="#53B1FD" en línea; un atributo SVG pierde contra el CSS */
