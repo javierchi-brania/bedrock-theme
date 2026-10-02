@@ -66,3 +66,33 @@
 .ai-value-landing .ship-ai-card {
   padding-bottom: 16px !important;
 }
+/* ── IA de voz (#voice-ai) ── */
+/* welcome stats block: flat #f9fafb → page surface */
+#voice-ai section.welcome-stats {
+  background: var(--bb-bg) !important;
+}
+/* prompt suggestion chips: white with a 1px outline → soft pills */
+#voice-ai span.prompt-chip {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: 2px 2px 6px rgba(166, 174, 178, 0.45), -2px -2px 6px rgba(255, 255, 255, 0.9) !important;
+}
+/* platform purple (#7a5af8 / #6938ef) → accent: orb glow and rings, typing cursor,
+   templates eyebrow and "browse all" button */
+#voice-ai div.orb-shadow {
+  background: var(--bb-accent) !important;
+}
+#voice-ai span.orb-ring {
+  border-color: var(--bb-accent-glow) !important;
+}
+#voice-ai span.typewriter-cursor {
+  color: var(--bb-accent) !important;
+}
+#voice-ai div.tpl-header__eyebrow {
+  background: var(--bb-accent-50) !important;
+  color: var(--bb-accent) !important;
+}
+#voice-ai button.tpl-browse-all__btn {
+  background: var(--bb-accent) !important;
+  box-shadow: 0 2px 8px var(--bb-accent-glow) !important;
+}
