@@ -3681,6 +3681,12 @@ aside#sidebar-v2 {
 #social-planner-mf :is([style*="background: rgb(37, 99, 235)"], [style*="background-color: rgb(37, 99, 235)"]) {
   background: var(--bb-accent) !important;
 }
+/* light-blue chips ("Semanal", "9:00 h · mar. y jue.", "3 nuevos") → theme pills.
+   Brand-colored dots (Facebook, Bluesky…) keep their colors. */
+#social-planner-mf [style*="background: rgb(219, 234, 254)"] {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
 /* ─────────────────────────────────────────────────────────────
    SELECTOR DE SUB-CUENTAS (location switcher — clic en "FFL prueba"
    en el sidebar). Mismo bug de z-index que el drawer de Quick
