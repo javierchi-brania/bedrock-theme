@@ -2310,24 +2310,14 @@ hlcontentwrap .wrapper #views-bar .view.active .view-label {
   color: var(--bb-accent) !important;
 }
 
-/* v1.3.3: loading skeleton (#skeleton-loader) was a white overlay starting 40px from the top,
-   over the bottom of the sunken header → page surface below the header, cells without
-   grid lines, sunken bars */
-.table-container > .skeleton-loader {
-  background: var(--bb-bg) !important;
+/* v1.3.3: the loading skeleton (see 19-overrides) starts 40px from the top, which here is
+   over the bottom of the sunken header (card padding 14/16) → below the header, inside the padding */
+#table-container > .skeleton-loader {
   top: 53px !important;
   left: 16px !important;
   right: 16px !important;
   width: auto !important;
   padding-top: 12px !important;
-}
-.table-container > .skeleton-loader .skeleton-cell {
-  background: transparent !important;
-  border-color: transparent !important;
-}
-.table-container > .skeleton-loader .skeleton-data {
-  border-radius: var(--bb-radius-sm) !important;
-  box-shadow: var(--bb-shadow-inset) !important;
 }
 /* ─────────────────────────────────────────────────────────────
    OPPORTUNITIES
@@ -6055,6 +6045,26 @@ svg.custom-icon[fill="currentColor"] {
 }
 .n-radio-button.radio-group-button.n-radio-button--checked * {
   color: inherit !important;
+}
+
+/* v1.3.3: loading skeletons. List tables (Contactos, Tareas): a white overlay with grid lines
+   → page surface, sunken bars */
+.table-container > .skeleton-loader {
+  background: var(--bb-bg) !important;
+}
+.table-container > .skeleton-loader .skeleton-cell {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+.table-container > .skeleton-loader .skeleton-data {
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+/* Component skeleton (.hr-skeleton, e.g. Oportunidades cards): pulses #eee → #ddd, made for
+   white cards → pulses between darker tones of the page surface */
+.hr-skeleton {
+  --n-color-start: color-mix(in srgb, var(--bb-divider) 45%, var(--bb-bg)) !important;
+  --n-color-end: var(--bb-divider) !important;
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
