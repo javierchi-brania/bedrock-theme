@@ -3942,11 +3942,26 @@ aside#sidebar-v2 {
   border: none !important;
 }
 /* List view: same table theme as Contactos (selectors shared in 080 and 510), on a raised card */
-.crm-opportunities-list-view .table-container {
+.opportunityPage .crm-opportunities-list-view .table-container {
   background: var(--bb-bg) !important;
   border-radius: var(--bb-radius-xl) !important;
   box-shadow: var(--bb-shadow-raised) !important;
   padding: 14px 16px 6px !important;
+}/* List cells: status and tag pills come with inline white / #f2f4f7 fills and a 1px outline */
+.crm-opportunities-list-view .tabulator-cell div[style*="border-radius:16px"] {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: 2px 2px 5px rgba(166, 174, 178, 0.45), -2px -2px 5px rgba(255, 255, 255, 0.9) !important;
+}
+/* Active sort indicator: inline light-blue chip with a blue arrow → accent */
+.crm-opportunities-list-view .tabulator-col span[style*="#2E90FA" i] {
+  background-color: var(--bb-accent-50) !important;
+  color: var(--bb-accent) !important;
+}
+/* Contact avatar with an inline light-blue fill → accent pastel (as the v1.2.1 avatars) */
+.crm-opportunities-list-view .n-avatar[style*="rgb(178, 221, 255)"] {
+  background: color-mix(in srgb, var(--bb-accent) 30%, var(--bb-bg)) !important;
+  color: var(--bb-accent-dark) !important;
 }/* ─────────────────────────────────────────────────────────────
    MARKETING (Email Marketing, Snippets, etc.)
    Estas pantallas usan otro sistema de componentes más (clases
