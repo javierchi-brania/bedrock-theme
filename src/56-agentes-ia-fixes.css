@@ -95,4 +95,19 @@
 #voice-ai button.tpl-browse-all__btn {
   background: var(--bb-accent) !important;
   box-shadow: 0 2px 8px var(--bb-accent-glow) !important;
+}/* "está listo." gradient text, orb glow and the "Asistente de IA de …" hint: purple
+   gradients → teal ramp. The dotted sphere is a canvas (its dots cannot be styled): a hue
+   filter moves it to teal, as the Primeros pasos orb in 53-agentes-ia. */
+#voice-ai span.gradient-text {
+  background-image: linear-gradient(90deg, var(--bb-accent) 0%, var(--bb-accent-400) 35%, var(--bb-accent-dark) 70%, var(--bb-accent) 100%) !important;
+}
+#voice-ai div.orb-glow {
+  background-image: radial-gradient(circle, rgba(47, 125, 137, 0.28) 0%, rgba(47, 125, 137, 0.1) 45%, transparent 70%) !important;
+}
+#voice-ai canvas.orb-canvas {
+  filter: hue-rotate(-75deg) saturate(0.7);
+}
+#voice-ai .orb-hint-inner {
+  background-image: linear-gradient(135deg, var(--bb-accent-dark) 0%, var(--bb-accent) 100%) !important;
+  box-shadow: 0 0 24px var(--bb-accent-glow) !important;
 }
