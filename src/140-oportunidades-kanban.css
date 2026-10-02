@@ -177,4 +177,8 @@
 }
 #pipeline-table-wrapper .hr-data-table-wrapper-footer {
   padding-bottom: 14px !important;
+}/* A platform view sheet loaded after the theme forces 8px corners on these table cards
+   (the global 26px rule loses on specificity): ids win. */
+:is(#bulk-actions-container-div #bulk-actions-data-table-wrapper, #pipeline-page #pipeline-table-wrapper, #ForecastDashboard #fd-summary-table-wrapper).hr-data-table-wrapper {
+  border-radius: var(--bb-radius-xl) !important;
 }
