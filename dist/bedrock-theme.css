@@ -8348,6 +8348,92 @@ div.overflow-y-auto.grid-cols-12:has(> .col-span-10 .bot-card) {
   color: var(--bb-accent) !important;
 }
 
+/* ── Registros de agentes ── */
+/* table header/footer flush with the 26px card corners: the sort chip, filters and pager
+   were cut (same as Estudio de agentes) */
+#agent-logs-content .hr-data-table-wrapper > .hr-data-table-wrapper-header {
+  padding: 14px 18px 6px !important;
+}
+#agent-logs-content .hr-data-table-wrapper > .hr-data-table-wrapper-footer {
+  padding: 10px 18px 14px !important;
+  background: transparent !important;
+}
+#agent-logs-content #column-eye-icon {
+  background: var(--bb-bg) !important;
+}
+/* Métricas: white cards with a grey border and 8px corners → soft raised theme cards;
+   bars/line toggle → sunken pill, active option raised */
+#agent-logs-content :is(.metrics-stat-card, .metrics-chart-card) {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#agent-logs-content .chart-type-toggle {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  padding: 3px !important;
+  overflow: visible !important;
+}
+#agent-logs-content .chart-type-toggle__option {
+  border: none !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+}
+#agent-logs-content .chart-type-toggle__option--active {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-accent) !important;
+}
+
+/* ── Agentes por industria ── */
+/* the app was 1696px wide in a 1654px slot (its right 24px past the viewport) and started
+   at y=128 under the header; near-white page, white canvas with a grey border, cards with
+   a blue/green/purple hero and avatar → theme surface, accent */
+#industry-agents-dashboard.industry-agents-wrapper {
+  width: auto !important;
+  max-width: 100% !important;
+  margin-top: 12px !important;
+  height: calc(100vh - 140px - 18px) !important;
+}
+#industry-agents-dashboard .home {
+  background: transparent !important;
+}
+#industry-agents-dashboard .home-tabs {
+  background: transparent !important;
+  border-bottom-color: var(--bb-divider) !important;
+}
+/* the gallery had a fixed height taller than its slot: the canvas bottom was cut */
+#industry-agents-dashboard .home-content > .gallery {
+  height: auto !important;
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
+  box-sizing: border-box !important;
+}
+#industry-agents-dashboard .ia-canvas {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#industry-agents-dashboard .template-card__hero {
+  background: color-mix(in srgb, var(--bb-accent) 9%, var(--bb-bg)) !important;
+  border-color: var(--bb-divider) !important;
+}
+#industry-agents-dashboard .template-card__avatar {
+  background: var(--bb-accent) !important;
+}
+#industry-agents-dashboard .template-card__body {
+  background: transparent !important;
+}
+#industry-agents-dashboard .template-card__subtype-pill {
+  background: color-mix(in srgb, var(--bb-accent) 10%, var(--bb-bg)) !important;
+  border-color: transparent !important;
+  color: var(--bb-text-label) !important;
+}
+
 /* ── generated from src/labels.json (Spanish labels): edit the JSON, not this block ── */
 #sb_launchpad .hl_text-overflow,
 #sb_opportunities .hl_text-overflow,
