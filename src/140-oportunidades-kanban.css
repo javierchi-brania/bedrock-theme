@@ -117,3 +117,64 @@
   background: color-mix(in srgb, var(--bb-accent) 30%, var(--bb-bg)) !important;
   color: var(--bb-accent-dark) !important;
 }
+/* v1.3.6 › Pronóstico. Three nested scrollers sit flush with the cards (0px left/top),
+   so every raised card was cut in straight lines. The outer one drops its side margin
+   and the content gets room for the shadows. */
+#ForecastDashboard div.ml-3.mr-3.flex-1.overflow-x-hidden {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+#ForecastDashboard div.w-full.max-w-full.overflow-x-hidden > .space-y-6 {
+  padding: 34px 36px 48px 36px !important;
+}
+/* Risk rows: a straight 3px left border on a rounded card → a rounded bar inside */
+#ForecastDashboard .fd-slippage-row-inner {
+  position: relative;
+  border-left: none !important;
+  padding-left: 22px !important;
+}
+#ForecastDashboard .fd-slippage-row-inner::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 16px;
+  bottom: 16px;
+  width: 4px;
+  border-radius: 4px;
+  background: var(--bb-text-muted);
+}
+#ForecastDashboard .fd-slippage-row-high::before { background: var(--bb-danger); }
+#ForecastDashboard .fd-slippage-row-medium::before { background: var(--bb-warning); }
+#ForecastDashboard .fd-slippage-row-low::before { background: var(--bb-success); }
+/* Resumen / Cronograma de previsiones: the active one had no indicator */
+#ForecastDashboard .view-tab {
+  border-radius: var(--bb-radius-sm) !important;
+}
+#ForecastDashboard .view-tab--active {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+#ForecastDashboard .view-tab--active,
+#ForecastDashboard .view-tab--active * {
+  color: var(--bb-accent) !important;
+}
+/* Pipeline selector: flat → sunken field like the other selects */
+#pipelineDropdDown-forecast .hr-base-selection {
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+
+/* v1.3.6 › Embudos de venta and Acciones en lote: 16px page padding left the table cards
+   against the right edge of the screen (shadow cut); the pipelines table was also inside
+   an overflow-hidden wrapper of its exact size. */
+.hr-wrapper-container.pipeline-page-wrapper,
+#bulkActionsList > .hr-wrapper-container {
+  padding-left: 24px !important;
+  padding-right: 36px !important;
+}
+.crm-opportunities-pipeline-table-wrapper {
+  overflow: visible !important;
+  padding-bottom: 40px !important;
+}
+#pipeline-table-wrapper .hr-data-table-wrapper-footer {
+  padding-bottom: 14px !important;
+}
