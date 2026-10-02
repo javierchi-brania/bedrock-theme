@@ -4022,7 +4022,12 @@ aside#sidebar-v2 {
    (the global 26px rule loses on specificity): ids win. */
 :is(#bulk-actions-container-div #bulk-actions-data-table-wrapper, #pipeline-page #pipeline-table-wrapper, #ForecastDashboard #fd-summary-table-wrapper).hr-data-table-wrapper {
   border-radius: var(--bb-radius-xl) !important;
-}/* ─────────────────────────────────────────────────────────────
+}/* Pronóstico summary table: "Ingresos esperados" values come with an inline platform blue
+   (rgb(21, 112, 239)); the chart legend dot is already the accent → same accent here. */
+#fd-summary-table-wrapper span[style*="color: rgb(21, 112, 239)"] {
+  color: var(--bb-accent) !important;
+}
+/* ─────────────────────────────────────────────────────────────
    MARKETING (Email Marketing, Snippets, etc.)
    Estas pantallas usan otro sistema de componentes más (clases
    .ui-*), además de .hr-tabs-* y .hr-data-table (distintos a los
@@ -7978,7 +7983,11 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title,
 #bulkActionsList p.hr-text-4xl,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule,
-#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule {
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule,
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="0"] > td:first-child span.truncate,
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="1"] > td:first-child span.truncate,
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="2"] > td:first-child span.truncate,
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="3"] > td:first-child span.truncate {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -8074,7 +8083,11 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after,
 #bulkActionsList p.hr-text-4xl::after,
 #ForecastDashboard .fd-slippage-row-high .fd-slippage-row-rule::after,
 #ForecastDashboard .fd-slippage-row-medium .fd-slippage-row-rule::after,
-#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after {
+#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule::after,
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="0"] > td:first-child span.truncate::after,
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="1"] > td:first-child span.truncate::after,
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="2"] > td:first-child span.truncate::after,
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="3"] > td:first-child span.truncate::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -8561,4 +8574,24 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   content: "Pospuesta 1+ vez o 1+ día (sin contar alto ni medio)";
   font-size: 14px;
   line-height: 20px;
+}
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="0"] > td:first-child span.truncate::after {
+  content: "Abierto";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="1"] > td:first-child span.truncate::after {
+  content: "Ganado";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="2"] > td:first-child span.truncate::after {
+  content: "Perdido";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id="3"] > td:first-child span.truncate::after {
+  content: "Abandonado";
+  font-size: 13px;
+  line-height: 19.5px;
 }

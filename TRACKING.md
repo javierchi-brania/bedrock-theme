@@ -81,8 +81,9 @@ resolves its own conflicts with them.
 | Table cards (Acciones en lote, Embudos de venta, Pronóstico summary): a platform view sheet loaded after the theme forced 8px corners → id selectors keep 26px | Acciones en lote, Embudos de venta, Pronóstico | computed: 26px on the three |
 | Labels: "Secuencias" page → "Embudos de venta" (title, description, "Crear embudo"), matching the tab; "Acciones en bloque" → "Acciones en lote" | Embudos de venta, Acciones en lote | capture |
 | Labels: Pronóstico risk rules ("Slipped 2+ times o 14+ days"…) in Spanish **with the current thresholds hard-coded** (decision 2026-10-02, user). ⚠️ If "Ajuste la configuración de riesgo" changes, update the three texts in `src/labels.json` | Pronóstico | capture |
+| Labels: Pronóstico summary table statuses Open / Won / Lost / Abandoned → Abierto / Ganado / Perdido / Abandonado, only when grouped by status (`thead th#Estado`; rows 0–3 are the fixed statuses). "Ingresos esperados" values: inline blue → accent, like the legend | Pronóstico | capture |
 
-Left in English (live data, not fixable with CSS): chart axis Open / Won, pager "1 - 2 of 2" / "Page 1 of 1"; the pipeline select default "Todas las secuencias" (its label also shows the chosen pipeline name).
+Left in English (live data, not fixable with CSS): chart axis Open / Won / Lost / Abandoned (canvas), pager "1 - 2 of 2" / "Page 1 of 1"; the pipeline select default "Todas las secuencias" (its label also shows the chosen pipeline name).
 
 New tool: `bbAudit.clipped()` lists box-shadows cut by an overflow container.
 ### v1.3.5 (published, live): everything in Spanish

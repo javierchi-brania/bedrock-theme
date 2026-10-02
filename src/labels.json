@@ -23,7 +23,8 @@
   "th13": "13px/15.6px",
   "xs": "11px/16px",
   "desc12": "12px/17px",
-  "btn13": "13px/18px"
+  "btn13": "13px/18px",
+  "cell13": "13px/19.5px"
  },
  "labels": [
   {
@@ -494,6 +495,26 @@
    "sel": "#ForecastDashboard .fd-slippage-row-low .fd-slippage-row-rule",
    "text": "Pospuesta 1+ vez o 1+ día (sin contar alto ni medio)",
    "font": "body"
+  },
+  {
+   "sel": "#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id=\"0\"] > td:first-child span.truncate",
+   "text": "Abierto",
+   "font": "cell13"
+  },
+  {
+   "sel": "#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id=\"1\"] > td:first-child span.truncate",
+   "text": "Ganado",
+   "font": "cell13"
+  },
+  {
+   "sel": "#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id=\"2\"] > td:first-child span.truncate",
+   "text": "Perdido",
+   "font": "cell13"
+  },
+  {
+   "sel": "#fd-summary-table-wrapper:has(thead th#Estado) tbody tr[data-id=\"3\"] > td:first-child span.truncate",
+   "text": "Abandonado",
+   "font": "cell13"
   }
  ]
 }

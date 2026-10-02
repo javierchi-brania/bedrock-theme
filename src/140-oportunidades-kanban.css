@@ -181,4 +181,8 @@
    (the global 26px rule loses on specificity): ids win. */
 :is(#bulk-actions-container-div #bulk-actions-data-table-wrapper, #pipeline-page #pipeline-table-wrapper, #ForecastDashboard #fd-summary-table-wrapper).hr-data-table-wrapper {
   border-radius: var(--bb-radius-xl) !important;
+}/* Pronóstico summary table: "Ingresos esperados" values come with an inline platform blue
+   (rgb(21, 112, 239)); the chart legend dot is already the accent → same accent here. */
+#fd-summary-table-wrapper span[style*="color: rgb(21, 112, 239)"] {
+  color: var(--bb-accent) !important;
 }
