@@ -6333,6 +6333,28 @@ iframe[src*="client-app-affiliate-manager"] {
   height: calc(100vh - 128px - 30px) !important;
   border-radius: var(--bb-radius-lg) !important;
   box-shadow: var(--bb-shadow-soft) !important;
+}/* Configuración › Perfil de empresa: the iframe container is 100vh tall (inline) inside a
+   wrapper with 86px of top padding, so its bottom 86px were cut by the wrapper */
+#app #companySettingsPage {
+  height: calc(100vh - 86px - 18px) !important;
+  width: auto !important;
+  margin: 0 18px !important;
+}
+#companySettingsPage iframe {
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+/* Configuración › Servicios de correo: the iframe started at y=50, under the theme header
+   (ends at 64), full width, square */
+#isvApp.hl_settings--body > #isvAppSection {
+  margin: 20px 18px 0 18px !important;
+  height: calc(100vh - 50px - 20px - 18px) !important;
+  width: auto !important;
+}
+#isvAppSection > iframe {
+  height: 100% !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
 }/* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
