@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.8` (2026-10-05).
-**In progress:** nothing open; `v1.4.9` published (Automatización, Sitios › Blogs, header tabs, Reputación).
+**Live in the platform:** `v1.4.9` (2026-10-05).
+**In progress:** `v1.4.10` (Reputación › Solicitudes search) in review.
 
 ## Releases
 
@@ -46,7 +46,8 @@ publish is in [README.md](README.md).
 | v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | live |
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
 | v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | live |
-| v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | published |
+| v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | live |
+| v1.4.10 | fix | Reputación › Solicitudes: search placeholder no longer cut | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -168,7 +169,13 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.9 (published): Automatización, Sitios › Blogs, header tabs, Reputación
+### v1.4.10 (in review): Reputación › Solicitudes search
+
+| Change | Where | Verified |
+|---|---|---|
+| Search field `#review-requests-search-filter` 320px for a 351px placeholder plus the icon → 450px (input 370px) | Reputación › Solicitudes | zoom capture: full placeholder |
+
+### v1.4.9 (published, live): Automatización, Sitios › Blogs, header tabs, Reputación
 
 | Change | Where | Verified |
 |---|---|---|

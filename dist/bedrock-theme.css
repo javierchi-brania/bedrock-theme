@@ -6699,6 +6699,13 @@ header.hl_header:has(.topmenu-nav) {
 #dashboard-layout-container :is([style*="rgb(209, 224, 255)"], [style*="rgb(235, 233, 254)"]) :is(svg, i, path) {
   color: var(--bb-accent) !important;
 }
+
+/* v1.4.10: Reputación › Solicitudes search field: 320px (platform min-w-[20rem]) for a 351px
+   placeholder ("Buscar por nombre, correo electrónico o teléfono") plus the icon, so the text
+   was cut → 450px */
+#review-requests-search-filter.hr-input {
+  min-width: 450px !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
