@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/gh/javierchi-brania/bedrock-theme@v1.4.7/dist/bedrock-theme.css");
+@import url("https://cdn.jsdelivr.net/gh/javierchi-brania/bedrock-theme@v1.4.8/dist/bedrock-theme.css");
 /* Critical tokens inline to avoid a flash while the theme loads.
    Generated from src/00-tokens.css by `npm run build`: do not edit by hand. */
 :root {

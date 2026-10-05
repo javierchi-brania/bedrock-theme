@@ -169,3 +169,23 @@
   background: var(--bb-accent) !important;
   color: var(--bb-white) !important;
 }
+
+/* v1.4.8: Configuración › Importar datos, method cards (CSV / HubSpot): the cards stretch to
+   the same height but their content does not, so each footer (divider + button) sat right
+   under its own text and the two buttons were at different heights → content fills the card,
+   footer pinned to the bottom */
+.hr-card:has(#import-card-footer) {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.hr-card:has(#import-card-footer) > .hr-card-content {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.hr-card:has(#import-card-footer) .card-container {
+  flex: 1 1 auto !important;
+}
+.hr-card #import-card-footer {
+  margin-top: auto !important;
+}

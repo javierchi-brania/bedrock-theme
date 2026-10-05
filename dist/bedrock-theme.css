@@ -4683,6 +4683,26 @@ aside#sidebar-v2 {
   background: var(--bb-accent) !important;
   color: var(--bb-white) !important;
 }
+
+/* v1.4.8: Configuración › Importar datos, method cards (CSV / HubSpot): the cards stretch to
+   the same height but their content does not, so each footer (divider + button) sat right
+   under its own text and the two buttons were at different heights → content fills the card,
+   footer pinned to the bottom */
+.hr-card:has(#import-card-footer) {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.hr-card:has(#import-card-footer) > .hr-card-content {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.hr-card:has(#import-card-footer) .card-container {
+  flex: 1 1 auto !important;
+}
+.hr-card #import-card-footer {
+  margin-top: auto !important;
+}
 /* ─────────────────────────────────────────────────────────────
    ASK AI + BOTONES DE PELIGRO (v6.15)
    1) "Inicie un nuevo chat" (estado vacío del panel de Ask AI): la regla
@@ -6469,6 +6489,68 @@ iframe[src*="client-app-affiliate-manager"] {
   box-shadow: none !important;
   background: transparent !important;
   border-radius: 0 !important;
+}
+
+/* v1.4.8: page tabs row in the header (.topmenu-nav) on smaller screens. It did not fit below
+   ~1600px with long modules (Agentes de IA: 8 tabs): the title wrapped to two lines, the
+   fixed header grew 128 → 156px and covered the top of the page, and the last tabs were cut.
+   The header height must stay fixed (every view starts 6px under it), so the row is compacted
+   instead: ≤1440px smaller tabs; ≤1280px the title is hidden (the module name is already in
+   the breadcrumb at the top left; the platform collapses the sidebar at ≤1024px); ≤1024px the
+   row scrolls sideways (hidden scrollbar, fade on the right edge). The scroller gets 260px of
+   transparent room below it (pointer-events pass through) so tab dropdowns such as
+   Marketing › Afiliados are not clipped by the overflow. */
+header.hl_header .topmenu-nav .topmenu-navtitle {
+  white-space: nowrap !important;
+  flex: none !important;
+}
+@media (max-width: 1440px) {
+  header.hl_header .topmenu-nav {
+    padding-left: 14px !important;
+  }
+  header.hl_header .topmenu-nav .topmenu-navtitle {
+    font-size: 16px !important;
+    margin-right: 10px !important;
+  }
+  header.hl_header .topmenu-nav > a {
+    margin: 0 !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+  header.hl_header .topmenu-nav > a span,
+  header.hl_header .topmenu-nav > a span::after {
+    font-size: 13px !important;
+  }
+}
+@media (max-width: 1280px) {
+  header.hl_header .topmenu-nav .topmenu-navtitle {
+    display: none !important;
+  }
+  header.hl_header .topmenu-nav > a {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  header.hl_header .topmenu-nav > a span,
+  header.hl_header .topmenu-nav > a span::after {
+    font-size: 12px !important;
+  }
+}
+@media (max-width: 1024px) {
+  header.hl_header .topmenu-nav {
+    overflow-x: auto !important;
+    scrollbar-width: none;
+    padding-bottom: 260px !important;
+    margin-bottom: -260px !important;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(90deg, var(--bb-text) calc(100% - 28px), transparent);
+    mask-image: linear-gradient(90deg, var(--bb-text) calc(100% - 28px), transparent);
+  }
+  header.hl_header .topmenu-nav::-webkit-scrollbar {
+    display: none;
+  }
+  header.hl_header .topmenu-nav > * {
+    pointer-events: auto;
+  }
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
