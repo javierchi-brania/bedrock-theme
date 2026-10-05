@@ -6563,6 +6563,19 @@ header.hl_header .topmenu-nav .topmenu-navtitle {
 #app .sidebar-v2-location div.hl_topbar-tabs:not(.hl_wrapper):has(> div > #workflowBuilder) {
   padding-top: 128px !important;
 }
+/* v1.4.9: the workflows app inside the iframe cannot be styled, and on smaller screens its own
+   layout breaks (Resumen: "Requiere revisión" spills out of its card; a sideways scrollbar at
+   ~1024px). ≤1440px the iframe is laid out 12% wider and scaled back to the card size, so the
+   app gets the room of a larger screen (everything inside reads 12% smaller) */
+@media (max-width: 1440px) {
+  #workflowBuilder > iframe {
+    width: calc(100% / 0.88) !important;
+    height: calc(100% / 0.88) !important;
+    transform: scale(0.88) !important;
+    transform-origin: 0 0 !important;
+    border-radius: calc(var(--bb-radius-lg) / 0.88) !important;
+  }
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }

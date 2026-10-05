@@ -174,7 +174,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 |---|---|---|
 | Collapsed sidebar (≤1024px): `#workflowBuilder` gets `hl_sidebar-v2-collapse-container` instead of `-open-container`, so the v1.4.1 card rule did not apply (no gutters, past the right and bottom edges) → the rule covers both classes | Automatización (both tabs) | 1024px sized iframe: frame inside the viewport with gutters |
 | Resumen mounts the workflows iframe in a plain `div.hl_topbar-tabs` (no `.hl_wrapper`, no topbar padding): the card started at y=12, its top under the header → 128px padding like the Flujos de trabajo tab | Automatización › Resumen | frame 248,140–1367,916 in a 934px viewport (18px bottom gap) |
-| Its content cannot be adapted to screen sizes: cross-origin iframe; the frame itself follows the viewport (auto width, 18px gutters) | Automatización | |
+| Inside the iframe the app breaks on smaller screens ("Requiere revisión" out of its card, sideways scrollbar at ~1024px) and cannot be styled (cross-origin) → ≤1440px the iframe is laid out 12% wider and scaled to 0.88 (same card size, the app gets the room of a larger screen) | Automatización (both tabs) | 1146px window: button inside its card; frame 80,140–1128,917 |
 
 ### v1.4.8 (published, live): Importar datos cards, header tabs on smaller screens
 
