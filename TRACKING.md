@@ -47,7 +47,7 @@ publish is in [README.md](README.md).
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
 | v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | live |
 | v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | live |
-| v1.4.10 | fix | Reputación › Solicitudes search; Reputación › Widgets (page past the screen edge, segment, cards); "NuevaNuevo" badge on smaller screens | in review |
+| v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -169,10 +169,17 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.10 (in review): Reputación › Solicitudes, Widgets; header badge
+### v1.4.10 (in review): Reputación › Solicitudes, Widgets, Configuración; header badge
 
 | Change | Where | Verified |
 |---|---|---|
+| Configuración scrolling: the content column was not height-limited (block wrapper in the flex chain), the card ran ~130px past the screen; Solicitudes de SMS could not be scrolled to its end; Integraciones kept the platform list in a 329px inner scroller → tabs box fits the screen, content column scrolls, Integraciones card scrolls as a whole | Reputación › Configuración | pane 146–917 in a 935px viewport; Integraciones 3799/757 scroll |
+| Clipped shadows/corners (cards flush with overflow wrappers; outer card 8px) → room, radius lg | Configuración (Reviews AI, Enlace de reseña, Reseñas spam, Integraciones) | clip audit: only partial shadow clips left |
+| Connect-accounts banner fixed 238px: a wrapped account overlapped the list → auto height; cards min 240px (3 per row) | Configuración › Integraciones, Resumen | capture |
+| Ellipsis-truncated texts with room (field labels, "Elige plantillas…", "Establecer plantillas…", integration names) → wrap; the row's labels share 40px so the selects stay aligned | Configuración (SMS, correo, Integraciones) | selects at the same top (333) |
+| Integraciones search placeholder cut (183px in 124px) → 260px field | Configuración › Integraciones | measured |
+| Radio cards (`label.hr-radio-button.ui-radio-group-item`, global): white, blue 1px border when selected, blue icon discs → theme cards, selected sunken, accent icons | Reviews AI, Enlace de reseña, Reseñas spam (same component elsewhere, e.g. Sitios › Analítica, not re-checked) | captures |
+| Tab "Reviews AI" → "IA de reseñas"; upgrade sparkle image purple → accent (hue-rotate) | Configuración | |
 | Widgets: below ~1100px the preview's min-content width kept the page section from shrinking, the page ran past the screen and the side panel ("Por defecto" card, "Editar el widget") was cut → section and preview column can shrink | Reputación › Widgets | 1024px sized iframe: section 230–1024, card 804–1008 |
 | "Widgets guardados / Plantillas" segment: flat #f7f7fa rail, white raised capsule → raised group, active option sunken; saved widget cards radius lg | Reputación › Widgets | zoom capture |
 | v1.4.8 regression: ≤1440px the tab font-size rule also hit the "Nuevo" badge and overrode the labels' font-size: 0, so it read "NuevaNuevo" → badge excluded | header tabs (Reputación › Testimonios en video) | computed: badge original text hidden again |

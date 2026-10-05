@@ -760,7 +760,7 @@ header.hl_header:has(.topmenu-nav) {
   grid-column: 1 / -1 !important;
   width: 100% !important;
   display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
   overflow: visible !important;
 }
 .connect-accounts-carousel > * {
@@ -847,4 +847,118 @@ section:has(> #widgets-container) {
 }
 #widgets-container .rounded-xl.border-2.cursor-pointer {
   border-radius: var(--bb-radius-lg) !important;
+}
+
+/* v1.4.10: Reputación › Configuración (all eight sub-sections).
+   - Scrolling: the content column was not height-limited (a block wrapper broke the flex
+     chain), so the card ran ~130px past the bottom of the screen; Integraciones kept its
+     platform list in a 329px inner scroller → the tabs box fits the screen, the content
+     column scrolls (Solicitudes de SMS was taller than the screen with no way down), and
+     the Integraciones card scrolls as a whole.
+   - Shadows and corners clipped by overflow wrappers (cards flush with their scroller) →
+     room around them; the outer card gets radius lg.
+   - Connect-accounts banner: fixed 238px height, so a wrapped account card overlapped the
+     list below → auto height (cards: min 240px, three per row in this column).
+   - Texts the platform truncates with an ellipsis while there is room (field labels,
+     "Elige plantillas…", "Establecer plantillas…", integration names) → wrap; the three
+     field labels of a row share one height so their selects stay aligned.
+   - Integraciones search ("Plataformas de búsqueda", 183px in a 124px input) → 260px.
+   - Radio cards (.ui-radio-group-item: Reviews AI, Enlace de reseña, Reseñas spam, and the
+     same component elsewhere): white with a 1px blue border when selected and blue icon
+     discs → theme cards, the selected one sunken, accent icons.
+   - Upgrade sparkle image: purple → accent via hue-rotate (it is an <img>). */
+#reputation-settings-container .hr-tabs--left.ui-tabs {
+  height: calc(100vh - 160px - 18px) !important;
+  min-height: 0 !important;
+}
+#reputation-settings-container .hr-tabs--left.ui-tabs > .hr-tabs-pane-wrapper,
+#reputation-settings-container .hr-tabs--left.ui-tabs .hr-tab-pane {
+  min-height: 0 !important;
+}
+#reputation-settings-container .reputationApp > .hr-config-provider > .overflow-hidden {
+  overflow: visible !important;
+}
+#reputation-settings-container .hr-tabs--left.ui-tabs > .hr-tab-pane {
+  overflow-y: auto !important;
+  padding: 14px 30px 24px 16px !important;
+  margin: -14px -30px 0 0 !important;
+  scrollbar-width: thin;
+}
+#reputation-settings-container .hr-tab-pane > div.overflow-y-auto {
+  padding: 14px 30px 24px 16px !important;
+  margin: -14px -30px -24px -16px !important;
+}
+#reputation-settings-container .hr-tab-pane .overflow-y-auto[class*="max-h-"] {
+  padding: 12px 16px 18px !important;
+  margin: -12px -16px -18px !important;
+}
+#reputation-settings-container .ui-card.overflow-hidden > .ui-card-content {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+  overflow-y: auto !important;
+}
+#reputation-settings-container .ui-card.overflow-hidden > .ui-card-content > .overflow-y-auto {
+  overflow: visible !important;
+  flex: none !important;
+  min-height: auto !important;
+}
+#reputation-settings-container .ui-card.overflow-hidden > .ui-card-content .min-h-0.overflow-hidden:has(.connect-accounts-carousel),
+#reputation_dashboard_connect_accounts-banner {
+  overflow: visible !important;
+}
+#reputation_dashboard_connect_accounts-banner {
+  height: auto !important;
+}
+#reputation-settings-container .hr-tab-pane > .rounded-lg.border.shadow {
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+}
+#reputation-settings-container .rounded-lg.border-2.border-success-600 {
+  border-radius: var(--bb-radius-lg) !important;
+}
+#reputation-settings-container :is(.truncate.max-w-64, .truncate.max-w-96, .truncate.max-w-40) {
+  max-width: none !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+#reputation-settings-container [id^="integration-platform-card-"] p.truncate {
+  white-space: normal !important;
+  overflow: visible !important;
+}
+#reputation-settings-container .mb-2.truncate:is(.max-w-64, .max-w-40) {
+  min-height: 40px !important;
+}
+#reputation-integrations-platform-search.hr-input {
+  min-width: 260px !important;
+}
+label.hr-radio-button.ui-radio-group-item {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-text) !important;
+}
+label.hr-radio-button.ui-radio-group-item .hr-radio-button__state-border {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+label.hr-radio-button.ui-radio-group-item.hr-radio-button--checked {
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-text-strong) !important;
+}
+label.hr-radio-button.ui-radio-group-item :is(.hr-radio__label, .ui-radio-group-item-container, .ui-radio-group-item-icon) {
+  color: inherit !important;
+}
+label.hr-radio-button.ui-radio-group-item :is([style*="rgb(239, 244, 255)"], [style*="rgb(209, 224, 255)"]) {
+  background-color: color-mix(in srgb, var(--bb-accent) 14%, var(--bb-bg)) !important;
+  color: var(--bb-accent) !important;
+}
+label.hr-radio-button.ui-radio-group-item :is([style*="rgb(239, 244, 255)"], [style*="rgb(209, 224, 255)"]) * {
+  color: var(--bb-accent) !important;
+}
+#ai-employee-upgrade img {
+  filter: hue-rotate(-77deg) saturate(0.7) !important;
 }
