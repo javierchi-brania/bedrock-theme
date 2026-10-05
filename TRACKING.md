@@ -49,7 +49,7 @@ publish is in [README.md](README.md).
 | v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | live |
 | v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | live |
 | v1.4.11 | fix | Informes: every tab below the header and within the screen, short tab names, leaderboard readable, theme fields and buttons, filter rails, Citas cards, audit card, chart colors | live |
-| v1.4.12 | fix | Configuración › Usuarios: add button not cut, search placeholder readable | in review |
+| v1.4.12 | fix | Configuración › Usuarios: add button not cut, search readable; Servicios de correo scaled on smaller screens | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -171,10 +171,11 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.12 (in review): Configuración › Usuarios
+### v1.4.12 (in review): Configuración › Usuarios, Servicios de correo
 
 | Change | Where | Verified |
 |---|---|---|
+| Servicios de correo (cross-origin app): "Se restablece a las 00:00 UTC" pill out of its card on smaller screens → ≤1440px the iframe is laid out 12% wider and scaled to 0.88 (as Automatización) | Configuración › Servicios de correo | 1438px: pill inside the card; capture |
 | "Añadir usuario" in the top-right corner of the table card, cut by its 26px corner → header/footer padding; search 154px for a 353px placeholder → 410px (input 356px); p-1 wrapper clipped the card shadow → visible | Configuración › Usuarios | button 1264–1391 inside the card; input 356 ≥ 353 |
 
 ### v1.4.11 (published, live): Informes

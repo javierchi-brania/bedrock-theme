@@ -1156,3 +1156,19 @@ body:has(:is(#tb_attribution-v2, #tb_appointment-report).router-link-active) .si
 .flex.min-w-0.flex-col.overflow-hidden.p-1:has(#users-list-table-wrapper) {
   overflow: visible !important;
 }
+/* Configuración › Servicios de correo: cross-origin app that breaks on smaller screens
+   ("Restante hoy" pushed its "Se restablece a las 00:00 UTC" pill out of the card) and cannot
+   be styled → ≤1440px the iframe is laid out 12% wider and scaled to 0.88, as Automatización */
+@media (max-width: 1440px) {
+  #isvAppSection {
+    overflow: hidden !important;
+    border-radius: var(--bb-radius-lg) !important;
+  }
+  #isvAppSection > iframe {
+    width: calc(100% / 0.88) !important;
+    height: calc(100% / 0.88) !important;
+    transform: scale(0.88) !important;
+    transform-origin: 0 0 !important;
+    border-radius: calc(var(--bb-radius-lg) / 0.88) !important;
+  }
+}
