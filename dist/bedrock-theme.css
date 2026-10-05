@@ -6875,6 +6875,16 @@ label.hr-radio-button.ui-radio-group-item :is([style*="rgb(239, 244, 255)"], [st
 #reputation-settings-container .hr-tab-pane > .overflow-hidden:has(> .ui-card) {
   overflow: visible !important;
 }
+/* Integraciones › Enlaces personalizados: "Añadir página" (40px tall) wrapped its "+" above
+   the text in the narrow card, 45px of content in a 40px button → one line */
+#add-platform-button.hr-button {
+  padding: 10px 12px !important;
+}
+#add-platform-button .hr-space {
+  flex-wrap: nowrap !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
