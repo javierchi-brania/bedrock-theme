@@ -48,7 +48,7 @@ publish is in [README.md](README.md).
 | v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | live |
 | v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | live |
 | v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | live |
-| v1.4.11 | fix | Informes: every tab below the header and within the screen, leaderboard readable, theme fields and buttons, filter rails, audit card, chart colors | in review |
+| v1.4.11 | fix | Informes: every tab below the header and within the screen, short tab names, leaderboard readable, theme fields and buttons, filter rails, Citas cards, audit card, chart colors | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -179,6 +179,8 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | Leaderboard card: white text on the theme surface → theme text; blue "Recuperar" / "Comparar" → accent; white selects / date pickers → sunken fields | Informe del agente (fields: all report dashboards) | capture |
 | Auditoría: full-bleed cross-origin iframe past the right/bottom edges → card under the header | Auditoría de marketing local | frame 248,140–1580,917 |
 | Table filter tabs (square raised, shadows cut) → sunken pill rail, active raised; "Fuentes" table header near-white → transparent | Llamadas, Citas (any table filter bar) | capture |
+| Report tabs row did not fit (8 long names; "Informe de anuncios de Meta (anuncios de Facebook)" ~340px), the active tab ended cut at the edge → short names: Personalizados, Google Ads, Meta Ads, Atribución, Llamadas, Agentes, Citas, Auditoría (labels.json) | Informes (header tabs) | 1438px: row 1196/1196, no overflow |
+| Citas status cards: width followed each label and two wrapped (taller, numbers lower) → equal grid columns (min 126px), one-line 13px labels, same height | Informes › Citas | 8 × 129.5px, all tops 302 |
 | ECharts canvases: platform blue → teal via hue-rotate on Atribución and Citas only | Atribución, Citas | capture |
 
 ### v1.4.10 (published, live): Reputación › Solicitudes, Widgets, Configuración; header badge

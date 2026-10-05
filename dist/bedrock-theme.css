@@ -7003,6 +7003,27 @@ section.w-full:has(#audit_location_prospect_micro_app) {
 body:has(:is(#tb_attribution-v2, #tb_appointment-report).router-link-active) .sidebar-v2-location > section canvas[data-zr-dom-id] {
   filter: hue-rotate(-35deg) saturate(0.75) !important;
 }
+/* Informes de citas: the eight status cards were flex items whose width followed their label
+   (and "No asistido" / "No válido" wrapped, so those cards were taller and their numbers lower)
+   → equal grid columns (min 126px, wrapping to more rows on narrow screens), one-line 13px
+   labels, same height for all */
+#appointment-reporting-dashboard .flex.justify-between.items-center.gap-x-6:has(> .hl-card.flex-1) {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(126px, 1fr)) !important;
+  gap: 14px !important;
+  align-items: stretch !important;
+}
+#appointment-reporting-dashboard .flex.justify-between.items-center.gap-x-6 > .hl-card.flex-1 {
+  min-width: 0 !important;
+}
+#appointment-reporting-dashboard .flex.justify-between.items-center.gap-x-6 > .hl-card.flex-1 > :is(.hl-card-header, .hl-card-content) {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+#appointment-reporting-dashboard .flex.justify-between.items-center.gap-x-6 > .hl-card.flex-1 .hl-card-header > * {
+  white-space: nowrap !important;
+  font-size: 13px !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
