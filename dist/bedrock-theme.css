@@ -6629,8 +6629,9 @@ header.hl_header:has(.topmenu-nav) {
      every statistic lived in a 385px inner scroller under the connect-accounts card → the
      card fits the screen (top 185, 18px from the bottom) and scrolls as a whole.
    - Connect-accounts carousel: its arrow buttons are display:none, so the carousel fell into
-     the first (auto) grid column, half as wide as the card, with the next card cut mid-way
-     and the shadows clipped → middle column, room for the shadows.
+     the first (auto) grid column, half as wide as the card, and the next account card was cut
+     at its edge → full width, and the accounts wrap in a grid (300px min) instead of
+     scrolling sideways, so no card is ever cut.
    - "Recapitulación de IA" alert: light tint with a 1px teal border → raised theme card.
    - Highcharts (SVG): platform blues for lines, points, areas, donuts and legend markers →
      accent shades; grid lines → divider; blue and purple icon chips → accent tint. */
@@ -6649,10 +6650,15 @@ header.hl_header:has(.topmenu-nav) {
   min-height: auto !important;
 }
 .connect-accounts-carousel {
-  grid-column: 2 !important;
-  padding: 12px 16px 20px !important;
-  margin: -12px -16px -20px !important;
-  scrollbar-width: thin;
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  overflow: visible !important;
+}
+.connect-accounts-carousel > * {
+  width: auto !important;
+  min-width: 0 !important;
 }
 #ai-recap-dashboard-alert.hr-alert {
   background: var(--bb-bg) !important;

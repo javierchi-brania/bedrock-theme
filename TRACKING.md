@@ -173,7 +173,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | Change | Where | Verified |
 |---|---|---|
 | Mis estadísticas scrolling: the dashboard card (`#dashboard-layout-container`, fixed calc(100vh - 160px)) ran 25px past the screen and all statistics lived in a 385px inner scroller → card fits the screen and scrolls as a whole | Reputación › Resumen | card 254,185–1454,917; scrolled to the end |
-| Connect-accounts carousel in the first (auto) grid column (arrows display:none): half width, next card cut, shadows clipped → middle column, room for shadows | Reputación › Resumen | carousel 298–1368; capture |
+| Connect-accounts carousel in the first (auto) grid column (arrows display:none): half width, next card cut → full width; accounts wrap in a grid (min 300px) instead of scrolling, so no card is cut | Reputación › Resumen | 3 accounts in one row 302–1440; capture |
 | "Recapitulación de IA" alert: tint + 1px teal border (`.hr-alert__border`) → raised theme card | Reputación › Resumen | capture |
 | Highcharts SVG: platform blues (#2caffe, #155eef, #2970ff, #5d7ffb, #528bff, #84adff, gradient stops) → accent shades; grid lines → divider; blue/purple icon chips → accent tint | Reputación › Resumen | 0 blue elements left in the dashboard |
 | Not fixable here: chart axis labels "5 stars" and the date placeholders "DD / MM / YYYY" are generated text inside the charts / inputs | Reputación › Resumen | |
