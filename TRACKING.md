@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.6` (2026-10-05).
-**In progress:** nothing open; `v1.4.7` published (Objetos banner).
+**Live in the platform:** `v1.4.7` (2026-10-05).
+**In progress:** `v1.4.8` (Importar datos cards) in review.
 
 ## Releases
 
@@ -44,7 +44,8 @@ publish is in [README.md](README.md).
 | v1.4.4 | fix | Pregúntale a BRANIA composer: 10px between the text field and the buttons | live |
 | v1.4.5 | feature | Sidebar logo: raised sphere with the black hexagon and "BRANIA" inside, in relief (user choice after previews) | live |
 | v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | live |
-| v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | published |
+| v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
+| v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -166,7 +167,13 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.7 (published): Objetos banner
+### v1.4.8 (in review): Importar datos cards
+
+| Change | Where | Verified |
+|---|---|---|
+| Method cards (CSV / HubSpot): the cards stretched to the same height but not their content, so each footer (divider + button) sat under its own text and the buttons were at different heights → content fills the card (`.hr-card:has(#import-card-footer)` flex column), footer pinned to the bottom | Configuración › Importar datos | buttons both at 349–389; capture |
+
+### v1.4.7 (published, live): Objetos banner
 
 | Change | Where | Verified |
 |---|---|---|
