@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.9` (2026-10-05).
-**In progress:** `v1.4.10` (Reputación › Solicitudes search) in review.
+**In progress:** nothing open; `v1.4.10` published (Reputación: Solicitudes, Widgets, Configuración; header badge).
 
 ## Releases
 
@@ -47,7 +47,7 @@ publish is in [README.md](README.md).
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
 | v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | live |
 | v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | live |
-| v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | in review |
+| v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -169,7 +169,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.10 (in review): Reputación › Solicitudes, Widgets, Configuración; header badge
+### v1.4.10 (published): Reputación › Solicitudes, Widgets, Configuración; header badge
 
 | Change | Where | Verified |
 |---|---|---|
