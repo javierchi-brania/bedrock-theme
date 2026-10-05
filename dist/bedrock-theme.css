@@ -9186,7 +9186,14 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 #content-ai-dashboard .n-tabs-wrapper > .n-tabs-tab-wrapper:nth-child(2) .n-tabs-tab__label,
 #content-ai-dashboard .n-tabs-wrapper > .n-tabs-tab-wrapper:nth-child(3) .n-tabs-tab__label,
 #ai-employee-upgrade .n-button__content > span,
-#reputation-settings-container .hr-tabs-tab[data-name="reviewsAI"] p {
+#reputation-settings-container .hr-tabs-tab[data-name="reviewsAI"] p,
+#tb_custom-reports > span.flex.items-center,
+#tb_facebook-ads > span.flex.items-center,
+#tb_attribution-v2 > span.flex.items-center,
+#tb_call-reporting > span.flex.items-center,
+#tb_agent-reporting > span.flex.items-center,
+#tb_appointment-report > span.flex.items-center,
+#tb_audit-report > span.flex.items-center {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -9314,7 +9321,14 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 #content-ai-dashboard .n-tabs-wrapper > .n-tabs-tab-wrapper:nth-child(2) .n-tabs-tab__label::after,
 #content-ai-dashboard .n-tabs-wrapper > .n-tabs-tab-wrapper:nth-child(3) .n-tabs-tab__label::after,
 #ai-employee-upgrade .n-button__content > span::after,
-#reputation-settings-container .hr-tabs-tab[data-name="reviewsAI"] p::after {
+#reputation-settings-container .hr-tabs-tab[data-name="reviewsAI"] p::after,
+#tb_custom-reports > span.flex.items-center::after,
+#tb_facebook-ads > span.flex.items-center::after,
+#tb_attribution-v2 > span.flex.items-center::after,
+#tb_call-reporting > span.flex.items-center::after,
+#tb_agent-reporting > span.flex.items-center::after,
+#tb_appointment-report > span.flex.items-center::after,
+#tb_audit-report > span.flex.items-center::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -9961,4 +9975,39 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
   content: "IA de reseñas";
   font-size: 14px;
   line-height: 20px;
+}
+#tb_custom-reports > span.flex.items-center::after {
+  content: "Personalizados";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_facebook-ads > span.flex.items-center::after {
+  content: "Meta Ads";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_attribution-v2 > span.flex.items-center::after {
+  content: "Atribución";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_call-reporting > span.flex.items-center::after {
+  content: "Llamadas";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_agent-reporting > span.flex.items-center::after {
+  content: "Agentes";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_appointment-report > span.flex.items-center::after {
+  content: "Citas";
+  font-size: 14px;
+  line-height: 25.6px;
+}
+#tb_audit-report > span.flex.items-center::after {
+  content: "Auditoría";
+  font-size: 14px;
+  line-height: 25.6px;
 }

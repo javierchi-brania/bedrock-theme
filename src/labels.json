@@ -659,6 +659,41 @@
    "sel": "#reputation-settings-container .hr-tabs-tab[data-name=\"reviewsAI\"] p",
    "text": "IA de reseñas",
    "font": "menu14"
+  },
+  {
+   "sel": "#tb_custom-reports > span.flex.items-center",
+   "text": "Personalizados",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_facebook-ads > span.flex.items-center",
+   "text": "Meta Ads",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_attribution-v2 > span.flex.items-center",
+   "text": "Atribución",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_call-reporting > span.flex.items-center",
+   "text": "Llamadas",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_agent-reporting > span.flex.items-center",
+   "text": "Agentes",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_appointment-report > span.flex.items-center",
+   "text": "Citas",
+   "font": "tab"
+  },
+  {
+   "sel": "#tb_audit-report > span.flex.items-center",
+   "text": "Auditoría",
+   "font": "tab"
   }
  ]
 }
