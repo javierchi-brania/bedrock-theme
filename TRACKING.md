@@ -179,6 +179,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | Ellipsis-truncated texts with room (field labels, "Elige plantillas…", "Establecer plantillas…", integration names) → wrap; the row's labels share 40px so the selects stay aligned | Configuración (SMS, correo, Integraciones) | selects at the same top (333) |
 | Integraciones search placeholder cut (183px in 124px) → 260px field | Configuración › Integraciones | measured |
 | Radio cards (`label.hr-radio-button.ui-radio-group-item`, global): white, blue 1px border when selected, blue icon discs → theme cards, selected sunken, accent icons | Reviews AI, Enlace de reseña, Reseñas spam (same component elsewhere, e.g. Sitios › Analítica, not re-checked) | captures |
+| Integraciones card corner: the wrapper around the card clipped its shadow square (light notch at the top-left corner) → overflow visible | Configuración › Integraciones | zoom capture |
 | Radio dot centered at any size (inset 0 + margin auto; the 16px dot of the radio cards had it 1px off) | radios everywhere | center offset 0,0 |
 | Left tab menu: the 2px active-tab bar had the theme inset shadow and read as a dark line sliding on every change → hidden (active tab keeps its accent text) | Configuración, any left bar-type tabs | zoom capture |
 | Tab "Reviews AI" → "IA de reseñas"; upgrade sparkle image purple → accent (hue-rotate) | Configuración | |

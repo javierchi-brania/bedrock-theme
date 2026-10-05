@@ -962,3 +962,8 @@ label.hr-radio-button.ui-radio-group-item :is([style*="rgb(239, 244, 255)"], [st
 #ai-employee-upgrade img {
   filter: hue-rotate(-77deg) saturate(0.7) !important;
 }
+/* the wrapper right around the content card clipped its shadow square, so the top-left
+   corner showed a light notch (Integraciones) */
+#reputation-settings-container .hr-tab-pane > .overflow-hidden:has(> .ui-card) {
+  overflow: visible !important;
+}
