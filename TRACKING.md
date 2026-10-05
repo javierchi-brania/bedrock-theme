@@ -46,7 +46,7 @@ publish is in [README.md](README.md).
 | v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | live |
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
 | v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | live |
-| v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width | in review |
+| v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -168,10 +168,15 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.9 (in review): Automatización, Sitios › Blogs, header tabs
+### v1.4.9 (in review): Automatización, Sitios › Blogs, header tabs, Reputación
 
 | Change | Where | Verified |
 |---|---|---|
+| Mis estadísticas scrolling: the dashboard card (`#dashboard-layout-container`, fixed calc(100vh - 160px)) ran 25px past the screen and all statistics lived in a 385px inner scroller → card fits the screen and scrolls as a whole | Reputación › Resumen | card 254,185–1454,917; scrolled to the end |
+| Connect-accounts carousel in the first (auto) grid column (arrows display:none): half width, next card cut, shadows clipped → middle column, room for shadows | Reputación › Resumen | carousel 298–1368; capture |
+| "Recapitulación de IA" alert: tint + 1px teal border (`.hr-alert__border`) → raised theme card | Reputación › Resumen | capture |
+| Highcharts SVG: platform blues (#2caffe, #155eef, #2970ff, #5d7ffb, #528bff, #84adff, gradient stops) → accent shades; grid lines → divider; blue/purple icon chips → accent tint | Reputación › Resumen | 0 blue elements left in the dashboard |
+| Not fixable here: chart axis labels "5 stars" and the date placeholders "DD / MM / YYYY" are generated text inside the charts / inputs | Reputación › Resumen | |
 | Blogs: three nested raised layers (list card > stat wrappers 26px > bordered 12px boxes, shorter than their wrapper so a second broken edge showed; table card inside the list card) → list card and stat wrappers flat; each stat one theme card, same height | Sitios › Blogs | stats 253–394 all three; capture |
 | "Crear un blog" split button: dropdown half was a separate round raised button over the square end of the main one (looked cut) → one pill, divider, one shadow | Sitios › Blogs | zoom capture |
 | Header tabs: the sideways scroll now applies at every width (Sitios has 14 tabs and overflowed at 1314px); header min-height 128px because the scroller no longer sizes it | every page with header tabs | Sitios at 1314px: all tabs reachable, header 6–134 |
