@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.7` (2026-10-05).
-**In progress:** nothing open; `v1.4.8` published (Importar datos cards, header tabs on smaller screens).
+**Live in the platform:** `v1.4.8` (2026-10-05).
+**In progress:** nothing open; `v1.4.9` published (Automatización, Sitios › Blogs, header tabs, Reputación).
 
 ## Releases
 
@@ -45,7 +45,8 @@ publish is in [README.md](README.md).
 | v1.4.5 | feature | Sidebar logo: raised sphere with the black hexagon and "BRANIA" inside, in relief (user choice after previews) | live |
 | v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | live |
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
-| v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | published |
+| v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | live |
+| v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -167,7 +168,23 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.8 (published): Importar datos cards, header tabs on smaller screens
+### v1.4.9 (published): Automatización, Sitios › Blogs, header tabs, Reputación
+
+| Change | Where | Verified |
+|---|---|---|
+| Mis estadísticas scrolling: the dashboard card (`#dashboard-layout-container`, fixed calc(100vh - 160px)) ran 25px past the screen and all statistics lived in a 385px inner scroller → card fits the screen and scrolls as a whole | Reputación › Resumen | card 254,185–1454,917; scrolled to the end |
+| Connect-accounts carousel in the first (auto) grid column (arrows display:none): half width, next card cut → full width; accounts wrap in a grid (min 300px) instead of scrolling, so no card is cut | Reputación › Resumen | 3 accounts in one row 302–1440; capture |
+| "Recapitulación de IA" alert: tint + 1px teal border (`.hr-alert__border`) → raised theme card | Reputación › Resumen | capture |
+| Highcharts SVG: platform blues (#2caffe, #155eef, #2970ff, #5d7ffb, #528bff, #84adff, gradient stops) → accent shades; grid lines → divider; blue/purple icon chips → accent tint | Reputación › Resumen | 0 blue elements left in the dashboard |
+| Not fixable here: chart axis labels "5 stars" and the date placeholders "DD / MM / YYYY" are generated text inside the charts / inputs | Reputación › Resumen | |
+| Blogs: three nested raised layers (list card > stat wrappers 26px > bordered 12px boxes, shorter than their wrapper so a second broken edge showed; table card inside the list card) → list card and stat wrappers flat; each stat one theme card, same height | Sitios › Blogs | stats 253–394 all three; capture |
+| "Crear un blog" split button: dropdown half was a separate round raised button over the square end of the main one (looked cut) → one pill, divider, one shadow | Sitios › Blogs | zoom capture |
+| Header tabs: the sideways scroll now applies at every width (Sitios has 14 tabs and overflowed at 1314px); header min-height 128px because the scroller no longer sizes it | every page with header tabs | Sitios at 1314px: all tabs reachable, header 6–134 |
+| Collapsed sidebar (≤1024px): `#workflowBuilder` gets `hl_sidebar-v2-collapse-container` instead of `-open-container`, so the v1.4.1 card rule did not apply (no gutters, past the right and bottom edges) → the rule covers both classes | Automatización (both tabs) | 1024px sized iframe: frame inside the viewport with gutters |
+| Resumen mounts the workflows iframe in a plain `div.hl_topbar-tabs` (no `.hl_wrapper`, no topbar padding): the card started at y=12, its top under the header → 128px padding like the Flujos de trabajo tab | Automatización › Resumen | frame 248,140–1367,916 in a 934px viewport (18px bottom gap) |
+| Inside the iframe the app breaks on smaller screens ("Requiere revisión" out of its card, sideways scrollbar at ~1024px) and cannot be styled (cross-origin) → ≤1440px the iframe is laid out 12% wider and scaled to 0.88 (same card size, the app gets the room of a larger screen) | Automatización (both tabs) | 1146px window: button inside its card; frame 80,140–1128,917 |
+
+### v1.4.8 (published, live): Importar datos cards, header tabs on smaller screens
 
 | Change | Where | Verified |
 |---|---|---|

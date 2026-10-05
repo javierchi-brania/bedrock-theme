@@ -6442,7 +6442,10 @@ section > .vibe-page {
 /* v1.4.1: Automatización is a cross-origin iframe in #workflowBuilder (inline 100vh tall,
    full width from y=128): it ran under the theme header (ends at 134) and past the bottom
    and right edges. It now sits as a card under the header, like the other views. */
-#app #workflowBuilder.hl_sidebar-v2-open-container {
+/* v1.4.9: also with the sidebar collapsed (the platform swaps the class to
+   hl_sidebar-v2-collapse-container, e.g. at ≤1024px): the card lost its margins and ran past
+   the right and bottom edges */
+#app #workflowBuilder:is(.hl_sidebar-v2-open-container, .hl_sidebar-v2-collapse-container) {
   margin: 12px 18px 0 18px !important;
   width: auto !important;
   max-width: calc(100% - 36px) !important;
@@ -6535,22 +6538,166 @@ header.hl_header .topmenu-nav .topmenu-navtitle {
     font-size: 12px !important;
   }
 }
-@media (max-width: 1024px) {
-  header.hl_header .topmenu-nav {
-    overflow-x: auto !important;
-    scrollbar-width: none;
-    padding-bottom: 260px !important;
-    margin-bottom: -260px !important;
-    pointer-events: none;
-    -webkit-mask-image: linear-gradient(90deg, var(--bb-text) calc(100% - 28px), transparent);
-    mask-image: linear-gradient(90deg, var(--bb-text) calc(100% - 28px), transparent);
+/* v1.4.9: the sideways scroll applies at every width (Sitios has 14 tabs and overflowed at
+   1314px; it only scrolls when the row is wider than the header). The scroller no longer
+   sizes the header (overflow), so the header keeps its 128px. */
+header.hl_header .topmenu-nav {
+  overflow-x: auto !important;
+  scrollbar-width: none;
+  padding-bottom: 260px !important;
+  margin-bottom: -260px !important;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, var(--bb-text) calc(100% - 28px), transparent);
+  mask-image: linear-gradient(90deg, var(--bb-text) calc(100% - 28px), transparent);
+}
+header.hl_header .topmenu-nav::-webkit-scrollbar {
+  display: none;
+}
+header.hl_header .topmenu-nav > * {
+  pointer-events: auto;
+}
+header.hl_header:has(.topmenu-nav) {
+  min-height: 128px !important;
+}
+
+/* v1.4.9: Automatización › Resumen mounts the same workflows iframe in a plain
+   `div.hl_topbar-tabs` (no .hl_wrapper), which lacks the platform's topbar padding, so the
+   card started at y=12 and its top was hidden under the header → same 128px room as the
+   Flujos de trabajo tab (the card then sits at y=140 like every view) */
+#app .sidebar-v2-location div.hl_topbar-tabs:not(.hl_wrapper):has(> div > #workflowBuilder) {
+  padding-top: 128px !important;
+}
+/* v1.4.9: the workflows app inside the iframe cannot be styled, and on smaller screens its own
+   layout breaks (Resumen: "Requiere revisión" spills out of its card; a sideways scrollbar at
+   ~1024px). ≤1440px the iframe is laid out 12% wider and scaled back to the card size, so the
+   app gets the room of a larger screen (everything inside reads 12% smaller) */
+@media (max-width: 1440px) {
+  #workflowBuilder > iframe {
+    width: calc(100% / 0.88) !important;
+    height: calc(100% / 0.88) !important;
+    transform: scale(0.88) !important;
+    transform-origin: 0 0 !important;
+    border-radius: calc(var(--bb-radius-lg) / 0.88) !important;
   }
-  header.hl_header .topmenu-nav::-webkit-scrollbar {
-    display: none;
-  }
-  header.hl_header .topmenu-nav > * {
-    pointer-events: auto;
-  }
+}
+
+/* v1.4.9: Sitios › Blogs. The list card (#blog-site-list-content, raised) held the stat
+   cards (#metrics-card, raised, 26px) which held another bordered rounded-xl box (12px,
+   shorter than its card, so the card showed underneath as a broken second edge) and the table
+   card (raised): three layers → the page card and the metric wrappers are flat; each stat is
+   one theme card, all three the same height. "Crear un blog" split button: the dropdown half
+   was a separate round raised button over the main one's square end → one pill with a
+   divider. */
+#blog-site-list-content.hr-card {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#blog-site-list-content #metrics-card.hr-card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+#blog-site-list-content #metrics-card > .hr-card-content {
+  height: 100% !important;
+}
+#blog-site-list-content #metrics-card div.rounded-xl {
+  height: 100% !important;
+  box-sizing: border-box;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#blogs_list_header .hr-button-group {
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#blogs_list_header .hr-button-group .hr-button {
+  box-shadow: none !important;
+}
+#blogs_list_header .hr-button-group > .hr-button {
+  border-radius: 999px 0 0 999px !important;
+}
+#blogs_list_header .hr-button-group .hr-dropdown__trigger-wrapper .hr-button {
+  border-radius: 0 999px 999px 0 !important;
+  border-left: 1px solid color-mix(in srgb, var(--bb-white) 35%, transparent) !important;
+}
+
+/* v1.4.9: Reputación › Resumen › Mis estadísticas.
+   - Scrolling: the dashboard card has a fixed calc(100vh - 160px) height sized for the
+     platform header, so with the theme header it ran 25px past the bottom of the screen and
+     every statistic lived in a 385px inner scroller under the connect-accounts card → the
+     card fits the screen (top 185, 18px from the bottom) and scrolls as a whole.
+   - Connect-accounts carousel: its arrow buttons are display:none, so the carousel fell into
+     the first (auto) grid column, half as wide as the card, and the next account card was cut
+     at its edge → full width, and the accounts wrap in a grid (300px min) instead of
+     scrolling sideways, so no card is ever cut.
+   - "Recapitulación de IA" alert: light tint with a 1px teal border → raised theme card.
+   - Highcharts (SVG): platform blues for lines, points, areas, donuts and legend markers →
+     accent shades; grid lines → divider; blue and purple icon chips → accent tint. */
+#dashboard-layout-container {
+  height: calc(100vh - 203px) !important;
+  overflow-y: auto !important;
+  border-radius: var(--bb-radius-lg) !important;
+}
+#dashboard-layout-container > .flex-1.flex-col.gap-y-6 {
+  flex: none !important;
+  min-height: auto !important;
+}
+#dashboard-layout-container > .flex-1.flex-col.gap-y-6 > .overflow-y-auto {
+  overflow: visible !important;
+  flex: none !important;
+  min-height: auto !important;
+}
+.connect-accounts-carousel {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  overflow: visible !important;
+}
+.connect-accounts-carousel > * {
+  width: auto !important;
+  min-width: 0 !important;
+}
+#ai-recap-dashboard-alert.hr-alert {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#ai-recap-dashboard-alert :is(.hr-alert-body, .hr-alert__border) {
+  border-color: transparent !important;
+}
+#dashboard-layout-container .highcharts-root :is([fill="#2caffe" i], [fill="#155eef" i], [fill="#2970ff" i]) {
+  fill: var(--bb-accent) !important;
+}
+#dashboard-layout-container .highcharts-root [fill="#5d7ffb" i] {
+  fill: var(--bb-accent-400) !important;
+}
+#dashboard-layout-container .highcharts-root [fill="#528bff" i] {
+  fill: var(--bb-accent-300) !important;
+}
+#dashboard-layout-container .highcharts-root [fill="#84adff" i] {
+  fill: var(--bb-accent-200) !important;
+}
+#dashboard-layout-container .highcharts-root :is([stroke="#155eef" i], [stroke="#004eeb" i], [stroke="#2caffe" i]) {
+  stroke: var(--bb-accent) !important;
+}
+#dashboard-layout-container .highcharts-root stop[stop-color="#155eef" i] {
+  stop-color: var(--bb-accent) !important;
+}
+#dashboard-layout-container .highcharts-root stop[stop-color="#b2ccff1a" i] {
+  stop-color: color-mix(in srgb, var(--bb-accent) 8%, transparent) !important;
+}
+#dashboard-layout-container .highcharts-root [stroke="#e6e6e6" i] {
+  stroke: var(--bb-divider) !important;
+}
+#dashboard-layout-container :is([style*="rgb(209, 224, 255)"], [style*="rgb(235, 233, 254)"]) {
+  background-color: color-mix(in srgb, var(--bb-accent) 14%, var(--bb-bg)) !important;
+  color: var(--bb-accent) !important;
+}
+#dashboard-layout-container :is([style*="rgb(209, 224, 255)"], [style*="rgb(235, 233, 254)"]) :is(svg, i, path) {
+  color: var(--bb-accent) !important;
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
