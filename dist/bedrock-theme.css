@@ -6552,6 +6552,14 @@ header.hl_header .topmenu-nav .topmenu-navtitle {
     pointer-events: auto;
   }
 }
+
+/* v1.4.9: Automatización › Resumen mounts the same workflows iframe in a plain
+   `div.hl_topbar-tabs` (no .hl_wrapper), which lacks the platform's topbar padding, so the
+   card started at y=12 and its top was hidden under the header → same 128px room as the
+   Flujos de trabajo tab (the card then sits at y=140 like every view) */
+#app .sidebar-v2-location div.hl_topbar-tabs:not(.hl_wrapper):has(> div > #workflowBuilder) {
+  padding-top: 128px !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
