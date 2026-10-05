@@ -46,7 +46,7 @@ publish is in [README.md](README.md).
 | v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | live |
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
 | v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | live |
-| v1.4.9 | fix | Automatización › Resumen: the card no longer starts under the header | in review |
+| v1.4.9 | fix | Automatización: Resumen card no longer under the header; card kept with the sidebar collapsed | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -172,6 +172,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 | Change | Where | Verified |
 |---|---|---|
+| Collapsed sidebar (≤1024px): `#workflowBuilder` gets `hl_sidebar-v2-collapse-container` instead of `-open-container`, so the v1.4.1 card rule did not apply (no gutters, past the right and bottom edges) → the rule covers both classes | Automatización (both tabs) | 1024px sized iframe: frame inside the viewport with gutters |
 | Resumen mounts the workflows iframe in a plain `div.hl_topbar-tabs` (no `.hl_wrapper`, no topbar padding): the card started at y=12, its top under the header → 128px padding like the Flujos de trabajo tab | Automatización › Resumen | frame 248,140–1367,916 in a 934px viewport (18px bottom gap) |
 | Its content cannot be adapted to screen sizes: cross-origin iframe; the frame itself follows the viewport (auto width, 18px gutters) | Automatización | |
 

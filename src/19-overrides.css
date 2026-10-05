@@ -547,7 +547,10 @@ section > .vibe-page {
 /* v1.4.1: Automatización is a cross-origin iframe in #workflowBuilder (inline 100vh tall,
    full width from y=128): it ran under the theme header (ends at 134) and past the bottom
    and right edges. It now sits as a card under the header, like the other views. */
-#app #workflowBuilder.hl_sidebar-v2-open-container {
+/* v1.4.9: also with the sidebar collapsed (the platform swaps the class to
+   hl_sidebar-v2-collapse-container, e.g. at ≤1024px): the card lost its margins and ran past
+   the right and bottom edges */
+#app #workflowBuilder:is(.hl_sidebar-v2-open-container, .hl_sidebar-v2-collapse-container) {
   margin: 12px 18px 0 18px !important;
   width: auto !important;
   max-width: calc(100% - 36px) !important;
