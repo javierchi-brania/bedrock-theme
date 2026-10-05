@@ -181,6 +181,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | Table filter tabs (square raised, shadows cut) → sunken pill rail, active raised; "Fuentes" table header near-white → transparent | Llamadas, Citas (any table filter bar) | capture |
 | Report tabs row did not fit (8 long names; "Informe de anuncios de Meta (anuncios de Facebook)" ~340px), the active tab ended cut at the edge → short names: Personalizados, Google Ads, Meta Ads, Atribución, Llamadas, Agentes, Citas, Auditoría (labels.json) | Informes (header tabs) | 1438px: row 1196/1196, no overflow |
 | Citas status cards: width followed each label and two wrapped (taller, numbers lower) → equal grid columns (min 126px), one-line 13px labels, same height | Informes › Citas | 8 × 129.5px, all tops 302 |
+| Google Ads / Meta Ads title bar: no padding (42px, title on the edge), date field 200px cutting the range → padding 16/20, 250px field, accent "Enviar comentarios" | Google Ads, Meta Ads | field 250px for a 214px value; captures |
 | ECharts canvases: platform blue → teal via hue-rotate on Atribución and Citas only | Atribución, Citas | capture |
 
 ### v1.4.10 (published, live): Reputación › Solicitudes, Widgets, Configuración; header badge
