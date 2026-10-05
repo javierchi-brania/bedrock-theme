@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.7` (2026-10-05).
-**In progress:** `v1.4.8` (Importar datos cards) in review.
+**In progress:** nothing open; `v1.4.8` published (Importar datos cards, header tabs on smaller screens).
 
 ## Releases
 
@@ -45,7 +45,7 @@ publish is in [README.md](README.md).
 | v1.4.5 | feature | Sidebar logo: raised sphere with the black hexagon and "BRANIA" inside, in relief (user choice after previews) | live |
 | v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | live |
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
-| v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | in review |
+| v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -167,7 +167,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.8 (in review): Importar datos cards, header tabs on smaller screens
+### v1.4.8 (published): Importar datos cards, header tabs on smaller screens
 
 | Change | Where | Verified |
 |---|---|---|
