@@ -6507,6 +6507,8 @@ header.hl_header .topmenu-nav .topmenu-navtitle {
   white-space: nowrap !important;
   flex: none !important;
 }
+/* v1.4.10: the tab font-size rules below skip the "Nuevo" badge: they overrode the
+   font-size: 0 the labels use to hide the original text, so it read "NuevaNuevo" */
 @media (max-width: 1440px) {
   header.hl_header .topmenu-nav {
     padding-left: 14px !important;
@@ -6520,8 +6522,8 @@ header.hl_header .topmenu-nav .topmenu-navtitle {
     padding-left: 5px !important;
     padding-right: 5px !important;
   }
-  header.hl_header .topmenu-nav > a span,
-  header.hl_header .topmenu-nav > a span::after {
+  header.hl_header .topmenu-nav > a span:not(.hl_new_badge_top_menu),
+  header.hl_header .topmenu-nav > a span:not(.hl_new_badge_top_menu)::after {
     font-size: 13px !important;
   }
 }
@@ -6533,8 +6535,8 @@ header.hl_header .topmenu-nav .topmenu-navtitle {
     padding-left: 4px !important;
     padding-right: 4px !important;
   }
-  header.hl_header .topmenu-nav > a span,
-  header.hl_header .topmenu-nav > a span::after {
+  header.hl_header .topmenu-nav > a span:not(.hl_new_badge_top_menu),
+  header.hl_header .topmenu-nav > a span:not(.hl_new_badge_top_menu)::after {
     font-size: 12px !important;
   }
 }
@@ -6705,6 +6707,41 @@ header.hl_header:has(.topmenu-nav) {
    was cut → 450px */
 #review-requests-search-filter.hr-input {
   min-width: 450px !important;
+}
+
+/* v1.4.10: Reputación › Widgets.
+   - Below ~1100px the page ran past the right edge of the screen: the widget preview's
+     min-content width kept the page section from shrinking, so the side panel ("Widgets
+     guardados", the "Por defecto" card, "Editar el widget") was cut off → the section and the
+     preview column can shrink (the preview scrolls inside its own column).
+   - "Widgets guardados / Plantillas" segment: flat #f7f7fa rail with a white raised capsule →
+     raised group, the active option sunken (as the other segments).
+   - Saved widget cards: 12px corners → radius lg. */
+section:has(> #widgets-container) {
+  min-width: 0 !important;
+}
+#widgets-container .w-[70%] {
+  min-width: 0 !important;
+}
+#widgets-container .hr-tabs-nav--segment-type .hr-tabs-rail {
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  padding: 4px !important;
+}
+#widgets-container .hr-tabs-nav--segment-type .hr-tabs-capsule {
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+#widgets-container .hr-tabs-nav--segment-type .hr-tabs-tab {
+  border-radius: 999px !important;
+}
+#widgets-container .hr-tabs-nav--segment-type .hr-tabs-tab:not(.hr-tabs-tab--active) {
+  color: var(--bb-text-muted) !important;
+}
+#widgets-container .rounded-xl.border-2.cursor-pointer {
+  border-radius: var(--bb-radius-lg) !important;
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }

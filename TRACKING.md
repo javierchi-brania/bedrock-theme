@@ -47,7 +47,7 @@ publish is in [README.md](README.md).
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
 | v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | live |
 | v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | live |
-| v1.4.10 | fix | Reputación › Solicitudes: search placeholder no longer cut | in review |
+| v1.4.10 | fix | Reputación › Solicitudes search; Reputación › Widgets (page past the screen edge, segment, cards); "NuevaNuevo" badge on smaller screens | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -169,10 +169,13 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.10 (in review): Reputación › Solicitudes search
+### v1.4.10 (in review): Reputación › Solicitudes, Widgets; header badge
 
 | Change | Where | Verified |
 |---|---|---|
+| Widgets: below ~1100px the preview's min-content width kept the page section from shrinking, the page ran past the screen and the side panel ("Por defecto" card, "Editar el widget") was cut → section and preview column can shrink | Reputación › Widgets | 1024px sized iframe: section 230–1024, card 804–1008 |
+| "Widgets guardados / Plantillas" segment: flat #f7f7fa rail, white raised capsule → raised group, active option sunken; saved widget cards radius lg | Reputación › Widgets | zoom capture |
+| v1.4.8 regression: ≤1440px the tab font-size rule also hit the "Nuevo" badge and overrode the labels' font-size: 0, so it read "NuevaNuevo" → badge excluded | header tabs (Reputación › Testimonios en video) | computed: badge original text hidden again |
 | Search field `#review-requests-search-filter` 320px for a 351px placeholder plus the icon → 450px (input 370px) | Reputación › Solicitudes | zoom capture: full placeholder |
 
 ### v1.4.9 (published, live): Automatización, Sitios › Blogs, header tabs, Reputación
