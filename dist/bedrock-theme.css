@@ -6538,22 +6538,26 @@ header.hl_header .topmenu-nav .topmenu-navtitle {
     font-size: 12px !important;
   }
 }
-@media (max-width: 1024px) {
-  header.hl_header .topmenu-nav {
-    overflow-x: auto !important;
-    scrollbar-width: none;
-    padding-bottom: 260px !important;
-    margin-bottom: -260px !important;
-    pointer-events: none;
-    -webkit-mask-image: linear-gradient(90deg, var(--bb-text) calc(100% - 28px), transparent);
-    mask-image: linear-gradient(90deg, var(--bb-text) calc(100% - 28px), transparent);
-  }
-  header.hl_header .topmenu-nav::-webkit-scrollbar {
-    display: none;
-  }
-  header.hl_header .topmenu-nav > * {
-    pointer-events: auto;
-  }
+/* v1.4.9: the sideways scroll applies at every width (Sitios has 14 tabs and overflowed at
+   1314px; it only scrolls when the row is wider than the header). The scroller no longer
+   sizes the header (overflow), so the header keeps its 128px. */
+header.hl_header .topmenu-nav {
+  overflow-x: auto !important;
+  scrollbar-width: none;
+  padding-bottom: 260px !important;
+  margin-bottom: -260px !important;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, var(--bb-text) calc(100% - 28px), transparent);
+  mask-image: linear-gradient(90deg, var(--bb-text) calc(100% - 28px), transparent);
+}
+header.hl_header .topmenu-nav::-webkit-scrollbar {
+  display: none;
+}
+header.hl_header .topmenu-nav > * {
+  pointer-events: auto;
+}
+header.hl_header:has(.topmenu-nav) {
+  min-height: 128px !important;
 }
 
 /* v1.4.9: Automatización › Resumen mounts the same workflows iframe in a plain
@@ -6575,6 +6579,48 @@ header.hl_header .topmenu-nav .topmenu-navtitle {
     transform-origin: 0 0 !important;
     border-radius: calc(var(--bb-radius-lg) / 0.88) !important;
   }
+}
+
+/* v1.4.9: Sitios › Blogs. The list card (#blog-site-list-content, raised) held the stat
+   cards (#metrics-card, raised, 26px) which held another bordered rounded-xl box (12px,
+   shorter than its card, so the card showed underneath as a broken second edge) and the table
+   card (raised): three layers → the page card and the metric wrappers are flat; each stat is
+   one theme card, all three the same height. "Crear un blog" split button: the dropdown half
+   was a separate round raised button over the main one's square end → one pill with a
+   divider. */
+#blog-site-list-content.hr-card {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#blog-site-list-content #metrics-card.hr-card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+#blog-site-list-content #metrics-card > .hr-card-content {
+  height: 100% !important;
+}
+#blog-site-list-content #metrics-card div.rounded-xl {
+  height: 100% !important;
+  box-sizing: border-box;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#blogs_list_header .hr-button-group {
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#blogs_list_header .hr-button-group .hr-button {
+  box-shadow: none !important;
+}
+#blogs_list_header .hr-button-group > .hr-button {
+  border-radius: 999px 0 0 999px !important;
+}
+#blogs_list_header .hr-button-group .hr-dropdown__trigger-wrapper .hr-button {
+  border-radius: 0 999px 999px 0 !important;
+  border-left: 1px solid color-mix(in srgb, var(--bb-white) 35%, transparent) !important;
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }

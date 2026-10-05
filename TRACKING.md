@@ -46,7 +46,7 @@ publish is in [README.md](README.md).
 | v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | live |
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
 | v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | live |
-| v1.4.9 | fix | Automatización: Resumen card no longer under the header; card kept with the sidebar collapsed | in review |
+| v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -168,10 +168,13 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.9 (in review): Automatización › Resumen
+### v1.4.9 (in review): Automatización, Sitios › Blogs, header tabs
 
 | Change | Where | Verified |
 |---|---|---|
+| Blogs: three nested raised layers (list card > stat wrappers 26px > bordered 12px boxes, shorter than their wrapper so a second broken edge showed; table card inside the list card) → list card and stat wrappers flat; each stat one theme card, same height | Sitios › Blogs | stats 253–394 all three; capture |
+| "Crear un blog" split button: dropdown half was a separate round raised button over the square end of the main one (looked cut) → one pill, divider, one shadow | Sitios › Blogs | zoom capture |
+| Header tabs: the sideways scroll now applies at every width (Sitios has 14 tabs and overflowed at 1314px); header min-height 128px because the scroller no longer sizes it | every page with header tabs | Sitios at 1314px: all tabs reachable, header 6–134 |
 | Collapsed sidebar (≤1024px): `#workflowBuilder` gets `hl_sidebar-v2-collapse-container` instead of `-open-container`, so the v1.4.1 card rule did not apply (no gutters, past the right and bottom edges) → the rule covers both classes | Automatización (both tabs) | 1024px sized iframe: frame inside the viewport with gutters |
 | Resumen mounts the workflows iframe in a plain `div.hl_topbar-tabs` (no `.hl_wrapper`, no topbar padding): the card started at y=12, its top under the header → 128px padding like the Flujos de trabajo tab | Automatización › Resumen | frame 248,140–1367,916 in a 934px viewport (18px bottom gap) |
 | Inside the iframe the app breaks on smaller screens ("Requiere revisión" out of its card, sideways scrollbar at ~1024px) and cannot be styled (cross-origin) → ≤1440px the iframe is laid out 12% wider and scaled to 0.88 (same card size, the app gets the room of a larger screen) | Automatización (both tabs) | 1146px window: button inside its card; frame 80,140–1128,917 |
