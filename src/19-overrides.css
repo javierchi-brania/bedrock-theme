@@ -825,7 +825,7 @@ header.hl_header:has(.topmenu-nav) {
 section:has(> #widgets-container) {
   min-width: 0 !important;
 }
-#widgets-container .w-[70%] {
+#widgets-container .w-\[70\%\] {
   min-width: 0 !important;
 }
 #widgets-container .hr-tabs-nav--segment-type .hr-tabs-rail {
