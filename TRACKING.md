@@ -45,7 +45,7 @@ publish is in [README.md](README.md).
 | v1.4.5 | feature | Sidebar logo: raised sphere with the black hexagon and "BRANIA" inside, in relief (user choice after previews) | live |
 | v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | live |
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
-| v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height | in review |
+| v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -167,11 +167,12 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.8 (in review): Importar datos cards
+### v1.4.8 (in review): Importar datos cards, header tabs on smaller screens
 
 | Change | Where | Verified |
 |---|---|---|
 | Method cards (CSV / HubSpot): the cards stretched to the same height but not their content, so each footer (divider + button) sat under its own text and the buttons were at different heights → content fills the card (`.hr-card:has(#import-card-footer)` flex column), footer pinned to the bottom | Configuración › Importar datos | buttons both at 349–389; capture |
+| Header page tabs (`.topmenu-nav`) on smaller screens: below ~1600px long modules did not fit, the title wrapped, the fixed header grew 128 → 156px and covered the page top (reported in Agentes de IA › Estudio de agentes at 1365px), and the last tabs were cut → header height fixed: title never wraps; ≤1440px compact tabs (13px, 5px padding); ≤1280px title hidden (module name is in the breadcrumb), 12px tabs; ≤1024px the row scrolls sideways (hidden scrollbar, right-edge fade) with 260px of pass-through room below so tab dropdowns are not clipped | every page with header tabs | 1365px (real window): header 134, last tab inside; 1024 and 768px (same page in a sized iframe): header ≤134, content not covered; Marketing › Afiliados dropdown fully visible at 1024px |
 
 ### v1.4.7 (published, live): Objetos banner
 
