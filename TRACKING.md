@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.6` (2026-10-05).
-**In progress:** `v1.4.7` (Objetos banner) in review.
+**In progress:** nothing open; `v1.4.7` published (Objetos banner).
 
 ## Releases
 
@@ -44,7 +44,7 @@ publish is in [README.md](README.md).
 | v1.4.4 | fix | Pregúntale a BRANIA composer: 10px between the text field and the buttons | live |
 | v1.4.5 | feature | Sidebar logo: raised sphere with the black hexagon and "BRANIA" inside, in relief (user choice after previews) | live |
 | v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | live |
-| v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | in review |
+| v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -166,7 +166,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.7 (in review): Objetos banner
+### v1.4.7 (published): Objetos banner
 
 | Change | Where | Verified |
 |---|---|---|
