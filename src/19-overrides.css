@@ -674,18 +674,22 @@ header.hl_header:has(.topmenu-nav) {
 #app .sidebar-v2-location div.hl_topbar-tabs:not(.hl_wrapper):has(> div > #workflowBuilder) {
   padding-top: 128px !important;
 }
-/* v1.4.9: the workflows app inside the iframe cannot be styled, and on smaller screens its own
-   layout breaks (Resumen: "Requiere revisión" spills out of its card; a sideways scrollbar at
-   ~1024px). ≤1440px the iframe is laid out 12% wider and scaled back to the card size, so the
-   app gets the room of a larger screen (everything inside reads 12% smaller) */
-@media (max-width: 1440px) {
-  #workflowBuilder > iframe {
-    width: calc(100% / 0.88) !important;
-    height: calc(100% / 0.88) !important;
-    transform: scale(0.88) !important;
-    transform-origin: 0 0 !important;
-    border-radius: calc(var(--bb-radius-lg) / 0.88) !important;
-  }
+/* v1.4.9 / v1.4.12: the workflows app inside the iframe cannot be styled, and on smaller
+   screens its own layout breaks (Resumen: "Requiere revisión" spills out of its card; a
+   sideways scrollbar at ~1024px). The iframe is always laid out at least 1320px wide and
+   scaled down to the card width when the card is narrower (container query units + typed
+   calc division), so the app always has the room of a large screen; on wide screens the
+   scale is 1. (v1.4.9 used a fixed 0.88 under 1440px, not enough on smaller screens.) */
+#workflowBuilder {
+  container-type: size;
+  overflow: hidden !important;
+  border-radius: var(--bb-radius-lg) !important;
+}
+#workflowBuilder > iframe {
+  width: max(100cqw, 1320px) !important;
+  height: calc(100cqh * max(1, 1320px / 100cqw)) !important;
+  transform: scale(min(1, 100cqw / 1320px)) !important;
+  transform-origin: 0 0 !important;
 }
 
 /* v1.4.9: Sitios › Blogs. The list card (#blog-site-list-content, raised) held the stat
@@ -1137,4 +1141,86 @@ body:has(:is(#tb_attribution-v2, #tb_appointment-report).router-link-active) .si
   border-color: var(--bb-accent) !important;
   background: transparent !important;
   border-radius: 999px !important;
+}
+
+/* v1.4.12: Configuración › Usuarios. "Añadir usuario" sat in the top-right corner of the
+   table card and its 26px rounded corner cut it (same as Estudio de agentes); the search
+   field was 154px for a 353px placeholder ("nombre, correo electrónico, teléfono,
+   identificadores"); the p-1 wrapper clipped the card's shadow → header/footer padding,
+   410px search, shadow room */
+#users-list-table-wrapper > .hr-data-table-wrapper-header {
+  padding: 14px 18px 6px !important;
+}
+#users-list-table-wrapper > .hr-data-table-wrapper-footer {
+  padding: 10px 18px 14px !important;
+}
+#users-search.hr-input {
+  min-width: 410px !important;
+}
+.flex.min-w-0.flex-col.overflow-hidden.p-1:has(#users-list-table-wrapper) {
+  overflow: visible !important;
+}
+/* Configuración › Servicios de correo: cross-origin app that breaks on smaller screens
+   ("Restante hoy" pushed its "Se restablece a las 00:00 UTC" pill out of the card) and cannot
+   be styled → laid out at least 1320px wide and scaled down to the card width, as
+   Automatización */
+#isvAppSection {
+  container-type: size;
+  overflow: hidden !important;
+  border-radius: var(--bb-radius-lg) !important;
+}
+#isvAppSection > iframe {
+  width: max(100cqw, 1320px) !important;
+  height: calc(100cqh * max(1, 1320px / 100cqw)) !important;
+  transform: scale(min(1, 100cqw / 1320px)) !important;
+  transform-origin: 0 0 !important;
+}
+/* Configuración › Sistema telefónico. The page header card (title + tabs) started at y=48,
+   under the theme header (ends at 64), with no padding, and the container was wider than its
+   slot (right edge past the screen) → starts at 76, padding, gutters, fits. Centro de
+   confianza: "Learn More" text buttons got the theme pill shadow with no padding (20px tall,
+   looked cramped) → regular 36px pills; the hero banner light blue → accent tint card. */
+.hl_allphonenumber--container {
+  padding-top: 76px !important;
+  min-width: 0 !important;
+  width: auto !important;
+}
+section.w-full:has(> .hl_allphonenumber--container) {
+  min-width: 0 !important;
+}
+.hl_allphonenumber--container > .hl_affiliate--header {
+  padding: 18px 0 12px !important;
+  height: auto !important;
+  margin-left: 18px !important;
+  margin-right: 18px !important;
+  width: auto !important;
+}
+#phone-system-app .hr-button.learn-more-button {
+  padding: 8px 14px !important;
+  height: auto !important;
+  min-height: 36px !important;
+}
+#phone-system-app .hero-section-container {
+  background: color-mix(in srgb, var(--bb-accent) 12%, var(--bb-bg)) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+/* Sistema telefónico › Configuraciones adicionales: the selected radio card kept the
+   platform's 1px blue focus outline; the "Visible solo para propietarios" note (bordered
+   rounded-xl) was clipped by its overflow-hidden column (cut corner); the KYC card's shadow
+   was clipped by the tab pane wrapper → no outline (all radio cards), visible overflow,
+   radius lg, room in the pane */
+label.hr-radio-button.ui-radio-group-item {
+  outline: none !important;
+}
+#phone-system-app .col-span-3.overflow-hidden:has(> .rounded-xl.border) {
+  overflow: visible !important;
+}
+#phone-system-app .rounded-xl.border.border-solid {
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+}
+#phone-system-app .hr-tabs-pane-wrapper {
+  padding: 16px 24px 28px !important;
+  margin: -16px -24px -28px !important;
 }

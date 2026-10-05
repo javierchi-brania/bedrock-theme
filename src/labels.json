@@ -694,6 +694,16 @@
    "sel": "#tb_audit-report > span.flex.items-center",
    "text": "Auditoría",
    "font": "tab"
+  },
+  {
+   "sel": "#phone-system-app .learn-more-button .hr-button__content-default-slot",
+   "text": "Más información",
+   "font": "body"
+  },
+  {
+   "sel": "#service-card-voice .hr-button--outline-type .hr-button__content-default-slot",
+   "text": "Iniciar registro",
+   "font": "body"
   }
  ]
 }
