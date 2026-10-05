@@ -1205,3 +1205,22 @@ section.w-full:has(> .hl_allphonenumber--container) {
   border-radius: var(--bb-radius-lg) !important;
   box-shadow: var(--bb-shadow-soft) !important;
 }
+/* Sistema telefónico › Configuraciones adicionales: the selected radio card kept the
+   platform's 1px blue focus outline; the "Visible solo para propietarios" note (bordered
+   rounded-xl) was clipped by its overflow-hidden column (cut corner); the KYC card's shadow
+   was clipped by the tab pane wrapper → no outline (all radio cards), visible overflow,
+   radius lg, room in the pane */
+label.hr-radio-button.ui-radio-group-item {
+  outline: none !important;
+}
+#phone-system-app .col-span-3.overflow-hidden:has(> .rounded-xl.border) {
+  overflow: visible !important;
+}
+#phone-system-app .rounded-xl.border.border-solid {
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+}
+#phone-system-app .hr-tabs-pane-wrapper {
+  padding: 16px 24px 28px !important;
+  margin: -16px -24px -28px !important;
+}
