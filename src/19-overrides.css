@@ -612,6 +612,8 @@ header.hl_header .topmenu-nav .topmenu-navtitle {
   white-space: nowrap !important;
   flex: none !important;
 }
+/* v1.4.10: the tab font-size rules below skip the "Nuevo" badge: they overrode the
+   font-size: 0 the labels use to hide the original text, so it read "NuevaNuevo" */
 @media (max-width: 1440px) {
   header.hl_header .topmenu-nav {
     padding-left: 14px !important;
@@ -625,8 +627,8 @@ header.hl_header .topmenu-nav .topmenu-navtitle {
     padding-left: 5px !important;
     padding-right: 5px !important;
   }
-  header.hl_header .topmenu-nav > a span,
-  header.hl_header .topmenu-nav > a span::after {
+  header.hl_header .topmenu-nav > a span:not(.hl_new_badge_top_menu),
+  header.hl_header .topmenu-nav > a span:not(.hl_new_badge_top_menu)::after {
     font-size: 13px !important;
   }
 }
@@ -638,8 +640,8 @@ header.hl_header .topmenu-nav .topmenu-navtitle {
     padding-left: 4px !important;
     padding-right: 4px !important;
   }
-  header.hl_header .topmenu-nav > a span,
-  header.hl_header .topmenu-nav > a span::after {
+  header.hl_header .topmenu-nav > a span:not(.hl_new_badge_top_menu),
+  header.hl_header .topmenu-nav > a span:not(.hl_new_badge_top_menu)::after {
     font-size: 12px !important;
   }
 }
@@ -758,7 +760,7 @@ header.hl_header:has(.topmenu-nav) {
   grid-column: 1 / -1 !important;
   width: 100% !important;
   display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
   overflow: visible !important;
 }
 .connect-accounts-carousel > * {
@@ -803,4 +805,175 @@ header.hl_header:has(.topmenu-nav) {
 }
 #dashboard-layout-container :is([style*="rgb(209, 224, 255)"], [style*="rgb(235, 233, 254)"]) :is(svg, i, path) {
   color: var(--bb-accent) !important;
+}
+
+/* v1.4.10: Reputación › Solicitudes search field: 320px (platform min-w-[20rem]) for a 351px
+   placeholder ("Buscar por nombre, correo electrónico o teléfono") plus the icon, so the text
+   was cut → 450px */
+#review-requests-search-filter.hr-input {
+  min-width: 450px !important;
+}
+
+/* v1.4.10: Reputación › Widgets.
+   - Below ~1100px the page ran past the right edge of the screen: the widget preview's
+     min-content width kept the page section from shrinking, so the side panel ("Widgets
+     guardados", the "Por defecto" card, "Editar el widget") was cut off → the section and the
+     preview column can shrink (the preview scrolls inside its own column).
+   - "Widgets guardados / Plantillas" segment: flat #f7f7fa rail with a white raised capsule →
+     raised group, the active option sunken (as the other segments).
+   - Saved widget cards: 12px corners → radius lg. */
+section:has(> #widgets-container) {
+  min-width: 0 !important;
+}
+#widgets-container .w-\[70\%\] {
+  min-width: 0 !important;
+}
+#widgets-container .hr-tabs-nav--segment-type .hr-tabs-rail {
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  padding: 4px !important;
+}
+#widgets-container .hr-tabs-nav--segment-type .hr-tabs-capsule {
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+#widgets-container .hr-tabs-nav--segment-type .hr-tabs-tab {
+  border-radius: 999px !important;
+}
+#widgets-container .hr-tabs-nav--segment-type .hr-tabs-tab:not(.hr-tabs-tab--active) {
+  color: var(--bb-text-muted) !important;
+}
+#widgets-container .rounded-xl.border-2.cursor-pointer {
+  border-radius: var(--bb-radius-lg) !important;
+}
+
+/* v1.4.10: Reputación › Configuración (all eight sub-sections).
+   - Scrolling: the content column was not height-limited (a block wrapper broke the flex
+     chain), so the card ran ~130px past the bottom of the screen; Integraciones kept its
+     platform list in a 329px inner scroller → the tabs box fits the screen, the content
+     column scrolls (Solicitudes de SMS was taller than the screen with no way down), and
+     the Integraciones card scrolls as a whole.
+   - Shadows and corners clipped by overflow wrappers (cards flush with their scroller) →
+     room around them; the outer card gets radius lg.
+   - Connect-accounts banner: fixed 238px height, so a wrapped account card overlapped the
+     list below → auto height (cards: min 240px, three per row in this column).
+   - Texts the platform truncates with an ellipsis while there is room (field labels,
+     "Elige plantillas…", "Establecer plantillas…", integration names) → wrap; the three
+     field labels of a row share one height so their selects stay aligned.
+   - Integraciones search ("Plataformas de búsqueda", 183px in a 124px input) → 260px.
+   - Radio cards (.ui-radio-group-item: Reviews AI, Enlace de reseña, Reseñas spam, and the
+     same component elsewhere): white with a 1px blue border when selected and blue icon
+     discs → theme cards, the selected one sunken, accent icons.
+   - Upgrade sparkle image: purple → accent via hue-rotate (it is an <img>). */
+#reputation-settings-container .hr-tabs--left.ui-tabs {
+  height: calc(100vh - 160px - 18px) !important;
+  min-height: 0 !important;
+}
+#reputation-settings-container .hr-tabs--left.ui-tabs > .hr-tabs-pane-wrapper,
+#reputation-settings-container .hr-tabs--left.ui-tabs .hr-tab-pane {
+  min-height: 0 !important;
+}
+#reputation-settings-container .reputationApp > .hr-config-provider > .overflow-hidden {
+  overflow: visible !important;
+}
+#reputation-settings-container .hr-tabs--left.ui-tabs > .hr-tab-pane {
+  overflow-y: auto !important;
+  padding: 14px 30px 24px 16px !important;
+  margin: -14px -30px 0 0 !important;
+  scrollbar-width: thin;
+}
+#reputation-settings-container .hr-tab-pane > div.overflow-y-auto {
+  padding: 14px 30px 24px 16px !important;
+  margin: -14px -30px -24px -16px !important;
+}
+#reputation-settings-container .hr-tab-pane .overflow-y-auto[class*="max-h-"] {
+  padding: 12px 16px 18px !important;
+  margin: -12px -16px -18px !important;
+}
+#reputation-settings-container .ui-card.overflow-hidden > .ui-card-content {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+  overflow-y: auto !important;
+}
+#reputation-settings-container .ui-card.overflow-hidden > .ui-card-content > .overflow-y-auto {
+  overflow: visible !important;
+  flex: none !important;
+  min-height: auto !important;
+}
+#reputation-settings-container .ui-card.overflow-hidden > .ui-card-content .min-h-0.overflow-hidden:has(.connect-accounts-carousel),
+#reputation_dashboard_connect_accounts-banner {
+  overflow: visible !important;
+}
+#reputation_dashboard_connect_accounts-banner {
+  height: auto !important;
+}
+#reputation-settings-container .hr-tab-pane > .rounded-lg.border.shadow {
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+}
+#reputation-settings-container .rounded-lg.border-2.border-success-600 {
+  border-radius: var(--bb-radius-lg) !important;
+}
+#reputation-settings-container :is(.truncate.max-w-64, .truncate.max-w-96, .truncate.max-w-40) {
+  max-width: none !important;
+  white-space: normal !important;
+  overflow: visible !important;
+}
+#reputation-settings-container [id^="integration-platform-card-"] p.truncate {
+  white-space: normal !important;
+  overflow: visible !important;
+}
+#reputation-settings-container .mb-2.truncate:is(.max-w-64, .max-w-40) {
+  min-height: 40px !important;
+}
+#reputation-integrations-platform-search.hr-input {
+  min-width: 260px !important;
+}
+label.hr-radio-button.ui-radio-group-item {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-text) !important;
+}
+label.hr-radio-button.ui-radio-group-item .hr-radio-button__state-border {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+label.hr-radio-button.ui-radio-group-item.hr-radio-button--checked {
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-text-strong) !important;
+}
+label.hr-radio-button.ui-radio-group-item :is(.hr-radio__label, .ui-radio-group-item-container, .ui-radio-group-item-icon) {
+  color: inherit !important;
+}
+label.hr-radio-button.ui-radio-group-item :is([style*="rgb(239, 244, 255)"], [style*="rgb(209, 224, 255)"]) {
+  background-color: color-mix(in srgb, var(--bb-accent) 14%, var(--bb-bg)) !important;
+  color: var(--bb-accent) !important;
+}
+label.hr-radio-button.ui-radio-group-item :is([style*="rgb(239, 244, 255)"], [style*="rgb(209, 224, 255)"]) * {
+  color: var(--bb-accent) !important;
+}
+#ai-employee-upgrade img {
+  filter: hue-rotate(-77deg) saturate(0.7) !important;
+}
+/* the wrapper right around the content card clipped its shadow square, so the top-left
+   corner showed a light notch (Integraciones) */
+#reputation-settings-container .hr-tab-pane > .overflow-hidden:has(> .ui-card) {
+  overflow: visible !important;
+}
+/* Integraciones › Enlaces personalizados: "Añadir página" (40px tall) wrapped its "+" above
+   the text in the narrow card, 45px of content in a 40px button → one line */
+#add-platform-button.hr-button {
+  padding: 10px 12px !important;
+}
+#add-platform-button .hr-space {
+  flex-wrap: nowrap !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
 }

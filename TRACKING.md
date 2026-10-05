@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.8` (2026-10-05).
-**In progress:** nothing open; `v1.4.9` published (Automatización, Sitios › Blogs, header tabs, Reputación).
+**Live in the platform:** `v1.4.9` (2026-10-05).
+**In progress:** nothing open; `v1.4.10` published (Reputación: Solicitudes, Widgets, Configuración; header badge).
 
 ## Releases
 
@@ -46,7 +46,8 @@ publish is in [README.md](README.md).
 | v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | live |
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
 | v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | live |
-| v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | published |
+| v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | live |
+| v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -168,7 +169,27 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.9 (published): Automatización, Sitios › Blogs, header tabs, Reputación
+### v1.4.10 (published): Reputación › Solicitudes, Widgets, Configuración; header badge
+
+| Change | Where | Verified |
+|---|---|---|
+| Configuración scrolling: the content column was not height-limited (block wrapper in the flex chain), the card ran ~130px past the screen; Solicitudes de SMS could not be scrolled to its end; Integraciones kept the platform list in a 329px inner scroller → tabs box fits the screen, content column scrolls, Integraciones card scrolls as a whole | Reputación › Configuración | pane 146–917 in a 935px viewport; Integraciones 3799/757 scroll |
+| Clipped shadows/corners (cards flush with overflow wrappers; outer card 8px) → room, radius lg | Configuración (Reviews AI, Enlace de reseña, Reseñas spam, Integraciones) | clip audit: only partial shadow clips left |
+| Connect-accounts banner fixed 238px: a wrapped account overlapped the list → auto height; cards min 240px (3 per row) | Configuración › Integraciones, Resumen | capture |
+| Ellipsis-truncated texts with room (field labels, "Elige plantillas…", "Establecer plantillas…", integration names) → wrap; the row's labels share 40px so the selects stay aligned | Configuración (SMS, correo, Integraciones) | selects at the same top (333) |
+| Integraciones search placeholder cut (183px in 124px) → 260px field | Configuración › Integraciones | measured |
+| Radio cards (`label.hr-radio-button.ui-radio-group-item`, global): white, blue 1px border when selected, blue icon discs → theme cards, selected sunken, accent icons | Reviews AI, Enlace de reseña, Reseñas spam (same component elsewhere, e.g. Sitios › Analítica, not re-checked) | captures |
+| Integraciones card corner: the wrapper around the card clipped its shadow square (light notch at the top-left corner) → overflow visible | Configuración › Integraciones | zoom capture |
+| "Añadir página" (Enlaces personalizados): icon wrapped above the text, 45px of content in a 40px button → one line | Configuración › Integraciones | content 645–665 inside 635–675 |
+| Radio dot centered at any size (inset 0 + margin auto; the 16px dot of the radio cards had it 1px off) | radios everywhere | center offset 0,0 |
+| Left tab menu: the 2px active-tab bar had the theme inset shadow and read as a dark line sliding on every change → hidden (active tab keeps its accent text) | Configuración, any left bar-type tabs | zoom capture |
+| Tab "Reviews AI" → "IA de reseñas"; upgrade sparkle image purple → accent (hue-rotate) | Configuración | |
+| Widgets: below ~1100px the preview's min-content width kept the page section from shrinking, the page ran past the screen and the side panel ("Por defecto" card, "Editar el widget") was cut → section and preview column can shrink | Reputación › Widgets | 1024px sized iframe: section 230–1024, card 804–1008 |
+| "Widgets guardados / Plantillas" segment: flat #f7f7fa rail, white raised capsule → raised group, active option sunken; saved widget cards radius lg | Reputación › Widgets | zoom capture |
+| v1.4.8 regression: ≤1440px the tab font-size rule also hit the "Nuevo" badge and overrode the labels' font-size: 0, so it read "NuevaNuevo" → badge excluded | header tabs (Reputación › Testimonios en video) | computed: badge original text hidden again |
+| Search field `#review-requests-search-filter` 320px for a 351px placeholder plus the icon → 450px (input 370px) | Reputación › Solicitudes | zoom capture: full placeholder |
+
+### v1.4.9 (published, live): Automatización, Sitios › Blogs, header tabs, Reputación
 
 | Change | Where | Verified |
 |---|---|---|

@@ -654,6 +654,11 @@
    "sel": "#ai-employee-upgrade .n-button__content > span",
    "text": "Pasar al plan ilimitado de Empleado IA",
    "font": "brand15"
+  },
+  {
+   "sel": "#reputation-settings-container .hr-tabs-tab[data-name=\"reviewsAI\"] p",
+   "text": "IA de reseñas",
+   "font": "menu14"
   }
  ]
 }
