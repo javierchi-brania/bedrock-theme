@@ -331,10 +331,23 @@ div:has(> #conv-send-button-simple) {
   background: var(--bb-accent) !important;
   box-shadow: var(--bb-shadow-soft) !important;
 }
+/* v1.4.10: centered whatever the dot size (the platform places it at 4px, which is only
+   centered on the 18px dot; the 16px dot of the radio cards had it 1px off) */
 .hr-radio.hr-radio--checked .hr-radio__dot::before {
   background: var(--bb-bg) !important;
   width: 8px !important;
   height: 8px !important;
+  left: 0 !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  margin: auto !important;
+}
+/* v1.4.10: vertical tab menus (left bar type, e.g. Reputación › Configuración): the 2px
+   active-tab bar picked up the theme's inset shadow and read as a dark line sliding along
+   the menu on every change; the active tab is already marked by its accent text → hidden */
+.hr-tabs-nav--left .hr-tabs-bar {
+  visibility: hidden !important;
 }
 
 /* Selects (ej. "Select Contact" / "Chat Type") */
