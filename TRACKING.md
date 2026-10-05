@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.5` (2026-10-02).
-**In progress:** nothing open; `v1.4.6` published (wordmark below the sphere).
+**Live in the platform:** `v1.4.6` (2026-10-05).
+**In progress:** nothing open; `v1.4.7` published (Objetos banner).
 
 ## Releases
 
@@ -43,7 +43,8 @@ publish is in [README.md](README.md).
 | v1.4.3 | fixes | Agentes de IA: every tab in the theme (Estudio de agentes under the header, Primeros pasos, IA de voz, Plantillas, Base de conocimiento, IA de contenido, Registros, Agentes por industria); theme radios round | live |
 | v1.4.4 | fix | Pregúntale a BRANIA composer: 10px between the text field and the buttons | live |
 | v1.4.5 | feature | Sidebar logo: raised sphere with the black hexagon and "BRANIA" inside, in relief (user choice after previews) | live |
-| v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | published |
+| v1.4.6 | feature | Sidebar logo: "BRANIA" below the sphere (72px), same logo sizes and block height | live |
+| v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -103,11 +104,11 @@ Selectors were taken from the live DOM. Check them again before writing a rule.
 White or flat surfaces → page surface / raised or sunken:
 - [ ] H Contactos › contact detail: field sections `#record-blocks-container .hr-collapse-item__content-inner` are #fff with square corners.
 - [ ] H Tareas and Empresas: list on a flat #f9fafb full-width box with 0 radius (`#CustomObjectsList div.wrapper`, `#BusinessList div.wrapper`), with an empty ~90px gap above the Tareas list.
-- [ ] H Agentes de IA › Agentes por industria: `div.ia-canvas` #fff with 1px #eaecf0 border; `div.home` #f9fafb; `div.home-tabs` #fff; card bodies `div.template-card__body` and pills `span.template-card__subtype-pill` white.
+- [x] → v1.4.3. H Agentes de IA › Agentes por industria: `div.ia-canvas` #fff with 1px #eaecf0 border; `div.home` #f9fafb; `div.home-tabs` #fff; card bodies `div.template-card__body` and pills `span.template-card__subtype-pill` white.
 - [x] → v1.4.3. H Agentes de IA › Estudio de agentes (`.sa-shell-host`, `.agents-shell`, `.agents-page`, `.agents-page__footer`), Registros de agentes (`#agent-logs-content`, `div.metrics-stat-card`, `div.metrics-chart-card`, `.chart-type-toggle`), IA de contenido (`div.hl-statistic`): white.
 - [ ] H Sitios › Analítica: KPI cards `label.hr-radio-button.ui-radio-group-item.compact-radio-item` are white with 12px corners; the selected one has a 1px #155eef border and a blue title. Segment rail `.hr-tabs--segment-type .hr-tabs-rail` is flat #f7f7fa.
 - [ ] H Reputación › Configuración: selected radio card `label.hr-radio-button--checked.ui-radio-group-item` is white with a #155eef border. Widgets segment: capsule white and raised, rail #f7f7fa (selected must be sunken).
-- [ ] H Configuración › Objetos (`.custom-obj-list .ui-header` white with a 1px border, title #004eeb), Redireccionamiento de URL (`.hl-statistic` white with a 1px border, 8px radius), Integraciones (`.integration-card .card-header` #fff, card radius 4px).
+- [ ] H Configuración › Objetos: the empty-state banner → v1.4.7; still open: (`.custom-obj-list .ui-header` white with a 1px border, title #004eeb), Redireccionamiento de URL (`.hl-statistic` white with a 1px border, 8px radius), Integraciones (`.integration-card .card-header` #fff, card radius 4px).
 - [ ] H Sitios › Widget de chat: header strip `.hr-tabs-nav--line-type.hr-tabs-nav` flat white with no padding; "+ Nuevo" touches the edge.
 - [ ] M Facturación `#location-billing` #fcfcfd (white strip at the bottom); Aplicaciones `section` #fcfcfd; "Gratis" tags `div.hr-tag.ui-tag` white; Multimedia modal `.n-card.n-modal.hl-modal` #fff; Informes custom-report cards (`#location-custom-reports .grid-cols-3 > div.p-4`, 1px border, 4px radius), call-sources table (`#widget-data-table`), `#ads-date-picker-input` (also cut) and `div.search` / `#filter-input` white.
 - [ ] M Agentes de IA › Primeros pasos: `div.feature-sections` #fafaf9 with 1px border; user chat bubbles white with 1px border; inactive "ship AI" tab titles #d7d3d0 (nearly invisible). IA de voz `section.welcome-stats` flat #f9fafb, `span.prompt-chip` white with border.
@@ -165,7 +166,15 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.6 (published): wordmark below the sphere
+### v1.4.7 (published): Objetos banner
+
+| Change | Where | Verified |
+|---|---|---|
+| "Cree su propio objeto personalizado" banner (`.custom-objects-list .bg-white.flex.ml-6 > .ui-header`): white, 1px border, fixed 72px height (its two lines spilled below the box in narrow windows), blue text and star → height grows with the text, theme card (radius lg, soft shadow), text / accent | Configuración › Objetos | at 1372px wide: box 636–752, text inside; capture |
+| Its button `#empty-custom-objects-list-btn-primary`: pale blue fill under the theme's white primary text (label invisible) → accent fill | Configuración › Objetos | capture |
+| Not fixable: Perfil de empresa header "Información general" overlapping "Id. de la ubicación" in narrow windows is inside the cross-origin settings iframe | Configuración › Perfil de empresa | iframe src checked |
+
+### v1.4.6 (published, live): wordmark below the sphere
 
 User choice: the "BRANIA outside" variant at the v1.4.5 logo sizes. Sphere 92 → 72px (top 6px) with only the hexagon (36px) in it; wordmark (72 × 9px) below, outside the sphere, both in relief. Block stays 108px tall, so the menu does not move. Collapsed: 40px sphere, top 8px (centered in the 56px block). Verified with an in-page override on the live v1.4.5 assets.
 
