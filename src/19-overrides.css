@@ -1138,3 +1138,21 @@ body:has(:is(#tb_attribution-v2, #tb_appointment-report).router-link-active) .si
   background: transparent !important;
   border-radius: 999px !important;
 }
+
+/* v1.4.12: Configuración › Usuarios. "Añadir usuario" sat in the top-right corner of the
+   table card and its 26px rounded corner cut it (same as Estudio de agentes); the search
+   field was 154px for a 353px placeholder ("nombre, correo electrónico, teléfono,
+   identificadores"); the p-1 wrapper clipped the card's shadow → header/footer padding,
+   410px search, shadow room */
+#users-list-table-wrapper > .hr-data-table-wrapper-header {
+  padding: 14px 18px 6px !important;
+}
+#users-list-table-wrapper > .hr-data-table-wrapper-footer {
+  padding: 10px 18px 14px !important;
+}
+#users-search.hr-input {
+  min-width: 410px !important;
+}
+.flex.min-w-0.flex-col.overflow-hidden.p-1:has(#users-list-table-wrapper) {
+  overflow: visible !important;
+}
