@@ -131,3 +131,41 @@
 .n-base-selection .n-base-selection-label {
   background: transparent !important;
 }
+
+/* v1.4.7: Configuración › Objetos, "Cree su propio objeto personalizado" banner: white with a
+   1px border and a fixed 72px height (its two text lines spilled out of the box in narrow
+   windows), blue text and star; its button had a pale blue fill under the theme's white
+   primary-button text, so the label was invisible → grows with the text, theme card,
+   accent; regular primary button */
+.custom-objects-list .bg-white.flex.ml-6 > .ui-header {
+  height: auto !important;
+  min-height: 72px !important;
+  align-items: center !important;
+  gap: 24px;
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.custom-objects-list .bg-white.flex.ml-6 > .ui-header .header {
+  height: auto !important;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.custom-objects-list .bg-white.flex.ml-6 > .ui-header .ui-header-content {
+  flex: none;
+}
+.custom-objects-list .bg-white.flex.ml-6 > .ui-header .ccHeading {
+  color: var(--bb-text) !important;
+}
+.custom-objects-list .bg-white.flex.ml-6 > .ui-header .ccHeading1 {
+  color: var(--bb-accent) !important;
+}
+.custom-objects-list .bg-white.flex.ml-6 > .ui-header svg.star-icon-inline {
+  background: color-mix(in srgb, var(--bb-accent) 14%, var(--bb-bg)) !important;
+  color: var(--bb-accent) !important;
+}
+#empty-custom-objects-list-btn-primary.hr-button {
+  background: var(--bb-accent) !important;
+  color: var(--bb-white) !important;
+}
