@@ -7083,6 +7083,36 @@ body:has(:is(#tb_attribution-v2, #tb_appointment-report).router-link-active) .si
   transform: scale(min(1, 100cqw / 1320px)) !important;
   transform-origin: 0 0 !important;
 }
+/* Configuración › Sistema telefónico. The page header card (title + tabs) started at y=48,
+   under the theme header (ends at 64), with no padding, and the container was wider than its
+   slot (right edge past the screen) → starts at 76, padding, gutters, fits. Centro de
+   confianza: "Learn More" text buttons got the theme pill shadow with no padding (20px tall,
+   looked cramped) → regular 36px pills; the hero banner light blue → accent tint card. */
+.hl_allphonenumber--container {
+  padding-top: 76px !important;
+  min-width: 0 !important;
+  width: auto !important;
+}
+section.w-full:has(> .hl_allphonenumber--container) {
+  min-width: 0 !important;
+}
+.hl_allphonenumber--container > .hl_affiliate--header {
+  padding: 18px 0 12px !important;
+  height: auto !important;
+  margin-left: 18px !important;
+  margin-right: 18px !important;
+  width: auto !important;
+}
+#phone-system-app .hr-button.learn-more-button {
+  padding: 8px 14px !important;
+  height: auto !important;
+  min-height: 36px !important;
+}
+#phone-system-app .hero-section-container {
+  background: color-mix(in srgb, var(--bb-accent) 12%, var(--bb-bg)) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
@@ -9273,7 +9303,9 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 #tb_call-reporting > span.flex.items-center,
 #tb_agent-reporting > span.flex.items-center,
 #tb_appointment-report > span.flex.items-center,
-#tb_audit-report > span.flex.items-center {
+#tb_audit-report > span.flex.items-center,
+#phone-system-app .learn-more-button .hr-button__content-default-slot,
+#service-card-voice .hr-button--outline-type .hr-button__content-default-slot {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -9408,7 +9440,9 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 #tb_call-reporting > span.flex.items-center::after,
 #tb_agent-reporting > span.flex.items-center::after,
 #tb_appointment-report > span.flex.items-center::after,
-#tb_audit-report > span.flex.items-center::after {
+#tb_audit-report > span.flex.items-center::after,
+#phone-system-app .learn-more-button .hr-button__content-default-slot::after,
+#service-card-voice .hr-button--outline-type .hr-button__content-default-slot::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -10090,4 +10124,14 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
   content: "Auditoría";
   font-size: 14px;
   line-height: 25.6px;
+}
+#phone-system-app .learn-more-button .hr-button__content-default-slot::after {
+  content: "Más información";
+  font-size: 14px;
+  line-height: 20px;
+}
+#service-card-voice .hr-button--outline-type .hr-button__content-default-slot::after {
+  content: "Iniciar registro";
+  font-size: 14px;
+  line-height: 20px;
 }

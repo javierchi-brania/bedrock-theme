@@ -1175,3 +1175,33 @@ body:has(:is(#tb_attribution-v2, #tb_appointment-report).router-link-active) .si
   transform: scale(min(1, 100cqw / 1320px)) !important;
   transform-origin: 0 0 !important;
 }
+/* Configuración › Sistema telefónico. The page header card (title + tabs) started at y=48,
+   under the theme header (ends at 64), with no padding, and the container was wider than its
+   slot (right edge past the screen) → starts at 76, padding, gutters, fits. Centro de
+   confianza: "Learn More" text buttons got the theme pill shadow with no padding (20px tall,
+   looked cramped) → regular 36px pills; the hero banner light blue → accent tint card. */
+.hl_allphonenumber--container {
+  padding-top: 76px !important;
+  min-width: 0 !important;
+  width: auto !important;
+}
+section.w-full:has(> .hl_allphonenumber--container) {
+  min-width: 0 !important;
+}
+.hl_allphonenumber--container > .hl_affiliate--header {
+  padding: 18px 0 12px !important;
+  height: auto !important;
+  margin-left: 18px !important;
+  margin-right: 18px !important;
+  width: auto !important;
+}
+#phone-system-app .hr-button.learn-more-button {
+  padding: 8px 14px !important;
+  height: auto !important;
+  min-height: 36px !important;
+}
+#phone-system-app .hero-section-container {
+  background: color-mix(in srgb, var(--bb-accent) 12%, var(--bb-bg)) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}

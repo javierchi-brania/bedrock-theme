@@ -49,7 +49,7 @@ publish is in [README.md](README.md).
 | v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | live |
 | v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | live |
 | v1.4.11 | fix | Informes: every tab below the header and within the screen, short tab names, leaderboard readable, theme fields and buttons, filter rails, Citas cards, audit card, chart colors | live |
-| v1.4.12 | fix | Configuración › Usuarios: add button not cut, search readable; Servicios de correo scaled on smaller screens | in review |
+| v1.4.12 | fix | Configuración: Usuarios, Servicios de correo, Sistema telefónico; Automatización scaling | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -171,10 +171,12 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.12 (in review): Configuración › Usuarios, Servicios de correo
+### v1.4.12 (in review): Configuración › Usuarios, Servicios de correo, Sistema telefónico
 
 | Change | Where | Verified |
 |---|---|---|
+| Sistema telefónico header card (title + tabs) started at y=48 under the header, no padding, container wider than its slot → starts at 76, padding, gutters, fits | Configuración › Sistema telefónico | header 248,76–1374,146 in a 1402px window |
+| Centro de confianza: "Learn More" text buttons with the theme pill shadow and no padding (20px) → 36px pills, "Más información"; "Start Registration" → "Iniciar registro"; hero banner light blue → accent tint card | Sistema telefónico › Centro de confianza | capture |
 | Servicios de correo and Automatización (cross-origin apps that break on smaller screens): the iframe is laid out at least 1320px wide and scaled down to the card width (container query units + typed calc division; scale 1 when the card is wider). Replaces v1.4.9's fixed 0.88 under 1440px, which was not enough on smaller screens | Configuración › Servicios de correo, Automatización | 1244px window: scale 0.733, pill inside its card; Chrome 154 supports typed division |
 | "Añadir usuario" in the top-right corner of the table card, cut by its 26px corner → header/footer padding; search 154px for a 353px placeholder → 410px (input 356px); p-1 wrapper clipped the card shadow → visible | Configuración › Usuarios | button 1264–1391 inside the card; input 356 ≥ 353 |
 
