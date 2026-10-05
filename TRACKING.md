@@ -175,7 +175,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 | Change | Where | Verified |
 |---|---|---|
-| Servicios de correo (cross-origin app): "Se restablece a las 00:00 UTC" pill out of its card on smaller screens → ≤1440px the iframe is laid out 12% wider and scaled to 0.88 (as Automatización) | Configuración › Servicios de correo | 1438px: pill inside the card; capture |
+| Servicios de correo and Automatización (cross-origin apps that break on smaller screens): the iframe is laid out at least 1320px wide and scaled down to the card width (container query units + typed calc division; scale 1 when the card is wider). Replaces v1.4.9's fixed 0.88 under 1440px, which was not enough on smaller screens | Configuración › Servicios de correo, Automatización | 1244px window: scale 0.733, pill inside its card; Chrome 154 supports typed division |
 | "Añadir usuario" in the top-right corner of the table card, cut by its 26px corner → header/footer padding; search 154px for a 353px placeholder → 410px (input 356px); p-1 wrapper clipped the card shadow → visible | Configuración › Usuarios | button 1264–1391 inside the card; input 356 ≥ 353 |
 
 ### v1.4.11 (published, live): Informes
