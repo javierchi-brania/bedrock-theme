@@ -6885,6 +6885,124 @@ label.hr-radio-button.ui-radio-group-item :is([style*="rgb(239, 244, 255)"], [st
   gap: 6px !important;
   white-space: nowrap !important;
 }
+
+/* v1.4.11: Informes (all eight tabs).
+   - Dashboards in a section.hl_wrapper--inner (Informe del agente, Google Ads, Meta): they
+     started at y=128 under the header ("Recuperar" cut at the top) and were wider than their
+     slot (right edge past the screen) → start at 140, fit the width, room for card shadows.
+   - Scrolling dashboards (Llamadas, Atribución, Citas, Informes personalizados): the scroller
+     started at y=128, so its sticky filter bar sat under the header; Informes personalizados
+     was 100vh tall from y=128, its last 128px unreachable → start at 140, fit the screen.
+   - Informe del agente: the "Tabla de clasificación" card kept white text on the theme
+     surface (unreadable) → theme text; blue "Recuperar" / "Comparar" → accent; white
+     selects and date pickers → sunken theme fields (all report dashboards).
+   - Auditoría de marketing local: full-bleed cross-origin iframe from y=128, past the right
+     and bottom edges → card under the header (its content cannot be styled).
+   - Table filter tabs (Todas / Entrante / Saliente…): square raised buttons whose shadows
+     were cut by the card → sunken pill rail, active option raised (as in IA de contenido).
+   - Informe de llamadas "Fuentes" table: near-white header → transparent.
+   - Atribución and Citas charts are ECharts canvases (no SVG to restyle): platform blue →
+     teal with a hue-rotate on those two pages only. */
+section.hl_wrapper--inner:is(#reporting-agent-dashboard, #reporting-adwords-dashboard, #reporting-facebook-dashboard) {
+  width: auto !important;
+  max-width: 100% !important;
+  margin-top: 12px !important;
+  height: calc(100% - 12px) !important;
+  padding-left: 10px !important;
+  padding-right: 14px !important;
+}
+#reporting-agent-dashboard .agent_reporting_main {
+  padding-top: 6px !important;
+}
+:is(#call-reporting-dashboard, #attribution-dashboard, #appointment-reporting-dashboard).overflow-y-auto {
+  margin-top: 12px !important;
+  height: calc(100% - 12px) !important;
+}
+#location-custom-reports.h-screen {
+  margin-top: 12px !important;
+  height: calc(100vh - 140px) !important;
+}
+#reporting-agent-dashboard .card.leader-board {
+  color: var(--bb-text) !important;
+}
+#reporting-agent-dashboard .card.leader-board :is(.card-header, .card-title, h1, h2, h3, h4, div, span, td) {
+  color: var(--bb-text) !important;
+}
+#reporting-agent-dashboard .card.leader-board th {
+  color: var(--bb-text-label) !important;
+}
+#reporting-agent-dashboard .btn.btn-blue {
+  background: var(--bb-accent) !important;
+  border-color: var(--bb-accent) !important;
+  color: var(--bb-white) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#reporting-agent-dashboard .hl_controls--right .btn.btn-link {
+  color: var(--bb-accent) !important;
+}
+section[id^="reporting-"] :is(.bootstrap-select.--white, .hl_datepicker) {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+section[id^="reporting-"] .bootstrap-select.--white > .btn.dropdown-toggle,
+section[id^="reporting-"] .hl_datepicker input.field-input {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+section[id^="reporting-"] input.field-input:not(.hl_datepicker input) {
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border-color: transparent !important;
+}
+#reporting-agent-dashboard .hl_controls--right :is(.bootstrap-select, .hl_datepicker) :is(i, svg) {
+  color: var(--bb-accent) !important;
+}
+section.w-full:has(#audit_location_prospect_micro_app) {
+  min-width: 0 !important;
+}
+#audit_location_prospect_micro_app.expanded-sidebar {
+  margin: 12px 18px 0 18px !important;
+  width: auto !important;
+  height: calc(100vh - 128px - 12px - 18px) !important;
+  max-height: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  background: var(--bb-bg) !important;
+  overflow: hidden !important;
+}
+#audit_location_prospect_micro_app iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
+.table-container .filter-bar .n-button-group {
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  padding: 4px !important;
+  gap: 2px;
+}
+.table-container .filter-bar .n-button-group > .n-button {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 999px !important;
+}
+.table-container .filter-bar .n-button-group > .n-button :is(.n-button__border, .n-button__state-border) {
+  border: none !important;
+}
+.table-container .filter-bar .n-button-group > .n-button.hl-active-btn {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-accent) !important;
+}
+#widget-data-table :is(.n-data-table-thead, .n-data-table-th, .n-data-table-table) {
+  background: transparent !important;
+}
+body:has(:is(#tb_attribution-v2, #tb_appointment-report).router-link-active) .sidebar-v2-location > section canvas[data-zr-dom-id] {
+  filter: hue-rotate(-35deg) saturate(0.75) !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }

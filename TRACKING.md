@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.9` (2026-10-05).
-**In progress:** nothing open; `v1.4.10` published (Reputación: Solicitudes, Widgets, Configuración; header badge).
+**Live in the platform:** `v1.4.10` (2026-10-05).
+**In progress:** `v1.4.11` (Informes) in review.
 
 ## Releases
 
@@ -47,7 +47,8 @@ publish is in [README.md](README.md).
 | v1.4.7 | fix | Configuración › Objetos: custom object banner grows with its text, theme card, visible button | live |
 | v1.4.8 | fix | Configuración › Importar datos: CSV / HubSpot buttons at the same height; header page tabs fit smaller screens (≤1440 / ≤1280 / ≤1024px) | live |
 | v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | live |
-| v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | published |
+| v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | live |
+| v1.4.11 | fix | Informes: every tab below the header and within the screen, leaderboard readable, theme fields and buttons, filter rails, audit card, chart colors | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -90,7 +91,7 @@ Selectors were taken from the live DOM. Check them again before writing a rule.
 
 ### 1. Theme bugs (caused by the theme or regressions): fix first
 
-- [ ] **H Informes › Informe del agente:** the leaderboard card `#reporting-agent-dashboard .card.leader-board` gets the page surface (#e9ebec) but keeps its white text (24px title; `th` at rgba(255,255,255,.7)), so it is unreadable. Make the text dark, or keep a dark card.
+- [x] → v1.4.11. **H Informes › Informe del agente:** the leaderboard card `#reporting-agent-dashboard .card.leader-board` gets the page surface (#e9ebec) but keeps its white text (24px title; `th` at rgba(255,255,255,.7)), so it is unreadable. Make the text dark, or keep a dark card.
 - [ ] **H Configuración menu:** `#sb_Opportunities-Pipelines` has no visible label. Its label `::after` "Oportunidades y embudos" is 175px inside a 164px `span.nav-title.hl_text-overflow`, and an overflowing atomic inline-block disappears under `text-overflow: ellipsis`. Shorten the label ("Embudos") or let long sidebar labels use `display: inline`. `#sb_domains-urlRedirects` is also cut ("Dominios y redireccion…").
 - [ ] **H Membresías › Cursos › Tablero:** the "Haga realidad sus ideas" banner is solid black. `.rounded-xl.overflow-hidden.bg-blue-600 > .absolute.inset-0.bg-black.bg-opacity-20` computes to rgb(0,0,0) at full opacity: the Tailwind opacity variable is probably lost through a theme rule.
 - [x] → v1.4.3. **H Agentes de IA › Estudio de agentes:** the page header ("Agentes gestionados" and its buttons) is under the fixed header. `#agent-studio-container` padding-top is 92px but `header.hl_header` ends at 134px. Check whether this is a regression from the v1.3.12 header and sidebar changes.
@@ -169,7 +170,18 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.10 (published): Reputación › Solicitudes, Widgets, Configuración; header badge
+### v1.4.11 (in review): Informes
+
+| Change | Where | Verified |
+|---|---|---|
+| Dashboards in `section.hl_wrapper--inner` started at y=128 under the header ("Recuperar" cut) and were wider than their slot (right edge 1622 in a 1598px screen) → start at 140, fit, room for shadows | Informe del agente, Google Ads, Meta | wrapper 248,140–1580,913; button 141–181 |
+| Scrolling dashboards started at y=128 (sticky filter bar under the header); Informes personalizados was 100vh from y=128 (last 128px unreachable) → start at 140, fit the screen | Llamadas, Atribución, Citas, Informes personalizados | scrollers 140–935 |
+| Leaderboard card: white text on the theme surface → theme text; blue "Recuperar" / "Comparar" → accent; white selects / date pickers → sunken fields | Informe del agente (fields: all report dashboards) | capture |
+| Auditoría: full-bleed cross-origin iframe past the right/bottom edges → card under the header | Auditoría de marketing local | frame 248,140–1580,917 |
+| Table filter tabs (square raised, shadows cut) → sunken pill rail, active raised; "Fuentes" table header near-white → transparent | Llamadas, Citas (any table filter bar) | capture |
+| ECharts canvases: platform blue → teal via hue-rotate on Atribución and Citas only | Atribución, Citas | capture |
+
+### v1.4.10 (published, live): Reputación › Solicitudes, Widgets, Configuración; header badge
 
 | Change | Where | Verified |
 |---|---|---|
