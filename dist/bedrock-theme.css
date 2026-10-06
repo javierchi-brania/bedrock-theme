@@ -7801,6 +7801,20 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
   min-width: 0 !important;
   width: auto !important;
 }
+/* Right panel boxes cut by their scroll boxes:
+   - Asociaciones: the "Companies" box started exactly at the top of its scroll box, so its
+     rounded top corners and shadow were cut and it looked stuck out of the panel → 10px
+     of room on top.
+   - Contacto: the field sections ("Contacto"…) sit in a virtual list that hides overflow
+     flush with their sides, cutting their shadow → 6px of room on each side. */
+#conversations-contact-details .bg-contacts-panel .hr-wrapper-container:has(> .hr-config-provider > .associations-data-panel) {
+  padding-top: 10px !important;
+  padding-bottom: 16px !important;
+}
+#conversations-contact-details #record-blocks-container .hr-collapse.hr-accordion {
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }

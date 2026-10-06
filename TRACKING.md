@@ -185,6 +185,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 |---|---|---|
 | With the whole shadow visible (v1.4.19), the raised top-left light read as a white border around the tall column cards, most of all the right panel → new token --bb-shadow-panel (same drop, light 55% / 6px / 16px) on the list, messages and right panel cards | Conversaciones | capture before/after |
 | Right panel, all ten views checked at 1420 and 1920: Asociaciones header ("Gestionar asociaciones" past the card, even at 1920) → actions wrap to a second row; Pagos tables scrolled sideways → card width | Right panel › Asociaciones, Pagos | 1420 frame and 1920: nothing past the card, no sideways scroll |
+| Boxes cut by their scroll boxes: Asociaciones "Companies" box flush with the top (corners and shadow cut) → 10px on top; Contacto field sections flush with the virtual list sides → 6px each side | Right panel › Asociaciones, Contacto | 1920 capture |
 
 ### v1.4.19 (published, live): Conversaciones
 
