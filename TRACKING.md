@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.24` published (Ask BRANIA labels, no help panel, translate icon, Calendar AI).
+**In progress:** `v1.4.25` (Ask BRANIA icon in accent, no launchpad landing).
 
 ## Releases
 
@@ -62,6 +62,7 @@ publish is in [README.md](README.md).
 | v1.4.22 | feat | Conversaciones inbox at 90% zoom; borders kept whole (selected row, contact details scroll box, field sections, sticky tabs, Oportunidades box) | published |
 | v1.4.23 | fix | Pagos: whole card shadows (Plantillas, Documentos y contratos, Inventario, Colecciones, Enlaces de pago), no pale rectangle on product pages, Cajas abandonadas as one branded card with the table fitting | published |
 | v1.4.24 | fix | Roles y permisos "Agentes de BRANIA"/"ASK BRANIA", Ask BRANIA banner, Ayuda y asistencia hidden, header translate icon in accent, Calendar AI drawer above the top bar with Brania styling and Spanish labels | published |
+| v1.4.25 | fix | Top bar ✦ (Pregúntale a BRANIA) icon in accent; agency Launchpad hidden from the menu; `embed/custom-js.html` sends both launchpads to the dashboard | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -182,6 +183,14 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.25 (in review): ✦ icon, no launchpad landing
+
+| Change | Where | Verified |
+|---|---|---|
+| ✦ (Pregúntale a BRANIA) icon in the platform violet → accent | Top bar, agency and sub-accounts | matches the other icons |
+| Agency "Launchpad" entry hidden from the menu, like the sub-account "Panel" | Agency left menu | entry gone |
+| Switching to the agency opened the agency launchpad and switching to a sub-account opened "Panel" → both land on the dashboard. A router guard in `embed/custom-js.html`, pasted once into Marca Blanca → JS personalizado (CSS cannot redirect). Direct links and the old menu links to either launchpad also go to the dashboard; the launchpad never renders and stays out of the back history | Account switcher, both ways | 20 ms path log: launchpad never shown; menu still works after each switch. An earlier version that clicked the menu link froze the menu after a switch and was dropped |
 
 ### v1.4.24 (published): Ask BRANIA, help panel, Calendar AI
 

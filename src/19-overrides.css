@@ -1782,6 +1782,11 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
 #sb_launchpad {
   display: none !important;
 }
+/* v1.4.25: the agency launchpad entry goes too. Landing on either launchpad after switching
+   accounts is handled by embed/custom-js.html (JS personalizado), not by CSS. */
+#sb_agency-launchpad {
+  display: none !important;
+}
 
 /* v1.4.19 (Conversaciones, team list).
    - Column gaps: 28px between list and messages and 40px between messages and the right
