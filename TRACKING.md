@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.20` (2026-10-06).
-**In progress:** nothing open; `v1.4.21` published (Conversaciones empty states, card bottoms).
+**Live in the platform:** `v1.4.21` (2026-10-06).
+**In progress:** nothing open; `v1.4.22` published (Conversaciones inbox at 90%).
 
 ## Releases
 
@@ -58,7 +58,8 @@ publish is in [README.md](README.md).
 | v1.4.18 | feat | "Panel" (launchpad) hidden from the left menu | live |
 | v1.4.19 | fix | Conversaciones: 20px column gaps, equal card shadows, 28px action buttons, contact details fit in narrow windows | live |
 | v1.4.20 | fix | Conversaciones columns: new --bb-shadow-panel token, softer top-left light (no white border); right panel fixes (Asociaciones, Pagos, titles at one height, boxes not cut); Acciones manuales selects; data table padding | live |
-| v1.4.21 | fix | Conversaciones empty states aligned with soft shadow, right panel card ends with the others, empty-state labels | published |
+| v1.4.21 | fix | Conversaciones empty states aligned with soft shadow, right panel card ends with the others, empty-state labels | live |
+| v1.4.22 | feat | Conversaciones inbox at 90% zoom; borders kept whole (selected row, contact details scroll box, field sections, sticky tabs, Oportunidades box) | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -180,7 +181,14 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.21 (published): Conversaciones empty states
+### v1.4.22 (published): Conversaciones at 90%
+
+| Change | Where | Verified |
+|---|---|---|
+| Inbox app (list, messages, right panel) at zoom 0.9 at the team's request; menu, top bar and tabs at 100%; menus drawn outside the app stay at 100% | Conversaciones | fills the window; channel select opens in place |
+| Shadow clip audit at 90% on the list, messages, all ten right panel views and the empty states: selected row, #record-details-lhs (second clipped panel shadow + double padding from the v1.4.20 card rules), last field section, audit footer, sticky tabs, Oportunidades box → whole | Conversaciones | audit clean in every view; empty states end with the list |
+
+### v1.4.21 (published, live): Conversaciones empty states
 
 | Change | Where | Verified |
 |---|---|---|
