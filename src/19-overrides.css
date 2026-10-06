@@ -1667,7 +1667,8 @@ body:has(#location-dashboard) .hr-base-select-menu {
    - Oportunidades list: hovering a name turned it the platform blue → accent.
    - Pronóstico › Resumen: bright green and blue values, legend dot and chart bars → success
      and accent; the chart is a canvas, so it gets a hue shift (blue → teal, green muted).
-     Summary table: first and last columns 12px from the card edge → 22–24px.
+     Summary table: first and last columns 12px from the card edge → 22–24px; Total row
+     aligned with its columns.
    - Pronóstico › Cronograma: white undated header and day buttons, bright green progress,
      "Ganado" pill and amounts, mint won cards → theme.
    - Pagos: 12 sections in the header; in narrow windows the last ones were out of reach
@@ -1705,9 +1706,26 @@ body:has(#location-dashboard) .hr-base-select-menu {
 #fd-summary-table-wrapper :is(th, td):last-child {
   padding-right: 24px !important;
 }
+/* The Total row lives in the table footer with widths copied from the columns; the global
+   footer padding (v1.4.14) shifted it 18px right of its columns and in narrow windows the
+   bold amounts ran into each other → no footer padding here, same side padding as the
+   columns, smaller amounts when the columns are narrow. */
+#fd-summary-table-wrapper > .hr-data-table-wrapper-footer:has(> .fd-summary-total-row),
 #fd-summary-table-wrapper .fd-summary-total-row {
-  padding-left: 10px !important;
-  padding-right: 10px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+#fd-summary-table-wrapper .fd-summary-total-cell {
+  font-size: clamp(12px, 0.85vw, 14px) !important;
+}
+#fd-summary-table-wrapper .fd-summary-total-cell-label {
+  padding-left: 22px !important;
+}
+#fd-summary-table-wrapper .fd-summary-total-cell-right:not(:last-child) {
+  padding-right: 12px !important;
+}
+#fd-summary-table-wrapper .fd-summary-total-cell:last-child {
+  padding-right: 24px !important;
 }
 #ForecastDashboard .forecast-nav-toolbar__btn {
   background: var(--bb-bg) !important;
@@ -1755,4 +1773,12 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
 }
 #CouponsCreatePage .create-coupon-basic-details-container .grid.grid-cols-2 {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)) !important;
+}
+/* Pagos sections start at different heights (Colecciones only 2px below a second row of
+   tabs) → in windows where the tabs can wrap, 22px more room on top. A transparent border
+   adds to each section's own top padding (128px, 147px...) without changing it. */
+@media (max-width: 1600px) {
+  body:has(header.hl_header .topmenu-nav a[href*="/payments/"]) .hl_topbar-tabs.hl_wrapper {
+    border-top: 22px solid transparent !important;
+  }
 }
