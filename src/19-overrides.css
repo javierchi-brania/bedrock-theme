@@ -2146,6 +2146,10 @@ body:has(header .topmenu-nav a[href*="/payments/"]) .hr-wrapper-container > .hr-
 .abandoned-checkouts .table-canvas :is(img, svg):not(.hr-data-table__cell-header *) {
   filter: hue-rotate(-30deg) saturate(.55);
 }
+.list-page-root:has(> .abandoned-checkouts) {
+  padding: 0 14px 14px !important;
+  box-sizing: border-box !important;
+}
 .list-page-root:has(.abandoned-checkouts) .page-header {
   padding-top: 8px !important;
   padding-bottom: 8px !important;
