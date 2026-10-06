@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.26` published (Integraciones cards, Marketing at narrow widths, Conectar redes sociales).
+**In progress:** `v1.4.27` (sweep of Agentes de IA, Automatización, Sitios, Membresías, Multimedia, Reputación, Informes, Aplicaciones).
 
 ## Releases
 
@@ -64,6 +64,7 @@ publish is in [README.md](README.md).
 | v1.4.24 | fix | Roles y permisos "Agentes de BRANIA"/"ASK BRANIA", Ask BRANIA banner, Ayuda y asistencia hidden, header translate icon in accent, Calendar AI drawer above the top bar with Brania styling and Spanish labels | published |
 | v1.4.25 | fix | Top bar ✦ (Pregúntale a BRANIA) icon in accent; agency Launchpad hidden from the menu; `embed/custom-js.html` sends both launchpads to the dashboard | published |
 | v1.4.26 | fix | Integraciones as soft theme cards (search no longer under the top bar); Marketing › Planificador fits beside the menu at 1026-1338px (header, filters, table, Estadísticas, Comentarios, Configuración), Marketing tabs wrap, empty tables keep their message visible; Conectar redes sociales close button and "Añadir una comunidad" | published |
+| v1.4.27 | fix | Sweep of 9 sections (63 pages at 1366px): 42px page overflow from the platform width rule, Sitios tabs wrap, cards inside cards, clipped shadows, near-white/violet/blue surfaces (Aplicaciones, Ofertas, Gokollab, Widget de chat, Registros), Reputación cards, Informes Agentes titles, broken filter labels | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -184,6 +185,25 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.27 (in review): sweep of the remaining sections
+
+Automatic audit of every page and top tab (63 pages) at 1366px: overflow past the window, hidden horizontal overflow, shadows cut by a clipping box, near-white and platform blue/violet surfaces, buttons outside their box; then captures of each flagged page.
+
+| Change | Where | Verified |
+|---|---|---|
+| Platform rule sizes `.hl_wrapper--inner` as dock width − 14rem, ignoring the theme's 18px page padding → every such page 42px too wide with a bottom scrollbar → `width: 100%` | Sitios, Membresías, Agentes de IA › Plantillas and other `.hl_wrapper--inner` pages | scroll width = client width |
+| Sitios tabs cut ("Códigos QR") → wrap like Marketing/Pagos | Sitios | capture |
+| Table card inside the raised page card, cut flat right/bottom → joins the outer card; "Crear con AI" sparkle → accent tone | Embudos, Sitios web, Tiendas, Seminarios web, Formularios, Encuestas | captures |
+| Intro card filling its clip box; carousel corners | Códigos QR | capture |
+| White tab bar with touching tabs, near-white canvas card | Widget de chat | capture |
+| Feature cards filling their slides, inner blocks with their own shadows | WordPress | capture |
+| Near-white section and pager, app cards flush with their scroll box | Aplicaciones | audit clean |
+| Blue empty-state illustration → accent; card titles overlapped by the wrapped select; first row flush with the scroll box | Informes › Personalizados, Agentes, Meta Ads | captures |
+| Review and AI summary cards cut left/top, violet gradient "Resumen de AI"; Testimonios and Configuración cards flush in a clipping tab pane; Widgets segment tabs on near-white with no padding; agents table cut with no scroll; "Reviews AI" → "IA de reseñas" | Reputación | captures |
+| White Ofertas module and header at the window edge; Gokollab violet banner (unreadable subtitle), white option cards, violet button → Brania; white "https://" addons; Naive info alert, tags and active tab in platform blue | Membresías | captures |
+| White logs page; filter labels broken mid-word | Agentes de IA › Registros, Plantillas | captures |
+| Not changed: cross-origin frames (Estudio de IA, Automatización › Flujos de trabajo inside, Marketing › Correos inside); Cuestionarios phone mock-up (shows the visitor's quiz); Reputación › Widgets preview (the customer's widget); Multimedia has no top bar in the platform | | |
 
 ### v1.4.26 (published): Integraciones, Marketing at narrow widths
 

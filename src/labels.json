@@ -804,6 +804,11 @@
    "sel": "body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text",
    "text": "Asistente de calendarios",
    "font": "desc12"
+  },
+  {
+   "sel": "#reputation-settings-container:has(.hr-tabs-tab--active[data-name=\"reviewsAI\"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child",
+   "text": "IA de reseñas",
+   "font": "moduleTitle"
   }
  ]
 }
