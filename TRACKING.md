@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.17` (2026-10-06).
-**In progress:** nothing open; `v1.4.18` published (hide "Panel" in the menu).
+**Live in the platform:** `v1.4.18` (2026-10-06).
+**In progress:** `v1.4.19` (Conversaciones: gaps, shadows, action buttons, contact details) in review.
 
 ## Releases
 
@@ -55,7 +55,8 @@ publish is in [README.md](README.md).
 | v1.4.15 | fix | Conversaciones: menu hover white, task due date/time layout, segment tab hover box, messages card corner, narrow-window column widths, "Contactos" label | live |
 | v1.4.16 | fix | Calendarios narrow widths + Servicios theme, Contactos Tareas/Empresas card, Oportunidades embudo menu, selected pill, view tab, list view edges | live |
 | v1.4.17 | fix | Oportunidades name hover, Pronóstico palette and table, Pagos tabs on two rows, Plantillas card, table header padding, Crear cupones, radio dot | live |
-| v1.4.18 | feat | "Panel" (launchpad) hidden from the left menu | published |
+| v1.4.18 | feat | "Panel" (launchpad) hidden from the left menu | live |
+| v1.4.19 | fix | Conversaciones: 20px column gaps, equal card shadows, 28px action buttons, contact details fit in narrow windows | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -177,7 +178,16 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.18 (published): hide "Panel"
+### v1.4.19 (in review): Conversaciones
+
+| Change | Where | Verified |
+|---|---|---|
+| Column gaps 28px and 40px → 20px each at every width; right panel icon column 52 → 44px | Conversaciones | 1420: gaps 20/20, messages card 466px |
+| List and right panel shadows clipped 20px above them (the messages card showed its whole shadow) → same shadow on all three | Conversaciones | capture |
+| Action buttons (filter, call, star, mail, trash) 24px icons → 28px round theme buttons, 16px icons (like the inbox submenu) | Messages header | capture |
+| Contact details card 226px at 1420: "Seguidores", tabs and phone row ran past it → right panel min 330px, thinner padding (card 272px), Propietario/Seguidores stack when needed | Right panel › Detalles del contacto | 1420: nothing past the card |
+
+### v1.4.18 (published, live): hide "Panel"
 
 | Change | Where | Verified |
 |---|---|---|
