@@ -1957,7 +1957,8 @@ div:has(> .hr-select-wrapper > #manual-actions-workflow-campaign-select) {
   padding-bottom: 10px !important;
 }
 /* Detalles del contacto (Todos los campos, Acciones…): the stacked boxes showed a white
-   band above each one (light at 90%), their tab pane cut their sides, and in Acciones the
+   band above each one (light at 90%; the box shadow token now lives in the 340 layer
+   for these boxes and the contact summary box), their tab pane cut their sides, and in Acciones the
    "Oportunidades" header (title + "Añadir" + arrow, 234px) did not fit its 222px box so
    the arrow was cut → box shadow token, room for the shadow, a little less card side
    padding, and the add buttons in box headers as a round "+" (like Etiquetas "+"). */
@@ -1972,9 +1973,6 @@ div:has(> .hr-select-wrapper > #manual-actions-workflow-campaign-select) {
 #conversations-contact-details #record-details-tabs > .hr-tabs-pane-wrapper {
   padding: 4px 6px 10px !important;
   margin: 0 -6px !important;
-}
-#conversations-contact-details .hr-collapse-item {
-  box-shadow: var(--bb-shadow-box) !important;
 }
 #conversations-contact-details .hr-collapse-item__header {
   padding-right: 10px !important;

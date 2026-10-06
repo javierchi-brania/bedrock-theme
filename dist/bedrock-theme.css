@@ -5066,7 +5066,7 @@ aside#sidebar-v2 {
   padding: 6px 10px 6px 6px !important;
 }
 :is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .border.border-gray-200.rounded-md.bg-white {
-  box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
+  box-shadow: var(--bb-shadow-box) !important; /* v1.4.20: softer light (token) */
 }
 :is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item {
   border-radius: var(--bb-radius-sm) !important;
@@ -5145,7 +5145,7 @@ aside#sidebar-v2 {
 :is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item {
   background: var(--bb-bg) !important;
   border-color: transparent !important; /* v1.2.3: was a 1px grey outline */
-  box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
+  box-shadow: var(--bb-shadow-box) !important; /* v1.4.20: softer light (token) */
   margin-bottom: 10px !important;
   overflow: hidden !important;
 }
@@ -7873,7 +7873,8 @@ div:has(> .hr-select-wrapper > #manual-actions-workflow-campaign-select) {
   padding-bottom: 10px !important;
 }
 /* Detalles del contacto (Todos los campos, Acciones…): the stacked boxes showed a white
-   band above each one (light at 90%), their tab pane cut their sides, and in Acciones the
+   band above each one (light at 90%; the box shadow token now lives in the 340 layer
+   for these boxes and the contact summary box), their tab pane cut their sides, and in Acciones the
    "Oportunidades" header (title + "Añadir" + arrow, 234px) did not fit its 222px box so
    the arrow was cut → box shadow token, room for the shadow, a little less card side
    padding, and the add buttons in box headers as a round "+" (like Etiquetas "+"). */
@@ -7888,9 +7889,6 @@ div:has(> .hr-select-wrapper > #manual-actions-workflow-campaign-select) {
 #conversations-contact-details #record-details-tabs > .hr-tabs-pane-wrapper {
   padding: 4px 6px 10px !important;
   margin: 0 -6px !important;
-}
-#conversations-contact-details .hr-collapse-item {
-  box-shadow: var(--bb-shadow-box) !important;
 }
 #conversations-contact-details .hr-collapse-item__header {
   padding-right: 10px !important;
