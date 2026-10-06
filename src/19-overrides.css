@@ -1862,8 +1862,8 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
    these tall cards the raised top-left light (white 90%, 10px out, 26px blur) read as a
    white border around them, most of all around the right panel → panel shadow: same
    drop, softer and shorter light. */
-#conversations-list > div,
-#conversations-messages > div,
-#conversations-contact-details .bg-contacts-panel {
+#conversations-new-app #conversations-list > div,
+#conversations-new-app span#conversations-messages > div.flex.flex-col.h-full.relative,
+#conversations-new-app #conversations-contact-details .bg-contacts-panel {
   box-shadow: var(--bb-shadow-panel) !important;
 }
