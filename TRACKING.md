@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.11` (2026-10-05).
-**In progress:** nothing open; `v1.4.12` published (Configuración: Usuarios, Servicios de correo, Sistema telefónico; Automatización scaling).
+**Live in the platform:** `v1.4.12` (2026-10-05).
+**In progress:** `v1.4.13` (team bug list: Objetos, Asociaciones, vistas de Contacto, Integraciones privadas, assistant greeting) in review.
 
 ## Releases
 
@@ -49,7 +49,8 @@ publish is in [README.md](README.md).
 | v1.4.9 | fix | Automatización (Resumen under the header, collapsed sidebar, scaled app on smaller screens); Sitios › Blogs cards and split button; header tabs scroll at every width; Reputación › Mis estadísticas (scrolling, carousel, AI alert, chart colors) | live |
 | v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | live |
 | v1.4.11 | fix | Informes: every tab below the header and within the screen, short tab names, leaderboard readable, theme fields and buttons, filter rails, Citas cards, audit card, chart colors | live |
-| v1.4.12 | fix | Configuración: Usuarios, Servicios de correo, Sistema telefónico; Automatización scaling | published |
+| v1.4.12 | fix | Configuración: Usuarios, Servicios de correo, Sistema telefónico; Automatización scaling | live |
+| v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -171,7 +172,17 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.12 (published): Configuración › Usuarios, Servicios de correo, Sistema telefónico
+### v1.4.13 (in review): team bug list
+
+| Change | Where | Verified |
+|---|---|---|
+| Bug 1 (Objetos banner): the reported capture showed the pre-v1.4.7 look (white box, invisible button), already fixed; added: in narrow windows the button wraps below the text inside the card | Configuración › Objetos | 848px: text 304–764, button below it inside the card |
+| Bug 2 (Asociaciones): white info box, fixed 68px, text spilling and the button overlapping the table title → grows, wraps, theme card, accent link | Objetos › Contactos › Asociaciones | 848px: box 233–355 holds text and button |
+| Bug 3 (Personalice la vista): near-white page background, flat dashed "Añadir vista" tile → transparent, sunken theme tile, radius lg | Objetos › Contactos › Personalice la vista | capture |
+| Bug 4 (Integraciones privadas): app as wide as the window but starting after the sidebar, "Crear Nueva Integración" past the right edge → fits | Configuración › Integraciones privadas | 848px: button 627–816 |
+| Bug 5: assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" (fallback "Hola, ¿cómo puedo ayudarte hoy?") | Pregúntale a BRANIA | computed ::after |
+
+### v1.4.12 (published, live): Configuración › Usuarios, Servicios de correo, Sistema telefónico
 
 | Change | Where | Verified |
 |---|---|---|
