@@ -776,6 +776,11 @@
    "font": "chat16"
   },
   {
+   "sel": ".cal-ai-sidebar .space-y-4 > .justify-start:first-child p.whitespace-pre-wrap:only-child",
+   "text": "¡Hola! Soy el asistente de calendarios de BRANIA. Dime en qué te ayudo o elige una opción.",
+   "font": "chat16"
+  },
+  {
    "sel": ".cal-ai-sidebar span[class*=\"text-[#5925DC]\"]",
    "text": "Crear un calendario nuevo",
    "font": "opt14"

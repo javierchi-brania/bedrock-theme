@@ -10420,6 +10420,7 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 .cal-ai-sidebar__header .text-md.font-semibold,
 .cal-ai-sidebar__header .flex-col > .text-\[13px\],
 .cal-ai-sidebar .space-y-4 > .justify-start:first-child .chat-markdown > p:only-child,
+.cal-ai-sidebar .space-y-4 > .justify-start:first-child p.whitespace-pre-wrap:only-child,
 .cal-ai-sidebar span[class*="text-[#5925DC]"],
 .cal-ai-sidebar span[class*="text-[#7a5af8]"],
 .cal-ai-sidebar .flex-wrap > div:nth-child(1) > .hr-tag .hr-tag__content > p > span,
@@ -10575,6 +10576,7 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 .cal-ai-sidebar__header .text-md.font-semibold::after,
 .cal-ai-sidebar__header .flex-col > .text-\[13px\]::after,
 .cal-ai-sidebar .space-y-4 > .justify-start:first-child .chat-markdown > p:only-child::after,
+.cal-ai-sidebar .space-y-4 > .justify-start:first-child p.whitespace-pre-wrap:only-child::after,
 .cal-ai-sidebar span[class*="text-[#5925DC]"]::after,
 .cal-ai-sidebar span[class*="text-[#7a5af8]"]::after,
 .cal-ai-sidebar .flex-wrap > div:nth-child(1) > .hr-tag .hr-tag__content > p > span::after,
@@ -11338,6 +11340,11 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
   line-height: 19.5px;
 }
 .cal-ai-sidebar .space-y-4 > .justify-start:first-child .chat-markdown > p:only-child::after {
+  content: "¡Hola! Soy el asistente de calendarios de BRANIA. Dime en qué te ayudo o elige una opción.";
+  font-size: 16px;
+  line-height: 28px;
+}
+.cal-ai-sidebar .space-y-4 > .justify-start:first-child p.whitespace-pre-wrap:only-child::after {
   content: "¡Hola! Soy el asistente de calendarios de BRANIA. Dime en qué te ayudo o elige una opción.";
   font-size: 16px;
   line-height: 28px;

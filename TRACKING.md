@@ -192,7 +192,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | "?" button and Ayuda y asistencia drawer hidden at the team's request | Top bar, every page | button gone |
 | Translate button icon in the platform violet → accent | Top bar | matches the other icons |
 | Calendar AI drawer under the top bar (title and close hidden) → above it; Brania background, font, accent, inset field, soft option card; edge tab in accent | Calendarios | open, expand, close, typing hides the drawn placeholder |
-| Calendar AI fixed texts in Spanish: title, subtitle, greeting (without the user's first name), options, placeholder, edge tab tooltip | Calendarios | labels; the assistant's own replies stay in the language it answers in |
+| Calendar AI fixed texts in Spanish: title, subtitle, greeting (without the user's first name; also while it is typed in, which uses another element), options, placeholder, edge tab tooltip | Calendarios | labels; the assistant's own replies stay in the language it answers in |
 
 ### v1.4.23 (published): Pagos card shadows, Cajas abandonadas
 
