@@ -2074,3 +2074,16 @@ div:has(> .hr-select-wrapper > #manual-actions-workflow-campaign-select) {
   padding-right: 12px !important;
   padding-bottom: 12px !important;
 }
+/* - Contact details tabs ("Todos los campos / DND / Acciones") stick to the top of the
+     scroll box with top 0, so once stuck their shadow was cut → 6px of panel background
+     above them.
+   - Oportunidades view: the "Clientes Potenciales" box filled its clipping box edge to
+     edge, side shadow cut → 6px each side. */
+#record-details-lhs .hr-tabs-nav--segment-type.hr-tabs-nav--top {
+  padding-top: 6px !important;
+  background: var(--bb-bg) !important;
+}
+#conversations-contact-details .bg-contacts-panel #opportunities.hr-collapse-item {
+  margin-left: 6px !important;
+  margin-right: 6px !important;
+}
