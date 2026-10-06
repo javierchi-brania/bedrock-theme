@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.15` (2026-10-06).
-**In progress:** `v1.4.16` (bug list: Calendarios, Contactos, Oportunidades) in review.
+**In progress:** nothing open; `v1.4.16` published (bug list: Calendarios, Contactos, Oportunidades).
 
 ## Releases
 
@@ -53,7 +53,7 @@ publish is in [README.md](README.md).
 | v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | live |
 | v1.4.14 | fix | Acciones rápidas theme, data table footers (pager not cut), dashboard filter menus wider | live |
 | v1.4.15 | fix | Conversaciones: menu hover white, task due date/time layout, segment tab hover box, messages card corner, narrow-window column widths, "Contactos" label | live |
-| v1.4.16 | fix | Calendarios narrow widths + Servicios theme, Contactos Tareas/Empresas card, Oportunidades embudo menu, selected pill, view tab, list view edges | in review |
+| v1.4.16 | fix | Calendarios narrow widths + Servicios theme, Contactos Tareas/Empresas card, Oportunidades embudo menu, selected pill, view tab, list view edges | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -175,7 +175,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.16 (in review): bug list (Calendarios, Contactos, Oportunidades)
+### v1.4.16 (published): bug list (Calendarios, Contactos, Oportunidades)
 
 | Change | Where | Verified |
 |---|---|---|
