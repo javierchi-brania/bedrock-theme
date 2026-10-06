@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.20` (2026-10-06).
-**In progress:** `v1.4.21` (Conversaciones empty states, card bottoms) in review.
+**In progress:** nothing open; `v1.4.21` published (Conversaciones empty states, card bottoms).
 
 ## Releases
 
@@ -58,7 +58,7 @@ publish is in [README.md](README.md).
 | v1.4.18 | feat | "Panel" (launchpad) hidden from the left menu | live |
 | v1.4.19 | fix | Conversaciones: 20px column gaps, equal card shadows, 28px action buttons, contact details fit in narrow windows | live |
 | v1.4.20 | fix | Conversaciones columns: new --bb-shadow-panel token, softer top-left light (no white border); right panel fixes (Asociaciones, Pagos, titles at one height, boxes not cut); Acciones manuales selects; data table padding | live |
-| v1.4.21 | fix | Conversaciones empty states aligned with soft shadow, right panel card ends with the others, empty-state labels | in review |
+| v1.4.21 | fix | Conversaciones empty states aligned with soft shadow, right panel card ends with the others, empty-state labels | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -180,7 +180,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.21 (in review): Conversaciones empty states
+### v1.4.21 (published): Conversaciones empty states
 
 | Change | Where | Verified |
 |---|---|---|
