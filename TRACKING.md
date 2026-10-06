@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** `v1.4.24` (Ask BRANIA labels, no help panel, translate icon, Calendar AI).
+**In progress:** nothing open; `v1.4.24` published (Ask BRANIA labels, no help panel, translate icon, Calendar AI).
 
 ## Releases
 
@@ -61,7 +61,7 @@ publish is in [README.md](README.md).
 | v1.4.21 | fix | Conversaciones empty states aligned with soft shadow, right panel card ends with the others, empty-state labels | live |
 | v1.4.22 | feat | Conversaciones inbox at 90% zoom; borders kept whole (selected row, contact details scroll box, field sections, sticky tabs, Oportunidades box) | published |
 | v1.4.23 | fix | Pagos: whole card shadows (Plantillas, Documentos y contratos, Inventario, Colecciones, Enlaces de pago), no pale rectangle on product pages, Cajas abandonadas as one branded card with the table fitting | published |
-| v1.4.24 | fix | Roles y permisos "Agentes de BRANIA"/"ASK BRANIA", Ask BRANIA banner, Ayuda y asistencia hidden, header translate icon in accent, Calendar AI drawer above the top bar with Brania styling and Spanish labels | in review |
+| v1.4.24 | fix | Roles y permisos "Agentes de BRANIA"/"ASK BRANIA", Ask BRANIA banner, Ayuda y asistencia hidden, header translate icon in accent, Calendar AI drawer above the top bar with Brania styling and Spanish labels | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -183,7 +183,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.24 (in review): Ask BRANIA, help panel, Calendar AI
+### v1.4.24 (published): Ask BRANIA, help panel, Calendar AI
 
 | Change | Where | Verified |
 |---|---|---|
