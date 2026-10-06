@@ -7378,6 +7378,198 @@ body:has(#location-dashboard) .hr-base-select-menu {
     padding-right: 8px !important;
   }
 }
+
+/* v1.4.16 (bug list: Calendarios, Contactos, Oportunidades).
+   - Oportunidades, embudo selector: the menu took the selector's width (216px) and cut the
+     names → at least 260px. Up to 1366px the filter bar gets its own row (see below).
+   - Oportunidades, selected cards: the "N clientes potenciales seleccionado" pill was the
+     platform blue → same accent pill as the total count beside it.
+   - Oportunidades, first view tab ("Oportunidades abiertas") cut at 130px → 180px; the
+     filter bar that shares its row moves right to make room.
+   - Oportunidades, list view: the table ran from the content edge to the window edge, wider
+     than the toolbar, so the header pill looked cut at both ends → aligned with the toolbar.
+   - Contactos › Tareas and Empresas: near-white square panel 86px below the tabs, cut at the
+     bottom with the pager out of view → theme card (radius xl) right under the tabs, filling
+     the window height, table and pager inside; filter chips stay on one line and the search
+     box moves to a second row only when there is no room.
+   - Calendarios: view toolbar, Alquileres/Servicios tabs and buttons, Tarifas adicionales
+     header and Configuración global columns wrapped their words or ran past the edge in
+     narrow windows (1100px) → they keep their words whole and move to a second row. */
+.pipeline-select-menu {
+  min-width: 260px !important;
+}
+.bulk-actions .bulk-action {
+  background: transparent !important;
+  color: var(--bb-accent) !important;
+  padding-left: 0 !important;
+}
+.bulk-actions .bulk-action .inner-count {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#views-bar .lists .view-label {
+  max-width: 180px !important;
+}
+#OpportunitiesList .quick-filter-bar .left-box {
+  margin-left: 290px !important;
+}
+.stage-scrollable-container:has(> .crm-opportunities-board > .crm-opportunities-list-view) {
+  margin-left: 22px !important;
+  margin-right: 26px !important;
+}
+.hl_wrapper:has(> :is(#CustomObjectsList, #BusinessList)) {
+  padding-top: 14px !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  height: calc(100vh - 128px - 14px - 22px) !important;
+  max-height: none !important;
+  overflow: hidden !important;
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper > .overflow-x-scroll {
+  flex: 1 1 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper > .overflow-x-scroll > .cardWrapper {
+  height: 100% !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper > .overflow-x-scroll > .cardWrapper > * {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper > .overflow-x-scroll > .cardWrapper > * > .table-container {
+  flex: 1 1 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper > .overflow-x-scroll > .cardWrapper > * > .table-container > .my-table {
+  height: 100% !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar {
+  flex-wrap: wrap !important;
+  row-gap: 8px !important;
+  height: auto !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter.button {
+  flex-shrink: 0 !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter.button > span {
+  white-space: nowrap !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar > .right-box {
+  flex: 1 1 380px !important;
+  justify-content: flex-end !important;
+  min-width: 0 !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar > .right-box > :first-child {
+  flex: 0 1 268px !important;
+  min-width: 160px !important;
+}
+#CalendarPage nav > .flex.px-3.pt-4.pb-2 {
+  flex-wrap: wrap !important;
+  row-gap: 10px !important;
+  column-gap: 12px !important;
+}
+#CalendarPage nav > .flex.px-3.pt-4.pb-2 > :last-child {
+  margin-left: auto !important;
+}
+#CalendarPage nav > .flex.px-3.pt-4.pb-2 > :last-child :is(button, .hr-button) * {
+  white-space: nowrap !important;
+}
+:is(#CalendarRentals, #ServiceSettings) .flex.flex-row.justify-between.items-center:has(> .flex.flex-row > div > .rounded-\[4px\].font-semibold) {
+  flex-wrap: wrap !important;
+  row-gap: 12px !important;
+  column-gap: 12px !important;
+  height: auto !important;
+}
+:is(#CalendarRentals, #ServiceSettings) .flex.flex-row.justify-between.items-center:has(> .flex.flex-row > div > .rounded-\[4px\].font-semibold) > .flex.flex-row:first-child {
+  flex-wrap: wrap !important;
+  row-gap: 6px !important;
+}
+:is(#CalendarRentals, #ServiceSettings) .flex.flex-row.justify-between.items-center > .flex.flex-row > div > .rounded-\[4px\].font-semibold,
+:is(#CalendarRentals, #ServiceSettings) .flex.flex-row.justify-between.items-center:has(> .flex.flex-row > div > .rounded-\[4px\].font-semibold) > :last-child * {
+  white-space: nowrap !important;
+}
+:is(#CalendarRentals, #ServiceSettings) .flex.flex-row.justify-between.items-center:has(> .flex.flex-row > div > .rounded-\[4px\].font-semibold) > :last-child {
+  margin-left: auto !important;
+}
+#feesListContainer .ghl-table-custom-header .filter-bar {
+  flex-wrap: wrap !important;
+  row-gap: 10px !important;
+  column-gap: 12px !important;
+  padding: 14px 18px 16px !important;
+}
+#feesListContainer .filter-bar * {
+  white-space: nowrap !important;
+}
+#feesListContainer .filter-bar > :last-child {
+  margin-left: auto !important;
+}
+#CalendarRentals .flex.gap-6:has(> .w-px.bg-gray-200) {
+  flex-wrap: wrap !important;
+  row-gap: 24px !important;
+}
+#CalendarRentals .flex.gap-6:has(> .w-px.bg-gray-200) > .flex-1 {
+  flex: 1 1 300px !important;
+  min-width: 0 !important;
+}
+#CalendarRentals .flex.gap-6 > .w-px.bg-gray-200 {
+  display: none !important;
+}
+/* Oportunidades toolbar in narrow windows: up to 1366px the filter bar no longer climbs into
+   the view tabs row (there is no room: "Filtros avanzados", "Ordenar" and "Gestionar campos"
+   broke into two or three lines); it gets its own row. At any width the buttons keep their
+   words whole and the search block wraps below instead of overlapping (e.g. with the
+   selection pill showing). */
+#OpportunitiesList .pipeline-ribbon .count,
+#OpportunitiesList .quick-filter-bar :is(.hr-button, button) * {
+  white-space: nowrap !important;
+}
+#OpportunitiesList .quick-filter-bar {
+  flex-wrap: wrap !important;
+  row-gap: 8px !important;
+}
+#OpportunitiesList .quick-filter-bar > .right-box {
+  margin-left: auto !important;
+}
+@media (max-width: 1366px) {
+  #OpportunitiesList .quick-filter-bar {
+    margin-top: 6px !important;
+  }
+  #OpportunitiesList .quick-filter-bar .left-box {
+    margin-left: 0 !important;
+  }
+}
+/* Tareas/Empresas toolbar in narrow windows (1100px): "Filtros" and "Ordenar (1)" broke into
+   two lines and ran past the card edge → whole words, the chips wrap to a second row. */
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar :is(.hr-button, button) * {
+  white-space: nowrap !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar > .left-box {
+  flex-wrap: wrap !important;
+  min-width: 0 !important;
+  height: auto !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar :is(.advanced-container, .filters-container) {
+  flex-wrap: wrap !important;
+  row-gap: 8px !important;
+}
+/* Servicios table card: its scroll box is the same size as the card, so the soft shadow was
+   clipped at the corners → room for the shadow (same as the Alquileres listings box). */
+#ServiceSettings div.overflow-auto.rounded-lg:has(> div.border.border-gray-200.rounded-lg, > div > div.border.border-gray-200.rounded-lg) {
+  padding: 18px 18px 30px 18px !important;
+  margin: -18px -18px -30px -18px !important;
+  border-radius: 0 !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
@@ -7617,31 +7809,33 @@ button.sidebar-option-button { transition: box-shadow .15s, color .15s !importan
 
 
 /* ===== v6.39 Configuración › Calendarios: barra superior + Alquileres ===== */
+/* v1.4.16: Servicios (#ServiceSettings) is built from the same components as Alquileres, so
+   every Alquileres rule covers it too (it was left with the platform white and blue). */
 .topmenu-nav:has(a.router-link-exact-active) a.router-link-active:not(.router-link-exact-active), .topmenu-nav:has(a.router-link-exact-active) a.router-link-active:not(.router-link-exact-active) * { color: var(--bb-text-muted) !important; border-bottom-color: transparent !important; }
-.hl_settings--body:has(#CalendarRentals) { background: var(--bb-bg) !important; }
-#CalendarRentals .hl-wrapper-container, #CalendarRentals [class*="bg-[#F9FAFB]"] { background: transparent !important; box-shadow: none !important; }
-#CalendarRentals div.font-semibold.cursor-pointer[class*="py-[8px]"] { border-radius: 999px !important; transition: box-shadow .15s, background .15s; }
-#CalendarRentals div.font-semibold.cursor-pointer[class*="py-[8px]"].bg-transparent:hover { background: var(--bb-bg-hover) !important; }
-#CalendarRentals div.font-semibold.cursor-pointer[class*="py-[8px]"].bg-primary-50 { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; color: var(--bb-accent) !important; }
-#CalendarRentals div.border-primary-700 { border-color: transparent !important; background: transparent !important; color: var(--bb-accent) !important; }
-#CalendarRentals div.flex.flex-row.items-center:has(> div.border-primary-700) { border-radius: 999px !important; box-shadow: var(--bb-shadow-soft) !important; overflow: hidden; background: var(--bb-bg) !important; }
-#CalendarRentals div.flex.flex-row.items-center:has(> div.border-primary-700) > div + div { border-left: 1px solid var(--bb-divider) !important; }
-#CalendarRentals div.flex.flex-row.items-center:has(> div.border-primary-700) * { color: var(--bb-accent) !important; }
-#CalendarRentals .bg-primary-50.border-primary-50 { background: var(--bb-bg) !important; border-color: transparent !important; border-radius: 999px !important; box-shadow: var(--bb-shadow-soft) !important; }
-#CalendarRentals .bg-primary-50.border-primary-50 * { color: var(--bb-accent) !important; }
-#CalendarRentals div.flex.flex-row.justify-between.items-center.bg-primary-50[class*="px-[14px]"] { background: var(--bb-bg) !important; border-radius: var(--bb-radius-sm) !important; box-shadow: var(--bb-shadow-inset) !important; }
-#CalendarRentals div.flex.flex-row.justify-between.items-center.bg-primary-50[class*="px-[14px]"] * { color: var(--bb-accent) !important; }
-#CalendarRentals div.flex.flex-row.justify-between.items-center[class*="px-[14px]"] { border-radius: var(--bb-radius-sm) !important; }
-#CalendarRentals .border-gray-200:is(.border-b, .border-t) { border-color: var(--bb-divider) !important; }
-#CalendarRentals div.border.border-gray-200.rounded-lg { border: none !important; border-radius: var(--bb-radius-xl) !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; overflow: hidden; }
-#CalendarRentals div.border.border-gray-200.rounded-lg > .bg-gray-50 { background: transparent !important; border-color: var(--bb-divider) !important; border-radius: 0 !important; }
-#CalendarRentals .rentalsContainer { overflow: visible !important; }
-#CalendarRentals img { mix-blend-mode: multiply; }
+.hl_settings--body:has(#CalendarRentals, #ServiceSettings) { background: var(--bb-bg) !important; }
+:is(#CalendarRentals, #ServiceSettings) .hl-wrapper-container, :is(#CalendarRentals, #ServiceSettings) [class*="bg-[#F9FAFB]"] { background: transparent !important; box-shadow: none !important; }
+:is(#CalendarRentals, #ServiceSettings) div.font-semibold.cursor-pointer[class*="py-[8px]"] { border-radius: 999px !important; transition: box-shadow .15s, background .15s; }
+:is(#CalendarRentals, #ServiceSettings) div.font-semibold.cursor-pointer[class*="py-[8px]"].bg-transparent:hover { background: var(--bb-bg-hover) !important; }
+:is(#CalendarRentals, #ServiceSettings) div.font-semibold.cursor-pointer[class*="py-[8px]"].bg-primary-50 { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; color: var(--bb-accent) !important; }
+:is(#CalendarRentals, #ServiceSettings) div.border-primary-700 { border-color: transparent !important; background: transparent !important; color: var(--bb-accent) !important; }
+:is(#CalendarRentals, #ServiceSettings) div.flex.flex-row:is(.items-center, .items-stretch):has(> div.border-primary-700) { border-radius: 999px !important; box-shadow: var(--bb-shadow-soft) !important; overflow: hidden; background: var(--bb-bg) !important; }
+:is(#CalendarRentals, #ServiceSettings) div.flex.flex-row:is(.items-center, .items-stretch):has(> div.border-primary-700) > div + div { border-left: 1px solid var(--bb-divider) !important; }
+:is(#CalendarRentals, #ServiceSettings) div.flex.flex-row:is(.items-center, .items-stretch):has(> div.border-primary-700) * { color: var(--bb-accent) !important; }
+:is(#CalendarRentals, #ServiceSettings) .bg-primary-50.border-primary-50 { background: var(--bb-bg) !important; border-color: transparent !important; border-radius: 999px !important; box-shadow: var(--bb-shadow-soft) !important; }
+:is(#CalendarRentals, #ServiceSettings) .bg-primary-50.border-primary-50 * { color: var(--bb-accent) !important; }
+:is(#CalendarRentals, #ServiceSettings) div.flex.flex-row.justify-between.items-center.bg-primary-50[class*="px-[14px]"] { background: var(--bb-bg) !important; border-radius: var(--bb-radius-sm) !important; box-shadow: var(--bb-shadow-inset) !important; }
+:is(#CalendarRentals, #ServiceSettings) div.flex.flex-row.justify-between.items-center.bg-primary-50[class*="px-[14px]"] * { color: var(--bb-accent) !important; }
+:is(#CalendarRentals, #ServiceSettings) div.flex.flex-row.justify-between.items-center[class*="px-[14px]"] { border-radius: var(--bb-radius-sm) !important; }
+:is(#CalendarRentals, #ServiceSettings) .border-gray-200:is(.border-b, .border-t) { border-color: var(--bb-divider) !important; }
+:is(#CalendarRentals, #ServiceSettings) div.border.border-gray-200.rounded-lg { border: none !important; border-radius: var(--bb-radius-xl) !important; background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-soft) !important; overflow: hidden; }
+:is(#CalendarRentals, #ServiceSettings) div.border.border-gray-200.rounded-lg > .bg-gray-50 { background: transparent !important; border-color: var(--bb-divider) !important; border-radius: 0 !important; }
+:is(#CalendarRentals, #ServiceSettings) .rentalsContainer { overflow: visible !important; }
+:is(#CalendarRentals, #ServiceSettings) img { mix-blend-mode: multiply; }
 .topmenu-nav:has(a.router-link-exact-active) a.router-link-active:not(.router-link-exact-active)::after { background: transparent !important; opacity: 0 !important; }
-#CalendarRentals div.overflow-y-auto.rounded-lg:has(> #listingsTableContainer) { padding: 18px 18px 30px 18px !important; margin: -18px -18px -30px -18px !important; border-radius: 0 !important; }
-#CalendarRentals div.border.border-gray-200.rounded-lg .rounded-b-lg { border-radius: 0 0 var(--bb-radius-xl) var(--bb-radius-xl) !important; background: transparent !important; }
-#CalendarRentals .table-container .ghl-table-container { box-shadow: none !important; background: transparent !important; }
-#CalendarRentals .table-container { border-radius: var(--bb-radius-xl) !important; }
+:is(#CalendarRentals, #ServiceSettings) div.overflow-y-auto.rounded-lg:has(> #listingsTableContainer) { padding: 18px 18px 30px 18px !important; margin: -18px -18px -30px -18px !important; border-radius: 0 !important; }
+:is(#CalendarRentals, #ServiceSettings) div.border.border-gray-200.rounded-lg .rounded-b-lg { border-radius: 0 0 var(--bb-radius-xl) var(--bb-radius-xl) !important; background: transparent !important; }
+:is(#CalendarRentals, #ServiceSettings) .table-container .ghl-table-container { box-shadow: none !important; background: transparent !important; }
+:is(#CalendarRentals, #ServiceSettings) .table-container { border-radius: var(--bb-radius-xl) !important; }
 /* menús verticales Naive (n-menu): elemento seleccionado hundido y redondeado (global) */
 .n-menu.n-menu--vertical { padding: 4px !important; }
 .n-menu .n-menu-item-content::before { border-radius: 12px !important; left: 4px !important; right: 4px !important; }
@@ -7655,9 +7849,9 @@ button.sidebar-option-button { transition: box-shadow .15s, color .15s !importan
 /* Conexiones › Google: aviso como tarjeta hundida suave */
 .calendars-organic-booking-container .bg-primary-50 { background: var(--bb-bg) !important; border-radius: var(--bb-radius-lg) !important; box-shadow: var(--bb-shadow-inset) !important; padding: 18px 16px !important; }
 .calendars-organic-booking-container.calendars-organic-booking-container a[class] { color: var(--bb-accent) !important; }
-#CalendarRentals div.overflow-y-auto[class*="max-h-[300px]"] { padding: 6px 16px 10px 8px !important; margin: -6px -16px -10px -8px !important; }
-.sidebar-v2-location:has(.hl_header .topmenu-nav) .hl_settings--body:has(#CalendarRentals) { padding-top: 132px !important; }
-#CalendarRentals div.flex.flex-row.justify-between.items-center.bg-primary-50[class*="px-[14px]"], .calendars-organic-booking-container .bg-primary-50 { box-shadow: inset 3px 3px 7px rgba(166,174,178,.55), inset -3px -3px 7px rgba(255,255,255,.95), 0 0 0 1px rgba(166,174,178,.18) !important; }
+:is(#CalendarRentals, #ServiceSettings) div.overflow-y-auto[class*="max-h-[300px]"] { padding: 6px 16px 10px 8px !important; margin: -6px -16px -10px -8px !important; }
+.sidebar-v2-location:has(.hl_header .topmenu-nav) .hl_settings--body:has(#CalendarRentals, #ServiceSettings) { padding-top: 132px !important; }
+:is(#CalendarRentals, #ServiceSettings) div.flex.flex-row.justify-between.items-center.bg-primary-50[class*="px-[14px]"], .calendars-organic-booking-container .bg-primary-50 { box-shadow: inset 3px 3px 7px rgba(166,174,178,.55), inset -3px -3px 7px rgba(255,255,255,.95), 0 0 0 1px rgba(166,174,178,.18) !important; }
 /* Conexiones: la tarjeta dentro de pestañas muestra toda su sombra */
 .hr-tabs-pane-wrapper:has(> .hr-tab-pane > .hr-card) { overflow: visible !important; }
 .sidebar-v2-location:has(.hl_header .topmenu-nav) .hl_settings--body:has([id*="n-tabs"][id$="-panel-calendars"], [id*="-panel-videoconferencing"], .calendars-organic-booking-container) { padding-top: 120px !important; }

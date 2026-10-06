@@ -1470,3 +1470,195 @@ body:has(#location-dashboard) .hr-base-select-menu {
     padding-right: 8px !important;
   }
 }
+
+/* v1.4.16 (bug list: Calendarios, Contactos, Oportunidades).
+   - Oportunidades, embudo selector: the menu took the selector's width (216px) and cut the
+     names → at least 260px. Up to 1366px the filter bar gets its own row (see below).
+   - Oportunidades, selected cards: the "N clientes potenciales seleccionado" pill was the
+     platform blue → same accent pill as the total count beside it.
+   - Oportunidades, first view tab ("Oportunidades abiertas") cut at 130px → 180px; the
+     filter bar that shares its row moves right to make room.
+   - Oportunidades, list view: the table ran from the content edge to the window edge, wider
+     than the toolbar, so the header pill looked cut at both ends → aligned with the toolbar.
+   - Contactos › Tareas and Empresas: near-white square panel 86px below the tabs, cut at the
+     bottom with the pager out of view → theme card (radius xl) right under the tabs, filling
+     the window height, table and pager inside; filter chips stay on one line and the search
+     box moves to a second row only when there is no room.
+   - Calendarios: view toolbar, Alquileres/Servicios tabs and buttons, Tarifas adicionales
+     header and Configuración global columns wrapped their words or ran past the edge in
+     narrow windows (1100px) → they keep their words whole and move to a second row. */
+.pipeline-select-menu {
+  min-width: 260px !important;
+}
+.bulk-actions .bulk-action {
+  background: transparent !important;
+  color: var(--bb-accent) !important;
+  padding-left: 0 !important;
+}
+.bulk-actions .bulk-action .inner-count {
+  background: var(--bb-bg) !important;
+  color: var(--bb-accent) !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#views-bar .lists .view-label {
+  max-width: 180px !important;
+}
+#OpportunitiesList .quick-filter-bar .left-box {
+  margin-left: 290px !important;
+}
+.stage-scrollable-container:has(> .crm-opportunities-board > .crm-opportunities-list-view) {
+  margin-left: 22px !important;
+  margin-right: 26px !important;
+}
+.hl_wrapper:has(> :is(#CustomObjectsList, #BusinessList)) {
+  padding-top: 14px !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  height: calc(100vh - 128px - 14px - 22px) !important;
+  max-height: none !important;
+  overflow: hidden !important;
+  background: var(--bb-bg) !important;
+  border-radius: var(--bb-radius-xl) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper > .overflow-x-scroll {
+  flex: 1 1 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper > .overflow-x-scroll > .cardWrapper {
+  height: 100% !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper > .overflow-x-scroll > .cardWrapper > * {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper > .overflow-x-scroll > .cardWrapper > * > .table-container {
+  flex: 1 1 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+:is(#CustomObjectsList, #BusinessList) .wrapper > .overflow-x-scroll > .cardWrapper > * > .table-container > .my-table {
+  height: 100% !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar {
+  flex-wrap: wrap !important;
+  row-gap: 8px !important;
+  height: auto !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter.button {
+  flex-shrink: 0 !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter.button > span {
+  white-space: nowrap !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar > .right-box {
+  flex: 1 1 380px !important;
+  justify-content: flex-end !important;
+  min-width: 0 !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar > .right-box > :first-child {
+  flex: 0 1 268px !important;
+  min-width: 160px !important;
+}
+#CalendarPage nav > .flex.px-3.pt-4.pb-2 {
+  flex-wrap: wrap !important;
+  row-gap: 10px !important;
+  column-gap: 12px !important;
+}
+#CalendarPage nav > .flex.px-3.pt-4.pb-2 > :last-child {
+  margin-left: auto !important;
+}
+#CalendarPage nav > .flex.px-3.pt-4.pb-2 > :last-child :is(button, .hr-button) * {
+  white-space: nowrap !important;
+}
+:is(#CalendarRentals, #ServiceSettings) .flex.flex-row.justify-between.items-center:has(> .flex.flex-row > div > .rounded-\[4px\].font-semibold) {
+  flex-wrap: wrap !important;
+  row-gap: 12px !important;
+  column-gap: 12px !important;
+  height: auto !important;
+}
+:is(#CalendarRentals, #ServiceSettings) .flex.flex-row.justify-between.items-center:has(> .flex.flex-row > div > .rounded-\[4px\].font-semibold) > .flex.flex-row:first-child {
+  flex-wrap: wrap !important;
+  row-gap: 6px !important;
+}
+:is(#CalendarRentals, #ServiceSettings) .flex.flex-row.justify-between.items-center > .flex.flex-row > div > .rounded-\[4px\].font-semibold,
+:is(#CalendarRentals, #ServiceSettings) .flex.flex-row.justify-between.items-center:has(> .flex.flex-row > div > .rounded-\[4px\].font-semibold) > :last-child * {
+  white-space: nowrap !important;
+}
+:is(#CalendarRentals, #ServiceSettings) .flex.flex-row.justify-between.items-center:has(> .flex.flex-row > div > .rounded-\[4px\].font-semibold) > :last-child {
+  margin-left: auto !important;
+}
+#feesListContainer .ghl-table-custom-header .filter-bar {
+  flex-wrap: wrap !important;
+  row-gap: 10px !important;
+  column-gap: 12px !important;
+  padding: 14px 18px 16px !important;
+}
+#feesListContainer .filter-bar * {
+  white-space: nowrap !important;
+}
+#feesListContainer .filter-bar > :last-child {
+  margin-left: auto !important;
+}
+#CalendarRentals .flex.gap-6:has(> .w-px.bg-gray-200) {
+  flex-wrap: wrap !important;
+  row-gap: 24px !important;
+}
+#CalendarRentals .flex.gap-6:has(> .w-px.bg-gray-200) > .flex-1 {
+  flex: 1 1 300px !important;
+  min-width: 0 !important;
+}
+#CalendarRentals .flex.gap-6 > .w-px.bg-gray-200 {
+  display: none !important;
+}
+/* Oportunidades toolbar in narrow windows: up to 1366px the filter bar no longer climbs into
+   the view tabs row (there is no room: "Filtros avanzados", "Ordenar" and "Gestionar campos"
+   broke into two or three lines); it gets its own row. At any width the buttons keep their
+   words whole and the search block wraps below instead of overlapping (e.g. with the
+   selection pill showing). */
+#OpportunitiesList .pipeline-ribbon .count,
+#OpportunitiesList .quick-filter-bar :is(.hr-button, button) * {
+  white-space: nowrap !important;
+}
+#OpportunitiesList .quick-filter-bar {
+  flex-wrap: wrap !important;
+  row-gap: 8px !important;
+}
+#OpportunitiesList .quick-filter-bar > .right-box {
+  margin-left: auto !important;
+}
+@media (max-width: 1366px) {
+  #OpportunitiesList .quick-filter-bar {
+    margin-top: 6px !important;
+  }
+  #OpportunitiesList .quick-filter-bar .left-box {
+    margin-left: 0 !important;
+  }
+}
+/* Tareas/Empresas toolbar in narrow windows (1100px): "Filtros" and "Ordenar (1)" broke into
+   two lines and ran past the card edge → whole words, the chips wrap to a second row. */
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar :is(.hr-button, button) * {
+  white-space: nowrap !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar > .left-box {
+  flex-wrap: wrap !important;
+  min-width: 0 !important;
+  height: auto !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar :is(.advanced-container, .filters-container) {
+  flex-wrap: wrap !important;
+  row-gap: 8px !important;
+}
+/* Servicios table card: its scroll box is the same size as the card, so the soft shadow was
+   clipped at the corners → room for the shadow (same as the Alquileres listings box). */
+#ServiceSettings div.overflow-auto.rounded-lg:has(> div.border.border-gray-200.rounded-lg, > div > div.border.border-gray-200.rounded-lg) {
+  padding: 18px 18px 30px 18px !important;
+  margin: -18px -18px -30px -18px !important;
+  border-radius: 0 !important;
+}

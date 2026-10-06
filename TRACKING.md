@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.14` (2026-10-05).
-**In progress:** nothing open; `v1.4.15` published (Conversaciones bug list).
+**Live in the platform:** `v1.4.15` (2026-10-06).
+**In progress:** nothing open; `v1.4.16` published (bug list: Calendarios, Contactos, Oportunidades).
 
 ## Releases
 
@@ -52,7 +52,8 @@ publish is in [README.md](README.md).
 | v1.4.12 | fix | Configuración: Usuarios, Servicios de correo, Sistema telefónico; Automatización scaling | live |
 | v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | live |
 | v1.4.14 | fix | Acciones rápidas theme, data table footers (pager not cut), dashboard filter menus wider | live |
-| v1.4.15 | fix | Conversaciones: menu hover white, task due date/time layout, segment tab hover box, messages card corner, narrow-window column widths, "Contactos" label | published |
+| v1.4.15 | fix | Conversaciones: menu hover white, task due date/time layout, segment tab hover box, messages card corner, narrow-window column widths, "Contactos" label | live |
+| v1.4.16 | fix | Calendarios narrow widths + Servicios theme, Contactos Tareas/Empresas card, Oportunidades embudo menu, selected pill, view tab, list view edges | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -174,7 +175,18 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.15 (published): Conversaciones bug list
+### v1.4.16 (published): bug list (Calendarios, Contactos, Oportunidades)
+
+| Change | Where | Verified |
+|---|---|---|
+| Bug 1: in narrow windows (1100px) the view toolbar, Alquileres/Servicios tabs and buttons, Tarifas adicionales header and Configuración global columns broke words or ran past the edge → whole words, second row; Servicios had no theme (white, blue) → the Alquileres rules cover it; its table card shadow was clipped at the corners → room for it | Calendarios (vista, Configuración › Alquileres, Servicios) | 1100 and 1280 frames; Reuniones/Conexiones are an embedded app from another domain (frame only) |
+| Bug 2: Tareas and Empresas were a near-white square panel 86px below the tabs, cut at the bottom (pager hidden), filter chips on two lines → theme card filling the window, pager inside, chips on one line | Contactos › Tareas, Empresas | 1589px capture; 1100 frame: chips wrap, nothing past the card |
+| Bug 3: embudo selector menu as narrow as the selector (names cut) → min 260px | Oportunidades | capture |
+| Bug 4: "N clientes potenciales seleccionado" pill in platform blue → accent pill | Oportunidades (selecting cards) | capture |
+| Bug 5: first view tab "Oportunidades abiertas" cut at 130px → 180px, filter bar moved; list view table wider than the toolbar with its header cut at both ends → aligned; up to 1366px the filter bar gets its own row (buttons were breaking into 2–3 lines) | Oportunidades | 1100, 1280, 1367, 1440 frames: no overlap, no wrapped buttons |
+| Bug 6: ⋮ menu in Embudos de venta does not close when the ⋮ is clicked again: same with the theme off (platform behavior); it closes with a click outside or Esc | Oportunidades › Embudos de venta | theme on/off |
+
+### v1.4.15 (published, live): Conversaciones bug list
 
 | Change | Where | Verified |
 |---|---|---|
