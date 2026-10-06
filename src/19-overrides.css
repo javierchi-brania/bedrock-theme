@@ -1473,7 +1473,7 @@ body:has(#location-dashboard) .hr-base-select-menu {
 
 /* v1.4.16 (bug list: Calendarios, Contactos, Oportunidades).
    - Oportunidades, embudo selector: the menu took the selector's width (216px) and cut the
-     names → at least 260px.
+     names → at least 260px. Up to 1366px the filter bar gets its own row (see below).
    - Oportunidades, selected cards: the "N clientes potenciales seleccionado" pill was the
      platform blue → same accent pill as the total count beside it.
    - Oportunidades, first view tab ("Oportunidades abiertas") cut at 130px → 180px; the
@@ -1616,4 +1616,28 @@ body:has(#location-dashboard) .hr-base-select-menu {
 }
 #CalendarRentals .flex.gap-6 > .w-px.bg-gray-200 {
   display: none !important;
+}
+/* Oportunidades toolbar in narrow windows: up to 1366px the filter bar no longer climbs into
+   the view tabs row (there is no room: "Filtros avanzados", "Ordenar" and "Gestionar campos"
+   broke into two or three lines); it gets its own row. At any width the buttons keep their
+   words whole and the search block wraps below instead of overlapping (e.g. with the
+   selection pill showing). */
+#OpportunitiesList .pipeline-ribbon .count,
+#OpportunitiesList .quick-filter-bar :is(.hr-button, button) * {
+  white-space: nowrap !important;
+}
+#OpportunitiesList .quick-filter-bar {
+  flex-wrap: wrap !important;
+  row-gap: 8px !important;
+}
+#OpportunitiesList .quick-filter-bar > .right-box {
+  margin-left: auto !important;
+}
+@media (max-width: 1366px) {
+  #OpportunitiesList .quick-filter-bar {
+    margin-top: 6px !important;
+  }
+  #OpportunitiesList .quick-filter-bar .left-box {
+    margin-left: 0 !important;
+  }
 }

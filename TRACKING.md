@@ -183,7 +183,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | Bug 2: Tareas and Empresas were a near-white square panel 86px below the tabs, cut at the bottom (pager hidden), filter chips on two lines → theme card filling the window, pager inside, chips on one line | Contactos › Tareas, Empresas | 1589px capture |
 | Bug 3: embudo selector menu as narrow as the selector (names cut) → min 260px | Oportunidades | capture |
 | Bug 4: "N clientes potenciales seleccionado" pill in platform blue → accent pill | Oportunidades (selecting cards) | capture |
-| Bug 5: first view tab "Oportunidades abiertas" cut at 130px → 180px, filter bar moved; list view table wider than the toolbar with its header cut at both ends → aligned | Oportunidades | capture |
+| Bug 5: first view tab "Oportunidades abiertas" cut at 130px → 180px, filter bar moved; list view table wider than the toolbar with its header cut at both ends → aligned; up to 1366px the filter bar gets its own row (buttons were breaking into 2–3 lines) | Oportunidades | 1100, 1280, 1367, 1440 frames: no overlap, no wrapped buttons |
 | Bug 6: ⋮ menu in Embudos de venta does not close when the ⋮ is clicked again: same with the theme off (platform behavior); it closes with a click outside or Esc | Oportunidades › Embudos de venta | theme on/off |
 
 ### v1.4.15 (published, live): Conversaciones bug list
