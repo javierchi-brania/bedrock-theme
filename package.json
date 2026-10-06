@@ -1,6 +1,6 @@
 {
   "name": "bedrock-theme",
-  "version": "1.4.13",
+  "version": "1.4.14",
   "private": true,
   "description": "Neumorphic theme \"BRANIA BEDROCK\" loaded by the platform from jsDelivr.",
   "type": "module",

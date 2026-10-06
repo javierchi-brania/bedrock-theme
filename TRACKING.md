@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.12` (2026-10-05).
-**In progress:** nothing open; `v1.4.13` published (team bug list, assistant greeting).
+**Live in the platform:** `v1.4.13` (2026-10-06).
+**In progress:** nothing open; `v1.4.14` published (team bug list 2).
 
 ## Releases
 
@@ -50,7 +50,8 @@ publish is in [README.md](README.md).
 | v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | live |
 | v1.4.11 | fix | Informes: every tab below the header and within the screen, short tab names, leaderboard readable, theme fields and buttons, filter rails, Citas cards, audit card, chart colors | live |
 | v1.4.12 | fix | Configuración: Usuarios, Servicios de correo, Sistema telefónico; Automatización scaling | live |
-| v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | published |
+| v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | live |
+| v1.4.14 | fix | Acciones rápidas theme, data table footers (pager not cut), dashboard filter menus wider | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -172,7 +173,16 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.13 (published): team bug list
+### v1.4.14 (published): team bug list 2
+
+| Change | Where | Verified |
+|---|---|---|
+| Acciones rápidas popover: white, grey items, blue icons → raised card, raised items sinking on hover, accent icons | sidebar › Acciones rápidas | computed; capture |
+| Data table footers (`.hr-data-table-wrapper-footer`, global): no side padding, last pager button in the 26px rounded corner, cut → 18px sides, 12px bottom | Tablero › Lead Source Report (and every hr-data-table) | "Siguiente" inside the card |
+| Tablero filter menus as narrow as the filter (options cut) → min 220px | Tablero | full user names visible |
+| Not theme (same with the theme disabled): filters open only on the second click right after the page loads (first click focuses); a filter or the ⋮ menu does not close when its trigger is clicked again (only clicking outside); clicking a task opens the contact detail with the Activity panel | Tablero | compared theme on/off with real clicks |
+
+### v1.4.13 (published, live): team bug list
 
 | Change | Where | Verified |
 |---|---|---|
