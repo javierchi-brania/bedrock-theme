@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** `v1.4.25` (Ask BRANIA icon in accent, no launchpad landing).
+**In progress:** nothing open; `v1.4.25` published (✦ icon in accent, no launchpad landing; custom JS saved in the platform).
 
 ## Releases
 
@@ -62,7 +62,7 @@ publish is in [README.md](README.md).
 | v1.4.22 | feat | Conversaciones inbox at 90% zoom; borders kept whole (selected row, contact details scroll box, field sections, sticky tabs, Oportunidades box) | published |
 | v1.4.23 | fix | Pagos: whole card shadows (Plantillas, Documentos y contratos, Inventario, Colecciones, Enlaces de pago), no pale rectangle on product pages, Cajas abandonadas as one branded card with the table fitting | published |
 | v1.4.24 | fix | Roles y permisos "Agentes de BRANIA"/"ASK BRANIA", Ask BRANIA banner, Ayuda y asistencia hidden, header translate icon in accent, Calendar AI drawer above the top bar with Brania styling and Spanish labels | published |
-| v1.4.25 | fix | Top bar ✦ (Pregúntale a BRANIA) icon in accent; agency Launchpad hidden from the menu; `embed/custom-js.html` sends both launchpads to the dashboard | in review |
+| v1.4.25 | fix | Top bar ✦ (Pregúntale a BRANIA) icon in accent; agency Launchpad hidden from the menu; `embed/custom-js.html` sends both launchpads to the dashboard | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -184,13 +184,13 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.25 (in review): ✦ icon, no launchpad landing
+### v1.4.25 (published): ✦ icon, no launchpad landing
 
 | Change | Where | Verified |
 |---|---|---|
 | ✦ (Pregúntale a BRANIA) icon in the platform violet → accent | Top bar, agency and sub-accounts | matches the other icons |
 | Agency "Launchpad" entry hidden from the menu, like the sub-account "Panel" | Agency left menu | entry gone |
-| Switching to the agency opened the agency launchpad and switching to a sub-account opened "Panel" → both land on the dashboard. A router guard in `embed/custom-js.html`, pasted once into Marca Blanca → JS personalizado (CSS cannot redirect). Direct links and the old menu links to either launchpad also go to the dashboard; the launchpad never renders and stays out of the back history | Account switcher, both ways | 20 ms path log: launchpad never shown; menu still works after each switch. An earlier version that clicked the menu link froze the menu after a switch and was dropped. Saved in the field: switches OK; a full page load on a launchpad link stayed there (first navigation already past the guard) (the sub-account load starts it before the script and ends ~5 s later; `isReady()` had already resolved) → also checked when a navigation ends (`afterEach`) and by a 30 s check, at most one redirect every 2 s (a faster retry cancels the platform's own follow-up redirect and loops). Direct load, both switches and the menu afterwards verified with this version injected at page load |
+| Switching to the agency opened the agency launchpad and switching to a sub-account opened "Panel" → both land on the dashboard. A router guard in `embed/custom-js.html`, pasted once into Marca Blanca → JS personalizado (CSS cannot redirect). Direct links and the old menu links to either launchpad also go to the dashboard; the launchpad never renders and stays out of the back history | Account switcher, both ways | 20 ms path log: launchpad never shown; menu still works after each switch. An earlier version that clicked the menu link froze the menu after a switch and was dropped. Saved in the field: switches OK; a full page load on a launchpad link stayed there (first navigation already past the guard) (the sub-account load starts it before the script and ends ~5 s later; `isReady()` had already resolved) → also checked when a navigation ends (`afterEach`) and by a 30 s check, at most one redirect every 2 s (a faster retry cancels the platform's own follow-up redirect and loops). Direct load, both switches and the menu afterwards verified with this version injected at page load, then again with it saved in the field (2026-10-06) |
 
 ### v1.4.24 (published): Ask BRANIA, help panel, Calendar AI
 
