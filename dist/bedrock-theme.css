@@ -9570,7 +9570,8 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 #phone-system-app .learn-more-button .hr-button__content-default-slot,
 #service-card-voice .hr-button--outline-type .hr-button__content-default-slot,
 .hr-tabs-nav:has([data-name="contact-views"]) [data-name="customize-record-modal"] .tab-label-wrapper > p,
-[data-name="contact-views"] .tab-label-wrapper > p {
+[data-name="contact-views"] .tab-label-wrapper > p,
+.associations .space-y-1\.5:has([id^="contact-"]) > p {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -9709,7 +9710,8 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 #phone-system-app .learn-more-button .hr-button__content-default-slot::after,
 #service-card-voice .hr-button--outline-type .hr-button__content-default-slot::after,
 .hr-tabs-nav:has([data-name="contact-views"]) [data-name="customize-record-modal"] .tab-label-wrapper > p::after,
-[data-name="contact-views"] .tab-label-wrapper > p::after {
+[data-name="contact-views"] .tab-label-wrapper > p::after,
+.associations .space-y-1\.5:has([id^="contact-"]) > p::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -10411,4 +10413,9 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
   content: "Personalice la vista de detalles del contacto";
   font-size: 14px;
   line-height: 20px;
+}
+.associations .space-y-1\.5:has([id^="contact-"]) > p::after {
+  content: "Contactos";
+  font-size: 14px;
+  line-height: 21px;
 }
