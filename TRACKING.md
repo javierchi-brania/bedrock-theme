@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.25` published (✦ icon in accent, no launchpad landing; custom JS saved in the platform).
+**In progress:** `v1.4.26` (Integraciones cards, Marketing at narrow widths, Conectar redes sociales).
 
 ## Releases
 
@@ -63,6 +63,7 @@ publish is in [README.md](README.md).
 | v1.4.23 | fix | Pagos: whole card shadows (Plantillas, Documentos y contratos, Inventario, Colecciones, Enlaces de pago), no pale rectangle on product pages, Cajas abandonadas as one branded card with the table fitting | published |
 | v1.4.24 | fix | Roles y permisos "Agentes de BRANIA"/"ASK BRANIA", Ask BRANIA banner, Ayuda y asistencia hidden, header translate icon in accent, Calendar AI drawer above the top bar with Brania styling and Spanish labels | published |
 | v1.4.25 | fix | Top bar ✦ (Pregúntale a BRANIA) icon in accent; agency Launchpad hidden from the menu; `embed/custom-js.html` sends both launchpads to the dashboard | published |
+| v1.4.26 | fix | Integraciones as soft theme cards (search no longer under the top bar); Marketing › Planificador fits beside the menu (header buttons wrap), Marketing tabs wrap; Conectar redes sociales close button and "Añadir una comunidad" | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -183,6 +184,17 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.26 (in review): Integraciones, Marketing at narrow widths
+
+| Change | Where | Verified |
+|---|---|---|
+| Cards with a white header and footer band and square corners, inside one big raised card whose right shadow was cut → flat outer card, each card soft raised with theme radius | Configuración › Integraciones | capture at 1338px |
+| Search field half under the top bar (page starts at 80px, bar ends at 134px) → 58px top padding | same | search whole |
+| App box as wide as the window beside the menu: "Redes sociales", "Nueva publicación" and the table's right side off screen below ~1570px → `min-width: 0`; the header row (fixed 40px) wraps, buttons on a second line on the right | Marketing › Planificador | capture at 1338px |
+| Marketing tabs cut ("Administrador de anuncios") below ~1460px → wrap like Pagos, pages get 32px more room up to 1480px | Marketing, every tab | overflow sweep of the 10 Marketing pages clean; captures of Planificador, Correos, Paneles de marca, Administrador de anuncios |
+| Close button with only a shadow and the icon 4px high → theme background, icon centred; "Añadir una comunidad" in the platform near-white → theme background | Planificador › Redes sociales | capture |
+| Not changed: Correos electrónicos is a cross-origin frame (blue button, violet charts inside); the theme only frames it | Marketing › Correos electrónicos | |
 
 ### v1.4.25 (published): ✦ icon, no launchpad landing
 
