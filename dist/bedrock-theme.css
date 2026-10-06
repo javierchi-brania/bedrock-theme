@@ -60,6 +60,10 @@
     -10px -10px 26px rgba(255, 255, 255, 0.9);
   --bb-shadow-soft: 5px 5px 13px rgba(166, 174, 178, 0.45),
     -5px -5px 13px rgba(255, 255, 255, 0.9);
+  /* panel = full-height column cards (Conversaciones): same drop as raised, a softer and
+     shorter top-left light so it does not read as a white border around tall cards */
+  --bb-shadow-panel: 10px 12px 30px rgba(166, 174, 178, 0.5),
+    -6px -6px 16px rgba(255, 255, 255, 0.55);
   --bb-shadow-inset: inset 3px 3px 7px #c6cacc, inset -3px -3px 7px #ffffff;
   --bb-shadow-inset-deep: inset 3px 3px 8px #c6cacc, inset -3px -3px 8px #ffffff;
 
@@ -7764,6 +7768,16 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
   #conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 {
     gap: 6px !important;
   }
+}
+
+/* v1.4.20: since v1.4.19 the three Conversaciones columns show their whole shadow, and on
+   these tall cards the raised top-left light (white 90%, 10px out, 26px blur) read as a
+   white border around them, most of all around the right panel → panel shadow: same
+   drop, softer and shorter light. */
+#conversations-list > div,
+#conversations-messages > div,
+#conversations-contact-details .bg-contacts-panel {
+  box-shadow: var(--bb-shadow-panel) !important;
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }

@@ -60,6 +60,10 @@
     -10px -10px 26px rgba(255, 255, 255, 0.9);
   --bb-shadow-soft: 5px 5px 13px rgba(166, 174, 178, 0.45),
     -5px -5px 13px rgba(255, 255, 255, 0.9);
+  /* panel = full-height column cards (Conversaciones): same drop as raised, a softer and
+     shorter top-left light so it does not read as a white border around tall cards */
+  --bb-shadow-panel: 10px 12px 30px rgba(166, 174, 178, 0.5),
+    -6px -6px 16px rgba(255, 255, 255, 0.55);
   --bb-shadow-inset: inset 3px 3px 7px #c6cacc, inset -3px -3px 7px #ffffff;
   --bb-shadow-inset-deep: inset 3px 3px 8px #c6cacc, inset -3px -3px 8px #ffffff;
 
