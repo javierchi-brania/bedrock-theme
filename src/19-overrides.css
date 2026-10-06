@@ -1662,3 +1662,97 @@ body:has(#location-dashboard) .hr-base-select-menu {
   margin: -18px -18px -30px -18px !important;
   border-radius: 0 !important;
 }
+
+/* v1.4.17 (bug list: Oportunidades, Pronóstico, Pagos).
+   - Oportunidades list: hovering a name turned it the platform blue → accent.
+   - Pronóstico › Resumen: bright green and blue values, legend dot and chart bars → success
+     and accent; the chart is a canvas, so it gets a hue shift (blue → teal, green muted).
+     Summary table: first and last columns 12px from the card edge → 22–24px.
+   - Pronóstico › Cronograma: white undated header and day buttons, bright green progress,
+     "Ganado" pill and amounts, mint won cards → theme.
+   - Pagos: 12 sections in the header; in narrow windows the last ones were out of reach
+     (the row scrolls but shows no scrollbar) → they wrap to a second row (Pagos only: its
+     content starts 32px lower, so the second row fits).
+   - Documentos y contratos › Plantillas: the table card sat in a same-color square box that
+     also clipped its shadow → square box transparent, room for the shadow.
+   - Data tables with a header (search) row: the search box touched the card's rounded
+     corner → header padding, like the footer (v1.4.14).
+   - Cupones › Crear: white top and bottom bars → theme; the "Atrás" text button was a
+     33px circle → pill; in narrow windows the two-column grid pushed the end date/time out
+     of the card → one column when two do not fit. */
+.tabulator .tabulator-cell.clickable.primary-field:hover,
+.tabulator .tabulator-cell.clickable.primary-field:hover * {
+  color: var(--bb-accent) !important;
+}
+#ForecastDashboard x-vue-echarts canvas {
+  filter: hue-rotate(-27deg) saturate(.6);
+}
+#ForecastDashboard .text-emerald-500,
+#ForecastDashboard span[style*="color: rgb(18, 183, 106)"],
+#ForecastDashboard .fd-summary-total-won,
+#ForecastDashboard .forecast1-column-header__metric-line.text-green-600 {
+  color: var(--bb-success) !important;
+}
+#ForecastDashboard :is(.bg-green-500, .stage-segment--filled, .status-pill-won) {
+  background-color: var(--bb-success) !important;
+}
+#ForecastDashboard .fd-summary-total-weighted {
+  color: var(--bb-accent) !important;
+}
+#fd-summary-table-wrapper :is(th, td):first-child {
+  padding-left: 22px !important;
+}
+#fd-summary-table-wrapper :is(th, td):last-child {
+  padding-right: 24px !important;
+}
+#fd-summary-table-wrapper .fd-summary-total-row {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+#ForecastDashboard .forecast-nav-toolbar__btn {
+  background: var(--bb-bg) !important;
+  border-color: transparent !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-text) !important;
+}
+#ForecastDashboard .forecast1-column-header--undated {
+  background: var(--bb-bg) !important;
+}
+:is(#OpportunitiesList, #ForecastDashboard) .opportunitiesCard.crm-opportunities-card.won-card-bg.ui-card {
+  background-color: color-mix(in srgb, var(--bb-success) 12%, var(--bb-bg)) !important;
+}
+header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
+  flex-wrap: wrap !important;
+  row-gap: 6px !important;
+  overflow-x: visible !important;
+}
+#ProposalEstimatesTemplateListApp .n-tab-pane > .hl-wrapper-container:has(> .n-config-provider > .table-container) {
+  background: transparent !important;
+}
+#ProposalEstimatesTemplateListApp .n-tabs-pane-wrapper:has(.table-container) {
+  padding: 0 18px 30px !important;
+  margin: 0 -18px -30px !important;
+}
+.hr-data-table-wrapper > .hr-data-table-wrapper-header {
+  padding: 12px 18px 4px !important;
+}
+#CouponsCreatePage :is(.fixed-header, .fixed-footer) {
+  background: var(--bb-bg) !important;
+}
+#CouponsCreatePage .fixed-header {
+  border-bottom: 1px solid var(--bb-divider) !important;
+}
+#CouponsCreatePage .fixed-footer {
+  border-top: 1px solid var(--bb-divider) !important;
+}
+#CouponsCreatePage .fixed-footer #back-button {
+  width: auto !important;
+  min-width: 96px !important;
+  padding: 6px 20px !important;
+  background: var(--bb-bg) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#CouponsCreatePage .create-coupon-basic-details-container .grid.grid-cols-2 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)) !important;
+}
