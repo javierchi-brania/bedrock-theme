@@ -179,7 +179,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 | Change | Where | Verified |
 |---|---|---|
-| Bug 1: in narrow windows (1100px) the view toolbar, Alquileres/Servicios tabs and buttons, Tarifas adicionales header and Configuración global columns broke words or ran past the edge → whole words, second row; Servicios had no theme (white, blue) → the Alquileres rules cover it | Calendarios (vista, Configuración › Alquileres, Servicios) | 1100 and 1280 frames; Reuniones/Conexiones are an embedded app from another domain (frame only) |
+| Bug 1: in narrow windows (1100px) the view toolbar, Alquileres/Servicios tabs and buttons, Tarifas adicionales header and Configuración global columns broke words or ran past the edge → whole words, second row; Servicios had no theme (white, blue) → the Alquileres rules cover it; its table card shadow was clipped at the corners → room for it | Calendarios (vista, Configuración › Alquileres, Servicios) | 1100 and 1280 frames; Reuniones/Conexiones are an embedded app from another domain (frame only) |
 | Bug 2: Tareas and Empresas were a near-white square panel 86px below the tabs, cut at the bottom (pager hidden), filter chips on two lines → theme card filling the window, pager inside, chips on one line | Contactos › Tareas, Empresas | 1589px capture; 1100 frame: chips wrap, nothing past the card |
 | Bug 3: embudo selector menu as narrow as the selector (names cut) → min 260px | Oportunidades | capture |
 | Bug 4: "N clientes potenciales seleccionado" pill in platform blue → accent pill | Oportunidades (selecting cards) | capture |

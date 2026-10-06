@@ -1655,3 +1655,10 @@ body:has(#location-dashboard) .hr-base-select-menu {
   flex-wrap: wrap !important;
   row-gap: 8px !important;
 }
+/* Servicios table card: its scroll box is the same size as the card, so the soft shadow was
+   clipped at the corners → room for the shadow (same as the Alquileres listings box). */
+#ServiceSettings div.overflow-auto.rounded-lg:has(> div.border.border-gray-200.rounded-lg, > div > div.border.border-gray-200.rounded-lg) {
+  padding: 18px 18px 30px 18px !important;
+  margin: -18px -18px -30px -18px !important;
+  border-radius: 0 !important;
+}
