@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.12` (2026-10-05).
-**In progress:** `v1.4.13` (team bug list: Objetos, Asociaciones, vistas de Contacto, Integraciones privadas, assistant greeting) in review.
+**In progress:** nothing open; `v1.4.13` published (team bug list, assistant greeting).
 
 ## Releases
 
@@ -50,7 +50,7 @@ publish is in [README.md](README.md).
 | v1.4.10 | fix | Reputación: Solicitudes search, Widgets, Configuración (8 sub-sections: scrolling, clipped cards, truncated texts, radio cards); "NuevaNuevo" badge | live |
 | v1.4.11 | fix | Informes: every tab below the header and within the screen, short tab names, leaderboard readable, theme fields and buttons, filter rails, Citas cards, audit card, chart colors | live |
 | v1.4.12 | fix | Configuración: Usuarios, Servicios de correo, Sistema telefónico; Automatización scaling | live |
-| v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | in review |
+| v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -172,7 +172,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.13 (in review): team bug list
+### v1.4.13 (published): team bug list
 
 | Change | Where | Verified |
 |---|---|---|
