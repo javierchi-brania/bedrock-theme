@@ -28,8 +28,12 @@
       var dest = target(to.path);
       return dest ? { path: dest, replace: true } : true;
     });
-    var now = target(router.currentRoute.value.path);
-    if (now) router.replace(now);
+    // On a full page load the first navigation may already be past the guards when this
+    // runs: once the router is ready, a launchpad still on screen is replaced.
+    router.isReady().then(function () {
+      var now = target(router.currentRoute.value.path);
+      if (now) router.replace(now);
+    });
   })();
 })();
 </script>

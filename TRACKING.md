@@ -190,7 +190,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 |---|---|---|
 | ✦ (Pregúntale a BRANIA) icon in the platform violet → accent | Top bar, agency and sub-accounts | matches the other icons |
 | Agency "Launchpad" entry hidden from the menu, like the sub-account "Panel" | Agency left menu | entry gone |
-| Switching to the agency opened the agency launchpad and switching to a sub-account opened "Panel" → both land on the dashboard. A router guard in `embed/custom-js.html`, pasted once into Marca Blanca → JS personalizado (CSS cannot redirect). Direct links and the old menu links to either launchpad also go to the dashboard; the launchpad never renders and stays out of the back history | Account switcher, both ways | 20 ms path log: launchpad never shown; menu still works after each switch. An earlier version that clicked the menu link froze the menu after a switch and was dropped |
+| Switching to the agency opened the agency launchpad and switching to a sub-account opened "Panel" → both land on the dashboard. A router guard in `embed/custom-js.html`, pasted once into Marca Blanca → JS personalizado (CSS cannot redirect). Direct links and the old menu links to either launchpad also go to the dashboard; the launchpad never renders and stays out of the back history | Account switcher, both ways | 20 ms path log: launchpad never shown; menu still works after each switch. An earlier version that clicked the menu link froze the menu after a switch and was dropped. Saved in the field: switches OK; a full page load on a launchpad link stayed there (first navigation already past the guard) → `router.isReady()` then replace |
 
 ### v1.4.24 (published): Ask BRANIA, help panel, Calendar AI
 
