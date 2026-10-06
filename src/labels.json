@@ -704,6 +704,16 @@
    "sel": "#service-card-voice .hr-button--outline-type .hr-button__content-default-slot",
    "text": "Iniciar registro",
    "font": "body"
+  },
+  {
+   "sel": ".hr-tabs-nav:has([data-name=\"contact-views\"]) [data-name=\"customize-record-modal\"] .tab-label-wrapper > p",
+   "text": "Personalizar campos para añadir contactos",
+   "font": "menu14"
+  },
+  {
+   "sel": "[data-name=\"contact-views\"] .tab-label-wrapper > p",
+   "text": "Personalice la vista de detalles del contacto",
+   "font": "menu14"
   }
  ]
 }

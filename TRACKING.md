@@ -180,6 +180,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | Bug 2 (Asociaciones): white info box, fixed 68px, text spilling and the button overlapping the table title → grows, wraps, theme card, accent link | Objetos › Contactos › Asociaciones | 848px: box 233–355 holds text and button |
 | Bug 3 (Personalice la vista): near-white page background, flat dashed "Añadir vista" tile → transparent, sunken theme tile, radius lg | Objetos › Contactos › Personalice la vista | capture |
 | Bug 4 (Integraciones privadas): app as wide as the window but starting after the sidebar, "Crear Nueva Integración" past the right edge → fits | Configuración › Integraciones privadas | 848px: button 627–816 |
+| Objetos › Contactos tabs: platform translation "Personalizar campos para añadir Contact" / "… detalles de contact" → "… añadir contactos" / "… detalles del contacto" (only on the Contactos object: keyed on its contact-views tab) | Objetos › Contactos | computed ::after |
 | Bug 5: assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" (fallback "Hola, ¿cómo puedo ayudarte hoy?") | Pregúntale a BRANIA | computed ::after |
 
 ### v1.4.12 (published, live): Configuración › Usuarios, Servicios de correo, Sistema telefónico

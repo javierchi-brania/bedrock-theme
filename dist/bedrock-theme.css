@@ -9389,7 +9389,9 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 #tb_appointment-report > span.flex.items-center,
 #tb_audit-report > span.flex.items-center,
 #phone-system-app .learn-more-button .hr-button__content-default-slot,
-#service-card-voice .hr-button--outline-type .hr-button__content-default-slot {
+#service-card-voice .hr-button--outline-type .hr-button__content-default-slot,
+.hr-tabs-nav:has([data-name="contact-views"]) [data-name="customize-record-modal"] .tab-label-wrapper > p,
+[data-name="contact-views"] .tab-label-wrapper > p {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -9526,7 +9528,9 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 #tb_appointment-report > span.flex.items-center::after,
 #tb_audit-report > span.flex.items-center::after,
 #phone-system-app .learn-more-button .hr-button__content-default-slot::after,
-#service-card-voice .hr-button--outline-type .hr-button__content-default-slot::after {
+#service-card-voice .hr-button--outline-type .hr-button__content-default-slot::after,
+.hr-tabs-nav:has([data-name="contact-views"]) [data-name="customize-record-modal"] .tab-label-wrapper > p::after,
+[data-name="contact-views"] .tab-label-wrapper > p::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -10216,6 +10220,16 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
 }
 #service-card-voice .hr-button--outline-type .hr-button__content-default-slot::after {
   content: "Iniciar registro";
+  font-size: 14px;
+  line-height: 20px;
+}
+.hr-tabs-nav:has([data-name="contact-views"]) [data-name="customize-record-modal"] .tab-label-wrapper > p::after {
+  content: "Personalizar campos para añadir contactos";
+  font-size: 14px;
+  line-height: 20px;
+}
+[data-name="contact-views"] .tab-label-wrapper > p::after {
+  content: "Personalice la vista de detalles del contacto";
   font-size: 14px;
   line-height: 20px;
 }
