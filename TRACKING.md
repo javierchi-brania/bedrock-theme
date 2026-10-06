@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.15` (2026-10-06).
-**In progress:** nothing open; `v1.4.16` published (bug list: Calendarios, Contactos, Oportunidades).
+**Live in the platform:** `v1.4.16` (2026-10-06).
+**In progress:** nothing open; `v1.4.17` published (bug list: Oportunidades, Pronóstico, Pagos).
 
 ## Releases
 
@@ -53,7 +53,8 @@ publish is in [README.md](README.md).
 | v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | live |
 | v1.4.14 | fix | Acciones rápidas theme, data table footers (pager not cut), dashboard filter menus wider | live |
 | v1.4.15 | fix | Conversaciones: menu hover white, task due date/time layout, segment tab hover box, messages card corner, narrow-window column widths, "Contactos" label | live |
-| v1.4.16 | fix | Calendarios narrow widths + Servicios theme, Contactos Tareas/Empresas card, Oportunidades embudo menu, selected pill, view tab, list view edges | published |
+| v1.4.16 | fix | Calendarios narrow widths + Servicios theme, Contactos Tareas/Empresas card, Oportunidades embudo menu, selected pill, view tab, list view edges | live |
+| v1.4.17 | fix | Oportunidades name hover, Pronóstico palette and table, Pagos tabs on two rows, Plantillas card, table header padding, Crear cupones, radio dot | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -175,7 +176,18 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.16 (published): bug list (Calendarios, Contactos, Oportunidades)
+### v1.4.17 (published): bug list (Oportunidades, Pronóstico, Pagos)
+
+| Change | Where | Verified |
+|---|---|---|
+| Bug 1: name hover in the platform blue → accent | Oportunidades, list view | computed color |
+| Bug 2: Resumen values, legend, chart bars (canvas hue shift) and Cronograma progress, pill, amounts, won cards, white header/buttons → success/accent/theme; summary table side padding 22–24px; Total row aligned with its columns (it was shifted by the footer padding and overlapped at 1100px) | Oportunidades › Pronóstico | 1920 and 1100 |
+| Bug 3: sections out of reach in narrow windows → wrap to a second row (Pagos only) + 22px more room on top up to 1600px | Pagos header | 1280 and 1100 frames: two rows, nothing overlaps (Facturas, Plantillas, Colecciones, Crear cupones) |
+| Bug 4: table card in a same-color square box that clipped its shadow → rounded card with full shadow | Documentos y contratos › Plantillas | capture 1920, 1100 |
+| Bug 5: search box touching the card's rounded corner (the pager overflow was already fixed in v1.4.14) → table header padding (global) | Productos › Colecciones | capture; Usuarios keeps its own header padding |
+| Bug 6: "Atrás" a 33px circle → pill; white top/bottom bars → theme; two-column grid pushing the end date out of the card at 1100 → one column when two do not fit; checked radio dot ("Para siempre") off-centre by a newer platform rule → centred (global) | Cupones › Crear | 1920 and 1100; dot 2px each side |
+
+### v1.4.16 (published, live): bug list (Calendarios, Contactos, Oportunidades)
 
 | Change | Where | Verified |
 |---|---|---|
