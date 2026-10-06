@@ -64,6 +64,10 @@
      shorter top-left light so it does not read as a white border around tall cards */
   --bb-shadow-panel: 10px 12px 30px rgba(166, 174, 178, 0.5),
     -6px -6px 16px rgba(255, 255, 255, 0.55);
+  /* box = small boxes stacked inside a panel (Detalles del contacto sections): the same
+     small drop with a faint light, so a column of boxes does not show white bands */
+  --bb-shadow-box: 3px 3px 8px rgba(166, 174, 178, 0.45),
+    -2px -2px 6px rgba(255, 255, 255, 0.5);
   --bb-shadow-inset: inset 3px 3px 7px #c6cacc, inset -3px -3px 7px #ffffff;
   --bb-shadow-inset-deep: inset 3px 3px 8px #c6cacc, inset -3px -3px 8px #ffffff;
 
@@ -7867,6 +7871,43 @@ div:has(> .hr-select-wrapper > #manual-actions-workflow-campaign-select) {
 .hr-data-table-wrapper > .hr-table-freezer-wrapper:first-child .hr-data-table__cell-header {
   padding-top: 12px !important;
   padding-bottom: 10px !important;
+}
+/* Detalles del contacto (Todos los campos, Acciones…): the stacked boxes showed a white
+   band above each one (light at 90%), their tab pane cut their sides, and in Acciones the
+   "Oportunidades" header (title + "Añadir" + arrow, 234px) did not fit its 222px box so
+   the arrow was cut → box shadow token, room for the shadow, a little less card side
+   padding, and the add buttons in box headers as a round "+" (like Etiquetas "+"). */
+#conversations-new-app #conversations-contact-details .bg-contacts-panel {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+#conversations-contact-details #record-details-lhs > .flex.flex-col.flex-1.pb-3 {
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+#conversations-contact-details #record-details-tabs > .hr-tabs-pane-wrapper {
+  padding: 4px 6px 10px !important;
+  margin: 0 -6px !important;
+}
+#conversations-contact-details .hr-collapse-item {
+  box-shadow: var(--bb-shadow-box) !important;
+}
+#conversations-contact-details .hr-collapse-item__header {
+  padding-right: 10px !important;
+}
+#conversations-contact-details .hr-collapse-item__header .hr-button:has(svg) .hr-button__content > p.hr-text {
+  display: none !important;
+}
+#conversations-contact-details .hr-collapse-item__header .hr-button:has(svg) {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  justify-content: center !important;
+}
+#conversations-contact-details .hr-collapse-item__header .hr-button:has(svg) .hr-button__content {
+  gap: 0 !important;
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
