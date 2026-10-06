@@ -7840,6 +7840,34 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
 #conversations-contact-details .bg-contacts-panel .grid.grid-cols-2 > .mt-0.items-end:has(.n-button) {
   justify-self: end !important;
 }
+/* Acciones manuales: the two search selects ("Seleccionar Flujo de trabajo", "Seleccionar
+   responsable") keep 32px on the left for the lens but only 8px on the right, so the text
+   ran under the arrow → 30px on the right; the workflow select is 240px so its text fits.
+   Data tables (global, .hr-data-table): the first and last columns were 12px from the
+   card's 26px rounded corners, and when the table opens the card its header text was 3px
+   from the top ("Nombre" in Enlaces de activación, "Índice" in Estadísticas) → 22px at the
+   sides and a taller header row. */
+.hr-select:is(#manual-actions-workflow-campaign-select, #manual-actions-assignee-select) .hr-base-selection {
+  --n-padding-single: 3px 30px 3px 32px !important;
+}
+.hr-select-wrapper:has(> #manual-actions-workflow-campaign-select) {
+  min-width: 240px !important;
+}
+div:has(> .hr-select-wrapper > #manual-actions-workflow-campaign-select) {
+  width: auto !important;
+  min-width: 240px !important;
+  flex: 0 0 auto !important;
+}
+.hr-data-table-wrapper .hr-data-table :is(.hr-data-table__cell-header, .hr-data-table__body-cell):first-child {
+  padding-left: 22px !important;
+}
+.hr-data-table-wrapper .hr-data-table :is(.hr-data-table__cell-header, .hr-data-table__body-cell):last-child {
+  padding-right: 22px !important;
+}
+.hr-data-table-wrapper > .hr-table-freezer-wrapper:first-child .hr-data-table__cell-header {
+  padding-top: 12px !important;
+  padding-bottom: 10px !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
