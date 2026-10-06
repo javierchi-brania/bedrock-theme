@@ -60,6 +60,14 @@
     -10px -10px 26px rgba(255, 255, 255, 0.9);
   --bb-shadow-soft: 5px 5px 13px rgba(166, 174, 178, 0.45),
     -5px -5px 13px rgba(255, 255, 255, 0.9);
+  /* panel = full-height column cards (Conversaciones): same drop as raised, a softer and
+     shorter top-left light so it does not read as a white border around tall cards */
+  --bb-shadow-panel: 10px 12px 30px rgba(166, 174, 178, 0.5),
+    -6px -6px 16px rgba(255, 255, 255, 0.55);
+  /* box = small boxes stacked inside a panel (Detalles del contacto sections): the same
+     small drop with a faint light, so a column of boxes does not show white bands */
+  --bb-shadow-box: 3px 3px 8px rgba(166, 174, 178, 0.45),
+    -2px -2px 6px rgba(255, 255, 255, 0.5);
   --bb-shadow-inset: inset 3px 3px 7px #c6cacc, inset -3px -3px 7px #ffffff;
   --bb-shadow-inset-deep: inset 3px 3px 8px #c6cacc, inset -3px -3px 8px #ffffff;
 
@@ -5058,7 +5066,7 @@ aside#sidebar-v2 {
   padding: 6px 10px 6px 6px !important;
 }
 :is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .border.border-gray-200.rounded-md.bg-white {
-  box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
+  box-shadow: var(--bb-shadow-box) !important; /* v1.4.20: softer light (token) */
 }
 :is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item {
   border-radius: var(--bb-radius-sm) !important;
@@ -5137,7 +5145,7 @@ aside#sidebar-v2 {
 :is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item {
   background: var(--bb-bg) !important;
   border-color: transparent !important; /* v1.2.3: was a 1px grey outline */
-  box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
+  box-shadow: var(--bb-shadow-box) !important; /* v1.4.20: softer light (token) */
   margin-bottom: 10px !important;
   overflow: hidden !important;
 }
@@ -7764,6 +7772,150 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
   #conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 {
     gap: 6px !important;
   }
+}
+
+/* v1.4.20: since v1.4.19 the three Conversaciones columns show their whole shadow, and on
+   these tall cards the raised top-left light (white 90%, 10px out, 26px blur) read as a
+   white border around them, most of all around the right panel → panel shadow: same
+   drop, softer and shorter light. */
+#conversations-new-app #conversations-list > div,
+#conversations-new-app span#conversations-messages > div.flex.flex-col.h-full.relative,
+#conversations-new-app #conversations-contact-details .bg-contacts-panel {
+  box-shadow: var(--bb-shadow-panel) !important;
+}
+/* Right panel views (checked all ten: Contacto, Actividad, Asociaciones, Oportunidades,
+   Tareas, Notas, Citas, Documentos, Pagos, registros del agente) at 1420 and 1920:
+   - Asociaciones: "Asociaciones" + "Gestionar asociaciones" + close did not fit in one row
+     and the button ran past the card (even at 1920) → the actions wrap to a second row.
+   - Pagos: the Transacciones/Suscripciones tables kept 405px of column minimums and
+     scrolled sideways inside the card → they take the card's width. */
+#conversations-contact-details .bg-contacts-panel .flex.items-center.justify-between.px-3 {
+  flex-wrap: wrap !important;
+  row-gap: 8px !important;
+  column-gap: 8px !important;
+}
+#conversations-contact-details .bg-contacts-panel .flex.items-center.justify-between.px-3 > :last-child {
+  margin-left: auto !important;
+}
+#conversations-contact-details .bg-contacts-panel .n-data-table .n-data-table-table {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+#conversations-contact-details .bg-contacts-panel .n-data-table col {
+  min-width: 0 !important;
+  width: auto !important;
+}
+/* Right panel boxes cut by their scroll boxes:
+   - Asociaciones: the "Companies" box started exactly at the top of its scroll box, so its
+     rounded top corners and shadow were cut and it looked stuck out of the panel → 10px
+     of room on top.
+   - Contacto: the field sections ("Contacto"…) sit in a virtual list that hides overflow
+     flush with their sides, cutting their shadow → 6px of room on each side. */
+#conversations-contact-details .bg-contacts-panel .hr-wrapper-container:has(> .hr-config-provider > .associations-data-panel) {
+  padding-top: 10px !important;
+  padding-bottom: 16px !important;
+}
+#conversations-contact-details #record-blocks-container .hr-collapse.hr-accordion {
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+/* Right panel headers at one height: the title (and its close button) sat 22px below the
+   card top in Contacto, Pagos and Registros del agente, 26 in Asociaciones, 36 in
+   Oportunidades/Tareas/Notas/Citas/Documentos and 40 in Actividad (three header builds)
+   → 36px in all ten.
+   Pagos: the "no transactions" text and "Acciones" shared two equal columns, the text in
+   115px over three lines with the button pressed beside it → text full width, button
+   below on the right. */
+#conversations-contact-details .bg-contacts-panel > .flex.items-center.justify-between:first-child {
+  margin-top: 14px !important;
+}
+#conversations-contact-details .bg-contacts-panel .flex.items-center.justify-between.px-3.pt-2 {
+  padding-top: 0 !important;
+}
+#conversations-contact-details .bg-contacts-panel .flex.items-center.justify-between.px-3 > p:first-child {
+  min-height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+#conversations-contact-details .bg-contacts-panel .grid.grid-cols-2:has(> .mt-0.items-end .n-button) {
+  grid-template-columns: minmax(0, 1fr) !important;
+  row-gap: 8px !important;
+}
+#conversations-contact-details .bg-contacts-panel .grid.grid-cols-2 > .mt-0.items-end:has(.n-button) {
+  justify-self: end !important;
+}
+/* Acciones manuales: the two search selects ("Seleccionar Flujo de trabajo", "Seleccionar
+   responsable") keep 32px on the left for the lens but only 8px on the right, so the text
+   ran under the arrow → 30px on the right; the workflow select is 240px so its text fits.
+   Data tables (global, .hr-data-table): the first and last columns were 12px from the
+   card's 26px rounded corners, and when the table opens the card its header text was 3px
+   from the top ("Nombre" in Enlaces de activación, "Índice" in Estadísticas) → 22px at the
+   sides and a taller header row. */
+.hr-select:is(#manual-actions-workflow-campaign-select, #manual-actions-assignee-select) .hr-base-selection {
+  --n-padding-single: 3px 30px 3px 32px !important;
+}
+.hr-select-wrapper:has(> #manual-actions-workflow-campaign-select) {
+  min-width: 240px !important;
+}
+div:has(> .hr-select-wrapper > #manual-actions-workflow-campaign-select) {
+  width: auto !important;
+  min-width: 240px !important;
+  flex: 0 0 auto !important;
+}
+.hr-data-table-wrapper .hr-data-table :is(.hr-data-table__cell-header, .hr-data-table__body-cell):first-child {
+  padding-left: 22px !important;
+}
+.hr-data-table-wrapper .hr-data-table :is(.hr-data-table__cell-header, .hr-data-table__body-cell):last-child {
+  padding-right: 22px !important;
+}
+.hr-data-table-wrapper > .hr-table-freezer-wrapper:first-child .hr-data-table__cell-header {
+  padding-top: 12px !important;
+  padding-bottom: 10px !important;
+}
+/* Detalles del contacto (Todos los campos, Acciones…): the stacked boxes showed a white
+   band above each one (light at 90%; the box shadow token now lives in the 340 layer
+   for these boxes and the contact summary box), their tab pane cut their sides, and in Acciones the
+   "Oportunidades" header (title + "Añadir" + arrow, 234px) did not fit its 222px box so
+   the arrow was cut → box shadow token, room for the shadow, a little less card side
+   padding, and the add buttons in box headers as a round "+" (like Etiquetas "+"). */
+#conversations-new-app #conversations-contact-details .bg-contacts-panel {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+#conversations-contact-details #record-details-lhs > .flex.flex-col.flex-1.pb-3 {
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+#conversations-contact-details #record-details-tabs > .hr-tabs-pane-wrapper {
+  padding: 4px 6px 10px !important;
+  margin: 0 -6px !important;
+}
+#conversations-contact-details .hr-collapse-item__header {
+  padding-right: 10px !important;
+}
+#conversations-contact-details .hr-collapse-item__header .hr-button:has(svg) .hr-button__content > p.hr-text {
+  display: none !important;
+}
+/* the icon keeps a 6px right margin meant for its label and a 30px min height comes from
+   a more specific rule → no margin, 28px circle, icon centred */
+#conversations-new-app #conversations-contact-details .hr-collapse-item__header .hr-button.hr-button:has(svg) {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+#conversations-new-app #conversations-contact-details .hr-collapse-item__header .hr-button:has(svg) .hr-icon-inner {
+  margin: 0 !important;
+}
+#conversations-new-app #conversations-contact-details .hr-collapse-item__header .hr-button:has(svg) > .hr-button__content {
+  width: auto !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }

@@ -63,7 +63,7 @@
   padding: 6px 10px 6px 6px !important;
 }
 :is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .border.border-gray-200.rounded-md.bg-white {
-  box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
+  box-shadow: var(--bb-shadow-box) !important; /* v1.4.20: softer light (token) */
 }
 :is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item {
   border-radius: var(--bb-radius-sm) !important;
@@ -142,7 +142,7 @@
 :is(#conversations-new-app, #record-details-new-ui) .bg-contacts-panel .hr-collapse-item {
   background: var(--bb-bg) !important;
   border-color: transparent !important; /* v1.2.3: was a 1px grey outline */
-  box-shadow: 3px 3px 8px rgba(166, 174, 178, 0.45), -3px -3px 8px rgba(255, 255, 255, 0.9) !important;
+  box-shadow: var(--bb-shadow-box) !important; /* v1.4.20: softer light (token) */
   margin-bottom: 10px !important;
   overflow: hidden !important;
 }

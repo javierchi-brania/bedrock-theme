@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.18` (2026-10-06).
-**In progress:** nothing open; `v1.4.19` published (Conversaciones: gaps, shadows, action buttons, contact details).
+**Live in the platform:** `v1.4.19` (2026-10-06).
+**In progress:** nothing open; `v1.4.20` published (Conversaciones: shadows, right panel, Acciones manuales, tables).
 
 ## Releases
 
@@ -56,7 +56,8 @@ publish is in [README.md](README.md).
 | v1.4.16 | fix | Calendarios narrow widths + Servicios theme, Contactos Tareas/Empresas card, Oportunidades embudo menu, selected pill, view tab, list view edges | live |
 | v1.4.17 | fix | Oportunidades name hover, Pronóstico palette and table, Pagos tabs on two rows, Plantillas card, table header padding, Crear cupones, radio dot | live |
 | v1.4.18 | feat | "Panel" (launchpad) hidden from the left menu | live |
-| v1.4.19 | fix | Conversaciones: 20px column gaps, equal card shadows, 28px action buttons, contact details fit in narrow windows | published |
+| v1.4.19 | fix | Conversaciones: 20px column gaps, equal card shadows, 28px action buttons, contact details fit in narrow windows | live |
+| v1.4.20 | fix | Conversaciones columns: new --bb-shadow-panel token, softer top-left light (no white border); right panel fixes (Asociaciones, Pagos, titles at one height, boxes not cut); Acciones manuales selects; data table padding | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -178,7 +179,18 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.19 (published): Conversaciones
+### v1.4.20 (published): Conversaciones column shadow
+
+| Change | Where | Verified |
+|---|---|---|
+| With the whole shadow visible (v1.4.19), the raised top-left light read as a white border around the tall column cards, most of all the right panel → new token --bb-shadow-panel (same drop, light 55% / 6px / 16px) on the list, messages and right panel cards | Conversaciones | capture before/after |
+| Right panel, all ten views checked at 1420 and 1920: Asociaciones header ("Gestionar asociaciones" past the card, even at 1920) → actions wrap to a second row; Pagos tables scrolled sideways → card width | Right panel › Asociaciones, Pagos | 1420 frame and 1920: nothing past the card, no sideways scroll |
+| Boxes cut by their scroll boxes: Asociaciones "Companies" box flush with the top (corners and shadow cut) → 10px on top; Contacto field sections flush with the virtual list sides → 6px each side | Right panel › Asociaciones, Contacto | 1920 capture |
+| Panel titles at 22, 26, 36 or 40px from the card top depending on the view → 36px in all ten; Pagos text in a 115px column over three lines beside "Acciones" → text full width, button below right | Right panel headers, Pagos | all ten views measured: title centre 36px |
+| Acciones manuales: search selects with 8px on the right, text under the arrow → 30px, workflow select 240px (text whole); data tables (global): first/last columns 12px from the 26px corners and header text 3px from the top when the table opens the card → 22px sides, taller header | Conversaciones › Acciones manuales, Enlaces de activación (Enlace, Estadísticas); all data tables | Enlaces, Estadísticas, Usuarios, Colecciones, Pronóstico: first text 22px from the card edge; Pronóstico Total row still aligned |
+| Detalles del contacto boxes: white band above each (light 90%), sides cut by the tab pane, Acciones "Oportunidades" header 234px in a 222px box (arrow cut) → new token --bb-shadow-box, room for the shadow, card side padding 12px, add buttons in box headers as round "+" | Right panel › Detalles del contacto (Todos los campos, Acciones), Asociaciones | Acciones: headers fit (210/210), soft boxes; Todos los campos: nothing past the card |
+
+### v1.4.19 (published, live): Conversaciones
 
 | Change | Where | Verified |
 |---|---|---|
