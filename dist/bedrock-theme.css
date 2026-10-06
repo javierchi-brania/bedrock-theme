@@ -7549,6 +7549,20 @@ body:has(#location-dashboard) .hr-base-select-menu {
     margin-left: 0 !important;
   }
 }
+/* Tareas/Empresas toolbar in narrow windows (1100px): "Filtros" and "Ordenar (1)" broke into
+   two lines and ran past the card edge → whole words, the chips wrap to a second row. */
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar :is(.hr-button, button) * {
+  white-space: nowrap !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar > .left-box {
+  flex-wrap: wrap !important;
+  min-width: 0 !important;
+  height: auto !important;
+}
+:is(#CustomObjectsList, #BusinessList) .quick-filter-bar :is(.advanced-container, .filters-container) {
+  flex-wrap: wrap !important;
+  row-gap: 8px !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
