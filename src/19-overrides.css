@@ -1390,12 +1390,12 @@ body:has(#location-dashboard) .hr-base-select-menu {
    - The list and the right panel follow the window width (list 250–320px, right panel
      300–352px; 300px keeps the task form inside it) and are unchanged from ~1680px up; a
      right panel the user narrowed or collapsed keeps its own width.
-   - Up to 1440px: tighter gaps between columns, list rows and submenu; the conversation
-     actions (filter, call, star, mail, trash) closer together; the Citas/Tareas header keeps
-     its close button inside.
+   - Up to 1440px: tighter gaps between columns, list rows and submenu; the Citas/Tareas
+     header keeps its close button inside. Up to 1680px the conversation actions (filter,
+     call, star, mail, trash) sit closer together, leaving room for the contact name.
    - The task form's "Objetos asociados" header wraps "Asociar a" below when narrow.
    - The submenu accordion titles cut with an ellipsis instead of pushing the chevron out.
-   - Messages header too narrow for a readable contact name (≤320px): avatar and name hide
+   - Messages header too narrow for a readable contact name (≤290px): avatar and name hide
      instead of showing a sliver of the avatar or a single letter. */
 #conversations-list.conversation-list-root {
   width: clamp(250px, 19vw, 320px) !important;
@@ -1424,7 +1424,7 @@ body:has(#location-dashboard) .hr-base-select-menu {
 #conversations-messages > div > div > .border-b {
   container-type: inline-size;
 }
-@container (max-width: 320px) {
+@container (max-width: 290px) {
   #conversations-messages .border-b > .flex-1.min-w-0:first-child {
     display: none !important;
   }
@@ -1450,16 +1450,18 @@ body:has(#location-dashboard) .hr-base-select-menu {
     padding-left: 8px !important;
     padding-right: 8px !important;
   }
+  #conversations-contact-details .flex.items-center.justify-between.px-3 {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+@media (max-width: 1680px) {
   #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 {
     gap: 2px !important;
   }
   #conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 [role="button"] {
     padding-left: 3px !important;
     padding-right: 3px !important;
-  }
-  #conversations-contact-details .flex.items-center.justify-between.px-3 {
-    padding-left: 12px !important;
-    padding-right: 12px !important;
   }
 }
 @media (max-width: 1320px) {
