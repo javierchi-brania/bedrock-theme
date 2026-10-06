@@ -28,7 +28,11 @@
   "brand15": "15px/15px",
   "greeting28": "28px/34px",
   "menu14": "14px/20px",
-  "display30": "30px/38px"
+  "display30": "30px/38px",
+  "sub13": "13px/19.5px",
+  "chat16": "16px/28px",
+  "opt14": "14px/19.25px",
+  "opt12": "12px/16.5px"
  },
  "labels": [
   {
@@ -729,6 +733,72 @@
    "sel": "#conversations-empty-state:has(#conversations-view-all-btn) #conversations-empty-message",
    "text": "No tiene chats sin leer en esta bandeja.",
    "font": "body"
+  },
+  {
+   "sel": "#user-edit-module-nav-AI_AGENTS .truncate",
+   "text": "Agentes de BRANIA",
+   "font": "menu14"
+  },
+  {
+   "sel": "#perm-module-AI_AGENTS-accordion p.hr-text-lg",
+   "text": "Agentes de BRANIA",
+   "font": "body"
+  },
+  {
+   "sel": "#user-edit-module-nav-COPILOT .truncate",
+   "text": "ASK BRANIA",
+   "font": "menu14"
+  },
+  {
+   "sel": "#perm-module-COPILOT-accordion p.hr-text-lg",
+   "text": "ASK BRANIA",
+   "font": "body"
+  },
+  {
+   "sel": ".ai-usage-banner--setup .ai-usage-banner__headline",
+   "text": "Permita que los usuarios de su subcuenta usen Ask BRANIA",
+   "font": "desc12",
+   "icon": true
+  },
+  {
+   "sel": ".cal-ai-sidebar__header .text-md.font-semibold",
+   "text": "Asistente de calendarios",
+   "font": "body21"
+  },
+  {
+   "sel": ".cal-ai-sidebar__header .flex-col > .text-\\[13px\\]",
+   "text": "Configuración de calendarios con IA",
+   "font": "sub13"
+  },
+  {
+   "sel": ".cal-ai-sidebar .space-y-4 > .justify-start:first-child .chat-markdown > p:only-child",
+   "text": "¡Hola! Soy el asistente de calendarios de BRANIA. Dime en qué te ayudo o elige una opción.",
+   "font": "chat16"
+  },
+  {
+   "sel": ".cal-ai-sidebar span[class*=\"text-[#5925DC]\"]",
+   "text": "Crear un calendario nuevo",
+   "font": "opt14"
+  },
+  {
+   "sel": ".cal-ai-sidebar span[class*=\"text-[#7a5af8]\"]",
+   "text": "Configuración guiada: 2 min",
+   "font": "opt12"
+  },
+  {
+   "sel": ".cal-ai-sidebar .flex-wrap > div:nth-child(1) > .hr-tag .hr-tag__content > p > span",
+   "text": "Qué hacen los calendarios",
+   "font": "small18"
+  },
+  {
+   "sel": ".cal-ai-sidebar .flex-wrap > div:nth-child(2) > .hr-tag .hr-tag__content > p > span",
+   "text": "Revisar disponibilidad",
+   "font": "small18"
+  },
+  {
+   "sel": "body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text",
+   "text": "Asistente de calendarios",
+   "font": "desc12"
   }
  ]
 }
