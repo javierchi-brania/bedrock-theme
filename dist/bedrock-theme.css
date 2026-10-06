@@ -7757,8 +7757,8 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
   row-gap: 10px !important;
 }
 #conversations-contact-details .flex.gap-3.items-start > .flex-1.space-y-1 {
-  flex: 1 1 110px !important;
-  min-width: 0 !important;
+  flex: 1 1 auto !important;
+  min-width: auto !important;
 }
 @media (max-width: 1440px) {
   #conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 {

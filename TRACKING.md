@@ -185,7 +185,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | Column gaps 28px and 40px → 20px each at every width; right panel icon column 52 → 44px | Conversaciones | 1420: gaps 20/20, messages card 466px |
 | List and right panel shadows clipped 20px above them (the messages card showed its whole shadow) → same shadow on all three | Conversaciones | capture |
 | Action buttons (filter, call, star, mail, trash) 24px icons → 28px round theme buttons, 16px icons (like the inbox submenu) | Messages header | capture |
-| Contact details card 226px at 1420: "Seguidores", tabs and phone row ran past it → right panel min 330px, thinner padding (card 272px), Propietario/Seguidores stack when needed | Right panel › Detalles del contacto | 1420: nothing past the card |
+| Contact details card 226px at 1420: "Seguidores", tabs and phone row ran past it → right panel min 330px, thinner padding (card 272px), Propietario/Seguidores stack only when their content does not fit side by side | Right panel › Detalles del contacto | 1280 (submenu + contact open): card 272, messages 222, nothing past the card; 1420: stacked; 1920: side by side, messages 724 |
 
 ### v1.4.18 (published, live): hide "Panel"
 
