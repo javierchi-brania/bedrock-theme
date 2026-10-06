@@ -719,6 +719,16 @@
    "sel": ".associations .space-y-1\\.5:has([id^=\"contact-\"]) > p",
    "text": "Contactos",
    "font": "body21"
+  },
+  {
+   "sel": "#conversations-empty-state #conversations-view-all-btn",
+   "text": "Ver todas las conversaciones",
+   "font": "body21"
+  },
+  {
+   "sel": "#conversations-empty-state:has(#conversations-view-all-btn) #conversations-empty-message",
+   "text": "No tiene chats sin leer en esta bandeja.",
+   "font": "body"
   }
  ]
 }

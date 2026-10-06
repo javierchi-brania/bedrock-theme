@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.19` (2026-10-06).
-**In progress:** nothing open; `v1.4.20` published (Conversaciones: shadows, right panel, Acciones manuales, tables).
+**Live in the platform:** `v1.4.20` (2026-10-06).
+**In progress:** nothing open; `v1.4.21` published (Conversaciones empty states, card bottoms).
 
 ## Releases
 
@@ -57,7 +57,8 @@ publish is in [README.md](README.md).
 | v1.4.17 | fix | Oportunidades name hover, Pronóstico palette and table, Pagos tabs on two rows, Plantillas card, table header padding, Crear cupones, radio dot | live |
 | v1.4.18 | feat | "Panel" (launchpad) hidden from the left menu | live |
 | v1.4.19 | fix | Conversaciones: 20px column gaps, equal card shadows, 28px action buttons, contact details fit in narrow windows | live |
-| v1.4.20 | fix | Conversaciones columns: new --bb-shadow-panel token, softer top-left light (no white border); right panel fixes (Asociaciones, Pagos, titles at one height, boxes not cut); Acciones manuales selects; data table padding | published |
+| v1.4.20 | fix | Conversaciones columns: new --bb-shadow-panel token, softer top-left light (no white border); right panel fixes (Asociaciones, Pagos, titles at one height, boxes not cut); Acciones manuales selects; data table padding | live |
+| v1.4.21 | fix | Conversaciones empty states aligned with soft shadow, right panel card ends with the others, empty-state labels | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -179,7 +180,16 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.20 (published): Conversaciones column shadow
+### v1.4.21 (published): Conversaciones empty states
+
+| Change | Where | Verified |
+|---|---|---|
+| Empty message card ("¡Tiene todo al día!", "Sin conversaciones") 18px lower than the list, strong white light → same height and sides as the messages card, panel shadow | Conversaciones, no conversation open | bottoms 893 = list, gap 20 |
+| Right panel "No se ha seleccionado ninguna conversación" touching the messages column and lower → 20px gap, panel shadow | same | gap 20, bottom 893 |
+| Right panel card 6px below list/messages with a conversation open → bottoms aligned | Conversaciones | list, messages, right panel all end at 893 |
+| "Ver Todo Todo Conversaciones" / "No tiene ningún chat Todo sin leer ahora" → "Ver todas las conversaciones" / "No tiene chats sin leer en esta bandeja." | Empty state | labels |
+
+### v1.4.20 (published, live): Conversaciones column shadow
 
 | Change | Where | Verified |
 |---|---|---|
