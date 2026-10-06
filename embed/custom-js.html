@@ -28,12 +28,25 @@
       var dest = target(to.path);
       return dest ? { path: dest, replace: true } : true;
     });
-    // On a full page load the first navigation may already be past the guards when this
-    // runs: once the router is ready, a launchpad still on screen is replaced.
-    router.isReady().then(function () {
+    // On a full page load the first navigation can start before this runs and end seconds
+    // later (sub-account load), past the guard. A launchpad still on screen is replaced when
+    // any navigation ends, and by a short check while the page settles.
+    // At most one redirect every 2 s: the platform answers it with a redirect of its own,
+    // and a second call before that settles cancels it.
+    var last = 0;
+    function fix() {
       var now = target(router.currentRoute.value.path);
-      if (now) router.replace(now);
-    });
+      if (!now || Date.now() - last < 2000) return;
+      last = Date.now();
+      router.replace(now);
+    }
+    router.afterEach(function (to, from, failure) { if (!failure) setTimeout(fix, 0); });
+    router.isReady().then(fix);
+    var checks = 0;
+    var timer = setInterval(function () {
+      fix();
+      if (++checks >= 100) clearInterval(timer);
+    }, 300);
   })();
 })();
 </script>
