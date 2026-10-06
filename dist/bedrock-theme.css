@@ -7197,6 +7197,48 @@ label.hr-radio-button.ui-radio-group-item {
 section.w-full:has(#private-integration-app) {
   min-width: 0 !important;
 }
+
+/* v1.4.14 (team bug list 2).
+   - Acciones rápidas (sidebar lightning popover): white popover, light grey items, blue icons
+     → raised theme card, raised items that sink on hover, accent icons.
+   - Data tables (.hr-data-table-wrapper, 26px rounded card, overflow hidden): the footer had
+     no side padding, so the last pager button ("Siguiente") sat in the rounded corner and was
+     cut (Tablero › Lead Source Report; same as Estudio de agentes, Registros, Usuarios) →
+     side and bottom padding for every such footer.
+   - Tablero widget filters: the option menu was as narrow as the filter, cutting the options
+     ("Adriana …", "Todos los …") → at least 220px wide on the dashboard. */
+.hl_v2-quick-actions-list {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+.hl_v2-quick-actions-list [class*="hl_quick-actions-list-contain"] > div {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  transition: box-shadow 0.15s;
+}
+.hl_v2-quick-actions-list [class*="hl_quick-actions-list-contain"] > div:hover {
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+.hl_v2-quick-actions-list [class*="hl_quick-actions-list-contain"] > div svg,
+.hl_v2-quick-actions-list [class*="hl_quick-actions-list-contain"] > div svg [stroke] {
+  stroke: var(--bb-accent) !important;
+  color: var(--bb-accent) !important;
+}
+.hl_v2-quick-actions-list [class*="hl_quick-actions-list-contain"] > div svg [fill]:not([fill="none"]) {
+  fill: var(--bb-accent) !important;
+}
+.hr-data-table-wrapper > .hr-data-table-wrapper-footer {
+  padding-left: 18px !important;
+  padding-right: 18px !important;
+  padding-bottom: 12px !important;
+}
+body:has(#location-dashboard) .hr-base-select-menu {
+  min-width: 220px !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
