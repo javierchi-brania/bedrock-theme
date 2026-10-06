@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** `v1.4.23` (Pagos card shadows, Cajas abandonadas).
+**In progress:** nothing open; `v1.4.23` published (Pagos card shadows, Cajas abandonadas).
 
 ## Releases
 
@@ -60,7 +60,7 @@ publish is in [README.md](README.md).
 | v1.4.20 | fix | Conversaciones columns: new --bb-shadow-panel token, softer top-left light (no white border); right panel fixes (Asociaciones, Pagos, titles at one height, boxes not cut); Acciones manuales selects; data table padding | live |
 | v1.4.21 | fix | Conversaciones empty states aligned with soft shadow, right panel card ends with the others, empty-state labels | live |
 | v1.4.22 | feat | Conversaciones inbox at 90% zoom; borders kept whole (selected row, contact details scroll box, field sections, sticky tabs, Oportunidades box) | published |
-| v1.4.23 | fix | Pagos: whole card shadows (Plantillas, Documentos y contratos, Inventario, Colecciones, Enlaces de pago), no pale rectangle on product pages, Cajas abandonadas as one branded card with the table fitting | in review |
+| v1.4.23 | fix | Pagos: whole card shadows (Plantillas, Documentos y contratos, Inventario, Colecciones, Enlaces de pago), no pale rectangle on product pages, Cajas abandonadas as one branded card with the table fitting | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -182,7 +182,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.23 (in review): Pagos card shadows, Cajas abandonadas
+### v1.4.23 (published): Pagos card shadows, Cajas abandonadas
 
 | Change | Where | Verified |
 |---|---|---|
