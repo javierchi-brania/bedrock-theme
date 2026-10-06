@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.19` (2026-10-06).
-**In progress:** `v1.4.20` (Conversaciones: softer column shadow light) in review.
+**In progress:** nothing open; `v1.4.20` published (Conversaciones: shadows, right panel, Acciones manuales, tables).
 
 ## Releases
 
@@ -57,7 +57,7 @@ publish is in [README.md](README.md).
 | v1.4.17 | fix | Oportunidades name hover, Pronóstico palette and table, Pagos tabs on two rows, Plantillas card, table header padding, Crear cupones, radio dot | live |
 | v1.4.18 | feat | "Panel" (launchpad) hidden from the left menu | live |
 | v1.4.19 | fix | Conversaciones: 20px column gaps, equal card shadows, 28px action buttons, contact details fit in narrow windows | live |
-| v1.4.20 | fix | Conversaciones columns: new --bb-shadow-panel token, softer top-left light (no white border); right panel fixes (Asociaciones, Pagos, titles at one height, boxes not cut); Acciones manuales selects; data table padding | in review |
+| v1.4.20 | fix | Conversaciones columns: new --bb-shadow-panel token, softer top-left light (no white border); right panel fixes (Asociaciones, Pagos, titles at one height, boxes not cut); Acciones manuales selects; data table padding | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -179,7 +179,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.20 (in review): Conversaciones column shadow
+### v1.4.20 (published): Conversaciones column shadow
 
 | Change | Where | Verified |
 |---|---|---|
