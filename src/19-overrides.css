@@ -1782,3 +1782,15 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
     border-top: 22px solid transparent !important;
   }
 }
+/* Checked radio dot: a newer platform rule (.hr-v-2-8-2 … ::before, !important) placed the
+   inner dot at top/left 3.4px with its own size, so it sat 1.7px right and down of the
+   centre (seen in Crear cupones › "Para siempre") → centred again, more specific. */
+.hr-radio.hr-radio__wrapper.hr-radio--checked .hr-radio__dot-wrapper .hr-radio__dot.hr-radio__dot--checked::before {
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  margin: auto !important;
+  width: 8px !important;
+  height: 8px !important;
+}
