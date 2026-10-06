@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.13` (2026-10-06).
-**In progress:** `v1.4.14` (team bug list 2) in review.
+**In progress:** nothing open; `v1.4.14` published (team bug list 2).
 
 ## Releases
 
@@ -51,7 +51,7 @@ publish is in [README.md](README.md).
 | v1.4.11 | fix | Informes: every tab below the header and within the screen, short tab names, leaderboard readable, theme fields and buttons, filter rails, Citas cards, audit card, chart colors | live |
 | v1.4.12 | fix | Configuración: Usuarios, Servicios de correo, Sistema telefónico; Automatización scaling | live |
 | v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | live |
-| v1.4.14 | fix | Acciones rápidas theme, data table footers (pager not cut), dashboard filter menus wider | in review |
+| v1.4.14 | fix | Acciones rápidas theme, data table footers (pager not cut), dashboard filter menus wider | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -173,7 +173,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.14 (in review): team bug list 2
+### v1.4.14 (published): team bug list 2
 
 | Change | Where | Verified |
 |---|---|---|
