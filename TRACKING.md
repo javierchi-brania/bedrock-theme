@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.18` (2026-10-06).
-**In progress:** `v1.4.19` (Conversaciones: gaps, shadows, action buttons, contact details) in review.
+**In progress:** nothing open; `v1.4.19` published (Conversaciones: gaps, shadows, action buttons, contact details).
 
 ## Releases
 
@@ -56,7 +56,7 @@ publish is in [README.md](README.md).
 | v1.4.16 | fix | Calendarios narrow widths + Servicios theme, Contactos Tareas/Empresas card, Oportunidades embudo menu, selected pill, view tab, list view edges | live |
 | v1.4.17 | fix | Oportunidades name hover, Pronóstico palette and table, Pagos tabs on two rows, Plantillas card, table header padding, Crear cupones, radio dot | live |
 | v1.4.18 | feat | "Panel" (launchpad) hidden from the left menu | live |
-| v1.4.19 | fix | Conversaciones: 20px column gaps, equal card shadows, 28px action buttons, contact details fit in narrow windows | in review |
+| v1.4.19 | fix | Conversaciones: 20px column gaps, equal card shadows, 28px action buttons, contact details fit in narrow windows | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -178,7 +178,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.19 (in review): Conversaciones
+### v1.4.19 (published): Conversaciones
 
 | Change | Where | Verified |
 |---|---|---|
