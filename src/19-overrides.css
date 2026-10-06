@@ -2001,3 +2001,37 @@ div:has(> .hr-select-wrapper > #manual-actions-workflow-campaign-select) {
   margin: 0 !important;
   padding: 0 !important;
 }
+
+/* v1.4.21 (Conversaciones, empty states).
+   - No conversation open ("¡Tiene todo al día!", "Sin conversaciones"): the empty message
+     card sits directly in the column, without the messages card's bottom/side room, so it
+     ran 18px lower than the list, and it kept the strong raised light (white band) →
+     same height and sides as the messages card, panel shadow, radius xl.
+   - Right panel "No se ha seleccionado ninguna conversación": its box has no padding (the
+     wrapper lacks the class the v1.4.19 rule used), so it touched the messages column and
+     ran lower → 20px gap, panel shadow.
+   - Right panel with a conversation open: the card ended 6px below the list and messages
+     → 24px of room at the bottom, all three cards end at the same height.
+   - Labels: "Ver Todo Todo Conversaciones" / "No tiene ningún chat Todo sin leer ahora"
+     (the platform repeats the inbox name) → "Ver todas las conversaciones" / "No tiene
+     chats sin leer en esta bandeja." */
+#conversations-new-app #conversations-empty-state {
+  height: calc(100% - 18px) !important;
+  margin: 0 4px !important;
+  border-radius: var(--bb-radius-xl) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-panel) !important;
+}
+#conversations-contact-details .h-full.w-full.min-w-0.flex > .flex-1.min-w-0.h-full {
+  padding-bottom: 24px !important;
+  box-sizing: border-box !important;
+}
+#conversations-contact-details .h-full.w-full.min-w-0.flex > .flex-1.min-w-0.h-full:not(.relative) {
+  padding-left: 12px !important;
+  padding-right: 10px !important;
+}
+#conversations-new-app #conversations-contact-details .h-full.w-full.min-w-0.flex > .flex-1.min-w-0.h-full > .h-full.w-full.flex.items-center.justify-center.bg-white {
+  border-radius: var(--bb-radius-xl) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-panel) !important;
+}
