@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.16` (2026-10-06).
-**In progress:** nothing open; `v1.4.17` published (bug list: Oportunidades, Pronóstico, Pagos).
+**Live in the platform:** `v1.4.17` (2026-10-06).
+**In progress:** `v1.4.18` (hide "Panel" in the menu) in review.
 
 ## Releases
 
@@ -54,7 +54,8 @@ publish is in [README.md](README.md).
 | v1.4.14 | fix | Acciones rápidas theme, data table footers (pager not cut), dashboard filter menus wider | live |
 | v1.4.15 | fix | Conversaciones: menu hover white, task due date/time layout, segment tab hover box, messages card corner, narrow-window column widths, "Contactos" label | live |
 | v1.4.16 | fix | Calendarios narrow widths + Servicios theme, Contactos Tareas/Empresas card, Oportunidades embudo menu, selected pill, view tab, list view edges | live |
-| v1.4.17 | fix | Oportunidades name hover, Pronóstico palette and table, Pagos tabs on two rows, Plantillas card, table header padding, Crear cupones, radio dot | published |
+| v1.4.17 | fix | Oportunidades name hover, Pronóstico palette and table, Pagos tabs on two rows, Plantillas card, table header padding, Crear cupones, radio dot | live |
+| v1.4.18 | feat | "Panel" (launchpad) hidden from the left menu | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -176,7 +177,13 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.17 (published): bug list (Oportunidades, Pronóstico, Pagos)
+### v1.4.18 (in review): hide "Panel"
+
+| Change | Where | Verified |
+|---|---|---|
+| "Panel" (platform launchpad) entry hidden from the left menu at the team's request; the page itself still opens from a direct link | Left menu | capture: "Pregúntale a BRANIA" then "Tablero", no gap |
+
+### v1.4.17 (published, live): bug list (Oportunidades, Pronóstico, Pagos)
 
 | Change | Where | Verified |
 |---|---|---|
