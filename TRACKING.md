@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.23` published (Pagos card shadows, Cajas abandonadas).
+**In progress:** `v1.4.24` (Ask BRANIA labels, no help panel, translate icon, Calendar AI).
 
 ## Releases
 
@@ -61,6 +61,7 @@ publish is in [README.md](README.md).
 | v1.4.21 | fix | Conversaciones empty states aligned with soft shadow, right panel card ends with the others, empty-state labels | live |
 | v1.4.22 | feat | Conversaciones inbox at 90% zoom; borders kept whole (selected row, contact details scroll box, field sections, sticky tabs, Oportunidades box) | published |
 | v1.4.23 | fix | Pagos: whole card shadows (Plantillas, Documentos y contratos, Inventario, Colecciones, Enlaces de pago), no pale rectangle on product pages, Cajas abandonadas as one branded card with the table fitting | published |
+| v1.4.24 | fix | Roles y permisos "Agentes de BRANIA"/"ASK BRANIA", Ask BRANIA banner, Ayuda y asistencia hidden, header translate icon in accent, Calendar AI drawer above the top bar with Brania styling and Spanish labels | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -181,6 +182,17 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.24 (in review): Ask BRANIA, help panel, Calendar AI
+
+| Change | Where | Verified |
+|---|---|---|
+| "AI Agents"/"Agentes de IA" and "ASK AI" → "Agentes de BRANIA" and "ASK BRANIA" (side menu and permission rows); side menu label kept whole (the ellipsis hid it) | Settings › Users › edit › Roles y permisos | labels drawn, nothing saved |
+| Setup banner "…usen Ask AI" → "…usen Ask BRANIA", badge kept after the text | Pregúntale a BRANIA | banner |
+| "?" button and Ayuda y asistencia drawer hidden at the team's request | Top bar, every page | button gone |
+| Translate button icon in the platform violet → accent | Top bar | matches the other icons |
+| Calendar AI drawer under the top bar (title and close hidden) → above it; Brania background, font, accent, inset field, soft option card; edge tab in accent | Calendarios | open, expand, close, typing hides the drawn placeholder |
+| Calendar AI fixed texts in Spanish: title, subtitle, greeting (without the user's first name), options, placeholder, edge tab tooltip | Calendarios | labels; the assistant's own replies stay in the language it answers in |
 
 ### v1.4.23 (published): Pagos card shadows, Cajas abandonadas
 

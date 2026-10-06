@@ -8092,6 +8092,12 @@ body:has(header .topmenu-nav a[href*="/payments/"]) .hr-wrapper-container > .hr-
 .help-drawer-container {
   display: none !important;
 }
+/* Roles y permisos side menu: "Agentes de BRANIA" is 9px wider than its truncated box,
+   and the ellipsis hid the whole drawn label. It may use the button padding instead. */
+#user-edit-module-nav-AI_AGENTS .truncate {
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
 /* Header translate button: its icon kept the platform violet next to the Brania icons. */
 #i18n-feedback .feedback-toggle-btn {
   border-color: transparent !important;
