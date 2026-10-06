@@ -2299,3 +2299,151 @@ body:has(header .topmenu-nav a[href*="/payments/"]) .hr-wrapper-container > .hr-
   background-image: linear-gradient(var(--bb-accent-400), var(--bb-accent-dark)) !important;
   box-shadow: -2px 2px 8px var(--bb-accent-glow) !important;
 }
+
+/* ===== v1.4.26 Integraciones cards, Marketing at narrow widths, Conectar redes sociales ===== */
+/* Configuración › Integraciones: each card had a white header and footer band with square
+   corners, inside one big raised card whose right shadow was cut. The big card goes flat and
+   each card is a soft raised theme card. */
+.lc-integrations-container > .integrations-card.hr-card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.integration-card.hr-card {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  overflow: hidden !important;
+}
+.integration-card :is(.hr-card-header, .hr-card-footer, .card-header, .card-footer) {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+/* The page starts at 80px but the top bar (with its tab row) ends at 134px: the search
+   field was half hidden under it. */
+.sidebar-v2-location:has(.hl_header .topmenu-nav) .lc-integrations-container {
+  padding-top: 58px !important;
+}
+/* Marketing › Planificador: the app box took the full window width beside the menu, so the
+   header buttons ("Redes sociales", "Nueva publicación") and the table's right side were
+   off screen below ~1570px. */
+section.w-full:has(#social-planner-mf) {
+  min-width: 0 !important;
+}
+/* Its header row has a fixed 40px height: when tabs and buttons do not fit, the buttons go
+   to a second line on the right. */
+.sp-page-header {
+  flex-wrap: wrap !important;
+  height: auto !important;
+  min-height: 40px;
+  row-gap: 10px;
+}
+.sp-page-header > :last-child {
+  margin-left: auto;
+}
+/* Marketing tabs ("Administrador de anuncios" was cut below ~1460px): they wrap like the
+   Pagos tabs, and the pages get the room of the second row. */
+header.hl_header:has(.topmenu-nav a[href*="/marketing/"]) .topmenu-nav {
+  flex-wrap: wrap !important;
+  row-gap: 6px !important;
+  overflow-x: visible !important;
+}
+@media (max-width: 1480px) {
+  body:has(header.hl_header .topmenu-nav a[href*="/marketing/"]) .hl_topbar-tabs {
+    border-top: 32px solid transparent !important;
+  }
+}
+/* Conectar redes sociales: the close button had no background (only its shadow) and its
+   icon sat 4px high; "Añadir una comunidad" kept the platform's near-white. */
+#sp-cmp-btn-close-connect-social {
+  background: var(--bb-bg) !important;
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#sp-cmp-btn-close-connect-social .hr-button__content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#sp-cmp-btn-close-connect-social svg {
+  margin: 0 !important;
+}
+#sp-cmp-btn-platform-community {
+  background: var(--bb-bg) !important;
+}
+/* Planificador below ~1100px: the title and its tabs share one row with no wrap ("Escucha
+   social", "Configuración" cut) → the tabs go under the title. The filter row keeps its
+   right group (dates, networks, view, search) rigid and squeezed the left one (Vistas de
+   filtro, Filtros) to 0px under it → both wrap. The posts table shrank its columns until
+   the "Publicación nativa" tag ran into Fecha → at least 960px, scrolling inside its card. */
+.sp-page-header > :first-child {
+  flex-wrap: wrap !important;
+  min-width: 0 !important;
+  row-gap: 8px;
+}
+#social-planner-mf .justify-between:has(> .min-w-0 #sp-pg-landing-btn-filter-view-tag) {
+  flex-wrap: wrap !important;
+  row-gap: 10px;
+}
+#social-planner-mf .justify-between:has(> .min-w-0 #sp-pg-landing-btn-filter-view-tag) > .min-w-0 {
+  flex-shrink: 0 !important;
+}
+#social-planner-mf .justify-between:has(> .min-w-0 #sp-pg-landing-btn-filter-view-tag) > .shrink-0 {
+  flex-wrap: wrap !important;
+  flex-shrink: 1 !important;
+  min-width: 0 !important;
+  row-gap: 10px;
+  margin-left: auto;
+  justify-content: flex-end;
+}
+#sp-pg-landing-table-post.hr-data-table {
+  grid-template-columns: minmax(960px, 1fr) !important;
+}
+/* Planificador sub-pages below ~1100px:
+   - Estadísticas: the five figures sat in one 1045px row (last ones cut) → they wrap,
+     without the separators and side paddings meant for one row; the networks / dates row
+     wraps too.
+   - Comentarios and the other cards: their filter rows did not wrap (date fields cut).
+   - Configuración: the settings pane kept its content width beside the left menu and ran
+     past the window → it shrinks; its tabs and table scroll inside the card. */
+.tab-content-layout__card .flex.items-stretch:has(> .flex-col.flex-1.border-r) {
+  flex-wrap: wrap !important;
+  row-gap: 20px;
+}
+.tab-content-layout__card .flex.items-stretch:has(> .flex-col.flex-1.border-r) > .flex-col.flex-1 {
+  min-width: 180px;
+  padding: 0 16px 0 0 !important;
+  border-right: none !important;
+}
+.tab-content-layout__card .flex.justify-between:has(> .hr-date-picker) {
+  flex-wrap: wrap !important;
+  row-gap: 12px;
+}
+#social-planner-mf .tab-content-layout__card .flex.items-center:is(.justify-between, .gap-4, .gap-x-3):not(td *, th *, tr) {
+  flex-wrap: wrap !important;
+  row-gap: 10px;
+}
+#social-planner-mf .hr-tabs--left > .hr-tab-pane {
+  min-width: 0 !important;
+}
+/* Empty data tables wider than their box (Contenido › CSV and any other): the "no data"
+   block was centred on the full scroll width, so its text and button were cut → it takes
+   the visible width of the table and stays at its left. */
+.hr-data-table:has(> tbody td.data-table__no-data) {
+  container-type: inline-size;
+}
+td.data-table__no-data:has(> .w-full) {
+  justify-content: flex-start !important;
+}
+td.data-table__no-data > .w-full {
+  position: sticky;
+  left: 0;
+  width: 100cqw !important;
+  max-width: 100cqw;
+}
