@@ -7702,6 +7702,12 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
   width: 8px !important;
   height: 8px !important;
 }
+
+/* v1.4.18: the "Panel" section (the platform launchpad) is hidden from the left menu at the
+   team's request. Its page still opens from a direct link; only the menu entry goes. */
+#sb_launchpad {
+  display: none !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
