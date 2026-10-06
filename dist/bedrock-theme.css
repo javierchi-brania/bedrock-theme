@@ -7815,6 +7815,31 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
   padding-left: 6px !important;
   padding-right: 6px !important;
 }
+/* Right panel headers at one height: the title (and its close button) sat 22px below the
+   card top in Contacto, Pagos and Registros del agente, 26 in Asociaciones, 36 in
+   Oportunidades/Tareas/Notas/Citas/Documentos and 40 in Actividad (three header builds)
+   → 36px in all ten.
+   Pagos: the "no transactions" text and "Acciones" shared two equal columns, the text in
+   115px over three lines with the button pressed beside it → text full width, button
+   below on the right. */
+#conversations-contact-details .bg-contacts-panel > .flex.items-center.justify-between:first-child {
+  margin-top: 14px !important;
+}
+#conversations-contact-details .bg-contacts-panel .flex.items-center.justify-between.px-3.pt-2 {
+  padding-top: 0 !important;
+}
+#conversations-contact-details .bg-contacts-panel .flex.items-center.justify-between.px-3 > p:first-child {
+  min-height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+#conversations-contact-details .bg-contacts-panel .grid.grid-cols-2:has(> .mt-0.items-end .n-button) {
+  grid-template-columns: minmax(0, 1fr) !important;
+  row-gap: 8px !important;
+}
+#conversations-contact-details .bg-contacts-panel .grid.grid-cols-2 > .mt-0.items-end:has(.n-button) {
+  justify-self: end !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
