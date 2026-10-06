@@ -7700,6 +7700,11 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
 #sb_launchpad {
   display: none !important;
 }
+/* v1.4.25: the agency launchpad entry goes too. Landing on either launchpad after switching
+   accounts is handled by embed/custom-js.html (JS personalizado), not by CSS. */
+#sb_agency-launchpad {
+  display: none !important;
+}
 
 /* v1.4.19 (Conversaciones, team list).
    - Column gaps: 28px between list and messages and 40px between messages and the right
@@ -8557,7 +8562,7 @@ div#fc-calendar-container-v2 {
 .hl_header .feedback-toggle-btn, .hl_header .feedback-toggle-btn * { color: #8b5cf6 !important; }
 .hl_header .feedback-toggle-btn .feedback-toggle-icon-bg { background: transparent !important; }
 .hl_header button.rounded-full.bg-success-600 svg, .hl_header button.rounded-full.bg-success-600 svg * { color: var(--bb-success) !important; }
-.hl_header #hl_header--copilot-icon svg, .hl_header #hl_header--copilot-icon svg path { color: #6938ef !important; }
+.hl_header #hl_header--copilot-icon svg, .hl_header #hl_header--copilot-icon svg path { color: var(--bb-accent) !important; }
 
 /* ===== v6.42 Contactos: menú lateral activo + vista de listas inteligentes ===== */
 .sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header #sb_contacts.group, .sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header-without-footer #sb_contacts.group, .sidebar-v2-location:has(.contacts-new-ui) #sb_contacts { background: var(--bb-bg) !important; box-shadow: var(--bb-shadow-inset) !important; color: var(--bb-accent) !important; font-weight: 700 !important; }
