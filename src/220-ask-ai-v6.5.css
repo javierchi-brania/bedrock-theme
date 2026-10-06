@@ -102,16 +102,16 @@
 .askai-sidebar .askai-composer-textarea__field textarea {
   animation: bb-askai-reveal 0.2s ease-out 0.6s both;
 }
-/* Greeting with the user's name: the name is in the user-name attribute of the welcome
-   section; attr() in a custom property (Chrome 133+) carries it down as a string. Without
-   that support, or with no name, the fixed label "¿En qué estás pensando?" (labels.json)
-   stays. */
+/* Greeting with the user's name (v1.4.13: "Hola <name>, ¿cómo puedo ayudarte hoy?"): the
+   name is in the user-name attribute of the welcome section; attr() in a custom property
+   (Chrome 133+) carries it down as a string. Without that support, or with no name, the
+   fixed label "Hola, ¿cómo puedo ayudarte hoy?" (labels.json) stays. */
 @supports (x: attr(x type(*))) {
   .askai-welcome[user-name]:not([user-name=""]) {
     --bb-user-name: attr(user-name);
   }
   .askai-welcome[user-name]:not([user-name=""]) .askai-welcome-header__title::after {
-    content: "¿En qué estás pensando, " var(--bb-user-name) "?";
+    content: "Hola " var(--bb-user-name) ", ¿cómo puedo ayudarte hoy?";
   }
 }
 

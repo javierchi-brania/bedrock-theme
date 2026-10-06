@@ -4478,16 +4478,16 @@ aside#sidebar-v2 {
 .askai-sidebar .askai-composer-textarea__field textarea {
   animation: bb-askai-reveal 0.2s ease-out 0.6s both;
 }
-/* Greeting with the user's name: the name is in the user-name attribute of the welcome
-   section; attr() in a custom property (Chrome 133+) carries it down as a string. Without
-   that support, or with no name, the fixed label "¿En qué estás pensando?" (labels.json)
-   stays. */
+/* Greeting with the user's name (v1.4.13: "Hola <name>, ¿cómo puedo ayudarte hoy?"): the
+   name is in the user-name attribute of the welcome section; attr() in a custom property
+   (Chrome 133+) carries it down as a string. Without that support, or with no name, the
+   fixed label "Hola, ¿cómo puedo ayudarte hoy?" (labels.json) stays. */
 @supports (x: attr(x type(*))) {
   .askai-welcome[user-name]:not([user-name=""]) {
     --bb-user-name: attr(user-name);
   }
   .askai-welcome[user-name]:not([user-name=""]) .askai-welcome-header__title::after {
-    content: "¿En qué estás pensando, " var(--bb-user-name) "?";
+    content: "Hola " var(--bb-user-name) ", ¿cómo puedo ayudarte hoy?";
   }
 }
 
@@ -7132,6 +7132,71 @@ label.hr-radio-button.ui-radio-group-item {
   padding: 16px 24px 28px !important;
   margin: -16px -24px -28px !important;
 }
+
+/* v1.4.13 (bug list from the team).
+   - Objetos, custom object banner: in narrow windows the text became a thin column beside
+     the button → the button wraps below the text, inside the card.
+   - Objetos › Contactos › Asociaciones: white info box with a fixed 68px height; its text
+     spilled below it and the "Crear una asociación" button overlapped the table title →
+     grows with its text (button wraps below when narrow), theme card, accent link.
+   - Objetos › Contactos › Personalice la vista: near-white page background and a flat dashed
+     "Añadir vista" tile → transparent page, sunken theme tile, radius lg on the cards.
+   - Integraciones privadas: the app was as wide as the whole window (100vw) but started after
+     the sidebar, so "Crear Nueva Integración" was past the right edge → fits its slot. */
+.custom-objects-list .bg-white.flex.ml-6 > .ui-header {
+  flex-wrap: wrap !important;
+  row-gap: 14px !important;
+}
+.custom-objects-list .bg-white.flex.ml-6 > .ui-header .header {
+  flex: 1 1 320px !important;
+}
+#CustomObjectAssociations .ui-header {
+  height: auto !important;
+  min-height: 68px !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 14px 24px !important;
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#CustomObjectAssociations .ui-header .header {
+  flex: 1 1 300px !important;
+  height: auto !important;
+  min-width: 0;
+}
+#CustomObjectAssociations .ui-header .ui-header-content {
+  flex: none;
+}
+#CustomObjectAssociations .ui-header a {
+  color: var(--bb-accent) !important;
+}
+.contact-views-page {
+  background: transparent !important;
+}
+.contact-views-page .add-view-tile {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-text) !important;
+}
+.contact-views-page .add-view-tile :is(svg, i) {
+  color: var(--bb-accent) !important;
+}
+.contact-views-page :is(.view-card, .add-view-tile),
+.contact-views-page > .rounded-lg {
+  border-radius: var(--bb-radius-lg) !important;
+}
+#private-integration-app,
+#private-integration-app > .hr-wrapper-container {
+  width: auto !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+section.w-full:has(#private-integration-app) {
+  min-width: 0 !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
@@ -9324,7 +9389,9 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 #tb_appointment-report > span.flex.items-center,
 #tb_audit-report > span.flex.items-center,
 #phone-system-app .learn-more-button .hr-button__content-default-slot,
-#service-card-voice .hr-button--outline-type .hr-button__content-default-slot {
+#service-card-voice .hr-button--outline-type .hr-button__content-default-slot,
+.hr-tabs-nav:has([data-name="contact-views"]) [data-name="customize-record-modal"] .tab-label-wrapper > p,
+[data-name="contact-views"] .tab-label-wrapper > p {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -9461,7 +9528,9 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 #tb_appointment-report > span.flex.items-center::after,
 #tb_audit-report > span.flex.items-center::after,
 #phone-system-app .learn-more-button .hr-button__content-default-slot::after,
-#service-card-voice .hr-button--outline-type .hr-button__content-default-slot::after {
+#service-card-voice .hr-button--outline-type .hr-button__content-default-slot::after,
+.hr-tabs-nav:has([data-name="contact-views"]) [data-name="customize-record-modal"] .tab-label-wrapper > p::after,
+[data-name="contact-views"] .tab-label-wrapper > p::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -9965,7 +10034,7 @@ body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner
   line-height: 15px;
 }
 .askai-welcome-header__title::after {
-  content: "¿En qué estás pensando?";
+  content: "Hola, ¿cómo puedo ayudarte hoy?";
   font-size: 28px;
   line-height: 34px;
 }
@@ -10151,6 +10220,16 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
 }
 #service-card-voice .hr-button--outline-type .hr-button__content-default-slot::after {
   content: "Iniciar registro";
+  font-size: 14px;
+  line-height: 20px;
+}
+.hr-tabs-nav:has([data-name="contact-views"]) [data-name="customize-record-modal"] .tab-label-wrapper > p::after {
+  content: "Personalizar campos para añadir contactos";
+  font-size: 14px;
+  line-height: 20px;
+}
+[data-name="contact-views"] .tab-label-wrapper > p::after {
+  content: "Personalice la vista de detalles del contacto";
   font-size: 14px;
   line-height: 20px;
 }
