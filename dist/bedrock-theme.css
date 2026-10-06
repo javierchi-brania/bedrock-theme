@@ -7239,6 +7239,145 @@ section.w-full:has(#private-integration-app) {
 body:has(#location-dashboard) .hr-base-select-menu {
   min-width: 220px !important;
 }
+
+/* v1.4.15 (Conversaciones bug list).
+   - Left menu ("Mi bandeja de entrada", "Visualizaciones") and the contact panel sections:
+     the platform hover paints the accordion header near-white → theme background.
+   - Task form, "Fecha de vencimiento": date, time and AM/PM squeezed in one row in the right
+     rail → date on its own row, time plus a 96px AM/PM select below.
+   - Citas/Documentos segment ("Próximo"/"Pasado"): the generic tab hover of the
+     conversations layer painted a square box on the non-active option → no box, accent text.
+   - Messages card: its parent clips overflow flush with the card, so the soft shadow was cut
+     at the top and left and the corner looked hard → clip with a margin for the shadow. */
+.hr-accordion__item.hr-collapse-item--hover-effect:hover {
+  background-color: var(--bb-bg) !important;
+}
+#task-due-date-time-form-item .flex.gap-2.items-center {
+  flex-wrap: wrap !important;
+  row-gap: 10px !important;
+}
+#task-due-date-time-form-item .flex.gap-2.items-center > .hr-datepicker__trigger-wrapper {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+}
+#task-due-date-time-form-item .flex.gap-2.items-center > .hr-datepicker__trigger-wrapper > * {
+  width: 100% !important;
+}
+#task-due-date-time-form-item .flex.gap-2.items-center > .hr-time-picker {
+  flex: 1 1 100% !important;
+}
+#task-due-date-time-form-item .hr-time-picker > .hr-input-group {
+  width: 100% !important;
+  gap: 8px;
+}
+#task-due-date-time-form-item .hr-time-picker .hr-input-container {
+  flex: 1 1 auto !important;
+}
+#task-due-date-time-form-item .hr-time-picker .hr-input-container > .hr-input {
+  width: 100% !important;
+}
+#task-due-date-time-form-item .hr-time-picker .hr-ampm-select-wrapper {
+  flex: 0 0 96px !important;
+  width: 96px !important;
+}
+#task-due-date-time-form-item .hr-time-picker .hr-ampm-select-wrapper > .hr-select {
+  width: 100% !important;
+}
+.hr-tabs-nav--segment-type .hr-tabs-tab:hover:not(.hr-tabs-tab--active) {
+  background: transparent !important;
+  color: var(--bb-accent) !important;
+}
+#conversations-central-panel-viewer {
+  overflow: clip !important;
+  overflow-clip-margin: 32px;
+}
+
+/* v1.4.15: Conversaciones in narrow windows. With the app menu, the inbox submenu, the list
+   and the right panel (Citas, Tareas, contact) all open, the messages column was ~150px wide
+   at 1280 and the text broke into a column of single words.
+   - The list and the right panel follow the window width (list 250–320px, right panel
+     300–352px; 300px keeps the task form inside it) and are unchanged from ~1680px up; a
+     right panel the user narrowed or collapsed keeps its own width.
+   - Up to 1440px: tighter gaps between columns, list rows and submenu; the Citas/Tareas
+     header keeps its close button inside. Up to 1680px the conversation actions (filter,
+     call, star, mail, trash) sit closer together, leaving room for the contact name.
+   - The task form's "Objetos asociados" header wraps "Asociar a" below when narrow.
+   - The submenu accordion titles cut with an ellipsis instead of pushing the chevron out.
+   - Messages header too narrow for a readable contact name (≤290px): avatar and name hide
+     instead of showing a sliver of the avatar or a single letter. */
+#conversations-list.conversation-list-root {
+  width: clamp(250px, 19vw, 320px) !important;
+  min-width: 0 !important;
+}
+#conversations-contact-details {
+  width: min(var(--right-panel-width), clamp(300px, 21vw, 352px)) !important;
+  min-width: min(var(--right-panel-width), clamp(300px, 21vw, 352px)) !important;
+}
+.inbox-panel .hr-collapse-item__header-main {
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+}
+.inbox-panel .hr-collapse-item__header-main * {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.associations__header {
+  flex-wrap: wrap !important;
+  row-gap: 6px !important;
+}
+#conversations-messages > div > div > .border-b {
+  container-type: inline-size;
+}
+@container (max-width: 290px) {
+  #conversations-messages .border-b > .flex-1.min-w-0:first-child {
+    display: none !important;
+  }
+}
+@media (max-width: 1440px) {
+  #conversations-panel {
+    gap: 10px !important;
+  }
+  #conversations-messages {
+    padding-right: 6px !important;
+  }
+  #conversations-right-column > #conversations-contact-details {
+    margin-left: 8px !important;
+  }
+  #conversations-layout > .inbox-panel.expanded {
+    width: 176px !important;
+    min-width: 0 !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  #conversations-list .flex.flex-col.w-full.h-full.px-3,
+  #conversations-list .cursor-pointer.p-3 {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  #conversations-contact-details .flex.items-center.justify-between.px-3 {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+@media (max-width: 1680px) {
+  #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 {
+    gap: 2px !important;
+  }
+  #conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 [role="button"] {
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+  }
+}
+@media (max-width: 1320px) {
+  #conversations-messages > div > div > .border-b {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
@@ -9433,7 +9572,8 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 #phone-system-app .learn-more-button .hr-button__content-default-slot,
 #service-card-voice .hr-button--outline-type .hr-button__content-default-slot,
 .hr-tabs-nav:has([data-name="contact-views"]) [data-name="customize-record-modal"] .tab-label-wrapper > p,
-[data-name="contact-views"] .tab-label-wrapper > p {
+[data-name="contact-views"] .tab-label-wrapper > p,
+.associations .space-y-1\.5:has([id^="contact-"]) > p {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -9572,7 +9712,8 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 #phone-system-app .learn-more-button .hr-button__content-default-slot::after,
 #service-card-voice .hr-button--outline-type .hr-button__content-default-slot::after,
 .hr-tabs-nav:has([data-name="contact-views"]) [data-name="customize-record-modal"] .tab-label-wrapper > p::after,
-[data-name="contact-views"] .tab-label-wrapper > p::after {
+[data-name="contact-views"] .tab-label-wrapper > p::after,
+.associations .space-y-1\.5:has([id^="contact-"]) > p::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -10274,4 +10415,9 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
   content: "Personalice la vista de detalles del contacto";
   font-size: 14px;
   line-height: 20px;
+}
+.associations .space-y-1\.5:has([id^="contact-"]) > p::after {
+  content: "Contactos";
+  font-size: 14px;
+  line-height: 21px;
 }
