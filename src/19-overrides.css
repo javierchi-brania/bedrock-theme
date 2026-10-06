@@ -1388,11 +1388,11 @@ body:has(#location-dashboard) .hr-base-select-menu {
    and the right panel (Citas, Tareas, contact) all open, the messages column was ~150px wide
    at 1280 and the text broke into a column of single words.
    - The list and the right panel follow the window width (list 250–320px, right panel
-     300–352px; 300px keeps the task form inside it) and are unchanged from ~1680px up; a
-     right panel the user narrowed or collapsed keeps its own width.
-   - Up to 1440px: tighter gaps between columns, list rows and submenu; the Citas/Tareas
-     header keeps its close button inside. Up to 1680px the conversation actions (filter,
-     call, star, mail, trash) sit closer together, leaving room for the contact name.
+     330–352px since v1.4.19 so the contact details fit; the task form needs 300px) and are
+     unchanged from ~1600px up; a right panel the user narrowed or collapsed keeps its own
+     width.
+   - Up to 1440px: tighter list rows and submenu; the Citas/Tareas header keeps its close
+     button inside. (Column gaps and the conversation action buttons: see v1.4.19.)
    - The task form's "Objetos asociados" header wraps "Asociar a" below when narrow.
    - The submenu accordion titles cut with an ellipsis instead of pushing the chevron out.
    - Messages header too narrow for a readable contact name (≤290px): avatar and name hide
@@ -1402,8 +1402,8 @@ body:has(#location-dashboard) .hr-base-select-menu {
   min-width: 0 !important;
 }
 #conversations-contact-details {
-  width: min(var(--right-panel-width), clamp(300px, 21vw, 352px)) !important;
-  min-width: min(var(--right-panel-width), clamp(300px, 21vw, 352px)) !important;
+  width: min(var(--right-panel-width), clamp(330px, 22vw, 352px)) !important;
+  min-width: min(var(--right-panel-width), clamp(330px, 22vw, 352px)) !important;
 }
 .inbox-panel .hr-collapse-item__header-main {
   min-width: 0 !important;
@@ -1430,15 +1430,6 @@ body:has(#location-dashboard) .hr-base-select-menu {
   }
 }
 @media (max-width: 1440px) {
-  #conversations-panel {
-    gap: 10px !important;
-  }
-  #conversations-messages {
-    padding-right: 6px !important;
-  }
-  #conversations-right-column > #conversations-contact-details {
-    margin-left: 8px !important;
-  }
   #conversations-layout > .inbox-panel.expanded {
     width: 176px !important;
     min-width: 0 !important;
@@ -1453,15 +1444,6 @@ body:has(#location-dashboard) .hr-base-select-menu {
   #conversations-contact-details .flex.items-center.justify-between.px-3 {
     padding-left: 12px !important;
     padding-right: 12px !important;
-  }
-}
-@media (max-width: 1680px) {
-  #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 {
-    gap: 2px !important;
-  }
-  #conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 [role="button"] {
-    padding-left: 3px !important;
-    padding-right: 3px !important;
   }
 }
 @media (max-width: 1320px) {
@@ -1799,4 +1781,79 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
    team's request. Its page still opens from a direct link; only the menu entry goes. */
 #sb_launchpad {
   display: none !important;
+}
+
+/* v1.4.19 (Conversaciones, team list).
+   - Column gaps: 28px between list and messages and 40px between messages and the right
+     panel (side paddings added in layers) → 20px each at every width; the right panel's
+     icon column 52 → 44px. The space goes to the cards.
+   - Shadows: the list and the right panel sat in a box that cut anything 20px above them,
+     so their top light was clipped while the messages card (v1.4.15) showed it whole → the
+     box clips with a margin, all three cards look the same.
+   - Conversation actions (filter, call, star, mail, trash): 24px icons on bare 30×34
+     hit areas → 28px round theme buttons with 16px icons, like the inbox submenu buttons.
+   - Contact details in narrow windows: the card was 226px wide and "Seguidores", the tabs
+     and the phone row ran past it → right panel at least 330px, thinner side padding (card
+     ~272px at 1420), and "Propietario"/"Seguidores" stack when they do not fit side by side. */
+#conversations-layout {
+  overflow: clip !important;
+  overflow-clip-margin: 32px;
+}
+#conversations-panel {
+  gap: 8px !important;
+}
+#conversations-new-app #conversations-messages {
+  padding-right: 4px !important;
+}
+#conversations-right-column > #conversations-contact-details {
+  margin-left: 0 !important;
+}
+#conversations-contact-details .h-full.w-full.min-w-0.flex > .flex-1.min-w-0.h-full.relative {
+  padding-left: 4px !important;
+  padding-right: 10px !important;
+}
+#conversations-contact-details .h-full.w-full.min-w-0.flex > [class*="min-w-[52px]"] {
+  width: 44px !important;
+  min-width: 44px !important;
+  max-width: 44px !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+}
+#conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 {
+  gap: 8px !important;
+}
+#conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 [role="button"] {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 #chat-filter {
+  width: auto !important;
+  padding: 0 8px !important;
+  border-radius: 999px !important;
+  gap: 2px !important;
+}
+#conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 [role="button"] :is(svg, img) {
+  width: 16px !important;
+  height: 16px !important;
+}
+#conversations-contact-details .flex.gap-3.items-start:has(> .flex-1.space-y-1) {
+  flex-wrap: wrap !important;
+  row-gap: 10px !important;
+}
+#conversations-contact-details .flex.gap-3.items-start > .flex-1.space-y-1 {
+  flex: 1 1 auto !important;
+  min-width: auto !important;
+}
+@media (max-width: 1440px) {
+  #conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 {
+    gap: 6px !important;
+  }
 }
