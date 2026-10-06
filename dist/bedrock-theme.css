@@ -7779,6 +7779,28 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
 #conversations-new-app #conversations-contact-details .bg-contacts-panel {
   box-shadow: var(--bb-shadow-panel) !important;
 }
+/* Right panel views (checked all ten: Contacto, Actividad, Asociaciones, Oportunidades,
+   Tareas, Notas, Citas, Documentos, Pagos, registros del agente) at 1420 and 1920:
+   - Asociaciones: "Asociaciones" + "Gestionar asociaciones" + close did not fit in one row
+     and the button ran past the card (even at 1920) → the actions wrap to a second row.
+   - Pagos: the Transacciones/Suscripciones tables kept 405px of column minimums and
+     scrolled sideways inside the card → they take the card's width. */
+#conversations-contact-details .bg-contacts-panel .flex.items-center.justify-between.px-3 {
+  flex-wrap: wrap !important;
+  row-gap: 8px !important;
+  column-gap: 8px !important;
+}
+#conversations-contact-details .bg-contacts-panel .flex.items-center.justify-between.px-3 > :last-child {
+  margin-left: auto !important;
+}
+#conversations-contact-details .bg-contacts-panel .n-data-table .n-data-table-table {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+#conversations-contact-details .bg-contacts-panel .n-data-table col {
+  min-width: 0 !important;
+  width: auto !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }

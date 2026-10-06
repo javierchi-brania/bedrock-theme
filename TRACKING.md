@@ -57,7 +57,7 @@ publish is in [README.md](README.md).
 | v1.4.17 | fix | Oportunidades name hover, Pronóstico palette and table, Pagos tabs on two rows, Plantillas card, table header padding, Crear cupones, radio dot | live |
 | v1.4.18 | feat | "Panel" (launchpad) hidden from the left menu | live |
 | v1.4.19 | fix | Conversaciones: 20px column gaps, equal card shadows, 28px action buttons, contact details fit in narrow windows | live |
-| v1.4.20 | fix | Conversaciones columns: new --bb-shadow-panel token, softer top-left light (no white border) | in review |
+| v1.4.20 | fix | Conversaciones columns: new --bb-shadow-panel token, softer top-left light (no white border); right panel Asociaciones header and Pagos tables fit | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -184,6 +184,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | Change | Where | Verified |
 |---|---|---|
 | With the whole shadow visible (v1.4.19), the raised top-left light read as a white border around the tall column cards, most of all the right panel → new token --bb-shadow-panel (same drop, light 55% / 6px / 16px) on the list, messages and right panel cards | Conversaciones | capture before/after |
+| Right panel, all ten views checked at 1420 and 1920: Asociaciones header ("Gestionar asociaciones" past the card, even at 1920) → actions wrap to a second row; Pagos tables scrolled sideways → card width | Right panel › Asociaciones, Pagos | 1420 frame and 1920: nothing past the card, no sideways scroll |
 
 ### v1.4.19 (published, live): Conversaciones
 
