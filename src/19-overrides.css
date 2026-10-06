@@ -1980,14 +1980,24 @@ div:has(> .hr-select-wrapper > #manual-actions-workflow-campaign-select) {
 #conversations-contact-details .hr-collapse-item__header .hr-button:has(svg) .hr-button__content > p.hr-text {
   display: none !important;
 }
-#conversations-contact-details .hr-collapse-item__header .hr-button:has(svg) {
+/* the icon keeps a 6px right margin meant for its label and a 30px min height comes from
+   a more specific rule → no margin, 28px circle, icon centred */
+#conversations-new-app #conversations-contact-details .hr-collapse-item__header .hr-button.hr-button:has(svg) {
   width: 28px !important;
   height: 28px !important;
   min-width: 28px !important;
+  min-height: 28px !important;
   padding: 0 !important;
   border-radius: 50% !important;
   justify-content: center !important;
+  align-items: center !important;
 }
-#conversations-contact-details .hr-collapse-item__header .hr-button:has(svg) .hr-button__content {
-  gap: 0 !important;
+#conversations-new-app #conversations-contact-details .hr-collapse-item__header .hr-button:has(svg) .hr-icon-inner {
+  margin: 0 !important;
+}
+#conversations-new-app #conversations-contact-details .hr-collapse-item__header .hr-button:has(svg) > .hr-button__content {
+  width: auto !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
