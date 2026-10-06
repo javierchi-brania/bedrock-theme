@@ -2087,3 +2087,82 @@ div:has(> .hr-select-wrapper > #manual-actions-workflow-campaign-select) {
   margin-left: 6px !important;
   margin-right: 6px !important;
 }
+
+/* ===== v1.4.23 Pagos: whole card shadows, Cajas abandonadas ===== */
+/* Plantillas (Público certificado, Biblioteca de contenido) and Documentos y contratos:
+   the app is sized wider than the space left by the menu, so the wrapper cut its right
+   side and the table card shadow (white edge on the background). */
+#ProposalEstimatesTemplateListApp,
+#ProposalEstimatesListApp {
+  width: auto !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+:is(#ProposalEstimatesTemplateListApp, #ProposalEstimatesListApp) .table-container {
+  box-shadow: var(--bb-shadow-panel) !important;
+}
+:is(#ProposalEstimatesTemplateListApp, #ProposalEstimatesListApp) .n-tabs-pane-wrapper:has(.table-container) {
+  overflow: visible !important;
+}
+/* Product pages (Inventario...): the platform wraps title and table in its own lighter
+   grey, a pale rectangle on the theme background. */
+body:has(header .topmenu-nav a[href*="/payments/"]) .hr-wrapper-container > .hr-config-provider > .mx-auto {
+  background: transparent !important;
+}
+/* Product pages (Inventario, Colecciones): the table card sat 12-16px from a clipping
+   wrapper, side shadows cut. Title and card move in together. */
+body:has(header .topmenu-nav a[href*="/payments/"]) .hr-wrapper-container > .hr-config-provider > .mx-auto:has(.hr-data-table-wrapper) {
+  padding: 0 16px 30px !important;
+}
+/* Enlaces de pago: header and card reached the window edge, right shadow cut. */
+#paymentlinksDashboardApp .hl-wrapper-container > .n-config-provider > .mx-auto {
+  padding: 0 18px 30px !important;
+}
+/* Cajas abandonadas: header and table sat in two white boxes, the table was wider than
+   its box (last columns cut) and the illustration kept the platform blue. Now one card
+   like Pedidos, headers fit, title/buttons sized like Pedidos, illustration in teal. */
+.list-page-root > .page-header {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+.abandoned-checkouts > .table-canvas {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+}
+#abandonedCheckouts.hr-data-table {
+  width: 100% !important;
+}
+#abandonedCheckouts .hr-data-table__cell-header {
+  min-width: 0 !important;
+}
+#abandonedCheckouts .hr-data-table__cell-header .hr-text {
+  font-size: 13px !important;
+}
+.abandoned-checkouts .table-canvas :is(img, svg):not(.hr-data-table__cell-header *) {
+  filter: hue-rotate(-30deg) saturate(.55);
+}
+.list-page-root:has(> .abandoned-checkouts) {
+  padding: 0 14px 14px !important;
+  box-sizing: border-box !important;
+}
+.list-page-root:has(.abandoned-checkouts) .page-header {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+.list-page-root:has(.abandoned-checkouts) .page-header__title .hr-text-2xl {
+  font-size: 30px !important;
+  line-height: 38px !important;
+  font-weight: 500 !important;
+}
+.list-page-root:has(.abandoned-checkouts) .page-header__title p:not(.hr-text-2xl) {
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+.list-page-root:has(.abandoned-checkouts) .page-header .hr-button .hr-text {
+  font-size: 14px !important;
+}
