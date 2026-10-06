@@ -52,7 +52,7 @@ publish is in [README.md](README.md).
 | v1.4.12 | fix | Configuración: Usuarios, Servicios de correo, Sistema telefónico; Automatización scaling | live |
 | v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | live |
 | v1.4.14 | fix | Acciones rápidas theme, data table footers (pager not cut), dashboard filter menus wider | live |
-| v1.4.15 | fix | Conversaciones: menu hover white, task due date/time layout, segment tab hover box, messages card corner | in review |
+| v1.4.15 | fix | Conversaciones: menu hover white, task due date/time layout, segment tab hover box, messages card corner, narrow-window column widths | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -182,6 +182,8 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | Bug 2: task "Fecha de vencimiento" date, time and AM/PM squeezed in one row → date full width, time + 96px AM/PM below | Conversaciones › contact rail › Tareas › Añadir | 1920px rail capture |
 | Bug 3: square box on hover over "Próximo"/"Pasado" (conversations tab hover rule) → no box, accent text | Citas / Documentos panel | hover "Pasado": bg transparent |
 | Bug 4: messages card corner looked hard: parent overflow clipped the soft shadow flush → overflow clip with 32px margin | Conversaciones, messages card | capture |
+| Narrow windows: at 1280 with submenu and right panel open the messages column was ~150px (one word per line) → list 250–320px and right panel 300–352px follow the window width; up to 1440 tighter gaps, rows, submenu and header actions; avatar/name hide when the header is too narrow | Conversaciones | 1278px: messages 246px, header and Tareas header inside; 1440 (frame): messages 356px; 1920 unchanged |
+| Task form at narrow right panel: "Objetos asociados" header wraps "Asociar a" | Conversaciones › Tareas › Añadir | 1278px: form fits, no horizontal scroll |
 
 ### v1.4.14 (published, live): team bug list 2
 

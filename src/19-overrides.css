@@ -1383,3 +1383,88 @@ body:has(#location-dashboard) .hr-base-select-menu {
   overflow: clip !important;
   overflow-clip-margin: 32px;
 }
+
+/* v1.4.15: Conversaciones in narrow windows. With the app menu, the inbox submenu, the list
+   and the right panel (Citas, Tareas, contact) all open, the messages column was ~150px wide
+   at 1280 and the text broke into a column of single words.
+   - The list and the right panel follow the window width (list 250–320px, right panel
+     300–352px; 300px keeps the task form inside it) and are unchanged from ~1680px up; a
+     right panel the user narrowed or collapsed keeps its own width.
+   - Up to 1440px: tighter gaps between columns, list rows and submenu; the conversation
+     actions (filter, call, star, mail, trash) closer together; the Citas/Tareas header keeps
+     its close button inside.
+   - The task form's "Objetos asociados" header wraps "Asociar a" below when narrow.
+   - The submenu accordion titles cut with an ellipsis instead of pushing the chevron out.
+   - Messages header too narrow for the contact avatar and name (≤250px): they hide instead
+     of showing a sliver of the avatar. */
+#conversations-list.conversation-list-root {
+  width: clamp(250px, 19vw, 320px) !important;
+  min-width: 0 !important;
+}
+#conversations-contact-details {
+  width: min(var(--right-panel-width), clamp(300px, 21vw, 352px)) !important;
+  min-width: min(var(--right-panel-width), clamp(300px, 21vw, 352px)) !important;
+}
+.inbox-panel .hr-collapse-item__header-main {
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+}
+.inbox-panel .hr-collapse-item__header-main * {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.associations__header {
+  flex-wrap: wrap !important;
+  row-gap: 6px !important;
+}
+#conversations-messages > div > div > .border-b {
+  container-type: inline-size;
+}
+@container (max-width: 250px) {
+  #conversations-messages .border-b > .flex-1.min-w-0:first-child {
+    display: none !important;
+  }
+}
+@media (max-width: 1440px) {
+  #conversations-panel {
+    gap: 10px !important;
+  }
+  #conversations-messages {
+    padding-right: 6px !important;
+  }
+  #conversations-right-column > #conversations-contact-details {
+    margin-left: 8px !important;
+  }
+  #conversations-layout > .inbox-panel.expanded {
+    width: 176px !important;
+    min-width: 0 !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+  #conversations-list .flex.flex-col.w-full.h-full.px-3,
+  #conversations-list .cursor-pointer.p-3 {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 {
+    gap: 2px !important;
+  }
+  #conversations-new-app #conversations-messages .border-b > .flex.items-center.gap-4.flex-shrink-0 [role="button"] {
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+  }
+  #conversations-contact-details .flex.items-center.justify-between.px-3 {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+@media (max-width: 1320px) {
+  #conversations-messages > div > div > .border-b {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
