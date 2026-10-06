@@ -2166,3 +2166,131 @@ body:has(header .topmenu-nav a[href*="/payments/"]) .hr-wrapper-container > .hr-
 .list-page-root:has(.abandoned-checkouts) .page-header .hr-button .hr-text {
   font-size: 14px !important;
 }
+
+/* ===== v1.4.24 Ask BRANIA labels, no help panel, header translate icon, Calendar AI ===== */
+/* Ayuda y asistencia: the team asked to remove it (it shows the provider's support,
+   courses and bot). The "?" button and the drawer are hidden. */
+#hl_header--help-icon,
+.help-drawer-container {
+  display: none !important;
+}
+/* Roles y permisos side menu: "Agentes de BRANIA" is 9px wider than its truncated box,
+   and the ellipsis hid the whole drawn label. It may use the button padding instead. */
+#user-edit-module-nav-AI_AGENTS .truncate {
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+/* Header translate button: its icon kept the platform violet next to the Brania icons. */
+#i18n-feedback .feedback-toggle-btn {
+  border-color: transparent !important;
+}
+#i18n-feedback .feedback-toggle-icon-bg {
+  background: transparent !important;
+}
+#i18n-feedback .feedback-toggle-icon,
+#i18n-feedback .feedback-toggle-icon path {
+  color: var(--bb-accent) !important;
+  stroke: var(--bb-accent) !important;
+}
+/* Ask BRANIA setup banner: the headline label is drawn with ::after, so the line becomes
+   a flex row to keep the "NUEVO" badge after the text. */
+.ai-usage-banner--setup .ai-usage-banner__headline {
+  display: inline-flex !important;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* Calendar AI drawer: it sat under the top bar (title and close hidden), white with the
+   platform violet and font. Now above the bar, Brania background, type and accent. */
+.cal-ai-sidebar {
+  z-index: 1300 !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-drawer) !important;
+  border-radius: var(--bb-radius-xl) 0 0 var(--bb-radius-xl) !important;
+  overflow: hidden !important;
+}
+.cal-ai-sidebar,
+.cal-ai-sidebar :not(svg, svg *) {
+  font-family: var(--bb-font) !important;
+}
+.cal-ai-sidebar__header {
+  border-bottom: 1px solid var(--bb-divider) !important;
+  padding-left: 10px;
+}
+.cal-ai-sidebar__header .text-md.font-semibold {
+  color: var(--bb-text-strong) !important;
+}
+.cal-ai-sidebar__header button {
+  color: var(--bb-text-muted) !important;
+  border-radius: 50% !important;
+}
+.cal-ai-sidebar__header button:hover {
+  background: var(--bb-bg-hover) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.cal-ai-sidebar .hr-tag--purple {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: var(--bb-accent) !important;
+}
+.cal-ai-sidebar .hr-tag--purple * {
+  color: var(--bb-accent) !important;
+}
+.cal-ai-sidebar__header .hr-tag--purple {
+  border: 1px solid var(--bb-accent-200) !important;
+  border-radius: 999px !important;
+}
+.cal-ai-sidebar .chat-markdown,
+.cal-ai-sidebar .chat-markdown * {
+  color: var(--bb-text) !important;
+}
+.cal-ai-sidebar button:has(> .min-w-0.flex-1 > [class*="text-[#5925DC]"]) {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  margin: 4px 0 8px !important;
+}
+.cal-ai-sidebar button:has(> .min-w-0.flex-1 > [class*="text-[#5925DC]"]) > span:first-child {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+  border-radius: 50% !important;
+}
+.cal-ai-sidebar [class*="text-[#5925DC]"],
+.cal-ai-sidebar [class*="text-[#7a5af8]"] {
+  color: var(--bb-accent) !important;
+}
+.cal-ai-sidebar .chat-input-field-wrap {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-md) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+.cal-ai-sidebar .chat-input-field-wrap textarea {
+  color: var(--bb-text) !important;
+}
+.cal-ai-sidebar .chat-input-field-wrap button {
+  background: var(--bb-accent) !important;
+  color: var(--bb-white) !important;
+  border-radius: 50% !important;
+}
+/* "Ask anything about calendars." is a placeholder (no CSS label): hidden, and the Spanish
+   text drawn over the empty field. */
+.cal-ai-sidebar .chat-input-field-wrap textarea::placeholder {
+  color: transparent !important;
+}
+.cal-ai-sidebar .chat-input-field-wrap:has(textarea:placeholder-shown)::before {
+  content: "Pregunta lo que quieras sobre calendarios";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--bb-text-muted);
+  pointer-events: none;
+}
+/* Edge tab that opens it: violet gradient → accent. */
+.calendar-ai-edge-tab {
+  background-image: linear-gradient(var(--bb-accent-400), var(--bb-accent-dark)) !important;
+  box-shadow: -2px 2px 8px var(--bb-accent-glow) !important;
+}
