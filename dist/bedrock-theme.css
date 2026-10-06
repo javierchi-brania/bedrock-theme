@@ -7239,6 +7239,58 @@ section.w-full:has(#private-integration-app) {
 body:has(#location-dashboard) .hr-base-select-menu {
   min-width: 220px !important;
 }
+
+/* v1.4.15 (Conversaciones bug list).
+   - Left menu ("Mi bandeja de entrada", "Visualizaciones") and the contact panel sections:
+     the platform hover paints the accordion header near-white → theme background.
+   - Task form, "Fecha de vencimiento": date, time and AM/PM squeezed in one row in the right
+     rail → date on its own row, time plus a 96px AM/PM select below.
+   - Citas/Documentos segment ("Próximo"/"Pasado"): the generic tab hover of the
+     conversations layer painted a square box on the non-active option → no box, accent text.
+   - Messages card: its parent clips overflow flush with the card, so the soft shadow was cut
+     at the top and left and the corner looked hard → clip with a margin for the shadow. */
+.hr-accordion__item.hr-collapse-item--hover-effect:hover {
+  background-color: var(--bb-bg) !important;
+}
+#task-due-date-time-form-item .flex.gap-2.items-center {
+  flex-wrap: wrap !important;
+  row-gap: 10px !important;
+}
+#task-due-date-time-form-item .flex.gap-2.items-center > .hr-datepicker__trigger-wrapper {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+}
+#task-due-date-time-form-item .flex.gap-2.items-center > .hr-datepicker__trigger-wrapper > * {
+  width: 100% !important;
+}
+#task-due-date-time-form-item .flex.gap-2.items-center > .hr-time-picker {
+  flex: 1 1 100% !important;
+}
+#task-due-date-time-form-item .hr-time-picker > .hr-input-group {
+  width: 100% !important;
+  gap: 8px;
+}
+#task-due-date-time-form-item .hr-time-picker .hr-input-container {
+  flex: 1 1 auto !important;
+}
+#task-due-date-time-form-item .hr-time-picker .hr-input-container > .hr-input {
+  width: 100% !important;
+}
+#task-due-date-time-form-item .hr-time-picker .hr-ampm-select-wrapper {
+  flex: 0 0 96px !important;
+  width: 96px !important;
+}
+#task-due-date-time-form-item .hr-time-picker .hr-ampm-select-wrapper > .hr-select {
+  width: 100% !important;
+}
+.hr-tabs-nav--segment-type .hr-tabs-tab:hover:not(.hr-tabs-tab--active) {
+  background: transparent !important;
+  color: var(--bb-accent) !important;
+}
+#conversations-central-panel-viewer {
+  overflow: clip !important;
+  overflow-clip-margin: 32px;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }

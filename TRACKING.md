@@ -4,8 +4,8 @@ Status of the Bedrock theme: section refactors, design fixes and open findings.
 Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
-**Live in the platform:** `v1.4.13` (2026-10-06).
-**In progress:** nothing open; `v1.4.14` published (team bug list 2).
+**Live in the platform:** `v1.4.14` (2026-10-05).
+**In progress:** `v1.4.15` (Conversaciones bug list) in review.
 
 ## Releases
 
@@ -51,7 +51,8 @@ publish is in [README.md](README.md).
 | v1.4.11 | fix | Informes: every tab below the header and within the screen, short tab names, leaderboard readable, theme fields and buttons, filter rails, Citas cards, audit card, chart colors | live |
 | v1.4.12 | fix | Configuración: Usuarios, Servicios de correo, Sistema telefónico; Automatización scaling | live |
 | v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | live |
-| v1.4.14 | fix | Acciones rápidas theme, data table footers (pager not cut), dashboard filter menus wider | published |
+| v1.4.14 | fix | Acciones rápidas theme, data table footers (pager not cut), dashboard filter menus wider | live |
+| v1.4.15 | fix | Conversaciones: menu hover white, task due date/time layout, segment tab hover box, messages card corner | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -173,7 +174,16 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.14 (published): team bug list 2
+### v1.4.15 (in review): Conversaciones bug list
+
+| Change | Where | Verified |
+|---|---|---|
+| Bug 1: "Mi bandeja de entrada" / "Visualizaciones" turned near-white on hover (platform accordion hover) → theme background; same fix on the contact panel sections | Conversaciones, left menu | computed hover bg |
+| Bug 2: task "Fecha de vencimiento" date, time and AM/PM squeezed in one row → date full width, time + 96px AM/PM below | Conversaciones › contact rail › Tareas › Añadir | 1920px rail capture |
+| Bug 3: square box on hover over "Próximo"/"Pasado" (conversations tab hover rule) → no box, accent text | Citas / Documentos panel | hover "Pasado": bg transparent |
+| Bug 4: messages card corner looked hard: parent overflow clipped the soft shadow flush → overflow clip with 32px margin | Conversaciones, messages card | capture |
+
+### v1.4.14 (published, live): team bug list 2
 
 | Change | Where | Verified |
 |---|---|---|
