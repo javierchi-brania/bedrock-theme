@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.14` (2026-10-05).
-**In progress:** `v1.4.15` (Conversaciones bug list) in review.
+**In progress:** nothing open; `v1.4.15` published (Conversaciones bug list).
 
 ## Releases
 
@@ -52,7 +52,7 @@ publish is in [README.md](README.md).
 | v1.4.12 | fix | Configuración: Usuarios, Servicios de correo, Sistema telefónico; Automatización scaling | live |
 | v1.4.13 | fix | Team bug list: Objetos banner wrap, Asociaciones box, Contact views tiles, Integraciones privadas width, assistant greeting "Hola <nombre>, ¿cómo puedo ayudarte hoy?" | live |
 | v1.4.14 | fix | Acciones rápidas theme, data table footers (pager not cut), dashboard filter menus wider | live |
-| v1.4.15 | fix | Conversaciones: menu hover white, task due date/time layout, segment tab hover box, messages card corner, narrow-window column widths | in review |
+| v1.4.15 | fix | Conversaciones: menu hover white, task due date/time layout, segment tab hover box, messages card corner, narrow-window column widths, "Contactos" label | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -174,7 +174,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.15 (in review): Conversaciones bug list
+### v1.4.15 (published): Conversaciones bug list
 
 | Change | Where | Verified |
 |---|---|---|
