@@ -8365,6 +8365,236 @@ td.data-table__no-data > .w-full {
   width: 100cqw !important;
   max-width: 100cqw;
 }
+
+/* ===== v1.4.27 Sweep: Agentes de IA, Automatización, Sitios, Membresías, Multimedia,
+   Reputación, Informes, Aplicaciones (checked at 1366px) ===== */
+/* Platform rule `.sidebar-v2-location .hl_wrapper--inner { width: calc(dock - 14rem) }`
+   leaves out the 18px side padding the theme gives the page box, so every such page was
+   42px wider than its box and showed a horizontal scrollbar (Sitios, Membresías,
+   Agentes de IA › Plantillas...). */
+.sidebar-v2-location .hl_topbar-tabs > .hl_wrapper--inner {
+  width: 100% !important;
+}
+/* Sitios tabs ("Códigos QR" cut below ~1480px) wrap like Marketing and Pagos. */
+header.hl_header:has(.topmenu-nav a[href*="/funnels-websites/"]) .topmenu-nav {
+  flex-wrap: wrap !important;
+  row-gap: 6px !important;
+  overflow-x: visible !important;
+}
+@media (max-width: 1480px) {
+  body:has(header.hl_header .topmenu-nav a[href*="/funnels-websites/"]) .hl_topbar-tabs {
+    border-top: 32px solid transparent !important;
+  }
+}
+/* Sitios lists (Embudos, Sitios web, Tiendas, Seminarios web, Formularios, Encuestas): the
+   table card sat inside the raised page card and a 4px clipping box cut it flat on the
+   right and bottom → it joins the outer card. "Crear con AI" sparkle in the platform
+   violet → accent tone. */
+.rounded-xl.shadow-sm > .min-h-0.overflow-hidden > .hr-data-table-wrapper {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+button[id^="create-"][id$="-ai-button"] img {
+  filter: hue-rotate(-85deg) saturate(.6);
+}
+/* Aplicaciones: page section and sticky pager in the platform near-white; app cards flush
+   with their scroll box (shadow cut left/top) → theme background, soft cards with room. */
+section:has(.crm-marketplace-app-details-card) {
+  background: transparent !important;
+}
+section:has(.crm-marketplace-app-details-card) .pagination-wrapper {
+  background: var(--bb-bg) !important;
+}
+.apps-wrapper > .overflow-y-scroll {
+  padding: 14px 18px 24px 16px !important;
+  margin: -14px 0 0 -16px !important;
+}
+.apps-wrapper .crm-marketplace-app-details-card.crm-marketplace-app-details-card {
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+/* Informes › Personalizados: empty-state illustration in the platform blue → accent tone.
+   Agentes: card titles with line-height = font-size, so the wrapped select under
+   "Conversiones" overlapped it; Agentes and Meta Ads: first row flush with the scroll box. */
+#location-custom-reports img[src^="data:image/svg+xml"] {
+  filter: hue-rotate(-30deg) saturate(.55);
+}
+#reporting-agent-dashboard .card-header h2 {
+  line-height: 1.3 !important;
+}
+#reporting-agent-dashboard .card-header > .flex-wrap.d-flex {
+  row-gap: 10px;
+}
+:is(#reporting-agent-dashboard, #reporting-facebook-dashboard).hl_wrapper--inner {
+  padding-top: 14px !important;
+}
+/* Reputación:
+   - Reseñas: review cards and the AI summary card flush with their scroll boxes (left and
+     top cut) → room and soft shadows; "Resumen de AI" violet gradient text → accent.
+   - Testimonios en vídeo and Configuración: cards flush with the scroll box inside a
+     clipping tab pane → inner room, soft shadows.
+   - Widgets: segment tabs on a near-white bar with no side padding ("Widgets
+     guardadosPlantillas").
+   - Configuración: the agents table was cut at the right with no scroll. */
+.col-span-3 > .overflow-y-auto.overflow-x-hidden:has(> .mb-6.ui-card) {
+  padding: 14px 18px 20px 16px !important;
+  margin: -14px -18px 0 -16px !important;
+}
+.overflow-y-auto.pr-3:has(> .h-fit.rounded-lg > .m-0.h-fit.rounded-lg.ui-card) {
+  padding: 14px 18px 20px 16px !important;
+  margin: -14px 0 0 -16px !important;
+}
+.col-span-3 > .overflow-y-auto > .mb-6.ui-card,
+.h-fit.rounded-lg > .m-0.h-fit.rounded-lg.ui-card {
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.h-fit.rounded-lg > .m-0.h-fit.rounded-lg.ui-card span.text-sm.font-medium {
+  background-image: none !important;
+  -webkit-text-fill-color: var(--bb-accent) !important;
+  color: var(--bb-accent) !important;
+}
+body:has(header .topmenu-nav a[href*="/reputation/"]) .hr-tab-pane > .w-full.overflow-y-auto:has(.ui-card) {
+  padding: 14px 18px 24px 16px !important;
+}
+body:has(header .topmenu-nav a[href*="/reputation/"]) .hr-tab-pane > .w-full.overflow-y-auto .ui-card {
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+body:has(header .topmenu-nav a[href*="/reputation/"]) .hr-tabs--segment-type > .hr-tabs-nav--segment-type {
+  background: transparent !important;
+}
+body:has(header .topmenu-nav a[href*="/reputation/"]) .hr-tabs--segment-type .hr-tabs-tab {
+  padding: 6px 14px !important;
+}
+#reputation-settings-container .hr-data-table-wrapper > .hr-data-table-base-table {
+  overflow-x: auto !important;
+}
+/* Membresías:
+   - Cursos › Ofertas: white module and a header flush with the window edge.
+   - Gokollab Marketplace: violet artwork banner (subtitle dark on violet, unreadable),
+     white option cards with blue text, violet "Crear" → Brania banner, cards and button.
+   - Naive inputs: "https://" / domain addons in white (Comunidades › dominio).
+   - Naive info alerts and tags in platform blue/white; Naive active tab label blue. */
+.offers-module {
+  background: transparent !important;
+}
+.offers-module > .course-title-bar {
+  padding: 16px 24px !important;
+  margin-left: 0 !important;
+}
+#gokollab-builder .rounded-3xl:has(> p.hl-display-sm-semibold) {
+  background: linear-gradient(135deg, var(--bb-accent-400), var(--bb-accent-800)) !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+#gokollab-builder .rounded-3xl:has(> p.hl-display-sm-semibold) p {
+  color: var(--bb-white) !important;
+}
+#gokollab-builder .grid.justify-center {
+  background-image: none !important;
+}
+#gokollab-builder .n-radio-button {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+  color: var(--bb-text) !important;
+}
+#gokollab-builder .n-radio-button.n-radio-button--checked {
+  box-shadow: var(--bb-shadow-inset) !important;
+  color: var(--bb-accent) !important;
+}
+#gokollab-builder .n-radio-button .n-radio-button__state-border,
+#gokollab-builder .n-radio-group__splitor {
+  display: none !important;
+}
+#gokollab-builder .n-radio-button :is(img, svg) {
+  filter: hue-rotate(-85deg) saturate(.6);
+}
+#product-create {
+  background: var(--bb-accent) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.n-input-group .n-input-group-label {
+  background-color: var(--bb-bg) !important;
+  color: var(--bb-text-muted) !important;
+}
+.n-alert.hl-info {
+  background: var(--bb-bg) !important;
+  border: none !important;
+  border-radius: var(--bb-radius-sm) !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+.n-alert.hl-info .n-alert__border {
+  display: none !important;
+}
+.n-alert.hl-info .n-alert__icon {
+  color: var(--bb-accent) !important;
+}
+.n-tag.hl-default {
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.n-tabs .n-tabs-tab.n-tabs-tab--active,
+.n-tabs .n-tabs-tab.n-tabs-tab--active .n-tabs-tab__label {
+  color: var(--bb-accent) !important;
+}
+/* Sitios › Códigos QR: the intro card filled its clipping box (corners and shadow cut).
+   Widget de chat: white tab bar with the two tabs touching ("Widgets de chatBiblioteca"),
+   near-white canvas card around the table card. WordPress: feature cards filled their
+   carousel slides (shadow cut on every side) and every inner block had its own shadow. */
+.h-full.w-full.overflow-hidden:has(> #landing-page) {
+  padding: 14px 16px 24px !important;
+  margin: -14px -16px 0 !important;
+  box-sizing: border-box;
+}
+#landing-page > .header.hr-card {
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#landing-page #feature-images {
+  border-radius: var(--bb-radius-md) !important;
+}
+#chatWidgetList .hr-tabs-nav--line-type {
+  background: transparent !important;
+}
+#chatWidgetList .hr-tabs-nav--line-type .hr-tabs-tab {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+#chatWidgetList .chat-widget-list__canvas {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#chatWidgetList.hl_wrapper--inner {
+  padding-top: 12px !important;
+}
+#feature-cards-carousel .n-carousel__slide {
+  padding: 10px 12px 18px !important;
+  box-sizing: border-box !important;
+}
+#feature-cards-carousel [id^="feature-card-"] {
+  height: 100%;
+  border: none !important;
+  border-radius: var(--bb-radius-lg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+#feature-cards-carousel [id^="feature-card-"] * {
+  box-shadow: none !important;
+}
+#feature-cards-carousel [id^="feature-card-"] > div {
+  border: none !important;
+}
+/* Agentes de IA › Registros: white page behind the header. Plantillas: filter radio labels
+   broke words in the middle ("conversacio-nal") → whole words, 14px in that filter. */
+#agent-logs-content {
+  background: transparent !important;
+}
+.hr-radio .hr-radio__label {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+body:has(header .topmenu-nav a[href*="/ai-agents/"]) .hr-collapse-item .hr-radio__label {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
@@ -10578,7 +10808,8 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 .cal-ai-sidebar span[class*="text-[#7a5af8]"],
 .cal-ai-sidebar .flex-wrap > div:nth-child(1) > .hr-tag .hr-tag__content > p > span,
 .cal-ai-sidebar .flex-wrap > div:nth-child(2) > .hr-tag .hr-tag__content > p > span,
-body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text {
+body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text,
+#reputation-settings-container:has(.hr-tabs-tab--active[data-name="reviewsAI"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -10734,7 +10965,8 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 .cal-ai-sidebar span[class*="text-[#7a5af8]"]::after,
 .cal-ai-sidebar .flex-wrap > div:nth-child(1) > .hr-tag .hr-tag__content > p > span::after,
 .cal-ai-sidebar .flex-wrap > div:nth-child(2) > .hr-tag .hr-tag__content > p > span::after,
-body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text::after {
+body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text::after,
+#reputation-settings-container:has(.hr-tabs-tab--active[data-name="reviewsAI"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -11526,4 +11758,9 @@ body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text::after {
   content: "Asistente de calendarios";
   font-size: 12px;
   line-height: 17px;
+}
+#reputation-settings-container:has(.hr-tabs-tab--active[data-name="reviewsAI"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child::after {
+  content: "IA de reseñas";
+  font-size: 18px;
+  line-height: 28px;
 }
