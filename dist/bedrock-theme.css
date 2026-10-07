@@ -8615,6 +8615,34 @@ body:has(header .topmenu-nav a[href*="/ai-agents/"]) .hr-collapse-item .hr-radio
 .askai-split-layout__chat {
   background: var(--bb-bg) !important;
 }
+/* Tablero widgets:
+   - Header: the title box could shrink to ~60px while the selects kept their width, so the
+     selects covered the title ("Convers…") or ran into each other and past the card
+     (Manual Actions). The title keeps its width and the controls go to a second line when
+     they do not fit.
+   - Funnel (ECharts SVG): the column header "Conversión del siguiente paso" is drawn as 4
+     lines (y −18…18) whose last line ran into the first cell → those lines move up 14px
+     (the 3-line variant too); the axis numbers touched each other → 10.5px. */
+.custom-chart-container .hr-card-header > .flex.items-center.justify-between.relative {
+  flex-wrap: wrap !important;
+  row-gap: 8px;
+  column-gap: 8px;
+}
+.custom-chart-container .hr-card-header > .flex.items-center.justify-between.relative > .truncate:has(#widget-header-title) {
+  flex: 0 0 auto !important;
+  max-width: 100% !important;
+  margin-right: 0 !important;
+}
+.custom-chart-container .hr-card-header > .flex.items-center.justify-between.relative > .flex-1.justify-end {
+  flex: 1 0 auto !important;
+  margin-left: auto;
+}
+[id^="reporting-funnel-"] svg text:is([y="-18"], [y="-6"], [y="6"], [y="18"], [y="-12"], [y="0"], [y="12"]) {
+  translate: 0 -14px;
+}
+[id^="reporting-funnel-"] svg text[style*="font-size: 12px"][style*="font-weight: 400"] {
+  font-size: 10.5px !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
