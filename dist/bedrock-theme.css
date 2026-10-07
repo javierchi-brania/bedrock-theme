@@ -8765,6 +8765,19 @@ aside#sidebar-v2 {
 #sb_ghl-swag {
   display: none !important;
 }
+
+/* ===== v1.4.31 Agent builder ===== */
+/* Agentes de IA › crear / editar agente: the builder is a full-window fixed layer
+   (.builder-root, z-index 900) meant to cover the menu and the top bar; the theme's menu
+   (1300) and bar (1200) sat on top of it, so its left side could not be clicked and its own
+   bar (back, name, Guardar) was hidden → above both. Its "Pruebe su agente" header used the
+   platform's violet artwork → accent gradient. */
+.builder-root {
+  z-index: 1400 !important;
+}
+.test-agent-panel__header::before {
+  background: linear-gradient(135deg, var(--bb-accent-400), var(--bb-accent-800)) !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
