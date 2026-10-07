@@ -1743,8 +1743,17 @@ nav.bg-white div.border.border-gray-300.rounded-lg button:hover { background: tr
       rápidas) eran píldoras deformes / aplastadas dentro de un contenedor
       de 28px; pasan a círculos del mismo tamaño que los ítems.
    ───────────────────────────────────────────────────────────── */
-#sidebar-v2 .hl_nav-header {
-  padding-bottom: 60px !important;
+/* v1.4.30: the list used to reserve 60px at its end, and in the agency menu the platform also
+   caps it at 100vh − 15.625rem: scrolled to the end it left an empty band above
+   "Configuración" (taller with the 90% menu, since vh inside a zoomed box is scaled). The list
+   now fills the column and ends right on the footer (56px kept for it), with a small end
+   padding. */
+#sidebar-v2 .hl_nav-header.hl_nav-header {
+  padding-bottom: 8px !important;
+  margin-bottom: 56px !important;
+  flex: 1 1 auto !important;
+  max-height: none !important;
+  min-height: 0 !important;
 }
 #sidebar-v2 .hl_nav-settings {
   background: var(--bb-bg) !important;
@@ -7677,7 +7686,7 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
 /* Pagos sections start at different heights (Colecciones only 2px below a second row of
    tabs) → in windows where the tabs can wrap, 22px more room on top. A transparent border
    adds to each section's own top padding (128px, 147px...) without changing it. */
-@media (max-width: 1600px) {
+@media (max-width: 1440px) {
   body:has(header.hl_header .topmenu-nav a[href*="/payments/"]) .hl_topbar-tabs.hl_wrapper {
     border-top: 22px solid transparent !important;
   }
@@ -8268,7 +8277,7 @@ header.hl_header:has(.topmenu-nav a[href*="/marketing/"]) .topmenu-nav {
   row-gap: 6px !important;
   overflow-x: visible !important;
 }
-@media (max-width: 1480px) {
+@media (max-width: 1320px) {
   body:has(header.hl_header .topmenu-nav a[href*="/marketing/"]) .hl_topbar-tabs {
     border-top: 32px solid transparent !important;
   }
@@ -8381,7 +8390,7 @@ header.hl_header:has(.topmenu-nav a[href*="/funnels-websites/"]) .topmenu-nav {
   row-gap: 6px !important;
   overflow-x: visible !important;
 }
-@media (max-width: 1480px) {
+@media (max-width: 1330px) {
   body:has(header.hl_header .topmenu-nav a[href*="/funnels-websites/"]) .hl_topbar-tabs {
     border-top: 32px solid transparent !important;
   }
@@ -8725,6 +8734,35 @@ body:has(header .topmenu-nav a[href*="/ai-agents/"]) .hr-collapse-item .hr-radio
 /* Gestionar la puntuación: the "Más información" link in the page header opens the
    provider's help centre → hidden at the team's request (the sentence before it stays). */
 .conversationsUtilitiesApp .mt-\[50px\] > .flex.flex-row.items-center > .flex-1.flex-col p > a[target="_blank"] {
+  display: none !important;
+}
+
+/* ===== v1.4.30 Menu and top bar at 90% ===== */
+/* At the team's request the left menu and the top bar are drawn at 90%, like the
+   Conversaciones inbox, and the pages get the space.
+   - Menu: a flex item, so the page box takes the freed width by itself. Its height rule
+     (aside#sidebar-v2, 11-components) is matched here; inside a zoomed box lengths are
+     scaled too, so the height is divided by the zoom to still fit the window.
+   - Top bar: fixed, placed right after the menu; its width rule (dock width − 14rem − 18px,
+     3.5rem collapsed) is matched with the zoomed menu width (201.6px + 5.4px margin) and
+     its own zoomed margins (2 × 5.4px), divided by the zoom.
+   - The tab rows in the bar are 10% narrower, so Pagos, Marketing and Sitios wrap at
+     narrower windows: their extra top room starts at 1440, 1320 and 1330px (was 1600,
+     1480, 1480). */
+aside#sidebar-v2 {
+  zoom: .9;
+  height: calc((100vh - 12px) / .9) !important;
+}
+:is(.sidebar-v2-agency, .sidebar-v2-location) .hl_header {
+  zoom: .9;
+  width: calc((var(--side-dock-surface-w) - 217.8px) / .9) !important;
+}
+:is(.sidebar-v2-agency, .sidebar-v2-location).v2-collapse .hl_header {
+  width: calc((var(--side-dock-surface-w) - 66.6px) / .9) !important;
+}
+/* Agency menu: "Swag" item (the provider's merchandise store, its initials in the label) →
+   hidden, like the other provider references. */
+#sb_ghl-swag {
   display: none !important;
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
