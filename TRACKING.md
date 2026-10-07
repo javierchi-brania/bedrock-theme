@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.28` published (Pregúntale a BRANIA conversation, Tablero overlaps).
+**In progress:** nothing open; `v1.4.29` published (Configuración of the sub-account; custom JS update pending in the platform).
 
 ## Releases
 
@@ -66,6 +66,7 @@ publish is in [README.md](README.md).
 | v1.4.26 | fix | Integraciones as soft theme cards (search no longer under the top bar); Marketing › Planificador fits beside the menu at 1026-1338px (header, filters, table, Estadísticas, Comentarios, Configuración), Marketing tabs wrap, empty tables keep their message visible; Conectar redes sociales close button and "Añadir una comunidad" | published |
 | v1.4.27 | fix | Sweep of 9 sections (63 pages at 1366px): 42px page overflow from the platform width rule, Sitios tabs wrap, cards inside cards, clipped shadows, near-white/violet/blue surfaces (Aplicaciones, Ofertas, Gokollab, Widget de chat, Registros), Reputación cards, Informes Agentes titles, broken filter labels | published |
 | v1.4.28 | fix | Pregúntale a BRANIA: browser-extension prompt and English reasoning drawer hidden, disclaimer in Spanish, conversation on the theme background; Tablero widget headers and funnel labels no longer overlap, readable table figures, chart blue in accent | published |
+| v1.4.29 | fix | Configuración: Perfil de empresa overlap (frame at 85% below 1600px), Servicios de correo and Proveedores de conversación framed, WhatsApp promo card, Usuarios card room, Registros de auditoría filters wrap, provider help link and Labs card hidden | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -186,6 +187,22 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.29 (published): Configuración of the sub-account
+
+Sweep of the 20 settings tabs at 1366px (audit, text-overlap check, captures). Perfil de empresa, Calendarios, Servicios de correo and Proveedores de conversación are cross-origin frames: only their frame can be styled.
+
+| Change | Where | Verified |
+|---|---|---|
+| "Información general" and "Id. de la ubicación" overlapped (frame page laid out for a wider window) → frame drawn at 85% below 1600px, its page gets ~18% more width | Perfil de empresa | capture: title and ID apart, text readable |
+| Near-white page and frame box → theme background, framed | Servicios de correo | capture |
+| Frame from the top of the window under the top bar, no frame → framed like Calendarios | Proveedores de conversación | capture |
+| White-to-green promo card → theme background with a soft success tint | WhatsApp | capture |
+| Table card 8px from its clipping box → room for its shadow | Usuarios | capture |
+| Five filters on one row, dates cut → wrap | Registros de auditoría | capture |
+| Provider help link "Más información" → hidden at the team's request | Gestionar la puntuación | capture |
+| Labs card whose text names the provider ("Instagram Feed Widget") → hidden by `embed/custom-js.html` (no CSS hook: no ids, text only) | Laboratorios | hidden in the page; needs the updated custom JS pasted |
+| Not changed: provider initials in the dedicated email domain name (account data; changing it means a new sending domain) | Servicios de correo | |
 
 ### v1.4.28 (published): Pregúntale a BRANIA conversation, Tablero overlaps
 

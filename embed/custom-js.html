@@ -3,7 +3,9 @@
      and the sub-account launchpad ("Panel") when switching to a sub-account. A guard on the
      page router sends both to the dashboard before the launchpad renders (no reload, no
      flash, the launchpad does not stay in the back history). If the router is not found,
-     nothing changes. -->
+     nothing changes.
+     Labs cards: CSS cannot pick a card by its text and the Labs cards have no ids, so the
+     cards listed in `hide` (by title) are hidden here while a Labs page is open. -->
 <script>
 (function () {
   if (window.__bbLandingRedirect) return;
@@ -48,5 +50,22 @@
       if (++checks >= 100) clearInterval(timer);
     }, 300);
   })();
+})();
+</script>
+<script>
+(function () {
+  if (window.__bbLabsHide) return;
+  window.__bbLabsHide = true;
+  var hide = ['Instagram Feed Widget'];
+  function run() {
+    if (!/\/settings\/labs/.test(location.pathname)) return;
+    document.querySelectorAll('.hr-card .hr-card-header p').forEach(function (p) {
+      if (hide.indexOf(p.textContent.trim()) === -1) return;
+      var card = p.closest('.hr-card');
+      var box = card.parentElement;
+      (box.children.length === 1 ? box : card).style.setProperty('display', 'none', 'important');
+    });
+  }
+  setInterval(run, 800);
 })();
 </script>
