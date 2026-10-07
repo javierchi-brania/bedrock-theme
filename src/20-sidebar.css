@@ -393,8 +393,17 @@
       rápidas) eran píldoras deformes / aplastadas dentro de un contenedor
       de 28px; pasan a círculos del mismo tamaño que los ítems.
    ───────────────────────────────────────────────────────────── */
-#sidebar-v2 .hl_nav-header {
-  padding-bottom: 60px !important;
+/* v1.4.30: the list used to reserve 60px at its end, and in the agency menu the platform also
+   caps it at 100vh − 15.625rem: scrolled to the end it left an empty band above
+   "Configuración" (taller with the 90% menu, since vh inside a zoomed box is scaled). The list
+   now fills the column and ends right on the footer (56px kept for it), with a small end
+   padding. */
+#sidebar-v2 .hl_nav-header.hl_nav-header {
+  padding-bottom: 8px !important;
+  margin-bottom: 56px !important;
+  flex: 1 1 auto !important;
+  max-height: none !important;
+  min-height: 0 !important;
 }
 #sidebar-v2 .hl_nav-settings {
   background: var(--bb-bg) !important;

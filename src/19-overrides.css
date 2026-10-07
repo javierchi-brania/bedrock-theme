@@ -2833,3 +2833,8 @@ aside#sidebar-v2 {
 :is(.sidebar-v2-agency, .sidebar-v2-location).v2-collapse .hl_header {
   width: calc((var(--side-dock-surface-w) - 66.6px) / .9) !important;
 }
+/* Agency menu: "Swag" item (the provider's merchandise store, its initials in the label) →
+   hidden, like the other provider references. */
+#sb_ghl-swag {
+  display: none !important;
+}
