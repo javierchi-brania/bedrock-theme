@@ -7677,7 +7677,7 @@ header.hl_header:has(.topmenu-nav a[href*="/payments/"]) .topmenu-nav {
 /* Pagos sections start at different heights (Colecciones only 2px below a second row of
    tabs) → in windows where the tabs can wrap, 22px more room on top. A transparent border
    adds to each section's own top padding (128px, 147px...) without changing it. */
-@media (max-width: 1600px) {
+@media (max-width: 1440px) {
   body:has(header.hl_header .topmenu-nav a[href*="/payments/"]) .hl_topbar-tabs.hl_wrapper {
     border-top: 22px solid transparent !important;
   }
@@ -8268,7 +8268,7 @@ header.hl_header:has(.topmenu-nav a[href*="/marketing/"]) .topmenu-nav {
   row-gap: 6px !important;
   overflow-x: visible !important;
 }
-@media (max-width: 1480px) {
+@media (max-width: 1320px) {
   body:has(header.hl_header .topmenu-nav a[href*="/marketing/"]) .hl_topbar-tabs {
     border-top: 32px solid transparent !important;
   }
@@ -8381,7 +8381,7 @@ header.hl_header:has(.topmenu-nav a[href*="/funnels-websites/"]) .topmenu-nav {
   row-gap: 6px !important;
   overflow-x: visible !important;
 }
-@media (max-width: 1480px) {
+@media (max-width: 1330px) {
   body:has(header.hl_header .topmenu-nav a[href*="/funnels-websites/"]) .hl_topbar-tabs {
     border-top: 32px solid transparent !important;
   }
@@ -8726,6 +8726,30 @@ body:has(header .topmenu-nav a[href*="/ai-agents/"]) .hr-collapse-item .hr-radio
    provider's help centre → hidden at the team's request (the sentence before it stays). */
 .conversationsUtilitiesApp .mt-\[50px\] > .flex.flex-row.items-center > .flex-1.flex-col p > a[target="_blank"] {
   display: none !important;
+}
+
+/* ===== v1.4.30 Menu and top bar at 90% ===== */
+/* At the team's request the left menu and the top bar are drawn at 90%, like the
+   Conversaciones inbox, and the pages get the space.
+   - Menu: a flex item, so the page box takes the freed width by itself. Its height rule
+     (aside#sidebar-v2, 11-components) is matched here; inside a zoomed box lengths are
+     scaled too, so the height is divided by the zoom to still fit the window.
+   - Top bar: fixed, placed right after the menu; its width rule (dock width − 14rem − 18px,
+     3.5rem collapsed) is matched with the zoomed menu width (201.6px + 5.4px margin) and
+     its own zoomed margins (2 × 5.4px), divided by the zoom.
+   - The tab rows in the bar are 10% narrower, so Pagos, Marketing and Sitios wrap at
+     narrower windows: their extra top room starts at 1440, 1320 and 1330px (was 1600,
+     1480, 1480). */
+aside#sidebar-v2 {
+  zoom: .9;
+  height: calc((100vh - 12px) / .9) !important;
+}
+:is(.sidebar-v2-agency, .sidebar-v2-location) .hl_header {
+  zoom: .9;
+  width: calc((var(--side-dock-surface-w) - 217.8px) / .9) !important;
+}
+:is(.sidebar-v2-agency, .sidebar-v2-location).v2-collapse .hl_header {
+  width: calc((var(--side-dock-surface-w) - 66.6px) / .9) !important;
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
