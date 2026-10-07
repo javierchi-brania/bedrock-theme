@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.31` published (agent builder above the menu).
+**In progress:** nothing open; `v1.4.32` published (agent builder dialogs visible again).
 
 ## Releases
 
@@ -69,6 +69,7 @@ publish is in [README.md](README.md).
 | v1.4.29 | fix | Configuración: Perfil de empresa overlap (frame at 85% below 1600px), Servicios de correo and Proveedores de conversación framed, WhatsApp promo card, Usuarios card room, Registros de auditoría filters wrap, provider help link and Labs card hidden | published |
 | v1.4.30 | feat | Left menu and top bar drawn at 90% at the team's request; Pagos/Marketing/Sitios tab-row breakpoints follow; no empty band at the end of the menu; provider store item hidden | published |
 | v1.4.31 | fix | Agent builder (full-window layer) above the menu and top bar; test panel header in accent | published |
+| v1.4.32 | fix | Agent builder dialogs (add action, edit action) hidden behind the builder since v1.4.31 → builder back at 900, menu and bar under it while it is open | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -189,6 +190,12 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.32 (published): agent builder dialogs
+
+| Change | Where | Verified |
+|---|---|---|
+| Reported by a user: choosing an action in the builder ("Transferencia a humano"…) opened nothing. v1.4.31 raised the builder to 1400, above the dialogs it opens (stacked by the platform from 991) → the builder keeps its 900 and, while it is open, the menu and the bar drop to 800 | Agentes de IA › agent builder | existing agent: the action dialog opens on top and closes; builder still covers menu and bar; nothing saved |
 
 ### v1.4.31 (published): agent builder
 

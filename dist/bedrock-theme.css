@@ -8770,10 +8770,13 @@ aside#sidebar-v2 {
 /* Agentes de IA › crear / editar agente: the builder is a full-window fixed layer
    (.builder-root, z-index 900) meant to cover the menu and the top bar; the theme's menu
    (1300) and bar (1200) sat on top of it, so its left side could not be clicked and its own
-   bar (back, name, Guardar) was hidden → above both. Its "Pruebe su agente" header used the
-   platform's violet artwork → accent gradient. */
-.builder-root {
-  z-index: 1400 !important;
+   bar (back, name, Guardar) was hidden. v1.4.32: raising the builder to 1400 also put it
+   above the dialogs it opens (the platform stacks them from 991, just above 900): choosing
+   an action ("Transferencia a humano"...) opened nothing visible. The builder keeps its
+   900; while it is open the menu and the bar go under it instead. Its "Pruebe su agente"
+   header used the platform's violet artwork → accent gradient. */
+body:has(.builder-root) :is(aside#sidebar-v2, header.hl_header) {
+  z-index: 800 !important;
 }
 .test-agent-panel__header::before {
   background: linear-gradient(135deg, var(--bb-accent-400), var(--bb-accent-800)) !important;
