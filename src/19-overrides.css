@@ -2677,3 +2677,74 @@ body:has(header .topmenu-nav a[href*="/ai-agents/"]) .hr-collapse-item .hr-radio
   font-size: 14px !important;
   line-height: 20px !important;
 }
+
+/* ===== v1.4.28 Pregúntale a BRANIA conversation ===== */
+/* - "AskAI can control your browser / Install" extension prompt above the composer: hidden
+     at the team's request.
+   - Reasoning: the "Reflexión para Ns" line and the drawer it opens show the model's own
+     reasoning, written in English (generated text, no CSS label can translate it) → both
+     hidden at the team's request; the drawer opens by itself while the model thinks and
+     reserves 390px on the right, so that space goes too. The answer is unchanged.
+   - Conversation area in white → theme background, like the start screen. */
+.askai-bc-cta,
+.chat-view__thoughts-drawer,
+.chat-view__thought-trigger-wrap {
+  display: none !important;
+}
+.chat-view.chat-view--thoughts-open {
+  padding-right: 0 !important;
+}
+.askai-split-layout__chat {
+  background: var(--bb-bg) !important;
+}
+/* Tablero widgets:
+   - Header: the title box could shrink to ~60px while the selects kept their width, so the
+     selects covered the title ("Convers…") or ran into each other and past the card
+     (Manual Actions). The title keeps its width and the controls go to a second line when
+     they do not fit.
+   - Funnel (ECharts SVG): the column header "Conversión del siguiente paso" is drawn as 4
+     lines (y −18…18) whose last line ran into the first cell → those lines move up 14px
+     (the 3-line variant too); the axis numbers touched each other → 10.5px. */
+.custom-chart-container .hr-card-header > .flex.items-center.justify-between.relative {
+  flex-wrap: wrap !important;
+  row-gap: 8px;
+  column-gap: 8px;
+}
+.custom-chart-container .hr-card-header > .flex.items-center.justify-between.relative > .truncate:has(#widget-header-title) {
+  flex: 0 0 auto !important;
+  max-width: 100% !important;
+  margin-right: 0 !important;
+}
+.custom-chart-container .hr-card-header > .flex.items-center.justify-between.relative > .flex-1.justify-end {
+  flex: 1 0 auto !important;
+  margin-left: auto;
+}
+[id^="reporting-funnel-"] svg text:is([y="-18"], [y="-6"], [y="6"], [y="18"], [y="-12"], [y="0"], [y="12"]) {
+  translate: 0 -14px;
+}
+[id^="reporting-funnel-"] svg text[style*="font-size: 12px"][style*="font-weight: 400"] {
+  font-size: 10.5px !important;
+}
+/* Tablero › Lead Source Report (and any data table): the figures are text-type buttons
+   (they open the detail), and the theme's button shadow on a transparent button drew a
+   blurred glow behind each number; the platform's gray-300 made "MX$0" almost invisible.
+   Chart blue: ECharts writes it as #53B1FD or rgb(83,177,253) depending on the redraw;
+   only the hex form was mapped for every chart (Opportunity Status ring turned light blue,
+   Opportunity Value bars stayed blue). */
+.hr-data-table__body-cell .hr-button.hr-button--text {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+.hr-data-table__body-cell .hr-button.hr-button--text:hover .hr-button__content {
+  color: var(--bb-accent) !important;
+  text-decoration: underline;
+}
+.hr-data-table__body-cell .text-gray-300 {
+  color: var(--bb-text-subtle) !important;
+}
+.vue-echarts-inner path[fill="rgb(83,177,253)"] {
+  fill: var(--bb-accent) !important;
+}
+.vue-echarts-inner path[stroke="rgb(83,177,253)"] {
+  stroke: var(--bb-accent) !important;
+}
