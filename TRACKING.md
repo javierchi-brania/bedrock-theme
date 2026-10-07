@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.29` published (Configuración of the sub-account; custom JS update pending in the platform).
+**In progress:** `v1.4.30` (left menu and top bar at 90%).
 
 ## Releases
 
@@ -67,6 +67,7 @@ publish is in [README.md](README.md).
 | v1.4.27 | fix | Sweep of 9 sections (63 pages at 1366px): 42px page overflow from the platform width rule, Sitios tabs wrap, cards inside cards, clipped shadows, near-white/violet/blue surfaces (Aplicaciones, Ofertas, Gokollab, Widget de chat, Registros), Reputación cards, Informes Agentes titles, broken filter labels | published |
 | v1.4.28 | fix | Pregúntale a BRANIA: browser-extension prompt and English reasoning drawer hidden, disclaimer in Spanish, conversation on the theme background; Tablero widget headers and funnel labels no longer overlap, readable table figures, chart blue in accent | published |
 | v1.4.29 | fix | Configuración: Perfil de empresa overlap (frame at 85% below 1600px), Servicios de correo and Proveedores de conversación framed, WhatsApp promo card, Usuarios card room, Registros de auditoría filters wrap, provider help link and Labs card hidden | published |
+| v1.4.30 | feat | Left menu and top bar drawn at 90% at the team's request; Pagos/Marketing/Sitios tab-row breakpoints follow | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -187,6 +188,13 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.30 (in review): menu and top bar at 90%
+
+| Change | Where | Verified |
+|---|---|---|
+| Left menu and top bar drawn at 90% (team request, like the Conversaciones inbox); the page takes the freed width. Menu height (aside#sidebar-v2) and bar width (dock − 14rem / 3.5rem − margins) matched and divided by the zoom, since lengths inside a zoomed box are scaled | Every page, open and collapsed menu, agency and sub-account | menu 5–616px (window 623), bar 212–1361px open, 61–1361px collapsed; account switcher opens in place |
+| Tab rows in the bar 10% narrower → extra top room only below 1440px (Pagos), 1320px (Marketing), 1330px (Sitios) instead of 1600/1480/1480 | Pagos, Marketing, Sitios | no empty band at 1366px on Marketing |
 
 ### v1.4.29 (published): Configuración of the sub-account
 
