@@ -65,7 +65,7 @@ publish is in [README.md](README.md).
 | v1.4.25 | fix | Top bar ✦ (Pregúntale a BRANIA) icon in accent; agency Launchpad hidden from the menu; `embed/custom-js.html` sends both launchpads to the dashboard | published |
 | v1.4.26 | fix | Integraciones as soft theme cards (search no longer under the top bar); Marketing › Planificador fits beside the menu at 1026-1338px (header, filters, table, Estadísticas, Comentarios, Configuración), Marketing tabs wrap, empty tables keep their message visible; Conectar redes sociales close button and "Añadir una comunidad" | published |
 | v1.4.27 | fix | Sweep of 9 sections (63 pages at 1366px): 42px page overflow from the platform width rule, Sitios tabs wrap, cards inside cards, clipped shadows, near-white/violet/blue surfaces (Aplicaciones, Ofertas, Gokollab, Widget de chat, Registros), Reputación cards, Informes Agentes titles, broken filter labels | published |
-| v1.4.28 | fix | Pregúntale a BRANIA: browser-extension prompt and English reasoning drawer hidden, disclaimer in Spanish, conversation on the theme background; Tablero widget headers and funnel labels no longer overlap | in review |
+| v1.4.28 | fix | Pregúntale a BRANIA: browser-extension prompt and English reasoning drawer hidden, disclaimer in Spanish, conversation on the theme background; Tablero widget headers and funnel labels no longer overlap, readable table figures, chart blue in accent | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -197,6 +197,8 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | White conversation area → theme background, like the start screen | Conversation | capture |
 | Widget header title shrank to ~60px under the selects ("Convers…"), Manual Actions selects overlapping each other and past the card → title keeps its width, controls wrap | Tablero | captures; text overlap check |
 | Funnel column header "Conversión del siguiente paso" (4 SVG lines) ran into the first cell → 14px up; axis numbers touching → 10.5px | Tablero › Funnel | last line ends 7px above the cells |
+| Lead Source Report figures (text buttons) with the theme's button glow behind them; "MX$0" in gray-300, almost invisible → flat, accent on hover; subtle gray | Tablero › Lead Source Report, any data table | capture |
+| Chart blue written as rgb(83,177,253) on redraw was not mapped (Opportunity Status ring light blue, Opportunity Value bars blue) → accent like the hex form | Tablero charts | capture |
 
 ### v1.4.27 (published): sweep of the remaining sections
 
