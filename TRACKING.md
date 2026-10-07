@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** `v1.4.32` (agent builder dialogs visible again).
+**In progress:** nothing open; `v1.4.32` published (agent builder dialogs visible again).
 
 ## Releases
 
@@ -69,7 +69,7 @@ publish is in [README.md](README.md).
 | v1.4.29 | fix | Configuración: Perfil de empresa overlap (frame at 85% below 1600px), Servicios de correo and Proveedores de conversación framed, WhatsApp promo card, Usuarios card room, Registros de auditoría filters wrap, provider help link and Labs card hidden | published |
 | v1.4.30 | feat | Left menu and top bar drawn at 90% at the team's request; Pagos/Marketing/Sitios tab-row breakpoints follow; no empty band at the end of the menu; provider store item hidden | published |
 | v1.4.31 | fix | Agent builder (full-window layer) above the menu and top bar; test panel header in accent | published |
-| v1.4.32 | fix | Agent builder dialogs (add action, edit action) hidden behind the builder since v1.4.31 → builder back at 900, menu and bar under it while it is open | in review |
+| v1.4.32 | fix | Agent builder dialogs (add action, edit action) hidden behind the builder since v1.4.31 → builder back at 900, menu and bar under it while it is open | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -191,7 +191,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.32 (in review): agent builder dialogs
+### v1.4.32 (published): agent builder dialogs
 
 | Change | Where | Verified |
 |---|---|---|
