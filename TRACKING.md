@@ -200,7 +200,9 @@ Sweep of the 20 settings tabs at 1366px (audit, text-overlap check, captures). P
 | White-to-green promo card → theme background with a soft success tint | WhatsApp | capture |
 | Table card 8px from its clipping box → room for its shadow | Usuarios | capture |
 | Five filters on one row, dates cut → wrap | Registros de auditoría | capture |
-| Reported to the team, not changed by the theme: provider help link ("Más información", Gestionar la puntuación), provider initials in a Labs feature text, provider initials in the dedicated email domain name (account data) | | |
+| Provider help link "Más información" → hidden at the team's request | Gestionar la puntuación | capture |
+| Labs card whose text names the provider ("Instagram Feed Widget") → hidden by `embed/custom-js.html` (no CSS hook: no ids, text only) | Laboratorios | hidden in the page; needs the updated custom JS pasted |
+| Not changed: provider initials in the dedicated email domain name (account data; changing it means a new sending domain) | Servicios de correo | |
 
 ### v1.4.28 (published): Pregúntale a BRANIA conversation, Tablero overlaps
 

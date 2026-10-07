@@ -8722,6 +8722,11 @@ body:has(header .topmenu-nav a[href*="/ai-agents/"]) .hr-collapse-item .hr-radio
 .flex.justify-between.items-center:has(> .flex-1 #document-id-search) > .flex-1 {
   min-width: 210px;
 }
+/* Gestionar la puntuación: the "Más información" link in the page header opens the
+   provider's help centre → hidden at the team's request (the sentence before it stays). */
+.conversationsUtilitiesApp .mt-\[50px\] > .flex.flex-row.items-center > .flex-1.flex-col p > a[target="_blank"] {
+  display: none !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
