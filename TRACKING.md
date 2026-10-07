@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** `v1.4.28` (Pregúntale a BRANIA conversation, Tablero overlaps).
+**In progress:** nothing open; `v1.4.28` published (Pregúntale a BRANIA conversation, Tablero overlaps).
 
 ## Releases
 
@@ -65,7 +65,7 @@ publish is in [README.md](README.md).
 | v1.4.25 | fix | Top bar ✦ (Pregúntale a BRANIA) icon in accent; agency Launchpad hidden from the menu; `embed/custom-js.html` sends both launchpads to the dashboard | published |
 | v1.4.26 | fix | Integraciones as soft theme cards (search no longer under the top bar); Marketing › Planificador fits beside the menu at 1026-1338px (header, filters, table, Estadísticas, Comentarios, Configuración), Marketing tabs wrap, empty tables keep their message visible; Conectar redes sociales close button and "Añadir una comunidad" | published |
 | v1.4.27 | fix | Sweep of 9 sections (63 pages at 1366px): 42px page overflow from the platform width rule, Sitios tabs wrap, cards inside cards, clipped shadows, near-white/violet/blue surfaces (Aplicaciones, Ofertas, Gokollab, Widget de chat, Registros), Reputación cards, Informes Agentes titles, broken filter labels | published |
-| v1.4.28 | fix | Pregúntale a BRANIA: browser-extension prompt and English reasoning drawer hidden, disclaimer in Spanish, conversation on the theme background; Tablero widget headers and funnel labels no longer overlap, readable table figures, chart blue in accent | in review |
+| v1.4.28 | fix | Pregúntale a BRANIA: browser-extension prompt and English reasoning drawer hidden, disclaimer in Spanish, conversation on the theme background; Tablero widget headers and funnel labels no longer overlap, readable table figures, chart blue in accent | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -187,7 +187,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.28 (in review): Pregúntale a BRANIA conversation, Tablero overlaps
+### v1.4.28 (published): Pregúntale a BRANIA conversation, Tablero overlaps
 
 | Change | Where | Verified |
 |---|---|---|
