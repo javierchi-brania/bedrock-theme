@@ -2677,3 +2677,23 @@ body:has(header .topmenu-nav a[href*="/ai-agents/"]) .hr-collapse-item .hr-radio
   font-size: 14px !important;
   line-height: 20px !important;
 }
+
+/* ===== v1.4.28 Pregúntale a BRANIA conversation ===== */
+/* - "AskAI can control your browser / Install" extension prompt above the composer: hidden
+     at the team's request.
+   - Reasoning: the "Reflexión para Ns" line and the drawer it opens show the model's own
+     reasoning, written in English (generated text, no CSS label can translate it) → both
+     hidden at the team's request; the drawer opens by itself while the model thinks and
+     reserves 390px on the right, so that space goes too. The answer is unchanged.
+   - Conversation area in white → theme background, like the start screen. */
+.askai-bc-cta,
+.chat-view__thoughts-drawer,
+.chat-view__thought-trigger-wrap {
+  display: none !important;
+}
+.chat-view.chat-view--thoughts-open {
+  padding-right: 0 !important;
+}
+.askai-split-layout__chat {
+  background: var(--bb-bg) !important;
+}

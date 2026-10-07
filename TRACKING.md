@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.27` published (sweep of the remaining sections).
+**In progress:** `v1.4.28` (Pregúntale a BRANIA conversation).
 
 ## Releases
 
@@ -65,6 +65,7 @@ publish is in [README.md](README.md).
 | v1.4.25 | fix | Top bar ✦ (Pregúntale a BRANIA) icon in accent; agency Launchpad hidden from the menu; `embed/custom-js.html` sends both launchpads to the dashboard | published |
 | v1.4.26 | fix | Integraciones as soft theme cards (search no longer under the top bar); Marketing › Planificador fits beside the menu at 1026-1338px (header, filters, table, Estadísticas, Comentarios, Configuración), Marketing tabs wrap, empty tables keep their message visible; Conectar redes sociales close button and "Añadir una comunidad" | published |
 | v1.4.27 | fix | Sweep of 9 sections (63 pages at 1366px): 42px page overflow from the platform width rule, Sitios tabs wrap, cards inside cards, clipped shadows, near-white/violet/blue surfaces (Aplicaciones, Ofertas, Gokollab, Widget de chat, Registros), Reputación cards, Informes Agentes titles, broken filter labels | published |
+| v1.4.28 | fix | Pregúntale a BRANIA: browser-extension prompt and English reasoning drawer hidden, disclaimer in Spanish, conversation on the theme background | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -185,6 +186,15 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.28 (in review): Pregúntale a BRANIA conversation
+
+| Change | Where | Verified |
+|---|---|---|
+| "AskAI can control your browser / Install" prompt hidden at the team's request | Conversation composer | capture |
+| "Reflexión para Ns" line and the drawer it opens show the model's reasoning in English (generated, cannot be relabelled) → hidden at the team's request; the drawer opened by itself while thinking and reserved 390px on the right → no space reserved | Conversation | test question sent with the team's OK: "Generando…" while it works, then only the Spanish answer, centred |
+| "Ask AI can make mistakes. Check important info." → "BRANIA puede cometer errores. Verifica la información importante." | Below the composer | label |
+| White conversation area → theme background, like the start screen | Conversation | capture |
 
 ### v1.4.27 (published): sweep of the remaining sections
 

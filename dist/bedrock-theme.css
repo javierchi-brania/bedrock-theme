@@ -8595,6 +8595,26 @@ body:has(header .topmenu-nav a[href*="/ai-agents/"]) .hr-collapse-item .hr-radio
   font-size: 14px !important;
   line-height: 20px !important;
 }
+
+/* ===== v1.4.28 Pregúntale a BRANIA conversation ===== */
+/* - "AskAI can control your browser / Install" extension prompt above the composer: hidden
+     at the team's request.
+   - Reasoning: the "Reflexión para Ns" line and the drawer it opens show the model's own
+     reasoning, written in English (generated text, no CSS label can translate it) → both
+     hidden at the team's request; the drawer opens by itself while the model thinks and
+     reserves 390px on the right, so that space goes too. The answer is unchanged.
+   - Conversation area in white → theme background, like the start screen. */
+.askai-bc-cta,
+.chat-view__thoughts-drawer,
+.chat-view__thought-trigger-wrap {
+  display: none !important;
+}
+.chat-view.chat-view--thoughts-open {
+  padding-right: 0 !important;
+}
+.askai-split-layout__chat {
+  background: var(--bb-bg) !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
@@ -10809,7 +10829,8 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 .cal-ai-sidebar .flex-wrap > div:nth-child(1) > .hr-tag .hr-tag__content > p > span,
 .cal-ai-sidebar .flex-wrap > div:nth-child(2) > .hr-tag .hr-tag__content > p > span,
 body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text,
-#reputation-settings-container:has(.hr-tabs-tab--active[data-name="reviewsAI"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child {
+#reputation-settings-container:has(.hr-tabs-tab--active[data-name="reviewsAI"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child,
+.chat-view__composer-disclaimer {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -10966,7 +10987,8 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 .cal-ai-sidebar .flex-wrap > div:nth-child(1) > .hr-tag .hr-tag__content > p > span::after,
 .cal-ai-sidebar .flex-wrap > div:nth-child(2) > .hr-tag .hr-tag__content > p > span::after,
 body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text::after,
-#reputation-settings-container:has(.hr-tabs-tab--active[data-name="reviewsAI"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child::after {
+#reputation-settings-container:has(.hr-tabs-tab--active[data-name="reviewsAI"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child::after,
+.chat-view__composer-disclaimer::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -11763,4 +11785,9 @@ body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text::after {
   content: "IA de reseñas";
   font-size: 18px;
   line-height: 28px;
+}
+.chat-view__composer-disclaimer::after {
+  content: "BRANIA puede cometer errores. Verifica la información importante.";
+  font-size: 12px;
+  line-height: 16px;
 }
