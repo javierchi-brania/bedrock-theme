@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.35` published (users settings height).
+**In progress:** `v1.4.36` (Ask BRANIA customize panel) in review on `fix/ask-brania-customize`.
 
 ## Releases
 
@@ -73,6 +73,7 @@ publish is in [README.md](README.md).
 | v1.4.33 | fix | Agent list (IA conversacional): Estado tag no longer runs into Tipo, dates stay in their column; names wrap at ≤1024px | published |
 | v1.4.34 | fix | Tablero: "Ir a tareas" and "Ir a Acciones manuales" drawn as pill buttons (were 20px text with the shadow hugging it) | published |
 | v1.4.35 | fix | Configuración › Usuarios: add / edit user footer (Cancelar, Guardar) visible again, users list pagination no longer cut | published |
+| v1.4.36 | fix | Pregúntale a BRANIA › Personalizar: panel in Spanish (Habilidades, Programadas, Conectores, Mensajería), add-skill menu says BRANIA instead of Ask AI | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -193,6 +194,12 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.36 (in review): Ask BRANIA customize panel
+
+| Change | Where | Verified |
+|---|---|---|
+| Requested by the team: the Customize panel and its add-skill menu were in English and named the assistant "Ask AI" → Spanish labels (labels.json): Personalizar, Habilidades, Programadas, Conectores, Mensajería, empty states, "Crear con BRANIA" / "Subir una habilidad" / "Escribir instrucciones" with their descriptions, Connectors (Administrar conectores, Apps conectadas, Activado, Browser Control description, extension link) and Dispatch (Ver sesiones, Canales conectados, WhatsApp description and note, Conectar WhatsApp). The add-skill menu is mounted in body and shares the chat model picker's classes, so it is only relabelled while the Skills panel is open. Programadas was already in Spanish. Names kept: "Browser Control", "WhatsApp" | Pregúntale a BRANIA › Personalizar | commit CSS preview: all four tabs and the menu |
 
 ### v1.4.35 (published): users settings height
 
