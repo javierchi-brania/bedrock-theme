@@ -8845,6 +8845,13 @@ body:has(.builder-root) :is(aside#sidebar-v2, header.hl_header) {
   min-height: 0;
   overflow-y: auto;
 }
+
+/* ===== v1.4.37 Membresías hidden ===== */
+/* Sub-account menu: the team does not use Membresías (courses and communities) → the menu item
+   is hidden, like the provider's store item. The pages still open from a direct link. */
+#sb_memberships {
+  display: none !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
