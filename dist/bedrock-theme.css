@@ -8823,6 +8823,24 @@ body:has(.builder-root) :is(aside#sidebar-v2, header.hl_header) {
 .hr-button.hr-button--text:is(#task-go-to-tasks-link, #manual-action-go-to-link):active {
   box-shadow: var(--bb-shadow-inset) !important;
 }
+
+/* ===== v1.4.35 Add / edit user footer ===== */
+/* Configuración (agency) › Usuarios › Añadir / editar usuario: the form sizes itself from the
+   window (inline height 95vh, and calc(95vh - 44px) on #user-edit-view), which assumes the
+   platform's own header. Under the theme's taller header the section clips it and the footer
+   (Cancelar, Guardar) fell below the window. The form now fills the section instead; the
+   permission list keeps its own scroll. */
+.hl_settings > .users-settings-root:has(#user-edit-view) {
+  height: 100%;
+}
+.hl_settings > .users-settings-root:has(#user-edit-view) > .bg-gray-50[style*="95vh"] {
+  height: 100% !important;
+}
+.users-settings-root .hr-wrapper-container > .hr-config-provider:has(> .min-w-0 > #user-edit-view),
+.users-settings-root .hr-config-provider > .min-w-0:has(> #user-edit-view),
+.users-settings-root #user-edit-view {
+  height: 100% !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
