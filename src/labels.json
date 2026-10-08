@@ -32,7 +32,9 @@
   "sub13": "13px/19.5px",
   "chat16": "16px/28px",
   "opt14": "14px/19.25px",
-  "opt12": "12px/16.5px"
+  "opt12": "12px/16.5px",
+  "nav15": "15px/22.5px",
+  "desc14": "14px/21.7px"
  },
  "labels": [
   {
@@ -814,6 +816,141 @@
    "sel": ".chat-view__composer-disclaimer",
    "text": "BRANIA puede cometer errores. Verifica la información importante.",
    "font": "small"
+  },
+  {
+   "sel": ".cz-screen .cz-screen__title",
+   "text": "Personalizar",
+   "font": "title"
+  },
+  {
+   "sel": ".cz-screen .cz-screen__nav-item:nth-child(1) .cz-screen__nav-label",
+   "text": "Habilidades",
+   "font": "nav15"
+  },
+  {
+   "sel": ".cz-screen .cz-screen__nav-item:nth-child(2) .cz-screen__nav-label",
+   "text": "Programadas",
+   "font": "nav15"
+  },
+  {
+   "sel": ".cz-screen .cz-screen__nav-item:nth-child(3) .cz-screen__nav-label",
+   "text": "Conectores",
+   "font": "nav15"
+  },
+  {
+   "sel": ".cz-screen .cz-screen__nav-item:nth-child(4) .cz-screen__nav-label",
+   "text": "Mensajería",
+   "font": "nav15"
+  },
+  {
+   "sel": ".czs .czs__col-title",
+   "text": "Habilidades",
+   "font": "title"
+  },
+  {
+   "sel": ".czs .czs__list:has(> .czs__empty-list) > .czs__group",
+   "text": "Habilidades personales",
+   "font": "tooltip11"
+  },
+  {
+   "sel": ".czs .czs__empty-list",
+   "text": "Aún no tienes habilidades. Crea una para empezar.",
+   "font": "sub13"
+  },
+  {
+   "sel": ".czs .czs__empty > p",
+   "text": "Selecciona una habilidad para verla.",
+   "font": "body21"
+  },
+  {
+   "sel": "body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(1) .model-picker__item-label",
+   "text": "Crear con BRANIA",
+   "font": "menu14"
+  },
+  {
+   "sel": "body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(1) .model-picker__item-description",
+   "text": "Descríbela en el chat y BRANIA la escribe por ti",
+   "font": "small"
+  },
+  {
+   "sel": "body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(2) .model-picker__item-label",
+   "text": "Subir una habilidad",
+   "font": "menu14"
+  },
+  {
+   "sel": "body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(2) .model-picker__item-description",
+   "text": "Importa un archivo .md de habilidad",
+   "font": "small"
+  },
+  {
+   "sel": "body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(3) .model-picker__item-label",
+   "text": "Escribir instrucciones",
+   "font": "menu14"
+  },
+  {
+   "sel": "body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(3) .model-picker__item-description",
+   "text": "Llena tú el nombre, la descripción y los pasos",
+   "font": "small"
+  },
+  {
+   "sel": ".czc__manage-btn-inner > span",
+   "text": "Administrar conectores",
+   "font": "menu14"
+  },
+  {
+   "sel": ".czc__list-col > .czc__col-title",
+   "text": "Apps conectadas",
+   "font": "sub13"
+  },
+  {
+   "sel": ".czc__list-col > .czc__empty",
+   "text": "Aún no hay conectores. Usa Administrar conectores para agregar uno.",
+   "font": "sub13"
+  },
+  {
+   "sel": ".czc__status-text--on",
+   "text": "Activado",
+   "font": "sub13"
+  },
+  {
+   "sel": ".czc__pane > .czc__bc-desc",
+   "text": "Dale a BRANIA el control de tu navegador. Con la extensión de Chrome instalada, BRANIA puede abrir páginas, hacer clic, llenar formularios y completar tareas de varios pasos por ti en tiempo real, en un navegador basado en Chromium (Chrome, Edge, Brave, Arc). Usar esta función consume tu saldo un poco más rápido.",
+   "font": "desc14"
+  },
+  {
+   "sel": ".czc__bc-link-inner > span",
+   "text": "Obtener la extensión de Chrome",
+   "font": "menu14"
+  },
+  {
+   "sel": ".dsp__sessions-btn-inner > span",
+   "text": "Ver sesiones",
+   "font": "menu14"
+  },
+  {
+   "sel": ".dsp__list-col > .dsp__col-title",
+   "text": "Canales conectados",
+   "font": "sub13"
+  },
+  {
+   "sel": ".dsp__head-text > .dsp__desc",
+   "text": "Escríbele a BRANIA desde tu WhatsApp personal para hacer preguntas, iniciar tareas y recibir respuestas donde ya chateas.",
+   "font": "desc14"
+  },
+  {
+   "sel": ".dispatch-view__scope-note-title",
+   "text": "Un número por subcuenta",
+   "font": "body21"
+  },
+  {
+   "sel": ".dispatch-view__scope-note-text",
+   "text": "Solo se puede conectar un número de WhatsApp a esta subcuenta a la vez.",
+   "font": "sub13"
+  },
+  {
+   "sel": ".dispatch-view__connect-btn .hr-button__content > p",
+   "text": "Conectar WhatsApp",
+   "font": "menu14"
   }
  ]
 }
