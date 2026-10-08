@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.33` published (agent list columns).
+**In progress:** nothing open; `v1.4.34` published (dashboard widget links).
 
 ## Releases
 
@@ -71,6 +71,7 @@ publish is in [README.md](README.md).
 | v1.4.31 | fix | Agent builder (full-window layer) above the menu and top bar; test panel header in accent | published |
 | v1.4.32 | fix | Agent builder dialogs (add action, edit action) hidden behind the builder since v1.4.31 → builder back at 900, menu and bar under it while it is open | published |
 | v1.4.33 | fix | Agent list (IA conversacional): Estado tag no longer runs into Tipo, dates stay in their column; names wrap at ≤1024px | published |
+| v1.4.34 | fix | Tablero: "Ir a tareas" and "Ir a Acciones manuales" drawn as pill buttons (were 20px text with the shadow hugging it) | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -191,6 +192,12 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.34 (published): dashboard widget links
+
+| Change | Where | Verified |
+|---|---|---|
+| Reported by the team: "Ir a tareas" and "Ir a Acciones manuales" looked tiny. Text buttons with no padding (20px high) got the theme's raised shadow around the bare text → 36px padded pill like the theme's other buttons, soft shadow, raised on hover, inset when pressed | Tablero › Tasks, Manual Actions widgets | commit CSS preview: 130×36 and 218×36, centered, inside their widgets |
 
 ### v1.4.33 (published): agent list columns
 
