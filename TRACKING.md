@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.34` published (dashboard widget links).
+**In progress:** nothing open; `v1.4.35` published (users settings height).
 
 ## Releases
 
@@ -72,6 +72,7 @@ publish is in [README.md](README.md).
 | v1.4.32 | fix | Agent builder dialogs (add action, edit action) hidden behind the builder since v1.4.31 → builder back at 900, menu and bar under it while it is open | published |
 | v1.4.33 | fix | Agent list (IA conversacional): Estado tag no longer runs into Tipo, dates stay in their column; names wrap at ≤1024px | published |
 | v1.4.34 | fix | Tablero: "Ir a tareas" and "Ir a Acciones manuales" drawn as pill buttons (were 20px text with the shadow hugging it) | published |
+| v1.4.35 | fix | Configuración › Usuarios: add / edit user footer (Cancelar, Guardar) visible again, users list pagination no longer cut | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -192,6 +193,12 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.35 (published): users settings height
+
+| Change | Where | Verified |
+|---|---|---|
+| Reported by the team: in Añadir usuario › Roles y permisos the bottom buttons were not visible. The list and the form size themselves from the window (inline 95vh and calc(95vh − 44px)), assuming the platform's header; under the theme's taller header the section clipped them → both fill the section, the permission list and the users table scroll inside | Configuración (agency) › Usuarios: list, Añadir / editar usuario | commit CSS preview: Cancelar/Guardar and Cancelar/Siguiente visible and clickable; pagination visible at the window size, 1280×720 and 1920×1080 |
 
 ### v1.4.34 (published): dashboard widget links
 
