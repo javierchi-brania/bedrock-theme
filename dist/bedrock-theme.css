@@ -11060,7 +11060,34 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner,
 .cal-ai-sidebar .flex-wrap > div:nth-child(2) > .hr-tag .hr-tag__content > p > span,
 body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text,
 #reputation-settings-container:has(.hr-tabs-tab--active[data-name="reviewsAI"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child,
-.chat-view__composer-disclaimer {
+.chat-view__composer-disclaimer,
+.cz-screen .cz-screen__title,
+.cz-screen .cz-screen__nav-item:nth-child(1) .cz-screen__nav-label,
+.cz-screen .cz-screen__nav-item:nth-child(2) .cz-screen__nav-label,
+.cz-screen .cz-screen__nav-item:nth-child(3) .cz-screen__nav-label,
+.cz-screen .cz-screen__nav-item:nth-child(4) .cz-screen__nav-label,
+.czs .czs__col-title,
+.czs .czs__list:has(> .czs__empty-list) > .czs__group,
+.czs .czs__empty-list,
+.czs .czs__empty > p,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(1) .model-picker__item-label,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(1) .model-picker__item-description,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(2) .model-picker__item-label,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(2) .model-picker__item-description,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(3) .model-picker__item-label,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(3) .model-picker__item-description,
+.czc__manage-btn-inner > span,
+.czc__list-col > .czc__col-title,
+.czc__list-col > .czc__empty,
+.czc__status-text--on,
+.czc__pane > .czc__bc-desc,
+.czc__bc-link-inner > span,
+.dsp__sessions-btn-inner > span,
+.dsp__list-col > .dsp__col-title,
+.dsp__head-text > .dsp__desc,
+.dispatch-view__scope-note-title,
+.dispatch-view__scope-note-text,
+.dispatch-view__connect-btn .hr-button__content > p {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -11218,7 +11245,34 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after,
 .cal-ai-sidebar .flex-wrap > div:nth-child(2) > .hr-tag .hr-tag__content > p > span::after,
 body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text::after,
 #reputation-settings-container:has(.hr-tabs-tab--active[data-name="reviewsAI"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child::after,
-.chat-view__composer-disclaimer::after {
+.chat-view__composer-disclaimer::after,
+.cz-screen .cz-screen__title::after,
+.cz-screen .cz-screen__nav-item:nth-child(1) .cz-screen__nav-label::after,
+.cz-screen .cz-screen__nav-item:nth-child(2) .cz-screen__nav-label::after,
+.cz-screen .cz-screen__nav-item:nth-child(3) .cz-screen__nav-label::after,
+.cz-screen .cz-screen__nav-item:nth-child(4) .cz-screen__nav-label::after,
+.czs .czs__col-title::after,
+.czs .czs__list:has(> .czs__empty-list) > .czs__group::after,
+.czs .czs__empty-list::after,
+.czs .czs__empty > p::after,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(1) .model-picker__item-label::after,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(1) .model-picker__item-description::after,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(2) .model-picker__item-label::after,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(2) .model-picker__item-description::after,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(3) .model-picker__item-label::after,
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(3) .model-picker__item-description::after,
+.czc__manage-btn-inner > span::after,
+.czc__list-col > .czc__col-title::after,
+.czc__list-col > .czc__empty::after,
+.czc__status-text--on::after,
+.czc__pane > .czc__bc-desc::after,
+.czc__bc-link-inner > span::after,
+.dsp__sessions-btn-inner > span::after,
+.dsp__list-col > .dsp__col-title::after,
+.dsp__head-text > .dsp__desc::after,
+.dispatch-view__scope-note-title::after,
+.dispatch-view__scope-note-text::after,
+.dispatch-view__connect-btn .hr-button__content > p::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -12020,4 +12074,139 @@ body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text::after {
   content: "BRANIA puede cometer errores. Verifica la información importante.";
   font-size: 12px;
   line-height: 16px;
+}
+.cz-screen .cz-screen__title::after {
+  content: "Personalizar";
+  font-size: 20px;
+  line-height: 30px;
+}
+.cz-screen .cz-screen__nav-item:nth-child(1) .cz-screen__nav-label::after {
+  content: "Habilidades";
+  font-size: 15px;
+  line-height: 22.5px;
+}
+.cz-screen .cz-screen__nav-item:nth-child(2) .cz-screen__nav-label::after {
+  content: "Programadas";
+  font-size: 15px;
+  line-height: 22.5px;
+}
+.cz-screen .cz-screen__nav-item:nth-child(3) .cz-screen__nav-label::after {
+  content: "Conectores";
+  font-size: 15px;
+  line-height: 22.5px;
+}
+.cz-screen .cz-screen__nav-item:nth-child(4) .cz-screen__nav-label::after {
+  content: "Mensajería";
+  font-size: 15px;
+  line-height: 22.5px;
+}
+.czs .czs__col-title::after {
+  content: "Habilidades";
+  font-size: 20px;
+  line-height: 30px;
+}
+.czs .czs__list:has(> .czs__empty-list) > .czs__group::after {
+  content: "Habilidades personales";
+  font-size: 11px;
+  line-height: 16.5px;
+}
+.czs .czs__empty-list::after {
+  content: "Aún no tienes habilidades. Crea una para empezar.";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.czs .czs__empty > p::after {
+  content: "Selecciona una habilidad para verla.";
+  font-size: 14px;
+  line-height: 21px;
+}
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(1) .model-picker__item-label::after {
+  content: "Crear con BRANIA";
+  font-size: 14px;
+  line-height: 20px;
+}
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(1) .model-picker__item-description::after {
+  content: "Descríbela en el chat y BRANIA la escribe por ti";
+  font-size: 12px;
+  line-height: 16px;
+}
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(2) .model-picker__item-label::after {
+  content: "Subir una habilidad";
+  font-size: 14px;
+  line-height: 20px;
+}
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(2) .model-picker__item-description::after {
+  content: "Importa un archivo .md de habilidad";
+  font-size: 12px;
+  line-height: 16px;
+}
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(3) .model-picker__item-label::after {
+  content: "Escribir instrucciones";
+  font-size: 14px;
+  line-height: 20px;
+}
+body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(3) .model-picker__item-description::after {
+  content: "Llena tú el nombre, la descripción y los pasos";
+  font-size: 12px;
+  line-height: 16px;
+}
+.czc__manage-btn-inner > span::after {
+  content: "Administrar conectores";
+  font-size: 14px;
+  line-height: 20px;
+}
+.czc__list-col > .czc__col-title::after {
+  content: "Apps conectadas";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.czc__list-col > .czc__empty::after {
+  content: "Aún no hay conectores. Usa Administrar conectores para agregar uno.";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.czc__status-text--on::after {
+  content: "Activado";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.czc__pane > .czc__bc-desc::after {
+  content: "Dale a BRANIA el control de tu navegador. Con la extensión de Chrome instalada, BRANIA puede abrir páginas, hacer clic, llenar formularios y completar tareas de varios pasos por ti en tiempo real, en un navegador basado en Chromium (Chrome, Edge, Brave, Arc). Usar esta función consume tu saldo un poco más rápido.";
+  font-size: 14px;
+  line-height: 21.7px;
+}
+.czc__bc-link-inner > span::after {
+  content: "Obtener la extensión de Chrome";
+  font-size: 14px;
+  line-height: 20px;
+}
+.dsp__sessions-btn-inner > span::after {
+  content: "Ver sesiones";
+  font-size: 14px;
+  line-height: 20px;
+}
+.dsp__list-col > .dsp__col-title::after {
+  content: "Canales conectados";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.dsp__head-text > .dsp__desc::after {
+  content: "Escríbele a BRANIA desde tu WhatsApp personal para hacer preguntas, iniciar tareas y recibir respuestas donde ya chateas.";
+  font-size: 14px;
+  line-height: 21.7px;
+}
+.dispatch-view__scope-note-title::after {
+  content: "Un número por subcuenta";
+  font-size: 14px;
+  line-height: 21px;
+}
+.dispatch-view__scope-note-text::after {
+  content: "Solo se puede conectar un número de WhatsApp a esta subcuenta a la vez.";
+  font-size: 13px;
+  line-height: 19.5px;
+}
+.dispatch-view__connect-btn .hr-button__content > p::after {
+  content: "Conectar WhatsApp";
+  font-size: 14px;
+  line-height: 20px;
 }
