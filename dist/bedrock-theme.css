@@ -8824,22 +8824,26 @@ body:has(.builder-root) :is(aside#sidebar-v2, header.hl_header) {
   box-shadow: var(--bb-shadow-inset) !important;
 }
 
-/* ===== v1.4.35 Add / edit user footer ===== */
-/* Configuración (agency) › Usuarios › Añadir / editar usuario: the form sizes itself from the
-   window (inline height 95vh, and calc(95vh - 44px) on #user-edit-view), which assumes the
-   platform's own header. Under the theme's taller header the section clips it and the footer
-   (Cancelar, Guardar) fell below the window. The form now fills the section instead; the
-   permission list keeps its own scroll. */
-.hl_settings > .users-settings-root:has(#user-edit-view) {
+/* ===== v1.4.35 Users settings height ===== */
+/* Configuración (agency) › Usuarios: the list and the add / edit form size themselves from the
+   window (inline height 95vh, and calc(95vh - 44px) one level in), which assumes the
+   platform's own header. Under the theme's taller header the section clips them: the form
+   footer (Cancelar, Guardar) fell below the window and the list pagination was cut. Both
+   now fill the section; the permission list and the users table scroll inside. */
+.hl_settings > .users-settings-root {
   height: 100%;
 }
-.hl_settings > .users-settings-root:has(#user-edit-view) > .bg-gray-50[style*="95vh"] {
+.hl_settings > .users-settings-root > .bg-gray-50[style*="95vh"] {
   height: 100% !important;
 }
-.users-settings-root .hr-wrapper-container > .hr-config-provider:has(> .min-w-0 > #user-edit-view),
-.users-settings-root .hr-config-provider > .min-w-0:has(> #user-edit-view),
-.users-settings-root #user-edit-view {
+.users-settings-root .hr-wrapper-container > .hr-config-provider,
+.users-settings-root .hr-wrapper-container > .hr-config-provider > .min-w-0,
+.users-settings-root .hr-config-provider > .min-w-0 > [style*="95vh"] {
   height: 100% !important;
+}
+#users-list-table-wrapper > .hr-table-freezer-wrapper {
+  min-height: 0;
+  overflow-y: auto;
 }
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
