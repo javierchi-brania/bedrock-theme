@@ -2874,3 +2874,25 @@ body:has(.builder-root) :is(aside#sidebar-v2, header.hl_header) {
   white-space: normal !important;
   overflow-wrap: anywhere;
 }
+
+/* ===== v1.4.34 Dashboard widget links ===== */
+/* Tablero › Tasks and Manual Actions widgets: "Ir a tareas" and "Ir a Acciones manuales" are
+   text buttons with no padding and a 20px height; the theme's raised shadow hugged the text
+   and they read as tiny. Same shape as the theme's other pill buttons (36px, padded). */
+.hr-button.hr-button--text:is(#task-go-to-tasks-link, #manual-action-go-to-link) {
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 0 14px 0 18px !important;
+  border-radius: var(--bb-radius-sm) !important;
+  background: var(--bb-bg) !important;
+  box-shadow: var(--bb-shadow-soft) !important;
+}
+.hr-button.hr-button--text:is(#task-go-to-tasks-link, #manual-action-go-to-link) .hr-button__content {
+  gap: 6px;
+}
+.hr-button.hr-button--text:is(#task-go-to-tasks-link, #manual-action-go-to-link):hover {
+  box-shadow: var(--bb-shadow-raised) !important;
+}
+.hr-button.hr-button--text:is(#task-go-to-tasks-link, #manual-action-go-to-link):active {
+  box-shadow: var(--bb-shadow-inset) !important;
+}
