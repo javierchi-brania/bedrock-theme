@@ -2854,3 +2854,16 @@ body:has(.builder-root) :is(aside#sidebar-v2, header.hl_header) {
 .test-agent-panel__header::before {
   background: linear-gradient(135deg, var(--bb-accent-400), var(--bb-accent-800)) !important;
 }
+
+/* ===== v1.4.33 Agent list columns ===== */
+/* Agentes de IA › IA conversacional › Lista de agentes: the platform sizes the columns by
+   percentage and keeps every cell on one line, so below ~1600px the "Piloto automático"
+   tag ran into "Basado en prompt" and the dates and names spilled into the next column.
+   The Estado column keeps room for the tag; name, type and date wrap instead of overflowing. */
+.agents-table .hr-data-table :is(.hr-data-table__cell-header, .hr-data-table__body-cell):nth-child(3) {
+  min-width: 156px !important;
+}
+.agents-table .hr-data-table .hr-data-table__body-cell:is(:nth-child(2), :nth-child(4), :nth-child(6)) * {
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+}
