@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** `v1.4.36` (Ask BRANIA customize panel) in review on `fix/ask-brania-customize`.
+**In progress:** nothing open; `v1.4.36` published (Ask BRANIA customize panel).
 
 ## Releases
 
@@ -73,7 +73,7 @@ publish is in [README.md](README.md).
 | v1.4.33 | fix | Agent list (IA conversacional): Estado tag no longer runs into Tipo, dates stay in their column; names wrap at ≤1024px | published |
 | v1.4.34 | fix | Tablero: "Ir a tareas" and "Ir a Acciones manuales" drawn as pill buttons (were 20px text with the shadow hugging it) | published |
 | v1.4.35 | fix | Configuración › Usuarios: add / edit user footer (Cancelar, Guardar) visible again, users list pagination no longer cut | published |
-| v1.4.36 | fix | Pregúntale a BRANIA › Personalizar: panel in Spanish (Habilidades, Programadas, Conectores, Mensajería), add-skill menu says BRANIA instead of Ask AI | in review |
+| v1.4.36 | fix | Pregúntale a BRANIA › Personalizar: panel in Spanish (Habilidades, Programadas, Conectores, Mensajería), add-skill menu says BRANIA instead of Ask AI | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -195,7 +195,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.36 (in review): Ask BRANIA customize panel
+### v1.4.36 (published): Ask BRANIA customize panel
 
 | Change | Where | Verified |
 |---|---|---|
