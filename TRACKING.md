@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.36` published (Ask BRANIA customize panel).
+**In progress:** `v1.4.37` (Membresías hidden) in review on `fix/hide-memberships`.
 
 ## Releases
 
@@ -74,6 +74,7 @@ publish is in [README.md](README.md).
 | v1.4.34 | fix | Tablero: "Ir a tareas" and "Ir a Acciones manuales" drawn as pill buttons (were 20px text with the shadow hugging it) | published |
 | v1.4.35 | fix | Configuración › Usuarios: add / edit user footer (Cancelar, Guardar) visible again, users list pagination no longer cut | published |
 | v1.4.36 | fix | Pregúntale a BRANIA › Personalizar: panel in Spanish (Habilidades, Programadas, Conectores, Mensajería), add-skill menu says BRANIA instead of Ask AI | published |
+| v1.4.37 | feat | Sub-account menu: Membresías item hidden at the team's request | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -194,6 +195,12 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.37 (in review): Membresías hidden
+
+| Change | Where | Verified |
+|---|---|---|
+| Requested by the team: remove Membresías from the menu → `#sb_memberships` hidden (its pages still open from a direct link) | Sub-account menu | commit CSS preview: Sitios is followed by Multimedia, no gap |
 
 ### v1.4.36 (published): Ask BRANIA customize panel
 
