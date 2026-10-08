@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** `v1.4.33` (agent list columns) in review on `fix/agent-list-columns`.
+**In progress:** nothing open; `v1.4.33` published (agent list columns).
 
 ## Releases
 
@@ -70,7 +70,7 @@ publish is in [README.md](README.md).
 | v1.4.30 | feat | Left menu and top bar drawn at 90% at the team's request; Pagos/Marketing/Sitios tab-row breakpoints follow; no empty band at the end of the menu; provider store item hidden | published |
 | v1.4.31 | fix | Agent builder (full-window layer) above the menu and top bar; test panel header in accent | published |
 | v1.4.32 | fix | Agent builder dialogs (add action, edit action) hidden behind the builder since v1.4.31 → builder back at 900, menu and bar under it while it is open | published |
-| v1.4.33 | fix | Agent list (IA conversacional): Estado tag no longer runs into Tipo, dates stay in their column; names wrap at ≤1024px | in review |
+| v1.4.33 | fix | Agent list (IA conversacional): Estado tag no longer runs into Tipo, dates stay in their column; names wrap at ≤1024px | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -192,7 +192,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.33 (in review): agent list columns
+### v1.4.33 (published): agent list columns
 
 | Change | Where | Verified |
 |---|---|---|
