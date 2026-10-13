@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.37` published (Membresías hidden).
+**In progress:** nothing open; `v1.4.38` published (assistant named Ask BRANIA).
 
 ## Releases
 
@@ -75,6 +75,7 @@ publish is in [README.md](README.md).
 | v1.4.35 | fix | Configuración › Usuarios: add / edit user footer (Cancelar, Guardar) visible again, users list pagination no longer cut | published |
 | v1.4.36 | fix | Pregúntale a BRANIA › Personalizar: panel in Spanish (Habilidades, Programadas, Conectores, Mensajería), add-skill menu says BRANIA instead of Ask AI | published |
 | v1.4.37 | feat | Sub-account menu: Membresías item hidden at the team's request | published |
+| v1.4.38 | feat | The assistant is named "Ask BRANIA" everywhere (was "Pregúntale a BRANIA" / "ASK BRANIA"); the only English text kept on purpose | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -195,6 +196,12 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.38 (published): Ask BRANIA
+
+| Change | Where | Verified |
+|---|---|---|
+| Requested by the team: the assistant's name stays in English, "Ask BRANIA" (the only English text on purpose) → menu item, its tooltip, header button tooltip, assistant panel header, top bar title, user permissions (module and nav). Sentences that mention BRANIA stay in Spanish | Sub-account menu and top bar, Ask BRANIA page, Configuración › Usuarios › permisos | commit CSS preview: no "Pregúntale" left on screen in the dashboard and the assistant page; menu and header tooltip read Ask BRANIA |
 
 ### v1.4.37 (published): Membresías hidden
 

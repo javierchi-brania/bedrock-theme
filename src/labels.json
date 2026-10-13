@@ -508,17 +508,17 @@
   },
   {
    "sel": "#sb_ask-ai .nav-title",
-   "text": "Pregúntale a BRANIA",
+   "text": "Ask BRANIA",
    "font": "sidebar"
   },
   {
    "sel": "body:has(#hl_header--copilot-icon:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Pregúntale a BRANIA",
+   "text": "Ask BRANIA",
    "font": "tooltip11"
   },
   {
    "sel": ".askai-sidebar-header__brand-text",
-   "text": "Pregúntale a BRANIA",
+   "text": "Ask BRANIA",
    "font": "brand15"
   },
   {
@@ -583,7 +583,7 @@
   },
   {
    "sel": "body:has(#sb_ask-ai:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
-   "text": "Pregúntale a BRANIA",
+   "text": "Ask BRANIA",
    "font": "tooltip11"
   },
   {
@@ -748,12 +748,12 @@
   },
   {
    "sel": "#user-edit-module-nav-COPILOT .truncate",
-   "text": "ASK BRANIA",
+   "text": "Ask BRANIA",
    "font": "menu14"
   },
   {
    "sel": "#perm-module-COPILOT-accordion p.hr-text-lg",
-   "text": "ASK BRANIA",
+   "text": "Ask BRANIA",
    "font": "body"
   },
   {
