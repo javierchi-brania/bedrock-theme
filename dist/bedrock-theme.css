@@ -4800,7 +4800,7 @@ aside#sidebar-v2 {
   white-space: nowrap !important;
   align-self: center !important;
 }
-.sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Pregúntale a BRANIA"; }
+.sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Ask BRANIA"; }
 .sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Panel"; }
 .sidebar-v2-location:has(#sb_dashboard.active) .hl_header .container-fluid::before { content: "Tablero"; }
 .sidebar-v2-location:has(#sb_conversations.active) .hl_header .container-fluid::before { content: "Conversaciones"; }
@@ -11772,17 +11772,17 @@ hlcontentwrap .wrapper:has(#task) .smartlist-title::after {
   line-height: 20px;
 }
 #sb_ask-ai .nav-title::after {
-  content: "Pregúntale a BRANIA";
+  content: "Ask BRANIA";
   font-size: 13.5px;
   line-height: 20px;
 }
 body:has(#hl_header--copilot-icon:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
-  content: "Pregúntale a BRANIA";
+  content: "Ask BRANIA";
   font-size: 11px;
   line-height: 16.5px;
 }
 .askai-sidebar-header__brand-text::after {
-  content: "Pregúntale a BRANIA";
+  content: "Ask BRANIA";
   font-size: 15px;
   line-height: 15px;
 }
@@ -11847,7 +11847,7 @@ body:has(#sb_Opportunities-Pipelines:hover) .tooltip[role="tooltip"] .tooltip-in
   line-height: 16.5px;
 }
 body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
-  content: "Pregúntale a BRANIA";
+  content: "Ask BRANIA";
   font-size: 11px;
   line-height: 16.5px;
 }
@@ -12012,12 +12012,12 @@ body:has(#sb_ask-ai:hover) .tooltip[role="tooltip"] .tooltip-inner::after {
   line-height: 20px;
 }
 #user-edit-module-nav-COPILOT .truncate::after {
-  content: "ASK BRANIA";
+  content: "Ask BRANIA";
   font-size: 14px;
   line-height: 20px;
 }
 #perm-module-COPILOT-accordion p.hr-text-lg::after {
-  content: "ASK BRANIA";
+  content: "Ask BRANIA";
   font-size: 14px;
   line-height: 20px;
 }
