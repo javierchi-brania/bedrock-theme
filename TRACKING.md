@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** `v1.4.38` (assistant named Ask BRANIA) in review on `fix/ask-brania-name`.
+**In progress:** nothing open; `v1.4.38` published (assistant named Ask BRANIA).
 
 ## Releases
 
@@ -75,7 +75,7 @@ publish is in [README.md](README.md).
 | v1.4.35 | fix | Configuración › Usuarios: add / edit user footer (Cancelar, Guardar) visible again, users list pagination no longer cut | published |
 | v1.4.36 | fix | Pregúntale a BRANIA › Personalizar: panel in Spanish (Habilidades, Programadas, Conectores, Mensajería), add-skill menu says BRANIA instead of Ask AI | published |
 | v1.4.37 | feat | Sub-account menu: Membresías item hidden at the team's request | published |
-| v1.4.38 | feat | The assistant is named "Ask BRANIA" everywhere (was "Pregúntale a BRANIA" / "ASK BRANIA"); the only English text kept on purpose | in review |
+| v1.4.38 | feat | The assistant is named "Ask BRANIA" everywhere (was "Pregúntale a BRANIA" / "ASK BRANIA"); the only English text kept on purpose | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -197,7 +197,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.38 (in review): Ask BRANIA
+### v1.4.38 (published): Ask BRANIA
 
 | Change | Where | Verified |
 |---|---|---|
