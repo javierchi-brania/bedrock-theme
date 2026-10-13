@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.38` published (assistant named Ask BRANIA).
+**In progress:** nothing open; `v1.4.39` published (drawer stacking).
 
 ## Releases
 
@@ -76,6 +76,7 @@ publish is in [README.md](README.md).
 | v1.4.36 | fix | Pregúntale a BRANIA › Personalizar: panel in Spanish (Habilidades, Programadas, Conectores, Mensajería), add-skill menu says BRANIA instead of Ask AI | published |
 | v1.4.37 | feat | Sub-account menu: Membresías item hidden at the team's request | published |
 | v1.4.38 | feat | The assistant is named "Ask BRANIA" everywhere (was "Pregúntale a BRANIA" / "ASK BRANIA"); the only English text kept on purpose | published |
+| v1.4.39 | fix | Drawers keep the platform's stacking order: Contactos › Añadir lista inteligente › Filtros no longer opens under the smart list drawer | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -196,6 +197,12 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.39 (published): drawer stacking
+
+| Change | Where | Verified |
+|---|---|---|
+| Reported by the team: in Añadir lista inteligente, Filtros opened cut, under the smart list drawer. The platform stacks drawer containers in opening order (inline 2001, 2002…); the theme forced 2000 on every container (an old fix for drawers that came with 1000, under the top bar), so a drawer mounted earlier (Filtros opened once from the table) lost to one mounted later → only containers without a z-index or below 2000 are raised | Contactos › Listas inteligentes, every drawer | commit CSS preview: table Filtros, then Añadir › Filtros → Filtros on top (2002 over 2001), closing it returns to the smart list; Ordenar por on top; drawers above the top bar (1200) |
 
 ### v1.4.38 (published): Ask BRANIA
 

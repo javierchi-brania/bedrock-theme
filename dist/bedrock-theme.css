@@ -398,7 +398,11 @@ a:hover,
    Todo lo que se le ponga a .hr-drawer o .hr-drawer-content-wrapper por
    debajo no sirve de nada si el contenedor que los envuelve ya perdió
    la pelea de z-index un nivel más arriba. */
-.hr-drawer-container {
+/* v1.4.39: the platform now stacks its drawer containers itself, in opening order (inline
+   2001, 2002…). Forcing 2000 on all of them flattened that order: a drawer mounted earlier
+   (Contactos › Filtros opened from the table) came out under one mounted later (Añadir lista
+   inteligente) when reopened from it. Only containers below 2000 (or without one) are raised. */
+.hr-drawer-container:is([style*="z-index: 1"], :not([style*="z-index"])) {
   z-index: 2000 !important;
 }
 
