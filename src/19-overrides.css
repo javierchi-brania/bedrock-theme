@@ -2280,10 +2280,10 @@ body:has(header .topmenu-nav a[href*="/payments/"]) .hr-wrapper-container > .hr-
 }
 /* "Ask anything about calendars." is a placeholder (no CSS label): hidden, and the Spanish
    text drawn over the empty field. */
-.cal-ai-sidebar .chat-input-field-wrap textarea::placeholder {
+html:lang(es) .cal-ai-sidebar .chat-input-field-wrap textarea::placeholder {
   color: transparent !important;
 }
-.cal-ai-sidebar .chat-input-field-wrap:has(textarea:placeholder-shown)::before {
+html:lang(es) .cal-ai-sidebar .chat-input-field-wrap:has(textarea:placeholder-shown)::before {
   content: "Pregunta lo que quieras sobre calendarios";
   position: absolute;
   left: 20px;

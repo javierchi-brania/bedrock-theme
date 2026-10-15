@@ -139,6 +139,8 @@ for (const [id, c] of Object.entries(cards)) {
 }
 
 const metrics = (m) => m.split('/');
+// Texts only apply while the platform language is Spanish
+const ES = 'html:lang(es) ';
 let css = `/**
  * 53-agentes-ia: Agentes de IA. New section (v1.3.5).
  *
@@ -173,7 +175,7 @@ css += `\n/* Headings with an emphasized phrase */\n`;
 css += `${headings.map((h) => `${L} ${h[0]}`).join(',\n')} {\n  font-size: 0 !important;\n  line-height: 0 !important;\n}\n`;
 for (const [sel, before, em, after, m] of headings) {
   const [s, lh] = metrics(m);
-  const base = `${L} ${sel}`;
+  const base = `${ES}${L} ${sel}`;
   css += `${base}::before {\n  content: "${q(before)}";\n  font-size: ${s};\n  line-height: ${lh};\n}\n`;
   css += `${base} > em::after {\n  content: "${q(em)}";\n  font-size: ${s};\n  line-height: ${lh};\n}\n`;
   if (after) css += `${base}::after {\n  content: "${q(after)}";\n  font-size: ${s};\n  line-height: ${lh};\n}\n`;
@@ -235,19 +237,21 @@ css += `
   color: var(--bb-accent) !important;
 }
 #agent-studio-container .agents-page__banner-text {
+  color: var(--bb-accent-dark) !important;
+}
+html:lang(es) #agent-studio-container .agents-page__banner-text {
   font-size: 0 !important;
   line-height: 0 !important;
-  color: var(--bb-accent-dark) !important;
 }
 #agent-studio-container .agents-page__banner-text > b {
   color: inherit !important;
 }
-#agent-studio-container .agents-page__banner-text > b::after {
+html:lang(es) #agent-studio-container .agents-page__banner-text > b::after {
   content: "Agentes gestionados";
   font-size: 13.5px;
   line-height: 19px;
 }
-#agent-studio-container .agents-page__banner-text::after {
+html:lang(es) #agent-studio-container .agents-page__banner-text::after {
   content: "\\00a0son agentes basados en instrucciones: dales un prompt, conocimiento, búsqueda web e integraciones, y úsalos en el chat o con disparadores.";
   font-size: 13.5px;
   line-height: 19px;

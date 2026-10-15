@@ -1046,57 +1046,57 @@
   font-size: 0 !important;
   line-height: 0 !important;
 }
-.ai-value-landing .hero-heading::before {
+html:lang(es) .ai-value-landing .hero-heading::before {
   content: "Tu negocio está ";
   font-size: 44px;
   line-height: 48.4px;
 }
-.ai-value-landing .hero-heading > em::after {
+html:lang(es) .ai-value-landing .hero-heading > em::after {
   content: "perdiendo";
   font-size: 44px;
   line-height: 48.4px;
 }
-.ai-value-landing .hero-heading::after {
+html:lang(es) .ai-value-landing .hero-heading::after {
   content: " clientes todos los días";
   font-size: 44px;
   line-height: 48.4px;
 }
-.ai-value-landing section.feature-row:nth-of-type(1) .feature-heading::before {
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(1) .feature-heading::before {
   content: "No vuelvas a perder ";
   font-size: 40px;
   line-height: 46px;
 }
-.ai-value-landing section.feature-row:nth-of-type(1) .feature-heading > em::after {
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(1) .feature-heading > em::after {
   content: "ni una llamada";
   font-size: 40px;
   line-height: 46px;
 }
-.ai-value-landing section.feature-row:nth-of-type(2) .feature-heading::before {
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(2) .feature-heading::before {
   content: "Convierte leads en ";
   font-size: 40px;
   line-height: 46px;
 }
-.ai-value-landing section.feature-row:nth-of-type(2) .feature-heading > em::after {
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(2) .feature-heading > em::after {
   content: "ventas, en automático";
   font-size: 40px;
   line-height: 46px;
 }
-.ai-value-landing section.feature-row:nth-of-type(3) .feature-heading::before {
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(3) .feature-heading::before {
   content: "Agenda más citas, ";
   font-size: 40px;
   line-height: 46px;
 }
-.ai-value-landing section.feature-row:nth-of-type(3) .feature-heading > em::after {
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(3) .feature-heading > em::after {
   content: "en automático";
   font-size: 40px;
   line-height: 46px;
 }
-.ai-value-landing section.feature-row:nth-of-type(4) .feature-heading::before {
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(4) .feature-heading::before {
   content: "Construye una reputación de 5 estrellas ";
   font-size: 40px;
   line-height: 46px;
 }
-.ai-value-landing section.feature-row:nth-of-type(4) .feature-heading > em::after {
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(4) .feature-heading > em::after {
   content: "en automático";
   font-size: 40px;
   line-height: 46px;
@@ -1158,19 +1158,21 @@
   color: var(--bb-accent) !important;
 }
 #agent-studio-container .agents-page__banner-text {
+  color: var(--bb-accent-dark) !important;
+}
+html:lang(es) #agent-studio-container .agents-page__banner-text {
   font-size: 0 !important;
   line-height: 0 !important;
-  color: var(--bb-accent-dark) !important;
 }
 #agent-studio-container .agents-page__banner-text > b {
   color: inherit !important;
 }
-#agent-studio-container .agents-page__banner-text > b::after {
+html:lang(es) #agent-studio-container .agents-page__banner-text > b::after {
   content: "Agentes gestionados";
   font-size: 13.5px;
   line-height: 19px;
 }
-#agent-studio-container .agents-page__banner-text::after {
+html:lang(es) #agent-studio-container .agents-page__banner-text::after {
   content: "\00a0son agentes basados en instrucciones: dales un prompt, conocimiento, búsqueda web e integraciones, y úsalos en el chat o con disparadores.";
   font-size: 13.5px;
   line-height: 19px;

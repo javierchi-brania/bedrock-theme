@@ -5,7 +5,7 @@
 .sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header #sb_contacts.group::before, .sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header-without-footer #sb_contacts.group::before, .sidebar-v2-location:has(.contacts-new-ui) #sb_contacts::before { background: var(--bb-accent) !important; box-shadow: none !important; }
 .sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header #sb_contacts.group img, .sidebar-v2-location:has(.contacts-new-ui) .hl_nav-header-without-footer #sb_contacts.group img, .sidebar-v2-location:has(.contacts-new-ui) #sb_contacts img { filter: brightness(0) invert(1) !important; }
 .sidebar-v2-location:has(.contacts-new-ui) #sb_contacts::before { background: rgb(77, 140, 116) !important; }
-.sidebar-v2-location:has(.contacts-new-ui) .sidebar-v2-location:has(#sb_contacts) .hl_header .container-fluid::before { content: "Contactos"; }
+html:lang(es) .sidebar-v2-location:has(.contacts-new-ui) .sidebar-v2-location:has(#sb_contacts) .hl_header .container-fluid::before { content: "Contactos"; }
 .contacts-new-ui #smart-list-views-bar { background: transparent !important; border-bottom: none !important; }
 .contacts-new-ui .hl-tabs__tab { border-radius: 10px !important; }
 .contacts-new-ui .hl-tabs__tab--active, .contacts-new-ui .hl-tabs__tab--active .hl-tabs__label { color: var(--bb-accent) !important; }

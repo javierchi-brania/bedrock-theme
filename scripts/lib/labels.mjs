@@ -6,9 +6,17 @@
 //   "labels": [{ "sel": "<element that holds the text>", "text": "…", "font": "<name>",
 //                "icon": true }]   icon: the element also holds an <i> icon (dropdown
 //                                  chevron) that must keep its size and stay after the text
+//                "anyLang": true }]  also applied when the platform is not in Spanish
+//
+// Labels only apply while the platform language is Spanish (html:lang(es)); with the
+// platform in another language its own texts show. "anyLang" labels (the assistant's name)
+// apply in every language.
 //
 // Only for fixed labels: text that carries live data cannot be replaced with CSS.
-export function labelsToCss({ fonts, labels }, source = 'src/labels.json') {
+export function labelsToCss({ fonts, labels: raw }, source = 'src/labels.json') {
+  const labels = raw.map((l) =>
+    l.anyLang || l.sel.startsWith('html:') ? l : { ...l, sel: `html:lang(es) ${l.sel}` },
+  );
   const metrics = (l) => {
     const m = fonts[l.font];
     if (!m) throw new Error(`${source}: unknown font "${l.font}" for ${l.sel}`);

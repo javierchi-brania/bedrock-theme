@@ -110,7 +110,7 @@
   .askai-welcome[user-name]:not([user-name=""]) {
     --bb-user-name: attr(user-name);
   }
-  .askai-welcome[user-name]:not([user-name=""]) .askai-welcome-header__title::after {
+  html:lang(es) .askai-welcome[user-name]:not([user-name=""]) .askai-welcome-header__title::after {
     content: "Hola " var(--bb-user-name) ", ¿cómo puedo ayudarte hoy?";
   }
 }
