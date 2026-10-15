@@ -1065,67 +1065,67 @@
    "font": "sel14"
   },
   {
-   "sel": "html:lang(es) .crm-opportunities-status #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .crm-opportunities-status #widget-header-title",
    "text": "Estado de oportunidades",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .crm-opportunities-value #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .crm-opportunities-value #widget-header-title",
    "text": "Valor de oportunidades",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .crm-opportunities-conversion-rate #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .crm-opportunities-conversion-rate #widget-header-title",
    "text": "Tasa de conversión",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .crm-opportunities-funnel #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .crm-opportunities-funnel #widget-header-title",
    "text": "Embudo",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .crm-opportunities-stages-distribution #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .crm-opportunities-stages-distribution #widget-header-title",
    "text": "Distribución por etapa",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .crm-locations-tasks #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .crm-locations-tasks #widget-header-title",
    "text": "Tareas",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .crm-conversations-manual-actions #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .crm-conversations-manual-actions #widget-header-title",
    "text": "Acciones manuales",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .automations-attribution-lead-sources #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .automations-attribution-lead-sources #widget-header-title",
    "text": "Origen de clientes potenciales",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .automations-reporting-google-analytics-count-report #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .automations-reporting-google-analytics-count-report #widget-header-title",
    "text": "Google Analytics: resumen",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .automations-reporting-google-analytics-chart-report #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .automations-reporting-google-analytics-chart-report #widget-header-title",
    "text": "Google Analytics: gráfica",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .automations-reporting-gmb-report #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .automations-reporting-gmb-report #widget-header-title",
    "text": "Perfil de Google Business",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .automations-reporting-facebook-ads-report #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .automations-reporting-facebook-ads-report #widget-header-title",
    "text": "Anuncios de Facebook",
    "font": "widget15"
   },
   {
-   "sel": "html:lang(es) .automations-reporting-google-ads-report #widget-header-title",
+   "sel": "html:lang(es) #dashboard-container .automations-reporting-google-ads-report #widget-header-title",
    "text": "Anuncios de Google",
    "font": "widget15"
   }
