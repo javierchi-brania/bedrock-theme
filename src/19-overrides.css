@@ -2932,3 +2932,19 @@ body:has(.builder-root) :is(aside#sidebar-v2, header.hl_header) {
 .hr-popover:has([id$="-date-property-header"]) {
   min-width: 280px !important;
 }
+/* Widget titles in Spanish (labels.json, only while the platform language is Spanish) are longer
+   than the English ones: the title box could not shrink (min-width auto) and the text ran under
+   the widget's filter select → it shrinks and ends in an ellipsis, like the original title. */
+#dashboard-container .hr-card-header .truncate:has(> #widget-header-title) {
+  min-width: 0;
+}
+#dashboard-container #widget-header-title {
+  overflow: hidden;
+}
+#dashboard-container #widget-header-title::after {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top;
+}
