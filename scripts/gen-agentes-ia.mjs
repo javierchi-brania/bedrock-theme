@@ -154,14 +154,14 @@ let css = `/**
  */
 
 `;
-css += `${rules.map((r) => r.sel).join(',\n')} {\n  font-size: 0 !important;\n  line-height: 0 !important;\n}\n`;
+css += `${rules.map((r) => ES + r.sel).join(',\n')} {\n  font-size: 0 !important;\n  line-height: 0 !important;\n}\n`;
 // Paragraphs may wrap; short labels sit in shrink-to-fit boxes (pills, flex items) whose own
 // text is now 0px wide, so they must not wrap
 const WRAPS = /compare-table-sub|user-text|agent-text|ship-ai-tab-desc|li:nth-child/;
 for (const r of rules) {
   const [s, lh] = metrics(r.m);
   const ws = r.wrap || WRAPS.test(r.sel) ? '' : '\n  white-space: nowrap;';
-  css += `${r.sel}::after {\n  display: inline-block;${ws}\n  content: "${q(r.text)}";\n  font-size: ${s};\n  line-height: ${lh};\n}\n`;
+  css += `${ES}${r.sel}::after {\n  display: inline-block;${ws}\n  content: "${q(r.text)}";\n  font-size: ${s};\n  line-height: ${lh};\n}\n`;
 }
 // Headings "<text> <em>phrase</em> <text>": ::before on the heading, ::after in the em
 const headings = [
