@@ -1,5 +1,5 @@
 {
- "$comment": "Spanish labels for fixed platform text that has no Spanish version (or reads oddly). The build turns this into CSS (scripts/lib/labels.mjs). One entry per label; 'font' = metrics of the original text; 'icon' = the element also holds a dropdown chevron; 'anyLang' = also shown when the platform is not in Spanish (labels only apply under html:lang(es) otherwise). Never use it for text with live data.",
+ "$comment": "Spanish labels for fixed platform text that has no Spanish version (or reads oddly). The build turns this into CSS (scripts/lib/labels.mjs). One entry per label; 'font' = metrics of the original text; 'icon' = the element also holds a dropdown chevron; 'lang': 'other' = only shown when the platform is not in Spanish; 'anyLang' = also shown when the platform is not in Spanish (labels only apply under html:lang(es) otherwise). Never use it for text with live data.",
  "fonts": {
   "sidebar": "13.5px/20px",
   "tab": "14px/25.6px",
@@ -1199,6 +1199,13 @@
    "sel": "html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
    "text": "Anuncios de Google",
    "font": "desc12"
+  },
+  {
+   "sel": ".ai-usage-banner--setup .ai-usage-banner__headline",
+   "text": "Let your sub-account users use Ask BRANIA",
+   "font": "desc12",
+   "icon": true,
+   "lang": "other"
   }
  ]
 }

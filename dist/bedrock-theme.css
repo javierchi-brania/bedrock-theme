@@ -11202,7 +11202,8 @@ html:lang(es) body:has(#dashboard-container .automations-reporting-google-analyt
 html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-chart-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
 html:lang(es) body:has(#dashboard-container .automations-reporting-gmb-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
 html:lang(es) body:has(#dashboard-container .automations-reporting-facebook-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
-html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content {
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:not(:lang(es)) .ai-usage-banner--setup .ai-usage-banner__headline {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -11435,7 +11436,8 @@ html:lang(es) body:has(#dashboard-container .automations-reporting-google-analyt
 html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-chart-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
 html:lang(es) body:has(#dashboard-container .automations-reporting-gmb-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
 html:lang(es) body:has(#dashboard-container .automations-reporting-facebook-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
-html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:not(:lang(es)) .ai-usage-banner--setup .ai-usage-banner__headline::after {
   display: inline-block;
 }
 html:lang(es) .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -11455,6 +11457,10 @@ html:lang(es) #tb_certificates > span.flex.items-center > i {
   line-height: 25.6px !important;
 }
 html:lang(es) .ai-usage-banner--setup .ai-usage-banner__headline > i {
+  font-size: 12px !important;
+  line-height: 17px !important;
+}
+html:not(:lang(es)) .ai-usage-banner--setup .ai-usage-banner__headline > i {
   font-size: 12px !important;
   line-height: 17px !important;
 }
@@ -12612,4 +12618,10 @@ html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-re
   content: "Anuncios de Google";
   font-size: 12px;
   line-height: 17px;
+}
+html:not(:lang(es)) .ai-usage-banner--setup .ai-usage-banner__headline::after {
+  content: "Let your sub-account users use Ask BRANIA";
+  font-size: 12px;
+  line-height: 17px;
+  order: -1;
 }
