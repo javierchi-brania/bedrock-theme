@@ -2925,3 +2925,10 @@ body:has(.builder-root) :is(aside#sidebar-v2, header.hl_header) {
 #sb_memberships {
   display: none !important;
 }
+
+/* ===== v1.4.40 Tablero language ===== */
+/* Tablero › widget date filter (⇄): the popover is 228px wide, so its header ("Fecha con la
+   que se calcula") wrapped into four lines and pushed Restablecer out of the box. */
+.hr-popover:has([id$="-date-property-header"]) {
+  min-width: 280px !important;
+}
