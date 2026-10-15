@@ -4791,6 +4791,8 @@ aside#sidebar-v2 {
    lado vacío, así que se toma del ítem activo del menú de la sub-cuenta
    con :has(). Textos iguales a los del menú (en español). Si se agrega un
    ítem nuevo al menú, hay que sumar su línea aquí.
+   v1.4.41: names in Spanish only while the platform language is Spanish; in any
+   other language the menu's English names ("Ask BRANIA" in every language).
    ───────────────────────────────────────────────────────────── */
 .sidebar-v2-location .hl_header .container-fluid::before {
   margin-right: auto !important;
@@ -4805,26 +4807,43 @@ aside#sidebar-v2 {
   align-self: center !important;
 }
 .sidebar-v2-location:has(#sb_ask-ai.active) .hl_header .container-fluid::before { content: "Ask BRANIA"; }
-.sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Panel"; }
-.sidebar-v2-location:has(#sb_dashboard.active) .hl_header .container-fluid::before { content: "Tablero"; }
-.sidebar-v2-location:has(#sb_conversations.active) .hl_header .container-fluid::before { content: "Conversaciones"; }
-.sidebar-v2-location:has(#sb_calendars.active) .hl_header .container-fluid::before { content: "Calendarios"; }
-.sidebar-v2-location:has(#sb_contacts.active) .hl_header .container-fluid::before { content: "Contactos"; }
-.sidebar-v2-location:has(#sb_opportunities.active) .hl_header .container-fluid::before { content: "Oportunidades"; }
-.sidebar-v2-location:has(#sb_payments.active) .hl_header .container-fluid::before { content: "Pagos"; }
-.sidebar-v2-location:has(#sb_vibe.active) .hl_header .container-fluid::before { content: "Estudio de IA"; }
-.sidebar-v2-location:has([id="sb_AI Agents"].active) .hl_header .container-fluid::before { content: "Agentes de IA"; }
-.sidebar-v2-location:has(#sb_email-marketing.active) .hl_header .container-fluid::before { content: "Marketing"; }
-.sidebar-v2-location:has(#sb_automation.active) .hl_header .container-fluid::before { content: "Automatización"; }
-.sidebar-v2-location:has(#sb_sites.active) .hl_header .container-fluid::before { content: "Sitios"; }
-.sidebar-v2-location:has(#sb_memberships.active) .hl_header .container-fluid::before { content: "Membresías"; }
-.sidebar-v2-location:has(#sb_app-media.active) .hl_header .container-fluid::before { content: "Multimedia"; }
-.sidebar-v2-location:has(#sb_reputation.active) .hl_header .container-fluid::before { content: "Reputación"; }
-.sidebar-v2-location:has(#sb_reporting.active) .hl_header .container-fluid::before { content: "Informes"; }
-.sidebar-v2-location:has(#sb_app-marketplace.active) .hl_header .container-fluid::before { content: "Aplicaciones"; }
-.sidebar-v2-location:has(#sb_settings.active) .hl_header .container-fluid::before { content: "Configuración"; }
+html:lang(es) .sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Panel"; }
+html:lang(es) .sidebar-v2-location:has(#sb_dashboard.active) .hl_header .container-fluid::before { content: "Tablero"; }
+html:lang(es) .sidebar-v2-location:has(#sb_conversations.active) .hl_header .container-fluid::before { content: "Conversaciones"; }
+html:lang(es) .sidebar-v2-location:has(#sb_calendars.active) .hl_header .container-fluid::before { content: "Calendarios"; }
+html:lang(es) .sidebar-v2-location:has(#sb_contacts.active) .hl_header .container-fluid::before { content: "Contactos"; }
+html:lang(es) .sidebar-v2-location:has(#sb_opportunities.active) .hl_header .container-fluid::before { content: "Oportunidades"; }
+html:lang(es) .sidebar-v2-location:has(#sb_payments.active) .hl_header .container-fluid::before { content: "Pagos"; }
+html:lang(es) .sidebar-v2-location:has(#sb_vibe.active) .hl_header .container-fluid::before { content: "Estudio de IA"; }
+html:lang(es) .sidebar-v2-location:has([id="sb_AI Agents"].active) .hl_header .container-fluid::before { content: "Agentes de IA"; }
+html:lang(es) .sidebar-v2-location:has(#sb_email-marketing.active) .hl_header .container-fluid::before { content: "Marketing"; }
+html:lang(es) .sidebar-v2-location:has(#sb_automation.active) .hl_header .container-fluid::before { content: "Automatización"; }
+html:lang(es) .sidebar-v2-location:has(#sb_sites.active) .hl_header .container-fluid::before { content: "Sitios"; }
+html:lang(es) .sidebar-v2-location:has(#sb_memberships.active) .hl_header .container-fluid::before { content: "Membresías"; }
+html:lang(es) .sidebar-v2-location:has(#sb_app-media.active) .hl_header .container-fluid::before { content: "Multimedia"; }
+html:lang(es) .sidebar-v2-location:has(#sb_reputation.active) .hl_header .container-fluid::before { content: "Reputación"; }
+html:lang(es) .sidebar-v2-location:has(#sb_reporting.active) .hl_header .container-fluid::before { content: "Informes"; }
+html:lang(es) .sidebar-v2-location:has(#sb_app-marketplace.active) .hl_header .container-fluid::before { content: "Aplicaciones"; }
+html:lang(es) .sidebar-v2-location:has(#sb_settings.active) .hl_header .container-fluid::before { content: "Configuración"; }
 
-
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_launchpad.active) .hl_header .container-fluid::before { content: "Launchpad"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_dashboard.active) .hl_header .container-fluid::before { content: "Dashboard"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_conversations.active) .hl_header .container-fluid::before { content: "Conversations"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_calendars.active) .hl_header .container-fluid::before { content: "Calendars"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_contacts.active) .hl_header .container-fluid::before { content: "Contacts"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_opportunities.active) .hl_header .container-fluid::before { content: "Opportunities"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_payments.active) .hl_header .container-fluid::before { content: "Payments"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_vibe.active) .hl_header .container-fluid::before { content: "AI Studio"; }
+html:not(:lang(es)) .sidebar-v2-location:has([id="sb_AI Agents"].active) .hl_header .container-fluid::before { content: "AI Agents"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_email-marketing.active) .hl_header .container-fluid::before { content: "Marketing"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_automation.active) .hl_header .container-fluid::before { content: "Automation"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_sites.active) .hl_header .container-fluid::before { content: "Sites"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_memberships.active) .hl_header .container-fluid::before { content: "Memberships"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_app-media.active) .hl_header .container-fluid::before { content: "Media Storage"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_reputation.active) .hl_header .container-fluid::before { content: "Reputation"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_reporting.active) .hl_header .container-fluid::before { content: "Reporting"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_app-marketplace.active) .hl_header .container-fluid::before { content: "App Marketplace"; }
+html:not(:lang(es)) .sidebar-v2-location:has(#sb_settings.active) .hl_header .container-fluid::before { content: "Settings"; }
 /* ─────────────────────────────────────────────────────────────
    CONVERSACIONES — AJUSTE AL MOCKUP (v6.17) — #conversations-new-app
    Comparado con la vista Conversations de brania-bedrock.html:
