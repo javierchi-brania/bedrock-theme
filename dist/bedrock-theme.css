@@ -8879,6 +8879,13 @@ body:has(.builder-root) :is(aside#sidebar-v2, header.hl_header) {
   white-space: nowrap;
   vertical-align: top;
 }
+/* The Spanish title tooltip only holds while the title is hovered; during the tooltip's fade-out
+   the stored (English) title showed for a moment. On the dashboard a leaving tooltip is hidden
+   at once. */
+html:lang(es) body:has(#dashboard-container) .hr-tooltip.popover-transition-leave-active {
+  visibility: hidden !important;
+  transition: none !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
