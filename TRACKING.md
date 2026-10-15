@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** `v1.4.41` (theme texts follow the platform language) in review on `feat/language-aware`.
+**In progress:** nothing open; `v1.4.41` published (theme texts follow the platform language).
 
 ## Releases
 
@@ -78,7 +78,7 @@ publish is in [README.md](README.md).
 | v1.4.38 | feat | The assistant is named "Ask BRANIA" everywhere (was "Pregúntale a BRANIA" / "ASK BRANIA"); the only English text kept on purpose | published |
 | v1.4.39 | fix | Drawers keep the platform's stacking order: Contactos › Añadir lista inteligente › Filtros no longer opens under the smart list drawer | published |
 | v1.4.40 | fix | Tablero: fixed texts in Spanish and odd wording reworded (new dashboard page, options menu, summary tooltip, quick filters, widget date filter, Lead Source Report columns, Google Analytics and Business Profile labels); widget titles in Spanish by widget type, only while the platform language is Spanish | published |
-| v1.4.41 | feat | Every Spanish text of the theme only applies while the platform language is Spanish; in English the platform's own texts show (top bar view name in English, "Ask BRANIA" kept in every language) | in review |
+| v1.4.41 | feat | Every Spanish text of the theme only applies while the platform language is Spanish; in English the platform's own texts show (top bar view name in English, "Ask BRANIA" kept in every language) | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -200,7 +200,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.41 (in review): theme texts follow the platform language
+### v1.4.41 (published): theme texts follow the platform language
 
 | Change | Where | Verified |
 |---|---|---|
