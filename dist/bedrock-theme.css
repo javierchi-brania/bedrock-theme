@@ -8879,10 +8879,12 @@ body:has(.builder-root) :is(aside#sidebar-v2, header.hl_header) {
   white-space: nowrap;
   vertical-align: top;
 }
-/* The Spanish title tooltip only holds while the title is hovered; during the tooltip's fade-out
-   the stored (English) title showed for a moment. On the dashboard a leaving tooltip is hidden
-   at once. */
-html:lang(es) body:has(#dashboard-container) .hr-tooltip.popover-transition-leave-active {
+/* The Spanish title tooltip only holds while the title is hovered; after the mouse leaves, the
+   platform keeps the tooltip open for a short delay and then fades it out, and the stored
+   (English) title showed meanwhile. On the dashboard the title tooltips (.tooltip-width) are
+   only visible while a widget title is hovered. */
+html:lang(es) body:has(#dashboard-container):not(:has(#dashboard-container .hr-card-header .truncate:hover)) .hr-tooltip.tooltip-width,
+html:lang(es) body:has(#dashboard-container) .hr-tooltip.tooltip-width.popover-transition-leave-active {
   visibility: hidden !important;
   transition: none !important;
 }
