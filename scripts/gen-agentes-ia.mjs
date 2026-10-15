@@ -139,6 +139,8 @@ for (const [id, c] of Object.entries(cards)) {
 }
 
 const metrics = (m) => m.split('/');
+// Texts only apply while the platform language is Spanish
+const ES = 'html:lang(es) ';
 let css = `/**
  * 53-agentes-ia: Agentes de IA. New section (v1.3.5).
  *
@@ -152,14 +154,14 @@ let css = `/**
  */
 
 `;
-css += `${rules.map((r) => r.sel).join(',\n')} {\n  font-size: 0 !important;\n  line-height: 0 !important;\n}\n`;
+css += `${rules.map((r) => ES + r.sel).join(',\n')} {\n  font-size: 0 !important;\n  line-height: 0 !important;\n}\n`;
 // Paragraphs may wrap; short labels sit in shrink-to-fit boxes (pills, flex items) whose own
 // text is now 0px wide, so they must not wrap
 const WRAPS = /compare-table-sub|user-text|agent-text|ship-ai-tab-desc|li:nth-child/;
 for (const r of rules) {
   const [s, lh] = metrics(r.m);
   const ws = r.wrap || WRAPS.test(r.sel) ? '' : '\n  white-space: nowrap;';
-  css += `${r.sel}::after {\n  display: inline-block;${ws}\n  content: "${q(r.text)}";\n  font-size: ${s};\n  line-height: ${lh};\n}\n`;
+  css += `${ES}${r.sel}::after {\n  display: inline-block;${ws}\n  content: "${q(r.text)}";\n  font-size: ${s};\n  line-height: ${lh};\n}\n`;
 }
 // Headings "<text> <em>phrase</em> <text>": ::before on the heading, ::after in the em
 const headings = [
@@ -170,10 +172,10 @@ const headings = [
   ['section.feature-row:nth-of-type(4) .feature-heading', 'Construye una reputación de 5 estrellas ', 'en automático', '', '40px/46px'],
 ];
 css += `\n/* Headings with an emphasized phrase */\n`;
-css += `${headings.map((h) => `${L} ${h[0]}`).join(',\n')} {\n  font-size: 0 !important;\n  line-height: 0 !important;\n}\n`;
+css += `${headings.map((h) => `${ES}${L} ${h[0]}`).join(',\n')} {\n  font-size: 0 !important;\n  line-height: 0 !important;\n}\n`;
 for (const [sel, before, em, after, m] of headings) {
   const [s, lh] = metrics(m);
-  const base = `${L} ${sel}`;
+  const base = `${ES}${L} ${sel}`;
   css += `${base}::before {\n  content: "${q(before)}";\n  font-size: ${s};\n  line-height: ${lh};\n}\n`;
   css += `${base} > em::after {\n  content: "${q(em)}";\n  font-size: ${s};\n  line-height: ${lh};\n}\n`;
   if (after) css += `${base}::after {\n  content: "${q(after)}";\n  font-size: ${s};\n  line-height: ${lh};\n}\n`;
@@ -235,19 +237,21 @@ css += `
   color: var(--bb-accent) !important;
 }
 #agent-studio-container .agents-page__banner-text {
+  color: var(--bb-accent-dark) !important;
+}
+html:lang(es) #agent-studio-container .agents-page__banner-text {
   font-size: 0 !important;
   line-height: 0 !important;
-  color: var(--bb-accent-dark) !important;
 }
 #agent-studio-container .agents-page__banner-text > b {
   color: inherit !important;
 }
-#agent-studio-container .agents-page__banner-text > b::after {
+html:lang(es) #agent-studio-container .agents-page__banner-text > b::after {
   content: "Agentes gestionados";
   font-size: 13.5px;
   line-height: 19px;
 }
-#agent-studio-container .agents-page__banner-text::after {
+html:lang(es) #agent-studio-container .agents-page__banner-text::after {
   content: "\\00a0son agentes basados en instrucciones: dales un prompt, conocimiento, búsqueda web e integraciones, y úsalos en el chat o con disparadores.";
   font-size: 13.5px;
   line-height: 19px;

@@ -18,7 +18,7 @@ a.branded-banner .subtitle {
   color: var(--bb-text-label) !important;
 }
 a.branded-banner::after {
-  content: "Conocer más →";
+  content: "Learn more →";
   position: absolute;
   right: 38px;
   top: 50%;
@@ -32,6 +32,9 @@ a.branded-banner::after {
   font-weight: 600;
   line-height: 20px;
   box-shadow: 6px 6px 16px var(--bb-accent-glow), -4px -4px 12px rgba(255, 255, 255, 0.75);
+}
+html:lang(es) a.branded-banner::after {
+  content: "Conocer más →";
 }
 a.branded-banner:hover::after {
   background: var(--bb-accent-dark);

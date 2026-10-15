@@ -1,5 +1,5 @@
 {
- "$comment": "Spanish labels for fixed platform text that has no Spanish version (or reads oddly). The build turns this into CSS (scripts/lib/labels.mjs). One entry per label; 'font' = metrics of the original text; 'icon' = the element also holds a dropdown chevron. Never use it for text with live data.",
+ "$comment": "Spanish labels for fixed platform text that has no Spanish version (or reads oddly). The build turns this into CSS (scripts/lib/labels.mjs). One entry per label; 'font' = metrics of the original text; 'icon' = the element also holds a dropdown chevron; 'lang': 'other' = only shown when the platform is not in Spanish; 'anyLang' = also shown when the platform is not in Spanish (labels only apply under html:lang(es) otherwise). Never use it for text with live data.",
  "fonts": {
   "sidebar": "13.5px/20px",
   "tab": "14px/25.6px",
@@ -511,17 +511,20 @@
   {
    "sel": "#sb_ask-ai .nav-title",
    "text": "Ask BRANIA",
-   "font": "sidebar"
+   "font": "sidebar",
+   "anyLang": true
   },
   {
    "sel": "body:has(#hl_header--copilot-icon:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
    "text": "Ask BRANIA",
-   "font": "tooltip11"
+   "font": "tooltip11",
+   "anyLang": true
   },
   {
    "sel": ".askai-sidebar-header__brand-text",
    "text": "Ask BRANIA",
-   "font": "brand15"
+   "font": "brand15",
+   "anyLang": true
   },
   {
    "sel": ".askai-welcome-header__title",
@@ -586,7 +589,8 @@
   {
    "sel": "body:has(#sb_ask-ai:hover) .tooltip[role=\"tooltip\"] .tooltip-inner",
    "text": "Ask BRANIA",
-   "font": "tooltip11"
+   "font": "tooltip11",
+   "anyLang": true
   },
   {
    "sel": ".askai-left-panel__menu > button:nth-child(3) .askai-left-panel__menu-row-label",
@@ -751,12 +755,14 @@
   {
    "sel": "#user-edit-module-nav-COPILOT .truncate",
    "text": "Ask BRANIA",
-   "font": "menu14"
+   "font": "menu14",
+   "anyLang": true
   },
   {
    "sel": "#perm-module-COPILOT-accordion p.hr-text-lg",
    "text": "Ask BRANIA",
-   "font": "body"
+   "font": "body",
+   "anyLang": true
   },
   {
    "sel": ".ai-usage-banner--setup .ai-usage-banner__headline",
@@ -1193,6 +1199,13 @@
    "sel": "html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
    "text": "Anuncios de Google",
    "font": "desc12"
+  },
+  {
+   "sel": ".ai-usage-banner--setup .ai-usage-banner__headline",
+   "text": "Let your sub-account users use Ask BRANIA",
+   "font": "desc12",
+   "icon": true,
+   "lang": "other"
   }
  ]
 }
