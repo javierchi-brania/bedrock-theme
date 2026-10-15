@@ -11127,7 +11127,20 @@ body:has(#location_dashboard-btn-summarize_dashboard:hover) .hr-tooltip .hr-popo
 .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(5) > #analytics-count-label,
 .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(6) > #analytics-count-label,
 .automations-reporting-gmb-report .justify-around > div:nth-child(2) > div:nth-child(2) > #gbp-metric-label,
-#location-dashboard_select--gbp-page .hr-base-selection-placeholder__inner {
+#location-dashboard_select--gbp-page .hr-base-selection-placeholder__inner,
+html:lang(es) .crm-opportunities-status #widget-header-title,
+html:lang(es) .crm-opportunities-value #widget-header-title,
+html:lang(es) .crm-opportunities-conversion-rate #widget-header-title,
+html:lang(es) .crm-opportunities-funnel #widget-header-title,
+html:lang(es) .crm-opportunities-stages-distribution #widget-header-title,
+html:lang(es) .crm-locations-tasks #widget-header-title,
+html:lang(es) .crm-conversations-manual-actions #widget-header-title,
+html:lang(es) .automations-attribution-lead-sources #widget-header-title,
+html:lang(es) .automations-reporting-google-analytics-count-report #widget-header-title,
+html:lang(es) .automations-reporting-google-analytics-chart-report #widget-header-title,
+html:lang(es) .automations-reporting-gmb-report #widget-header-title,
+html:lang(es) .automations-reporting-facebook-ads-report #widget-header-title,
+html:lang(es) .automations-reporting-google-ads-report #widget-header-title {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -11334,7 +11347,20 @@ body:has(#location_dashboard-btn-summarize_dashboard:hover) .hr-tooltip .hr-popo
 .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(5) > #analytics-count-label::after,
 .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(6) > #analytics-count-label::after,
 .automations-reporting-gmb-report .justify-around > div:nth-child(2) > div:nth-child(2) > #gbp-metric-label::after,
-#location-dashboard_select--gbp-page .hr-base-selection-placeholder__inner::after {
+#location-dashboard_select--gbp-page .hr-base-selection-placeholder__inner::after,
+html:lang(es) .crm-opportunities-status #widget-header-title::after,
+html:lang(es) .crm-opportunities-value #widget-header-title::after,
+html:lang(es) .crm-opportunities-conversion-rate #widget-header-title::after,
+html:lang(es) .crm-opportunities-funnel #widget-header-title::after,
+html:lang(es) .crm-opportunities-stages-distribution #widget-header-title::after,
+html:lang(es) .crm-locations-tasks #widget-header-title::after,
+html:lang(es) .crm-conversations-manual-actions #widget-header-title::after,
+html:lang(es) .automations-attribution-lead-sources #widget-header-title::after,
+html:lang(es) .automations-reporting-google-analytics-count-report #widget-header-title::after,
+html:lang(es) .automations-reporting-google-analytics-chart-report #widget-header-title::after,
+html:lang(es) .automations-reporting-gmb-report #widget-header-title::after,
+html:lang(es) .automations-reporting-facebook-ads-report #widget-header-title::after,
+html:lang(es) .automations-reporting-google-ads-report #widget-header-title::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -12381,4 +12407,69 @@ body:has(#location_dashboard-btn-summarize_dashboard:hover) .hr-tooltip .hr-popo
   content: "Selecciona una opción";
   font-size: 14px;
   line-height: 18px;
+}
+html:lang(es) .crm-opportunities-status #widget-header-title::after {
+  content: "Estado de oportunidades";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .crm-opportunities-value #widget-header-title::after {
+  content: "Valor de oportunidades";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .crm-opportunities-conversion-rate #widget-header-title::after {
+  content: "Tasa de conversión";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .crm-opportunities-funnel #widget-header-title::after {
+  content: "Embudo";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .crm-opportunities-stages-distribution #widget-header-title::after {
+  content: "Distribución por etapa";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .crm-locations-tasks #widget-header-title::after {
+  content: "Tareas";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .crm-conversations-manual-actions #widget-header-title::after {
+  content: "Acciones manuales";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .automations-attribution-lead-sources #widget-header-title::after {
+  content: "Origen de clientes potenciales";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .automations-reporting-google-analytics-count-report #widget-header-title::after {
+  content: "Google Analytics: resumen";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .automations-reporting-google-analytics-chart-report #widget-header-title::after {
+  content: "Google Analytics: gráfica";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .automations-reporting-gmb-report #widget-header-title::after {
+  content: "Perfil de Google Business";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .automations-reporting-facebook-ads-report #widget-header-title::after {
+  content: "Anuncios de Facebook";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) .automations-reporting-google-ads-report #widget-header-title::after {
+  content: "Anuncios de Google";
+  font-size: 15px;
+  line-height: 24px;
 }
