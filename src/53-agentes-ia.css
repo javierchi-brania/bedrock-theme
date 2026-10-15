@@ -1038,11 +1038,11 @@ html:lang(es) #available-card-health-wellness-appointment .template-card__cap-ro
 }
 
 /* Headings with an emphasized phrase */
-.ai-value-landing .hero-heading,
-.ai-value-landing section.feature-row:nth-of-type(1) .feature-heading,
-.ai-value-landing section.feature-row:nth-of-type(2) .feature-heading,
-.ai-value-landing section.feature-row:nth-of-type(3) .feature-heading,
-.ai-value-landing section.feature-row:nth-of-type(4) .feature-heading {
+html:lang(es) .ai-value-landing .hero-heading,
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(1) .feature-heading,
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(2) .feature-heading,
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(3) .feature-heading,
+html:lang(es) .ai-value-landing section.feature-row:nth-of-type(4) .feature-heading {
   font-size: 0 !important;
   line-height: 0 !important;
 }

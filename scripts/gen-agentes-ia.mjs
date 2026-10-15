@@ -172,7 +172,7 @@ const headings = [
   ['section.feature-row:nth-of-type(4) .feature-heading', 'Construye una reputación de 5 estrellas ', 'en automático', '', '40px/46px'],
 ];
 css += `\n/* Headings with an emphasized phrase */\n`;
-css += `${headings.map((h) => `${L} ${h[0]}`).join(',\n')} {\n  font-size: 0 !important;\n  line-height: 0 !important;\n}\n`;
+css += `${headings.map((h) => `${ES}${L} ${h[0]}`).join(',\n')} {\n  font-size: 0 !important;\n  line-height: 0 !important;\n}\n`;
 for (const [sel, before, em, after, m] of headings) {
   const [s, lh] = metrics(m);
   const base = `${ES}${L} ${sel}`;
