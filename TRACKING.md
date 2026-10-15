@@ -77,7 +77,7 @@ publish is in [README.md](README.md).
 | v1.4.37 | feat | Sub-account menu: Membresías item hidden at the team's request | published |
 | v1.4.38 | feat | The assistant is named "Ask BRANIA" everywhere (was "Pregúntale a BRANIA" / "ASK BRANIA"); the only English text kept on purpose | published |
 | v1.4.39 | fix | Drawers keep the platform's stacking order: Contactos › Añadir lista inteligente › Filtros no longer opens under the smart list drawer | published |
-| v1.4.40 | fix | Tablero: fixed texts in Spanish and odd wording reworded (new dashboard page, options menu, summary tooltip, quick filters, widget date filter, Lead Source Report columns, Google Analytics and Business Profile labels) | in review |
+| v1.4.40 | fix | Tablero: fixed texts in Spanish and odd wording reworded (new dashboard page, options menu, summary tooltip, quick filters, widget date filter, Lead Source Report columns, Google Analytics and Business Profile labels); widget titles in Spanish by widget type, only while the platform language is Spanish | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -209,7 +209,8 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 | Widget date filter: "Propiedad de la fecha en la que se debe calcular Clientes potenciales" → "Fecha con la que se calcula"; popover 228 → 280px so Restablecer fits | Every widget's ⇄ filter | commit CSS preview |
 | Lead Source Report columns: Abrir / Ganado / Perdido / Abandonado / % de ganancia → Abiertos / Ganados / Perdidos / Abandonados / % de cierre | Lead Source Report | commit CSS preview |
 | Google Analytics: "Visualizaciones totales de la página", "Vistas directas", "Visualizaciones de pago", "Perspectivas sociales", "Visualizaciones orgánicas" → Páginas vistas, Visitas directas, Visitas de pago, Redes sociales, Visitas orgánicas; Business Profile "Mapas (escritorio & móvil)" → "y", "Seleccione" → "Selecciona" | Google Analytics Count, Google Business Profile | commit CSS preview |
-| Not changed (account data, renamed in Editar tablero › widget ⋮ › Editar › Título): widget titles (Opportunity Status, Opportunity Value, Conversion Rate, Funnel, Stages Distribution, Tasks, Manual Actions, Lead Source Report, Google Analytics Count / Chart, Google Business Profile, Facebook / Google Ads Report), dashboard name "Dashboard", pipeline "Enterprise Lead", custom date fields ("Cita Fecha Hora", "Case SLA Vencimiento"), source "kommo". Not fixable with CSS: Tasks sort options "(ASC)/(DESC)" (menu mounted outside the widget, selected value varies) | Tablero | — |
+| Widget titles were the account's English defaults (13 dashboards, one per site) → shown in Spanish by widget type (Estado de oportunidades, Valor de oportunidades, Tasa de conversión, Embudo, Distribución por etapa, Tareas, Acciones manuales, Origen de clientes potenciales, Google Analytics: resumen / gráfica, Perfil de Google Business, Anuncios de Facebook / Google) only under `html:lang(es)`: with the platform in English the stored title shows again. A renamed widget still shows the Spanish name (decision of the team). Long titles shrink and end in an ellipsis instead of running under the widget filter | Every dashboard | commit CSS preview: 13 titles in Spanish, none under its select; with `lang="en-US"` set on the page the 13 original titles return |
+| Not changed (account data): dashboard name "Dashboard", pipeline "Enterprise Lead", custom date fields ("Cita Fecha Hora", "Case SLA Vencimiento"), source "kommo". Not fixable with CSS: Tasks sort options "(ASC)/(DESC)" (menu mounted outside the widget, selected value varies) | Tablero | — |
 
 ### v1.4.39 (published): drawer stacking
 
