@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.39` published (drawer stacking).
+**In progress:** nothing open; `v1.4.40` published (Tablero language).
 
 ## Releases
 
@@ -77,6 +77,7 @@ publish is in [README.md](README.md).
 | v1.4.37 | feat | Sub-account menu: Membresías item hidden at the team's request | published |
 | v1.4.38 | feat | The assistant is named "Ask BRANIA" everywhere (was "Pregúntale a BRANIA" / "ASK BRANIA"); the only English text kept on purpose | published |
 | v1.4.39 | fix | Drawers keep the platform's stacking order: Contactos › Añadir lista inteligente › Filtros no longer opens under the smart list drawer | published |
+| v1.4.40 | fix | Tablero: fixed texts in Spanish and odd wording reworded (new dashboard page, options menu, summary tooltip, quick filters, widget date filter, Lead Source Report columns, Google Analytics and Business Profile labels); widget titles in Spanish by widget type, only while the platform language is Spanish | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -197,6 +198,19 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.40 (published): Tablero language
+
+| Change | Where | Verified |
+|---|---|---|
+| Nuevo tablero: "Fuente del panel de control" → "¿Cómo quieres empezar?", "Crear un panel en blanco" → "Tablero en blanco", "Clonar el dashboard existente" → "Clonar un tablero existente", subtitles in *tú* | Tablero › + Nuevo | commit CSS preview |
+| Options menu (⋮): "Duplicar a otra cuenta" → "Duplicar en otra subcuenta", "Gestiona la zona horaria del panel de control" → "Zona horaria del tablero"; summary button tooltip "Resumen del panel de control" → "Resumen del tablero" | Tablero header | commit CSS preview |
+| Filtros rápidos empty text named a button that does not exist ("Añadir rápido") → "Aún no hay filtros. Agrégalos con el botón Añadir filtros rápidos." | Tablero › Filtros rápidos | commit CSS preview |
+| Widget date filter: "Propiedad de la fecha en la que se debe calcular Clientes potenciales" → "Fecha con la que se calcula"; popover 228 → 280px so Restablecer fits | Every widget's ⇄ filter | commit CSS preview |
+| Lead Source Report columns: Abrir / Ganado / Perdido / Abandonado / % de ganancia → Abiertos / Ganados / Perdidos / Abandonados / % de cierre | Lead Source Report | commit CSS preview |
+| Google Analytics: "Visualizaciones totales de la página", "Vistas directas", "Visualizaciones de pago", "Perspectivas sociales", "Visualizaciones orgánicas" → Páginas vistas, Visitas directas, Visitas de pago, Redes sociales, Visitas orgánicas; Business Profile "Mapas (escritorio & móvil)" → "y", "Seleccione" → "Selecciona" | Google Analytics Count, Google Business Profile | commit CSS preview |
+| Widget titles were the account's English defaults (13 dashboards, one per site) → shown in Spanish by widget type (Estado de oportunidades, Valor de oportunidades, Tasa de conversión, Embudo, Distribución por etapa, Tareas, Acciones manuales, Origen de clientes potenciales, Google Analytics: resumen / gráfica, Perfil de Google Business, Anuncios de Facebook / Google) only under `html:lang(es)`: with the platform in English the stored title shows again. A renamed widget still shows the Spanish name (decision of the team). Long titles shrink and end in an ellipsis instead of running under the widget filter; the tooltip on the title shows the same Spanish name (title tooltips, .tooltip-width, are only visible while a title is hovered: the platform keeps them open for a short delay after the mouse leaves, and the stored English title showed meanwhile; measured frame by frame: 9 English frames before, 0 after). The "(Cambio de Estado)" subtitle is the widget's date property (⇄), left as it is | Every dashboard | commit CSS preview: 13 titles in Spanish, none under its select, title tooltips in Spanish; with `lang="en-US"` set on the page the 13 original titles return |
+| Not changed (account data): dashboard name "Dashboard" (the team renames it in Editar tablero), pipeline "Enterprise Lead", custom date fields ("Cita Fecha Hora", "Case SLA Vencimiento"), source "kommo". Not fixable with CSS: Tasks sort options "(ASC)/(DESC)" (menu mounted outside the widget, selected value varies) | Tablero | — |
 
 ### v1.4.39 (published): drawer stacking
 

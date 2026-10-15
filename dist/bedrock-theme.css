@@ -8856,6 +8856,38 @@ body:has(.builder-root) :is(aside#sidebar-v2, header.hl_header) {
 #sb_memberships {
   display: none !important;
 }
+
+/* ===== v1.4.40 Tablero language ===== */
+/* Tablero › widget date filter (⇄): the popover is 228px wide, so its header ("Fecha con la
+   que se calcula") wrapped into four lines and pushed Restablecer out of the box. */
+.hr-popover:has([id$="-date-property-header"]) {
+  min-width: 280px !important;
+}
+/* Widget titles in Spanish (labels.json, only while the platform language is Spanish) are longer
+   than the English ones: the title box could not shrink (min-width auto) and the text ran under
+   the widget's filter select → it shrinks and ends in an ellipsis, like the original title. */
+#dashboard-container .hr-card-header .truncate:has(> #widget-header-title) {
+  min-width: 0;
+}
+#dashboard-container #widget-header-title {
+  overflow: hidden;
+}
+#dashboard-container #widget-header-title::after {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top;
+}
+/* The Spanish title tooltip only holds while the title is hovered; after the mouse leaves, the
+   platform keeps the tooltip open for a short delay and then fades it out, and the stored
+   (English) title showed meanwhile. On the dashboard the title tooltips (.tooltip-width) are
+   only visible while a widget title is hovered. */
+html:lang(es) body:has(#dashboard-container):not(:has(#dashboard-container .hr-card-header .truncate:hover)) .hr-tooltip.tooltip-width,
+html:lang(es) body:has(#dashboard-container) .hr-tooltip.tooltip-width.popover-transition-leave-active {
+  visibility: hidden !important;
+  transition: none !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
@@ -11098,7 +11130,55 @@ body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(3) .model-p
 .dsp__head-text > .dsp__desc,
 .dispatch-view__scope-note-title,
 .dispatch-view__scope-note-text,
-.dispatch-view__connect-btn .hr-button__content > p {
+.dispatch-view__connect-btn .hr-button__content > p,
+#location_dashboard_create-text-source_heading,
+#reporting_create_prompt_card-text-header-blank-dashboard,
+#reporting_create_prompt_card-text-subheader-template-library,
+#reporting_create_prompt_card-text-header-clone-dashboard,
+#reporting_create_prompt_card-text-subheader-clone-dashboard,
+#location_dashboard-dashboard_option-duplicate_dashboard > p,
+#location_dashboard-dashboard_option-manage_timezone > p,
+body:has(#location_dashboard-btn-summarize_dashboard:hover) .hr-tooltip .hr-popover__content > p,
+#quick-filter-panel-no-filters-desc,
+[id$="-date-property-header"],
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(3) .hr-ellipsis > span,
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(4) .hr-ellipsis > span,
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(5) .hr-ellipsis > span,
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(6) .hr-ellipsis > span,
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(7) .hr-ellipsis > span,
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(2) > #analytics-count-label,
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(3) > #analytics-count-label,
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(4) > #analytics-count-label,
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(5) > #analytics-count-label,
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(6) > #analytics-count-label,
+.automations-reporting-gmb-report .justify-around > div:nth-child(2) > div:nth-child(2) > #gbp-metric-label,
+#location-dashboard_select--gbp-page .hr-base-selection-placeholder__inner,
+html:lang(es) #dashboard-container .crm-opportunities-status #widget-header-title,
+html:lang(es) #dashboard-container .crm-opportunities-value #widget-header-title,
+html:lang(es) #dashboard-container .crm-opportunities-conversion-rate #widget-header-title,
+html:lang(es) #dashboard-container .crm-opportunities-funnel #widget-header-title,
+html:lang(es) #dashboard-container .crm-opportunities-stages-distribution #widget-header-title,
+html:lang(es) #dashboard-container .crm-locations-tasks #widget-header-title,
+html:lang(es) #dashboard-container .crm-conversations-manual-actions #widget-header-title,
+html:lang(es) #dashboard-container .automations-attribution-lead-sources #widget-header-title,
+html:lang(es) #dashboard-container .automations-reporting-google-analytics-count-report #widget-header-title,
+html:lang(es) #dashboard-container .automations-reporting-google-analytics-chart-report #widget-header-title,
+html:lang(es) #dashboard-container .automations-reporting-gmb-report #widget-header-title,
+html:lang(es) #dashboard-container .automations-reporting-facebook-ads-report #widget-header-title,
+html:lang(es) #dashboard-container .automations-reporting-google-ads-report #widget-header-title,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-status .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-value .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-conversion-rate .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-funnel .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-stages-distribution .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-locations-tasks .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-conversations-manual-actions .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-attribution-lead-sources .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-count-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-chart-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-reporting-gmb-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-reporting-facebook-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -11283,7 +11363,55 @@ body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(3) .model-p
 .dsp__head-text > .dsp__desc::after,
 .dispatch-view__scope-note-title::after,
 .dispatch-view__scope-note-text::after,
-.dispatch-view__connect-btn .hr-button__content > p::after {
+.dispatch-view__connect-btn .hr-button__content > p::after,
+#location_dashboard_create-text-source_heading::after,
+#reporting_create_prompt_card-text-header-blank-dashboard::after,
+#reporting_create_prompt_card-text-subheader-template-library::after,
+#reporting_create_prompt_card-text-header-clone-dashboard::after,
+#reporting_create_prompt_card-text-subheader-clone-dashboard::after,
+#location_dashboard-dashboard_option-duplicate_dashboard > p::after,
+#location_dashboard-dashboard_option-manage_timezone > p::after,
+body:has(#location_dashboard-btn-summarize_dashboard:hover) .hr-tooltip .hr-popover__content > p::after,
+#quick-filter-panel-no-filters-desc::after,
+[id$="-date-property-header"]::after,
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(3) .hr-ellipsis > span::after,
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(4) .hr-ellipsis > span::after,
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(5) .hr-ellipsis > span::after,
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(6) .hr-ellipsis > span::after,
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(7) .hr-ellipsis > span::after,
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(2) > #analytics-count-label::after,
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(3) > #analytics-count-label::after,
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(4) > #analytics-count-label::after,
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(5) > #analytics-count-label::after,
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(6) > #analytics-count-label::after,
+.automations-reporting-gmb-report .justify-around > div:nth-child(2) > div:nth-child(2) > #gbp-metric-label::after,
+#location-dashboard_select--gbp-page .hr-base-selection-placeholder__inner::after,
+html:lang(es) #dashboard-container .crm-opportunities-status #widget-header-title::after,
+html:lang(es) #dashboard-container .crm-opportunities-value #widget-header-title::after,
+html:lang(es) #dashboard-container .crm-opportunities-conversion-rate #widget-header-title::after,
+html:lang(es) #dashboard-container .crm-opportunities-funnel #widget-header-title::after,
+html:lang(es) #dashboard-container .crm-opportunities-stages-distribution #widget-header-title::after,
+html:lang(es) #dashboard-container .crm-locations-tasks #widget-header-title::after,
+html:lang(es) #dashboard-container .crm-conversations-manual-actions #widget-header-title::after,
+html:lang(es) #dashboard-container .automations-attribution-lead-sources #widget-header-title::after,
+html:lang(es) #dashboard-container .automations-reporting-google-analytics-count-report #widget-header-title::after,
+html:lang(es) #dashboard-container .automations-reporting-google-analytics-chart-report #widget-header-title::after,
+html:lang(es) #dashboard-container .automations-reporting-gmb-report #widget-header-title::after,
+html:lang(es) #dashboard-container .automations-reporting-facebook-ads-report #widget-header-title::after,
+html:lang(es) #dashboard-container .automations-reporting-google-ads-report #widget-header-title::after,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-status .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-value .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-conversion-rate .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-funnel .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-stages-distribution .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-locations-tasks .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-conversations-manual-actions .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-attribution-lead-sources .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-count-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-chart-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-reporting-gmb-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-reporting-facebook-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -12220,4 +12348,244 @@ body:has(.czs) > .model-picker__menu > .model-picker__item:nth-child(3) .model-p
   content: "Conectar WhatsApp";
   font-size: 14px;
   line-height: 20px;
+}
+#location_dashboard_create-text-source_heading::after {
+  content: "¿Cómo quieres empezar?";
+  font-size: 16px;
+  line-height: 24px;
+}
+#reporting_create_prompt_card-text-header-blank-dashboard::after {
+  content: "Tablero en blanco";
+  font-size: 14px;
+  line-height: 21px;
+}
+#reporting_create_prompt_card-text-subheader-template-library::after {
+  content: "Usa una plantilla de la biblioteca o una tuya";
+  font-size: 14px;
+  line-height: 20px;
+}
+#reporting_create_prompt_card-text-header-clone-dashboard::after {
+  content: "Clonar un tablero existente";
+  font-size: 14px;
+  line-height: 21px;
+}
+#reporting_create_prompt_card-text-subheader-clone-dashboard::after {
+  content: "Haz una copia de un tablero que ya tienes";
+  font-size: 14px;
+  line-height: 20px;
+}
+#location_dashboard-dashboard_option-duplicate_dashboard > p::after {
+  content: "Duplicar en otra subcuenta";
+  font-size: 13px;
+  line-height: 18px;
+}
+#location_dashboard-dashboard_option-manage_timezone > p::after {
+  content: "Zona horaria del tablero";
+  font-size: 13px;
+  line-height: 18px;
+}
+body:has(#location_dashboard-btn-summarize_dashboard:hover) .hr-tooltip .hr-popover__content > p::after {
+  content: "Resumen del tablero";
+  font-size: 12px;
+  line-height: 17px;
+}
+#quick-filter-panel-no-filters-desc::after {
+  content: "Aún no hay filtros. Agrégalos con el botón Añadir filtros rápidos.";
+  font-size: 14px;
+  line-height: 20px;
+}
+[id$="-date-property-header"]::after {
+  content: "Fecha con la que se calcula";
+  font-size: 12px;
+  line-height: 17px;
+}
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(3) .hr-ellipsis > span::after {
+  content: "Abiertos";
+  font-size: 14px;
+  line-height: 20px;
+}
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(4) .hr-ellipsis > span::after {
+  content: "Ganados";
+  font-size: 14px;
+  line-height: 20px;
+}
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(5) .hr-ellipsis > span::after {
+  content: "Perdidos";
+  font-size: 14px;
+  line-height: 20px;
+}
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(6) .hr-ellipsis > span::after {
+  content: "Abandonados";
+  font-size: 14px;
+  line-height: 20px;
+}
+.automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(7) .hr-ellipsis > span::after {
+  content: "% de cierre";
+  font-size: 14px;
+  line-height: 20px;
+}
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(2) > #analytics-count-label::after {
+  content: "Páginas vistas";
+  font-size: 14px;
+  line-height: 20px;
+}
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(3) > #analytics-count-label::after {
+  content: "Visitas directas";
+  font-size: 14px;
+  line-height: 20px;
+}
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(4) > #analytics-count-label::after {
+  content: "Visitas de pago";
+  font-size: 14px;
+  line-height: 20px;
+}
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(5) > #analytics-count-label::after {
+  content: "Redes sociales";
+  font-size: 14px;
+  line-height: 20px;
+}
+.automations-reporting-google-analytics-count-report .justify-around > div:nth-child(6) > #analytics-count-label::after {
+  content: "Visitas orgánicas";
+  font-size: 14px;
+  line-height: 20px;
+}
+.automations-reporting-gmb-report .justify-around > div:nth-child(2) > div:nth-child(2) > #gbp-metric-label::after {
+  content: "Mapas (escritorio y móvil)";
+  font-size: 14px;
+  line-height: 20px;
+}
+#location-dashboard_select--gbp-page .hr-base-selection-placeholder__inner::after {
+  content: "Selecciona una opción";
+  font-size: 14px;
+  line-height: 18px;
+}
+html:lang(es) #dashboard-container .crm-opportunities-status #widget-header-title::after {
+  content: "Estado de oportunidades";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .crm-opportunities-value #widget-header-title::after {
+  content: "Valor de oportunidades";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .crm-opportunities-conversion-rate #widget-header-title::after {
+  content: "Tasa de conversión";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .crm-opportunities-funnel #widget-header-title::after {
+  content: "Embudo";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .crm-opportunities-stages-distribution #widget-header-title::after {
+  content: "Distribución por etapa";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .crm-locations-tasks #widget-header-title::after {
+  content: "Tareas";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .crm-conversations-manual-actions #widget-header-title::after {
+  content: "Acciones manuales";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .automations-attribution-lead-sources #widget-header-title::after {
+  content: "Origen de clientes potenciales";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .automations-reporting-google-analytics-count-report #widget-header-title::after {
+  content: "Google Analytics: resumen";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .automations-reporting-google-analytics-chart-report #widget-header-title::after {
+  content: "Google Analytics: gráfica";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .automations-reporting-gmb-report #widget-header-title::after {
+  content: "Perfil de Google Business";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .automations-reporting-facebook-ads-report #widget-header-title::after {
+  content: "Anuncios de Facebook";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) #dashboard-container .automations-reporting-google-ads-report #widget-header-title::after {
+  content: "Anuncios de Google";
+  font-size: 15px;
+  line-height: 24px;
+}
+html:lang(es) body:has(#dashboard-container .crm-opportunities-status .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Estado de oportunidades";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-opportunities-value .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Valor de oportunidades";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-opportunities-conversion-rate .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Tasa de conversión";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-opportunities-funnel .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Embudo";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-opportunities-stages-distribution .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Distribución por etapa";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-locations-tasks .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Tareas";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-conversations-manual-actions .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Acciones manuales";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-attribution-lead-sources .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Origen de clientes potenciales";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-count-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Google Analytics: resumen";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-chart-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Google Analytics: gráfica";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-reporting-gmb-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Perfil de Google Business";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-reporting-facebook-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Anuncios de Facebook";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Anuncios de Google";
+  font-size: 12px;
+  line-height: 17px;
 }

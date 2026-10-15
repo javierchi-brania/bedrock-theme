@@ -34,7 +34,9 @@
   "opt14": "14px/19.25px",
   "opt12": "12px/16.5px",
   "nav15": "15px/22.5px",
-  "desc14": "14px/21.7px"
+  "desc14": "14px/21.7px",
+  "sel14": "14px/18px",
+  "widget15": "15px/24px"
  },
  "labels": [
   {
@@ -951,6 +953,246 @@
    "sel": ".dispatch-view__connect-btn .hr-button__content > p",
    "text": "Conectar WhatsApp",
    "font": "menu14"
+  },
+  {
+   "sel": "#location_dashboard_create-text-source_heading",
+   "text": "¿Cómo quieres empezar?",
+   "font": "risk"
+  },
+  {
+   "sel": "#reporting_create_prompt_card-text-header-blank-dashboard",
+   "text": "Tablero en blanco",
+   "font": "body21"
+  },
+  {
+   "sel": "#reporting_create_prompt_card-text-subheader-template-library",
+   "text": "Usa una plantilla de la biblioteca o una tuya",
+   "font": "body"
+  },
+  {
+   "sel": "#reporting_create_prompt_card-text-header-clone-dashboard",
+   "text": "Clonar un tablero existente",
+   "font": "body21"
+  },
+  {
+   "sel": "#reporting_create_prompt_card-text-subheader-clone-dashboard",
+   "text": "Haz una copia de un tablero que ya tienes",
+   "font": "body"
+  },
+  {
+   "sel": "#location_dashboard-dashboard_option-duplicate_dashboard > p",
+   "text": "Duplicar en otra subcuenta",
+   "font": "small18"
+  },
+  {
+   "sel": "#location_dashboard-dashboard_option-manage_timezone > p",
+   "text": "Zona horaria del tablero",
+   "font": "small18"
+  },
+  {
+   "sel": "body:has(#location_dashboard-btn-summarize_dashboard:hover) .hr-tooltip .hr-popover__content > p",
+   "text": "Resumen del tablero",
+   "font": "desc12"
+  },
+  {
+   "sel": "#quick-filter-panel-no-filters-desc",
+   "text": "Aún no hay filtros. Agrégalos con el botón Añadir filtros rápidos.",
+   "font": "body"
+  },
+  {
+   "sel": "[id$=\"-date-property-header\"]",
+   "text": "Fecha con la que se calcula",
+   "font": "desc12"
+  },
+  {
+   "sel": ".automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(3) .hr-ellipsis > span",
+   "text": "Abiertos",
+   "font": "body"
+  },
+  {
+   "sel": ".automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(4) .hr-ellipsis > span",
+   "text": "Ganados",
+   "font": "body"
+  },
+  {
+   "sel": ".automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(5) .hr-ellipsis > span",
+   "text": "Perdidos",
+   "font": "body"
+  },
+  {
+   "sel": ".automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(6) .hr-ellipsis > span",
+   "text": "Abandonados",
+   "font": "body"
+  },
+  {
+   "sel": ".automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(7) .hr-ellipsis > span",
+   "text": "% de cierre",
+   "font": "body"
+  },
+  {
+   "sel": ".automations-reporting-google-analytics-count-report .justify-around > div:nth-child(2) > #analytics-count-label",
+   "text": "Páginas vistas",
+   "font": "body"
+  },
+  {
+   "sel": ".automations-reporting-google-analytics-count-report .justify-around > div:nth-child(3) > #analytics-count-label",
+   "text": "Visitas directas",
+   "font": "body"
+  },
+  {
+   "sel": ".automations-reporting-google-analytics-count-report .justify-around > div:nth-child(4) > #analytics-count-label",
+   "text": "Visitas de pago",
+   "font": "body"
+  },
+  {
+   "sel": ".automations-reporting-google-analytics-count-report .justify-around > div:nth-child(5) > #analytics-count-label",
+   "text": "Redes sociales",
+   "font": "body"
+  },
+  {
+   "sel": ".automations-reporting-google-analytics-count-report .justify-around > div:nth-child(6) > #analytics-count-label",
+   "text": "Visitas orgánicas",
+   "font": "body"
+  },
+  {
+   "sel": ".automations-reporting-gmb-report .justify-around > div:nth-child(2) > div:nth-child(2) > #gbp-metric-label",
+   "text": "Mapas (escritorio y móvil)",
+   "font": "body"
+  },
+  {
+   "sel": "#location-dashboard_select--gbp-page .hr-base-selection-placeholder__inner",
+   "text": "Selecciona una opción",
+   "font": "sel14"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .crm-opportunities-status #widget-header-title",
+   "text": "Estado de oportunidades",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .crm-opportunities-value #widget-header-title",
+   "text": "Valor de oportunidades",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .crm-opportunities-conversion-rate #widget-header-title",
+   "text": "Tasa de conversión",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .crm-opportunities-funnel #widget-header-title",
+   "text": "Embudo",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .crm-opportunities-stages-distribution #widget-header-title",
+   "text": "Distribución por etapa",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .crm-locations-tasks #widget-header-title",
+   "text": "Tareas",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .crm-conversations-manual-actions #widget-header-title",
+   "text": "Acciones manuales",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .automations-attribution-lead-sources #widget-header-title",
+   "text": "Origen de clientes potenciales",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .automations-reporting-google-analytics-count-report #widget-header-title",
+   "text": "Google Analytics: resumen",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .automations-reporting-google-analytics-chart-report #widget-header-title",
+   "text": "Google Analytics: gráfica",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .automations-reporting-gmb-report #widget-header-title",
+   "text": "Perfil de Google Business",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .automations-reporting-facebook-ads-report #widget-header-title",
+   "text": "Anuncios de Facebook",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) #dashboard-container .automations-reporting-google-ads-report #widget-header-title",
+   "text": "Anuncios de Google",
+   "font": "widget15"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .crm-opportunities-status .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Estado de oportunidades",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .crm-opportunities-value .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Valor de oportunidades",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .crm-opportunities-conversion-rate .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Tasa de conversión",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .crm-opportunities-funnel .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Embudo",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .crm-opportunities-stages-distribution .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Distribución por etapa",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .crm-locations-tasks .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Tareas",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .crm-conversations-manual-actions .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Acciones manuales",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .automations-attribution-lead-sources .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Origen de clientes potenciales",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-count-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Google Analytics: resumen",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-chart-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Google Analytics: gráfica",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .automations-reporting-gmb-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Perfil de Google Business",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .automations-reporting-facebook-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Anuncios de Facebook",
+   "font": "desc12"
+  },
+  {
+   "sel": "html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content",
+   "text": "Anuncios de Google",
+   "font": "desc12"
   }
  ]
 }
