@@ -11156,7 +11156,20 @@ html:lang(es) #dashboard-container .automations-reporting-google-analytics-count
 html:lang(es) #dashboard-container .automations-reporting-google-analytics-chart-report #widget-header-title,
 html:lang(es) #dashboard-container .automations-reporting-gmb-report #widget-header-title,
 html:lang(es) #dashboard-container .automations-reporting-facebook-ads-report #widget-header-title,
-html:lang(es) #dashboard-container .automations-reporting-google-ads-report #widget-header-title {
+html:lang(es) #dashboard-container .automations-reporting-google-ads-report #widget-header-title,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-status .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-value .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-conversion-rate .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-funnel .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-stages-distribution .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-locations-tasks .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .crm-conversations-manual-actions .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-attribution-lead-sources .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-count-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-chart-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-reporting-gmb-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-reporting-facebook-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content {
   font-size: 0 !important;
   line-height: 0 !important;
 }
@@ -11376,7 +11389,20 @@ html:lang(es) #dashboard-container .automations-reporting-google-analytics-count
 html:lang(es) #dashboard-container .automations-reporting-google-analytics-chart-report #widget-header-title::after,
 html:lang(es) #dashboard-container .automations-reporting-gmb-report #widget-header-title::after,
 html:lang(es) #dashboard-container .automations-reporting-facebook-ads-report #widget-header-title::after,
-html:lang(es) #dashboard-container .automations-reporting-google-ads-report #widget-header-title::after {
+html:lang(es) #dashboard-container .automations-reporting-google-ads-report #widget-header-title::after,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-status .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-value .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-conversion-rate .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-funnel .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-opportunities-stages-distribution .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-locations-tasks .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .crm-conversations-manual-actions .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-attribution-lead-sources .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-count-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-chart-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-reporting-gmb-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-reporting-facebook-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after,
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
   display: inline-block;
 }
 .crm-opportunities-modal .ui-modal-heading .title > i {
@@ -12488,4 +12514,69 @@ html:lang(es) #dashboard-container .automations-reporting-google-ads-report #wid
   content: "Anuncios de Google";
   font-size: 15px;
   line-height: 24px;
+}
+html:lang(es) body:has(#dashboard-container .crm-opportunities-status .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Estado de oportunidades";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-opportunities-value .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Valor de oportunidades";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-opportunities-conversion-rate .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Tasa de conversión";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-opportunities-funnel .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Embudo";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-opportunities-stages-distribution .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Distribución por etapa";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-locations-tasks .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Tareas";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .crm-conversations-manual-actions .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Acciones manuales";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-attribution-lead-sources .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Origen de clientes potenciales";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-count-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Google Analytics: resumen";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-analytics-chart-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Google Analytics: gráfica";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-reporting-gmb-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Perfil de Google Business";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-reporting-facebook-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Anuncios de Facebook";
+  font-size: 12px;
+  line-height: 17px;
+}
+html:lang(es) body:has(#dashboard-container .automations-reporting-google-ads-report .hr-card-header .truncate:hover) .hr-tooltip .hr-tooltip__content::after {
+  content: "Anuncios de Google";
+  font-size: 12px;
+  line-height: 17px;
 }
