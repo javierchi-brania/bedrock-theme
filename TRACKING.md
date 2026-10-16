@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** `v1.4.42` (agency help button) in review on `fix/agency-help-button`.
+**In progress:** nothing open; `v1.4.42` published (agency help button).
 
 ## Releases
 
@@ -79,7 +79,7 @@ publish is in [README.md](README.md).
 | v1.4.39 | fix | Drawers keep the platform's stacking order: Contactos › Añadir lista inteligente › Filtros no longer opens under the smart list drawer | published |
 | v1.4.40 | fix | Tablero: fixed texts in Spanish and odd wording reworded (new dashboard page, options menu, summary tooltip, quick filters, widget date filter, Lead Source Report columns, Google Analytics and Business Profile labels); widget titles in Spanish by widget type, only while the platform language is Spanish | published |
 | v1.4.41 | feat | Every Spanish text of the theme only applies while the platform language is Spanish; in English the platform's own texts show (top bar view name in English, "Ask BRANIA" kept in every language) | published |
-| v1.4.42 | feat | Ayuda y asistencia ("?" button and drawer) back in the agency view; still hidden in sub-accounts | in review |
+| v1.4.42 | feat | Ayuda y asistencia ("?" button and drawer) back in the agency view; still hidden in sub-accounts | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -201,7 +201,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.42 (in review): agency help button
+### v1.4.42 (published): agency help button
 
 | Change | Where | Verified |
 |---|---|---|
