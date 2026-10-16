@@ -8124,9 +8124,9 @@ body:has(header .topmenu-nav a[href*="/payments/"]) .hr-wrapper-container > .hr-
 
 /* ===== v1.4.24 Ask BRANIA labels, no help panel, header translate icon, Calendar AI ===== */
 /* Ayuda y asistencia: the team asked to remove it (it shows the provider's support,
-   courses and bot). The "?" button and the drawer are hidden. */
-#hl_header--help-icon,
-.help-drawer-container {
+   courses and bot). The "?" button and the drawer are hidden. v1.4.42: only in the
+   sub-account view; the agency keeps it to reach the provider's support. */
+body:has(.sidebar-v2-location) :is(#hl_header--help-icon, .help-drawer-container) {
   display: none !important;
 }
 /* Roles y permisos side menu: "Agentes de BRANIA" is 9px wider than its truncated box,
