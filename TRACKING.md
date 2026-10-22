@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.42` published (agency help button).
+**In progress:** nothing open; `v1.4.43` published (contact detail).
 
 ## Releases
 
@@ -80,6 +80,7 @@ publish is in [README.md](README.md).
 | v1.4.40 | fix | Tablero: fixed texts in Spanish and odd wording reworded (new dashboard page, options menu, summary tooltip, quick filters, widget date filter, Lead Source Report columns, Google Analytics and Business Profile labels); widget titles in Spanish by widget type, only while the platform language is Spanish | published |
 | v1.4.41 | feat | Every Spanish text of the theme only applies while the platform language is Spanish; in English the platform's own texts show (top bar view name in English, "Ask BRANIA" kept in every language) | published |
 | v1.4.42 | feat | Ayuda y asistencia ("?" button and drawer) back in the agency view; still hidden in sub-accounts | published |
+| v1.4.43 | fix | Contact detail: Ask AI promo reads Ask BRANIA (es/en), tags "1 more" fits its pill, rounded selected tab, custom field groups on the page surface, flat Contact Details bar, footer without grey line, rounded sunken composer, resize grips in the divider color | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -200,6 +201,17 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.43 (published): contact detail
+
+| Change | Where | Verified |
+|---|---|---|
+| Ask AI promo above the conversation ("Do more faster with Ask AI" / "Haz más rápido con Ask AI", "Enable Ask AI") → Ask BRANIA in both languages. The promo component is shared by several promos; the Ask AI one is picked by its CTA `aria-label` containing "Ask AI" | Contactos › contact detail (and anywhere the promo shows) | commit CSS preview with the promo simulated (aria-label changed in the page): es and en labels; the other promo untouched |
+| Tags "1 more": platform fixed width 24px + theme pill padding, text ran out → width auto | Contact detail › Tags | 82px pill for 58px of content |
+| All fields / DND / Actions selected capsule square → 11px | Contact detail, Conversaciones | capture |
+| Custom field group content white and square under its rounded header → page surface | Contact detail › All fields | capture |
+| Contact Details sticky bar: square raised shadow across the panel → flat, rounded top; footer (Created by / Audit logs) grey top line removed | Contact detail left panel | capture |
+| Message composer 4px corners + grey outline → 14px sunken; panel resize grips in the divider color | Contact detail middle panel | capture |
 
 ### v1.4.42 (published): agency help button
 

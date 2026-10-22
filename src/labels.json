@@ -36,7 +36,9 @@
   "nav15": "15px/22.5px",
   "desc14": "14px/21.7px",
   "sel14": "14px/18px",
-  "widget15": "15px/24px"
+  "widget15": "15px/24px",
+  "promo13": "13.5px/20.25px",
+  "promo12": "12.5px/18.125px"
  },
  "labels": [
   {
@@ -1205,6 +1207,39 @@
    "text": "Let your sub-account users use Ask BRANIA",
    "font": "desc12",
    "icon": true,
+   "lang": "other"
+  },
+  {
+   "sel": ".ai-growth-promo-banner:has(.ai-growth-promo-banner__cta[aria-label*=\"Ask AI\"]) :is(.ai-growth-promo-banner__title-wide, .ai-growth-promo-banner__title)",
+   "text": "Haz más con Ask BRANIA",
+   "font": "promo13"
+  },
+  {
+   "sel": ".ai-growth-promo-banner:has(.ai-growth-promo-banner__cta[aria-label*=\"Ask AI\"]) :is(.ai-growth-promo-banner__title-wide, .ai-growth-promo-banner__title)",
+   "text": "Do more faster with Ask BRANIA",
+   "font": "promo13",
+   "lang": "other"
+  },
+  {
+   "sel": ".ai-growth-promo-banner:has(.ai-growth-promo-banner__cta[aria-label*=\"Ask AI\"]) :is(.ai-growth-promo-banner__description-wide, .ai-growth-promo-banner__description)",
+   "text": "Activa Ask BRANIA para automatizar tareas, generar contenido y ejecutar comandos.",
+   "font": "promo12"
+  },
+  {
+   "sel": ".ai-growth-promo-banner:has(.ai-growth-promo-banner__cta[aria-label*=\"Ask AI\"]) :is(.ai-growth-promo-banner__description-wide, .ai-growth-promo-banner__description)",
+   "text": "Enable Ask BRANIA to automate tasks, generate content, and execute commands.",
+   "font": "promo12",
+   "lang": "other"
+  },
+  {
+   "sel": ".ai-growth-promo-banner:has(.ai-growth-promo-banner__cta[aria-label*=\"Ask AI\"]) .ai-growth-promo-banner__cta-content > span",
+   "text": "Activar Ask BRANIA",
+   "font": "body"
+  },
+  {
+   "sel": ".ai-growth-promo-banner:has(.ai-growth-promo-banner__cta[aria-label*=\"Ask AI\"]) .ai-growth-promo-banner__cta-content > span",
+   "text": "Enable Ask BRANIA",
+   "font": "body",
    "lang": "other"
   }
  ]
