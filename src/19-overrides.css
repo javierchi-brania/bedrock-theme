@@ -2957,3 +2957,47 @@ html:lang(es) body:has(#dashboard-container) .hr-tooltip.tooltip-width.popover-t
   visibility: hidden !important;
   transition: none !important;
 }
+
+/* ===== v1.4.43 Contact detail ===== */
+/* Ask AI promo above the conversation: its title, description and button are relabelled to
+   Ask BRANIA in src/labels.json (Spanish and English). The title is two spans; they are
+   hidden with it so only the drawn label shows. */
+.ai-growth-promo-banner:has(.ai-growth-promo-banner__cta[aria-label*="Ask AI"]) :is(.ai-growth-promo-banner__title-wide, .ai-growth-promo-banner__title, .ai-growth-promo-banner__description-wide, .ai-growth-promo-banner__description) > span {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+/* Tags "1 more": the platform fixes the button at 24px wide; the theme gives it pill padding,
+   so "1 more" and its chevron ran out of the pill → it takes its content width. */
+#tags-show-more-button-default {
+  width: auto !important;
+}
+/* All fields / DND / Actions: the selected tab (capsule) was sunken but square inside the
+   rounded rail. */
+:is(#conversations-new-app, #record-details-new-ui) .hr-tabs-nav--segment-type .hr-tabs-capsule {
+  border-radius: 11px !important;
+}
+/* Custom field groups (e.g. BRANIA): the open group's content was a white square under its
+   rounded header → page surface, like the card it sits in. */
+#record-details-new-ui .hr-collapse-item__content-inner {
+  background: transparent !important;
+}
+/* "Contact Details" bar: sticky with a square raised shadow across the panel → flat, rounded
+   top like the panel. The footer (Created by / Audit logs) loses its grey top line. */
+#record-details-lhs > .sticky {
+  border-radius: 12px 12px 0 0 !important;
+  box-shadow: none !important;
+}
+#record-details-lhs .border-t.bg-gray-50 {
+  background: transparent !important;
+  border-top-color: transparent !important;
+}
+/* Message composer: 4px corners and a grey 1px outline → rounded and sunken like the theme's
+   fields. Panel resize grips in the divider color. */
+#record-details-new-ui .flex-none[class*="bg-[#F7F9FD]"] [class*="rounded-[4px]"] {
+  border-radius: var(--bb-radius-sm) !important;
+  border-color: transparent !important;
+  box-shadow: var(--bb-shadow-inset) !important;
+}
+#record-details-new-ui .panel-resize-handle::before {
+  background: var(--bb-divider) !important;
+}
