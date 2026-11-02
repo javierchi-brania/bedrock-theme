@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.44` published (dashboard cards after a platform update).
+**In progress:** `v1.4.45` (post-update sweep) in review on `fix/post-update-audit`.
 
 ## Releases
 
@@ -82,6 +82,7 @@ publish is in [README.md](README.md).
 | v1.4.42 | feat | Ayuda y asistencia ("?" button and drawer) back in the agency view; still hidden in sub-accounts | published |
 | v1.4.43 | fix | Contact detail: Ask AI promo reads Ask BRANIA (es/en), tags "1 more" fits its pill, rounded selected tab, custom field groups on the page surface, flat Contact Details bar, footer without grey line, rounded sunken composer, resize grips in the divider color | published |
 | v1.4.44 | fix | Tablero after a platform update: widget cards back (the platform's new !important card rule beat the theme), Editar tablero readable (now a secondary button), Google Analytics / Business Profile labels on the new layout | published |
+| v1.4.45 | fix | Post-update sweep: Ask BRANIA › Personalizar tabs labelled by icon (the platform removed "Scheduled" and the positional labels shifted); Marketplace App Studio banner in the accent gradient | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -202,6 +203,15 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.45 (in review): post-update sweep
+
+| Change | Where | Verified |
+|---|---|---|
+| Sweep after the platform update (v1.4.44): every sub-account section (Tablero, Conversaciones, Calendarios, Contactos, Oportunidades, Pagos, Agentes de IA ×3, Estudio de IA, Ask BRANIA, Marketing, Sitios, Multimedia, Reputación, Informes, Aplicaciones, Configuración: empresa, usuarios, etiquetas, campos, calendarios) and the agency (Tablero, subcuentas, usuarios, añadir usuario): no card without its shadow, no new white boxes or square outlined blocks; agent builder layering, contact detail fixes, add-user footer, dashboard menus, ⇄ filter and Nuevo tablero labels still match | Whole platform | preview of v1.4.44 navigated in-app |
+| Ask BRANIA › Personalizar: the platform removed the "Scheduled" tab, so the positional labels shifted ("Connectors" would read Programadas, "Dispatch" Conectores) → each tab labelled by its icon path (`:has(svg path[d^=…])`), Programadas label dropped | Ask BRANIA › Personalizar | lang es set in the page: Habilidades, Conectores, Mensajería on the right tabs |
+| Aplicaciones (Marketplace): new App Studio banner, flat indigo with square corners (colour from two inner layers) → accent gradient card, rounded, inside the page; icon tile and button text in the accent | Aplicaciones | capture |
+| Not changed: Filtros rápidos is now only edited in the dashboard edit mode (its empty-panel label applies there) | Tablero | — |
 
 ### v1.4.44 (published): dashboard cards after a platform update
 
