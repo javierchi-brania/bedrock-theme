@@ -8960,6 +8960,27 @@ html:lang(es) body:has(#dashboard-container) .hr-tooltip.tooltip-width.popover-t
 #record-details-new-ui .panel-resize-handle::before {
   background: var(--bb-divider) !important;
 }
+
+/* ===== v1.4.45 After the platform update ===== */
+/* Aplicaciones (Marketplace): new "App Studio" banner, flat indigo with square corners across
+   the page (its colour comes from two inner layers) → accent gradient card like the agent
+   test panel header; icon tile and button text in the accent. */
+section.app-studio-banner {
+  background: linear-gradient(135deg, var(--bb-accent-400), var(--bb-accent-800)) !important;
+  border-radius: var(--bb-radius-lg) !important;
+  margin: 8px 20px 0 12px !important;
+  box-shadow: var(--bb-shadow-raised) !important;
+  overflow: hidden;
+}
+section.app-studio-banner :is(.app-studio-banner__background, .app-studio-banner__haze) {
+  display: none !important;
+}
+section.app-studio-banner .app-studio-banner__mark {
+  background: var(--bb-accent-dark) !important;
+}
+section.app-studio-banner .app-studio-banner__try {
+  color: var(--bb-accent-dark) !important;
+}
 /* ===== v6.33 LAUNCHPAD (sub-cuenta) ===== */
 .launchpad-home #launchpad-setup-guide-heading { color: var(--bb-text-strong) !important; font-weight: 700 !important; font-size: 19px !important; letter-spacing: -.01em; padding-left: 14px; }
 .launchpad-home #launchpad-personalized-title { color: var(--bb-text-strong) !important; font-weight: 600 !important; }
