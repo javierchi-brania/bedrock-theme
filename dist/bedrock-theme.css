@@ -532,6 +532,9 @@ a:hover,
 #location-dashboard_btn--edit-dashboard :is(p, span, i, svg) {
   color: var(--bb-white) !important;
 }
+#location-dashboard_btn--edit-dashboard svg [stroke], #location-dashboard_btn--edit-dashboard svg path {
+  stroke: currentColor !important;
+}
 
 /* El texto/ícono "+ New" del botón de nuevo dashboard trae su propio
    text-primary-700 (azul) anidado que no hereda el gris del botón
