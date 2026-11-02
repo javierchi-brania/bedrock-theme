@@ -833,22 +833,17 @@
    "font": "title"
   },
   {
-   "sel": ".cz-screen .cz-screen__nav-item:nth-child(1) .cz-screen__nav-label",
+   "sel": ".cz-screen .cz-screen__nav-item:has(svg path[d^=\"M15 16.5V19\"]) .cz-screen__nav-label",
    "text": "Habilidades",
    "font": "nav15"
   },
   {
-   "sel": ".cz-screen .cz-screen__nav-item:nth-child(2) .cz-screen__nav-label",
-   "text": "Programadas",
-   "font": "nav15"
-  },
-  {
-   "sel": ".cz-screen .cz-screen__nav-item:nth-child(3) .cz-screen__nav-label",
+   "sel": ".cz-screen .cz-screen__nav-item:has(svg path[d^=\"M8.4 3H4.6\"]) .cz-screen__nav-label",
    "text": "Conectores",
    "font": "nav15"
   },
   {
-   "sel": ".cz-screen .cz-screen__nav-item:nth-child(4) .cz-screen__nav-label",
+   "sel": ".cz-screen .cz-screen__nav-item:has(svg path[d^=\"M6.094 11.229\"]) .cz-screen__nav-label",
    "text": "Mensajería",
    "font": "nav15"
   },

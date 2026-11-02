@@ -11182,10 +11182,9 @@ html:lang(es) body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text,
 html:lang(es) #reputation-settings-container:has(.hr-tabs-tab--active[data-name="reviewsAI"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child,
 html:lang(es) .chat-view__composer-disclaimer,
 html:lang(es) .cz-screen .cz-screen__title,
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(1) .cz-screen__nav-label,
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(2) .cz-screen__nav-label,
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(3) .cz-screen__nav-label,
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(4) .cz-screen__nav-label,
+html:lang(es) .cz-screen .cz-screen__nav-item:has(svg path[d^="M15 16.5V19"]) .cz-screen__nav-label,
+html:lang(es) .cz-screen .cz-screen__nav-item:has(svg path[d^="M8.4 3H4.6"]) .cz-screen__nav-label,
+html:lang(es) .cz-screen .cz-screen__nav-item:has(svg path[d^="M6.094 11.229"]) .cz-screen__nav-label,
 html:lang(es) .czs .czs__col-title,
 html:lang(es) .czs .czs__list:has(> .czs__empty-list) > .czs__group,
 html:lang(es) .czs .czs__empty-list,
@@ -11422,10 +11421,9 @@ html:lang(es) body:has(.calendar-ai-edge-tab-wrap:hover) .hr-tooltip p.hr-text::
 html:lang(es) #reputation-settings-container:has(.hr-tabs-tab--active[data-name="reviewsAI"]) .ui-card:first-child > .ui-card-content > p.ui-text-lg-medium:first-child::after,
 html:lang(es) .chat-view__composer-disclaimer::after,
 html:lang(es) .cz-screen .cz-screen__title::after,
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(1) .cz-screen__nav-label::after,
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(2) .cz-screen__nav-label::after,
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(3) .cz-screen__nav-label::after,
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(4) .cz-screen__nav-label::after,
+html:lang(es) .cz-screen .cz-screen__nav-item:has(svg path[d^="M15 16.5V19"]) .cz-screen__nav-label::after,
+html:lang(es) .cz-screen .cz-screen__nav-item:has(svg path[d^="M8.4 3H4.6"]) .cz-screen__nav-label::after,
+html:lang(es) .cz-screen .cz-screen__nav-item:has(svg path[d^="M6.094 11.229"]) .cz-screen__nav-label::after,
 html:lang(es) .czs .czs__col-title::after,
 html:lang(es) .czs .czs__list:has(> .czs__empty-list) > .czs__group::after,
 html:lang(es) .czs .czs__empty-list::after,
@@ -12314,22 +12312,17 @@ html:lang(es) .cz-screen .cz-screen__title::after {
   font-size: 20px;
   line-height: 30px;
 }
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(1) .cz-screen__nav-label::after {
+html:lang(es) .cz-screen .cz-screen__nav-item:has(svg path[d^="M15 16.5V19"]) .cz-screen__nav-label::after {
   content: "Habilidades";
   font-size: 15px;
   line-height: 22.5px;
 }
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(2) .cz-screen__nav-label::after {
-  content: "Programadas";
-  font-size: 15px;
-  line-height: 22.5px;
-}
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(3) .cz-screen__nav-label::after {
+html:lang(es) .cz-screen .cz-screen__nav-item:has(svg path[d^="M8.4 3H4.6"]) .cz-screen__nav-label::after {
   content: "Conectores";
   font-size: 15px;
   line-height: 22.5px;
 }
-html:lang(es) .cz-screen .cz-screen__nav-item:nth-child(4) .cz-screen__nav-label::after {
+html:lang(es) .cz-screen .cz-screen__nav-item:has(svg path[d^="M6.094 11.229"]) .cz-screen__nav-label::after {
   content: "Mensajería";
   font-size: 15px;
   line-height: 22.5px;
