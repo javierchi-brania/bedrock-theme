@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.43` published (contact detail).
+**In progress:** `v1.4.44` (dashboard cards after a platform update) in review on `fix/dashboard-cards`.
 
 ## Releases
 
@@ -81,6 +81,7 @@ publish is in [README.md](README.md).
 | v1.4.41 | feat | Every Spanish text of the theme only applies while the platform language is Spanish; in English the platform's own texts show (top bar view name in English, "Ask BRANIA" kept in every language) | published |
 | v1.4.42 | feat | Ayuda y asistencia ("?" button and drawer) back in the agency view; still hidden in sub-accounts | published |
 | v1.4.43 | fix | Contact detail: Ask AI promo reads Ask BRANIA (es/en), tags "1 more" fits its pill, rounded selected tab, custom field groups on the page surface, flat Contact Details bar, footer without grey line, rounded sunken composer, resize grips in the divider color | published |
+| v1.4.44 | fix | Tablero after a platform update: widget cards back (the platform's new !important card rule beat the theme), Editar tablero readable (now a secondary button), Google Analytics / Business Profile labels on the new layout | in review |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -201,6 +202,14 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.44 (in review): dashboard cards after a platform update
+
+| Change | Where | Verified |
+|---|---|---|
+| Reported by the team: the dashboard widgets showed without their cards. The platform now ships an !important rule for `.chart-container.hr-card` (8px corners, 1px outline, no shadow) more specific than the theme's two classes → the card rule also with `#location-dashboard` | Tablero, every widget | commit CSS preview: 13 cards with 26px corners and the raised shadow |
+| The platform turned "Edit dashboard" into a secondary button: the theme's accent fill stayed but the label and pencil kept the secondary grey → whole content white | Tablero header | capture |
+| Google Analytics Count and Business Profile moved their labels into a grid (`.grid.h-full > div:nth-child(n) > p:nth-child(2)`, 16px/24px): the Spanish labels no longer matched → new selectors | Tablero | lang set to es in the page: 5 GA labels and "Mapas (escritorio y móvil)" drawn |
 
 ### v1.4.43 (published): contact detail
 
