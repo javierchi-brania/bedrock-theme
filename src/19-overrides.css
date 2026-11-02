@@ -3009,7 +3009,8 @@ html:lang(es) body:has(#dashboard-container) .hr-tooltip.tooltip-width.popover-t
 section.app-studio-banner {
   background: linear-gradient(135deg, var(--bb-accent-400), var(--bb-accent-800)) !important;
   border-radius: var(--bb-radius-lg) !important;
-  margin: 8px 20px 0 12px !important;
+  width: auto !important;
+  margin: 8px 12px 0 !important;
   box-shadow: var(--bb-shadow-raised) !important;
   overflow: hidden;
 }
