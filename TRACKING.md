@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** `v1.4.44` (dashboard cards after a platform update) in review on `fix/dashboard-cards`.
+**In progress:** nothing open; `v1.4.44` published (dashboard cards after a platform update).
 
 ## Releases
 
@@ -81,7 +81,7 @@ publish is in [README.md](README.md).
 | v1.4.41 | feat | Every Spanish text of the theme only applies while the platform language is Spanish; in English the platform's own texts show (top bar view name in English, "Ask BRANIA" kept in every language) | published |
 | v1.4.42 | feat | Ayuda y asistencia ("?" button and drawer) back in the agency view; still hidden in sub-accounts | published |
 | v1.4.43 | fix | Contact detail: Ask AI promo reads Ask BRANIA (es/en), tags "1 more" fits its pill, rounded selected tab, custom field groups on the page surface, flat Contact Details bar, footer without grey line, rounded sunken composer, resize grips in the divider color | published |
-| v1.4.44 | fix | Tablero after a platform update: widget cards back (the platform's new !important card rule beat the theme), Editar tablero readable (now a secondary button), Google Analytics / Business Profile labels on the new layout | in review |
+| v1.4.44 | fix | Tablero after a platform update: widget cards back (the platform's new !important card rule beat the theme), Editar tablero readable (now a secondary button), Google Analytics / Business Profile labels on the new layout | published |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -203,7 +203,7 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 
 ## Design fixes
 
-### v1.4.44 (in review): dashboard cards after a platform update
+### v1.4.44 (published): dashboard cards after a platform update
 
 | Change | Where | Verified |
 |---|---|---|
