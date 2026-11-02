@@ -529,11 +529,9 @@ a:hover,
 }
 /* v1.4.44: the platform turned "Editar tablero" into a secondary button; its label and icon
    kept the secondary grey on the accent fill → white like the other primary buttons. */
-#location-dashboard_btn--edit-dashboard :is(p, span, i, svg) {
+#location-dashboard_btn--edit-dashboard .hr-button__content,
+#location-dashboard_btn--edit-dashboard .hr-button__content * {
   color: var(--bb-white) !important;
-}
-#location-dashboard_btn--edit-dashboard svg [stroke], #location-dashboard_btn--edit-dashboard svg path {
-  stroke: currentColor !important;
 }
 
 /* El texto/ícono "+ New" del botón de nuevo dashboard trae su propio
