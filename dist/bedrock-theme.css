@@ -527,6 +527,12 @@ a:hover,
   box-shadow: 6px 6px 16px var(--bb-accent-glow),
     -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
 }
+/* v1.4.44: the platform turned "Editar tablero" into a secondary button; its label and icon
+   kept the secondary grey on the accent fill → white like the other primary buttons. */
+#location-dashboard_btn--edit-dashboard .hr-button__content,
+#location-dashboard_btn--edit-dashboard .hr-button__content * {
+  color: var(--bb-white) !important;
+}
 
 /* El texto/ícono "+ New" del botón de nuevo dashboard trae su propio
    text-primary-700 (azul) anidado que no hereda el gris del botón
@@ -549,9 +555,12 @@ a:hover,
    especificidad repitiendo la clase (.hr-card.hr-card cuenta como dos
    clases para el navegador) y además se cubren directamente las
    combinaciones reales vistas en el HTML de los widgets, por si acaso. */
+/* v1.4.44: the platform now ships its own !important card rule (8px corners, 1px outline, no
+   shadow) that beats two classes, so the widgets lost their cards → also with the dashboard id. */
 .hr-card.hr-card,
 .chart-container.hr-card,
-.custom-chart-container.hr-card {
+.custom-chart-container.hr-card,
+#location-dashboard :is(.chart-container, .custom-chart-container).hr-card {
   background: var(--bb-bg) !important;
   border-radius: var(--bb-radius-xl) !important;
   box-shadow: var(--bb-shadow-raised) !important;
@@ -11214,12 +11223,12 @@ html:lang(es) .automations-attribution-lead-sources th.hr-data-table__cell-heade
 html:lang(es) .automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(5) .hr-ellipsis > span,
 html:lang(es) .automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(6) .hr-ellipsis > span,
 html:lang(es) .automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(7) .hr-ellipsis > span,
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(2) > #analytics-count-label,
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(3) > #analytics-count-label,
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(4) > #analytics-count-label,
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(5) > #analytics-count-label,
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(6) > #analytics-count-label,
-html:lang(es) .automations-reporting-gmb-report .justify-around > div:nth-child(2) > div:nth-child(2) > #gbp-metric-label,
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(2) > p:nth-child(2),
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(3) > p:nth-child(2),
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(4) > p:nth-child(2),
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(5) > p:nth-child(2),
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(6) > p:nth-child(2),
+html:lang(es) .automations-reporting-gmb-report .grid.h-full > div:nth-child(3) > p:nth-child(2),
 html:lang(es) #location-dashboard_select--gbp-page .hr-base-selection-placeholder__inner,
 html:lang(es) #dashboard-container .crm-opportunities-status #widget-header-title,
 html:lang(es) #dashboard-container .crm-opportunities-value #widget-header-title,
@@ -11454,12 +11463,12 @@ html:lang(es) .automations-attribution-lead-sources th.hr-data-table__cell-heade
 html:lang(es) .automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(5) .hr-ellipsis > span::after,
 html:lang(es) .automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(6) .hr-ellipsis > span::after,
 html:lang(es) .automations-attribution-lead-sources th.hr-data-table__cell-header:nth-child(7) .hr-ellipsis > span::after,
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(2) > #analytics-count-label::after,
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(3) > #analytics-count-label::after,
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(4) > #analytics-count-label::after,
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(5) > #analytics-count-label::after,
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(6) > #analytics-count-label::after,
-html:lang(es) .automations-reporting-gmb-report .justify-around > div:nth-child(2) > div:nth-child(2) > #gbp-metric-label::after,
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(2) > p:nth-child(2)::after,
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(3) > p:nth-child(2)::after,
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(4) > p:nth-child(2)::after,
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(5) > p:nth-child(2)::after,
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(6) > p:nth-child(2)::after,
+html:lang(es) .automations-reporting-gmb-report .grid.h-full > div:nth-child(3) > p:nth-child(2)::after,
 html:lang(es) #location-dashboard_select--gbp-page .hr-base-selection-placeholder__inner::after,
 html:lang(es) #dashboard-container .crm-opportunities-status #widget-header-title::after,
 html:lang(es) #dashboard-container .crm-opportunities-value #widget-header-title::after,
@@ -12510,35 +12519,35 @@ html:lang(es) .automations-attribution-lead-sources th.hr-data-table__cell-heade
   font-size: 14px;
   line-height: 20px;
 }
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(2) > #analytics-count-label::after {
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(2) > p:nth-child(2)::after {
   content: "Páginas vistas";
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
 }
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(3) > #analytics-count-label::after {
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(3) > p:nth-child(2)::after {
   content: "Visitas directas";
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
 }
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(4) > #analytics-count-label::after {
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(4) > p:nth-child(2)::after {
   content: "Visitas de pago";
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
 }
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(5) > #analytics-count-label::after {
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(5) > p:nth-child(2)::after {
   content: "Redes sociales";
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
 }
-html:lang(es) .automations-reporting-google-analytics-count-report .justify-around > div:nth-child(6) > #analytics-count-label::after {
+html:lang(es) .automations-reporting-google-analytics-count-report .grid.h-full > div:nth-child(6) > p:nth-child(2)::after {
   content: "Visitas orgánicas";
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
 }
-html:lang(es) .automations-reporting-gmb-report .justify-around > div:nth-child(2) > div:nth-child(2) > #gbp-metric-label::after {
+html:lang(es) .automations-reporting-gmb-report .grid.h-full > div:nth-child(3) > p:nth-child(2)::after {
   content: "Mapas (escritorio y móvil)";
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
 }
 html:lang(es) #location-dashboard_select--gbp-page .hr-base-selection-placeholder__inner::after {
   content: "Selecciona una opción";
