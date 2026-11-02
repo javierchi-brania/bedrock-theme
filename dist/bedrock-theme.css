@@ -527,6 +527,11 @@ a:hover,
   box-shadow: 6px 6px 16px var(--bb-accent-glow),
     -4px -4px 12px rgba(255, 255, 255, 0.75) !important;
 }
+/* v1.4.44: the platform turned "Editar tablero" into a secondary button; its label and icon
+   kept the secondary grey on the accent fill → white like the other primary buttons. */
+#location-dashboard_btn--edit-dashboard :is(p, span, i, svg) {
+  color: var(--bb-white) !important;
+}
 
 /* El texto/ícono "+ New" del botón de nuevo dashboard trae su propio
    text-primary-700 (azul) anidado que no hereda el gris del botón
@@ -549,9 +554,12 @@ a:hover,
    especificidad repitiendo la clase (.hr-card.hr-card cuenta como dos
    clases para el navegador) y además se cubren directamente las
    combinaciones reales vistas en el HTML de los widgets, por si acaso. */
+/* v1.4.44: the platform now ships its own !important card rule (8px corners, 1px outline, no
+   shadow) that beats two classes, so the widgets lost their cards → also with the dashboard id. */
 .hr-card.hr-card,
 .chart-container.hr-card,
-.custom-chart-container.hr-card {
+.custom-chart-container.hr-card,
+#location-dashboard :is(.chart-container, .custom-chart-container).hr-card {
   background: var(--bb-bg) !important;
   border-radius: var(--bb-radius-xl) !important;
   box-shadow: var(--bb-shadow-raised) !important;
