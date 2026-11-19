@@ -3001,3 +3001,14 @@ html:lang(es) body:has(#dashboard-container) .hr-tooltip.tooltip-width.popover-t
 #record-details-new-ui .panel-resize-handle::before {
   background: var(--bb-divider) !important;
 }
+
+/* ===== v1.4.45 WhatsApp template editor ===== */
+/* Configuración › WhatsApp › Plantillas › Crear plantilla: the editor is a full-window
+   fixed layer (#whatsapp-v2-wizard-overlay, z-index 1000) meant to cover the menu (50) and
+   the top bar (11). The theme's menu (1300) and bar (1200) sat on top of it: the menu hid
+   the left side of the form and the bar hid the editor's own bar (back, steps, Cancelar,
+   Siguiente). Same fix as the agent builder (v1.4.32): while the editor is open the menu
+   and the bar go under it; its dialogs keep the platform's order. */
+body:has(#whatsapp-v2-wizard-overlay) :is(aside#sidebar-v2, header.hl_header) {
+  z-index: 800 !important;
+}
