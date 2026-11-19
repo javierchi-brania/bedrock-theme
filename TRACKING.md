@@ -5,7 +5,7 @@ Update this file in every PR that changes the theme. How to build, verify and
 publish is in [README.md](README.md).
 
 **Live in the platform:** `v1.4.21` (2026-10-06).
-**In progress:** nothing open; `v1.4.44` published (dashboard cards after a platform update).
+**In progress:** `v1.4.45` (WhatsApp template editor above the menu and top bar).
 
 ## Releases
 
@@ -82,6 +82,7 @@ publish is in [README.md](README.md).
 | v1.4.42 | feat | Ayuda y asistencia ("?" button and drawer) back in the agency view; still hidden in sub-accounts | published |
 | v1.4.43 | fix | Contact detail: Ask AI promo reads Ask BRANIA (es/en), tags "1 more" fits its pill, rounded selected tab, custom field groups on the page surface, flat Contact Details bar, footer without grey line, rounded sunken composer, resize grips in the divider color | published |
 | v1.4.44 | fix | Tablero after a platform update: widget cards back (the platform's new !important card rule beat the theme), Editar tablero readable (now a secondary button), Google Analytics / Business Profile labels on the new layout | published |
+| v1.4.45 | fix | Configuración › WhatsApp › Crear plantilla: the full-window editor no longer under the menu and the top bar (its own bar with Cancelar / Siguiente visible) | |
 
 Tooling without a release: rules diff expands shorthands, build color lock (#6).
 
@@ -202,6 +203,12 @@ Consistency (many pages): the platform mixes *usted* and *tú*, and uses Spain S
 - White-label leaks seen in Configuración (the platform's own provider name in `#SettingCurrentProvider`, a tracking prefix, a backend service name): content of the platform, not of the theme.
 
 ## Design fixes
+
+### v1.4.45: WhatsApp template editor
+
+| Change | Where | Verified |
+|---|---|---|
+| Reported by the team (Family For Life): the menu covered the template form. The editor is a full-window fixed layer (`#whatsapp-v2-wizard-overlay`, z-index 1000) meant to cover the menu (platform 50) and the top bar (11); the theme raises them to 1300/1200, so the menu hid the form's left side and the bar hid the editor's own bar → while the editor is open both go to 800, as with the agent builder (v1.4.32) | Configuración › WhatsApp › Plantillas › Crear plantilla › Plantilla en blanco | rule injected at 1366px: points under the menu and the bar hit the editor; its bar (back, steps, Cancel, Next) shows |
 
 ### v1.4.44 (published): dashboard cards after a platform update
 
